@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/about/page": "/about",
+  "/dead/page": "/dead",
+  "/active/page": "/active",
+  "/methodology/page": "/methodology",
+  "/page": "/",
+  "/donate/page": "/donate",
+  "/exchange/[slug]/page": "/exchange/[slug]"
+}

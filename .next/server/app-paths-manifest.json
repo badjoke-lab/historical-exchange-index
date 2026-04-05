@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
+  "/dead/page": "app/dead/page.js",
+  "/active/page": "app/active/page.js",
+  "/methodology/page": "app/methodology/page.js",
+  "/page": "app/page.js",
+  "/donate/page": "app/donate/page.js",
+  "/exchange/[slug]/page": "app/exchange/[slug]/page.js"
+}
