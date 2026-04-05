@@ -1,39 +1,73 @@
 export default function AboutPage() {
   return (
-    <main>
-      <section className="page-section">
+    <main className="longform">
+      <section className="panel longform-panel">
         <p className="muted">About</p>
-        <h1>Why HEI exists</h1>
-        <p>
+        <h2 style={{ marginTop: 0, fontSize: '34px' }}>Why HEI exists</h2>
+        <p className="muted" style={{ lineHeight: 1.75, maxWidth: '80ch' }}>
           Historical Exchange Index exists to keep exchange identity, status shifts, major lifecycle events,
-          and supporting records in one place.
+          and supporting records in one place. The goal is not to hype current winners, but to preserve a
+          readable historical ledger of crypto exchange history.
         </p>
       </section>
 
-      <section className="page-section">
-        <h2>What HEI is</h2>
-        <p>
-          A quiet, structured registry of crypto exchange history. It is designed for browsing and reference,
-          not hype, trading prompts, or leaderboards.
-        </p>
+      <section className="panel longform-panel">
+        <div className="section" style={{ borderTop: 'none', paddingTop: 0 }}>
+          <h4>What HEI is</h4>
+          <div className="fact-grid">
+            <div className="fact">
+              <div className="k">Quiet registry</div>
+              <div className="v">A structured reference surface built for lookup, comparison of records, and historical browsing.</div>
+            </div>
+            <div className="fact">
+              <div className="k">History-first</div>
+              <div className="v">Designed to show what happened to exchanges over time, not just which ones still exist.</div>
+            </div>
+            <div className="fact">
+              <div className="k">Evidence-aware</div>
+              <div className="v">Built around identity, events, and supporting records rather than marketing copy.</div>
+            </div>
+            <div className="fact">
+              <div className="k">Archive-aware</div>
+              <div className="v">Treats dead-side URLs and historical captures carefully instead of assuming live links are safe.</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="section">
+          <h4>What HEI is not</h4>
+          <div className="fact-grid">
+            <div className="fact">
+              <div className="k">Not a trading platform</div>
+              <div className="v">HEI does not execute trades or act as an exchange interface.</div>
+            </div>
+            <div className="fact">
+              <div className="k">Not a leaderboard</div>
+              <div className="v">It does not exist to rank exchanges by hype, volume, or recommendation score.</div>
+            </div>
+            <div className="fact">
+              <div className="k">Not investment advice</div>
+              <div className="v">Records should not be treated as investment guidance or safety guarantees.</div>
+            </div>
+            <div className="fact">
+              <div className="k">Not a news feed</div>
+              <div className="v">HEI is a registry surface, not a social stream or announcement wall.</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="section">
+          <h4>Current scope</h4>
+          <p className="muted" style={{ margin: 0, lineHeight: 1.75 }}>
+            v0 focuses on a public registry built from canonical entity, event, and evidence records. It begins
+            as a static site with a quiet, dense presentation rather than a feature-heavy application surface.
+          </p>
+        </div>
       </section>
 
-      <section className="page-section">
-        <h2>What HEI is not</h2>
-        <ul>
-          <li>Not a trading platform</li>
-          <li>Not a price dashboard</li>
-          <li>Not an exchange recommendation engine</li>
-          <li>Not investment advice</li>
-        </ul>
-      </section>
-
-      <section className="page-section note-box">
-        <h2>Project direction</h2>
-        <p>
-          HEI favors archival structure, readable records, and visible uncertainty over growth-style product
-          presentation.
-        </p>
+      <section className="callout">
+        HEI favors durable records over noise. Some records will stay provisional until stronger confirmation
+        exists.
       </section>
     </main>
   )
