@@ -1,4 +1,5 @@
 import { buildDetailView } from '../../../lib/data/build-detail-view'
+import { loadEntities } from '../../../lib/data/load-entities'
 import { formatDate } from '../../../lib/utils/format-date'
 import { formatYears } from '../../../lib/utils/format-years'
 import { STATUS_LABELS } from '../../../lib/utils/status-meta'
@@ -9,6 +10,12 @@ type DetailPageProps = {
   params: Promise<{
     slug: string
   }>
+}
+
+export function generateStaticParams() {
+  return loadEntities().map((entity) => ({
+    slug: entity.slug,
+  }))
 }
 
 export default async function ExchangeDetailPage({ params }: DetailPageProps) {
