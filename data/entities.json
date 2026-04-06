@@ -52,7 +52,7 @@
     "type": "cex",
     "status": "active",
     "death_reason": null,
-    "launch_date": "2017-01-01",
+    "launch_date": "2017-07-14",
     "death_date": null,
     "country_or_origin": "Global",
     "summary": "Major centralized crypto exchange.",
@@ -60,9 +60,9 @@
     "official_domain_original": "binance.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.binance.com/",
-    "confidence": "medium",
+    "confidence": "high",
     "last_verified_at": "2026-04-05",
-    "notes": ""
+    "notes": "Official Binance announcement set the exchange launch for 2017-07-14."
   },
   {
     "id": "hei_ex_000004",
@@ -114,7 +114,7 @@
     "type": "dex",
     "status": "active",
     "death_reason": null,
-    "launch_date": "2018-01-01",
+    "launch_date": "2018-11-02",
     "death_date": null,
     "country_or_origin": "Ethereum ecosystem",
     "summary": "Major decentralized exchange protocol.",
@@ -122,9 +122,9 @@
     "official_domain_original": "uniswap.org",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://app.uniswap.org/",
-    "confidence": "medium",
+    "confidence": "high",
     "last_verified_at": "2026-04-05",
-    "notes": "Handled as one entity in v0, not split by deployment."
+    "notes": "Official Uniswap history states the protocol was publicly announced and deployed to Ethereum mainnet on 2018-11-02."
   },
   {
     "id": "hei_ex_000007",
@@ -136,7 +136,7 @@
     "type": "dex",
     "status": "active",
     "death_reason": null,
-    "launch_date": "2020-01-01",
+    "launch_date": "2020-08-01",
     "death_date": null,
     "country_or_origin": "Ethereum ecosystem",
     "summary": "Decentralized exchange protocol with multi-chain presence.",
@@ -146,7 +146,7 @@
     "archived_url": "https://web.archive.org/web/*/https://www.sushi.com/",
     "confidence": "medium",
     "last_verified_at": "2026-04-05",
-    "notes": ""
+    "notes": "Official Sushi materials place launch in August 2020; v0 uses 2020-08-01 as a month marker pending a day-level primary source."
   },
   {
     "id": "hei_ex_000008",
