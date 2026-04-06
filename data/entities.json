@@ -3,7 +3,10 @@
     "id": "hei_ex_000001",
     "slug": "mt-gox",
     "canonical_name": "Mt. Gox",
-    "aliases": ["MtGox", "Magic: The Gathering Online Exchange"],
+    "aliases": [
+      "MtGox",
+      "Magic: The Gathering Online Exchange"
+    ],
     "type": "cex",
     "status": "dead",
     "death_reason": "insolvency",
@@ -17,13 +20,15 @@
     "archived_url": "https://web.archive.org/web/*/https://www.mtgox.com/",
     "confidence": "medium",
     "last_verified_at": "2026-04-05",
-    "notes": "Historical placeholder record. Final dates and wording need verification."
+    "notes": "Official dates split: civil rehabilitation application filed 2014-02-28; bankruptcy proceedings commenced 2014-04-24."
   },
   {
     "id": "hei_ex_000002",
     "slug": "ftx",
     "canonical_name": "FTX",
-    "aliases": ["FTX Exchange"],
+    "aliases": [
+      "FTX Exchange"
+    ],
     "type": "cex",
     "status": "dead",
     "death_reason": "insolvency",
@@ -37,7 +42,7 @@
     "archived_url": "https://web.archive.org/web/*/https://ftx.com/",
     "confidence": "medium",
     "last_verified_at": "2026-04-05",
-    "notes": "Use archive-first display."
+    "notes": "Archive-first display. Official case materials reflect the 2022-11-11 petition date."
   },
   {
     "id": "hei_ex_000003",
@@ -63,12 +68,14 @@
     "id": "hei_ex_000004",
     "slug": "quadrigacx",
     "canonical_name": "QuadrigaCX",
-    "aliases": ["Quadriga"],
+    "aliases": [
+      "Quadriga"
+    ],
     "type": "cex",
     "status": "dead",
     "death_reason": "insolvency",
     "launch_date": "2013-01-01",
-    "death_date": "2019-01-01",
+    "death_date": "2019-02-05",
     "country_or_origin": "Canada",
     "summary": "Canadian exchange associated with a major collapse and access-loss crisis.",
     "official_url_original": "https://www.quadrigacx.com/",
@@ -77,7 +84,7 @@
     "archived_url": "https://web.archive.org/web/*/https://www.quadrigacx.com/",
     "confidence": "low",
     "last_verified_at": "2026-04-05",
-    "notes": ""
+    "notes": "Platform shut down 2019-01-28; CCAA protection granted 2019-02-05."
   },
   {
     "id": "hei_ex_000005",
@@ -88,7 +95,7 @@
     "status": "dead",
     "death_reason": "regulation",
     "launch_date": "2011-01-01",
-    "death_date": "2017-01-01",
+    "death_date": "2017-07-26",
     "country_or_origin": "Global",
     "summary": "Early centralized exchange later disrupted by enforcement action.",
     "official_url_original": "https://btc-e.com/",
@@ -97,7 +104,7 @@
     "archived_url": "https://web.archive.org/web/*/https://btc-e.com/",
     "confidence": "low",
     "last_verified_at": "2026-04-05",
-    "notes": ""
+    "notes": "v0 uses the 2017-07-26 FinCEN enforcement date as the operational end marker."
   },
   {
     "id": "hei_ex_000006",
@@ -123,7 +130,9 @@
     "id": "hei_ex_000007",
     "slug": "sushiswap",
     "canonical_name": "SushiSwap",
-    "aliases": ["Sushi"],
+    "aliases": [
+      "Sushi"
+    ],
     "type": "dex",
     "status": "active",
     "death_reason": null,
