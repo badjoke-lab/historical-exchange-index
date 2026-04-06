@@ -43,7 +43,7 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
     )
   }
 
-  const { entity, events, evidence } = detail
+  const { entity, events, evidence, relatedEntities, prefersArchive } = detail
   const originalUrlClickable =
     entity.official_url_status === 'live_verified' || entity.official_url_status === 'live_unverified'
 
@@ -137,6 +137,22 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
             )}
           </div>
         </div>
+
+        <div className="section">
+          <h4>Notes and record state</h4>
+          <div className="fact-grid">
+            <div className="fact">
+              <div className="k">Record note</div>
+              <div className="v">{entity.notes ? entity.notes : 'No additional record note yet.'}</div>
+            </div>
+            <div className="fact">
+              <div className="k">Revision state</div>
+              <div className="v">
+                Records may be incomplete, approximate, contested, or revised as better evidence becomes available.
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <aside className="panel detail-panel">
@@ -156,6 +172,18 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
           <h4>URL handling</h4>
           <div className="fact-grid">
             <div className="fact">
+              <div className="k">Preferred action</div>
+              <div className="v">
+                {prefersArchive
+                  ? 'Use archived URL first for historical viewing.'
+                  : 'Use current URL handling based on status below.'}
+              </div>
+            </div>
+            <div className="fact">
+              <div className="k">URL status</div>
+              <div className="v">{URL_STATUS_LABELS[entity.official_url_status]}</div>
+            </div>
+            <div className="fact">
               <div className="k">Original URL</div>
               <div className="v">
                 {entity.official_url_original ? (
@@ -168,14 +196,6 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
                   )
                 ) : '—'}
               </div>
-            </div>
-            <div className="fact">
-              <div className="k">URL status</div>
-              <div className="v">{URL_STATUS_LABELS[entity.official_url_status]}</div>
-            </div>
-            <div className="fact">
-              <div className="k">Domain</div>
-              <div className="v">{entity.official_domain_original ?? '—'}</div>
             </div>
             <div className="fact">
               <div className="k">Archived URL</div>
@@ -193,6 +213,29 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
         <div className="callout">
           This record may be incomplete or revised. Dead-side entries prefer archived URLs over original domains.
           Dates, causes, and classifications may change when stronger evidence becomes available.
+        </div>
+
+        <div className="section">
+          <h4>Related records</h4>
+          <div className="fact-grid">
+            {relatedEntities.length === 0 ? (
+              <div className="fact" style={{ gridColumn: '1 / -1' }}>
+                <div className="k">Related</div>
+                <div className="v">No related records suggested yet.</div>
+              </div>
+            ) : (
+              relatedEntities.map((item) => (
+                <div className="fact" key={item.id}>
+                  <div className="k">{item.type.toUpperCase()}</div>
+                  <div className="v">
+                    <Link className="subtle-link" href={`/exchange/${item.slug}/`}>
+                      {item.canonical_name}
+                    </Link>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
         </div>
 
         <div className="section">
