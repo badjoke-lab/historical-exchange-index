@@ -1,6 +1,7 @@
 import './globals.css'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
+import { CORRECTION_HREF } from '../lib/site-constants'
 
 type RootLayoutProps = {
   children: ReactNode
@@ -35,6 +36,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <footer className="footer">
             <div>Historical Exchange Index — quiet registry / archive-first / history-first</div>
             <div>
+              <a className="archive-link" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
+                Corrections
+              </a>
+              <span className="muted"> · </span>
               <Link className="archive-link" href="/donate">Support HEI</Link>
               <span className="muted"> · </span>
               <Link href="/about">About</Link>

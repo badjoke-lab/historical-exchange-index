@@ -1,3 +1,5 @@
+import { CORRECTION_HREF } from '../../lib/site-constants'
+
 export default function MethodologyPage() {
   return (
     <main className="longform">
@@ -76,6 +78,17 @@ export default function MethodologyPage() {
             Records may be incomplete, approximate, contested, or revised. Dates, causes, and classification
             details can change when stronger evidence becomes available.
           </p>
+        </div>
+
+        <div className="section">
+          <h4>Corrections</h4>
+          <p className="muted" style={{ margin: '0 0 12px', lineHeight: 1.75 }}>
+            When a record is wrong or incomplete, the correction path should be used to submit a better record,
+            stronger evidence, or a safer URL interpretation.
+          </p>
+          <a className="btn btn-primary" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
+            Submit a correction
+          </a>
         </div>
       </section>
 

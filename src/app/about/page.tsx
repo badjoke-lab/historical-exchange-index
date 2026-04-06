@@ -1,3 +1,5 @@
+import { CORRECTION_HREF } from '../../lib/site-constants'
+
 export default function AboutPage() {
   return (
     <main className="longform">
@@ -62,6 +64,17 @@ export default function AboutPage() {
             v0 focuses on a public registry built from canonical entity, event, and evidence records. It begins
             as a static site with a quiet, dense presentation rather than a feature-heavy application surface.
           </p>
+        </div>
+
+        <div className="section" id="corrections">
+          <h4>Corrections</h4>
+          <p className="muted" style={{ margin: '0 0 12px', lineHeight: 1.75 }}>
+            If you notice a missing record, broken classification, wrong date, unsafe URL treatment, or an
+            important omission, use the correction path below.
+          </p>
+          <a className="btn btn-primary" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
+            Open correction path
+          </a>
         </div>
       </section>
 

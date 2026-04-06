@@ -6,6 +6,7 @@ import { formatYears } from '../../../lib/utils/format-years'
 import { STATUS_LABELS } from '../../../lib/utils/status-meta'
 import { DEATH_REASON_LABELS } from '../../../lib/utils/death-reason-meta'
 import { URL_STATUS_LABELS } from '../../../lib/utils/url-meta'
+import { CORRECTION_HREF } from '../../../lib/site-constants'
 
 type DetailPageProps = {
   params: Promise<{
@@ -204,6 +205,14 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
             <div className="fact">
               <div className="k">Dead-side</div>
               <div className="v"><Link className="subtle-link" href="/dead">Open dead view</Link></div>
+            </div>
+            <div className="fact">
+              <div className="k">Correction</div>
+              <div className="v">
+                <a className="subtle-link" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
+                  Report an issue
+                </a>
+              </div>
             </div>
           </div>
         </div>
