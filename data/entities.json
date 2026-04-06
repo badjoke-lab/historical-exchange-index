@@ -157,15 +157,15 @@
     "status": "dead",
     "death_reason": "hack",
     "launch_date": "2014-01-01",
-    "death_date": "2019-01-01",
+    "death_date": "2019-05-14",
     "country_or_origin": "New Zealand",
     "summary": "Centralized exchange later taken offline after a serious hack-related crisis.",
     "official_url_original": "https://www.cryptopia.co.nz/",
     "official_domain_original": "cryptopia.co.nz",
     "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://www.cryptopia.co.nz/",
-    "confidence": "low",
+    "confidence": "medium",
     "last_verified_at": "2026-04-05",
-    "notes": ""
+    "notes": "Official sources confirm a January 2019 hack and liquidation in May 2019. v0 uses 2019-05-14 as the operational end marker based on the liquidator appointment date."
   }
 ]
