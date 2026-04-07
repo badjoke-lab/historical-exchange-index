@@ -172,12 +172,12 @@
     "title": "Binance About Us",
     "url": "https://www.binance.com/en-GB/about",
     "publisher": "Binance",
-    "published_at": null,
+    "published_at": "2026-04-06",
     "archived_url": "https://web.archive.org/web/*/https://www.binance.com/en-GB/about",
     "accessed_at": "2026-04-06",
     "reliability": "high",
     "claim_scope": "entity",
-    "notes": "About page states Binance was launched in July 2017."
+    "notes": "About page states Binance was launched in July 2017. Snapshot date normalized from undated static about page observation."
   },
   {
     "id": "hei_src_000013",
@@ -217,12 +217,12 @@
     "title": "Kraken source listing (coingecko_cex)",
     "url": "https://www.kraken.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://www.kraken.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "launch_date",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000016",
@@ -232,12 +232,12 @@
     "title": "Bitstamp source listing (coingecko_cex)",
     "url": "https://www.bitstamp.net/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://www.bitstamp.net/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000017",
@@ -247,12 +247,12 @@
     "title": "Bybit source listing (coingecko_cex)",
     "url": "https://www.bybit.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://www.bybit.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "launch_date",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000018",
@@ -262,12 +262,12 @@
     "title": "Coinbase Exchange source listing (coingecko_cex)",
     "url": "https://exchange.coinbase.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://exchange.coinbase.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000019",
@@ -277,12 +277,12 @@
     "title": "OKX source listing (coingecko_cex)",
     "url": "https://www.okx.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://www.okx.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000020",
@@ -292,12 +292,12 @@
     "title": "KuCoin source listing (coingecko_cex)",
     "url": "https://www.kucoin.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://www.kucoin.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000021",
@@ -307,12 +307,12 @@
     "title": "MEXC source listing (coingecko_cex)",
     "url": "https://www.mexc.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://www.mexc.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000022",
@@ -322,12 +322,12 @@
     "title": "Gate.io source listing (coingecko_cex)",
     "url": "https://www.gate.io/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://www.gate.io/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000023",
@@ -337,12 +337,12 @@
     "title": "Bitfinex source listing (coingecko_cex)",
     "url": "https://www.bitfinex.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://www.bitfinex.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000024",
@@ -352,12 +352,12 @@
     "title": "Gemini source listing (coingecko_cex)",
     "url": "https://www.gemini.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://www.gemini.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000025",
@@ -367,12 +367,12 @@
     "title": "HTX source listing (coingecko_cex)",
     "url": "https://www.htx.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://www.htx.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000026",
@@ -382,12 +382,12 @@
     "title": "Crypto.com Exchange source listing (coingecko_cex)",
     "url": "https://crypto.com/exchange",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://crypto.com/exchange",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000027",
@@ -397,12 +397,12 @@
     "title": "Bithumb source listing (coingecko_cex)",
     "url": "https://www.bithumb.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://www.bithumb.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000028",
@@ -412,12 +412,12 @@
     "title": "bitFlyer source listing (coingecko_cex)",
     "url": "https://bitflyer.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://bitflyer.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000029",
@@ -427,12 +427,12 @@
     "title": "Coincheck source listing (coingecko_cex)",
     "url": "https://coincheck.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://coincheck.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000030",
@@ -442,12 +442,12 @@
     "title": "Upbit source listing (coingecko_cex)",
     "url": "https://upbit.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://upbit.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "launch_date",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000031",
@@ -457,12 +457,12 @@
     "title": "Kraken Pro source listing (coingecko_cex)",
     "url": "https://pro.kraken.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://pro.kraken.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "launch_date",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000032",
@@ -472,12 +472,12 @@
     "title": "Bullish source listing (coingecko_cex)",
     "url": "https://bullish.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://bullish.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "launch_date",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000033",
@@ -487,12 +487,12 @@
     "title": "LBank source listing (coingecko_cex)",
     "url": "https://www.lbank.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://www.lbank.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000034",
@@ -502,12 +502,12 @@
     "title": "Bitget source listing (coingecko_cex)",
     "url": "https://www.bitget.com/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://www.bitget.com/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   },
   {
     "id": "hei_src_000035",
@@ -517,11 +517,11 @@
     "title": "Bitbank source listing (coingecko_cex)",
     "url": "https://bitbank.cc/",
     "publisher": "coingecko_cex",
-    "published_at": null,
+    "published_at": "2026-04-07",
     "archived_url": "https://web.archive.org/web/*/https://bitbank.cc/",
     "accessed_at": "2026-04-07",
     "reliability": "medium",
     "claim_scope": "entity",
-    "notes": "Draft evidence generated from coingecko-cex.raw.json."
+    "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
   }
 ]
