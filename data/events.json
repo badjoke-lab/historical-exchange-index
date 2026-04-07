@@ -250,5 +250,47 @@
     "source_count": 1,
     "sort_order": 1,
     "notes": "Month-level source normalized to first day of month."
+  },
+  {
+    "id": "hei_ev_000019",
+    "exchange_id": "hei_ex_000031",
+    "event_date": "2023-12-04",
+    "event_type": "shutdown_effective",
+    "title": "Operations wound down",
+    "description": "Global exchange brand from the broader Bittrex lineage, later wound down after regulatory pressure and liquidation proceedings.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 10,
+    "notes": "Generated from manual-review source pack."
+  },
+  {
+    "id": "hei_ev_000020",
+    "exchange_id": "hei_ex_000032",
+    "event_date": "2023-05-22",
+    "event_type": "shutdown_effective",
+    "title": "Operations ceased",
+    "description": "Centralized exchange founded in 2018 that ceased CEX operations in May 2023 after deteriorating operating conditions and earlier disruption tied to an investigation.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 10,
+    "notes": "Generated from manual-review source pack."
+  },
+  {
+    "id": "hei_ev_000021",
+    "exchange_id": "hei_ex_000033",
+    "event_date": "2018-02-26",
+    "event_type": "acquired",
+    "title": "Ownership changed",
+    "description": "U.S.-linked exchange launched in 2014 and later acquired by Circle in February 2018.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 10,
+    "notes": "Generated from manual-review source pack."
   }
 ]
