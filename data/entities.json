@@ -587,5 +587,25 @@
     "confidence": "medium",
     "notes": "Draft candidate from coingecko_cex. Launch year backfilled from public company profile source. Year-level source normalized to 2014-01-01.",
     "last_verified_at": "2026-04-07"
+  },
+  {
+    "id": "hei_ex_000030",
+    "slug": "vaultoro",
+    "canonical_name": "Vaultoro",
+    "aliases": [],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "United Kingdom",
+    "summary": "United Kingdom-based centralized exchange currently treated as inactive in HEI.",
+    "official_url_original": "https://vaultoro.com/",
+    "official_domain_original": "vaultoro.com",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://vaultoro.com/",
+    "confidence": "medium",
+    "notes": "Draft candidate from cryptowisser_graveyard.",
+    "last_verified_at": "2026-04-07"
   }
 ]

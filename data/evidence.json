@@ -523,5 +523,20 @@
     "reliability": "medium",
     "claim_scope": "entity",
     "notes": "Draft evidence generated from coingecko-cex.raw.json. Snapshot date normalized from HEI registry/source-list observation."
+  },
+  {
+    "id": "hei_src_000036",
+    "exchange_id": "hei_ex_000030",
+    "event_id": null,
+    "source_type": "database_reference",
+    "title": "Vaultoro source listing (cryptowisser_graveyard)",
+    "url": "https://vaultoro.com/",
+    "publisher": "cryptowisser_graveyard",
+    "published_at": "2026-04-07",
+    "archived_url": "https://web.archive.org/web/*/https://vaultoro.com/",
+    "accessed_at": "2026-04-07",
+    "reliability": "medium",
+    "claim_scope": "entity",
+    "notes": "Draft evidence generated from cryptowisser-graveyard.raw.json. Published date normalized to HEI source snapshot date because upstream list pages usually do not expose a stable publication date."
   }
 ]
