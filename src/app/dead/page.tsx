@@ -3,6 +3,7 @@ import { loadEntities } from '../../lib/data/load-entities'
 import { formatYears } from '../../lib/utils/format-years'
 import { DEATH_REASON_LABELS } from '../../lib/utils/death-reason-meta'
 import { STATUS_LABELS } from '../../lib/utils/status-meta'
+import { CORRECTION_HREF } from '../../lib/site-constants'
 
 const DEAD_SIDE = new Set(['dead', 'merged', 'acquired', 'rebranded'])
 
@@ -23,12 +24,22 @@ export default function DeadPage() {
   return (
     <main className="longform">
       <section className="panel longform-panel">
-        <p className="muted">Dead Exchanges</p>
-        <h2 style={{ marginTop: 0, fontSize: '34px' }}>Dead-side registry</h2>
-        <p className="muted" style={{ lineHeight: 1.7 }}>
-          Closed, absorbed, rebranded, or otherwise gone exchanges. This page emphasizes end state,
-          disappearance cause, and archive-aware lookup.
-        </p>
+        <div className="detail-header">
+          <div>
+            <p className="muted" style={{ margin: '0 0 8px', fontSize: '12px' }}>Dead Exchanges</p>
+            <h2 style={{ margin: '0 0 10px', fontSize: '34px', letterSpacing: '-0.04em' }}>Dead-side registry</h2>
+            <p className="muted" style={{ lineHeight: 1.7, margin: 0, maxWidth: '64ch' }}>
+              Closed, absorbed, rebranded, or otherwise gone exchanges. This page emphasizes end state,
+              disappearance cause, and archive-aware lookup.
+            </p>
+          </div>
+
+          <div className="hero-actions" style={{ marginTop: 0 }}>
+            <a className="btn" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
+              Submit correction
+            </a>
+          </div>
+        </div>
       </section>
 
       <section className="panel table-panel">
@@ -37,53 +48,108 @@ export default function DeadPage() {
           <div>{entities.length} results</div>
         </div>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Status</th>
-              <th>Death reason</th>
-              <th>Years</th>
-              <th>Origin</th>
-              <th>Archive</th>
-            </tr>
-          </thead>
-          <tbody>
+        <div className="desktop-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Death reason</th>
+                <th>Years</th>
+                <th>Origin</th>
+                <th>Domain</th>
+                <th>Archive</th>
+              </tr>
+            </thead>
+            <tbody>
+              {entities.map((entity) => (
+                <tr key={entity.id}>
+                  <td>
+                    <div className="name-cell">
+                      <Link className="name-main subtle-link" href={`/exchange/${entity.slug}/`}>
+                        {entity.canonical_name}
+                      </Link>
+                      <span className="name-sub">
+                        {entity.aliases.length > 0 ? entity.aliases.join(', ') : entity.official_domain_original ?? '—'}
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <span className="chip type">{entity.type.toUpperCase()}</span>
+                  </td>
+                  <td>
+                    <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
+                  </td>
+                  <td>
+                    {entity.death_reason ? (
+                      <span className="chip reason">{DEATH_REASON_LABELS[entity.death_reason]}</span>
+                    ) : (
+                      <span className="muted">—</span>
+                    )}
+                  </td>
+                  <td>{formatYears(entity.launch_date, entity.death_date)}</td>
+                  <td>{entity.country_or_origin ?? '—'}</td>
+                  <td>{entity.official_domain_original ?? '—'}</td>
+                  <td>
+                    {entity.archived_url ? (
+                      <a className="archive-link" href={entity.archived_url} target="_blank" rel="noreferrer">
+                        archive
+                      </a>
+                    ) : (
+                      <span className="muted">—</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="compact-list">
+          <div className="record-list">
             {entities.map((entity) => (
-              <tr key={entity.id}>
-                <td data-label="Name">
-                  <div className="name-cell">
-                    <Link className="name-main subtle-link" href={`/exchange/${entity.slug}/`}>
+              <div className="record-item" key={entity.id}>
+                <div className="record-top">
+                  <div className="record-main">
+                    <Link className="record-title subtle-link" href={`/exchange/${entity.slug}/`}>
                       {entity.canonical_name}
                     </Link>
-                    <span className="name-sub">{entity.official_domain_original ?? '—'}</span>
+                    {entity.aliases.length > 0 ? (
+                      <div className="record-subtitle">{entity.aliases.join(', ')}</div>
+                    ) : null}
                   </div>
-                </td>
-                <td data-label="Status">
-                  <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
-                </td>
-                <td data-label="Death reason">
+
+                  <div className="record-chips">
+                    <span className="chip type">{entity.type.toUpperCase()}</span>
+                    <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
+                  </div>
+                </div>
+
+                <div className="record-meta">
                   {entity.death_reason ? (
                     <span className="chip reason">{DEATH_REASON_LABELS[entity.death_reason]}</span>
                   ) : (
                     <span className="muted">—</span>
                   )}
-                </td>
-                <td data-label="Years">{formatYears(entity.launch_date, entity.death_date)}</td>
-                <td data-label="Origin">{entity.country_or_origin ?? '—'}</td>
-                <td data-label="Archive">
+                  <span>{formatYears(entity.launch_date, entity.death_date)}</span>
                   {entity.archived_url ? (
                     <a className="archive-link" href={entity.archived_url} target="_blank" rel="noreferrer">
-                      archive
+                      Archive
                     </a>
                   ) : (
-                    <span className="muted">—</span>
+                    <span className="muted">No archive</span>
                   )}
-                </td>
-              </tr>
+                </div>
+
+                <div className="record-meta record-meta-secondary">
+                  <span>{entity.country_or_origin ?? '—'}</span>
+                  <span className="record-domain">{entity.official_domain_original ?? '—'}</span>
+                </div>
+              </div>
             ))}
-          </tbody>
-        </table>
+          </div>
+        </div>
       </section>
     </main>
   )

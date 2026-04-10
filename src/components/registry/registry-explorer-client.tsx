@@ -123,18 +123,15 @@ export default function RegistryExplorerClient({ entities, summary, archiveCover
     return sortByMode(slice, sortMode)
   }, [entities, query, typeFilter, statusFilter, sortMode])
 
-  const featured = filtered[0] ?? entities[0] ?? null
-  const featuredArchive = featured?.archived_url ? 'Available' : 'Missing'
-
   return (
     <>
-      <section className="hero">
+      <section className="hero compact-hero">
         <div className="panel hero-main">
           <div className="eyebrow">Entity-first registry · Archive-aware · Evidence-backed</div>
-          <h2>Track the lifecycle of exchanges, not just who is still alive.</h2>
+          <h2>Track exchange history without turning the registry into a landing page.</h2>
           <p>
-            HEI is designed as a historical registry rather than a ranking table. It keeps active entities,
-            dead exchanges, absorbed brands, rebrands, timeline events, and evidence in one place.
+            HEI is a quiet registry of crypto exchanges. The home page should surface the records quickly:
+            compact summary, compact controls, dense desktop table, and compact tablet/mobile rows.
           </p>
           <div className="hero-actions">
             <Link className="btn btn-primary" href="/dead">Browse dead-side entries</Link>
@@ -144,32 +141,37 @@ export default function RegistryExplorerClient({ entities, summary, archiveCover
             </a>
           </div>
         </div>
-
-        <aside className="panel hero-side">
-          <div className="stat-card">
-            <div className="label">Total entities</div>
-            <div className="value">{summary.total}</div>
-            <div className="delta">Entity-level count, v0 model</div>
-          </div>
-          <div className="stat-card">
-            <div className="label">Dead-side</div>
-            <div className="value">{summary.deadSide}</div>
-            <div className="delta">dead · merged · acquired · rebranded</div>
-          </div>
-          <div className="stat-card">
-            <div className="label">Active-side</div>
-            <div className="value">{summary.activeSide}</div>
-            <div className="delta">active · limited · inactive</div>
-          </div>
-          <div className="stat-card">
-            <div className="label">Archive coverage</div>
-            <div className="value">{archiveCoverage}%</div>
-            <div className="delta">entries with archived URLs</div>
-          </div>
-        </aside>
       </section>
 
-      <section className="overview">
+      <section className="panel summary-strip">
+        <div className="summary-tile">
+          <div className="label">Total</div>
+          <div className="value">{summary.total}</div>
+          <div className="hint">entity-level count</div>
+        </div>
+        <div className="summary-tile">
+          <div className="label">Dead-side</div>
+          <div className="value">{summary.deadSide}</div>
+          <div className="hint">dead · merged · acquired · rebranded</div>
+        </div>
+        <div className="summary-tile">
+          <div className="label">Active-side</div>
+          <div className="value">{summary.activeSide}</div>
+          <div className="hint">active · limited · inactive</div>
+        </div>
+        <div className="summary-tile">
+          <div className="label">CEX</div>
+          <div className="value">{summary.cex}</div>
+          <div className="hint">centralized exchanges</div>
+        </div>
+        <div className="summary-tile">
+          <div className="label">Archive coverage</div>
+          <div className="value">{archiveCoverage}%</div>
+          <div className="hint">entries with archived URLs</div>
+        </div>
+      </section>
+
+      <section className="overview-single">
         <div className="panel table-panel">
           <div className="controls">
             <div className="search">
@@ -183,7 +185,6 @@ export default function RegistryExplorerClient({ entities, summary, archiveCover
 
             <select
               className="field"
-              style={{ maxWidth: '180px' }}
               value={typeFilter}
               onChange={(event) => setTypeFilter(event.target.value as TypeFilter)}
             >
@@ -195,7 +196,6 @@ export default function RegistryExplorerClient({ entities, summary, archiveCover
 
             <select
               className="field"
-              style={{ maxWidth: '210px' }}
               value={statusFilter}
               onChange={(event) => setStatusFilter(event.target.value as StatusFilter)}
             >
@@ -213,7 +213,6 @@ export default function RegistryExplorerClient({ entities, summary, archiveCover
 
             <select
               className="field"
-              style={{ maxWidth: '210px' }}
               value={sortMode}
               onChange={(event) => setSortMode(event.target.value as SortMode)}
             >
@@ -232,129 +231,125 @@ export default function RegistryExplorerClient({ entities, summary, archiveCover
             <div>{filtered.length} results in current slice</div>
           </div>
 
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th>Death reason</th>
-                <th>Years</th>
-                <th>Origin</th>
-                <th>Domain</th>
-                <th>Archive</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.length === 0 ? (
+          <div className="desktop-table">
+            <table>
+              <thead>
                 <tr>
-                  <td data-label="Results" colSpan={8}>
-                    <div className="name-cell">
-                      <span className="name-main">No matching records</span>
-                      <span className="name-sub">
-                        Try clearing filters or broadening the search query.
-                      </span>
-                    </div>
-                  </td>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                  <th>Death reason</th>
+                  <th>Years</th>
+                  <th>Origin</th>
+                  <th>Domain</th>
+                  <th>Archive</th>
                 </tr>
-              ) : (
-                filtered.map((entity) => (
-                  <tr key={entity.id}>
-                    <td data-label="Name">
+              </thead>
+              <tbody>
+                {filtered.length === 0 ? (
+                  <tr>
+                    <td colSpan={8}>
                       <div className="name-cell">
-                        <Link className="name-main subtle-link" href={`/exchange/${entity.slug}/`}>
-                          {entity.canonical_name}
-                        </Link>
+                        <span className="name-main">No matching records</span>
                         <span className="name-sub">
-                          {entity.aliases.length > 0
-                            ? entity.aliases.join(', ')
-                            : entity.official_domain_original ?? '—'}
+                          Try clearing filters or broadening the search query.
                         </span>
                       </div>
                     </td>
-                    <td data-label="Type">
-                      <span className="chip type">{entity.type.toUpperCase()}</span>
-                    </td>
-                    <td data-label="Status">
-                      <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
-                    </td>
-                    <td data-label="Death reason">
-                      {entity.death_reason ? (
-                        <span className="chip reason">{DEATH_REASON_LABELS[entity.death_reason]}</span>
-                      ) : (
-                        <span className="muted">—</span>
-                      )}
-                    </td>
-                    <td data-label="Years">{formatYears(entity.launch_date, entity.death_date)}</td>
-                    <td data-label="Origin">{entity.country_or_origin ?? '—'}</td>
-                    <td data-label="Domain">{entity.official_domain_original ?? '—'}</td>
-                    <td data-label="Archive">
+                  </tr>
+                ) : (
+                  filtered.map((entity) => (
+                    <tr key={entity.id}>
+                      <td>
+                        <div className="name-cell">
+                          <Link className="name-main subtle-link" href={`/exchange/${entity.slug}/`}>
+                            {entity.canonical_name}
+                          </Link>
+                          <span className="name-sub">
+                            {entity.aliases.length > 0
+                              ? entity.aliases.join(', ')
+                              : entity.official_domain_original ?? '—'}
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <span className="chip type">{entity.type.toUpperCase()}</span>
+                      </td>
+                      <td>
+                        <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
+                      </td>
+                      <td>
+                        {entity.death_reason ? (
+                          <span className="chip reason">{DEATH_REASON_LABELS[entity.death_reason]}</span>
+                        ) : (
+                          <span className="muted">—</span>
+                        )}
+                      </td>
+                      <td>{formatYears(entity.launch_date, entity.death_date)}</td>
+                      <td>{entity.country_or_origin ?? '—'}</td>
+                      <td>{entity.official_domain_original ?? '—'}</td>
+                      <td>
+                        {entity.archived_url ? (
+                          <a className="archive-link" href={entity.archived_url} target="_blank" rel="noreferrer">
+                            archive
+                          </a>
+                        ) : (
+                          <span className="muted">—</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="compact-list">
+            {filtered.length === 0 ? (
+              <div className="record-empty">
+                <div className="name-cell">
+                  <span className="name-main">No matching records</span>
+                  <span className="name-sub">Try clearing filters or broadening the search query.</span>
+                </div>
+              </div>
+            ) : (
+              <div className="record-list">
+                {filtered.map((entity) => (
+                  <div className="record-item" key={entity.id}>
+                    <div className="record-top">
+                      <div className="record-main">
+                        <Link className="record-title subtle-link" href={`/exchange/${entity.slug}/`}>
+                          {entity.canonical_name}
+                        </Link>
+                        {entity.aliases.length > 0 ? (
+                          <div className="record-subtitle">{entity.aliases.join(', ')}</div>
+                        ) : null}
+                      </div>
+
+                      <div className="record-chips">
+                        <span className="chip type">{entity.type.toUpperCase()}</span>
+                        <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
+                      </div>
+                    </div>
+
+                    <div className="record-meta">
+                      <span>{formatYears(entity.launch_date, entity.death_date)}</span>
+                      <span>{entity.country_or_origin ?? '—'}</span>
+                      <span className="record-domain">{entity.official_domain_original ?? '—'}</span>
                       {entity.archived_url ? (
                         <a className="archive-link" href={entity.archived_url} target="_blank" rel="noreferrer">
-                          archive
+                          Archive
                         </a>
                       ) : (
-                        <span className="muted">—</span>
+                        <span className="muted">No archive</span>
                       )}
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
-
-        <aside className="panel detail-panel">
-          {featured ? (
-            <>
-              <div className="detail-header">
-                <div>
-                  <h3>{featured.canonical_name}</h3>
-                  <p>{featured.summary}</p>
-                </div>
-                <div className="chips">
-                  <span className="chip type">{featured.type.toUpperCase()}</span>
-                  <span className={chipClass(featured.status)}>{STATUS_LABELS[featured.status]}</span>
-                </div>
-              </div>
-
-              <div className="section">
-                <h4>Current slice lead</h4>
-                <div className="fact-grid">
-                  <div className="fact"><div className="k">Launch</div><div className="v">{featured.launch_date?.slice(0, 4) ?? '—'}</div></div>
-                  <div className="fact"><div className="k">Death</div><div className="v">{featured.death_date ?? '—'}</div></div>
-                  <div className="fact"><div className="k">Origin</div><div className="v">{featured.country_or_origin ?? '—'}</div></div>
-                  <div className="fact"><div className="k">Archive</div><div className="v">{featuredArchive}</div></div>
-                </div>
-              </div>
-
-              <div className="section">
-                <h4>Quick actions</h4>
-                <div className="fact-grid">
-                  <div className="fact">
-                    <div className="k">Detail page</div>
-                    <div className="v">
-                      <Link className="archive-link" href={`/exchange/${featured.slug}/`}>Open record</Link>
-                    </div>
-                  </div>
-                  <div className="fact">
-                    <div className="k">Correction</div>
-                    <div className="v">
-                      <a className="subtle-link" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
-                        Report an error
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="callout">
-                Search and filters only affect the current client-side slice. Records may still be incomplete,
-                revised, or reclassified as evidence improves.
-              </div>
-            </>
-          ) : null}
-        </aside>
       </section>
     </>
   )
