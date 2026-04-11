@@ -22,11 +22,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </div>
 
             <nav className="nav">
-              <Link href="/">Home</Link>
-              <Link href="/dead">Dead</Link>
-              <Link href="/active">Active</Link>
-              <Link href="/methodology">Methodology</Link>
-              <Link href="/about">About</Link>
+              <Link className="nav-link" href="/">Home</Link>
+              <Link className="nav-link" href="/dead">Dead</Link>
+              <Link className="nav-link" href="/active">Active</Link>
+              <Link className="nav-link nav-secondary" href="/methodology">Methodology</Link>
+              <Link className="nav-link nav-secondary" href="/about">About</Link>
               <Link className="utility" href="/donate">Donate</Link>
             </nav>
           </header>

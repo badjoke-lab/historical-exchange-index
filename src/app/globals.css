@@ -98,7 +98,8 @@ button, input, select { font: inherit; }
   justify-content: flex-end;
 }
 
-.nav a {
+.nav .nav-link,
+.nav .utility {
   color: var(--muted);
   font-size: 13px;
   padding: 8px 10px;
@@ -107,7 +108,8 @@ button, input, select { font: inherit; }
   white-space: nowrap;
 }
 
-.nav a:hover {
+.nav .nav-link:hover,
+.nav .utility:hover {
   color: var(--text);
   background: rgba(255,255,255,0.04);
 }
@@ -709,14 +711,29 @@ tbody tr:hover {
 
 @media (max-width: 767px) {
   .page {
-    width: min(calc(100% - 20px), var(--max));
-    padding: 16px 0 56px;
+    width: min(calc(100% - 16px), var(--max));
+    padding: 12px 0 48px;
   }
 
   .topbar {
     align-items: stretch;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
+    padding: 10px 0 12px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .brand-copy h1 {
+    font-size: 14px;
   }
 
   .nav {
@@ -724,14 +741,29 @@ tbody tr:hover {
     overflow-x: auto;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    padding-bottom: 4px;
+    gap: 6px;
+    padding-bottom: 2px;
+  }
+
+  .nav .nav-link,
+  .nav .utility {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .nav .nav-secondary {
+    display: none;
+  }
+
+  .utility {
+    margin-left: auto;
   }
 
   .hero-main,
   .detail-main,
   .detail-panel,
   .longform-panel {
-    padding: 18px;
+    padding: 16px;
   }
 
   .hero-side {
