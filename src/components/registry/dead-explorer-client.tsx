@@ -72,33 +72,33 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
 
   return (
     <>
-      <section className="panel summary-strip">
-        <div className="summary-tile">
+      <section className="panel summary-strip summary-strip-dead">
+        <div className="summary-tile tile-dead-total">
           <div className="label">Dead-side total</div>
           <div className="value">{summary.total}</div>
           <div className="hint">dead / merged / acquired / rebranded</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-dead-dead">
           <div className="label">Dead</div>
           <div className="value">{summary.dead}</div>
           <div className="hint">terminal dead-side records</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-dead-merged">
           <div className="label">Merged</div>
           <div className="value">{summary.merged}</div>
           <div className="hint">merged into another entity</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-dead-acquired">
           <div className="label">Acquired</div>
           <div className="value">{summary.acquired}</div>
           <div className="hint">ownership absorbed</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-dead-rebranded">
           <div className="label">Rebranded</div>
           <div className="value">{summary.rebranded}</div>
           <div className="hint">brand lineage tracked</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-dead-archive">
           <div className="label">Archive coverage</div>
           <div className="value">{summary.archiveCoverage}%</div>
           <div className="hint">entries with archived URLs</div>

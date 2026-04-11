@@ -788,8 +788,19 @@ tbody tr:hover {
     padding: 10px;
   }
 
-  .summary-strip .summary-tile:nth-child(n + 3) {
+  .summary-strip-home .summary-tile,
+  .summary-strip-dead .summary-tile,
+  .summary-strip-active .summary-tile {
     display: none;
+  }
+
+  .summary-strip-home .tile-home-total,
+  .summary-strip-home .tile-home-dead,
+  .summary-strip-dead .tile-dead-total,
+  .summary-strip-dead .tile-dead-dead,
+  .summary-strip-active .tile-active-total,
+  .summary-strip-active .tile-active-active {
+    display: block;
   }
 
   .summary-tile {

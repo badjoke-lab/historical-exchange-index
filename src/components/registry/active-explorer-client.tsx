@@ -72,33 +72,33 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
 
   return (
     <>
-      <section className="panel summary-strip">
-        <div className="summary-tile">
+      <section className="panel summary-strip summary-strip-active">
+        <div className="summary-tile tile-active-total">
           <div className="label">Active-side total</div>
           <div className="value">{summary.total}</div>
           <div className="hint">active / limited / inactive</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-active-active">
           <div className="label">Active</div>
           <div className="value">{summary.active}</div>
           <div className="hint">currently active</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-active-limited">
           <div className="label">Limited</div>
           <div className="value">{summary.limited}</div>
           <div className="hint">partially limited</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-active-inactive">
           <div className="label">Inactive</div>
           <div className="value">{summary.inactive}</div>
           <div className="hint">not conclusively dead</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-active-live">
           <div className="label">Live verified</div>
           <div className="value">{summary.liveVerified}</div>
           <div className="hint">URL status live verified</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-active-archive">
           <div className="label">Archive coverage</div>
           <div className="value">{summary.archiveCoverage}%</div>
           <div className="hint">entries with archived URLs</div>

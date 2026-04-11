@@ -143,28 +143,28 @@ export default function RegistryExplorerClient({ entities, summary, archiveCover
         </div>
       </section>
 
-      <section className="panel summary-strip">
-        <div className="summary-tile">
+      <section className="panel summary-strip summary-strip-home">
+        <div className="summary-tile tile-home-total">
           <div className="label">Total</div>
           <div className="value">{summary.total}</div>
           <div className="hint">entity-level count</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-home-dead">
           <div className="label">Dead-side</div>
           <div className="value">{summary.deadSide}</div>
           <div className="hint">dead · merged · acquired · rebranded</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-home-active">
           <div className="label">Active-side</div>
           <div className="value">{summary.activeSide}</div>
           <div className="hint">active · limited · inactive</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-home-cex">
           <div className="label">CEX</div>
           <div className="value">{summary.cex}</div>
           <div className="hint">centralized exchanges</div>
         </div>
-        <div className="summary-tile">
+        <div className="summary-tile tile-home-archive">
           <div className="label">Archive coverage</div>
           <div className="value">{archiveCoverage}%</div>
           <div className="hint">entries with archived URLs</div>
