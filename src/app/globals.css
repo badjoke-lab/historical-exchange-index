@@ -876,8 +876,69 @@ tbody tr:hover {
     display: none;
   }
 
+  .hero,
+  .longform {
+    margin-top: 14px;
+    gap: 12px;
+  }
+
+  .compact-hero .hero-main {
+    padding: 14px;
+  }
+
+  .eyebrow {
+    display: none;
+  }
+
+  .compact-hero .hero-main h2 {
+    margin: 0 0 6px;
+    font-size: 20px;
+    max-width: none;
+    line-height: 1.08;
+  }
+
   .compact-hero .hero-main p {
-    font-size: 13px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .hero-actions {
+    margin-top: 12px;
+    gap: 8px;
+  }
+
+  .hero-actions .btn {
+    padding: 9px 10px;
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .hero-actions .btn:nth-child(2) {
+    display: none;
+  }
+
+  .longform-panel {
+    padding: 14px;
+  }
+
+  .detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .detail-header h2,
+  .detail-header h3 {
+    font-size: 24px;
+  }
+
+  .detail-header p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .detail-header .hero-actions {
+    margin-top: 0;
   }
 
   .controls {
@@ -905,17 +966,37 @@ tbody tr:hover {
   }
 }
 
+
 @media (max-width: 389px) {
   .summary-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .compact-hero .hero-main {
+    padding: 12px;
+  }
+
   .compact-hero .hero-main h2 {
-    font-size: 22px;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .compact-hero .hero-main p {
+    font-size: 11px;
+  }
+
+  .hero-actions .btn {
+    padding: 8px 9px;
+    font-size: 11px;
   }
 
   .summary-tile .value {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  .detail-header h2,
+  .detail-header h3 {
+    font-size: 22px;
   }
 
   .chip {
@@ -932,3 +1013,4 @@ tbody tr:hover {
     flex-basis: 100%;
   }
 }
+
