@@ -212,7 +212,7 @@ export default function RegistryExplorerClient({ entities, summary, archiveCover
             </select>
 
             <select
-              className="field"
+              className="field mobile-hide"
               value={sortMode}
               onChange={(event) => setSortMode(event.target.value as SortMode)}
             >

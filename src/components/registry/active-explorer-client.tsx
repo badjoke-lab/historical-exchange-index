@@ -117,7 +117,7 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
           </div>
 
           <select
-            className="field"
+            className="field mobile-hide"
             value={typeFilter}
             onChange={(event) => setTypeFilter(event.target.value as TypeFilter)}
           >

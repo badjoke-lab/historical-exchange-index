@@ -880,6 +880,26 @@ tbody tr:hover {
     font-size: 13px;
   }
 
+  .controls {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .controls .field {
+    height: 36px;
+    font-size: 11px;
+    padding: 0 10px;
+  }
+
+  .controls .mobile-hide {
+    display: none;
+  }
+
+  .results-meta div:first-child {
+    display: none;
+  }
+
   .record-domain {
     flex-basis: 100%;
   }
