@@ -657,6 +657,17 @@ tbody tr:hover {
   flex-wrap: wrap;
 }
 
+.footer-copy {
+  min-width: 0;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 1279px) {
   .summary-strip {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -957,7 +968,35 @@ tbody tr:hover {
     display: none;
   }
 
+  .results-meta {
+    padding: 8px 10px;
+    min-height: 0;
+    gap: 4px;
+    font-size: 11px;
+  }
+
   .results-meta div:first-child {
+    display: none;
+  }
+
+  .footer {
+    margin-top: 20px;
+    padding-top: 12px;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .footer-copy {
+    display: none;
+  }
+
+  .footer-links {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .footer-sep {
     display: none;
   }
 

@@ -34,14 +34,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
           {children}
 
           <footer className="footer">
-            <div>Historical Exchange Index — quiet registry / archive-first / history-first</div>
-            <div>
+            <div className="footer-copy">Historical Exchange Index — quiet registry / archive-first / history-first</div>
+            <div className="footer-links">
               <a className="archive-link" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
                 Corrections
               </a>
-              <span className="muted"> · </span>
+              <span className="muted footer-sep"> · </span>
               <Link className="archive-link" href="/donate">Support HEI</Link>
-              <span className="muted"> · </span>
+              <span className="muted footer-sep"> · </span>
               <Link href="/about">About</Link>
             </div>
           </footer>
