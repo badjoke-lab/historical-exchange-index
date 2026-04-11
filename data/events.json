@@ -656,5 +656,61 @@
     "source_count": 2,
     "sort_order": 1,
     "notes": "Entity death_date is tracked separately as the 2016-06-29 transfer completion date."
+  },
+  {
+    "id": "hei_ev_000157",
+    "exchange_id": "hei_ex_000135",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-04-16",
+    "title": "Coinnest shutdown process began",
+    "description": "Coinnest posted a closure notice saying it was no longer operating as of Tuesday and set an April 30 deadline for withdrawals.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "The retained event date follows the effective service-stop marker referenced in reporting on April 18–19, 2019."
+  },
+  {
+    "id": "hei_ev_000158",
+    "exchange_id": "hei_ex_000136",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-01-28",
+    "title": "Liqui announced shutdown and 30 day withdrawal window",
+    "description": "Liqui announced it was shutting down on 2019-01-28 and told users they had 30 days to withdraw funds.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Shutdown rationale quoted in reporting focused on insufficient liquidity and lack of economic justification for continued service."
+  },
+  {
+    "id": "hei_ev_000159",
+    "exchange_id": "hei_ex_000137",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-10-07",
+    "title": "Nova ceased trading and API access",
+    "description": "Nova said trading would cease and the API would be deactivated on 2019-10-07 as part of its shutdown schedule.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Withdrawals were left open until 2019-10-25, but the operational end marker used here is the trading/API stop date."
+  },
+  {
+    "id": "hei_ev_000160",
+    "exchange_id": "hei_ex_000138",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-11-01",
+    "title": "Interim receiver secured Einstein Exchange",
+    "description": "The Supreme Court of British Columbia appointed an interim receiver on 2019-11-01, which then secured the premises and shut down platform access.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "BCSC said platform counsel had told regulators on 2019-10-31 that the business planned to shut down within 30 to 60 days due to a lack of profit."
   }
 ]
