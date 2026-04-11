@@ -741,41 +741,101 @@ tbody tr:hover {
 
   .summary-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    padding: 12px;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .summary-strip .summary-tile:nth-child(n + 3) {
+    display: none;
   }
 
   .summary-tile {
-    padding: 12px;
+    padding: 10px;
+  }
+
+  .summary-tile .label {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .summary-tile .value {
+    font-size: 18px;
+  }
+
+  .summary-tile .hint {
+    display: none;
   }
 
   .controls {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .controls .field {
+    height: 38px;
+    font-size: 12px;
   }
 
   .search {
-    flex: 1 1 100%;
+    grid-column: 1 / -1;
     min-width: 100%;
   }
 
   .results-meta {
-    padding: 12px 14px;
+    padding: 10px 12px;
     align-items: flex-start;
     flex-direction: column;
+    gap: 6px;
+    font-size: 12px;
   }
 
   .record-item {
-    padding: 14px;
+    padding: 10px 12px;
+    gap: 6px;
   }
 
   .record-top {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .record-main {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 2px;
+  }
+
+  .record-title {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+
+  .record-subtitle {
+    display: none;
+  }
+
+  .record-meta {
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .record-meta-secondary {
+    display: none;
   }
 
   .record-chips {
-    justify-content: flex-start;
+    justify-content: flex-end;
+    gap: 6px;
+    flex: 0 0 auto;
+  }
+
+  .chip {
+    padding: 5px 8px;
+    font-size: 10px;
   }
 }
 

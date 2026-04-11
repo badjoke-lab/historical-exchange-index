@@ -252,9 +252,6 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
                       <Link className="record-title subtle-link" href={`/exchange/${entity.slug}/`}>
                         {entity.canonical_name}
                       </Link>
-                      {entity.aliases.length > 0 ? (
-                        <div className="record-subtitle">{entity.aliases.join(', ')}</div>
-                      ) : null}
                     </div>
 
                     <div className="record-chips">
@@ -277,11 +274,6 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
                     ) : (
                       <span className="muted">No archive</span>
                     )}
-                  </div>
-
-                  <div className="record-meta record-meta-secondary">
-                    <span>{entity.country_or_origin ?? '—'}</span>
-                    <span className="record-domain">{entity.official_domain_original ?? '—'}</span>
                   </div>
                 </div>
               ))}

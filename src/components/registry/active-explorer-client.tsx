@@ -242,9 +242,6 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
                       <Link className="record-title subtle-link" href={`/exchange/${entity.slug}/`}>
                         {entity.canonical_name}
                       </Link>
-                      {entity.aliases.length > 0 ? (
-                        <div className="record-subtitle">{entity.aliases.join(', ')}</div>
-                      ) : null}
                     </div>
 
                     <div className="record-chips">
@@ -255,12 +252,7 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
 
                   <div className="record-meta">
                     <span>{formatLaunchYear(entity.launch_date)}</span>
-                    <span>{entity.country_or_origin ?? '—'}</span>
                     <span>{URL_STATUS_LABELS[entity.official_url_status]}</span>
-                  </div>
-
-                  <div className="record-meta record-meta-secondary">
-                    <span className="record-domain">{entity.official_domain_original ?? '—'}</span>
                     {entity.archived_url ? (
                       <a className="archive-link" href={entity.archived_url} target="_blank" rel="noreferrer">
                         Archive

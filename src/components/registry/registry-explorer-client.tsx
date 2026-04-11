@@ -321,9 +321,6 @@ export default function RegistryExplorerClient({ entities, summary, archiveCover
                         <Link className="record-title subtle-link" href={`/exchange/${entity.slug}/`}>
                           {entity.canonical_name}
                         </Link>
-                        {entity.aliases.length > 0 ? (
-                          <div className="record-subtitle">{entity.aliases.join(', ')}</div>
-                        ) : null}
                       </div>
 
                       <div className="record-chips">
@@ -335,7 +332,6 @@ export default function RegistryExplorerClient({ entities, summary, archiveCover
                     <div className="record-meta">
                       <span>{formatYears(entity.launch_date, entity.death_date)}</span>
                       <span>{entity.country_or_origin ?? '—'}</span>
-                      <span className="record-domain">{entity.official_domain_original ?? '—'}</span>
                       {entity.archived_url ? (
                         <a className="archive-link" href={entity.archived_url} target="_blank" rel="noreferrer">
                           Archive
