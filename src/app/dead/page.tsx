@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import DeadExplorerClient from '../../components/registry/dead-explorer-client'
 import { loadEntities } from '../../lib/data/load-entities'
 import { CORRECTION_HREF } from '../../lib/site-constants'
@@ -46,7 +47,17 @@ export default function DeadPage() {
         </div>
       </section>
 
-      <DeadExplorerClient entities={entities} summary={summary} />
+      <Suspense
+        fallback={
+          <section className="panel table-panel">
+            <div className="results-meta">
+              <div>Loading registry…</div>
+            </div>
+          </section>
+        }
+      >
+        <DeadExplorerClient entities={entities} summary={summary} />
+      </Suspense>
     </main>
   )
 }

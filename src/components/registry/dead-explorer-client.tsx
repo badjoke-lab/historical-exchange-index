@@ -223,9 +223,13 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
   const searchParams = useSearchParams()
 
   const query = searchParams.get('q') ?? ''
-  const typeFilter: TypeFilter = isTypeFilter(searchParams.get('type')) ? searchParams.get('type')! : 'all'
-  const statusFilter: StatusFilter = isStatusFilter(searchParams.get('status')) ? searchParams.get('status')! : 'all'
-  const reasonFilter: ReasonFilter = isReasonFilter(searchParams.get('reason')) ? searchParams.get('reason')! : 'all'
+  const rawType = searchParams.get('type')
+  const rawStatus = searchParams.get('status')
+  const rawReason = searchParams.get('reason')
+
+  const typeFilter: TypeFilter = isTypeFilter(rawType) ? rawType : 'all'
+  const statusFilter: StatusFilter = isStatusFilter(rawStatus) ? rawStatus : 'all'
+  const reasonFilter: ReasonFilter = isReasonFilter(rawReason) ? rawReason : 'all'
 
   const setParam = (key: string, value: string, defaultValue = 'all') => {
     const params = new URLSearchParams(searchParams.toString())

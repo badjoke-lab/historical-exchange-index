@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import ActiveExplorerClient from '../../components/registry/active-explorer-client'
 import { loadEntities } from '../../lib/data/load-entities'
 import { CORRECTION_HREF } from '../../lib/site-constants'
@@ -41,7 +42,17 @@ export default function ActivePage() {
         </div>
       </section>
 
-      <ActiveExplorerClient entities={entities} summary={summary} />
+      <Suspense
+        fallback={
+          <section className="panel table-panel">
+            <div className="results-meta">
+              <div>Loading registry…</div>
+            </div>
+          </section>
+        }
+      >
+        <ActiveExplorerClient entities={entities} summary={summary} />
+      </Suspense>
     </main>
   )
 }
