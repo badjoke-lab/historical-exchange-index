@@ -232,6 +232,16 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
     router.replace(next ? `${pathname}?${next}` : pathname, { scroll: false })
   }
 
+  const clearAll = () => {
+    router.replace(pathname, { scroll: false })
+  }
+
+  const hasActiveFilters =
+    Boolean(query.trim()) ||
+    typeFilter !== 'all' ||
+    statusFilter !== 'all' ||
+    urlFilter !== 'all'
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
 
@@ -342,6 +352,14 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
             <option value="unknown">Unknown</option>
           </select>
         </div>
+
+        {hasActiveFilters ? (
+          <div className="registry-toolbar-actions">
+            <button type="button" className="btn btn-ghost" onClick={clearAll}>
+              Clear all filters
+            </button>
+          </div>
+        ) : null}
 
         <ActiveRegistrySlice key={sliceKey} filtered={filtered} metaText={metaText} />
       </section>

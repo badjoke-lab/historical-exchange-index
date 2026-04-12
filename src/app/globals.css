@@ -1315,3 +1315,25 @@ tbody tr:hover {
     font-size: 11px;
   }
 }
+
+.registry-toolbar-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 18px 12px;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--line-soft);
+}
+
+@media (max-width: 767px) {
+  .registry-toolbar-actions {
+    padding: 0 12px 10px;
+  }
+
+  .registry-toolbar-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
