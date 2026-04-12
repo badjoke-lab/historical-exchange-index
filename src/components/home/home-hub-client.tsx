@@ -45,6 +45,9 @@ function sortPreview(items: EntityRecord[]) {
 
 export default function HomeHubClient({ entities, summary, archiveCoverage }: Props) {
   const [query, setQuery] = useState('')
+  const trimmedQuery = query.trim()
+  const deadHref = trimmedQuery ? `/dead?q=${encodeURIComponent(trimmedQuery)}` : '/dead'
+  const activeHref = trimmedQuery ? `/active?q=${encodeURIComponent(trimmedQuery)}` : '/active'
 
   const recentUpdated = useMemo(() => {
     return [...entities]
@@ -102,8 +105,8 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
             choose whether to browse the dead-side or active-side history views.
           </p>
           <div className="hero-actions">
-            <Link className="btn btn-primary" href="/dead">Browse Dead</Link>
-            <Link className="btn" href="/active">Browse Active</Link>
+            <Link className="btn btn-primary" href={deadHref}>Browse Dead</Link>
+            <Link className="btn" href={activeHref}>Browse Active</Link>
           </div>
         </div>
       </section>
@@ -157,7 +160,7 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
             <span className="muted">dead / merged / acquired / rebranded</span>
           </div>
           <div>
-            <Link className="btn btn-primary" href="/dead">Open Dead</Link>
+            <Link className="btn btn-primary" href={deadHref}>Open Dead</Link>
           </div>
         </section>
 
@@ -171,12 +174,12 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
             <span className="muted">active / limited / inactive</span>
           </div>
           <div>
-            <Link className="btn" href="/active">Open Active</Link>
+            <Link className="btn" href={activeHref}>Open Active</Link>
           </div>
         </section>
       </section>
 
-      {query.trim() ? (
+      {trimmedQuery ? (
         <section className="panel home-preview-panel">
           <div className="home-section-copy">
             <h3>Search preview</h3>
@@ -215,8 +218,8 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
           )}
 
           <div className="home-preview-actions">
-            <Link className="btn btn-primary" href="/dead">Open Dead registry</Link>
-            <Link className="btn" href="/active">Open Active registry</Link>
+            <Link className="btn btn-primary" href={deadHref}>Open Dead registry</Link>
+            <Link className="btn" href={activeHref}>Open Active registry</Link>
           </div>
         </section>
       ) : null}
