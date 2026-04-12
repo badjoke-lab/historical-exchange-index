@@ -1269,3 +1269,20 @@ tbody tr:hover {
     font-size: 11px;
   }
 }
+
+@media (max-width: 599px) {
+  .home-hub .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .home-hub .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .home-hub .hero-actions .btn:nth-child(2) {
+    display: inline-flex;
+  }
+}
