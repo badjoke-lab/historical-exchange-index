@@ -1,3 +1,5 @@
+import DonateWalletsClient from '../../components/donate/donate-wallets-client'
+
 export default function DonatePage() {
   return (
     <main className="longform">
@@ -6,7 +8,8 @@ export default function DonatePage() {
         <h2 style={{ marginTop: 0, fontSize: '34px' }}>Support HEI</h2>
         <p className="muted" style={{ lineHeight: 1.75, maxWidth: '80ch' }}>
           HEI includes a public support page for people who want to help maintain and expand the registry.
-          Donation support is optional, but it can help sustain the slow work of record building and cleanup.
+          Donation support is optional, but it can help sustain the slow work of record building, cleanup,
+          archive checks, and record verification.
         </p>
       </section>
 
@@ -34,25 +37,31 @@ export default function DonatePage() {
         </div>
 
         <div className="section">
-          <h4>Support methods</h4>
-          <div className="fact-grid">
-            <div className="fact">
-              <div className="k">Wallets</div>
-              <div className="v">Wallet addresses will be listed here when they are ready.</div>
-            </div>
-            <div className="fact">
-              <div className="k">Status</div>
-              <div className="v">Current page is a placeholder for future support rails.</div>
-            </div>
-          </div>
+          <h4>Wallet addresses</h4>
+          <p className="muted" style={{ marginTop: 0, lineHeight: 1.75 }}>
+            Send only the named asset on the listed network. Double-check address and network before sending.
+            Wallet cards below include a copy button for each address.
+          </p>
+
+          <DonateWalletsClient />
         </div>
 
         <div className="section">
           <h4>Notes</h4>
-          <p className="muted" style={{ margin: 0, lineHeight: 1.75 }}>
-            Only send supported assets once addresses are published. Always verify address and network details
-            before sending.
-          </p>
+          <div className="fact-grid">
+            <div className="fact">
+              <div className="k">Network caution</div>
+              <div className="v">Do not send assets on the wrong network. Funds sent on unsupported networks may be lost.</div>
+            </div>
+            <div className="fact">
+              <div className="k">XRP note</div>
+              <div className="v">No destination tag is listed on this page. Confirm your sending service can send without one before using the XRP address.</div>
+            </div>
+            <div className="fact">
+              <div className="k">Final check</div>
+              <div className="v">Always verify the copied address on your own device before submitting a transaction.</div>
+            </div>
+          </div>
         </div>
       </section>
 

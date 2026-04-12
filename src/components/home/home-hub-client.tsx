@@ -28,19 +28,52 @@ function chipClass(status: string) {
   return `chip ${status}`
 }
 
-function sortPreview(items: EntityRecord[]) {
+function sortDeadPreview(items: EntityRecord[]) {
   return [...items].sort((a, b) => {
-    const aDead = DEAD_SIDE.has(a.status) ? 1 : 0
-    const bDead = DEAD_SIDE.has(b.status) ? 1 : 0
-
-    if (aDead !== bDead) return bDead - aDead
-
     const aDate = a.death_date ?? a.launch_date ?? ''
     const bDate = b.death_date ?? b.launch_date ?? ''
     if (aDate !== bDate) return aDate < bDate ? 1 : -1
-
     return a.canonical_name.localeCompare(b.canonical_name)
   })
+}
+
+function sortActivePreview(items: EntityRecord[]) {
+  return [...items].sort((a, b) => a.canonical_name.localeCompare(b.canonical_name))
+}
+
+function PreviewList({ items }: { items: EntityRecord[] }) {
+  if (items.length === 0) {
+    return (
+      <div className="record-empty">
+        <div className="name-cell">
+          <span className="name-main">No matching records</span>
+          <span className="name-sub">Try a broader name, alias, or domain.</span>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="home-list">
+      {items.map((entity) => (
+        <div className="home-list-item" key={entity.id}>
+          <div className="home-item-main">
+            <Link className="home-item-title subtle-link" href={`/exchange/${entity.slug}/`}>
+              {entity.canonical_name}
+            </Link>
+            <div className="home-item-meta">
+              <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
+              <span>{formatYears(entity.launch_date, entity.death_date)}</span>
+              <span>{entity.country_or_origin ?? '—'}</span>
+            </div>
+          </div>
+          <div>
+            <Link className="btn" href={`/exchange/${entity.slug}/`}>Open</Link>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
 }
 
 export default function HomeHubClient({ entities, summary, archiveCoverage }: Props) {
@@ -61,14 +94,15 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
   }, [entities])
 
   const searchState = useMemo(() => {
-    const q = query.trim().toLowerCase()
+    const q = trimmedQuery.toLowerCase()
 
     if (!q) {
       return {
         total: 0,
         deadCount: 0,
         activeCount: 0,
-        preview: [] as EntityRecord[],
+        deadPreview: [] as EntityRecord[],
+        activePreview: [] as EntityRecord[],
       }
     }
 
@@ -86,13 +120,17 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
       return haystack.includes(q)
     })
 
+    const deadMatches = matches.filter((item) => DEAD_SIDE.has(item.status))
+    const activeMatches = matches.filter((item) => ACTIVE_SIDE.has(item.status))
+
     return {
       total: matches.length,
-      deadCount: matches.filter((item) => DEAD_SIDE.has(item.status)).length,
-      activeCount: matches.filter((item) => ACTIVE_SIDE.has(item.status)).length,
-      preview: sortPreview(matches).slice(0, 6),
+      deadCount: deadMatches.length,
+      activeCount: activeMatches.length,
+      deadPreview: sortDeadPreview(deadMatches).slice(0, 3),
+      activePreview: sortActivePreview(activeMatches).slice(0, 3),
     }
-  }, [entities, query])
+  }, [entities, trimmedQuery])
 
   return (
     <main className="home-hub">
@@ -188,38 +226,38 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
             </p>
           </div>
 
-          {searchState.preview.length === 0 ? (
-            <div className="record-empty">
-              <div className="name-cell">
-                <span className="name-main">No matching records</span>
-                <span className="name-sub">Try a broader name, alias, or domain.</span>
-              </div>
-            </div>
-          ) : (
-            <div className="home-list">
-              {searchState.preview.map((entity) => (
-                <div className="home-list-item" key={entity.id}>
-                  <div className="home-item-main">
-                    <Link className="home-item-title subtle-link" href={`/exchange/${entity.slug}/`}>
-                      {entity.canonical_name}
-                    </Link>
-                    <div className="home-item-meta">
-                      <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
-                      <span>{formatYears(entity.launch_date, entity.death_date)}</span>
-                      <span>{entity.country_or_origin ?? '—'}</span>
-                    </div>
-                  </div>
-                  <div>
-                    <Link className="btn" href={`/exchange/${entity.slug}/`}>Open</Link>
-                  </div>
+          <div className="home-preview-grid">
+            <section className="home-preview-side">
+              <div className="home-preview-side-head">
+                <div className="home-preview-side-copy">
+                  <h4>Dead-side matches</h4>
+                  <p>{searchState.deadCount} matched records</p>
                 </div>
-              ))}
-            </div>
-          )}
+                <span className="chip dead">{searchState.deadCount}</span>
+              </div>
 
-          <div className="home-preview-actions">
-            <Link className="btn btn-primary" href={deadHref}>Open Dead registry</Link>
-            <Link className="btn" href={activeHref}>Open Active registry</Link>
+              <PreviewList items={searchState.deadPreview} />
+
+              <div className="home-preview-actions">
+                <Link className="btn btn-primary" href={deadHref}>Open dead results</Link>
+              </div>
+            </section>
+
+            <section className="home-preview-side">
+              <div className="home-preview-side-head">
+                <div className="home-preview-side-copy">
+                  <h4>Active-side matches</h4>
+                  <p>{searchState.activeCount} matched records</p>
+                </div>
+                <span className="chip active">{searchState.activeCount}</span>
+              </div>
+
+              <PreviewList items={searchState.activePreview} />
+
+              <div className="home-preview-actions">
+                <Link className="btn" href={activeHref}>Open active results</Link>
+              </div>
+            </section>
           </div>
         </section>
       ) : null}

@@ -46,6 +46,17 @@ function formatLaunchYear(value: string | null) {
   return value ? value.slice(0, 4) : '—'
 }
 
+function getTypeLabel(value: TypeFilter) {
+  return value === 'hybrid' ? 'Hybrid' : value.toUpperCase()
+}
+
+function getActiveSortLabel(sort: ActiveSort) {
+  if (sort === 'name_desc') return 'Name Z–A'
+  if (sort === 'launch_desc') return 'Newest launches'
+  if (sort === 'launch_asc') return 'Earliest launches'
+  return 'Name A–Z'
+}
+
 function isTypeFilter(value: string | null): value is Exclude<TypeFilter, 'all'> {
   return value === 'cex' || value === 'dex' || value === 'hybrid'
 }
@@ -312,8 +323,15 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
     return sortActiveEntities(base, sort)
   }, [entities, query, typeFilter, statusFilter, urlFilter, sort])
 
+  const metaParts = []
+  if (query) metaParts.push(`Search: "${query}"`)
+  if (typeFilter !== 'all') metaParts.push(`Type: ${getTypeLabel(typeFilter)}`)
+  if (statusFilter !== 'all') metaParts.push(`Status: ${STATUS_LABELS[statusFilter]}`)
+  if (urlFilter !== 'all') metaParts.push(`URL: ${URL_STATUS_LABELS[urlFilter]}`)
+  metaParts.push(`Sort: ${getActiveSortLabel(sort)}`)
+
   const sliceKey = `${query.trim().toLowerCase()}::${typeFilter}::${statusFilter}::${urlFilter}::${sort}`
-  const metaText = `${query ? `Search: "${query}" · ` : ''}type=${typeFilter} · status=${statusFilter} · url=${urlFilter} · sort=${sort}`
+  const metaText = metaParts.join(' · ')
 
   return (
     <>
@@ -405,8 +423,8 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
           >
             <option value="name_asc">Name A–Z</option>
             <option value="name_desc">Name Z–A</option>
-            <option value="launch_desc">Launch year ↓</option>
-            <option value="launch_asc">Launch year ↑</option>
+            <option value="launch_desc">Newest launches</option>
+            <option value="launch_asc">Earliest launches</option>
           </select>
         </div>
 

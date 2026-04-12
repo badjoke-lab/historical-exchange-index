@@ -46,6 +46,17 @@ function chipClass(status: string) {
   return `chip ${status}`
 }
 
+function getTypeLabel(value: TypeFilter) {
+  return value === 'hybrid' ? 'Hybrid' : value.toUpperCase()
+}
+
+function getDeadSortLabel(sort: DeadSort) {
+  if (sort === 'death_desc') return 'Most recent closures'
+  if (sort === 'death_asc') return 'Earliest closures'
+  if (sort === 'name_desc') return 'Name Z–A'
+  return 'Name A–Z'
+}
+
 function isTypeFilter(value: string | null): value is Exclude<TypeFilter, 'all'> {
   return value === 'cex' || value === 'dex' || value === 'hybrid'
 }
@@ -325,8 +336,15 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
     return sortDeadEntities(base, sort)
   }, [entities, query, typeFilter, statusFilter, reasonFilter, sort])
 
+  const metaParts = []
+  if (query) metaParts.push(`Search: "${query}"`)
+  if (typeFilter !== 'all') metaParts.push(`Type: ${getTypeLabel(typeFilter)}`)
+  if (statusFilter !== 'all') metaParts.push(`Status: ${STATUS_LABELS[statusFilter]}`)
+  if (reasonFilter !== 'all') metaParts.push(`Reason: ${DEATH_REASON_LABELS[reasonFilter]}`)
+  metaParts.push(`Sort: ${getDeadSortLabel(sort)}`)
+
   const sliceKey = `${query.trim().toLowerCase()}::${typeFilter}::${statusFilter}::${reasonFilter}::${sort}`
-  const metaText = `${query ? `Search: "${query}" · ` : ''}type=${typeFilter} · status=${statusFilter} · reason=${reasonFilter} · sort=${sort}`
+  const metaText = metaParts.join(' · ')
 
   return (
     <>
@@ -420,8 +438,8 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
             value={sort}
             onChange={(event) => setParam('sort', event.target.value, DEFAULT_SORT)}
           >
-            <option value="death_desc">Death date ↓</option>
-            <option value="death_asc">Death date ↑</option>
+            <option value="death_desc">Most recent closures</option>
+            <option value="death_asc">Earliest closures</option>
             <option value="name_asc">Name A–Z</option>
             <option value="name_desc">Name Z–A</option>
           </select>
