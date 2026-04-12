@@ -32,9 +32,11 @@ type UrlFilter =
   | 'repurposed'
   | 'unsafe'
   | 'unknown'
+type ActiveSort = 'name_asc' | 'name_desc' | 'launch_desc' | 'launch_asc'
 
 const INITIAL_VISIBLE = 24
 const LOAD_MORE_STEP = 24
+const DEFAULT_SORT: ActiveSort = 'name_asc'
 
 function chipClass(status: string) {
   return `chip ${status}`
@@ -62,6 +64,44 @@ function isUrlFilter(value: string | null): value is Exclude<UrlFilter, 'all'> {
     value === 'unsafe' ||
     value === 'unknown'
   )
+}
+
+function isActiveSort(value: string | null): value is ActiveSort {
+  return value === 'name_asc' || value === 'name_desc' || value === 'launch_desc' || value === 'launch_asc'
+}
+
+function compareMaybeDateDesc(a: string | null, b: string | null) {
+  const aa = a ?? ''
+  const bb = b ?? ''
+  if (aa !== bb) return aa < bb ? 1 : -1
+  return 0
+}
+
+function compareMaybeDateAsc(a: string | null, b: string | null) {
+  const aa = a ?? ''
+  const bb = b ?? ''
+  if (aa !== bb) return aa > bb ? 1 : -1
+  return 0
+}
+
+function sortActiveEntities(items: EntityRecord[], sort: ActiveSort) {
+  return [...items].sort((a, b) => {
+    if (sort === 'name_desc') {
+      return b.canonical_name.localeCompare(a.canonical_name)
+    }
+
+    if (sort === 'launch_desc') {
+      const cmp = compareMaybeDateDesc(a.launch_date, b.launch_date)
+      return cmp !== 0 ? cmp : a.canonical_name.localeCompare(b.canonical_name)
+    }
+
+    if (sort === 'launch_asc') {
+      const cmp = compareMaybeDateAsc(a.launch_date, b.launch_date)
+      return cmp !== 0 ? cmp : a.canonical_name.localeCompare(b.canonical_name)
+    }
+
+    return a.canonical_name.localeCompare(b.canonical_name)
+  })
 }
 
 function ActiveRegistrySlice({
@@ -214,10 +254,12 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
   const rawType = searchParams.get('type')
   const rawStatus = searchParams.get('status')
   const rawUrl = searchParams.get('url')
+  const rawSort = searchParams.get('sort')
 
   const typeFilter: TypeFilter = isTypeFilter(rawType) ? rawType : 'all'
   const statusFilter: StatusFilter = isStatusFilter(rawStatus) ? rawStatus : 'all'
   const urlFilter: UrlFilter = isUrlFilter(rawUrl) ? rawUrl : 'all'
+  const sort: ActiveSort = isActiveSort(rawSort) ? rawSort : DEFAULT_SORT
 
   const setParam = (key: string, value: string, defaultValue = 'all') => {
     const params = new URLSearchParams(searchParams.toString())
@@ -241,12 +283,13 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
     Boolean(query.trim()) ||
     typeFilter !== 'all' ||
     statusFilter !== 'all' ||
-    urlFilter !== 'all'
+    urlFilter !== 'all' ||
+    sort !== DEFAULT_SORT
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
 
-    return entities.filter((entity) => {
+    const base = entities.filter((entity) => {
       if (typeFilter !== 'all' && entity.type !== typeFilter) return false
       if (statusFilter !== 'all' && entity.status !== statusFilter) return false
       if (urlFilter !== 'all' && entity.official_url_status !== urlFilter) return false
@@ -265,10 +308,12 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
 
       return haystack.includes(q)
     })
-  }, [entities, query, typeFilter, statusFilter, urlFilter])
 
-  const sliceKey = `${query.trim().toLowerCase()}::${typeFilter}::${statusFilter}::${urlFilter}`
-  const metaText = `${query ? `Search: "${query}" · ` : ''}type=${typeFilter} · status=${statusFilter} · url=${urlFilter}`
+    return sortActiveEntities(base, sort)
+  }, [entities, query, typeFilter, statusFilter, urlFilter, sort])
+
+  const sliceKey = `${query.trim().toLowerCase()}::${typeFilter}::${statusFilter}::${urlFilter}::${sort}`
+  const metaText = `${query ? `Search: "${query}" · ` : ''}type=${typeFilter} · status=${statusFilter} · url=${urlFilter} · sort=${sort}`
 
   return (
     <>
@@ -351,6 +396,17 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
             <option value="repurposed">Repurposed</option>
             <option value="unsafe">Unsafe</option>
             <option value="unknown">Unknown</option>
+          </select>
+
+          <select
+            className="field"
+            value={sort}
+            onChange={(event) => setParam('sort', event.target.value, DEFAULT_SORT)}
+          >
+            <option value="name_asc">Name A–Z</option>
+            <option value="name_desc">Name Z–A</option>
+            <option value="launch_desc">Launch year ↓</option>
+            <option value="launch_asc">Launch year ↑</option>
           </select>
         </div>
 

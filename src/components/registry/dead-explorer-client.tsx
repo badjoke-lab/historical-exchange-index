@@ -36,9 +36,11 @@ type ReasonFilter =
   | 'voluntary_shutdown'
   | 'chain_failure'
   | 'unknown'
+type DeadSort = 'death_desc' | 'death_asc' | 'name_asc' | 'name_desc'
 
 const INITIAL_VISIBLE = 24
 const LOAD_MORE_STEP = 24
+const DEFAULT_SORT: DeadSort = 'death_desc'
 
 function chipClass(status: string) {
   return `chip ${status}`
@@ -65,6 +67,44 @@ function isReasonFilter(value: string | null): value is Exclude<ReasonFilter, 'a
     value === 'chain_failure' ||
     value === 'unknown'
   )
+}
+
+function isDeadSort(value: string | null): value is DeadSort {
+  return value === 'death_desc' || value === 'death_asc' || value === 'name_asc' || value === 'name_desc'
+}
+
+function compareMaybeDateDesc(a: string | null, b: string | null) {
+  const aa = a ?? ''
+  const bb = b ?? ''
+  if (aa !== bb) return aa < bb ? 1 : -1
+  return 0
+}
+
+function compareMaybeDateAsc(a: string | null, b: string | null) {
+  const aa = a ?? ''
+  const bb = b ?? ''
+  if (aa !== bb) return aa > bb ? 1 : -1
+  return 0
+}
+
+function sortDeadEntities(items: EntityRecord[], sort: DeadSort) {
+  return [...items].sort((a, b) => {
+    if (sort === 'death_desc') {
+      const cmp = compareMaybeDateDesc(a.death_date, b.death_date)
+      return cmp !== 0 ? cmp : a.canonical_name.localeCompare(b.canonical_name)
+    }
+
+    if (sort === 'death_asc') {
+      const cmp = compareMaybeDateAsc(a.death_date, b.death_date)
+      return cmp !== 0 ? cmp : a.canonical_name.localeCompare(b.canonical_name)
+    }
+
+    if (sort === 'name_desc') {
+      return b.canonical_name.localeCompare(a.canonical_name)
+    }
+
+    return a.canonical_name.localeCompare(b.canonical_name)
+  })
 }
 
 function DeadRegistrySlice({
@@ -227,10 +267,12 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
   const rawType = searchParams.get('type')
   const rawStatus = searchParams.get('status')
   const rawReason = searchParams.get('reason')
+  const rawSort = searchParams.get('sort')
 
   const typeFilter: TypeFilter = isTypeFilter(rawType) ? rawType : 'all'
   const statusFilter: StatusFilter = isStatusFilter(rawStatus) ? rawStatus : 'all'
   const reasonFilter: ReasonFilter = isReasonFilter(rawReason) ? rawReason : 'all'
+  const sort: DeadSort = isDeadSort(rawSort) ? rawSort : DEFAULT_SORT
 
   const setParam = (key: string, value: string, defaultValue = 'all') => {
     const params = new URLSearchParams(searchParams.toString())
@@ -254,12 +296,13 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
     Boolean(query.trim()) ||
     typeFilter !== 'all' ||
     statusFilter !== 'all' ||
-    reasonFilter !== 'all'
+    reasonFilter !== 'all' ||
+    sort !== DEFAULT_SORT
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
 
-    return entities.filter((entity) => {
+    const base = entities.filter((entity) => {
       if (typeFilter !== 'all' && entity.type !== typeFilter) return false
       if (statusFilter !== 'all' && entity.status !== statusFilter) return false
       if (reasonFilter !== 'all' && entity.death_reason !== reasonFilter) return false
@@ -278,10 +321,12 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
 
       return haystack.includes(q)
     })
-  }, [entities, query, typeFilter, statusFilter, reasonFilter])
 
-  const sliceKey = `${query.trim().toLowerCase()}::${typeFilter}::${statusFilter}::${reasonFilter}`
-  const metaText = `${query ? `Search: "${query}" · ` : ''}type=${typeFilter} · status=${statusFilter} · reason=${reasonFilter}`
+    return sortDeadEntities(base, sort)
+  }, [entities, query, typeFilter, statusFilter, reasonFilter, sort])
+
+  const sliceKey = `${query.trim().toLowerCase()}::${typeFilter}::${statusFilter}::${reasonFilter}::${sort}`
+  const metaText = `${query ? `Search: "${query}" · ` : ''}type=${typeFilter} · status=${statusFilter} · reason=${reasonFilter} · sort=${sort}`
 
   return (
     <>
@@ -368,6 +413,17 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
             <option value="voluntary_shutdown">Voluntary shutdown</option>
             <option value="chain_failure">Chain failure</option>
             <option value="unknown">Unknown</option>
+          </select>
+
+          <select
+            className="field"
+            value={sort}
+            onChange={(event) => setParam('sort', event.target.value, DEFAULT_SORT)}
+          >
+            <option value="death_desc">Death date ↓</option>
+            <option value="death_asc">Death date ↑</option>
+            <option value="name_asc">Name A–Z</option>
+            <option value="name_desc">Name Z–A</option>
           </select>
         </div>
 
