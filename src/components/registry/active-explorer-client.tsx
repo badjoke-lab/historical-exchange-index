@@ -75,6 +75,7 @@ function ActiveRegistrySlice({
 
   const visible = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount])
   const remaining = Math.max(filtered.length - visible.length, 0)
+  const nextLoadCount = Math.min(LOAD_MORE_STEP, remaining)
 
   return (
     <>
@@ -195,7 +196,7 @@ function ActiveRegistrySlice({
             className="btn"
             onClick={() => setVisibleCount((count) => count + LOAD_MORE_STEP)}
           >
-            Load more
+            Load {nextLoadCount} more
           </button>
           <div className="registry-load-more-note">{remaining} remaining in current slice</div>
         </div>
