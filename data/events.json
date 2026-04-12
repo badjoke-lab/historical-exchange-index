@@ -712,5 +712,33 @@
     "source_count": 3,
     "sort_order": 1,
     "notes": "BCSC said platform counsel had told regulators on 2019-10-31 that the business planned to shut down within 30 to 60 days due to a lack of profit."
+  },
+  {
+    "id": "hei_ev_000161",
+    "exchange_id": "hei_ex_000139",
+    "event_type": "shutdown_effective",
+    "event_date": "2023-02-17",
+    "title": "The Rock Trading interrupted platform operations",
+    "description": "The Rock Trading said it had to interrupt operation of its platform because of difficulties encountered in liquidity management.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "The operational stop preceded judicial liquidation and insolvency proceedings in Milan."
+  },
+  {
+    "id": "hei_ev_000162",
+    "exchange_id": "hei_ex_000140",
+    "event_type": "shutdown_effective",
+    "event_date": "2020-01-06",
+    "title": "VirWoX permanently closed its service",
+    "description": "VirWoX notified users in late 2019 that the service would permanently close on 2020-01-06 and account access would end that day.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "The retained date follows the stated end-of-service date rather than the earlier announcement date."
   }
 ]

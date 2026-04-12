@@ -2813,5 +2813,54 @@
     "confidence": "high",
     "last_verified_at": "2026-04-11",
     "notes": "The shutdown path involves receivership, asset shortfalls, and later fraud findings, so the retained death_reason remains unknown."
+  },
+  {
+    "id": "hei_ex_000139",
+    "slug": "the-rock-trading",
+    "canonical_name": "The Rock Trading",
+    "aliases": [
+      "TRT",
+      "The Rock Trading S.r.l."
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "insolvency",
+    "launch_date": "2011-06-01",
+    "death_date": "2023-02-17",
+    "country_or_origin": "Italy",
+    "summary": "Italian centralized exchange that interrupted operations in February 2023 due to liquidity problems and later entered judicial liquidation in Milan.",
+    "official_url_original": "https://www.therocktrading.com/",
+    "official_domain_original": "therocktrading.com",
+    "official_url_status": "repurposed",
+    "archived_url": "https://web.archive.org/web/*/https://www.therocktrading.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-12",
+    "notes": "Operational death marker uses the 2023-02-17 interruption of platform operations. Later court-supervised insolvency and judicial liquidation are documented separately in evidence."
+  },
+  {
+    "id": "hei_ex_000140",
+    "slug": "virwox",
+    "canonical_name": "VirWoX",
+    "aliases": [
+      "Virtual World Exchange"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2007-01-01",
+    "death_date": "2020-01-06",
+    "country_or_origin": "Austria",
+    "summary": "Austrian virtual-world and bitcoin exchange that announced an end of service in late 2019 and permanently closed on 2020-01-06.",
+    "official_url_original": "http://www.virwox.com/",
+    "official_domain_original": "virwox.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/http://www.virwox.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-12",
+    "notes": "Closure timing is clear, but the detailed reason is not strongly primary-sourced in this pass; status remains dead with a conservative voluntary shutdown classification."
   }
 ]
