@@ -15,9 +15,21 @@ type DetailPageProps = {
 }
 
 const DEAD_SIDE = new Set(['dead', 'merged', 'acquired', 'rebranded'])
+const ACTIVE_SIDE = new Set(['active', 'limited', 'inactive'])
 
 function chipClass(status: string) {
   return `chip ${status}`
+}
+
+function sortDeadSide(a: ReturnType<typeof loadEntities>[number], b: ReturnType<typeof loadEntities>[number]) {
+  const aDate = a.death_date ?? ''
+  const bDate = b.death_date ?? ''
+  if (aDate !== bDate) return aDate < bDate ? 1 : -1
+  return a.canonical_name.localeCompare(b.canonical_name)
+}
+
+function sortActiveSide(a: ReturnType<typeof loadEntities>[number], b: ReturnType<typeof loadEntities>[number]) {
+  return a.canonical_name.localeCompare(b.canonical_name)
 }
 
 export function generateStaticParams() {
@@ -50,6 +62,14 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
 
   const { entity, events, evidence, relatedEntities, prefersArchive } = detail
   const isDeadSide = DEAD_SIDE.has(entity.status)
+
+  const sideEntities = loadEntities()
+    .filter((item) => (isDeadSide ? DEAD_SIDE.has(item.status) : ACTIVE_SIDE.has(item.status)))
+    .sort(isDeadSide ? sortDeadSide : sortActiveSide)
+
+  const currentIndex = sideEntities.findIndex((item) => item.slug === entity.slug)
+  const prevEntity = currentIndex > 0 ? sideEntities[currentIndex - 1] : null
+  const nextEntity = currentIndex >= 0 && currentIndex < sideEntities.length - 1 ? sideEntities[currentIndex + 1] : null
 
   const originalUrlClickable =
     entity.official_url_status === 'live_verified' ||
@@ -98,6 +118,36 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
               Also known as: {entity.aliases.join(', ')}
             </div>
           ) : null}
+
+          <div className="section">
+            <h4>Registry sequence</h4>
+            <div className="fact-grid">
+              <div className="fact">
+                <div className="k">Previous</div>
+                <div className="v">
+                  {prevEntity ? (
+                    <Link className="subtle-link" href={`/exchange/${prevEntity.slug}/`}>
+                      ← {prevEntity.canonical_name}
+                    </Link>
+                  ) : (
+                    'No previous entry in this side.'
+                  )}
+                </div>
+              </div>
+              <div className="fact">
+                <div className="k">Next</div>
+                <div className="v">
+                  {nextEntity ? (
+                    <Link className="subtle-link" href={`/exchange/${nextEntity.slug}/`}>
+                      {nextEntity.canonical_name} →
+                    </Link>
+                  ) : (
+                    'No next entry in this side.'
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div className="section">
             <h4>Key facts</h4>
