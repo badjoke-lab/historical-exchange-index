@@ -1064,3 +1064,148 @@ tbody tr:hover {
   }
 }
 
+/* HEI home hub */
+.home-hub {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.home-search-panel,
+.home-preview-panel,
+.home-recent-panel,
+.home-entry-card {
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.home-section-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.home-section-copy h3 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+}
+
+.home-section-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.home-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.home-inline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.home-list {
+  display: grid;
+  gap: 10px;
+}
+
+.home-list-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: var(--panel-2);
+}
+
+.home-item-main {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.home-item-title {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.home-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.home-preview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 767px) {
+  .home-hub {
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  .home-entry-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .home-search-panel,
+  .home-preview-panel,
+  .home-recent-panel,
+  .home-entry-card {
+    padding: 14px;
+  }
+
+  .home-list-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .home-list-item .btn {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .home-section-copy h3 {
+    font-size: 16px;
+  }
+
+  .home-section-copy p,
+  .home-item-meta {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 599px) {
+  .home-search-panel,
+  .home-preview-panel,
+  .home-recent-panel,
+  .home-entry-card {
+    padding: 12px;
+  }
+
+  .home-preview-actions {
+    gap: 8px;
+  }
+
+  .home-preview-actions .btn,
+  .home-entry-card .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

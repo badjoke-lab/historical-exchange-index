@@ -1,5 +1,5 @@
+import HomeHubClient from '../components/home/home-hub-client'
 import { buildRegistryView } from '../lib/data/build-registry-view'
-import RegistryExplorerClient from '../components/registry/registry-explorer-client'
 
 export default function HomePage() {
   const { entities, summary } = buildRegistryView()
@@ -8,12 +8,10 @@ export default function HomePage() {
     : 0
 
   return (
-    <main>
-      <RegistryExplorerClient
-        entities={entities}
-        summary={summary}
-        archiveCoverage={archiveCoverage}
-      />
-    </main>
+    <HomeHubClient
+      entities={entities}
+      summary={summary}
+      archiveCoverage={archiveCoverage}
+    />
   )
 }
