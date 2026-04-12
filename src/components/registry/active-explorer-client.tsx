@@ -43,7 +43,13 @@ function formatLaunchYear(value: string | null) {
   return value ? value.slice(0, 4) : '—'
 }
 
-function ActiveRegistrySlice({ filtered }: { filtered: EntityRecord[] }) {
+function ActiveRegistrySlice({
+  filtered,
+  metaText,
+}: {
+  filtered: EntityRecord[]
+  metaText: string
+}) {
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE)
 
   const visible = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount])
@@ -51,6 +57,13 @@ function ActiveRegistrySlice({ filtered }: { filtered: EntityRecord[] }) {
 
   return (
     <>
+      <div className="results-meta">
+        <div>{metaText}</div>
+        <div>
+          Showing {visible.length} of {filtered.length}
+        </div>
+      </div>
+
       <div className="desktop-table">
         <table>
           <thead>
@@ -203,6 +216,7 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
   }, [entities, query, typeFilter, statusFilter, urlFilter])
 
   const sliceKey = `${query.trim().toLowerCase()}::${typeFilter}::${statusFilter}::${urlFilter}`
+  const metaText = `${query ? `Search: "${query}" · ` : ''}type=${typeFilter} · status=${statusFilter} · url=${urlFilter}`
 
   return (
     <>
@@ -288,15 +302,7 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
           </select>
         </div>
 
-        <div className="results-meta">
-          <div>
-            {query ? `Search: "${query}" · ` : ''}
-            type={typeFilter} · status={statusFilter} · url={urlFilter}
-          </div>
-          <div>Showing {Math.min(filtered.length, INITIAL_VISIBLE)}+ / {filtered.length}</div>
-        </div>
-
-        <ActiveRegistrySlice key={sliceKey} filtered={filtered} />
+        <ActiveRegistrySlice key={sliceKey} filtered={filtered} metaText={metaText} />
       </section>
     </>
   )
