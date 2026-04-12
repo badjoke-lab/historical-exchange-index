@@ -36,8 +36,150 @@ type ReasonFilter =
   | 'chain_failure'
   | 'unknown'
 
+const INITIAL_VISIBLE = 24
+const LOAD_MORE_STEP = 24
+
 function chipClass(status: string) {
   return `chip ${status}`
+}
+
+function DeadRegistrySlice({ filtered }: { filtered: EntityRecord[] }) {
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE)
+
+  const visible = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount])
+  const remaining = Math.max(filtered.length - visible.length, 0)
+
+  return (
+    <>
+      <div className="desktop-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Death reason</th>
+              <th>Years</th>
+              <th>Origin</th>
+              <th>Domain</th>
+              <th>Archive</th>
+            </tr>
+          </thead>
+          <tbody>
+            {visible.length === 0 ? (
+              <tr>
+                <td colSpan={8}>
+                  <div className="name-cell">
+                    <span className="name-main">No matching records</span>
+                    <span className="name-sub">Try clearing filters or broadening the search query.</span>
+                  </div>
+                </td>
+              </tr>
+            ) : (
+              visible.map((entity) => (
+                <tr key={entity.id}>
+                  <td>
+                    <div className="name-cell">
+                      <Link className="name-main subtle-link" href={`/exchange/${entity.slug}/`}>
+                        {entity.canonical_name}
+                      </Link>
+                      <span className="name-sub">
+                        {entity.aliases.length > 0 ? entity.aliases.join(', ') : entity.official_domain_original ?? '—'}
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <span className="chip type">{entity.type.toUpperCase()}</span>
+                  </td>
+                  <td>
+                    <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
+                  </td>
+                  <td>
+                    {entity.death_reason ? (
+                      <span className="chip reason">{DEATH_REASON_LABELS[entity.death_reason]}</span>
+                    ) : (
+                      <span className="muted">—</span>
+                    )}
+                  </td>
+                  <td>{formatYears(entity.launch_date, entity.death_date)}</td>
+                  <td>{entity.country_or_origin ?? '—'}</td>
+                  <td>{entity.official_domain_original ?? '—'}</td>
+                  <td>
+                    {entity.archived_url ? (
+                      <a className="archive-link" href={entity.archived_url} target="_blank" rel="noreferrer">
+                        archive
+                      </a>
+                    ) : (
+                      <span className="muted">—</span>
+                    )}
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="compact-list">
+        {visible.length === 0 ? (
+          <div className="record-empty">
+            <div className="name-cell">
+              <span className="name-main">No matching records</span>
+              <span className="name-sub">Try clearing filters or broadening the search query.</span>
+            </div>
+          </div>
+        ) : (
+          <div className="record-list">
+            {visible.map((entity) => (
+              <div className="record-item" key={entity.id}>
+                <div className="record-top">
+                  <div className="record-main">
+                    <Link className="record-title subtle-link" href={`/exchange/${entity.slug}/`}>
+                      {entity.canonical_name}
+                    </Link>
+                  </div>
+
+                  <div className="record-chips">
+                    <span className="chip type">{entity.type.toUpperCase()}</span>
+                    <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
+                  </div>
+                </div>
+
+                <div className="record-meta">
+                  {entity.death_reason ? (
+                    <span className="chip reason">{DEATH_REASON_LABELS[entity.death_reason]}</span>
+                  ) : (
+                    <span className="muted">—</span>
+                  )}
+                  <span>{formatYears(entity.launch_date, entity.death_date)}</span>
+                  {entity.archived_url ? (
+                    <a className="archive-link" href={entity.archived_url} target="_blank" rel="noreferrer">
+                      Archive
+                    </a>
+                  ) : (
+                    <span className="muted">No archive</span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {remaining > 0 ? (
+        <div className="registry-load-more">
+          <button
+            type="button"
+            className="btn"
+            onClick={() => setVisibleCount((count) => count + LOAD_MORE_STEP)}
+          >
+            Load more
+          </button>
+          <div className="registry-load-more-note">{remaining} remaining in current slice</div>
+        </div>
+      ) : null}
+    </>
+  )
 }
 
 export default function DeadExplorerClient({ entities, summary }: Props) {
@@ -69,6 +211,8 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
       return haystack.includes(q)
     })
   }, [entities, query, typeFilter, statusFilter, reasonFilter])
+
+  const sliceKey = `${query.trim().toLowerCase()}::${typeFilter}::${statusFilter}::${reasonFilter}`
 
   return (
     <>
@@ -163,123 +307,10 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
             {query ? `Search: "${query}" · ` : ''}
             type={typeFilter} · status={statusFilter} · reason={reasonFilter}
           </div>
-          <div>{filtered.length} results</div>
+          <div>Showing {Math.min(filtered.length, INITIAL_VISIBLE)}+ / {filtered.length}</div>
         </div>
 
-        <div className="desktop-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th>Death reason</th>
-                <th>Years</th>
-                <th>Origin</th>
-                <th>Domain</th>
-                <th>Archive</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.length === 0 ? (
-                <tr>
-                  <td colSpan={8}>
-                    <div className="name-cell">
-                      <span className="name-main">No matching records</span>
-                      <span className="name-sub">Try clearing filters or broadening the search query.</span>
-                    </div>
-                  </td>
-                </tr>
-              ) : (
-                filtered.map((entity) => (
-                  <tr key={entity.id}>
-                    <td>
-                      <div className="name-cell">
-                        <Link className="name-main subtle-link" href={`/exchange/${entity.slug}/`}>
-                          {entity.canonical_name}
-                        </Link>
-                        <span className="name-sub">
-                          {entity.aliases.length > 0 ? entity.aliases.join(', ') : entity.official_domain_original ?? '—'}
-                        </span>
-                      </div>
-                    </td>
-                    <td>
-                      <span className="chip type">{entity.type.toUpperCase()}</span>
-                    </td>
-                    <td>
-                      <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
-                    </td>
-                    <td>
-                      {entity.death_reason ? (
-                        <span className="chip reason">{DEATH_REASON_LABELS[entity.death_reason]}</span>
-                      ) : (
-                        <span className="muted">—</span>
-                      )}
-                    </td>
-                    <td>{formatYears(entity.launch_date, entity.death_date)}</td>
-                    <td>{entity.country_or_origin ?? '—'}</td>
-                    <td>{entity.official_domain_original ?? '—'}</td>
-                    <td>
-                      {entity.archived_url ? (
-                        <a className="archive-link" href={entity.archived_url} target="_blank" rel="noreferrer">
-                          archive
-                        </a>
-                      ) : (
-                        <span className="muted">—</span>
-                      )}
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="compact-list">
-          {filtered.length === 0 ? (
-            <div className="record-empty">
-              <div className="name-cell">
-                <span className="name-main">No matching records</span>
-                <span className="name-sub">Try clearing filters or broadening the search query.</span>
-              </div>
-            </div>
-          ) : (
-            <div className="record-list">
-              {filtered.map((entity) => (
-                <div className="record-item" key={entity.id}>
-                  <div className="record-top">
-                    <div className="record-main">
-                      <Link className="record-title subtle-link" href={`/exchange/${entity.slug}/`}>
-                        {entity.canonical_name}
-                      </Link>
-                    </div>
-
-                    <div className="record-chips">
-                      <span className="chip type">{entity.type.toUpperCase()}</span>
-                      <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
-                    </div>
-                  </div>
-
-                  <div className="record-meta">
-                    {entity.death_reason ? (
-                      <span className="chip reason">{DEATH_REASON_LABELS[entity.death_reason]}</span>
-                    ) : (
-                      <span className="muted">—</span>
-                    )}
-                    <span>{formatYears(entity.launch_date, entity.death_date)}</span>
-                    {entity.archived_url ? (
-                      <a className="archive-link" href={entity.archived_url} target="_blank" rel="noreferrer">
-                        Archive
-                      </a>
-                    ) : (
-                      <span className="muted">No archive</span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+        <DeadRegistrySlice key={sliceKey} filtered={filtered} />
       </section>
     </>
   )
