@@ -54,7 +54,7 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
         }
         return a.canonical_name.localeCompare(b.canonical_name)
       })
-      .slice(0, 6)
+      .slice(0, 4)
   }, [entities])
 
   const searchState = useMemo(() => {
@@ -226,9 +226,9 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
           <h3>Recently updated</h3>
           <p>Latest verified or revised records in the registry.</p>
         </div>
-        <div className="home-list">
+        <div className="home-list home-list-recent">
           {recentUpdated.map((entity) => (
-            <div className="home-list-item" key={entity.id}>
+            <div className="home-list-item home-list-item-recent" key={entity.id}>
               <div className="home-item-main">
                 <Link className="home-item-title subtle-link" href={`/exchange/${entity.slug}/`}>
                   {entity.canonical_name}
@@ -239,8 +239,8 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
                   <span>verified {entity.last_verified_at.slice(0, 10)}</span>
                 </div>
               </div>
-              <div>
-                <Link className="btn" href={`/exchange/${entity.slug}/`}>Open</Link>
+              <div className="home-item-action">
+                <Link className="btn btn-compact" href={`/exchange/${entity.slug}/`}>Open</Link>
               </div>
             </div>
           ))}
