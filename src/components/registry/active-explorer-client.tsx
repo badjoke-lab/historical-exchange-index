@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import type { EntityRecord } from '../../lib/types/entity'
 import { STATUS_LABELS } from '../../lib/utils/status-meta'
 import { URL_STATUS_LABELS } from '../../lib/utils/url-meta'
@@ -43,6 +44,26 @@ function formatLaunchYear(value: string | null) {
   return value ? value.slice(0, 4) : '—'
 }
 
+function isTypeFilter(value: string | null): value is Exclude<TypeFilter, 'all'> {
+  return value === 'cex' || value === 'dex' || value === 'hybrid'
+}
+
+function isStatusFilter(value: string | null): value is Exclude<StatusFilter, 'all'> {
+  return value === 'active' || value === 'limited' || value === 'inactive'
+}
+
+function isUrlFilter(value: string | null): value is Exclude<UrlFilter, 'all'> {
+  return (
+    value === 'live_verified' ||
+    value === 'live_unverified' ||
+    value === 'dead_domain' ||
+    value === 'redirected' ||
+    value === 'repurposed' ||
+    value === 'unsafe' ||
+    value === 'unknown'
+  )
+}
+
 function ActiveRegistrySlice({
   filtered,
   metaText,
@@ -59,9 +80,7 @@ function ActiveRegistrySlice({
     <>
       <div className="results-meta">
         <div>{metaText}</div>
-        <div>
-          Showing {visible.length} of {filtered.length}
-        </div>
+        <div>Showing {visible.length} of {filtered.length}</div>
       </div>
 
       <div className="desktop-table">
@@ -186,10 +205,28 @@ function ActiveRegistrySlice({
 }
 
 export default function ActiveExplorerClient({ entities, summary }: Props) {
-  const [query, setQuery] = useState('')
-  const [typeFilter, setTypeFilter] = useState<TypeFilter>('all')
-  const [statusFilter, setStatusFilter] = useState<StatusFilter>('all')
-  const [urlFilter, setUrlFilter] = useState<UrlFilter>('all')
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const query = searchParams.get('q') ?? ''
+  const typeFilter: TypeFilter = isTypeFilter(searchParams.get('type')) ? searchParams.get('type')! : 'all'
+  const statusFilter: StatusFilter = isStatusFilter(searchParams.get('status')) ? searchParams.get('status')! : 'all'
+  const urlFilter: UrlFilter = isUrlFilter(searchParams.get('url')) ? searchParams.get('url')! : 'all'
+
+  const setParam = (key: string, value: string, defaultValue = 'all') => {
+    const params = new URLSearchParams(searchParams.toString())
+    const trimmed = value.trim()
+
+    if (!trimmed || trimmed === defaultValue) {
+      params.delete(key)
+    } else {
+      params.set(key, trimmed)
+    }
+
+    const next = params.toString()
+    router.replace(next ? `${pathname}?${next}` : pathname, { scroll: false })
+  }
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -260,14 +297,14 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
               className="field"
               placeholder="Search active-side by name, alias, domain, origin, summary"
               value={query}
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) => setParam('q', event.target.value, '')}
             />
           </div>
 
           <select
             className="field mobile-hide"
             value={typeFilter}
-            onChange={(event) => setTypeFilter(event.target.value as TypeFilter)}
+            onChange={(event) => setParam('type', event.target.value)}
           >
             <option value="all">All types</option>
             <option value="cex">CEX</option>
@@ -278,7 +315,7 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
           <select
             className="field"
             value={statusFilter}
-            onChange={(event) => setStatusFilter(event.target.value as StatusFilter)}
+            onChange={(event) => setParam('status', event.target.value)}
           >
             <option value="all">All active-side statuses</option>
             <option value="active">Active</option>
@@ -289,7 +326,7 @@ export default function ActiveExplorerClient({ entities, summary }: Props) {
           <select
             className="field"
             value={urlFilter}
-            onChange={(event) => setUrlFilter(event.target.value as UrlFilter)}
+            onChange={(event) => setParam('url', event.target.value)}
           >
             <option value="all">All URL statuses</option>
             <option value="live_verified">Live verified</option>

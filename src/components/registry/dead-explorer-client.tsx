@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import type { EntityRecord } from '../../lib/types/entity'
 import { formatYears } from '../../lib/utils/format-years'
 import { STATUS_LABELS } from '../../lib/utils/status-meta'
@@ -33,7 +34,7 @@ type ReasonFilter =
   | 'acquisition'
   | 'rebrand'
   | 'voluntary_shutdown'
-  | 'ch in_failure'
+  | 'chain_failure'
   | 'unknown'
 
 const INITIAL_VISIBLE = 24
@@ -41,6 +42,29 @@ const LOAD_MORE_STEP = 24
 
 function chipClass(status: string) {
   return `chip ${status}`
+}
+
+function isTypeFilter(value: string | null): value is Exclude<TypeFilter, 'all'> {
+  return value === 'cex' || value === 'dex' || value === 'hybrid'
+}
+
+function isStatusFilter(value: string | null): value is Exclude<StatusFilter, 'all'> {
+  return value === 'dead' || value === 'merged' || value === 'acquired' || value === 'rebranded'
+}
+
+function isReasonFilter(value: string | null): value is Exclude<ReasonFilter, 'all'> {
+  return (
+    value === 'hack' ||
+    value === 'insolvency' ||
+    value === 'regulation' ||
+    value === 'scam_rug' ||
+    value === 'merger' ||
+    value === 'acquisition' ||
+    value === 'rebrand' ||
+    value === 'voluntary_shutdown' ||
+    value === 'chain_failure' ||
+    value === 'unknown'
+  )
 }
 
 function DeadRegistrySlice({
@@ -59,9 +83,7 @@ function DeadRegistrySlice({
     <>
       <div className="results-meta">
         <div>{metaText}</div>
-        <div>
-          Showing {visible.length} of {filtered.length}
-        </div>
+        <div>Showing {visible.length} of {filtered.length}</div>
       </div>
 
       <div className="desktop-table">
@@ -196,10 +218,28 @@ function DeadRegistrySlice({
 }
 
 export default function DeadExplorerClient({ entities, summary }: Props) {
-  const [query, setQuery] = useState('')
-  const [typeFilter, setTypeFilter] = useState<TypeFilter>('all')
-  const [statusFilter, setStatusFilter] = useState<StatusFilter>('all')
-  const [reasonFilter, setReasonFilter] = useState<ReasonFilter>('all')
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const query = searchParams.get('q') ?? ''
+  const typeFilter: TypeFilter = isTypeFilter(searchParams.get('type')) ? searchParams.get('type')! : 'all'
+  const statusFilter: StatusFilter = isStatusFilter(searchParams.get('status')) ? searchParams.get('status')! : 'all'
+  const reasonFilter: ReasonFilter = isReasonFilter(searchParams.get('reason')) ? searchParams.get('reason')! : 'all'
+
+  const setParam = (key: string, value: string, defaultValue = 'all') => {
+    const params = new URLSearchParams(searchParams.toString())
+    const trimmed = value.trim()
+
+    if (!trimmed || trimmed === defaultValue) {
+      params.delete(key)
+    } else {
+      params.set(key, trimmed)
+    }
+
+    const next = params.toString()
+    router.replace(next ? `${pathname}?${next}` : pathname, { scroll: false })
+  }
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -270,14 +310,14 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
               className="field"
               placeholder="Search dead-side by name, alias, domain, origin, summary"
               value={query}
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) => setParam('q', event.target.value, '')}
             />
           </div>
 
           <select
             className="field mobile-hide"
             value={typeFilter}
-            onChange={(event) => setTypeFilter(event.target.value as TypeFilter)}
+            onChange={(event) => setParam('type', event.target.value)}
           >
             <option value="all">All types</option>
             <option value="cex">CEX</option>
@@ -288,7 +328,7 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
           <select
             className="field"
             value={statusFilter}
-            onChange={(event) => setStatusFilter(event.target.value as StatusFilter)}
+            onChange={(event) => setParam('status', event.target.value)}
           >
             <option value="all">All dead-side statuses</option>
             <option value="dead">Dead</option>
@@ -300,7 +340,7 @@ export default function DeadExplorerClient({ entities, summary }: Props) {
           <select
             className="field"
             value={reasonFilter}
-            onChange={(event) => setReasonFilter(event.target.value as ReasonFilter)}
+            onChange={(event) => setParam('reason', event.target.value)}
           >
             <option value="all">All death reasons</option>
             <option value="hack">Hack</option>
