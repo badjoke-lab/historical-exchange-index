@@ -1337,3 +1337,60 @@ tbody tr:hover {
     justify-content: center;
   }
 }
+
+/* HEI mobile registry filter tightening */
+@media (max-width: 767px) {
+  .controls {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .controls .search {
+    grid-column: auto;
+    min-width: 100%;
+  }
+
+  .controls .field {
+    width: 100%;
+  }
+
+  .controls .mobile-hide {
+    display: none;
+  }
+
+  .results-meta {
+    padding: 8px 10px;
+    gap: 4px;
+  }
+
+  .results-meta div:first-child {
+    display: none;
+  }
+
+  .registry-toolbar-actions {
+    padding: 0 10px 10px;
+  }
+
+  .registry-toolbar-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 599px) {
+  .controls {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .controls .field {
+    height: 36px;
+    font-size: 11px;
+    padding: 0 10px;
+  }
+
+  .registry-toolbar-actions {
+    padding: 0 8px 8px;
+  }
+}
