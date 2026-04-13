@@ -5,6 +5,14 @@ Historical Exchange Index (HEI) is a historical registry of crypto exchanges.
 HEI is built to track exchanges as historical records rather than as live rankings.
 Its focus is on exchange identity, operating status, major lifecycle events, archived references, and supporting records.
 
+## Links
+
+- **Live site**: https://historical-exchange-index.pages.dev/
+- **Methodology**: https://historical-exchange-index.pages.dev/methodology/
+- **Contact / Corrections**: https://docs.google.com/forms/d/e/1FAIpQLSf6NGsKIaGUzeGWUAyphOsv0XN3eSBebsASj_0g-qtZtNamWw/viewform
+- **Donate**: https://historical-exchange-index.pages.dev/donate/
+- **GitHub**: https://github.com/badjoke-lab/historical-exchange-index
+
 ## What HEI does
 
 HEI organizes exchange records around three core layers:
@@ -89,9 +97,9 @@ Unknown values are sometimes kept as unknown rather than being forced into a wea
 
 ## Corrections
 
-HEI is intended to include clear correction paths.
+HEI includes a public contact / correction form.
 
-If you notice an error, missing record, broken classification, or important omission, use the public correction/contact path provided on the site.
+If you notice an error, missing record, broken classification, or important omission, use the public form on the site or open a GitHub issue when appropriate.
 
 ## Donate
 
@@ -106,7 +114,6 @@ Donations help support work such as:
 - long-term maintenance
 
 Donation support is optional.
-Wallet addresses and support methods will be listed on the Donate page when they are ready.
 
 ## Project direction
 
