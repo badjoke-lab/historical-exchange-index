@@ -1,0 +1,13 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Live site
+    url: https://historical-exchange-index.pages.dev/
+    about: Browse the public site.
+
+  - name: Methodology
+    url: https://historical-exchange-index.pages.dev/methodology/
+    about: Read the current methodology and project framing.
+
+  - name: GitHub funding / support
+    url: https://historical-exchange-index.pages.dev/donate/
+    about: Support continued maintenance and record expansion.
