@@ -1,5 +1,9 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Contact / Corrections
+    url: https://docs.google.com/forms/d/e/1FAIpQLSf6NGsKIaGUzeGWUAyphOsv0XN3eSBebsASj_0g-qtZtNamWw/viewform
+    about: Report record corrections, missing exchanges, site bugs, or send general HEI-related messages.
+
   - name: Live site
     url: https://historical-exchange-index.pages.dev/
     about: Browse the public site.
@@ -8,6 +12,6 @@ contact_links:
     url: https://historical-exchange-index.pages.dev/methodology/
     about: Read the current methodology and project framing.
 
-  - name: GitHub funding / support
+  - name: Donate
     url: https://historical-exchange-index.pages.dev/donate/
     about: Support continued maintenance and record expansion.
