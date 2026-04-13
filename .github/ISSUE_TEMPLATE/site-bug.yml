@@ -1,0 +1,71 @@
+name: Site bug
+description: Report a UI, routing, rendering, or general site issue.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for site bugs such as broken pages, rendering issues, bad links, or unexpected behavior.
+
+  - type: input
+    id: page_url
+    attributes:
+      label: Affected page URL
+      description: Link to the page where the problem happens.
+      placeholder: https://historical-exchange-index.pages.dev/...
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser / device
+      description: Optional, but helpful.
+      placeholder: Chrome on Windows / Safari on iPhone / Firefox on Linux
+    validations:
+      required: false
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: What happened?
+      description: Describe the issue clearly.
+      placeholder: The archive link renders, but clicking it does nothing.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+      placeholder: The archive link should open the archived page in a new tab.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the shortest path to reproduce the bug.
+      placeholder: |
+        1. Open ...
+        2. Click ...
+        3. Observe ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or extra context
+      description: Optional.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Final check
+      options:
+        - label: I confirmed this is a site bug rather than a record correction request.
+          required: true
