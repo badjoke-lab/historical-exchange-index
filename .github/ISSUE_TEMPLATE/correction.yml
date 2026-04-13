@@ -1,0 +1,87 @@
+name: Record correction
+description: Report a factual error, misclassification, or missing source for an HEI entry.
+title: "[Correction]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for record corrections, classification issues, broken source handling, or missing evidence.
+        Please include source links when possible.
+
+  - type: input
+    id: exchange_name
+    attributes:
+      label: Exchange name
+      description: Name of the exchange this report is about.
+      placeholder: e.g. Mt. Gox
+    validations:
+      required: true
+
+  - type: input
+    id: page_url
+    attributes:
+      label: HEI page URL
+      description: Link to the specific HEI page, if available.
+      placeholder: https://historical-exchange-index.pages.dev/exchange/...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: correction_type
+    attributes:
+      label: What kind of correction is this?
+      options:
+        - Status classification
+        - Death reason
+        - Timeline / event
+        - Evidence / source quality
+        - URL handling / archive handling
+        - Missing exchange
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What looks wrong?
+      description: Describe the issue as clearly as possible.
+      placeholder: The entry is marked as dead, but it appears to have been acquired and rebranded instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested_fix
+    attributes:
+      label: Suggested correction
+      description: What should be changed?
+      placeholder: Status should be acquired, with a related rebrand note.
+    validations:
+      required: false
+
+  - type: textarea
+    id: source_links
+    attributes:
+      label: Source links
+      description: Add official statements, archived pages, reporting, court records, or other supporting links.
+      placeholder: |
+        https://...
+        https://web.archive.org/...
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Anything else that may help review this report.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Final check
+      options:
+        - label: I understand that unsupported claims may be left unresolved until stronger evidence is available.
+          required: true
