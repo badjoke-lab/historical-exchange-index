@@ -1,4 +1,14 @@
+import type { Metadata } from 'next'
 import DonateWalletsClient from '../../components/donate/donate-wallets-client'
+
+export const metadata: Metadata = {
+  title: 'Donate',
+  description:
+    'Support Historical Exchange Index with the published wallet addresses for BTC, ETH, USDT, USDC, SOL, BNB, DOGE, AVAX, and XRP.',
+  alternates: {
+    canonical: '/donate',
+  },
+}
 
 export default function DonatePage() {
   return (

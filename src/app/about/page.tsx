@@ -1,4 +1,14 @@
+import type { Metadata } from 'next'
 import { CORRECTION_HREF } from '../../lib/site-constants'
+
+export const metadata: Metadata = {
+  title: 'About',
+  description:
+    'Learn why Historical Exchange Index exists, what it is, what it is not, and how corrections are handled.',
+  alternates: {
+    canonical: '/about',
+  },
+}
 
 export default function AboutPage() {
   return (

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { buildDetailView } from '../../../lib/data/build-detail-view'
 import { loadEntities } from '../../../lib/data/load-entities'
 import { formatDate } from '../../../lib/utils/format-date'
@@ -6,7 +7,7 @@ import { formatYears } from '../../../lib/utils/format-years'
 import { STATUS_LABELS } from '../../../lib/utils/status-meta'
 import { DEATH_REASON_LABELS } from '../../../lib/utils/death-reason-meta'
 import { URL_STATUS_LABELS } from '../../../lib/utils/url-meta'
-import { CORRECTION_HREF } from '../../../lib/site-constants'
+import { CORRECTION_HREF, SITE_NAME } from '../../../lib/site-constants'
 
 type DetailPageProps = {
   params: Promise<{
@@ -36,6 +37,44 @@ export function generateStaticParams() {
   return loadEntities().map((entity) => ({
     slug: entity.slug,
   }))
+}
+
+export async function generateMetadata({ params }: DetailPageProps): Promise<Metadata> {
+  const { slug } = await params
+  const detail = buildDetailView(slug)
+
+  if (!detail) {
+    return {
+      title: 'Entry not found',
+      description: 'No exchange record exists for this slug yet.',
+      alternates: {
+        canonical: `/exchange/${slug}`,
+      },
+    }
+  }
+
+  const { entity } = detail
+  const isDeadSide = DEAD_SIDE.has(entity.status)
+  const sideLabel = isDeadSide ? 'Dead-side' : 'Active-side'
+
+  return {
+    title: entity.canonical_name,
+    description: `${entity.summary} ${sideLabel} exchange record in ${SITE_NAME}.`,
+    alternates: {
+      canonical: `/exchange/${entity.slug}`,
+    },
+    openGraph: {
+      title: entity.canonical_name,
+      description: `${entity.summary} ${sideLabel} exchange record in ${SITE_NAME}.`,
+      type: 'article',
+      url: `/exchange/${entity.slug}`,
+    },
+    twitter: {
+      card: 'summary',
+      title: entity.canonical_name,
+      description: `${entity.summary} ${sideLabel} exchange record in ${SITE_NAME}.`,
+    },
+  }
 }
 
 export default async function ExchangeDetailPage({ params }: DetailPageProps) {

@@ -1,9 +1,19 @@
 import { Suspense } from 'react'
+import type { Metadata } from 'next'
 import DeadExplorerClient from '../../components/registry/dead-explorer-client'
 import { loadEntities } from '../../lib/data/load-entities'
 import { CORRECTION_HREF } from '../../lib/site-constants'
 
 const DEAD_SIDE = new Set<string>(['dead', 'merged', 'acquired', 'rebranded'])
+
+export const metadata: Metadata = {
+  title: 'Dead exchanges',
+  description:
+    'Browse the dead-side registry of crypto exchanges, including dead, merged, acquired, and rebranded records with archive-aware handling.',
+  alternates: {
+    canonical: '/dead',
+  },
+}
 
 export default function DeadPage() {
   const entities = loadEntities()

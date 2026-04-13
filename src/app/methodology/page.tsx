@@ -1,4 +1,14 @@
+import type { Metadata } from 'next'
 import { CORRECTION_HREF } from '../../lib/site-constants'
+
+export const metadata: Metadata = {
+  title: 'Methodology',
+  description:
+    'Read how Historical Exchange Index classifies exchange records, handles uncertainty, and treats archive-aware URLs.',
+  alternates: {
+    canonical: '/methodology',
+  },
+}
 
 export default function MethodologyPage() {
   return (

@@ -1,9 +1,19 @@
 import { Suspense } from 'react'
+import type { Metadata } from 'next'
 import ActiveExplorerClient from '../../components/registry/active-explorer-client'
 import { loadEntities } from '../../lib/data/load-entities'
 import { CORRECTION_HREF } from '../../lib/site-constants'
 
 const ACTIVE_SIDE = new Set<string>(['active', 'limited', 'inactive'])
+
+export const metadata: Metadata = {
+  title: 'Active exchanges',
+  description:
+    'Browse the active-side registry of crypto exchanges, including active, limited, and inactive records with URL handling and launch timing.',
+  alternates: {
+    canonical: '/active',
+  },
+}
 
 export default function ActivePage() {
   const entities = loadEntities()
