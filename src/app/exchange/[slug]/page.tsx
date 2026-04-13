@@ -7,7 +7,7 @@ import { formatYears } from '../../../lib/utils/format-years'
 import { STATUS_LABELS } from '../../../lib/utils/status-meta'
 import { DEATH_REASON_LABELS } from '../../../lib/utils/death-reason-meta'
 import { URL_STATUS_LABELS } from '../../../lib/utils/url-meta'
-import { CORRECTION_HREF, SITE_NAME } from '../../../lib/site-constants'
+import { CONTACT_HREF, ISSUES_HREF, SITE_NAME } from '../../../lib/site-constants'
 
 type DetailPageProps = {
   params: Promise<{
@@ -388,8 +388,8 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
             This record may be incomplete or revised. Dead-side entries prefer archived URLs over original domains.
             Dates, causes, and classifications may change when stronger evidence becomes available.
             <span> </span>
-            <a className="archive-link" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
-              Submit correction
+            <a className="archive-link" href={CONTACT_HREF} target="_blank" rel="noreferrer">
+              Contact / corrections
             </a>
           </div>
 
@@ -409,10 +409,18 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
                 </div>
               </div>
               <div className="fact">
-                <div className="k">Correction</div>
+                <div className="k">Contact / Corrections</div>
                 <div className="v">
-                  <a className="subtle-link" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
-                    Report an issue
+                  <a className="subtle-link" href={CONTACT_HREF} target="_blank" rel="noreferrer">
+                    Open form
+                  </a>
+                </div>
+              </div>
+              <div className="fact">
+                <div className="k">GitHub Issues</div>
+                <div className="v">
+                  <a className="subtle-link" href={ISSUES_HREF} target="_blank" rel="noreferrer">
+                    Open GitHub issue
                   </a>
                 </div>
               </div>

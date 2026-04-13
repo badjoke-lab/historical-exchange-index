@@ -4,9 +4,11 @@ import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import GoogleAnalytics from '../components/analytics/google-analytics'
 import {
-  CORRECTION_HREF,
+  CONTACT_HREF,
+  DONATE_HREF,
   GA_MEASUREMENT_ID,
   GSC_VERIFICATION_TOKEN,
+  ISSUES_HREF,
   SITE_DESCRIPTION,
   SITE_NAME,
   SITE_SHORT_NAME,
@@ -73,7 +75,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <Link className="nav-link" href="/active">Active</Link>
               <Link className="nav-link nav-secondary" href="/methodology">Methodology</Link>
               <Link className="nav-link nav-secondary" href="/about">About</Link>
-              <Link className="utility" href="/donate">Donate</Link>
+              <Link className="utility" href={DONATE_HREF}>Donate</Link>
             </nav>
           </header>
 
@@ -82,11 +84,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <footer className="footer">
             <div className="footer-copy">Historical Exchange Index — quiet registry / archive-first / history-first</div>
             <div className="footer-links">
-              <a className="archive-link" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
-                Corrections
+              <a className="archive-link" href={CONTACT_HREF} target="_blank" rel="noreferrer">
+                Contact / Corrections
               </a>
               <span className="muted footer-sep"> · </span>
-              <Link className="archive-link" href="/donate">Support HEI</Link>
+              <a className="archive-link" href={ISSUES_HREF} target="_blank" rel="noreferrer">
+                GitHub Issues
+              </a>
+              <span className="muted footer-sep"> · </span>
+              <Link className="archive-link" href={DONATE_HREF}>Support HEI</Link>
               <span className="muted footer-sep"> · </span>
               <Link href="/about">About</Link>
             </div>

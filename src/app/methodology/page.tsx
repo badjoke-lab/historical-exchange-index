@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { CORRECTION_HREF } from '../../lib/site-constants'
+import { CONTACT_HREF, ISSUES_HREF } from '../../lib/site-constants'
 
 export const metadata: Metadata = {
   title: 'Methodology',
@@ -91,14 +91,19 @@ export default function MethodologyPage() {
         </div>
 
         <div className="section">
-          <h4>Corrections</h4>
+          <h4>Contact and corrections</h4>
           <p className="muted" style={{ margin: '0 0 12px', lineHeight: 1.75 }}>
-            When a record is wrong or incomplete, the correction path should be used to submit a better record,
-            stronger evidence, or a safer URL interpretation.
+            When a record is wrong or incomplete, use the contact / correction form to submit a better record,
+            stronger evidence, or a safer URL interpretation. GitHub Issues is also available for a public report path.
           </p>
-          <a className="btn btn-primary" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
-            Submit a correction
-          </a>
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <a className="btn btn-primary" href={CONTACT_HREF} target="_blank" rel="noreferrer">
+              Open contact / corrections form
+            </a>
+            <a className="btn" href={ISSUES_HREF} target="_blank" rel="noreferrer">
+              Open GitHub issues
+            </a>
+          </div>
         </div>
       </section>
 

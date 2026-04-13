@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import DeadExplorerClient from '../../components/registry/dead-explorer-client'
 import { loadEntities } from '../../lib/data/load-entities'
-import { CORRECTION_HREF } from '../../lib/site-constants'
+import { CONTACT_HREF } from '../../lib/site-constants'
 
 const DEAD_SIDE = new Set<string>(['dead', 'merged', 'acquired', 'rebranded'])
 
@@ -50,8 +50,8 @@ export default function DeadPage() {
           </div>
 
           <div className="hero-actions" style={{ marginTop: 0 }}>
-            <a className="btn" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
-              Submit correction
+            <a className="btn" href={CONTACT_HREF} target="_blank" rel="noreferrer">
+              Contact / corrections
             </a>
           </div>
         </div>

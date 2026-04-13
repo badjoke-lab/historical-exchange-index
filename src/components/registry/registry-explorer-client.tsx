@@ -6,7 +6,7 @@ import type { EntityRecord } from '../../lib/types/entity'
 import { formatYears } from '../../lib/utils/format-years'
 import { STATUS_LABELS } from '../../lib/utils/status-meta'
 import { DEATH_REASON_LABELS } from '../../lib/utils/death-reason-meta'
-import { CORRECTION_HREF } from '../../lib/site-constants'
+import { CONTACT_HREF } from '../../lib/site-constants'
 
 type RegistrySummary = {
   total: number
@@ -136,8 +136,8 @@ export default function RegistryExplorerClient({ entities, summary, archiveCover
           <div className="hero-actions">
             <Link className="btn btn-primary" href="/dead">Browse dead-side entries</Link>
             <Link className="btn" href="/methodology">Read methodology</Link>
-            <a className="btn" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
-              Submit a correction
+            <a className="btn" href={CONTACT_HREF} target="_blank" rel="noreferrer">
+              Contact / corrections
             </a>
           </div>
         </div>

@@ -8,5 +8,8 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL).r
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? ''
 export const GSC_VERIFICATION_TOKEN = process.env.GSC_VERIFICATION_TOKEN ?? ''
 
-export const CORRECTION_HREF =
+export const CONTACT_HREF =
+  'https://docs.google.com/forms/d/e/1FAIpQLSf6NGsKIaGUzeGWUAyphOsv0XN3eSBebsASj_0g-qtZtNamWw/viewform'
+export const ISSUES_HREF =
   'https://github.com/badjoke-lab/historical-exchange-index/issues/new'
+export const DONATE_HREF = '/donate'

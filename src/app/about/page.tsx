@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { CORRECTION_HREF } from '../../lib/site-constants'
+import { CONTACT_HREF, ISSUES_HREF } from '../../lib/site-constants'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -77,14 +77,20 @@ export default function AboutPage() {
         </div>
 
         <div className="section" id="corrections">
-          <h4>Corrections</h4>
+          <h4>Contact and corrections</h4>
           <p className="muted" style={{ margin: '0 0 12px', lineHeight: 1.75 }}>
             If you notice a missing record, broken classification, wrong date, unsafe URL treatment, or an
-            important omission, use the correction path below.
+            important omission, use the contact / correction form below. If you prefer a public report path,
+            GitHub Issues is also available.
           </p>
-          <a className="btn btn-primary" href={CORRECTION_HREF} target="_blank" rel="noreferrer">
-            Open correction path
-          </a>
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <a className="btn btn-primary" href={CONTACT_HREF} target="_blank" rel="noreferrer">
+              Open contact / corrections form
+            </a>
+            <a className="btn" href={ISSUES_HREF} target="_blank" rel="noreferrer">
+              Open GitHub issues
+            </a>
+          </div>
         </div>
       </section>
 
