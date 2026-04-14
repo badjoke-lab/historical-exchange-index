@@ -1076,5 +1076,33 @@
     "source_count": 1,
     "sort_order": 2,
     "notes": "HEI uses 2019-04-01 as the terminal date."
+  },
+  {
+    "id": "hei_ev_000187",
+    "exchange_id": "hei_ex_000158",
+    "event_type": "service_outage",
+    "event_date": "2019-06-27",
+    "title": "C-CEX became inaccessible",
+    "description": "By 2019-06-27, public exchange-status sources reported that the website was not accessible.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Start of conservative terminal handling."
+  },
+  {
+    "id": "hei_ev_000188",
+    "exchange_id": "hei_ex_000158",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-06-27",
+    "title": "C-CEX marked dead",
+    "description": "Public exchange-status sources marked C-CEX as dead or closed by 2019-06-27.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2019-06-27 as the conservative terminal marker."
   }
 ]
