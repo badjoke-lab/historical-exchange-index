@@ -3,29 +3,81 @@
   "slug_candidate": "coinroom",
   "kind": "dead",
   "priority": "A6",
-  "research_status": "todo",
+  "research_status": "in_review",
   "public_ready": false,
   "lineage_sensitive": false,
   "dedupe_checked_against_main": true,
-  "official_url_original": null,
-  "official_domain_original": null,
+  "official_url_original": "https://coinroom.com/",
+  "official_domain_original": "coinroom.com",
   "official_url_status_guess": "unknown",
   "archived_url": null,
-  "country_or_origin": null,
-  "launch_date": null,
-  "death_date": null,
-  "status": null,
-  "death_reason": null,
-  "summary_draft": null,
+  "country_or_origin": "Poland",
+  "launch_date": "2017-01-01",
+  "death_date": "2019-04-02",
+  "status": "dead",
+  "death_reason": "unknown",
+  "summary_draft": "Polish cryptocurrency exchange that shut down in April 2019 after earlier KNF regulatory action; customer-fund loss allegations exist, but this stub keeps the terminal cause conservative until stronger primary evidence is secured.",
   "required_evidence": {
-    "archive": [],
-    "non_archive": []
+    "archive": [
+      {
+        "title": "Wayback wildcard for Coinroom",
+        "url": "https://web.archive.org/web/*/https://coinroom.com/",
+        "publisher": "Internet Archive",
+        "published_at": null,
+        "purpose": "official site archive capture"
+      }
+    ],
+    "non_archive": [
+      {
+        "title": "Coinroom na liście ostrzeżeń KNF",
+        "url": "https://www.bankier.pl/wiadomosc/Coinroom-na-liscie-ostrzezen-KNF-4197515.html",
+        "publisher": "Bankier.pl",
+        "published_at": "2019-01-25",
+        "purpose": "regulatory warning / KNF action"
+      },
+      {
+        "title": "Polish Cryptocurrency Exchange Shuts Down Overnight, Taking Funds With It",
+        "url": "https://www.coindesk.com/markets/2019/06/08/polish-cryptocurrency-exchange-shuts-down-overnight-taking-funds-with-it",
+        "publisher": "CoinDesk",
+        "published_at": "2019-06-08",
+        "purpose": "shutdown timing / overnight closure / user loss reporting"
+      },
+      {
+        "title": "Report: Polish Exchange Shuts Down and Disappears With Customers Funds",
+        "url": "https://cointelegraph.com/news/report-polish-exchange-shuts-down-and-disappears-with-customers-funds",
+        "publisher": "Cointelegraph",
+        "published_at": "2019-06-04",
+        "purpose": "secondary corroboration of shutdown and fund-loss allegations"
+      }
+    ]
   },
-  "evidence_notes": [],
-  "event_candidates": [],
+  "evidence_notes": [
+    "Do not force scam_rug at this stage.",
+    "Shutdown is strong enough for dead-side handling, but the primary cause remains mixed across regulatory action and later customer-loss allegations.",
+    "Need archive plus at least two non-archive sources before public_ready promotion."
+  ],
+  "event_candidates": [
+    {
+      "event_type": "regulatory_action",
+      "event_date": "2019-01-25",
+      "title": "KNF public warning entry",
+      "description": "Coinroom was added to the Polish KNF public warning list over suspected unlicensed payment-services activity."
+    },
+    {
+      "event_type": "shutdown_effective",
+      "event_date": "2019-04-02",
+      "title": "Coinroom shutdown",
+      "description": "Users reported receiving account-termination notices and the exchange ceased operating in early April 2019."
+    }
+  ],
   "lineage_notes": [],
-  "risks": [],
+  "risks": [
+    "exact launch date still approximate",
+    "primary cause is contested",
+    "stronger official closure notice still desirable"
+  ],
   "final_notes": [
-    "Needs careful cause handling; do not force scam label."
+    "Keep Coinroom as dead / unknown for now.",
+    "Next step: find stronger archived official terms, notices, or preserved emails around the April 2019 shutdown."
   ]
 }
