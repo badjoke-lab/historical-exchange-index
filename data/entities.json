@@ -3156,5 +3156,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-14",
     "notes": "Operational end marker uses the 2019-04-02 shutdown date reported by multiple later sources. Cause stays unknown at public-ready stage."
+  },
+  {
+    "id": "hei_ex_000154",
+    "slug": "bitsane",
+    "canonical_name": "Bitsane",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2016-11-01",
+    "death_date": "2019-06-17",
+    "country_or_origin": "Ireland",
+    "summary": "Ireland-registered cryptocurrency exchange launched in 2016 that disappeared in June 2019 after withdrawal problems and the deletion of its website and social media presence.",
+    "official_url_original": "https://bitsane.com/",
+    "official_domain_original": "bitsane.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://bitsane.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-14",
+    "notes": "Cause remains conservative as unknown. Public reporting strongly supports withdrawal failures in May 2019 and full disappearance by 2019-06-17."
   }
 ]

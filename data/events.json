@@ -964,5 +964,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "Cause remains conservative because later reporting mixes regulatory and fund-loss frames."
+  },
+  {
+    "id": "hei_ev_000179",
+    "exchange_id": "hei_ex_000154",
+    "event_type": "withdrawal_suspended",
+    "event_date": "2019-05-01",
+    "title": "Withdrawals began failing",
+    "description": "Users reported that Bitsane withdrawals began failing in May 2019, with support citing temporary technical reasons.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Start-of-failure marker uses month-level dating from aligned reporting."
+  },
+  {
+    "id": "hei_ev_000180",
+    "exchange_id": "hei_ex_000154",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-06-17",
+    "title": "Website and social accounts disappeared",
+    "description": "By 2019-06-17, the Bitsane website and social media accounts had been deleted and contact emails were bouncing.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Used as the terminal marker for public-ready handling."
   }
 ]
