@@ -1,0 +1,92 @@
+{
+  "generated_at": "2026-04-14",
+  "based_on_ledger": "review/candidate-ledger/hei_dead_candidate_ledger_v2.json",
+  "based_on_main_commit": "85667ad",
+  "batch_name": "hei_public_ready_next10_candidate_set_20260414",
+  "selection_rule": "remaining A-tier 9 plus highest-priority B-tier promotion",
+  "b_tier_promotion": "Bter",
+  "selected_names": [
+    "AAX",
+    "CampBX",
+    "Bleutrade",
+    "BTC38",
+    "Coinroom",
+    "Mercatox",
+    "LakeBTC",
+    "CryptoBridge",
+    "Bitsane",
+    "Bter"
+  ],
+  "items": [
+    {
+      "canonical_name": "AAX",
+      "kind": "dead",
+      "priority": "A1",
+      "batch_status": "selected_for_research",
+      "notes": "Strong shutdown arc; needs final official terminal pin."
+    },
+    {
+      "canonical_name": "CampBX",
+      "kind": "dead",
+      "priority": "A2",
+      "batch_status": "selected_for_research",
+      "notes": "Historic U.S. exchange; good chance of clean dead-side record."
+    },
+    {
+      "canonical_name": "Bleutrade",
+      "kind": "dead",
+      "priority": "A4",
+      "batch_status": "selected_for_research",
+      "notes": "Shutdown-era evidence likely tractable."
+    },
+    {
+      "canonical_name": "BTC38",
+      "kind": "dead",
+      "priority": "A5",
+      "batch_status": "selected_for_research",
+      "notes": "Historic China exchange candidate."
+    },
+    {
+      "canonical_name": "Coinroom",
+      "kind": "dead",
+      "priority": "A6",
+      "batch_status": "selected_for_research",
+      "notes": "Needs careful cause handling; do not force scam label."
+    },
+    {
+      "canonical_name": "Mercatox",
+      "kind": "dead",
+      "priority": "A7",
+      "batch_status": "selected_for_research",
+      "notes": "Widely cited closure; needs cleaner final evidence pack."
+    },
+    {
+      "canonical_name": "LakeBTC",
+      "kind": "dead",
+      "priority": "A9",
+      "batch_status": "selected_for_research",
+      "notes": "Historic exchange with likely archive-first path."
+    },
+    {
+      "canonical_name": "CryptoBridge",
+      "kind": "dead",
+      "priority": "A11",
+      "batch_status": "selected_for_research",
+      "notes": "Historic closure candidate; evidence quality must be checked."
+    },
+    {
+      "canonical_name": "Bitsane",
+      "kind": "dead",
+      "priority": "A12",
+      "batch_status": "selected_for_research",
+      "notes": "Needs careful evidence review; keep cause conservative."
+    },
+    {
+      "canonical_name": "Bter",
+      "kind": "dead",
+      "priority": "B1",
+      "batch_status": "selected_for_research",
+      "notes": "Historic exchange candidate."
+    }
+  ]
+}
