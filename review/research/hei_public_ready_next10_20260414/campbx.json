@@ -3,29 +3,81 @@
   "slug_candidate": "campbx",
   "kind": "dead",
   "priority": "A2",
-  "research_status": "todo",
+  "research_status": "in_review",
   "public_ready": false,
   "lineage_sensitive": false,
   "dedupe_checked_against_main": true,
-  "official_url_original": null,
-  "official_domain_original": null,
-  "official_url_status_guess": "unknown",
+  "official_url_original": "https://campbx.com/",
+  "official_domain_original": "campbx.com",
+  "official_url_status_guess": "dead_domain",
   "archived_url": null,
-  "country_or_origin": null,
+  "country_or_origin": "United States",
   "launch_date": null,
   "death_date": null,
-  "status": null,
-  "death_reason": null,
-  "summary_draft": null,
+  "status": "dead",
+  "death_reason": "regulation",
+  "summary_draft": "U.S.-based bitcoin exchange that faced recurring banking and regulatory problems and later ceased operations; the current terminal handling should stay conservative and evidence-led.",
   "required_evidence": {
-    "archive": [],
-    "non_archive": []
+    "archive": [
+      {
+        "title": "Wayback wildcard for CampBX",
+        "url": "https://web.archive.org/web/*/https://campbx.com/",
+        "publisher": "Internet Archive",
+        "published_at": null,
+        "purpose": "official site archive capture"
+      }
+    ],
+    "non_archive": [
+      {
+        "title": "Bank Stops Working With Bitcoin Exchange CampBX Due to 'Regulatory Uncertainty'",
+        "url": "https://www.coindesk.com/markets/2014/02/01/bank-stops-working-with-bitcoin-exchange-campbx-due-to-regulatory-uncertainty",
+        "publisher": "CoinDesk",
+        "published_at": "2014-02-01",
+        "purpose": "banking disruption / operational stress"
+      },
+      {
+        "title": "Department of Banking and Finance Orders CampBX, Bitcoin Trading Platform, to Cease and Desist",
+        "url": "https://business.cch.com/bfld/department-banking-and-finance-orders-campbx-bitcoin-trading-platform-20180727.pdf",
+        "publisher": "Georgia Department of Banking and Finance",
+        "published_at": "2018-07-26",
+        "purpose": "regulatory terminal marker"
+      },
+      {
+        "title": "Atlanta-Based Crypto Exchange Still Owes Clients 4 Years After Closing",
+        "url": "https://beincrypto.com/atlanta-based-crypto-exchange-still-owes-clients-4-years-after-closing/",
+        "publisher": "BeInCrypto",
+        "published_at": "2021-01-13",
+        "purpose": "later reporting on shutdown aftermath and unresolved customer funds"
+      }
+    ]
   },
-  "evidence_notes": [],
-  "event_candidates": [],
+  "evidence_notes": [
+    "Keep closure timing conservative until a cleaner official end-state pin is secured.",
+    "Regulation is the current best primary-cause label because the 2018 Georgia action is strong primary evidence.",
+    "Archive plus at least two non-archive sources remain required before public_ready promotion."
+  ],
+  "event_candidates": [
+    {
+      "event_type": "regulatory_action",
+      "event_date": "2018-07-25",
+      "title": "Georgia cease and desist became final",
+      "description": "The Georgia Department of Banking and Finance said its cease and desist order against CampBX became final on 2018-07-25."
+    },
+    {
+      "event_type": "service_outage",
+      "event_date": "2014-01-31",
+      "title": "ACH and wire transfers halted",
+      "description": "CampBX halted ACH and wire transfers after its bank decided not to work with bitcoin businesses because of regulatory uncertainty."
+    }
+  ],
   "lineage_notes": [],
-  "risks": [],
+  "risks": [
+    "exact launch date still not pinned",
+    "exact terminal operations date may differ from regulatory final-order date",
+    "aftermath reporting is weaker than the official 2018 enforcement document"
+  ],
   "final_notes": [
-    "Historic U.S. exchange; good chance of clean dead-side record."
+    "Need a stronger archived official site capture around the final shutdown period.",
+    "If stronger evidence surfaces, revisit whether death_date should track earlier operational cessation rather than the 2018 final-order date."
   ]
 }
