@@ -3268,5 +3268,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-15",
     "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2019-06-27 dead-side update, while acknowledging later status-page ambiguity about reorganization."
+  },
+  {
+    "id": "hei_ex_000159",
+    "slug": "coinbase-pro",
+    "canonical_name": "Coinbase Pro",
+    "aliases": [],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": null,
+    "death_date": "2023-12-31",
+    "country_or_origin": "United States",
+    "summary": "Advanced trading surface under Coinbase that was replaced by Coinbase Advanced, with customer history access ending after December 2023.",
+    "official_url_original": "https://pro.coinbase.com/",
+    "official_domain_original": "pro.coinbase.com",
+    "official_url_status": "redirected_or_retired",
+    "archived_url": "https://web.archive.org/web/*/https://pro.coinbase.com/",
+    "predecessor_id": null,
+    "successor_id": "hei_ex_000012",
+    "confidence": "high",
+    "last_verified_at": "2026-04-15",
+    "notes": "Lineage-sensitive product transition. After balance migration, customers could no longer deposit, withdraw, or trade on Coinbase Pro, and transaction history remained accessible only until the end of 2023."
   }
 ]
