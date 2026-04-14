@@ -1132,5 +1132,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses 2023-12-31 as the conservative terminal marker."
+  },
+  {
+    "id": "hei_ev_000191",
+    "exchange_id": "hei_ex_000160",
+    "event_type": "service_outage",
+    "event_date": "2019-06-12",
+    "title": "BTC38 site failed to load",
+    "description": "By 2019-06-12, public exchange-status sources reported that the BTC38 website kept loading without completing.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Start of conservative terminal handling."
+  },
+  {
+    "id": "hei_ev_000192",
+    "exchange_id": "hei_ex_000160",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-06-12",
+    "title": "BTC38 marked dead",
+    "description": "Public exchange-status sources marked BTC38 as dead by 2019-06-12.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2019-06-12 as the conservative terminal marker."
   }
 ]
