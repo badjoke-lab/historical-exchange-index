@@ -3088,5 +3088,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-12",
     "notes": "Lineage-sensitive regional surface. Keep separate from Binance.com."
+  },
+  {
+    "id": "hei_ex_000151",
+    "slug": "campbx",
+    "canonical_name": "CampBX",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": null,
+    "death_date": "2018-07-25",
+    "country_or_origin": "United States",
+    "summary": "United States bitcoin exchange that later ceased operations after prolonged banking disruption and final Georgia regulatory action.",
+    "official_url_original": "https://campbx.com/",
+    "official_domain_original": "campbx.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://campbx.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-14",
+    "notes": "ACH and wire transfers were halted in early 2014 because of banking and regulatory uncertainty. A Georgia cease and desist order became final on 2018-07-25."
   }
 ]

@@ -880,5 +880,33 @@
     "source_count": 2,
     "sort_order": 1,
     "notes": "Regional Binance surface."
+  },
+  {
+    "id": "hei_ev_000173",
+    "exchange_id": "hei_ex_000151",
+    "event_type": "service_outage",
+    "event_date": "2014-01-31",
+    "title": "ACH and wire transfers halted",
+    "description": "CampBX halted ACH and wire transfers after its bank decided not to work with bitcoin companies because of regulatory uncertainty.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Earlier operational stress marker, not the final terminal event."
+  },
+  {
+    "id": "hei_ev_000174",
+    "exchange_id": "hei_ex_000151",
+    "event_type": "regulatory_action",
+    "event_date": "2018-07-25",
+    "title": "Georgia cease and desist became final",
+    "description": "The Georgia Department of Banking and Finance said an order to cease and desist against Bulbul Investments LLC doing business as CampBX became final on 2018-07-25.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "Used as the terminal marker for public-ready handling."
   }
 ]
