@@ -3246,5 +3246,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-14",
     "notes": "Treat cause conservatively as unknown. Public exchange-status sources say operations closed on 2019-04-01."
+  },
+  {
+    "id": "hei_ex_000158",
+    "slug": "c-cex",
+    "canonical_name": "C-CEX",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": "2019-06-27",
+    "country_or_origin": "Russia",
+    "summary": "Russian cryptocurrency exchange that became inaccessible by late June 2019 and was subsequently marked dead, although some later status pages still described it as suspended for reorganization.",
+    "official_url_original": "https://c-cex.com/",
+    "official_domain_original": "c-cex.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://c-cex.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-15",
+    "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2019-06-27 dead-side update, while acknowledging later status-page ambiguity about reorganization."
   }
 ]

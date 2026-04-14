@@ -3958,5 +3958,50 @@
     "reliability": "medium",
     "claim_scope": "status",
     "notes": "Current exchange-status page marks Cryptonit as inactive."
+  },
+  {
+    "id": "hei_src_000479",
+    "exchange_id": "hei_ex_000158",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former C-CEX site",
+    "url": "https://c-cex.com/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-15",
+    "archived_url": "https://web.archive.org/web/*/https://c-cex.com/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000480",
+    "exchange_id": "hei_ex_000158",
+    "event_id": "hei_ev_000188",
+    "source_type": "news_article",
+    "title": "C-CEX review with 2019 dead-side update",
+    "url": "https://www.cryptowisser.com/exchange/c-cex",
+    "publisher": "Cryptowisser",
+    "published_at": "2019-06-27",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/c-cex",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that the exchange appeared inaccessible on 2019-06-27 and was listed as dead."
+  },
+  {
+    "id": "hei_src_000481",
+    "exchange_id": "hei_ex_000158",
+    "event_id": "hei_ev_000187",
+    "source_type": "status_page",
+    "title": "C-CEX exchange page suspended for reorganization",
+    "url": "https://coinmarketcap.com/exchanges/c-cex/",
+    "publisher": "CoinMarketCap",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/c-cex/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "Current status page still says services are suspended for reorganization, so HEI keeps cause conservative."
   }
 ]
