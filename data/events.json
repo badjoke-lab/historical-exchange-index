@@ -1104,5 +1104,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2019-06-27 as the conservative terminal marker."
+  },
+  {
+    "id": "hei_ev_000189",
+    "exchange_id": "hei_ex_000159",
+    "event_type": "rebrand_announced",
+    "event_date": "2022-06-01",
+    "title": "Coinbase announced the transition away from Coinbase Pro",
+    "description": "Coinbase announced it would replace Coinbase Pro with Coinbase Advanced on Coinbase.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Announcement month used conservatively from official help text."
+  },
+  {
+    "id": "hei_ev_000190",
+    "exchange_id": "hei_ex_000159",
+    "event_type": "rebrand",
+    "event_date": "2023-12-31",
+    "title": "Coinbase Pro discontinued",
+    "description": "Coinbase documentation states Coinbase Pro was discontinued in December 2023 and replaced by Coinbase Advanced.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "rebranded",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses 2023-12-31 as the conservative terminal marker."
   }
 ]

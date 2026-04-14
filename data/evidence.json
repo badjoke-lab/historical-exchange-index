@@ -4003,5 +4003,50 @@
     "reliability": "medium",
     "claim_scope": "status",
     "notes": "Current status page still says services are suspended for reorganization, so HEI keeps cause conservative."
+  },
+  {
+    "id": "hei_src_000482",
+    "exchange_id": "hei_ex_000159",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for Coinbase Pro",
+    "url": "https://pro.coinbase.com/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-15",
+    "archived_url": "https://web.archive.org/web/*/https://pro.coinbase.com/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000483",
+    "exchange_id": "hei_ex_000159",
+    "event_id": "hei_ev_000190",
+    "source_type": "official_help",
+    "title": "Transitioning from Coinbase Pro to Coinbase Advanced",
+    "url": "https://help.coinbase.com/en/pro/managing-my-account/account-information/transitioning-to-advanced-trade",
+    "publisher": "Coinbase Help",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://help.coinbase.com/en/pro/managing-my-account/account-information/transitioning-to-advanced-trade",
+    "accessed_at": "2026-04-15",
+    "reliability": "high",
+    "claim_scope": "successor",
+    "notes": "Official help page stating Coinbase Pro would be replaced by Coinbase Advanced and that Pro trading functions would stop after migration."
+  },
+  {
+    "id": "hei_src_000484",
+    "exchange_id": "hei_ex_000159",
+    "event_id": "hei_ev_000190",
+    "source_type": "official_help",
+    "title": "Coinbase tax information",
+    "url": "https://help.coinbase.com/en/coinbase/taxes/general-information/tax-info",
+    "publisher": "Coinbase Help",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://help.coinbase.com/en/coinbase/taxes/general-information/tax-info",
+    "accessed_at": "2026-04-15",
+    "reliability": "high",
+    "claim_scope": "status",
+    "notes": "Official help page stating Coinbase Pro was discontinued in December 2023."
   }
 ]
