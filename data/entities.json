@@ -3110,5 +3110,29 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-14",
     "notes": "ACH and wire transfers were halted in early 2014 because of banking and regulatory uncertainty. A Georgia cease and desist order became final on 2018-07-25."
+  },
+  {
+    "id": "hei_ex_000152",
+    "slug": "cryptobridge",
+    "canonical_name": "CryptoBridge",
+    "aliases": [
+      "CryptoBridge DEX"
+    ],
+    "type": "dex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2017-01-01",
+    "death_date": "2019-12-15",
+    "country_or_origin": null,
+    "summary": "BitShares-based decentralized exchange that announced closure in December 2019, citing market conditions and increasing regulation pressure.",
+    "official_url_original": "https://cryptobridge.org/",
+    "official_domain_original": "cryptobridge.org",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://cryptobridge.org/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-14",
+    "notes": "Shutdown notice said deposits would close on 2019-12-03 and all services and servers would terminate after 2019-12-15."
   }
 ]

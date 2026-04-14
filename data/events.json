@@ -908,5 +908,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "Used as the terminal marker for public-ready handling."
+  },
+  {
+    "id": "hei_ev_000175",
+    "exchange_id": "hei_ex_000152",
+    "event_type": "shutdown_announced",
+    "event_date": "2019-12-02",
+    "title": "CryptoBridge shutdown announced",
+    "description": "CryptoBridge announced it would close because of market conditions and increasing regulation.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 4,
+    "sort_order": 1,
+    "notes": "Deposits were to close on 2019-12-03."
+  },
+  {
+    "id": "hei_ev_000176",
+    "exchange_id": "hei_ex_000152",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-12-15",
+    "title": "CryptoBridge services terminated",
+    "description": "CryptoBridge said all services and servers would terminate after 2019-12-15.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses 2019-12-15 as the terminal marker."
   }
 ]
