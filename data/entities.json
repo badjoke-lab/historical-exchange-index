@@ -3334,5 +3334,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-15",
     "notes": "Treat cause conservatively as unknown. Bleutrade was originally from Brazil, later moved to Malta in 2018 and Portugal in 2020, and was marked dead after the site was inaccessible on 2023-03-23."
+  },
+  {
+    "id": "hei_ex_000162",
+    "slug": "lakebtc",
+    "canonical_name": "LakeBTC",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": "2021-07-15",
+    "country_or_origin": "China",
+    "summary": "China-linked cryptocurrency exchange that was publicly marked inaccessible and dead on 2021-07-15.",
+    "official_url_original": "https://lakebtc.com/",
+    "official_domain_original": "lakebtc.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://lakebtc.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-15",
+    "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2021-07-15 dead-side update."
   }
 ]
