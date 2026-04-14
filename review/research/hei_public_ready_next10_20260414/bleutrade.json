@@ -3,29 +3,88 @@
   "slug_candidate": "bleutrade",
   "kind": "dead",
   "priority": "A4",
-  "research_status": "todo",
+  "research_status": "in_review",
   "public_ready": false,
   "lineage_sensitive": false,
   "dedupe_checked_against_main": true,
-  "official_url_original": null,
-  "official_domain_original": null,
+  "official_url_original": "https://bleutrade.com/",
+  "official_domain_original": "bleutrade.com",
   "official_url_status_guess": "unknown",
   "archived_url": null,
-  "country_or_origin": null,
-  "launch_date": null,
+  "country_or_origin": "Brazil",
+  "launch_date": "2014-03-21",
   "death_date": null,
-  "status": null,
+  "status": "inactive",
   "death_reason": null,
-  "summary_draft": null,
+  "summary_draft": "Brazil-origin cryptocurrency exchange launched in 2014 that later appears to have become inactive; current evidence is not yet strong enough to force a terminal dead-side classification.",
   "required_evidence": {
-    "archive": [],
-    "non_archive": []
+    "archive": [
+      {
+        "title": "Wayback wildcard for Bleutrade",
+        "url": "https://web.archive.org/web/*/https://bleutrade.com/",
+        "publisher": "Internet Archive",
+        "published_at": null,
+        "purpose": "official site archive capture"
+      }
+    ],
+    "non_archive": [
+      {
+        "title": "[ANN] Bleutrade. The most powerful cryptocurrency exchange platform",
+        "url": "https://bitcointalk.org/index.php?topic=525921.0",
+        "publisher": "Bitcointalk",
+        "published_at": "2014-03-22",
+        "purpose": "launch-era primary-ish announcement / operating start window"
+      },
+      {
+        "title": "Bleutrade: câmbio brasileiro aposta em altcoins",
+        "url": "https://startupi.com.br/bleutrade-mais-um-cambio-brasileiro-de-bitcoins-com-objetivos-ambiciosos/",
+        "publisher": "Startupi",
+        "published_at": "2014-04-17",
+        "purpose": "origin / founder context / early operating profile"
+      },
+      {
+        "title": "Cryptowisser Bleutrade review with 2023 dead/inactive update",
+        "url": "https://www.cryptowisser.com/exchange/bleutrade/?lang=ja",
+        "publisher": "Cryptowisser",
+        "published_at": "2023-03-23",
+        "purpose": "later inactivity/dead-side observation"
+      },
+      {
+        "title": "Coinpare Bleutrade exchange page",
+        "url": "https://www.coinpare.io/exchange/bleutrade",
+        "publisher": "Coinpare",
+        "published_at": null,
+        "purpose": "inactive/no-volume corroboration"
+      }
+    ]
   },
-  "evidence_notes": [],
-  "event_candidates": [],
+  "evidence_notes": [
+    "Current end-state evidence is tracker-driven, not yet a strong official closure notice.",
+    "Do not force death_reason until stronger primary or archived official material is found.",
+    "Need archive plus at least two non-archive sources before public_ready promotion."
+  ],
+  "event_candidates": [
+    {
+      "event_type": "launched",
+      "event_date": "2014-03-21",
+      "title": "Bleutrade launch",
+      "description": "Bleutrade announced launch in March 2014 and positioned itself as a Brazil-origin multi-cryptocurrency exchange."
+    },
+    {
+      "event_type": "service_outage",
+      "event_date": "2023-03-23",
+      "title": "Site inaccessible / exchange flagged inactive",
+      "description": "By March 2023, third-party exchange trackers reported that the website was inaccessible and flagged the venue as inactive or dead."
+    }
+  ],
   "lineage_notes": [],
-  "risks": [],
+  "risks": [
+    "terminal date not pinned",
+    "closure may be dead-side but current evidence is too soft for a confident terminal record",
+    "later corporate geography moved beyond Brazil; origin and later base may need separate notes"
+  ],
   "final_notes": [
-    "Shutdown-era evidence likely tractable."
+    "Keep Bleutrade conservative as inactive for now.",
+    "Next step: locate stronger archived official pages or preserved Bleutrade notices around the final inactive period."
   ]
 }
