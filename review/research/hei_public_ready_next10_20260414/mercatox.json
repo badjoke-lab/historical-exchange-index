@@ -3,29 +3,79 @@
   "slug_candidate": "mercatox",
   "kind": "dead",
   "priority": "A7",
-  "research_status": "todo",
+  "research_status": "in_review",
   "public_ready": false,
   "lineage_sensitive": false,
   "dedupe_checked_against_main": true,
-  "official_url_original": null,
-  "official_domain_original": null,
+  "official_url_original": "https://mercatox.com/",
+  "official_domain_original": "mercatox.com",
   "official_url_status_guess": "unknown",
   "archived_url": null,
-  "country_or_origin": null,
-  "launch_date": null,
-  "death_date": null,
-  "status": null,
-  "death_reason": null,
-  "summary_draft": null,
+  "country_or_origin": "Canada",
+  "launch_date": "2015-10-01",
+  "death_date": "2025-04-01",
+  "status": "dead",
+  "death_reason": "voluntary_shutdown",
+  "summary_draft": "Canada-linked centralized exchange launched in 2015 that was later marked inactive and, by early 2025, publicly described as closed with user-inquiry responses ending on 2025-04-01.",
   "required_evidence": {
-    "archive": [],
-    "non_archive": []
+    "archive": [
+      {
+        "title": "Wayback wildcard for Mercatox",
+        "url": "https://web.archive.org/web/*/https://mercatox.com/",
+        "publisher": "Internet Archive",
+        "published_at": null,
+        "purpose": "official site archive capture"
+      }
+    ],
+    "non_archive": [
+      {
+        "title": "Mercatox review with 2025 closure update",
+        "url": "https://www.cryptowisser.com/exchange/mercatox/",
+        "publisher": "Cryptowisser",
+        "published_at": "2025-02-01",
+        "purpose": "explicit closure update and 2025-04-01 terminal support date"
+      },
+      {
+        "title": "Mercatox review (Japanese mirror) with same 2025 closure update",
+        "url": "https://www.cryptowisser.com/exchange/mercatox/?lang=ja",
+        "publisher": "Cryptowisser",
+        "published_at": "2025-02-01",
+        "purpose": "same closure text on alternate language page"
+      }
+    ]
   },
-  "evidence_notes": [],
-  "event_candidates": [],
+  "evidence_notes": [
+    "Current closure evidence is strong enough for a conservative dead-side stub.",
+    "Still add at least one archived official capture around the final closure state before public_ready promotion.",
+    "Need archive plus at least two non-archive sources before public_ready promotion."
+  ],
+  "event_candidates": [
+    {
+      "event_type": "launched",
+      "event_date": "2015-10-01",
+      "title": "Mercatox launch window",
+      "description": "Later exchange reviews describe Mercatox as active since 2015 and specifically launched in October 2015."
+    },
+    {
+      "event_type": "shutdown_announced",
+      "event_date": "2025-02-01",
+      "title": "Closure update posted",
+      "description": "A public review update stated that Mercatox had closed operations and would stop responding to user inquiries on 2025-04-01."
+    },
+    {
+      "event_type": "shutdown_effective",
+      "event_date": "2025-04-01",
+      "title": "User support ended",
+      "description": "The published closure update stated that Mercatox would cease responding to user inquiries on 2025-04-01."
+    }
+  ],
   "lineage_notes": [],
-  "risks": [],
+  "risks": [
+    "current closure proof is still tracker-driven rather than a direct preserved official notice",
+    "country/origin may need refinement if stronger corporate records appear"
+  ],
   "final_notes": [
-    "Widely cited closure; needs cleaner final evidence pack."
+    "Use voluntary_shutdown conservatively unless stronger contrary evidence appears.",
+    "Next step: locate preserved official closure image or archived official notice from early 2025."
   ]
 }
