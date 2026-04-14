@@ -3178,5 +3178,29 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-14",
     "notes": "Cause remains conservative as unknown. Public reporting strongly supports withdrawal failures in May 2019 and full disappearance by 2019-06-17."
+  },
+  {
+    "id": "hei_ex_000155",
+    "slug": "bter",
+    "canonical_name": "Bter",
+    "aliases": [
+      "Bter.com"
+    ],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": null,
+    "death_date": "2017-12-31",
+    "country_or_origin": "China",
+    "summary": "China-based exchange later transitioned from Bter.com to Gate.io during the 2017 China regulatory crackdown.",
+    "official_url_original": "http://bter.com/",
+    "official_domain_original": "bter.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/http://bter.com/",
+    "predecessor_id": null,
+    "successor_id": "hei_ex_000016",
+    "confidence": "medium",
+    "last_verified_at": "2026-04-14",
+    "notes": "Treat as lineage-sensitive rebrand record to Gate.io. The 2015 hack is a major historical event but not the terminal state."
   }
 ]

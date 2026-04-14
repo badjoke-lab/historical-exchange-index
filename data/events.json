@@ -992,5 +992,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "Used as the terminal marker for public-ready handling."
+  },
+  {
+    "id": "hei_ev_000181",
+    "exchange_id": "hei_ex_000155",
+    "event_type": "hack",
+    "event_date": "2015-02-14",
+    "title": "Cold wallet hack",
+    "description": "Bter said 7,170 BTC were stolen from its cold wallet and the platform was temporarily shut down.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Major historical incident, but not the final terminal event."
+  },
+  {
+    "id": "hei_ev_000182",
+    "exchange_id": "hei_ex_000155",
+    "event_type": "rebrand",
+    "event_date": "2017-12-31",
+    "title": "Bter users migrated to Gate.io",
+    "description": "Gate.io announced support for BTER users to move funds to gate.io, reflecting the completed brand transition.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "rebranded",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2017-12-31 as the conservative rebrand marker."
   }
 ]
