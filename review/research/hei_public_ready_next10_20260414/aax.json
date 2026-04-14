@@ -3,29 +3,81 @@
   "slug_candidate": "aax",
   "kind": "dead",
   "priority": "A1",
-  "research_status": "todo",
+  "research_status": "in_review",
   "public_ready": false,
   "lineage_sensitive": false,
   "dedupe_checked_against_main": true,
-  "official_url_original": null,
-  "official_domain_original": null,
+  "official_url_original": "https://www.aax.com/",
+  "official_domain_original": "aax.com",
   "official_url_status_guess": "unknown",
   "archived_url": null,
-  "country_or_origin": null,
-  "launch_date": null,
+  "country_or_origin": "Hong Kong",
+  "launch_date": "2019-11-01",
   "death_date": null,
-  "status": null,
-  "death_reason": null,
-  "summary_draft": null,
+  "status": "dead",
+  "death_reason": "unknown",
+  "summary_draft": "Hong Kong-based exchange that halted withdrawals in November 2022 and did not recover normal operations; final terminal classification still needs a stronger official end-state pin.",
   "required_evidence": {
-    "archive": [],
-    "non_archive": []
+    "archive": [
+      {
+        "title": "Wayback wildcard for AAX",
+        "url": "https://web.archive.org/web/*/https://www.aax.com/",
+        "publisher": "Internet Archive",
+        "published_at": null,
+        "purpose": "official site archive capture"
+      }
+    ],
+    "non_archive": [
+      {
+        "title": "AAX suspends withdrawals amid FTX fallout",
+        "url": "https://forkast.news/aax-suspends-withdrawals-amid-ftx-fallout/",
+        "publisher": "Forkast",
+        "published_at": "2022-11-14",
+        "purpose": "initial operational halt / withdrawal suspension"
+      },
+      {
+        "title": "Shuttered AAX will close out derivatives",
+        "url": "https://www.xbo.com/en/en-business/shuttered-aax-will-close-out-derivatives-citing-chance-of-return-to-normal-2022-11-21",
+        "publisher": "XBO",
+        "published_at": "2022-11-21",
+        "purpose": "continuing halt / derivatives close-out / funding-recovery attempt"
+      },
+      {
+        "title": "AAX exec leaves amid ongoing halt",
+        "url": "https://cointelegraph.com/news/aax-exec-leaves-the-crypto-exchange-amid-ongoing-operational-halt",
+        "publisher": "Cointelegraph",
+        "published_at": "2022-11-28",
+        "purpose": "continued operational failure / governance stress"
+      }
+    ]
   },
-  "evidence_notes": [],
-  "event_candidates": [],
+  "evidence_notes": [
+    "Need stronger official terminal pin than secondary coverage alone.",
+    "Do not force insolvency until stronger primary evidence is secured.",
+    "Prefer archive + at least two non-archive sources before promotion to public_ready."
+  ],
+  "event_candidates": [
+    {
+      "event_type": "withdrawal_suspended",
+      "event_date": "2022-11-13",
+      "title": "Withdrawals suspended",
+      "description": "AAX suspended withdrawals while citing a system upgrade issue and abnormal balance data caused by a third-party partner failure."
+    },
+    {
+      "event_type": "trading_halted",
+      "event_date": "2022-11-21",
+      "title": "Derivatives close-out during prolonged halt",
+      "description": "AAX moved to liquidate derivatives positions while still claiming a chance of recovery."
+    }
+  ],
   "lineage_notes": [],
-  "risks": [],
+  "risks": [
+    "terminal date not yet fixed",
+    "cause may be insolvency, but current pass should stay conservative",
+    "official closure notice still missing in this stub"
+  ],
   "final_notes": [
-    "Strong shutdown arc; needs final official terminal pin."
+    "Launch month/year should be re-checked against stronger primary or archived official material.",
+    "Next step: locate archived official statements or preserved AAX notices for final terminal pin."
   ]
 }
