@@ -1,0 +1,31 @@
+{
+  "canonical_name": "Bitsane",
+  "slug_candidate": "bitsane",
+  "kind": "dead",
+  "priority": "A12",
+  "research_status": "todo",
+  "public_ready": false,
+  "lineage_sensitive": false,
+  "dedupe_checked_against_main": true,
+  "official_url_original": null,
+  "official_domain_original": null,
+  "official_url_status_guess": "unknown",
+  "archived_url": null,
+  "country_or_origin": null,
+  "launch_date": null,
+  "death_date": null,
+  "status": null,
+  "death_reason": null,
+  "summary_draft": null,
+  "required_evidence": {
+    "archive": [],
+    "non_archive": []
+  },
+  "evidence_notes": [],
+  "event_candidates": [],
+  "lineage_notes": [],
+  "risks": [],
+  "final_notes": [
+    "Needs careful evidence review; keep cause conservative."
+  ]
+}
