@@ -3356,5 +3356,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-15",
     "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2021-07-15 dead-side update."
+  },
+  {
+    "id": "hei_ex_000163",
+    "slug": "mercatox",
+    "canonical_name": "Mercatox",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2015-10-01",
+    "death_date": "2025-04-01",
+    "country_or_origin": "Canada",
+    "summary": "Canada-linked cryptocurrency exchange that was publicly described as closed in early 2025, with user inquiries ending on 2025-04-01.",
+    "official_url_original": "https://mercatox.com/",
+    "official_domain_original": "mercatox.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://mercatox.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-15",
+    "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2025-04-01 user-inquiry end date from the public closure update."
   }
 ]

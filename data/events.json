@@ -1216,5 +1216,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2021-07-15 as the conservative terminal marker."
+  },
+  {
+    "id": "hei_ev_000197",
+    "exchange_id": "hei_ex_000163",
+    "event_type": "shutdown_announced",
+    "event_date": "2025-02-01",
+    "title": "Mercatox closure update posted",
+    "description": "Public exchange-status sources stated that Mercatox had closed down operations and would cease responding to user inquiries on 2025-04-01.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Conservative announcement marker from the public closure update."
+  },
+  {
+    "id": "hei_ev_000198",
+    "exchange_id": "hei_ex_000163",
+    "event_type": "shutdown_effective",
+    "event_date": "2025-04-01",
+    "title": "Mercatox support ended",
+    "description": "Public closure text stated Mercatox would cease responding to user inquiries on 2025-04-01.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2025-04-01 as the conservative terminal marker."
   }
 ]
