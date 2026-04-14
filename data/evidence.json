@@ -3913,5 +3913,50 @@
     "reliability": "medium",
     "claim_scope": "status",
     "notes": "Public closure marker used for the terminal date."
+  },
+  {
+    "id": "hei_src_000476",
+    "exchange_id": "hei_ex_000157",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former Cryptonit site",
+    "url": "https://cryptonit.net/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-14",
+    "archived_url": "https://web.archive.org/web/*/https://cryptonit.net/",
+    "accessed_at": "2026-04-14",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000477",
+    "exchange_id": "hei_ex_000157",
+    "event_id": "hei_ev_000186",
+    "source_type": "news_article",
+    "title": "Cryptonit review with 2019 closure update",
+    "url": "https://www.cryptowisser.com/exchange/cryptonit/",
+    "publisher": "Cryptowisser",
+    "published_at": "2019-04-01",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/cryptonit/",
+    "accessed_at": "2026-04-14",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that the exchange had closed down operations and references an email sent to customers."
+  },
+  {
+    "id": "hei_src_000478",
+    "exchange_id": "hei_ex_000157",
+    "event_id": "hei_ev_000185",
+    "source_type": "status_page",
+    "title": "Cryptonit exchange page marked inactive",
+    "url": "https://coinmarketcap.com/exchanges/cryptonit/",
+    "publisher": "CoinMarketCap",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/cryptonit/",
+    "accessed_at": "2026-04-14",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "Current exchange-status page marks Cryptonit as inactive."
   }
 ]

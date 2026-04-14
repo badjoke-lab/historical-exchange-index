@@ -3224,5 +3224,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-14",
     "notes": "Treat cause conservatively as regulation because KNF action is clear and closure followed later."
+  },
+  {
+    "id": "hei_ex_000157",
+    "slug": "cryptonit",
+    "canonical_name": "Cryptonit",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": "2019-04-01",
+    "country_or_origin": "United Kingdom",
+    "summary": "United Kingdom cryptocurrency exchange that was later marked inactive and publicly described as having closed operations by 2019-04-01.",
+    "official_url_original": "https://cryptonit.net/",
+    "official_domain_original": "cryptonit.net",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://cryptonit.net/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-14",
+    "notes": "Treat cause conservatively as unknown. Public exchange-status sources say operations closed on 2019-04-01."
   }
 ]
