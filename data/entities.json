@@ -3202,5 +3202,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-14",
     "notes": "Treat as lineage-sensitive rebrand record to Gate.io. The 2015 hack is a major historical event but not the terminal state."
+  },
+  {
+    "id": "hei_ex_000156",
+    "slug": "abucoins",
+    "canonical_name": "Abucoins",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": null,
+    "death_date": "2019-02-26",
+    "country_or_origin": "Poland",
+    "summary": "Polish cryptocurrency exchange that later shut down after earlier KNF regulatory action and was marked closed by February 2019.",
+    "official_url_original": "https://abucoins.com/",
+    "official_domain_original": "abucoins.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://abucoins.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-14",
+    "notes": "Treat cause conservatively as regulation because KNF action is clear and closure followed later."
   }
 ]

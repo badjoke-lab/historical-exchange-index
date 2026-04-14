@@ -1020,5 +1020,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2017-12-31 as the conservative rebrand marker."
+  },
+  {
+    "id": "hei_ev_000183",
+    "exchange_id": "hei_ex_000156",
+    "event_type": "regulatory_action",
+    "event_date": "2018-02-06",
+    "title": "Abucoins entered the KNF warning list",
+    "description": "The Polish KNF added Abucoins sp. z o.o. to its public warnings list over suspected unauthorized payment-services activity.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Important regulatory precursor, not the final terminal event."
+  },
+  {
+    "id": "hei_ev_000184",
+    "exchange_id": "hei_ex_000156",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-02-26",
+    "title": "Abucoins closed down",
+    "description": "By 2019-02-26, Abucoins was publicly marked closed and inactive.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "Uses the 2019-02-26 closure marker from public exchange-status sources."
   }
 ]
