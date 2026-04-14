@@ -4138,5 +4138,50 @@
     "reliability": "medium",
     "claim_scope": "status",
     "notes": "Current page is untracked and shows no meaningful live market data."
+  },
+  {
+    "id": "hei_src_000491",
+    "exchange_id": "hei_ex_000162",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former LakeBTC site",
+    "url": "https://lakebtc.com/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-15",
+    "archived_url": "https://web.archive.org/web/*/https://lakebtc.com/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000492",
+    "exchange_id": "hei_ex_000162",
+    "event_id": "hei_ev_000196",
+    "source_type": "news_article",
+    "title": "LakeBTC review with 2021 dead-side update",
+    "url": "https://www.cryptowisser.com/exchange/lakebtc/",
+    "publisher": "Cryptowisser",
+    "published_at": "2021-07-15",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/lakebtc/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that the exchange website was inaccessible on 2021-07-15 and that LakeBTC was marked dead."
+  },
+  {
+    "id": "hei_src_000493",
+    "exchange_id": "hei_ex_000162",
+    "event_id": "hei_ev_000196",
+    "source_type": "status_page",
+    "title": "LakeBTC exchange page untracked",
+    "url": "https://coinmarketcap.com/exchanges/lakebtc/",
+    "publisher": "CoinMarketCap",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/lakebtc/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "Current page is untracked and shows no live market data."
   }
 ]
