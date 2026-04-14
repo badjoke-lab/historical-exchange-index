@@ -4048,5 +4048,50 @@
     "reliability": "high",
     "claim_scope": "status",
     "notes": "Official help page stating Coinbase Pro was discontinued in December 2023."
+  },
+  {
+    "id": "hei_src_000485",
+    "exchange_id": "hei_ex_000160",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former BTC38 site",
+    "url": "http://www.btc38.com/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-15",
+    "archived_url": "https://web.archive.org/web/*/http://www.btc38.com/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000486",
+    "exchange_id": "hei_ex_000160",
+    "event_id": "hei_ev_000192",
+    "source_type": "news_article",
+    "title": "BTC38 review with 2019 dead-side update",
+    "url": "https://www.cryptowisser.com/exchange/btc38/",
+    "publisher": "Cryptowisser",
+    "published_at": "2019-06-12",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/btc38/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that the exchange site failed to load on 2019-06-12 and was marked dead."
+  },
+  {
+    "id": "hei_src_000487",
+    "exchange_id": "hei_ex_000160",
+    "event_id": "hei_ev_000191",
+    "source_type": "status_page",
+    "title": "BTC38 exchange page marked inactive",
+    "url": "https://coinmarketcap.com/exchanges/btc38/",
+    "publisher": "CoinMarketCap",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/btc38/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "Current status page marks BTC38 as inactive."
   }
 ]

@@ -3290,5 +3290,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-15",
     "notes": "Lineage-sensitive product transition. After balance migration, customers could no longer deposit, withdraw, or trade on Coinbase Pro, and transaction history remained accessible only until the end of 2023."
+  },
+  {
+    "id": "hei_ex_000160",
+    "slug": "btc38",
+    "canonical_name": "BTC38",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2013-08-23",
+    "death_date": "2019-06-12",
+    "country_or_origin": "China",
+    "summary": "China-based cryptocurrency exchange launched in 2013 that was publicly marked inaccessible and dead by mid-June 2019.",
+    "official_url_original": "http://www.btc38.com/",
+    "official_domain_original": "btc38.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/http://www.btc38.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-15",
+    "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2019-06-12 dead-side update."
   }
 ]
