@@ -3,29 +3,91 @@
   "slug_candidate": "btc38",
   "kind": "dead",
   "priority": "A5",
-  "research_status": "todo",
+  "research_status": "in_review",
   "public_ready": false,
-  "lineage_sensitive": false,
+  "lineage_sensitive": true,
   "dedupe_checked_against_main": true,
-  "official_url_original": null,
-  "official_domain_original": null,
+  "official_url_original": "http://www.btc38.com/",
+  "official_domain_original": "btc38.com",
   "official_url_status_guess": "unknown",
   "archived_url": null,
-  "country_or_origin": null,
-  "launch_date": null,
+  "country_or_origin": "China",
+  "launch_date": "2013-05-01",
   "death_date": null,
-  "status": null,
+  "status": "inactive",
   "death_reason": null,
-  "summary_draft": null,
+  "summary_draft": "China-based exchange launched in 2013 that later became inactive; possible overseas-lineage relation to AEX needs explicit review before any dead-side promotion.",
   "required_evidence": {
-    "archive": [],
-    "non_archive": []
+    "archive": [
+      {
+        "title": "Wayback wildcard for BTC38",
+        "url": "https://web.archive.org/web/*/http://www.btc38.com/",
+        "publisher": "Internet Archive",
+        "published_at": null,
+        "purpose": "official site archive capture"
+      }
+    ],
+    "non_archive": [
+      {
+        "title": "BTC38 exchange page on CoinMarketCap",
+        "url": "https://coinmarketcap.com/exchanges/btc38/",
+        "publisher": "CoinMarketCap",
+        "published_at": null,
+        "purpose": "current inactive/untracked status corroboration"
+      },
+      {
+        "title": "Cryptowisser BTC38 review with inactive/dead note",
+        "url": "https://www.cryptowisser.com/exchange/btc38/",
+        "publisher": "Cryptowisser",
+        "published_at": "2019-06-12",
+        "purpose": "later inaccessible-site / dead-side observation"
+      },
+      {
+        "title": "BTC38 / 比特时代 profile stating May 2013 launch and later stop",
+        "url": "https://www.120btc.com/exchange/btc38/",
+        "publisher": "币圈子",
+        "published_at": null,
+        "purpose": "launch month/year and later AEX-lineage claim"
+      },
+      {
+        "title": "Bit.cc (AEX overseas version) profile",
+        "url": "https://chainwhy.com/exchange/bit.cc/",
+        "publisher": "链外网",
+        "published_at": null,
+        "purpose": "possible overseas-lineage corroboration"
+      }
+    ]
   },
-  "evidence_notes": [],
-  "event_candidates": [],
-  "lineage_notes": [],
-  "risks": [],
+  "evidence_notes": [
+    "Current terminal evidence is tracker-driven and should not be over-read.",
+    "AEX-lineage claim must be treated as provisional until better source quality is secured.",
+    "Need archive plus at least two non-archive sources before public_ready promotion."
+  ],
+  "event_candidates": [
+    {
+      "event_type": "launched",
+      "event_date": "2013-05-01",
+      "title": "BTC38 launch window",
+      "description": "Later exchange profiles describe BTC38 / 比特时代 as beginning operation in May 2013."
+    },
+    {
+      "event_type": "service_outage",
+      "event_date": "2019-06-12",
+      "title": "Site flagged inaccessible / inactive by trackers",
+      "description": "By mid-2019, third-party exchange trackers said the site could not be accessed and marked the venue inactive or dead."
+    }
+  ],
+  "lineage_notes": [
+    "Possible relation to AEX / Bit.cc is not yet clean enough for predecessor/successor modeling.",
+    "Do not promote to dead or rebranded until archive and stronger non-tracker material are found."
+  ],
+  "risks": [
+    "terminal date not pinned",
+    "AEX relation may reflect lineage, migration, or only later community labeling",
+    "current status may be dead-side in practice but evidence is too soft for hard classification"
+  ],
   "final_notes": [
-    "Historic China exchange candidate."
+    "Keep BTC38 conservative as inactive and lineage-sensitive for now.",
+    "Next step: find stronger archived official material around final shutdown or migration."
   ]
 }
