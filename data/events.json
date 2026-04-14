@@ -1048,5 +1048,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "Uses the 2019-02-26 closure marker from public exchange-status sources."
+  },
+  {
+    "id": "hei_ev_000185",
+    "exchange_id": "hei_ex_000157",
+    "event_type": "service_outage",
+    "event_date": "2019-04-01",
+    "title": "Cryptonit marked closed",
+    "description": "By 2019-04-01, Cryptonit was publicly described as having closed down operations.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Conservative terminal marker from public exchange-status sources."
+  },
+  {
+    "id": "hei_ev_000186",
+    "exchange_id": "hei_ex_000157",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-04-01",
+    "title": "Operations closed",
+    "description": "A public update stated that Cryptonit had closed down operations, referencing an announcement email to customers.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 1,
+    "sort_order": 2,
+    "notes": "HEI uses 2019-04-01 as the terminal date."
   }
 ]
