@@ -3,29 +3,74 @@
   "slug_candidate": "lakebtc",
   "kind": "dead",
   "priority": "A9",
-  "research_status": "todo",
+  "research_status": "in_review",
   "public_ready": false,
   "lineage_sensitive": false,
   "dedupe_checked_against_main": true,
-  "official_url_original": null,
-  "official_domain_original": null,
+  "official_url_original": "https://www.lakebtc.com/",
+  "official_domain_original": "lakebtc.com",
   "official_url_status_guess": "unknown",
   "archived_url": null,
-  "country_or_origin": null,
-  "launch_date": null,
+  "country_or_origin": "China",
+  "launch_date": "2013-01-01",
   "death_date": null,
-  "status": null,
+  "status": "inactive",
   "death_reason": null,
-  "summary_draft": null,
+  "summary_draft": "China-linked exchange project started in early 2013 and later operated under the LakeBTC domain; third-party trackers later marked it dead or inactive, but the terminal state still needs stronger official evidence.",
   "required_evidence": {
-    "archive": [],
-    "non_archive": []
+    "archive": [
+      {
+        "title": "Wayback wildcard for LakeBTC",
+        "url": "https://web.archive.org/web/*/https://www.lakebtc.com/",
+        "publisher": "Internet Archive",
+        "published_at": null,
+        "purpose": "official site archive capture"
+      }
+    ],
+    "non_archive": [
+      {
+        "title": "LakeBTC announcement thread on Bitcointalk",
+        "url": "https://bitcointalk.org/index.php?topic=607119.0",
+        "publisher": "Bitcointalk",
+        "published_at": "2014-05-13",
+        "purpose": "launch/origin and operator background"
+      },
+      {
+        "title": "LakeBTC review with 2021 dead/inactive update",
+        "url": "https://www.cryptowisser.com/exchange/lakebtc/",
+        "publisher": "Cryptowisser",
+        "published_at": "2021-07-15",
+        "purpose": "later inaccessible-site / dead-side observation"
+      }
+    ]
   },
-  "evidence_notes": [],
-  "event_candidates": [],
+  "evidence_notes": [
+    "Current terminal evidence is tracker-driven, not yet a preserved official closure notice.",
+    "Do not force death_reason until stronger primary or archived official material is found.",
+    "Need archive plus at least two non-archive sources before public_ready promotion."
+  ],
+  "event_candidates": [
+    {
+      "event_type": "launched",
+      "event_date": "2013-01-01",
+      "title": "LakeBTC project start window",
+      "description": "LakeBTC later described the project as having started in early 2013 before being incorporated and operated under the current domain later that year."
+    },
+    {
+      "event_type": "service_outage",
+      "event_date": "2021-07-15",
+      "title": "Site flagged inaccessible / inactive",
+      "description": "By July 2021, third-party exchange trackers reported that the LakeBTC website was inaccessible and marked the venue inactive or dead."
+    }
+  ],
   "lineage_notes": [],
-  "risks": [],
+  "risks": [
+    "terminal date not pinned",
+    "dead-side outcome may be correct in practice but evidence is still soft",
+    "origin and later corporate structure may need fuller notes"
+  ],
   "final_notes": [
-    "Historic exchange with likely archive-first path."
+    "Keep LakeBTC conservative as inactive for now.",
+    "Next step: find stronger archived official material around the final inactive period."
   ]
 }
