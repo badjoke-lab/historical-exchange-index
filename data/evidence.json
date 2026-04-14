@@ -4093,5 +4093,50 @@
     "reliability": "medium",
     "claim_scope": "status",
     "notes": "Current status page marks BTC38 as inactive."
+  },
+  {
+    "id": "hei_src_000488",
+    "exchange_id": "hei_ex_000161",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former Bleutrade site",
+    "url": "https://bleutrade.com/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-15",
+    "archived_url": "https://web.archive.org/web/*/https://bleutrade.com/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000489",
+    "exchange_id": "hei_ex_000161",
+    "event_id": "hei_ev_000194",
+    "source_type": "news_article",
+    "title": "Bleutrade review with 2023 dead-side update",
+    "url": "https://www.cryptowisser.com/exchange/bleutrade/",
+    "publisher": "Cryptowisser",
+    "published_at": "2023-03-23",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/bleutrade/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that the site was inaccessible on 2023-03-23 and Bleutrade was marked dead."
+  },
+  {
+    "id": "hei_src_000490",
+    "exchange_id": "hei_ex_000161",
+    "event_id": "hei_ev_000194",
+    "source_type": "status_page",
+    "title": "Bleutrade exchange page with no tracked volume",
+    "url": "https://coinmarketcap.com/exchanges/bleutrade/",
+    "publisher": "CoinMarketCap",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/bleutrade/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "Current page is untracked and shows no meaningful live market data."
   }
 ]

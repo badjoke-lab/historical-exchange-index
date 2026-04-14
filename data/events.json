@@ -1160,5 +1160,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2019-06-12 as the conservative terminal marker."
+  },
+  {
+    "id": "hei_ev_000193",
+    "exchange_id": "hei_ex_000161",
+    "event_type": "relocation",
+    "event_date": "2020-05-25",
+    "title": "Bleutrade announced move to Portugal",
+    "description": "Bleutrade announced a move to Portugal and closure of its Malta office.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Useful lineage context, not the terminal event."
+  },
+  {
+    "id": "hei_ev_000194",
+    "exchange_id": "hei_ex_000161",
+    "event_type": "shutdown_effective",
+    "event_date": "2023-03-23",
+    "title": "Bleutrade marked dead",
+    "description": "Public exchange-status sources reported the website was inaccessible on 2023-03-23 and marked Bleutrade as dead.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2023-03-23 as the conservative terminal marker."
   }
 ]

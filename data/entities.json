@@ -3312,5 +3312,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-15",
     "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2019-06-12 dead-side update."
+  },
+  {
+    "id": "hei_ex_000161",
+    "slug": "bleutrade",
+    "canonical_name": "Bleutrade",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": "2023-03-23",
+    "country_or_origin": "Brazil",
+    "summary": "Cryptocurrency exchange originally from Brazil that was later described as inaccessible and dead by March 2023 after earlier relocations to Malta and Portugal.",
+    "official_url_original": "https://bleutrade.com/",
+    "official_domain_original": "bleutrade.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://bleutrade.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-15",
+    "notes": "Treat cause conservatively as unknown. Bleutrade was originally from Brazil, later moved to Malta in 2018 and Portugal in 2020, and was marked dead after the site was inaccessible on 2023-03-23."
   }
 ]
