@@ -3134,5 +3134,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-14",
     "notes": "Shutdown notice said deposits would close on 2019-12-03 and all services and servers would terminate after 2019-12-15."
+  },
+  {
+    "id": "hei_ex_000153",
+    "slug": "coinroom",
+    "canonical_name": "Coinroom",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": "2019-04-02",
+    "country_or_origin": "Poland",
+    "summary": "Polish cryptocurrency exchange that shut down in April 2019 after earlier KNF warning-list action, with later reporting alleging customer-fund losses.",
+    "official_url_original": "https://coinroom.com/",
+    "official_domain_original": "coinroom.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://coinroom.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-14",
+    "notes": "Operational end marker uses the 2019-04-02 shutdown date reported by multiple later sources. Cause stays unknown at public-ready stage."
   }
 ]
