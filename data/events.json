@@ -1244,5 +1244,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2025-04-01 as the conservative terminal marker."
+  },
+  {
+    "id": "hei_ev_000199",
+    "exchange_id": "hei_ex_000164",
+    "event_type": "service_outage",
+    "event_date": "2021-07-15",
+    "title": "ACX site became inaccessible",
+    "description": "By 2021-07-15, public exchange-status sources reported that the ACX website was not accessible.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Start of conservative terminal handling."
+  },
+  {
+    "id": "hei_ev_000200",
+    "exchange_id": "hei_ex_000164",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-07-15",
+    "title": "ACX marked dead",
+    "description": "Public exchange-status sources marked ACX as dead on 2021-07-15.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2021-07-15 as the conservative terminal marker."
   }
 ]
