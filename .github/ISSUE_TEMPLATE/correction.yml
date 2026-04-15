@@ -22,7 +22,7 @@ body:
     attributes:
       label: HEI page URL
       description: Link to the specific HEI page, if available.
-      placeholder: https://historical-exchange-index.pages.dev/exchange/...
+      placeholder: https://hei.badjoke-lab.com/exchange/...
     validations:
       required: false
 

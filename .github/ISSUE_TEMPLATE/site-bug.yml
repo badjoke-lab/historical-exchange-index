@@ -12,7 +12,7 @@ body:
     attributes:
       label: Affected page URL
       description: Link to the page where the problem happens.
-      placeholder: https://historical-exchange-index.pages.dev/...
+      placeholder: https://hei.badjoke-lab.com/...
     validations:
       required: true
 

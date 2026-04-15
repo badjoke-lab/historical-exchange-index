@@ -5,13 +5,13 @@ contact_links:
     about: Report record corrections, missing exchanges, site bugs, or send general HEI-related messages.
 
   - name: Live site
-    url: https://historical-exchange-index.pages.dev/
+    url: https://hei.badjoke-lab.com/
     about: Browse the public site.
 
   - name: Methodology
-    url: https://historical-exchange-index.pages.dev/methodology/
+    url: https://hei.badjoke-lab.com/methodology/
     about: Read the current methodology and project framing.
 
   - name: Donate
-    url: https://historical-exchange-index.pages.dev/donate/
+    url: https://hei.badjoke-lab.com/donate/
     about: Support continued maintenance and record expansion.

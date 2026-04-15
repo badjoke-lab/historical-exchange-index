@@ -7,10 +7,10 @@ Its focus is on exchange identity, operating status, major lifecycle events, arc
 
 ## Links
 
-- **Live site**: https://historical-exchange-index.pages.dev/
-- **Methodology**: https://historical-exchange-index.pages.dev/methodology/
+- **Live site**: https://hei.badjoke-lab.com/
+- **Methodology**: https://hei.badjoke-lab.com/methodology/
 - **Contact / Corrections**: https://docs.google.com/forms/d/e/1FAIpQLSf6NGsKIaGUzeGWUAyphOsv0XN3eSBebsASj_0g-qtZtNamWw/viewform
-- **Donate**: https://historical-exchange-index.pages.dev/donate/
+- **Donate**: https://hei.badjoke-lab.com/donate/
 - **GitHub**: https://github.com/badjoke-lab/historical-exchange-index
 
 ## What HEI does
