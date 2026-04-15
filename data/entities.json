@@ -3424,5 +3424,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-15",
     "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2021-11-11 dead-side update."
+  },
+  {
+    "id": "hei_ex_000166",
+    "slug": "c-trade",
+    "canonical_name": "C-Trade",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2020-01-01",
+    "death_date": "2023-01-11",
+    "country_or_origin": "Seychelles",
+    "summary": "Seychelles-registered cryptocurrency derivatives exchange that became unusable by 2023-01-11 and was marked dead after posting a message about developing a new platform.",
+    "official_url_original": "https://www.c-trade.com/app",
+    "official_domain_original": "c-trade.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.c-trade.com/app",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-15",
+    "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2023-01-11 dead-side update. The 'new platform' notice is treated as context, not proof of a successful successor."
   }
 ]
