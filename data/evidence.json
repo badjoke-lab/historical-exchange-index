@@ -4408,5 +4408,50 @@
     "reliability": "medium",
     "claim_scope": "status",
     "notes": "Current page is untracked and inactive, with no live market data."
+  },
+  {
+    "id": "hei_src_000509",
+    "exchange_id": "hei_ex_000168",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former ZT.com site",
+    "url": "https://www.zt.com/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-15",
+    "archived_url": "https://web.archive.org/web/*/https://www.zt.com/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000510",
+    "exchange_id": "hei_ex_000168",
+    "event_id": "hei_ev_000208",
+    "source_type": "news_article",
+    "title": "ZT.com Exchange review with 2024 dead-side update",
+    "url": "https://www.cryptowisser.com/index.php/exchange/zt-com-exchange/",
+    "publisher": "Cryptowisser",
+    "published_at": "2024-09-18",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/index.php/exchange/zt-com-exchange/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that zt.com was inaccessible on 2024-09-18 and the exchange was marked dead."
+  },
+  {
+    "id": "hei_src_000511",
+    "exchange_id": "hei_ex_000168",
+    "event_id": "hei_ev_000208",
+    "source_type": "status_page",
+    "title": "ZT exchange page suspended and untracked",
+    "url": "https://coinmarketcap.com/exchanges/zt/",
+    "publisher": "CoinMarketCap",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/zt/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "Current page says ZT has suspended all withdrawals and trading and shows the listing as untracked."
   }
 ]
