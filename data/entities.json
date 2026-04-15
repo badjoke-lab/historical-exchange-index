@@ -3492,5 +3492,29 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-15",
     "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2024-09-18 dead-side update. CoinMarketCap currently surfaces the exchange as ZT with ztb.im and suspended withdrawals/trading."
+  },
+  {
+    "id": "hei_ex_000169",
+    "slug": "aax",
+    "canonical_name": "AAX",
+    "aliases": [
+      "Atom Asset Exchange"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2019-09-16",
+    "death_date": "2023-01-11",
+    "country_or_origin": "Seychelles",
+    "summary": "Cryptocurrency exchange branded as AAX that suspended withdrawals in November 2022 and was publicly marked dead by 2023-01-11.",
+    "official_url_original": "https://www.aax.com/en-US/",
+    "official_domain_original": "aax.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.aax.com/en-US/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-15",
+    "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2023-01-11 dead-side update. Source coverage shows a 2022-11-13 suspension first, then a later dead-side marker."
   }
 ]
