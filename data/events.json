@@ -1356,5 +1356,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2019-07-18 as the conservative terminal marker."
+  },
+  {
+    "id": "hei_ev_000207",
+    "exchange_id": "hei_ex_000168",
+    "event_type": "service_outage",
+    "event_date": "2024-09-18",
+    "title": "ZT.com site became inaccessible",
+    "description": "By 2024-09-18, public exchange-status sources reported that the zt.com website was unsuccessful to access and there had been no prior maintenance or migration notice.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Start of conservative terminal handling."
+  },
+  {
+    "id": "hei_ev_000208",
+    "exchange_id": "hei_ex_000168",
+    "event_type": "shutdown_effective",
+    "event_date": "2024-09-18",
+    "title": "ZT.com Exchange marked dead",
+    "description": "Public exchange-status sources marked ZT.com Exchange as dead by 2024-09-18, and CoinMarketCap later showed withdrawals and trading suspended.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2024-09-18 as the conservative terminal marker."
   }
 ]

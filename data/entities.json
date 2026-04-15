@@ -3468,5 +3468,29 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-15",
     "notes": "Treat cause conservatively as unknown. Cryptowisser review update uses 2019-07-18 as the dead-side marker, while Cryptowisser graveyard shows 2019-07-17 with business reasons."
+  },
+  {
+    "id": "hei_ex_000168",
+    "slug": "zt-com-exchange",
+    "canonical_name": "ZT.com Exchange",
+    "aliases": [
+      "ZT"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": "2024-09-18",
+    "country_or_origin": "China",
+    "summary": "Crypto exchange branded as ZT that was publicly described as inaccessible and dead by 2024-09-18, with CoinMarketCap later showing that withdrawals and trading were suspended.",
+    "official_url_original": "https://www.zt.com/",
+    "official_domain_original": "zt.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.zt.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-15",
+    "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2024-09-18 dead-side update. CoinMarketCap currently surfaces the exchange as ZT with ztb.im and suspended withdrawals/trading."
   }
 ]
