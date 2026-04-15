@@ -1300,5 +1300,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2021-11-11 as the conservative terminal marker."
+  },
+  {
+    "id": "hei_ev_000203",
+    "exchange_id": "hei_ex_000166",
+    "event_type": "service_outage",
+    "event_date": "2023-01-11",
+    "title": "C-Trade platform became unusable",
+    "description": "By 2023-01-11, public exchange-status sources stated that the C-Trade platform was not possible to use.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Start of conservative terminal handling."
+  },
+  {
+    "id": "hei_ev_000204",
+    "exchange_id": "hei_ex_000166",
+    "event_type": "shutdown_effective",
+    "event_date": "2023-01-11",
+    "title": "C-Trade marked dead",
+    "description": "Public exchange-status sources marked C-Trade as dead on 2023-01-11 after the exchange posted a notice about building a brand new platform.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2023-01-11 as the conservative terminal marker."
   }
 ]

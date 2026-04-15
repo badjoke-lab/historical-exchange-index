@@ -4318,5 +4318,50 @@
     "reliability": "medium",
     "claim_scope": "status",
     "notes": "Current page is untracked and inactive, with no live market data."
+  },
+  {
+    "id": "hei_src_000503",
+    "exchange_id": "hei_ex_000166",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former C-Trade site",
+    "url": "https://www.c-trade.com/app",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-15",
+    "archived_url": "https://web.archive.org/web/*/https://www.c-trade.com/app",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000504",
+    "exchange_id": "hei_ex_000166",
+    "event_id": "hei_ev_000204",
+    "source_type": "news_article",
+    "title": "C-Trade review with 2023 dead-side update",
+    "url": "https://www.cryptowisser.com/exchange/c-trade/",
+    "publisher": "Cryptowisser",
+    "published_at": "2023-01-11",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/c-trade/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that the platform was not possible to use on 2023-01-11 and reproduces the 'brand new platform' message."
+  },
+  {
+    "id": "hei_src_000505",
+    "exchange_id": "hei_ex_000166",
+    "event_id": "hei_ev_000204",
+    "source_type": "status_page",
+    "title": "C-Trade exchange page untracked",
+    "url": "https://coinmarketcap.com/exchanges/c-trade/",
+    "publisher": "CoinMarketCap",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/c-trade/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "Current page is untracked and shows no live market data."
   }
 ]
