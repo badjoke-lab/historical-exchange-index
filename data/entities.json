@@ -3402,5 +3402,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-15",
     "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2021-07-15 dead-side update."
+  },
+  {
+    "id": "hei_ex_000165",
+    "slug": "cryptox",
+    "canonical_name": "Cryptox",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": "2021-11-11",
+    "country_or_origin": "Poland",
+    "summary": "Polish cryptocurrency exchange that was publicly described as inaccessible and dead by 2021-11-11.",
+    "official_url_original": "https://cryptox.pl/",
+    "official_domain_original": "cryptox.pl",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://cryptox.pl/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-15",
+    "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2021-11-11 dead-side update."
   }
 ]

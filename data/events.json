@@ -1272,5 +1272,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2021-07-15 as the conservative terminal marker."
+  },
+  {
+    "id": "hei_ev_000201",
+    "exchange_id": "hei_ex_000165",
+    "event_type": "service_outage",
+    "event_date": "2021-11-11",
+    "title": "Cryptox site became inaccessible",
+    "description": "By 2021-11-11, public exchange-status sources reported that the Cryptox website was not accessible and there had been no prior maintenance notice.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Start of conservative terminal handling."
+  },
+  {
+    "id": "hei_ev_000202",
+    "exchange_id": "hei_ex_000165",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-11-11",
+    "title": "Cryptox marked dead",
+    "description": "Public exchange-status sources marked Cryptox as dead on 2021-11-11.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2021-11-11 as the conservative terminal marker."
   }
 ]
