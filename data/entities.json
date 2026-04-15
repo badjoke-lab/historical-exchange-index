@@ -3446,5 +3446,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-15",
     "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2023-01-11 dead-side update. The 'new platform' notice is treated as context, not proof of a successful successor."
+  },
+  {
+    "id": "hei_ex_000167",
+    "slug": "nix-e",
+    "canonical_name": "NIX-E",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": "2019-07-18",
+    "country_or_origin": "Russia",
+    "summary": "Russian cryptocurrency exchange that was publicly described as dead by 2019-07-18 after volume-reporting ceased, the site presented an invalid certificate, and trading activity appeared stale.",
+    "official_url_original": "https://www.nix-e.com/",
+    "official_domain_original": "nix-e.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.nix-e.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-15",
+    "notes": "Treat cause conservatively as unknown. Cryptowisser review update uses 2019-07-18 as the dead-side marker, while Cryptowisser graveyard shows 2019-07-17 with business reasons."
   }
 ]

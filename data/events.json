@@ -1328,5 +1328,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2023-01-11 as the conservative terminal marker."
+  },
+  {
+    "id": "hei_ev_000205",
+    "exchange_id": "hei_ex_000167",
+    "event_type": "service_outage",
+    "event_date": "2019-07-18",
+    "title": "NIX-E showed terminal warning signs",
+    "description": "By 2019-07-18, public exchange-status sources said NIX-E no longer reported volume to major sites, had an invalid site certificate, and appeared to have stale trading activity.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Start of conservative terminal handling."
+  },
+  {
+    "id": "hei_ev_000206",
+    "exchange_id": "hei_ex_000167",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-07-18",
+    "title": "NIX-E marked dead",
+    "description": "Public exchange-status sources marked NIX-E as dead by 2019-07-18.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2019-07-18 as the conservative terminal marker."
   }
 ]
