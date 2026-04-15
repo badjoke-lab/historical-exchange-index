@@ -1,0 +1,301 @@
+{
+  "generated_at": "2026-04-15",
+  "basis": {
+    "current_main_entities": 163,
+    "current_main_commit": "75a8748",
+    "last_batch": "hei_public_ready_batch_10_v3",
+    "rule": "Do not cut new batches from names already present in current main. Use this ledger as the persistent candidate source of truth and replenish it whenever the backlog quality drops."
+  },
+  "existing_in_main_upgrade_only": [
+    {
+      "canonical_name": "Bittrex Global",
+      "existing_id": "hei_ex_000031",
+      "action": "upgrade_existing",
+      "batch_status": "upgrade_only"
+    },
+    {
+      "canonical_name": "BX Thailand",
+      "existing_id": "hei_ex_000117",
+      "action": "upgrade_existing",
+      "batch_status": "upgrade_only"
+    },
+    {
+      "canonical_name": "COSS",
+      "existing_id": "hei_ex_000118",
+      "action": "re-review_existing",
+      "batch_status": "upgrade_only"
+    },
+    {
+      "canonical_name": "Vaultoro",
+      "existing_id": "hei_ex_000030",
+      "action": "re-review_existing",
+      "batch_status": "upgrade_only"
+    }
+  ],
+  "merged_from_ledger": [
+    {
+      "canonical_name": "Bitcurex",
+      "existing_id": "hei_ex_000141",
+      "kind": "dead",
+      "source_tier": "A",
+      "priority": "A3",
+      "batch_status": "merged"
+    },
+    {
+      "canonical_name": "Tradehill",
+      "existing_id": "hei_ex_000142",
+      "kind": "dead",
+      "source_tier": "A",
+      "priority": "A8",
+      "batch_status": "merged"
+    },
+    {
+      "canonical_name": "Coin.mx",
+      "existing_id": "hei_ex_000143",
+      "kind": "dead",
+      "source_tier": "A",
+      "priority": "A10",
+      "batch_status": "merged"
+    },
+    {
+      "canonical_name": "Yunbi",
+      "existing_id": "hei_ex_000148",
+      "kind": "dead",
+      "source_tier": "B",
+      "priority": "B5",
+      "batch_status": "merged"
+    },
+    {
+      "canonical_name": "Binance Uganda",
+      "existing_id": "hei_ex_000145",
+      "kind": "shutdown",
+      "source_tier": "B",
+      "priority": "B10",
+      "batch_status": "merged"
+    },
+    {
+      "canonical_name": "Binance Jersey",
+      "existing_id": "hei_ex_000149",
+      "kind": "shutdown",
+      "source_tier": "B",
+      "priority": "B11",
+      "batch_status": "merged"
+    },
+    {
+      "canonical_name": "Binance Singapore",
+      "existing_id": "hei_ex_000150",
+      "kind": "rebrand_or_shutdown",
+      "source_tier": "B",
+      "priority": "B9",
+      "batch_status": "merged"
+    },
+    {
+      "canonical_name": "CampBX",
+      "kind": "dead",
+      "priority": "A2",
+      "batch_status": "merged",
+      "notes": "Historic U.S. exchange; good chance of clean dead-side record.",
+      "existing_id": "hei_ex_000151"
+    },
+    {
+      "canonical_name": "Bleutrade",
+      "kind": "dead",
+      "priority": "A4",
+      "batch_status": "merged",
+      "notes": "Shutdown-era evidence likely tractable.",
+      "existing_id": "hei_ex_000161"
+    },
+    {
+      "canonical_name": "BTC38",
+      "kind": "dead",
+      "priority": "A5",
+      "batch_status": "merged",
+      "notes": "Historic China exchange candidate.",
+      "existing_id": "hei_ex_000160"
+    },
+    {
+      "canonical_name": "Coinroom",
+      "kind": "dead",
+      "priority": "A6",
+      "batch_status": "merged",
+      "notes": "Needs careful cause handling; do not force scam label.",
+      "existing_id": "hei_ex_000153"
+    },
+    {
+      "canonical_name": "Mercatox",
+      "kind": "dead",
+      "priority": "A7",
+      "batch_status": "merged",
+      "notes": "Widely cited closure; needs cleaner final evidence pack.",
+      "existing_id": "hei_ex_000163"
+    },
+    {
+      "canonical_name": "LakeBTC",
+      "kind": "dead",
+      "priority": "A9",
+      "batch_status": "merged",
+      "notes": "Historic exchange with likely archive-first path.",
+      "existing_id": "hei_ex_000162"
+    },
+    {
+      "canonical_name": "CryptoBridge",
+      "kind": "dead",
+      "priority": "A11",
+      "batch_status": "merged",
+      "notes": "Historic closure candidate; evidence quality must be checked.",
+      "existing_id": "hei_ex_000152"
+    },
+    {
+      "canonical_name": "Bitsane",
+      "kind": "dead",
+      "priority": "A12",
+      "batch_status": "merged",
+      "notes": "Needs careful evidence review; keep cause conservative.",
+      "existing_id": "hei_ex_000154"
+    },
+    {
+      "canonical_name": "Bter",
+      "kind": "dead",
+      "priority": "B1",
+      "batch_status": "merged",
+      "notes": "Historic exchange candidate.",
+      "existing_id": "hei_ex_000155"
+    },
+    {
+      "canonical_name": "C-CEX",
+      "kind": "dead",
+      "priority": "B2",
+      "batch_status": "merged",
+      "notes": "Historic alt exchange candidate.",
+      "existing_id": "hei_ex_000158"
+    },
+    {
+      "canonical_name": "Cryptonit",
+      "kind": "dead",
+      "priority": "B6",
+      "batch_status": "merged",
+      "notes": "Historic candidate; source quality uncertain.",
+      "existing_id": "hei_ex_000157"
+    },
+    {
+      "canonical_name": "Abucoins",
+      "kind": "dead",
+      "priority": "B8",
+      "batch_status": "merged",
+      "notes": "Low-volume candidate but plausible.",
+      "existing_id": "hei_ex_000156"
+    },
+    {
+      "canonical_name": "Coinbase Pro",
+      "kind": "rebrand",
+      "priority": "B12",
+      "batch_status": "merged",
+      "notes": "Historical surface / lineage candidate, not dead-side collapse.",
+      "existing_id": "hei_ex_000159"
+    }
+  ],
+  "a_tier_backlog": [
+    {
+      "canonical_name": "AAX",
+      "kind": "dead",
+      "priority": "A1",
+      "batch_status": "todo",
+      "notes": "Strong shutdown arc; needs final official terminal pin."
+    }
+  ],
+  "b_tier_backlog": [
+    {
+      "canonical_name": "EmpoEx",
+      "kind": "dead",
+      "priority": "B3",
+      "batch_status": "todo",
+      "notes": "Likely tractable but lower priority."
+    },
+    {
+      "canonical_name": "Comkort",
+      "kind": "dead",
+      "priority": "B4",
+      "batch_status": "todo",
+      "notes": "Historic collapse candidate."
+    },
+    {
+      "canonical_name": "CoinFalcon",
+      "kind": "dead_or_inactive",
+      "priority": "B7",
+      "batch_status": "todo",
+      "notes": "Needs status confirmation before batching."
+    },
+    {
+      "canonical_name": "ACX",
+      "kind": "dead",
+      "priority": "N1",
+      "batch_status": "todo",
+      "notes": "Cryptowisser dead update dated 2021-07-15; domain appeared lost."
+    },
+    {
+      "canonical_name": "Cryptox",
+      "kind": "dead",
+      "priority": "N2",
+      "batch_status": "todo",
+      "notes": "Cryptowisser dead update dated 2021-11-11."
+    },
+    {
+      "canonical_name": "C-Trade",
+      "kind": "dead",
+      "priority": "N3",
+      "batch_status": "todo",
+      "notes": "Cryptowisser dead update dated 2023-01-11; platform unavailable and 'new platform' notice."
+    },
+    {
+      "canonical_name": "NIX-E",
+      "kind": "dead",
+      "priority": "N5",
+      "batch_status": "todo",
+      "notes": "Cryptowisser dead update dated 2019-07-18."
+    },
+    {
+      "canonical_name": "ZT.com Exchange",
+      "kind": "dead",
+      "priority": "N6",
+      "batch_status": "todo",
+      "notes": "Cryptowisser dead update dated 2024-09-18."
+    },
+    {
+      "canonical_name": "InstaSwap",
+      "kind": "dead",
+      "priority": "N7",
+      "batch_status": "todo",
+      "notes": "Cryptowisser dead update dated 2024-09-18."
+    }
+  ],
+  "lineage_candidates_needing_special_handling": [
+    {
+      "canonical_name": "GDAX",
+      "kind": "rebrand",
+      "batch_status": "watchlist",
+      "notes": "Should be handled as lineage to Coinbase Exchange, not as a naive new dead-side entity."
+    },
+    {
+      "canonical_name": "Huobi Global",
+      "kind": "rebrand",
+      "batch_status": "watchlist",
+      "notes": "Likely predecessor/brand-transition relation to HTX."
+    },
+    {
+      "canonical_name": "OKEx",
+      "kind": "rebrand",
+      "batch_status": "watchlist",
+      "notes": "Likely predecessor/brand-transition relation to OKX."
+    },
+    {
+      "canonical_name": "Bittrex U.S.",
+      "kind": "shutdown",
+      "batch_status": "watchlist",
+      "notes": "Must stay separate from existing Bittrex Global record."
+    }
+  ],
+  "next_cut_hint": {
+    "remaining_original_backlog_count": 10,
+    "note": "Original shortlist is nearly exhausted. Newly appended candidates are feeder candidates that still need per-name review before batching."
+  }
+}
