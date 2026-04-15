@@ -3516,5 +3516,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-15",
     "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2023-01-11 dead-side update. Source coverage shows a 2022-11-13 suspension first, then a later dead-side marker."
+  },
+  {
+    "id": "hei_ex_000170",
+    "slug": "instaswap",
+    "canonical_name": "InstaSwap",
+    "aliases": [],
+    "type": "dex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2019-01-01",
+    "death_date": "2024-09-18",
+    "country_or_origin": "Greece",
+    "summary": "Greece-linked non-custodial exchange or broker-style swap platform that was publicly described as inaccessible and dead by 2024-09-18.",
+    "official_url_original": "https://instaswap.io/",
+    "official_domain_original": "instaswap.io",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://instaswap.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-15",
+    "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2024-09-18 dead-side update. Launch year is 2019, recorded conservatively as 2019-01-01."
   }
 ]
