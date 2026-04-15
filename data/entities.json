@@ -3378,5 +3378,29 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-15",
     "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2025-04-01 user-inquiry end date from the public closure update."
+  },
+  {
+    "id": "hei_ex_000164",
+    "slug": "acx",
+    "canonical_name": "ACX",
+    "aliases": [
+      "ACX.io"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": "2021-07-15",
+    "country_or_origin": "Australia",
+    "summary": "Australian cryptocurrency exchange that was publicly described as inaccessible and dead by 2021-07-15.",
+    "official_url_original": "https://acx.io/",
+    "official_domain_original": "acx.io",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://acx.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-15",
+    "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2021-07-15 dead-side update."
   }
 ]
