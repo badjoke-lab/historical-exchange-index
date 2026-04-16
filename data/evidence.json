@@ -4798,5 +4798,50 @@
     "reliability": "medium",
     "claim_scope": "status",
     "notes": "Current graveyard page lists dead exchanges and supports NLExch dead-side handling."
+  },
+  {
+    "id": "hei_src_000539",
+    "exchange_id": "hei_ex_000174",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former Rippex site",
+    "url": "https://rippex.net/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-16",
+    "archived_url": "https://web.archive.org/web/*/https://rippex.net/",
+    "accessed_at": "2026-04-16",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000540",
+    "exchange_id": "hei_ex_000174",
+    "event_id": "hei_ev_000227",
+    "source_type": "news_article",
+    "title": "Rippex review marked permanently closed",
+    "url": "https://www.cryptowisser.com/exchange/rippex",
+    "publisher": "Cryptowisser",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/rippex",
+    "accessed_at": "2026-04-16",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "Cryptowisser states that Rippex is permanently closed and references a closure message shown on the website."
+  },
+  {
+    "id": "hei_src_000541",
+    "exchange_id": "hei_ex_000174",
+    "event_id": "hei_ev_000226",
+    "source_type": "database_reference",
+    "title": "Cryptowisser Exchange Graveyard entry",
+    "url": "https://www.cryptowisser.com/exchange-graveyard",
+    "publisher": "Cryptowisser",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange-graveyard",
+    "accessed_at": "2026-04-16",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "Current graveyard page supports dead-side handling for exchanges marked closed by Cryptowisser."
   }
 ]
