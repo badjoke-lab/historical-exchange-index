@@ -1566,5 +1566,33 @@
     "source_count": 1,
     "sort_order": 2,
     "notes": "Year-level conservative marker for the current-generation platform."
+  },
+  {
+    "id": "hei_ev_000224",
+    "exchange_id": "hei_ex_000173",
+    "event_type": "shutdown_announced",
+    "event_date": "2020-09-01",
+    "title": "NLExch closure statement surfaced",
+    "description": "A public update stated that NLExch had closed down and cited Dutch registration requirements and related operating costs.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Conservative announcement marker from public exchange-status coverage."
+  },
+  {
+    "id": "hei_ev_000225",
+    "exchange_id": "hei_ex_000173",
+    "event_type": "shutdown_effective",
+    "event_date": "2020-09-01",
+    "title": "NLExch marked dead",
+    "description": "Public exchange-status sources marked NLExch as closed and moved it to the exchange graveyard on 2020-09-01.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2020-09-01 as the conservative terminal marker."
   }
 ]
