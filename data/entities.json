@@ -3584,5 +3584,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-16",
     "notes": "Entity-level umbrella record. Launch marker uses the documented production date. Bisq 1 and Bisq 2 are not yet split into separate protocol or product records."
+  },
+  {
+    "id": "hei_ex_000173",
+    "slug": "nlexch",
+    "canonical_name": "NLExch",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": "2020-09-01",
+    "country_or_origin": "Netherlands",
+    "summary": "Dutch cryptocurrency exchange that was publicly marked closed on 2020-09-01 after citing Dutch registration requirements and operating-cost pressure.",
+    "official_url_original": "https://nlexch.com/",
+    "official_domain_original": "nlexch.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://nlexch.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-16",
+    "notes": "Cause stays conservative as unknown. Public closure text references Dutch registration requirements and economic infeasibility, but HEI does not hard-classify this beyond the terminal closure marker."
   }
 ]
