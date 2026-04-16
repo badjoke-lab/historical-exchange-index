@@ -70,20 +70,6 @@
     "notes": ""
   },
   {
-    "id": "hei_ev_000011",
-    "exchange_id": "hei_ex_000007",
-    "event_type": "launched",
-    "event_date": "2020-08-01",
-    "title": "SushiSwap protocol launched",
-    "description": "SushiSwap began operating as a decentralized exchange protocol; launch date precision is currently limited to month level.",
-    "confidence": "high",
-    "impact_level": "medium",
-    "event_status_effect": "active",
-    "source_count": 2,
-    "sort_order": 1,
-    "notes": ""
-  },
-  {
     "id": "hei_ev_000012",
     "exchange_id": "hei_ex_000008",
     "event_type": "hack",
@@ -1468,5 +1454,47 @@
     "source_count": 2,
     "sort_order": 3,
     "notes": "Major protocol-version milestone under the same umbrella entity."
+  },
+  {
+    "id": "hei_ev_000216",
+    "exchange_id": "hei_ex_000007",
+    "event_type": "launched",
+    "event_date": "2020-08-01",
+    "title": "SushiSwap launched in August 2020",
+    "description": "Sushi launched in August 2020 as a decentralized exchange protocol, with official materials describing the project as created in late August 2020.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Month-level conservative launch marker."
+  },
+  {
+    "id": "hei_ev_000217",
+    "exchange_id": "hei_ex_000007",
+    "event_type": "other",
+    "event_date": "2022-04-21",
+    "title": "Sushi announced multichain suite expansion",
+    "description": "Sushi announced the launch of its suite of DeFi products across major chains, reinforcing its multichain operating model.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 2,
+    "notes": "Meaningful expansion milestone for the umbrella DEX entity."
+  },
+  {
+    "id": "hei_ev_000218",
+    "exchange_id": "hei_ex_000007",
+    "event_type": "other",
+    "event_date": "2025-02-25",
+    "title": "Sushi introduced Route Processor 6",
+    "description": "Sushi introduced RP6 as the latest upgrade to its routing stack, showing continued protocol development and execution-layer improvement.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 3,
+    "notes": "Development-signal milestone retained under event_type=other."
   }
 ]

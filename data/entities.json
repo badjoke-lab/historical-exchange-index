@@ -139,14 +139,14 @@
     "launch_date": "2020-08-01",
     "death_date": null,
     "country_or_origin": "Ethereum ecosystem",
-    "summary": "Ethereum ecosystem decentralized exchange protocol launched in 2020 and still operating under the SushiSwap brand.",
+    "summary": "Ethereum-born decentralized exchange and liquidity-aggregation protocol family launched in August 2020 and still active as a multi-chain DeFi stack under the Sushi brand.",
     "official_url_original": "https://www.sushi.com/",
     "official_domain_original": "sushi.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.sushi.com/",
     "confidence": "high",
-    "last_verified_at": "2026-04-05",
-    "notes": "Official Sushi materials place launch in August 2020"
+    "last_verified_at": "2026-04-16",
+    "notes": "Entity-level umbrella record. Launch is kept at month precision because official Sushi materials describe the project as created in late August 2020. Deployment-level and product-level modeling are still pending."
   },
   {
     "id": "hei_ex_000008",
