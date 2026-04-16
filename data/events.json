@@ -1594,5 +1594,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2020-09-01 as the conservative terminal marker."
+  },
+  {
+    "id": "hei_ev_000226",
+    "exchange_id": "hei_ex_000174",
+    "event_type": "shutdown_announced",
+    "event_date": null,
+    "title": "Rippex closure notice was displayed",
+    "description": "Public exchange-status coverage states that Rippex displayed a closure notice on its website in Portuguese.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Announcement timing remains uncertain in this pass."
+  },
+  {
+    "id": "hei_ev_000227",
+    "exchange_id": "hei_ex_000174",
+    "event_type": "shutdown_effective",
+    "event_date": null,
+    "title": "Rippex marked permanently closed",
+    "description": "Public exchange-status sources describe Rippex as permanently closed.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 1,
+    "sort_order": 2,
+    "notes": "Terminal timing remains conservative because a precise effective date is not fixed in this pass."
   }
 ]
