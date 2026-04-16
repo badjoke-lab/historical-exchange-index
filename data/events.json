@@ -70,20 +70,6 @@
     "notes": ""
   },
   {
-    "id": "hei_ev_000010",
-    "exchange_id": "hei_ex_000006",
-    "event_type": "launched",
-    "event_date": "2018-11-02",
-    "title": "Uniswap protocol launched",
-    "description": "Uniswap began operating as a decentralized exchange protocol.",
-    "confidence": "medium",
-    "impact_level": "medium",
-    "event_status_effect": "active",
-    "source_count": 2,
-    "sort_order": 1,
-    "notes": ""
-  },
-  {
     "id": "hei_ev_000011",
     "exchange_id": "hei_ex_000007",
     "event_type": "launched",
@@ -1440,5 +1426,47 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2024-09-18 as the conservative terminal marker."
+  },
+  {
+    "id": "hei_ev_000213",
+    "exchange_id": "hei_ex_000006",
+    "event_type": "launched",
+    "event_date": "2018-11-02",
+    "title": "Uniswap was publicly launched on Ethereum mainnet",
+    "description": "Uniswap was publicly announced and deployed to Ethereum mainnet on 2018-11-02.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Entity-level launch marker for the protocol family."
+  },
+  {
+    "id": "hei_ev_000214",
+    "exchange_id": "hei_ex_000006",
+    "event_type": "launched",
+    "event_date": "2020-05-18",
+    "title": "Uniswap v2 mainnet launch",
+    "description": "Uniswap v2, the second major protocol version, was deployed to Ethereum mainnet on 2020-05-18.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 2,
+    "notes": "Major protocol-version milestone under the same umbrella entity."
+  },
+  {
+    "id": "hei_ev_000215",
+    "exchange_id": "hei_ex_000006",
+    "event_type": "launched",
+    "event_date": "2021-05-05",
+    "title": "Uniswap v3 mainnet launch",
+    "description": "Uniswap v3, the third major protocol version, was deployed to Ethereum mainnet on 2021-05-05.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 3,
+    "notes": "Major protocol-version milestone under the same umbrella entity."
   }
 ]

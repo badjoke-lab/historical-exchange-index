@@ -117,14 +117,14 @@
     "launch_date": "2018-11-02",
     "death_date": null,
     "country_or_origin": "Ethereum ecosystem",
-    "summary": "Ethereum ecosystem decentralized exchange protocol launched in 2018 and still operating under the Uniswap brand.",
+    "summary": "Ethereum-born decentralized exchange protocol family first deployed to mainnet in 2018 and still active through multiple major protocol versions under the Uniswap brand.",
     "official_url_original": "https://app.uniswap.org/",
     "official_domain_original": "uniswap.org",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://app.uniswap.org/",
-    "confidence": "medium",
-    "last_verified_at": "2026-04-05",
-    "notes": "Official Uniswap history states the protocol was publicly announced and deployed to Ethereum mainnet on 2018-11-02."
+    "confidence": "high",
+    "last_verified_at": "2026-04-15",
+    "notes": "Entity-level umbrella record. v0/v1, v2, and v3 milestones are recorded here. Deployment-level and chain-level modeling is still pending, so this is not yet split by deployment."
   },
   {
     "id": "hei_ex_000007",

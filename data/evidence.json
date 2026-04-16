@@ -105,21 +105,6 @@
     "notes": "Primary U.S. enforcement reference."
   },
   {
-    "id": "hei_src_000008",
-    "exchange_id": "hei_ex_000006",
-    "event_id": "hei_ev_000010",
-    "source_type": "official_blog",
-    "title": "A Short History of Uniswap",
-    "url": "https://blog.uniswap.org/uniswap-history",
-    "publisher": "Uniswap Labs",
-    "published_at": "2019-02-10",
-    "archived_url": "https://web.archive.org/web/*/https://blog.uniswap.org/uniswap-history",
-    "accessed_at": "2026-04-06",
-    "reliability": "high",
-    "claim_scope": "launch_date",
-    "notes": "Official Uniswap history gives 2018-11-02 as the public announcement and mainnet deployment date."
-  },
-  {
     "id": "hei_src_000009",
     "exchange_id": "hei_ex_000007",
     "event_id": "hei_ev_000011",
@@ -178,21 +163,6 @@
     "reliability": "high",
     "claim_scope": "entity",
     "notes": "About page states Binance was launched in July 2017. Snapshot date reflects an undated page observation captured on the access date."
-  },
-  {
-    "id": "hei_src_000013",
-    "exchange_id": "hei_ex_000006",
-    "event_id": "hei_ev_000010",
-    "source_type": "official_blog",
-    "title": "Introducing Uniswap v3",
-    "url": "https://blog.uniswap.org/uniswap-v3",
-    "publisher": "Uniswap Labs",
-    "published_at": "2021-03-23",
-    "archived_url": "https://web.archive.org/web/*/https://blog.uniswap.org/uniswap-v3",
-    "accessed_at": "2026-04-06",
-    "reliability": "high",
-    "claim_scope": "entity",
-    "notes": "States Uniswap v1 launched in November 2018."
   },
   {
     "id": "hei_src_000014",
@@ -4558,5 +4528,65 @@
     "reliability": "medium",
     "claim_scope": "status",
     "notes": "Current graveyard page lists InstaSwap among dead exchanges."
+  },
+  {
+    "id": "hei_src_000519",
+    "exchange_id": "hei_ex_000006",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for Uniswap app",
+    "url": "https://app.uniswap.org/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-15",
+    "archived_url": "https://web.archive.org/web/*/https://app.uniswap.org/",
+    "accessed_at": "2026-04-15",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000520",
+    "exchange_id": "hei_ex_000006",
+    "event_id": "hei_ev_000213",
+    "source_type": "official_blog",
+    "title": "A Short History of Uniswap",
+    "url": "https://blog.uniswap.org/uniswap-history",
+    "publisher": "Uniswap Labs",
+    "published_at": "2019-02-11",
+    "archived_url": "https://web.archive.org/web/*/https://blog.uniswap.org/uniswap-history",
+    "accessed_at": "2026-04-15",
+    "reliability": "high",
+    "claim_scope": "event",
+    "notes": "Official retrospective stating Uniswap was publicly announced and deployed to Ethereum mainnet on 2018-11-02."
+  },
+  {
+    "id": "hei_src_000521",
+    "exchange_id": "hei_ex_000006",
+    "event_id": "hei_ev_000214",
+    "source_type": "official_blog",
+    "title": "Uniswap v2 Mainnet Launch",
+    "url": "https://blog.uniswap.org/launch-uniswap-v2",
+    "publisher": "Uniswap Labs",
+    "published_at": "2020-05-18",
+    "archived_url": "https://web.archive.org/web/*/https://blog.uniswap.org/launch-uniswap-v2",
+    "accessed_at": "2026-04-15",
+    "reliability": "high",
+    "claim_scope": "event",
+    "notes": "Official launch post for Uniswap v2 on Ethereum mainnet."
+  },
+  {
+    "id": "hei_src_000522",
+    "exchange_id": "hei_ex_000006",
+    "event_id": "hei_ev_000215",
+    "source_type": "official_blog",
+    "title": "Uniswap v3 Mainnet Launch",
+    "url": "https://blog.uniswap.org/launch-uniswap-v3",
+    "publisher": "Uniswap Labs",
+    "published_at": "2021-05-05",
+    "archived_url": "https://web.archive.org/web/*/https://blog.uniswap.org/launch-uniswap-v3",
+    "accessed_at": "2026-04-15",
+    "reliability": "high",
+    "claim_scope": "event",
+    "notes": "Official launch post for Uniswap v3 on Ethereum mainnet."
   }
 ]
