@@ -3538,5 +3538,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-15",
     "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2024-09-18 dead-side update. Launch year is 2019, recorded conservatively as 2019-01-01."
+  },
+  {
+    "id": "hei_ex_000171",
+    "slug": "pancakeswap",
+    "canonical_name": "PancakeSwap",
+    "aliases": [],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2020-01-01",
+    "death_date": null,
+    "country_or_origin": "BNB Chain ecosystem",
+    "summary": "BNB Chain-born decentralized exchange and DeFi protocol family launched in 2020 and still active as a multichain DEX stack under the PancakeSwap brand.",
+    "official_url_original": "https://pancakeswap.finance/",
+    "official_domain_original": "pancakeswap.finance",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://pancakeswap.finance/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-16",
+    "notes": "Entity-level umbrella record. Official materials state PancakeSwap launched in 2020, but this pass does not pin a stronger official day-level launch marker. Deployment-level and product-level modeling are still pending."
   }
 ]

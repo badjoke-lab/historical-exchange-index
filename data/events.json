@@ -1496,5 +1496,47 @@
     "source_count": 1,
     "sort_order": 3,
     "notes": "Development-signal milestone retained under event_type=other."
+  },
+  {
+    "id": "hei_ev_000219",
+    "exchange_id": "hei_ex_000171",
+    "event_type": "launched",
+    "event_date": "2020-01-01",
+    "title": "PancakeSwap launched in 2020",
+    "description": "Official PancakeSwap materials describe the protocol as launched in 2020.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Year-level conservative launch marker."
+  },
+  {
+    "id": "hei_ev_000220",
+    "exchange_id": "hei_ex_000171",
+    "event_type": "launched",
+    "event_date": "2023-04-01",
+    "title": "PancakeSwap v3 announced in April 2023",
+    "description": "Official PancakeSwap documentation states that V3 for Exchange and Farms was announced in April 2023.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 2,
+    "notes": "Month-level conservative marker based on official docs wording."
+  },
+  {
+    "id": "hei_ev_000221",
+    "exchange_id": "hei_ex_000171",
+    "event_type": "other",
+    "event_date": "2024-03-15",
+    "title": "PancakeSwap introduced Infinity",
+    "description": "PancakeSwap introduced Infinity as a major protocol evolution with a more modular architecture.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 3,
+    "notes": "Development-signal milestone retained under event_type=other."
   }
 ]
