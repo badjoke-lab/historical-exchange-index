@@ -1538,5 +1538,33 @@
     "source_count": 1,
     "sort_order": 3,
     "notes": "Development-signal milestone retained under event_type=other."
+  },
+  {
+    "id": "hei_ev_000222",
+    "exchange_id": "hei_ex_000172",
+    "event_type": "launched",
+    "event_date": "2016-04-19",
+    "title": "Bisq went into production",
+    "description": "Bisq documentation states that the network went into production on 2016-04-19 after two years of development and testing.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Entity-level launch marker."
+  },
+  {
+    "id": "hei_ev_000223",
+    "exchange_id": "hei_ex_000172",
+    "event_type": "launched",
+    "event_date": "2024-01-01",
+    "title": "Bisq 2 launched in 2024",
+    "description": "Current Bisq materials describe Bisq 2 as the next-generation platform launched in 2024.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 2,
+    "notes": "Year-level conservative marker for the current-generation platform."
   }
 ]

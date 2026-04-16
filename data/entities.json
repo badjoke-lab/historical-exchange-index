@@ -3560,5 +3560,29 @@
     "confidence": "high",
     "last_verified_at": "2026-04-16",
     "notes": "Entity-level umbrella record. Official materials state PancakeSwap launched in 2020, but this pass does not pin a stronger official day-level launch marker. Deployment-level and product-level modeling are still pending."
+  },
+  {
+    "id": "hei_ex_000172",
+    "slug": "bisq",
+    "canonical_name": "Bisq",
+    "aliases": [
+      "Bitsquare"
+    ],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2016-04-19",
+    "death_date": null,
+    "country_or_origin": "Bitcoin ecosystem",
+    "summary": "Bitcoin-focused peer-to-peer decentralized exchange network that went into production in 2016 and remains active through Bisq 1 and Bisq 2.",
+    "official_url_original": "https://bisq.network/",
+    "official_domain_original": "bisq.network",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bisq.network/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-16",
+    "notes": "Entity-level umbrella record. Launch marker uses the documented production date. Bisq 1 and Bisq 2 are not yet split into separate protocol or product records."
   }
 ]
