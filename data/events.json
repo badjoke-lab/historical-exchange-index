@@ -1650,5 +1650,33 @@
     "source_count": 1,
     "sort_order": 2,
     "notes": "HEI uses 2021-07-15 as the conservative terminal marker."
+  },
+  {
+    "id": "hei_ev_000230",
+    "exchange_id": "hei_ex_000105",
+    "event_type": "regulatory_action",
+    "event_date": "2025-09-18",
+    "title": "RCMP seized TradeOgre and its cryptoassets",
+    "description": "RCMP Federal Policing – Eastern Region announced that it seized more than 56 million dollars in cryptocurrency from TradeOgre and that the platform had contravened Canadian laws and regulations.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Primary terminal enforcement event."
+  },
+  {
+    "id": "hei_ev_000231",
+    "exchange_id": "hei_ex_000105",
+    "event_type": "shutdown_effective",
+    "event_date": "2025-09-18",
+    "title": "TradeOgre was dismantled and effectively shut down",
+    "description": "Public reporting and the RCMP statement describe the 2025-09-18 action as the dismantling of TradeOgre, ending exchange operations.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2025-09-18 as the terminal marker."
   }
 ]

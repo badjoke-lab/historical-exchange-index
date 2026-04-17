@@ -2295,21 +2295,6 @@
     "notes": ""
   },
   {
-    "id": "hei_src_000372",
-    "exchange_id": "hei_ex_000105",
-    "event_id": null,
-    "source_type": "official_statement",
-    "title": "TradeOgre official site snapshot",
-    "url": "https://tradeogre.com/",
-    "publisher": "TradeOgre",
-    "published_at": "2026-04-07",
-    "archived_url": "https://web.archive.org/web/*/https://tradeogre.com/",
-    "accessed_at": "2026-04-07",
-    "reliability": "medium",
-    "claim_scope": "entity",
-    "notes": ""
-  },
-  {
     "id": "hei_src_000373",
     "exchange_id": "hei_ex_000106",
     "event_id": null,
@@ -4888,5 +4873,50 @@
     "reliability": "medium",
     "claim_scope": "status",
     "notes": "Current graveyard page supports dead-side handling for exchanges marked closed by Cryptowisser."
+  },
+  {
+    "id": "hei_src_000545",
+    "exchange_id": "hei_ex_000105",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former TradeOgre site",
+    "url": "https://tradeogre.com/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-17",
+    "archived_url": "https://web.archive.org/web/*/https://tradeogre.com/",
+    "accessed_at": "2026-04-17",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000546",
+    "exchange_id": "hei_ex_000105",
+    "event_id": "hei_ev_000230",
+    "source_type": "official_statement",
+    "title": "RCMP executes record seizure of more than 56 million dollars in cryptocurrency",
+    "url": "https://rcmp.ca/en/news/2025/09/rcmp-executes-record-seizure-more-56-million-dollars-cryptocurrency",
+    "publisher": "Royal Canadian Mounted Police",
+    "published_at": "2025-09-18",
+    "archived_url": "https://web.archive.org/web/*/https://rcmp.ca/en/news/2025/09/rcmp-executes-record-seizure-more-56-million-dollars-cryptocurrency",
+    "accessed_at": "2026-04-17",
+    "reliability": "high",
+    "claim_scope": "event",
+    "notes": "Official statement naming TradeOgre, the seizure amount, and the Canadian compliance failures."
+  },
+  {
+    "id": "hei_src_000547",
+    "exchange_id": "hei_ex_000105",
+    "event_id": "hei_ev_000231",
+    "source_type": "news_article",
+    "title": "RCMP say $56-million cryptocurrency seizure is biggest in Canadian history",
+    "url": "https://battlefordsnow.com/2025/09/18/rcmp-say-56-million-cryptocurrency-seizure-is-biggest-in-canadian-history/",
+    "publisher": "The Canadian Press",
+    "published_at": "2025-09-18",
+    "archived_url": "https://web.archive.org/web/*/https://battlefordsnow.com/2025/09/18/rcmp-say-56-million-cryptocurrency-seizure-is-biggest-in-canadian-history/",
+    "accessed_at": "2026-04-17",
+    "reliability": "high",
+    "claim_scope": "status",
+    "notes": "Canadian Press reporting that the action shut down the website and marked the first dismantling of a cryptocurrency exchange by Canadian police."
   }
 ]
