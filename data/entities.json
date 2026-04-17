@@ -3628,5 +3628,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-16",
     "notes": "Cause stays conservative as unknown. Public handling relies on exchange-status coverage stating the platform is permanently closed and that a closure notice was shown on the website."
+  },
+  {
+    "id": "hei_ex_000175",
+    "slug": "bitmaszyna",
+    "canonical_name": "Bitmaszyna",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": "2021-07-15",
+    "country_or_origin": "Poland",
+    "summary": "Polish cryptocurrency exchange that was publicly marked dead on 2021-07-15 after its website became inaccessible with no preceding maintenance or migration notice.",
+    "official_url_original": "https://bitmaszyna.pl/",
+    "official_domain_original": "bitmaszyna.pl",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://bitmaszyna.pl/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-16",
+    "notes": "Cause stays conservative as unknown. Public handling relies on the dead-side status update tied to site inaccessibility on 2021-07-15."
   }
 ]

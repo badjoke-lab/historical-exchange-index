@@ -4843,5 +4843,50 @@
     "reliability": "medium",
     "claim_scope": "status",
     "notes": "Current graveyard page supports dead-side handling for exchanges marked closed by Cryptowisser."
+  },
+  {
+    "id": "hei_src_000542",
+    "exchange_id": "hei_ex_000175",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former Bitmaszyna site",
+    "url": "https://bitmaszyna.pl/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-16",
+    "archived_url": "https://web.archive.org/web/*/https://bitmaszyna.pl/",
+    "accessed_at": "2026-04-16",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000543",
+    "exchange_id": "hei_ex_000175",
+    "event_id": "hei_ev_000229",
+    "source_type": "news_article",
+    "title": "Bitmaszyna review with 2021 dead-side update",
+    "url": "https://www.cryptowisser.com/exchange/bitmaszyna/",
+    "publisher": "Cryptowisser",
+    "published_at": "2021-07-15",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/bitmaszyna/",
+    "accessed_at": "2026-04-16",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that the site was inaccessible on 2021-07-15 and that the exchange was moved to the graveyard."
+  },
+  {
+    "id": "hei_src_000544",
+    "exchange_id": "hei_ex_000175",
+    "event_id": "hei_ev_000229",
+    "source_type": "database_reference",
+    "title": "Cryptowisser Exchange Graveyard entry",
+    "url": "https://www.cryptowisser.com/exchange-graveyard",
+    "publisher": "Cryptowisser",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange-graveyard",
+    "accessed_at": "2026-04-16",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "Current graveyard page supports dead-side handling for exchanges marked closed by Cryptowisser."
   }
 ]
