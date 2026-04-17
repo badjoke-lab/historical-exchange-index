@@ -4918,5 +4918,50 @@
     "reliability": "high",
     "claim_scope": "status",
     "notes": "Canadian Press reporting that the action shut down the website and marked the first dismantling of a cryptocurrency exchange by Canadian police."
+  },
+  {
+    "id": "hei_src_000548",
+    "exchange_id": "hei_ex_000176",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former eXch site",
+    "url": "https://eXch.cx/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-18",
+    "archived_url": "https://web.archive.org/web/*/https://eXch.cx/",
+    "accessed_at": "2026-04-18",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000549",
+    "exchange_id": "hei_ex_000176",
+    "event_id": "hei_ev_000232",
+    "source_type": "official_statement",
+    "title": "Krypto-Swapping-Dienst „eXch“ abgeschaltet",
+    "url": "https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
+    "publisher": "Bundeskriminalamt",
+    "published_at": "2025-05-07",
+    "archived_url": "https://web.archive.org/web/*/https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
+    "accessed_at": "2026-04-18",
+    "reliability": "high",
+    "claim_scope": "entity_event",
+    "notes": "Primary authority statement describing eXch as a crypto-swapping service existing since 2014 and shut down on 2025-04-30."
+  },
+  {
+    "id": "hei_src_000550",
+    "exchange_id": "hei_ex_000176",
+    "event_id": "hei_ev_000233",
+    "source_type": "official_statement",
+    "title": "BKA and FIOD shut down cryptocurrency swap service eXch",
+    "url": "https://www.fiod.nl/bka-and-fiod-shut-down-cryptocurrency-swap-service-exch-e-34-million-in-cryptocurrency-has-been-seized-during-the-operation/",
+    "publisher": "FIOD",
+    "published_at": "2025-05-09",
+    "archived_url": "https://web.archive.org/web/*/https://www.fiod.nl/bka-and-fiod-shut-down-cryptocurrency-swap-service-exch-e-34-million-in-cryptocurrency-has-been-seized-during-the-operation/",
+    "accessed_at": "2026-04-18",
+    "reliability": "high",
+    "claim_scope": "status",
+    "notes": "English-language authority summary confirming seizure and shutdown of the cryptocurrency swap service."
   }
 ]

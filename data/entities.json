@@ -3650,5 +3650,29 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-16",
     "notes": "Cause stays conservative as unknown. Public handling relies on the dead-side status update tied to site inaccessibility on 2021-07-15."
+  },
+  {
+    "id": "hei_ex_000176",
+    "slug": "exch",
+    "canonical_name": "eXch",
+    "aliases": [
+      "eXch.cx"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2014-01-01",
+    "death_date": "2025-04-30",
+    "country_or_origin": "Global",
+    "summary": "Exchange-like cryptocurrency swap service reachable via eXch.cx that was seized and shut down by German authorities on 2025-04-30 after investigators alleged money laundering and operation of a criminal online trading platform.",
+    "official_url_original": "https://eXch.cx/",
+    "official_domain_original": "eXch.cx",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://eXch.cx/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-18",
+    "notes": "Current HEI scope treats exchange-like swap services as in-scope. The terminal marker uses the 2025-04-30 infrastructure seizure and shutdown by German authorities, which preempted the operators' own planned 2025-05-01 closure."
   }
 ]

@@ -1678,5 +1678,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2025-09-18 as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000232",
+    "exchange_id": "hei_ex_000176",
+    "event_type": "regulatory_action",
+    "event_date": "2025-04-30",
+    "title": "German authorities seized eXch infrastructure",
+    "description": "The Frankfurt public prosecutor's cybercrime unit and the BKA seized the Germany-based server infrastructure of eXch and confiscated cryptocurrency assets, with support from the Dutch FIOD.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Primary enforcement action."
+  },
+  {
+    "id": "hei_ev_000233",
+    "exchange_id": "hei_ex_000176",
+    "event_type": "shutdown_effective",
+    "event_date": "2025-04-30",
+    "title": "eXch was shut down as a swap service",
+    "description": "Authorities stated that the seizure action shut down the eXch platform before the operators' announced 2025-05-01 closure date.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2025-04-30 as the terminal marker."
   }
 ]
