@@ -27,13 +27,17 @@ function colorForKey(key: string): string {
     case 'active':
     case 'live_verified':
     case 'high':
+    case 'last_30':
       return 'var(--active)'
     case 'limited':
     case 'live_unverified':
+    case 'one':
+    case 'last_365':
       return 'var(--limited)'
     case 'inactive':
     case 'redirected':
     case 'medium':
+    case 'last_90':
       return 'var(--inactive)'
     case 'dead':
     case 'hack':
@@ -41,22 +45,32 @@ function colorForKey(key: string): string {
     case 'dead_domain':
     case 'unsafe':
     case 'critical':
+    case 'older':
       return 'var(--dead)'
     case 'merged':
     case 'merger':
+    case 'last_180':
       return '#8f8274'
     case 'acquired':
     case 'acquisition':
       return '#7286a6'
     case 'rebranded':
     case 'rebrand':
+    case 'hybrid':
       return '#8473a1'
     case 'archive_capture':
+    case 'dex':
+    case 'five_plus':
       return 'var(--archive)'
+    case 'cex':
+    case 'two_to_four':
+      return 'rgba(184, 135, 70, 0.88)'
+    case 'zero':
     case 'low':
     case 'unknown':
-    case 'repurposed':
       return 'var(--unknown)'
+    case 'repurposed':
+      return '#6f6680'
     default:
       return 'rgba(184, 135, 70, 0.7)'
   }
@@ -67,6 +81,17 @@ function barStyle(width: number, color: string): CSSProperties {
     '--bar-width': `${width}%`,
     '--bar-color': color,
   } as CSSProperties
+}
+
+function histogramBarStyle(height: number, color: string): CSSProperties {
+  return {
+    height: `${height}%`,
+    backgroundColor: color,
+  }
+}
+
+function histogramToneColor(tone: 'launch' | 'death'): string {
+  return tone === 'death' ? 'var(--dead)' : 'rgba(184, 135, 70, 0.82)'
 }
 
 function percentValue(value: number | string): string {
@@ -173,7 +198,17 @@ function StackedBar({ items, emptyLabel = 'No data yet' }: { items: StatsBreakdo
   )
 }
 
-function Histogram({ items, emptyLabel = 'No dated records yet', limit = 12 }: { items: StatsYearCount[]; emptyLabel?: string; limit?: number }) {
+function Histogram({
+  items,
+  emptyLabel = 'No dated records yet',
+  limit = 12,
+  tone = 'launch',
+}: {
+  items: StatsYearCount[]
+  emptyLabel?: string
+  limit?: number
+  tone?: 'launch' | 'death'
+}) {
   const sorted = [...items].sort((a, b) => a.year - b.year)
   const visibleItems = sorted.slice(Math.max(sorted.length - limit, 0))
   const maxCount = visibleItems.reduce((max, item) => Math.max(max, item.count), 0)
@@ -190,7 +225,7 @@ function Histogram({ items, emptyLabel = 'No dated records yet', limit = 12 }: {
           <div className={styles.histogramItem} key={item.year}>
             <div className={styles.histogramCount}>{item.count}</div>
             <div className={styles.histogramBarWrap}>
-              <div className={styles.histogramBar} style={{ height: `${height}%` }} />
+              <div className={styles.histogramBar} style={histogramBarStyle(height, histogramToneColor(tone))} />
             </div>
             <div className={styles.histogramLabel}>{item.year}</div>
           </div>
@@ -214,12 +249,19 @@ function MetricGrid({ items, formatter }: { items: StatsMetricItem[]; formatter?
   )
 }
 
+function tableRowClass(item: StatsMetricItem): string | undefined {
+  if (item.key.startsWith('archive_')) return styles.rowArchive
+  return undefined
+}
+
 function ComparisonTable({
   items,
   valueFormatter,
+  rowClassName,
 }: {
   items: StatsMetricItem[]
   valueFormatter?: (item: StatsMetricItem) => string
+  rowClassName?: (item: StatsMetricItem) => string | undefined
 }) {
   if (items.length === 0) {
     return <p className={styles.note}>No table rows yet.</p>
@@ -237,7 +279,7 @@ function ComparisonTable({
         </thead>
         <tbody>
           {items.map((item) => (
-            <tr key={item.key}>
+            <tr key={item.key} className={rowClassName ? rowClassName(item) : undefined}>
               <td>{item.label}</td>
               <td>{valueFormatter ? valueFormatter(item) : item.value}</td>
               <td>{item.note ?? '—'}</td>
@@ -514,7 +556,7 @@ export default function StatsPage() {
           </div>
           <div className={styles.subsection}>
             <h4>Launch year</h4>
-            <Histogram items={snapshot.active_analysis.launch_year_histogram} emptyLabel="No active launch years yet" />
+            <Histogram items={snapshot.active_analysis.launch_year_histogram} emptyLabel="No active launch years yet" tone="launch" />
           </div>
           <div className={styles.subsectionGrid}>
             <div className={styles.subsectionCompact}>
@@ -556,7 +598,7 @@ export default function StatsPage() {
           </div>
           <div className={styles.subsection}>
             <h4>Death year distribution</h4>
-            <Histogram items={snapshot.dead_analysis.death_year_histogram} emptyLabel="No death years yet" />
+            <Histogram items={snapshot.dead_analysis.death_year_histogram} emptyLabel="No death years yet" tone="death" />
           </div>
           <div className={styles.subsectionCompactWide}>
             <h4>Evidence depth</h4>
@@ -581,7 +623,7 @@ export default function StatsPage() {
           </div>
           <div className={styles.subsectionCompactWide}>
             <h4>Archive / date / domain coverage</h4>
-            <ComparisonTable items={[...snapshot.coverage.archive, ...snapshot.coverage.date_known]} valueFormatter={percentMetricValue} />
+            <ComparisonTable items={[...snapshot.coverage.archive, ...snapshot.coverage.date_known]} valueFormatter={percentMetricValue} rowClassName={tableRowClass} />
           </div>
           <div className={styles.subsectionCompactWide}>
             <h4>Unknown-field rates</h4>
@@ -627,11 +669,11 @@ export default function StatsPage() {
           )}
           <div className={styles.subsection}>
             <h4>Launch year distribution</h4>
-            <Histogram items={history.launch_year_counts} emptyLabel="No launch years yet" />
+            <Histogram items={history.launch_year_counts} emptyLabel="No launch years yet" tone="launch" />
           </div>
           <div className={styles.subsection}>
             <h4>Death year distribution</h4>
-            <Histogram items={history.death_year_counts} emptyLabel="No death years yet" />
+            <Histogram items={history.death_year_counts} emptyLabel="No death years yet" tone="death" />
           </div>
         </section>
       </section>
