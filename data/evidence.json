@@ -4963,5 +4963,50 @@
     "reliability": "high",
     "claim_scope": "status",
     "notes": "English-language authority summary confirming seizure and shutdown of the cryptocurrency swap service."
+  },
+  {
+    "id": "hei_src_000551",
+    "exchange_id": "hei_ex_000177",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former DSX site",
+    "url": "https://dsx.uk/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-18",
+    "archived_url": "https://web.archive.org/web/*/https://dsx.uk/",
+    "accessed_at": "2026-04-18",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000552",
+    "exchange_id": "hei_ex_000177",
+    "event_id": "hei_ev_000235",
+    "source_type": "news_article",
+    "title": "DSX review with 2021 bankruptcy update",
+    "url": "https://www.cryptowisser.com/exchange/dsx/",
+    "publisher": "Cryptowisser",
+    "published_at": "2021-01-12",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/dsx/",
+    "accessed_at": "2026-04-18",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that DSX filed for bankruptcy on 2021-01-12 and reproduces the administrator notice."
+  },
+  {
+    "id": "hei_src_000553",
+    "exchange_id": "hei_ex_000177",
+    "event_id": null,
+    "source_type": "database_reference",
+    "title": "DSX exchange profile with launch and location details",
+    "url": "https://coinmarketcap.com/exchanges/dsx/",
+    "publisher": "CoinMarketCap",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/dsx/",
+    "accessed_at": "2026-04-18",
+    "reliability": "medium",
+    "claim_scope": "entity",
+    "notes": "Supports 2014 launch timing, London headquarters, and current untracked status."
   }
 ]
