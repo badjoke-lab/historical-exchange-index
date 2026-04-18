@@ -289,7 +289,6 @@
   max-width: 26px;
   min-height: 8px;
   border-radius: 8px 8px 0 0;
-  background: linear-gradient(180deg, rgba(184, 135, 70, 0.9), rgba(184, 135, 70, 0.45));
 }
 
 .histogramLabel {
@@ -327,6 +326,11 @@
 
 .dataTable td {
   padding-right: 14px;
+}
+
+.rowArchive td:first-child {
+  color: var(--archive);
+  font-weight: 600;
 }
 
 .lineChartWrap {
@@ -397,7 +401,7 @@
 }
 
 .disclosureHint {
-  color: var(--muted);
+  color: rgba(184, 135, 70, 0.92);
   font-size: 12px;
   white-space: nowrap;
 }
