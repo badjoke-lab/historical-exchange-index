@@ -74,6 +74,10 @@ function percentValue(value: number | string): string {
   return String(value)
 }
 
+function percentMetricValue(item: StatsMetricItem): string {
+  return percentValue(item.value)
+}
+
 function extractPercentFromNote(note?: string): string | null {
   if (!note) return null
   const match = note.match(/(\d+)%/)
@@ -577,7 +581,7 @@ export default function StatsPage() {
           </div>
           <div className={styles.subsectionCompactWide}>
             <h4>Archive / date / domain coverage</h4>
-            <ComparisonTable items={[...snapshot.coverage.archive, ...snapshot.coverage.date_known]} valueFormatter={percentValue} />
+            <ComparisonTable items={[...snapshot.coverage.archive, ...snapshot.coverage.date_known]} valueFormatter={percentMetricValue} />
           </div>
           <div className={styles.subsectionCompactWide}>
             <h4>Unknown-field rates</h4>
