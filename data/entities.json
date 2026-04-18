@@ -3674,5 +3674,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-18",
     "notes": "Current HEI scope treats exchange-like swap services as in-scope. The terminal marker uses the 2025-04-30 infrastructure seizure and shutdown by German authorities, which preempted the operators' own planned 2025-05-01 closure."
+  },
+  {
+    "id": "hei_ex_000177",
+    "slug": "dsx",
+    "canonical_name": "DSX",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "insolvency",
+    "launch_date": "2014-01-01",
+    "death_date": "2021-01-12",
+    "country_or_origin": "United Kingdom",
+    "summary": "United Kingdom-based cryptocurrency exchange launched in 2014 that was publicly reported bankrupt on 2021-01-12 and is no longer operating.",
+    "official_url_original": "https://dsx.uk/",
+    "official_domain_original": "dsx.uk",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://dsx.uk/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-18",
+    "notes": "Terminal handling uses the 2021-01-12 bankruptcy update. Death reason is set to insolvency based on the bankruptcy filing and dead-side treatment."
   }
 ]

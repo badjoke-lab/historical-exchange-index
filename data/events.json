@@ -1706,5 +1706,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2025-04-30 as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000234",
+    "exchange_id": "hei_ex_000177",
+    "event_type": "bankruptcy_filed",
+    "event_date": "2021-01-12",
+    "title": "DSX bankruptcy filing was reported",
+    "description": "Public exchange-status coverage stated on 2021-01-12 that DSX had filed for bankruptcy and displayed an administrator notice from DSX Global (UK) Limited.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Primary public bankruptcy marker."
+  },
+  {
+    "id": "hei_ev_000235",
+    "exchange_id": "hei_ex_000177",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-01-12",
+    "title": "DSX was treated as dead after the bankruptcy filing",
+    "description": "Public exchange-status sources treated DSX as effectively dead after the 2021-01-12 bankruptcy update.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2021-01-12 as the terminal marker."
   }
 ]
