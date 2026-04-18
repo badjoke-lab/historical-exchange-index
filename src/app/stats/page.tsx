@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import type { CSSProperties } from 'react'
 import type { Metadata } from 'next'
 import { buildStatsView } from '../../lib/stats/build-stats'
 import type {
@@ -61,6 +62,13 @@ function colorForKey(key: string): string {
   }
 }
 
+function barStyle(width: number, color: string): CSSProperties {
+  return {
+    '--bar-width': `${width}%`,
+    '--bar-color': color,
+  } as CSSProperties
+}
+
 function SummaryTile({ label, value, hint, extraClass }: { label: string; value: string; hint: string; extraClass?: string }) {
   return (
     <div className={`summary-tile ${extraClass ?? ''}`.trim()}>
@@ -91,10 +99,7 @@ function BarList({ items, limit = 8, emptyLabel = 'No data yet' }: { items: Stat
           <div className={styles.barTrack}>
             <div
               className={styles.barFill}
-              style={{
-                ['--bar-width' as '--bar-width']: `${Math.max(item.share, item.count > 0 ? 4 : 0)}%`,
-                ['--bar-color' as '--bar-color']: colorForKey(item.key),
-              }}
+              style={barStyle(Math.max(item.share, item.count > 0 ? 4 : 0), colorForKey(item.key))}
             />
           </div>
         </div>
@@ -124,10 +129,7 @@ function YearList({ items, limit = 10, emptyLabel = 'No dated records yet' }: { 
             <div className={styles.barTrack}>
               <div
                 className={styles.barFill}
-                style={{
-                  ['--bar-width' as '--bar-width']: `${Math.max(share, item.count > 0 ? 4 : 0)}%`,
-                  ['--bar-color' as '--bar-color']: 'rgba(184, 135, 70, 0.7)',
-                }}
+                style={barStyle(Math.max(share, item.count > 0 ? 4 : 0), 'rgba(184, 135, 70, 0.7)')}
               />
             </div>
           </div>
