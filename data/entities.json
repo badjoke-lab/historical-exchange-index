@@ -3696,5 +3696,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-18",
     "notes": "Terminal handling uses the 2021-01-12 bankruptcy update. Death reason is set to insolvency based on the bankruptcy filing and dead-side treatment."
+  },
+  {
+    "id": "hei_ex_000178",
+    "slug": "titanex",
+    "canonical_name": "Titanex",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": "2023-01-03",
+    "country_or_origin": "Seychelles",
+    "summary": "Seychelles-linked cryptocurrency exchange that was publicly treated as dead on 2023-01-03 after disappearing from normal operation.",
+    "official_url_original": "https://titanex.io/",
+    "official_domain_original": "titanex.io",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://titanex.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-19",
+    "notes": "Terminal handling uses the 2023-01-03 graveyard marker. Cause stays conservative as unknown even though public status coverage characterizes the exchange as having disappeared."
   }
 ]
