@@ -5248,5 +5248,50 @@
     "reliability": "medium",
     "claim_scope": "status",
     "notes": "Current graveyard page lists CoinExchange.io with a 2019-10-15 terminal marker and business reasons."
+  },
+  {
+    "id": "hei_src_000572",
+    "exchange_id": "hei_ex_000183",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former Coinsuper site",
+    "url": "https://www.coinsuper.com/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-19",
+    "archived_url": "https://web.archive.org/web/*/https://www.coinsuper.com/",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000573",
+    "exchange_id": "hei_ex_000183",
+    "event_id": "hei_ev_000249",
+    "source_type": "news_article",
+    "title": "Coinsuper review with inactive and dead-side update",
+    "url": "https://www.cryptowisser.com/exchange/coinsuper",
+    "publisher": "Cryptowisser",
+    "published_at": "2021-12-02",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/coinsuper",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that Coinsuper encountered financial troubles during 2021, later closed business, and was marked dead; also supports Hong Kong origin and 2017 activity."
+  },
+  {
+    "id": "hei_src_000574",
+    "exchange_id": "hei_ex_000183",
+    "event_id": null,
+    "source_type": "database_reference",
+    "title": "Cryptowisser Exchange Graveyard entry",
+    "url": "https://www.cryptowisser.com/exchange-graveyard",
+    "publisher": "Cryptowisser",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange-graveyard",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "Current graveyard page places Coinsuper in the 2021 business-reasons dead-side group."
   }
 ]

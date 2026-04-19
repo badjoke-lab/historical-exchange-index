@@ -3808,5 +3808,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-19",
     "notes": "Terminal handling uses the 2021-04-22 paused-operations marker. Death reason is mapped to hack because the shutdown followed the September 2020 hot-wallet compromise, although later bankruptcy context also exists."
+  },
+  {
+    "id": "hei_ex_000183",
+    "slug": "coinsuper",
+    "canonical_name": "Coinsuper",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2017-01-01",
+    "death_date": "2021-12-02",
+    "country_or_origin": "Hong Kong",
+    "summary": "Hong Kong-based cryptocurrency exchange active since 2017 that was publicly marked dead in late 2021 after prolonged financial troubles and business-driven closure handling.",
+    "official_url_original": "https://www.coinsuper.com/",
+    "official_domain_original": "coinsuper.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.coinsuper.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-19",
+    "notes": "Terminal handling uses the 2021-12-02 public dead-side update. Death reason is mapped to voluntary_shutdown from business-reasons closure handling. Cryptowisser's graveyard also places Coinsuper in the 2021 business-reasons cohort."
   }
 ]
