@@ -58,6 +58,7 @@ function baseColorForKey(key: string): string {
       return '#7286a6'
     case 'rebranded':
     case 'rebrand':
+    case 'hybrid':
       return '#8473a1'
     case 'archive_capture':
     case 'dex':
@@ -661,8 +662,176 @@ export default function StatsPage() {
           </div>
         </section>
 
-        <section className={styles.sectionPanel}></section>
+        <section className={`panel ${styles.sectionPanel}`}>
+          <div className={styles.panelHead}>
+            <h3>Dead analysis</h3>
+            <p>Dead-side outcomes, end-state causes, archived coverage, and measured lifespan.</p>
+          </div>
+          <MetricGrid items={deadSummaryItems} formatter={(item) => (item.key === 'dead_archive' || item.key === 'dead_two_plus' ? percentValue(item.value) : String(item.value))} />
+          <div className={styles.subsection}>
+            <h4>Dead-side status mix</h4>
+            <StackedBar items={snapshot.dead_analysis.status_breakdown} />
+          </div>
+          <div className={styles.subsection}>
+            <h4>Death reason breakdown</h4>
+            <BarList items={snapshot.dead_analysis.death_reason_breakdown} limit={10} />
+          </div>
+          <div className={styles.subsection}>
+            <h4>Death year distribution</h4>
+            <Histogram items={snapshot.dead_analysis.death_year_histogram} emptyLabel="No death years yet" tone="death" />
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>Evidence depth</h4>
+            <StackedBar items={snapshot.dead_analysis.evidence_depth} />
+          </div>
+        </section>
       </section>
+
+      <section className={styles.grid}>
+        <section className={`panel ${styles.sectionPanel}`}>
+          <div className={styles.panelHead}>
+            <h3>Quality &amp; coverage</h3>
+            <p>Confidence, URL handling, archive/date/domain coverage, and visible unknown-field rates.</p>
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>Confidence</h4>
+            <StackedBar items={snapshot.quality.confidence_breakdown} />
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>URL status coverage</h4>
+            <BarList items={snapshot.coverage.url_status_breakdown} limit={7} />
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>Archive / date / domain coverage</h4>
+            <ComparisonTable items={[...snapshot.coverage.archive, ...snapshot.coverage.date_known]} valueFormatter={percentMetricValue} rowClassName={tableRowClass} />
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>Unknown-field rates</h4>
+            <ComparisonTable items={snapshot.quality.unknown_field_rates} />
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>Record freshness</h4>
+            <StackedBar items={snapshot.quality.last_verified_recency} />
+          </div>
+        </section>
+
+        <section className={`panel ${styles.sectionPanel}`}>
+          <div className={styles.panelHead}>
+            <h3>Registry timelines &amp; distributions</h3>
+            <p>Snapshot growth when available, plus launch-year and death-year distributions.</p>
+          </div>
+          {hasSnapshotHistory ? (
+            <div className={styles.subsectionCompactWide}>
+              <h4>Snapshot growth</h4>
+              <MiniLineChart series={timelineSeries} />
+            </div>
+          ) : (
+            <>
+              <div className={styles.callout}>
+                Snapshot history currently contains a single generated snapshot. Until multi-snapshot history
+                is available, this section emphasizes current snapshot metrics and historical distributions.
+              </div>
+              <MetricGrid
+                items={[
+                  { key: 'snapshot_entities', label: 'Entities in snapshot', value: history.snapshots[0]?.total_entities ?? 0 },
+                  { key: 'snapshot_events', label: 'Events in snapshot', value: history.snapshots[0]?.total_events ?? 0 },
+                  { key: 'snapshot_evidence', label: 'Evidence in snapshot', value: history.snapshots[0]?.total_evidence ?? 0 },
+                  {
+                    key: 'snapshot_archive',
+                    label: 'Snapshot archive coverage',
+                    value: history.snapshots[0]?.archive_coverage ?? 0,
+                    note: 'archive coverage in current snapshot',
+                  },
+                ]}
+                formatter={(item) => (item.key === 'snapshot_archive' ? percentValue(item.value) : String(item.value))}
+              />
+            </>
+          )}
+          <div className={styles.subsection}>
+            <h4>Launch year distribution</h4>
+            <Histogram items={history.launch_year_counts} emptyLabel="No launch years yet" tone="launch" />
+          </div>
+          <div className={styles.subsection}>
+            <h4>Death year distribution</h4>
+            <Histogram items={history.death_year_counts} emptyLabel="No death years yet" tone="death" />
+          </div>
+        </section>
+      </section>
+
+      <SectionHeading title="Deep breakdowns" note="Lower-priority drilldowns. These remain available without competing with the core analysis layer." />
+
+      <div className={styles.disclosureStack}>
+        <DisclosureSection
+          title="Country / origin"
+          description="Strict-country counts are separated from bucketed origin values such as Global or ecosystem-level origins."
+        >
+          <div className={styles.subsectionCompactWide}>
+            <h4>Strict country</h4>
+            <BarList items={snapshot.country_origin.strict_countries} limit={8} emptyLabel="No strict-country values yet" />
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>Origin bucket</h4>
+            <BarList items={snapshot.country_origin.origin_buckets} limit={6} emptyLabel="No origin buckets yet" />
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>Country / origin × status</h4>
+            <OriginStatusTable items={snapshot.country_origin.status_rows} />
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>Country / origin × type</h4>
+            <OriginTypeTable items={snapshot.country_origin.type_rows} />
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>Country / origin completeness</h4>
+            <ComparisonTable items={snapshot.country_origin.completeness} />
+          </div>
+        </DisclosureSection>
+
+        <DisclosureSection
+          title="Event internals"
+          description="Event type mix, impact severity, and status-effect composition from recorded timeline events."
+        >
+          <MetricGrid items={snapshot.events.averages} />
+          <div className={styles.subsectionCompactWide}>
+            <h4>Event type breakdown</h4>
+            <BarList items={snapshot.events.event_type_breakdown} limit={10} emptyLabel="No events yet" />
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>Impact level</h4>
+            <StackedBar items={snapshot.events.impact_level_breakdown} emptyLabel="No impact data yet" colorResolver={impactColorForKey} />
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>Status effect</h4>
+            <StackedBar items={snapshot.events.status_effect_breakdown} emptyLabel="No status-effect data yet" />
+          </div>
+        </DisclosureSection>
+
+        <DisclosureSection
+          title="Evidence internals"
+          description="Evidence source mix, reliability, claim scopes, and archived-share summary from the support layer."
+        >
+          <MetricGrid items={snapshot.evidence.averages} formatter={(item) => (item.key === 'archived_evidence_share' ? percentValue(item.value) : String(item.value))} />
+          <div className={styles.subsectionCompactWide}>
+            <h4>Source type breakdown</h4>
+            <BarList items={snapshot.evidence.source_type_breakdown} limit={10} emptyLabel="No evidence yet" />
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>Reliability</h4>
+            <StackedBar items={snapshot.evidence.reliability_breakdown} emptyLabel="No reliability labels yet" colorResolver={reliabilityColorForKey} />
+          </div>
+          <div className={styles.subsectionCompactWide}>
+            <h4>Claim scope</h4>
+            <BarList items={snapshot.evidence.claim_scope_breakdown} limit={8} emptyLabel="No claim-scope data yet" />
+          </div>
+        </DisclosureSection>
+
+        <DisclosureSection
+          title="Record completeness"
+          description="Alias, notes, summary, archive, and evidence-depth coverage at the entity layer."
+        >
+          <ComparisonTable items={snapshot.completeness} valueFormatter={formatCompletenessValue} />
+        </DisclosureSection>
+      </div>
     </main>
   )
 }
