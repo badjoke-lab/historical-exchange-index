@@ -1734,5 +1734,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2021-01-12 as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000236",
+    "exchange_id": "hei_ex_000178",
+    "event_type": "service_outage",
+    "event_date": "2023-01-03",
+    "title": "Titanex was treated as missing from operation",
+    "description": "Public exchange-status coverage classified Titanex as having disappeared from normal operation.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Conservative terminal lead-in based on graveyard-style handling."
+  },
+  {
+    "id": "hei_ev_000237",
+    "exchange_id": "hei_ex_000178",
+    "event_type": "shutdown_effective",
+    "event_date": "2023-01-03",
+    "title": "Titanex was treated as dead",
+    "description": "Public exchange-status sources treated Titanex as dead on 2023-01-03.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2023-01-03 as the conservative terminal marker."
   }
 ]
