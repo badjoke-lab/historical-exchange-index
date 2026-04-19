@@ -1818,5 +1818,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2021-01-01 as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000242",
+    "exchange_id": "hei_ex_000181",
+    "event_type": "shutdown_announced",
+    "event_date": "2021-03-22",
+    "title": "Allbit closed all exchange services",
+    "description": "Public exchange-status coverage stated that Allbit closed down all exchange services with effect as of 2021-03-22.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Primary public terminal update."
+  },
+  {
+    "id": "hei_ev_000243",
+    "exchange_id": "hei_ex_000181",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-03-22",
+    "title": "Allbit was treated as dead",
+    "description": "Public exchange-status sources treated Allbit as dead on 2021-03-22.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2021-03-22 as the terminal marker."
   }
 ]

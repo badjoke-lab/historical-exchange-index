@@ -5143,5 +5143,50 @@
     "reliability": "medium",
     "claim_scope": "entity",
     "notes": "Used for exchange-specific profile context when available."
+  },
+  {
+    "id": "hei_src_000563",
+    "exchange_id": "hei_ex_000181",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former Allbit site",
+    "url": "https://allbit.com/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-19",
+    "archived_url": "https://web.archive.org/web/*/https://allbit.com/",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000564",
+    "exchange_id": "hei_ex_000181",
+    "event_id": "hei_ev_000243",
+    "source_type": "news_article",
+    "title": "Allbit review with 2021 dead-side update",
+    "url": "https://www.cryptowisser.com/exchange/allbit/",
+    "publisher": "Cryptowisser",
+    "published_at": "2021-03-22",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/allbit/",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that Allbit closed all exchange services on 2021-03-22 and that no specific reason was given."
+  },
+  {
+    "id": "hei_src_000565",
+    "exchange_id": "hei_ex_000181",
+    "event_id": null,
+    "source_type": "database_reference",
+    "title": "Allbit exchange profile with launch and origin details",
+    "url": "https://www.cryptowisser.com/exchange/allbit/",
+    "publisher": "Cryptowisser",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/allbit/",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "entity",
+    "notes": "Supports South Korea origin and March 2018 launch timing."
   }
 ]

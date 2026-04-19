@@ -3762,5 +3762,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-19",
     "notes": "Terminal handling uses the 2021-01-01 graveyard marker. Death reason is mapped to voluntary_shutdown from business-reasons style closure handling."
+  },
+  {
+    "id": "hei_ex_000181",
+    "slug": "allbit",
+    "canonical_name": "Allbit",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2018-03-01",
+    "death_date": "2021-03-22",
+    "country_or_origin": "South Korea",
+    "summary": "South Korean cryptocurrency exchange launched in March 2018 that closed all exchange services on 2021-03-22 and was publicly treated as a business-reasons shutdown.",
+    "official_url_original": "https://allbit.com/",
+    "official_domain_original": "allbit.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://allbit.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-19",
+    "notes": "Terminal handling uses the 2021-03-22 dead-side update. Death reason is mapped to voluntary_shutdown because public exchange-status coverage says no specific reason was given and assumes business reasons."
   }
 ]
