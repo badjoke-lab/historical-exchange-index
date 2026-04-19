@@ -5053,5 +5053,50 @@
     "reliability": "medium",
     "claim_scope": "status",
     "notes": "Current graveyard page lists Titanex with a 2023-01-03 terminal marker."
+  },
+  {
+    "id": "hei_src_000557",
+    "exchange_id": "hei_ex_000179",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former KKCoin site",
+    "url": "https://www.kkcoin.com/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-19",
+    "archived_url": "https://web.archive.org/web/*/https://www.kkcoin.com/",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000558",
+    "exchange_id": "hei_ex_000179",
+    "event_id": "hei_ev_000239",
+    "source_type": "news_article",
+    "title": "KKCoin review with 2021 dead-side update",
+    "url": "https://www.cryptowisser.com/exchange/kkcoin",
+    "publisher": "Cryptowisser",
+    "published_at": "2021-01-01",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/kkcoin",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that KKCoin closed down on 2021-01-01 and includes regulation-linked shutdown context."
+  },
+  {
+    "id": "hei_src_000559",
+    "exchange_id": "hei_ex_000179",
+    "event_id": null,
+    "source_type": "database_reference",
+    "title": "KKCoin exchange profile with launch and origin details",
+    "url": "https://www.cryptowisser.com/exchange/kkcoin",
+    "publisher": "Cryptowisser",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/kkcoin",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "entity",
+    "notes": "Supports Singapore origin and 2017 launch timing."
   }
 ]
