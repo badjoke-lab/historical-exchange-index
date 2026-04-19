@@ -22,7 +22,9 @@ export const metadata: Metadata = {
   },
 }
 
-function colorForKey(key: string): string {
+type ColorResolver = (key: string) => string
+
+function baseColorForKey(key: string): string {
   switch (key) {
     case 'active':
     case 'live_verified':
@@ -56,7 +58,6 @@ function colorForKey(key: string): string {
       return '#7286a6'
     case 'rebranded':
     case 'rebrand':
-    case 'hybrid':
       return '#8473a1'
     case 'archive_capture':
     case 'dex':
@@ -64,7 +65,7 @@ function colorForKey(key: string): string {
       return 'var(--archive)'
     case 'cex':
     case 'two_to_four':
-      return 'rgba(184, 135, 70, 0.88)'
+      return 'rgba(184, 135, 70, 0.82)'
     case 'zero':
     case 'low':
     case 'unknown':
@@ -73,6 +74,64 @@ function colorForKey(key: string): string {
       return '#6f6680'
     default:
       return 'rgba(184, 135, 70, 0.7)'
+  }
+}
+
+function typeColorForKey(key: string): string {
+  switch (key) {
+    case 'cex':
+      return 'rgba(184, 135, 70, 0.72)'
+    case 'dex':
+      return 'var(--archive)'
+    case 'hybrid':
+      return '#8473a1'
+    default:
+      return baseColorForKey(key)
+  }
+}
+
+function ageBandColorForKey(key: string): string {
+  switch (key) {
+    case 'zero_to_two':
+      return 'var(--active)'
+    case 'three_to_five':
+      return 'var(--inactive)'
+    case 'six_to_nine':
+      return 'rgba(184, 135, 70, 0.82)'
+    case 'ten_plus':
+      return '#8473a1'
+    case 'unknown':
+      return 'var(--unknown)'
+    default:
+      return baseColorForKey(key)
+  }
+}
+
+function impactColorForKey(key: string): string {
+  switch (key) {
+    case 'critical':
+      return 'var(--dead)'
+    case 'high':
+      return 'rgba(200, 154, 74, 0.92)'
+    case 'medium':
+      return 'var(--inactive)'
+    case 'low':
+      return 'var(--unknown)'
+    default:
+      return baseColorForKey(key)
+  }
+}
+
+function reliabilityColorForKey(key: string): string {
+  switch (key) {
+    case 'high':
+      return 'var(--archive)'
+    case 'medium':
+      return 'var(--inactive)'
+    case 'low':
+      return 'var(--unknown)'
+    default:
+      return baseColorForKey(key)
   }
 }
 
@@ -91,7 +150,7 @@ function histogramBarStyle(height: number, color: string): CSSProperties {
 }
 
 function histogramToneColor(tone: 'launch' | 'death'): string {
-  return tone === 'death' ? 'var(--dead)' : 'rgba(184, 135, 70, 0.82)'
+  return tone === 'death' ? 'var(--dead)' : 'rgba(184, 135, 70, 0.78)'
 }
 
 function percentValue(value: number | string): string {
@@ -135,8 +194,19 @@ function SectionHeading({ title, note }: { title: string; note?: string }) {
   )
 }
 
-function BarList({ items, limit = 8, emptyLabel = 'No data yet' }: { items: StatsBreakdownItem[]; limit?: number; emptyLabel?: string }) {
+function BarList({
+  items,
+  limit = 8,
+  emptyLabel = 'No data yet',
+  colorResolver,
+}: {
+  items: StatsBreakdownItem[]
+  limit?: number
+  emptyLabel?: string
+  colorResolver?: ColorResolver
+}) {
   const limitedItems = items.slice(0, limit)
+  const resolveColor = colorResolver ?? baseColorForKey
 
   if (limitedItems.length === 0) {
     return <p className={styles.note}>{emptyLabel}</p>
@@ -155,7 +225,7 @@ function BarList({ items, limit = 8, emptyLabel = 'No data yet' }: { items: Stat
           <div className={styles.barTrack}>
             <div
               className={styles.barFill}
-              style={barStyle(Math.max(item.share, item.count > 0 ? 4 : 0), colorForKey(item.key))}
+              style={barStyle(Math.max(item.share, item.count > 0 ? 4 : 0), resolveColor(item.key))}
             />
           </div>
         </div>
@@ -164,8 +234,17 @@ function BarList({ items, limit = 8, emptyLabel = 'No data yet' }: { items: Stat
   )
 }
 
-function StackedBar({ items, emptyLabel = 'No data yet' }: { items: StatsBreakdownItem[]; emptyLabel?: string }) {
+function StackedBar({
+  items,
+  emptyLabel = 'No data yet',
+  colorResolver,
+}: {
+  items: StatsBreakdownItem[]
+  emptyLabel?: string
+  colorResolver?: ColorResolver
+}) {
   const visibleItems = items.filter((item) => item.count > 0)
+  const resolveColor = colorResolver ?? baseColorForKey
 
   if (visibleItems.length === 0) {
     return <p className={styles.note}>{emptyLabel}</p>
@@ -178,7 +257,7 @@ function StackedBar({ items, emptyLabel = 'No data yet' }: { items: StatsBreakdo
           <div
             key={item.key}
             className={styles.stackSegment}
-            style={{ width: `${Math.max(item.share, item.count > 0 ? 2 : 0)}%`, backgroundColor: colorForKey(item.key) }}
+            style={{ width: `${Math.max(item.share, item.count > 0 ? 2 : 0)}%`, backgroundColor: resolveColor(item.key) }}
             title={`${item.label}: ${item.count} (${item.share}%)`}
           />
         ))}
@@ -186,7 +265,7 @@ function StackedBar({ items, emptyLabel = 'No data yet' }: { items: StatsBreakdo
       <div className={styles.stackLegend}>
         {visibleItems.map((item) => (
           <div className={styles.stackLegendItem} key={item.key}>
-            <span className={styles.stackSwatch} style={{ backgroundColor: colorForKey(item.key) }} />
+            <span className={styles.stackSwatch} style={{ backgroundColor: resolveColor(item.key) }} />
             <span className={styles.stackLegendLabel}>{item.label}</span>
             <span className={styles.stackLegendValue}>
               {item.count} · {item.share}%
@@ -407,7 +486,7 @@ function DisclosureSection({
           <h3>{title}</h3>
           <p>{description}</p>
         </div>
-        <span className={styles.disclosureHint}>Show section</span>
+        <span className={styles.disclosureHint}>Expand</span>
       </summary>
       <div className={styles.disclosureBody}>{children}</div>
     </details>
@@ -535,7 +614,7 @@ export default function StatsPage() {
             <h3>Type breakdown</h3>
             <p>Entity mix across centralized, decentralized, and hybrid exchange records.</p>
           </div>
-          <StackedBar items={snapshot.by_type} />
+          <StackedBar items={snapshot.by_type} colorResolver={typeColorForKey} />
         </section>
       </section>
 
@@ -561,11 +640,11 @@ export default function StatsPage() {
           <div className={styles.subsectionGrid}>
             <div className={styles.subsectionCompact}>
               <h4>Age bands</h4>
-              <StackedBar items={snapshot.active_analysis.age_bands} />
+              <StackedBar items={snapshot.active_analysis.age_bands} colorResolver={ageBandColorForKey} />
             </div>
             <div className={styles.subsectionCompact}>
               <h4>Type mix</h4>
-              <StackedBar items={snapshot.active_analysis.type_breakdown} />
+              <StackedBar items={snapshot.active_analysis.type_breakdown} colorResolver={typeColorForKey} />
             </div>
             <div className={styles.subsectionCompact}>
               <h4>Confidence</h4>
@@ -582,176 +661,8 @@ export default function StatsPage() {
           </div>
         </section>
 
-        <section className={`panel ${styles.sectionPanel}`}>
-          <div className={styles.panelHead}>
-            <h3>Dead analysis</h3>
-            <p>Dead-side outcomes, end-state causes, archived coverage, and measured lifespan.</p>
-          </div>
-          <MetricGrid items={deadSummaryItems} formatter={(item) => (item.key === 'dead_archive' || item.key === 'dead_two_plus' ? percentValue(item.value) : String(item.value))} />
-          <div className={styles.subsection}>
-            <h4>Dead-side status mix</h4>
-            <StackedBar items={snapshot.dead_analysis.status_breakdown} />
-          </div>
-          <div className={styles.subsection}>
-            <h4>Death reason breakdown</h4>
-            <BarList items={snapshot.dead_analysis.death_reason_breakdown} limit={10} />
-          </div>
-          <div className={styles.subsection}>
-            <h4>Death year distribution</h4>
-            <Histogram items={snapshot.dead_analysis.death_year_histogram} emptyLabel="No death years yet" tone="death" />
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>Evidence depth</h4>
-            <StackedBar items={snapshot.dead_analysis.evidence_depth} />
-          </div>
-        </section>
+        <section className={styles.sectionPanel}></section>
       </section>
-
-      <section className={styles.grid}>
-        <section className={`panel ${styles.sectionPanel}`}>
-          <div className={styles.panelHead}>
-            <h3>Quality &amp; coverage</h3>
-            <p>Confidence, URL handling, archive/date/domain coverage, and visible unknown-field rates.</p>
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>Confidence</h4>
-            <StackedBar items={snapshot.quality.confidence_breakdown} />
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>URL status coverage</h4>
-            <BarList items={snapshot.coverage.url_status_breakdown} limit={7} />
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>Archive / date / domain coverage</h4>
-            <ComparisonTable items={[...snapshot.coverage.archive, ...snapshot.coverage.date_known]} valueFormatter={percentMetricValue} rowClassName={tableRowClass} />
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>Unknown-field rates</h4>
-            <ComparisonTable items={snapshot.quality.unknown_field_rates} />
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>Record freshness</h4>
-            <StackedBar items={snapshot.quality.last_verified_recency} />
-          </div>
-        </section>
-
-        <section className={`panel ${styles.sectionPanel}`}>
-          <div className={styles.panelHead}>
-            <h3>Registry timelines &amp; distributions</h3>
-            <p>Snapshot growth when available, plus launch-year and death-year distributions.</p>
-          </div>
-          {hasSnapshotHistory ? (
-            <div className={styles.subsectionCompactWide}>
-              <h4>Snapshot growth</h4>
-              <MiniLineChart series={timelineSeries} />
-            </div>
-          ) : (
-            <>
-              <div className={styles.callout}>
-                Snapshot history currently contains a single generated snapshot. Until multi-snapshot history
-                is available, this section emphasizes current snapshot metrics and historical distributions.
-              </div>
-              <MetricGrid
-                items={[
-                  { key: 'snapshot_entities', label: 'Entities in snapshot', value: history.snapshots[0]?.total_entities ?? 0 },
-                  { key: 'snapshot_events', label: 'Events in snapshot', value: history.snapshots[0]?.total_events ?? 0 },
-                  { key: 'snapshot_evidence', label: 'Evidence in snapshot', value: history.snapshots[0]?.total_evidence ?? 0 },
-                  {
-                    key: 'snapshot_archive',
-                    label: 'Snapshot archive coverage',
-                    value: history.snapshots[0]?.archive_coverage ?? 0,
-                    note: 'archive coverage in current snapshot',
-                  },
-                ]}
-                formatter={(item) => (item.key === 'snapshot_archive' ? percentValue(item.value) : String(item.value))}
-              />
-            </>
-          )}
-          <div className={styles.subsection}>
-            <h4>Launch year distribution</h4>
-            <Histogram items={history.launch_year_counts} emptyLabel="No launch years yet" tone="launch" />
-          </div>
-          <div className={styles.subsection}>
-            <h4>Death year distribution</h4>
-            <Histogram items={history.death_year_counts} emptyLabel="No death years yet" tone="death" />
-          </div>
-        </section>
-      </section>
-
-      <SectionHeading title="Deep breakdowns" note="Lower-priority drilldowns. These remain available without competing with the core analysis layer." />
-
-      <div className={styles.disclosureStack}>
-        <DisclosureSection
-          title="Country / origin"
-          description="Strict-country counts are separated from bucketed origin values such as Global or ecosystem-level origins."
-        >
-          <div className={styles.subsectionCompactWide}>
-            <h4>Strict country</h4>
-            <BarList items={snapshot.country_origin.strict_countries} limit={8} emptyLabel="No strict-country values yet" />
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>Origin bucket</h4>
-            <BarList items={snapshot.country_origin.origin_buckets} limit={6} emptyLabel="No origin buckets yet" />
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>Country / origin × status</h4>
-            <OriginStatusTable items={snapshot.country_origin.status_rows} />
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>Country / origin × type</h4>
-            <OriginTypeTable items={snapshot.country_origin.type_rows} />
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>Country / origin completeness</h4>
-            <ComparisonTable items={snapshot.country_origin.completeness} />
-          </div>
-        </DisclosureSection>
-
-        <DisclosureSection
-          title="Event internals"
-          description="Event type mix, impact severity, and status-effect composition from recorded timeline events."
-        >
-          <MetricGrid items={snapshot.events.averages} />
-          <div className={styles.subsectionCompactWide}>
-            <h4>Event type breakdown</h4>
-            <BarList items={snapshot.events.event_type_breakdown} limit={10} emptyLabel="No events yet" />
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>Impact level</h4>
-            <StackedBar items={snapshot.events.impact_level_breakdown} emptyLabel="No impact data yet" />
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>Status effect</h4>
-            <StackedBar items={snapshot.events.status_effect_breakdown} emptyLabel="No status-effect data yet" />
-          </div>
-        </DisclosureSection>
-
-        <DisclosureSection
-          title="Evidence internals"
-          description="Evidence source mix, reliability, claim scopes, and archived-share summary from the support layer."
-        >
-          <MetricGrid items={snapshot.evidence.averages} formatter={(item) => (item.key === 'archived_evidence_share' ? percentValue(item.value) : String(item.value))} />
-          <div className={styles.subsectionCompactWide}>
-            <h4>Source type breakdown</h4>
-            <BarList items={snapshot.evidence.source_type_breakdown} limit={10} emptyLabel="No evidence yet" />
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>Reliability</h4>
-            <StackedBar items={snapshot.evidence.reliability_breakdown} emptyLabel="No reliability labels yet" />
-          </div>
-          <div className={styles.subsectionCompactWide}>
-            <h4>Claim scope</h4>
-            <BarList items={snapshot.evidence.claim_scope_breakdown} limit={8} emptyLabel="No claim-scope data yet" />
-          </div>
-        </DisclosureSection>
-
-        <DisclosureSection
-          title="Record completeness"
-          description="Alias, notes, summary, archive, and evidence-depth coverage at the entity layer."
-        >
-          <ComparisonTable items={snapshot.completeness} valueFormatter={formatCompletenessValue} />
-        </DisclosureSection>
-      </div>
     </main>
   )
 }
