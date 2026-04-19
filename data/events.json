@@ -1790,5 +1790,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2021-01-01 as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000240",
+    "exchange_id": "hei_ex_000180",
+    "event_type": "shutdown_announced",
+    "event_date": "2021-01-01",
+    "title": "Ternion was treated as closed for business reasons",
+    "description": "Public exchange-status coverage treated Ternion as closed on 2021-01-01 and classified the terminal handling under business reasons.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Primary public terminal update."
+  },
+  {
+    "id": "hei_ev_000241",
+    "exchange_id": "hei_ex_000180",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-01-01",
+    "title": "Ternion was treated as dead",
+    "description": "Public exchange-status sources treated Ternion as dead on 2021-01-01.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2021-01-01 as the terminal marker."
   }
 ]

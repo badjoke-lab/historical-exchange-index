@@ -3740,5 +3740,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-19",
     "notes": "Terminal handling uses the 2021-01-01 dead-side update. Death reason is set to regulation in line with public exchange-status coverage."
+  },
+  {
+    "id": "hei_ex_000180",
+    "slug": "ternion",
+    "canonical_name": "Ternion",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": null,
+    "death_date": "2021-01-01",
+    "country_or_origin": "Estonia",
+    "summary": "Estonia-linked cryptocurrency exchange that was publicly treated as dead on 2021-01-01 for business-related shutdown reasons.",
+    "official_url_original": "https://ternion.exchange/",
+    "official_domain_original": "ternion.exchange",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://ternion.exchange/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-19",
+    "notes": "Terminal handling uses the 2021-01-01 graveyard marker. Death reason is mapped to voluntary_shutdown from business-reasons style closure handling."
   }
 ]
