@@ -1888,5 +1888,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2019-10-15 as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000248",
+    "exchange_id": "hei_ex_000183",
+    "event_type": "shutdown_announced",
+    "event_date": "2021-12-02",
+    "title": "Coinsuper was marked dead after 2021 financial troubles",
+    "description": "Public exchange-status coverage stated that financial troubles persisted through 2021 and later resulted in the firm closing business, after which the platform was marked dead.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Primary public terminal update."
+  },
+  {
+    "id": "hei_ev_000249",
+    "exchange_id": "hei_ex_000183",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-12-02",
+    "title": "Coinsuper was treated as dead",
+    "description": "Public exchange-status sources treated Coinsuper as dead in late 2021 under business-reasons handling.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2021-12-02 as the public dead-side marker in this pass."
   }
 ]
