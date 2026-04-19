@@ -1846,5 +1846,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2021-03-22 as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000244",
+    "exchange_id": "hei_ex_000182",
+    "event_type": "hack",
+    "event_date": "2020-09-08",
+    "title": "Eterbase suffered a major hot-wallet hack",
+    "description": "Public reporting stated that Eterbase lost more than five million dollars from compromised hot wallets and entered maintenance mode.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Primary crisis event."
+  },
+  {
+    "id": "hei_ev_000245",
+    "exchange_id": "hei_ex_000182",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-04-22",
+    "title": "Eterbase paused operations and was treated as dead",
+    "description": "Public exchange-status coverage stated on 2021-04-22 that Eterbase had paused operations and was moved to dead-side handling.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2021-04-22 as the terminal marker."
   }
 ]
