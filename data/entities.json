@@ -3830,5 +3830,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-19",
     "notes": "Terminal handling uses the 2021-12-02 public dead-side update. Death reason is mapped to voluntary_shutdown from business-reasons closure handling. Cryptowisser's graveyard also places Coinsuper in the 2021 business-reasons cohort."
+  },
+  {
+    "id": "hei_ex_000184",
+    "slug": "mercuriex",
+    "canonical_name": "MercuriEx",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2018-01-01",
+    "death_date": "2020-12-31",
+    "country_or_origin": "United States",
+    "summary": "United States-based cryptocurrency exchange launched in 2018 that announced closure in November 2020 and was publicly treated as dead by the end of 2020 under business-reasons shutdown handling.",
+    "official_url_original": "https://mercuriex.com/",
+    "official_domain_original": "mercuriex.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://mercuriex.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-19",
+    "notes": "Cryptowisser review preserves a 2020-11-18 closing-down update, while Cryptowisser graveyard places MercuriEx in the 2020-12-31 business-reasons dead-side cohort. Some SurfTheWeb materials say the exchange was developed or operational since late 2017, but HEI retains 2018-01-01 as the conservative public launch marker."
   }
 ]

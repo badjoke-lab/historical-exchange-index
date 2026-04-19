@@ -1916,5 +1916,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2021-12-02 as the public dead-side marker in this pass."
+  },
+  {
+    "id": "hei_ev_000250",
+    "exchange_id": "hei_ex_000184",
+    "event_type": "shutdown_announced",
+    "event_date": "2020-11-18",
+    "title": "MercuriEx closure update surfaced",
+    "description": "Public exchange-status coverage preserved a 2020-11-18 update stating that MercuriEx was closing down.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Retained as the announcement marker rather than the terminal death-date marker."
+  },
+  {
+    "id": "hei_ev_000251",
+    "exchange_id": "hei_ex_000184",
+    "event_type": "shutdown_effective",
+    "event_date": "2020-12-31",
+    "title": "MercuriEx was treated as dead by year-end 2020",
+    "description": "Public dead-side coverage placed MercuriEx in the 2020-12-31 business-reasons cohort.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 1,
+    "sort_order": 2,
+    "notes": "HEI uses the graveyard terminal marker rather than the earlier announcement date."
   }
 ]
