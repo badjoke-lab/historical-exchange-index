@@ -3784,5 +3784,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-19",
     "notes": "Terminal handling uses the 2021-03-22 dead-side update. Death reason is mapped to voluntary_shutdown because public exchange-status coverage says no specific reason was given and assumes business reasons."
+  },
+  {
+    "id": "hei_ex_000182",
+    "slug": "eterbase",
+    "canonical_name": "Eterbase",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "hack",
+    "launch_date": "2019-01-01",
+    "death_date": "2021-04-22",
+    "country_or_origin": "Slovakia",
+    "summary": "Slovakia-based cryptocurrency exchange launched in 2019 that paused operations on 2021-04-22 after a 2020 hack crisis and was subsequently treated as dead.",
+    "official_url_original": "https://www.eterbase.com/",
+    "official_domain_original": "eterbase.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.eterbase.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-19",
+    "notes": "Terminal handling uses the 2021-04-22 paused-operations marker. Death reason is mapped to hack because the shutdown followed the September 2020 hot-wallet compromise, although later bankruptcy context also exists."
   }
 ]
