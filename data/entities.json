@@ -3718,5 +3718,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-19",
     "notes": "Terminal handling uses the 2023-01-03 graveyard marker. Cause stays conservative as unknown even though public status coverage characterizes the exchange as having disappeared."
+  },
+  {
+    "id": "hei_ex_000179",
+    "slug": "kkcoin",
+    "canonical_name": "KKCoin",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2017-01-01",
+    "death_date": "2021-01-01",
+    "country_or_origin": "Singapore",
+    "summary": "Singapore-based cryptocurrency exchange launched in 2017 that was publicly treated as closed on 2021-01-01 amid regulation-linked shutdown handling.",
+    "official_url_original": "https://www.kkcoin.com/",
+    "official_domain_original": "kkcoin.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.kkcoin.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-19",
+    "notes": "Terminal handling uses the 2021-01-01 dead-side update. Death reason is set to regulation in line with public exchange-status coverage."
   }
 ]
