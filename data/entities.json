@@ -3852,5 +3852,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-19",
     "notes": "Cryptowisser review preserves a 2020-11-18 closing-down update, while Cryptowisser graveyard places MercuriEx in the 2020-12-31 business-reasons dead-side cohort. Some SurfTheWeb materials say the exchange was developed or operational since late 2017, but HEI retains 2018-01-01 as the conservative public launch marker."
+  },
+  {
+    "id": "hei_ex_000185",
+    "slug": "bitlish",
+    "canonical_name": "Bitlish",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2015-01-01",
+    "death_date": "2020-03-30",
+    "country_or_origin": "United Kingdom",
+    "summary": "United Kingdom-based cryptocurrency exchange launched in 2015 that stopped providing services on 2020-03-30 and was subsequently treated as dead.",
+    "official_url_original": "https://bitlish.com/",
+    "official_domain_original": "bitlish.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://bitlish.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-19",
+    "notes": "Terminal handling uses the 2020-03-30 closure update. Public review coverage confirms United Kingdom domicile and 2015 launch, while the preserved closure message cites technical problems and a final withdrawal deadline but does not support a cleaner cause classification than unknown."
   }
 ]

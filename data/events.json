@@ -1944,5 +1944,33 @@
     "source_count": 1,
     "sort_order": 2,
     "notes": "HEI uses the graveyard terminal marker rather than the earlier announcement date."
+  },
+  {
+    "id": "hei_ev_000252",
+    "exchange_id": "hei_ex_000185",
+    "event_type": "shutdown_announced",
+    "event_date": "2020-03-30",
+    "title": "Bitlish published a final closure notice",
+    "description": "Publicly preserved closure text stated that Bitlish would stop providing services to all customers on 2020-03-30 and required users to withdraw remaining assets by the same date.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The same closure notice also said that technical problems affected parts of the service."
+  },
+  {
+    "id": "hei_ev_000253",
+    "exchange_id": "hei_ex_000185",
+    "event_type": "shutdown_effective",
+    "event_date": "2020-03-30",
+    "title": "Bitlish stopped providing services and was treated as dead",
+    "description": "Cryptowisser marked Bitlish as dead on 2020-03-30 after the exchange closed down.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2020-03-30 as the terminal marker in this pass."
   }
 ]

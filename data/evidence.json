@@ -5353,5 +5353,50 @@
     "reliability": "medium",
     "claim_scope": "entity",
     "notes": "Press-release style coverage stating SurfTheWeb purchased MercuriEx at the end of 2019 and that the exchange had been operational since 2017."
+  },
+  {
+    "id": "hei_src_000579",
+    "exchange_id": "hei_ex_000185",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former Bitlish site",
+    "url": "https://bitlish.com/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-19",
+    "archived_url": "https://web.archive.org/web/*/https://bitlish.com/",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000580",
+    "exchange_id": "hei_ex_000185",
+    "event_id": "hei_ev_000253",
+    "source_type": "news_article",
+    "title": "Bitlish review with 2020 dead-side update",
+    "url": "https://www.cryptowisser.com/exchange/bitlish/",
+    "publisher": "Cryptowisser",
+    "published_at": "2020-03-30",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/bitlish/",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that Bitlish closed down on 2020-03-30, was moved to the Exchange Graveyard, and describes the exchange as domiciled in the United Kingdom and launched in 2015."
+  },
+  {
+    "id": "hei_src_000581",
+    "exchange_id": "hei_ex_000185",
+    "event_id": "hei_ev_000252",
+    "source_type": "news_article",
+    "title": "WalletScrutiny preserved Bitlish closure message",
+    "url": "https://walletscrutiny.com/android/com.bitlish.bitlish/",
+    "publisher": "WalletScrutiny",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://walletscrutiny.com/android/com.bitlish.bitlish/",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "event",
+    "notes": "Quotes the Bitlish website notice stating service would stop on 2020-03-30, with withdrawals allowed until 23:00 UTC the same day and technical problems affecting fiat functions."
   }
 ]
