@@ -285,21 +285,6 @@
     "notes": ""
   },
   {
-    "id": "hei_src_000125",
-    "exchange_id": "hei_ex_000112",
-    "event_id": null,
-    "source_type": "archive_capture",
-    "title": "Archive index for the former official CoinExchange.io site",
-    "url": "https://www.coinexchange.io/",
-    "publisher": "Internet Archive",
-    "published_at": "2026-04-08",
-    "archived_url": "https://web.archive.org/web/*/https://www.coinexchange.io/",
-    "accessed_at": "2026-04-08",
-    "reliability": "medium",
-    "claim_scope": "url_history",
-    "notes": ""
-  },
-  {
     "id": "hei_src_000127",
     "exchange_id": "hei_ex_000113",
     "event_id": null,
@@ -613,21 +598,6 @@
     "reliability": "medium",
     "claim_scope": "death_reason",
     "notes": "Closure followed the December 2020 attack."
-  },
-  {
-    "id": "hei_src_000160",
-    "exchange_id": "hei_ex_000112",
-    "event_id": "hei_ev_000122",
-    "source_type": "news_article",
-    "title": "CoinExchange.io to cease services",
-    "url": "https://www.financemagnates.com/cryptocurrency/news/coinexchange-io-to-cease-crypto-trading-services-this-month/",
-    "publisher": "Finance Magnates",
-    "published_at": "2019-10-02",
-    "archived_url": "https://web.archive.org/web/*/https://www.financemagnates.com/cryptocurrency/news/coinexchange-io-to-cease-crypto-trading-services-this-month/",
-    "accessed_at": "2026-04-10",
-    "reliability": "medium",
-    "claim_scope": "death_reason",
-    "notes": "Reports trading and deposits halting on Oct 15, 2019 and withdrawals lasting until Dec 1."
   },
   {
     "id": "hei_src_000161",
@@ -5233,5 +5203,50 @@
     "reliability": "high",
     "claim_scope": "event",
     "notes": "Used for the September 2020 hack event and scale of loss."
+  },
+  {
+    "id": "hei_src_000569",
+    "exchange_id": "hei_ex_000112",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former CoinExchange.io site",
+    "url": "https://www.coinexchange.io/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-19",
+    "archived_url": "https://web.archive.org/web/*/https://www.coinexchange.io/",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000570",
+    "exchange_id": "hei_ex_000112",
+    "event_id": "hei_ev_000247",
+    "source_type": "news_article",
+    "title": "CoinExchange.io review with 2019 dead-side update",
+    "url": "https://www.cryptowisser.com/exchange/coinexchange-io/",
+    "publisher": "Cryptowisser",
+    "published_at": "2019-10-15",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/coinexchange-io/",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that CoinExchange.io closed down on 2019-10-15 and that the decision was purely business driven."
+  },
+  {
+    "id": "hei_src_000571",
+    "exchange_id": "hei_ex_000112",
+    "event_id": null,
+    "source_type": "database_reference",
+    "title": "Exchange Graveyard entry for CoinExchange.io",
+    "url": "https://www.cryptowisser.com/exchange-graveyard",
+    "publisher": "Cryptowisser",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange-graveyard",
+    "accessed_at": "2026-04-19",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "Current graveyard page lists CoinExchange.io with a 2019-10-15 terminal marker and business reasons."
   }
 ]

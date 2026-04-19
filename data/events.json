@@ -238,20 +238,6 @@
     "notes": "Launch uses the specific April 2015 operating-since statement from the shutdown coverage. Some secondary profiles cite earlier founding dates; these are left in notes rather than used as the operational launch marker."
   },
   {
-    "id": "hei_ev_000122",
-    "exchange_id": "hei_ex_000112",
-    "event_type": "shutdown_effective",
-    "event_date": "2019-10-15",
-    "title": "Operations wound down",
-    "description": "CoinExchange.io reached its terminal operating state on the date used by HEI as the end marker.",
-    "confidence": "medium",
-    "impact_level": "critical",
-    "event_status_effect": "dead",
-    "source_count": 1,
-    "sort_order": 2,
-    "notes": "Public reporting indicates trading and deposits halted in October 2019, with withdrawals reportedly remaining available into December 2019."
-  },
-  {
     "id": "hei_ev_000124",
     "exchange_id": "hei_ex_000113",
     "event_type": "shutdown_effective",
@@ -1874,5 +1860,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2021-04-22 as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000246",
+    "exchange_id": "hei_ex_000112",
+    "event_type": "shutdown_announced",
+    "event_date": "2019-10-15",
+    "title": "CoinExchange.io announced closure",
+    "description": "Public exchange-status coverage stated that CoinExchange.io closed down on 2019-10-15 pursuant to a board decision made on 2019-10-01 and described the decision as purely business driven.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Primary public terminal update."
+  },
+  {
+    "id": "hei_ev_000247",
+    "exchange_id": "hei_ex_000112",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-10-15",
+    "title": "CoinExchange.io was treated as dead",
+    "description": "Public exchange-status sources treated CoinExchange.io as dead on 2019-10-15.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI uses 2019-10-15 as the terminal marker."
   }
 ]
