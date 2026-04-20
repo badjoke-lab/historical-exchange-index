@@ -5638,5 +5638,50 @@
     "reliability": "medium",
     "claim_scope": "launch_date",
     "notes": "Used as supporting evidence for Singapore headquarters and January 2018 launch timing."
+  },
+  {
+    "url": "https://www.cryptowisser.com/exchange/livecoin/",
+    "title": "Livecoin review with December 2020 dead-side update",
+    "event_id": "hei_ev_000263",
+    "source_type": "news_article",
+    "publisher": "Cryptowisser",
+    "published_at": "2020-12-27",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/livecoin/",
+    "accessed_at": "2026-04-20",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that Livecoin was marked dead after the 23-24 December 2020 hack and describes the exchange as registered in Seychelles.",
+    "id": "hei_src_000598",
+    "exchange_id": "hei_ex_000111"
+  },
+  {
+    "url": "https://www.coindesk.com/policy/2021/01/18/livecoin-exchange-announces-closure-after-december-hack",
+    "title": "Livecoin Exchange Announces Closure After December Hack",
+    "event_id": "hei_ev_000262",
+    "source_type": "news_article",
+    "publisher": "CoinDesk",
+    "published_at": "2021-01-18",
+    "archived_url": "https://web.archive.org/web/*/https://www.coindesk.com/policy/2021/01/18/livecoin-exchange-announces-closure-after-december-hack",
+    "accessed_at": "2026-04-20",
+    "reliability": "high",
+    "claim_scope": "event",
+    "notes": "Used for the formal closure announcement and its direct connection to the December 2020 hack.",
+    "id": "hei_src_000599",
+    "exchange_id": "hei_ex_000111"
+  },
+  {
+    "url": "https://coinpaprika.com/exchanges/livecoin/",
+    "title": "CoinPaprika exchange statistics for Livecoin",
+    "event_id": null,
+    "source_type": "database_reference",
+    "publisher": "CoinPaprika",
+    "published_at": null,
+    "archived_url": "https://web.archive.org/web/*/https://coinpaprika.com/exchanges/livecoin/",
+    "accessed_at": "2026-04-20",
+    "reliability": "medium",
+    "claim_scope": "launch_date",
+    "notes": "Used as supporting evidence for livecoin.net and the 2013 public launch marker.",
+    "id": "hei_src_000600",
+    "exchange_id": "hei_ex_000111"
   }
 ]
