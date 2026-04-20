@@ -4039,5 +4039,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-21",
     "notes": "Terminal handling uses the 2024-09-18 public dead-side marker. Cause stays conservative as unknown because public status coverage only confirms site inaccessibility and dead-side handling. Launch timing is kept at the conservative year-level marker because public directories disagree on whether the exchange launched in May or June 2020."
+  },
+  {
+    "id": "hei_ex_000193",
+    "slug": "bitzlato",
+    "canonical_name": "Bitzlato",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2016-01-01",
+    "death_date": "2023-01-18",
+    "country_or_origin": "Hong Kong",
+    "summary": "Hong Kong-registered cryptocurrency platform launched in 2016 that was shut down on 2023-01-18 after U.S. and French enforcement action tied to illicit-finance allegations.",
+    "official_url_original": "https://bitzlato.com/",
+    "official_domain_original": "bitzlato.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://bitzlato.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-21",
+    "notes": "Terminal handling uses the 2023-01-18 public dead-side marker. Death reason is mapped to regulation because the terminal event is a documented cross-border enforcement action and shutdown following allegations of illicit-funds processing. HEI keeps a conservative 2016-01-01 launch marker from public exchange-status coverage."
   }
 ]
