@@ -2140,5 +2140,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the stated 2020-03-01 00:00 UTC service termination point as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000266",
+    "exchange_id": "hei_ex_000191",
+    "event_type": "withdrawal_suspended",
+    "event_date": "2019-11-24",
+    "title": "IDAX users lost withdrawal access amid CEO disappearance",
+    "description": "Public reporting stated that withdrawals were suspended and that the exchange's CEO had gone missing, leaving users unable to access funds.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "This is the crisis phase that later matured into full dead-side handling."
+  },
+  {
+    "id": "hei_ev_000267",
+    "exchange_id": "hei_ex_000191",
+    "event_type": "shutdown_effective",
+    "event_date": "2020-03-31",
+    "title": "IDAX was moved to dead-side handling",
+    "description": "Public exchange-status sources marked IDAX inactive and effectively dead by 2020-03-31 after months of suspended deposits and withdrawals and unresolved CEO-disappearance claims.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the 2020-03-31 public dead-side marker rather than the earlier first-warning date."
   }
 ]
