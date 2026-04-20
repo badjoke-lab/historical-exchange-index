@@ -2028,5 +2028,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the retail-service termination date as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000258",
+    "exchange_id": "hei_ex_000188",
+    "event_type": "withdrawal_suspended",
+    "event_date": "2022-08-17",
+    "title": "Hoo Exchange was reported as failing to process withdrawals",
+    "description": "Public exchange-status coverage stated that numerous independent sources reported that Hoo Exchange was not processing withdrawals and that accounts were being blocked without explanation.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Cryptowisser also noted that its researchers received no response when contacting the exchange for clarification."
+  },
+  {
+    "id": "hei_ev_000259",
+    "exchange_id": "hei_ex_000188",
+    "event_type": "shutdown_effective",
+    "event_date": "2022-08-17",
+    "title": "Hoo Exchange was marked scam and moved to dead-side handling",
+    "description": "Public exchange-status sources marked Hoo Exchange as a scam and moved it to graveyard handling on 2022-08-17.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the public dead-side marker rather than later suspended-activity warnings."
   }
 ]
