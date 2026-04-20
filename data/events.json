@@ -1972,5 +1972,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI uses 2020-03-30 as the terminal marker in this pass."
+  },
+  {
+    "id": "hei_ev_000254",
+    "exchange_id": "hei_ex_000186",
+    "event_type": "shutdown_announced",
+    "event_date": "2024-12-18",
+    "title": "Nominex announced closure of its centralized exchange",
+    "description": "Nominex informed users by email that it was closing its centralized exchange for economic reasons and advised users to withdraw funds as soon as possible.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The closure notice said the wind-down process could take up to four months."
+  },
+  {
+    "id": "hei_ev_000255",
+    "exchange_id": "hei_ex_000186",
+    "event_type": "shutdown_effective",
+    "event_date": "2024-12-18",
+    "title": "Nominex was moved to dead-side handling",
+    "description": "Public exchange-status sources marked Nominex as dead on 2024-12-18 after the closure announcement for its centralized exchange.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the public dead-side marker rather than the later stages of the operational wind-down."
   }
 ]
