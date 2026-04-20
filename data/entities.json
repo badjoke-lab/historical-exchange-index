@@ -3991,5 +3991,29 @@
     "confidence": "high",
     "last_verified_at": "2026-04-20",
     "notes": "Terminal handling uses 2020-03-01 00:00 UTC, the stated service termination time. Death reason is mapped to voluntary_shutdown because the exchange said it was no longer economically feasible to continue providing the required level of security, support, and technology."
+  },
+  {
+    "id": "hei_ex_000191",
+    "slug": "idax",
+    "canonical_name": "IDAX",
+    "aliases": [
+      "Idax"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "scam_rug",
+    "launch_date": "2017-01-01",
+    "death_date": "2020-03-31",
+    "country_or_origin": "Mongolia",
+    "summary": "Mongolia-based cryptocurrency exchange launched in 2017 that was publicly treated as dead by 2020-03-31 after suspended withdrawals, a missing CEO, and widespread exit-scam handling.",
+    "official_url_original": "https://www.idax.pro/",
+    "official_domain_original": "idax.pro",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.idax.pro/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-20",
+    "notes": "Terminal handling uses the 2020-03-31 public dead-side marker. Death reason is mapped to scam_rug because public reporting described the case as an exit-scam style disappearance tied to a missing CEO and frozen withdrawals. HEI uses Mongolia and 2017-01-01 as conservative canonical markers."
   }
 ]
