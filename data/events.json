@@ -2000,5 +2000,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the public dead-side marker rather than the later stages of the operational wind-down."
+  },
+  {
+    "id": "hei_ev_000256",
+    "exchange_id": "hei_ex_000187",
+    "event_type": "shutdown_announced",
+    "event_date": "2023-01-24",
+    "title": "Coindirect announced closure of its retail service",
+    "description": "Coindirect announced that it was closing down its retail service after five years and would focus on its B2B business instead.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The notice instructed users to withdraw crypto and fiat assets before 2023-01-24."
+  },
+  {
+    "id": "hei_ev_000257",
+    "exchange_id": "hei_ex_000187",
+    "event_type": "shutdown_effective",
+    "event_date": "2023-01-24",
+    "title": "Coindirect retail exchange access terminated and was treated as dead",
+    "description": "Public exchange-status sources marked Coindirect as dead-side on 2023-01-24 after access to retail accounts was set to be disabled the same day.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the retail-service termination date as the terminal marker."
   }
 ]

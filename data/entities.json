@@ -3896,5 +3896,29 @@
     "confidence": "high",
     "last_verified_at": "2026-04-20",
     "notes": "Terminal handling uses the 2024-12-18 public dead-side marker. Death reason is mapped to voluntary_shutdown because the official closure notice said the centralized exchange was closing solely for economic reasons, while some token utility continued on Nominswap."
+  },
+  {
+    "id": "hei_ex_000187",
+    "slug": "coindirect",
+    "canonical_name": "Coindirect",
+    "aliases": [
+      "CoinDirect"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2018-01-01",
+    "death_date": "2023-01-24",
+    "country_or_origin": "Isle of Man",
+    "summary": "Isle of Man-based cryptocurrency exchange that publicly closed its retail service on 2023-01-24 in order to focus on B2B operations and was subsequently treated as dead-side.",
+    "official_url_original": "https://www.coindirect.com/",
+    "official_domain_original": "coindirect.com",
+    "official_url_status": "repurposed",
+    "archived_url": "https://web.archive.org/web/*/https://www.coindirect.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-20",
+    "notes": "Terminal handling uses the 2023-01-24 public closure marker. Death reason is mapped to voluntary_shutdown because Coindirect announced that it was closing its retail service to focus on B2B business. Public review coverage describes the exchange as from Isle of Man and active since 2017, while the preserved launch press release shows a January 2018 live launch; HEI uses 2018-01-01 as the conservative public launch marker."
   }
 ]
