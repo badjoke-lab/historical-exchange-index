@@ -4015,5 +4015,29 @@
     "confidence": "high",
     "last_verified_at": "2026-04-20",
     "notes": "Terminal handling uses the 2020-03-31 public dead-side marker. Death reason is mapped to scam_rug because public reporting described the case as an exit-scam style disappearance tied to a missing CEO and frozen withdrawals. HEI uses Mongolia and 2017-01-01 as conservative canonical markers."
+  },
+  {
+    "id": "hei_ex_000192",
+    "slug": "bololex-exchange",
+    "canonical_name": "Bololex Exchange",
+    "aliases": [
+      "Bololex"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2020-01-01",
+    "death_date": "2024-09-18",
+    "country_or_origin": "Russia",
+    "summary": "Russia-based centralized cryptocurrency exchange launched in 2020 that was publicly treated as dead on 2024-09-18 after the website became inaccessible with no preceding maintenance or migration notice.",
+    "official_url_original": "https://bololex.com/",
+    "official_domain_original": "bololex.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://bololex.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-21",
+    "notes": "Terminal handling uses the 2024-09-18 public dead-side marker. Cause stays conservative as unknown because public status coverage only confirms site inaccessibility and dead-side handling. Launch timing is kept at the conservative year-level marker because public directories disagree on whether the exchange launched in May or June 2020."
   }
 ]
