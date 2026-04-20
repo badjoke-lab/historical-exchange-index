@@ -2112,5 +2112,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the public dead-side marker rather than the later business-closure announcement date."
+  },
+  {
+    "id": "hei_ev_000264",
+    "exchange_id": "hei_ex_000190",
+    "event_type": "shutdown_announced",
+    "event_date": "2020-02-20",
+    "title": "Trade Satoshi announced closure",
+    "description": "Trade Satoshi announced that deposits would no longer be processed and instructed users to complete withdrawals before all services terminated on 2020-03-01 00:00 UTC.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Public reporting tied the announcement to economic infeasibility and a final withdrawal deadline."
+  },
+  {
+    "id": "hei_ev_000265",
+    "exchange_id": "hei_ex_000190",
+    "event_type": "shutdown_effective",
+    "event_date": "2020-03-01",
+    "title": "Trade Satoshi terminated services and was treated as dead",
+    "description": "Public exchange-status sources recorded that Trade Satoshi closed down on 2020-03-01 and moved it to dead-side handling.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the stated 2020-03-01 00:00 UTC service termination point as the terminal marker."
   }
 ]
