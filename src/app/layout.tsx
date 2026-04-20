@@ -1,4 +1,5 @@
 import './globals.css'
+import './home-recent-mobile-fix.css'
 import Link from 'next/link'
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
