@@ -59,6 +59,53 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body>
         <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
+        <style>{`
+@media (max-width: 767px) {
+  .home-list-item-recent {
+    display: block !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+  }
+  .home-list-item-recent .home-item-main {
+    display: grid !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    gap: 6px !important;
+  }
+  .home-list-item-recent .home-item-main > div:first-child {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 10px !important;
+    min-width: 0 !important;
+  }
+  .home-list-item-recent .home-item-main > div:first-child > .home-item-title {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+  .home-list-item-recent .home-item-main > div:first-child > .btn-compact {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    margin-left: 8px !important;
+  }
+  .home-list-item-recent .home-item-meta {
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+}
+@media (max-width: 389px) {
+  .home-list-item-recent .home-item-main > div:first-child {
+    flex-wrap: wrap !important;
+    align-items: flex-start !important;
+  }
+  .home-list-item-recent .home-item-main > div:first-child > .btn-compact {
+    margin-left: 0 !important;
+  }
+}
+        `}</style>
 
         <div className="page">
           <header className="topbar">
