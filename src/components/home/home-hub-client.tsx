@@ -267,41 +267,21 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
           <h3>Recently updated</h3>
           <p>Latest verified or revised records in the registry.</p>
         </div>
-        <div className="home-list home-list-recent">
+        <div className="record-list">
           {recentUpdated.map((entity) => (
-            <div className="home-list-item home-list-item-recent" key={entity.id}>
-              <div className="home-item-main">
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    justifyContent: 'space-between',
-                    gap: '12px',
-                    flexWrap: 'wrap',
-                  }}
-                >
-                  <Link
-                    className="home-item-title subtle-link"
-                    href={`/exchange/${entity.slug}/`}
-                    style={{ flex: '1 1 180px' }}
-                  >
+            <div className="record-item" key={entity.id}>
+              <div className="record-top">
+                <div className="record-main">
+                  <Link className="record-title subtle-link" href={`/exchange/${entity.slug}/`}>
                     {entity.canonical_name}
                   </Link>
-                  <Link
-                    className="btn btn-compact"
-                    href={`/exchange/${entity.slug}/`}
-                    style={{ whiteSpace: 'nowrap' }}
-                  >
-                    Open
-                  </Link>
+                  <div className="record-meta">
+                    <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
+                    <span>{formatYears(entity.launch_date, entity.death_date)}</span>
+                    <span>verified {entity.last_verified_at.slice(0, 10)}</span>
+                  </div>
                 </div>
-                <div className="home-item-meta">
-                  <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
-                  <span>{formatYears(entity.launch_date, entity.death_date)}</span>
-                </div>
-                <div className="home-item-meta" style={{ marginTop: '2px' }}>
-                  <span>verified {entity.last_verified_at.slice(0, 10)}</span>
-                </div>
+                <Link className="btn btn-compact" href={`/exchange/${entity.slug}/`}>Open</Link>
               </div>
             </div>
           ))}
