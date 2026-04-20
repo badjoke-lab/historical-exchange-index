@@ -3920,5 +3920,30 @@
     "confidence": "high",
     "last_verified_at": "2026-04-20",
     "notes": "Terminal handling uses the 2023-01-24 public closure marker. Death reason is mapped to voluntary_shutdown because Coindirect announced that it was closing its retail service to focus on B2B business. Public review coverage describes the exchange as from Isle of Man and active since 2017, while the preserved launch press release shows a January 2018 live launch; HEI uses 2018-01-01 as the conservative public launch marker."
+  },
+  {
+    "id": "hei_ex_000188",
+    "slug": "hoo-exchange",
+    "canonical_name": "Hoo Exchange",
+    "aliases": [
+      "Hoo",
+      "HOO Exchange"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "scam_rug",
+    "launch_date": "2018-05-01",
+    "death_date": "2022-08-17",
+    "country_or_origin": "Hong Kong",
+    "summary": "Hong Kong-based cryptocurrency exchange active since May 2018 that was marked scam and moved to dead-side on 2022-08-17 after widespread withdrawal and account-blocking complaints.",
+    "official_url_original": "https://hoo.com/",
+    "official_domain_original": "hoo.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://hoo.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-20",
+    "notes": "Terminal handling uses the 2022-08-17 public dead-side marker. Death reason is mapped to scam_rug because public review coverage states that the exchange was marked as a scam after numerous withdrawal failures and blocked-account reports. CoinMarketCap later displayed a warning that exchange activities were suspended."
   }
 ]
