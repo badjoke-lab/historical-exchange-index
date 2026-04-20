@@ -2056,5 +2056,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the public dead-side marker rather than later suspended-activity warnings."
+  },
+  {
+    "id": "hei_ev_000260",
+    "exchange_id": "hei_ex_000189",
+    "event_type": "withdrawal_suspended",
+    "event_date": "2019-11-01",
+    "title": "BiteBTC faced widespread scam and blocked-withdrawal accusations",
+    "description": "Public exchange-status coverage recorded extensive user accusations describing BiteBTC as a scam and reporting serious platform trust issues.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The review also stated that the original site behavior had become unreliable and confusing."
+  },
+  {
+    "id": "hei_ev_000261",
+    "exchange_id": "hei_ex_000189",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-11-01",
+    "title": "BiteBTC was marked dead and moved to scam-side handling",
+    "description": "Public exchange-status sources marked BiteBTC as dead on 2019-11-01 after concluding that it was widely acknowledged as a scam.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the public dead-side marker rather than later domain behavior."
   }
 ]
