@@ -2084,5 +2084,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the public dead-side marker rather than later domain behavior."
+  },
+  {
+    "id": "hei_ev_000262",
+    "exchange_id": "hei_ex_000111",
+    "event_type": "hack",
+    "event_date": "2020-12-24",
+    "title": "Livecoin reported a major platform attack",
+    "description": "Public reporting stated that Livecoin lost control over parts of its infrastructure during a late-December 2020 attack and the platform became unsafe to use.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Cryptowisser later referenced the 23-24 December 2020 attack window when moving the exchange to dead-side handling."
+  },
+  {
+    "id": "hei_ev_000263",
+    "exchange_id": "hei_ex_000111",
+    "event_type": "shutdown_effective",
+    "event_date": "2020-12-27",
+    "title": "Livecoin was moved to dead-side handling",
+    "description": "Public exchange-status sources marked Livecoin as dead on 2020-12-27 after the hacker attack, before the later formal closure notice.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the public dead-side marker rather than the later business-closure announcement date."
   }
 ]
