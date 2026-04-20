@@ -3874,5 +3874,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-19",
     "notes": "Terminal handling uses the 2020-03-30 closure update. Public review coverage confirms United Kingdom domicile and 2015 launch, while the preserved closure message cites technical problems and a final withdrawal deadline but does not support a cleaner cause classification than unknown."
+  },
+  {
+    "id": "hei_ex_000186",
+    "slug": "nominex",
+    "canonical_name": "Nominex",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2019-08-01",
+    "death_date": "2024-12-18",
+    "country_or_origin": "Estonia",
+    "summary": "Estonia-based cryptocurrency exchange launched in August 2019 that announced closure of its centralized exchange on 2024-12-18 for economic reasons and was subsequently treated as dead.",
+    "official_url_original": "https://nominex.io/",
+    "official_domain_original": "nominex.io",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://nominex.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-20",
+    "notes": "Terminal handling uses the 2024-12-18 public dead-side marker. Death reason is mapped to voluntary_shutdown because the official closure notice said the centralized exchange was closing solely for economic reasons, while some token utility continued on Nominswap."
   }
 ]
