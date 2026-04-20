@@ -271,17 +271,37 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
           {recentUpdated.map((entity) => (
             <div className="home-list-item home-list-item-recent" key={entity.id}>
               <div className="home-item-main">
-                <Link className="home-item-title subtle-link" href={`/exchange/${entity.slug}/`}>
-                  {entity.canonical_name}
-                </Link>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    justifyContent: 'space-between',
+                    gap: '12px',
+                    flexWrap: 'wrap',
+                  }}
+                >
+                  <Link
+                    className="home-item-title subtle-link"
+                    href={`/exchange/${entity.slug}/`}
+                    style={{ flex: '1 1 180px' }}
+                  >
+                    {entity.canonical_name}
+                  </Link>
+                  <Link
+                    className="btn btn-compact"
+                    href={`/exchange/${entity.slug}/`}
+                    style={{ whiteSpace: 'nowrap' }}
+                  >
+                    Open
+                  </Link>
+                </div>
                 <div className="home-item-meta">
                   <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
                   <span>{formatYears(entity.launch_date, entity.death_date)}</span>
+                </div>
+                <div className="home-item-meta" style={{ marginTop: '2px' }}>
                   <span>verified {entity.last_verified_at.slice(0, 10)}</span>
                 </div>
-              </div>
-              <div className="home-item-action">
-                <Link className="btn btn-compact" href={`/exchange/${entity.slug}/`}>Open</Link>
               </div>
             </div>
           ))}
