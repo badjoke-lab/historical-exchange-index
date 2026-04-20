@@ -4061,5 +4061,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-21",
     "notes": "Terminal handling uses the 2023-01-18 public dead-side marker. Death reason is mapped to regulation because the terminal event is a documented cross-border enforcement action and shutdown following allegations of illicit-funds processing. HEI keeps a conservative 2016-01-01 launch marker from public exchange-status coverage."
+  },
+  {
+    "id": "hei_ex_000194",
+    "slug": "bqt",
+    "canonical_name": "BQT",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2019-05-01",
+    "death_date": "2022-12-02",
+    "country_or_origin": "United Kingdom",
+    "summary": "United Kingdom-based cryptocurrency exchange launched in May 2019 that was publicly treated as dead on 2022-12-02 after the platform became inaccessible and showed no clear operational activity.",
+    "official_url_original": "https://bqt.io/",
+    "official_domain_original": "bqt.io",
+    "official_url_status": "repurposed",
+    "archived_url": "https://web.archive.org/web/*/https://bqt.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-21",
+    "notes": "Terminal handling uses the 2022-12-02 public dead-side marker. Cause stays conservative as unknown because public status coverage only confirms inaccessibility and loss of operational signs. The original BQT exchange domain now appears repurposed into QNFT marketplace content while still retaining legacy BQT exchange text on some pages."
   }
 ]

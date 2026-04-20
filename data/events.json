@@ -2252,5 +2252,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the 2023-01-18 enforcement-day dead-side marker as the terminal date."
+  },
+  {
+    "id": "hei_ev_000274",
+    "exchange_id": "hei_ex_000194",
+    "event_type": "service_suspended",
+    "event_date": "2022-12-02",
+    "title": "BQT platform showed no sign of active operations",
+    "description": "Public exchange-status coverage stated that the BQT website was up but the exchange could not be accessed and the firm's last visible social activity had been earlier in 2022.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "This inaccessible-but-still-online state is the immediate trigger for the later dead-side handling."
+  },
+  {
+    "id": "hei_ev_000275",
+    "exchange_id": "hei_ex_000194",
+    "event_type": "shutdown_effective",
+    "event_date": "2022-12-02",
+    "title": "BQT was moved to dead-side handling",
+    "description": "Public exchange-status sources marked BQT dead on 2022-12-02 after the platform showed no operational signs and could not be accessed as an exchange.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the 2022-12-02 dead-side update as the terminal marker."
   }
 ]
