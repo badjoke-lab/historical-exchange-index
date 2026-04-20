@@ -5803,5 +5803,35 @@
     "reliability": "medium",
     "claim_scope": "launch_date",
     "notes": "Used as supporting evidence for Mongolia and the 2017 public launch marker."
+  },
+  {
+    "url": "https://www.cryptowisser.com/exchange/bitsane/",
+    "title": "Bitsane review with 2019 inactive / exit-scam update",
+    "event_id": "hei_ev_000269",
+    "source_type": "news_article",
+    "publisher": "Cryptowisser",
+    "published_at": "2019-06-27",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/bitsane/",
+    "accessed_at": "2026-04-20",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that the website and social accounts were deleted on 2019-06-17 and that the case had the characteristic traits of an exit scam; also identifies Ireland as the domicile country.",
+    "id": "hei_src_000609",
+    "exchange_id": "hei_ex_000154"
+  },
+  {
+    "url": "https://www.theblock.co/linked/29393/irish-crypto-exchange-bitsane-disappears-in-a-suspected-scam-worth-millions",
+    "title": "Irish crypto exchange Bitsane disappears in a suspected scam worth millions",
+    "event_id": null,
+    "source_type": "news_article",
+    "publisher": "The Block",
+    "published_at": "2019-06-28",
+    "archived_url": "https://web.archive.org/web/*/https://www.theblock.co/linked/29393/irish-crypto-exchange-bitsane-disappears-in-a-suspected-scam-worth-millions",
+    "accessed_at": "2026-04-20",
+    "reliability": "high",
+    "claim_scope": "launch_date",
+    "notes": "Used as supporting evidence that the exchange first went live in November 2016.",
+    "id": "hei_src_000610",
+    "exchange_id": "hei_ex_000154"
   }
 ]
