@@ -3945,5 +3945,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-20",
     "notes": "Terminal handling uses the 2022-08-17 public dead-side marker. Death reason is mapped to scam_rug because public review coverage states that the exchange was marked as a scam after numerous withdrawal failures and blocked-account reports. CoinMarketCap later displayed a warning that exchange activities were suspended."
+  },
+  {
+    "id": "hei_ex_000189",
+    "slug": "bitebtc",
+    "canonical_name": "BiteBTC",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "scam_rug",
+    "launch_date": "2018-01-01",
+    "death_date": "2019-11-01",
+    "country_or_origin": "Singapore",
+    "summary": "Singapore-based cryptocurrency exchange launched in January 2018 that was publicly marked as a scam and moved to dead-side handling on 2019-11-01 after widespread accusations from users.",
+    "official_url_original": "https://bitebtc.com/",
+    "official_domain_original": "bitebtc.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://bitebtc.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-20",
+    "notes": "Terminal handling uses the 2019-11-01 public dead-side marker. Death reason is mapped to scam_rug because Cryptowisser states that BiteBTC was widely acknowledged as a scam and marked dead. HEI uses 2018-01-01 as the conservative public launch marker based on January 2018 launch descriptions."
   }
 ]
