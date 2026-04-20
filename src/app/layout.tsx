@@ -63,46 +63,65 @@ export default function RootLayout({ children }: RootLayoutProps) {
 @media (max-width: 767px) {
   .home-list-item-recent {
     display: block !important;
-    align-items: stretch !important;
-    gap: 0 !important;
+    min-height: 0 !important;
+    padding: 10px 12px !important;
   }
+
   .home-list-item-recent .home-item-main {
-    display: grid !important;
+    display: block !important;
     width: 100% !important;
     min-width: 0 !important;
-    gap: 6px !important;
   }
+
   .home-list-item-recent .home-item-main > div:first-child {
-    width: 100% !important;
     display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    justify-content: space-between !important;
     align-items: center !important;
+    justify-content: space-between !important;
     gap: 10px !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
     min-width: 0 !important;
+    margin-bottom: 6px !important;
   }
+
   .home-list-item-recent .home-item-main > div:first-child > .home-item-title {
     flex: 1 1 auto !important;
     min-width: 0 !important;
+    line-height: 1.25 !important;
   }
+
   .home-list-item-recent .home-item-main > div:first-child > .btn-compact {
     flex: 0 0 auto !important;
+    width: auto !important;
     white-space: nowrap !important;
-    margin-left: 8px !important;
+    padding: 7px 10px !important;
   }
-  .home-list-item-recent .home-item-meta {
-    justify-content: flex-start !important;
+
+  .home-list-item-recent .home-item-main > .home-item-meta {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 10px 0 0 !important;
+    vertical-align: middle !important;
     text-align: left !important;
+    line-height: 1.35 !important;
+    font-size: 11px !important;
+  }
+
+  .home-list-item-recent .home-item-main > .home-item-meta:last-child {
+    margin-right: 0 !important;
   }
 }
+
 @media (max-width: 389px) {
   .home-list-item-recent .home-item-main > div:first-child {
     flex-wrap: wrap !important;
     align-items: flex-start !important;
   }
-  .home-list-item-recent .home-item-main > div:first-child > .btn-compact {
-    margin-left: 0 !important;
+
+  .home-list-item-recent .home-item-main > .home-item-meta {
+    display: flex !important;
+    margin: 4px 0 0 !important;
   }
 }
         `}</style>
