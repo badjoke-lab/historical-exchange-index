@@ -4261,5 +4261,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-22",
     "notes": "Terminal handling uses the 2021-03-11 public dead-side marker. Cause stays conservative as unknown because public status coverage only confirms that the website was inaccessible, with no preceding maintenance notice. HEI keeps Singapore as the canonical origin marker while preserving the Hong Kong HQ note in supporting evidence."
+  },
+  {
+    "id": "hei_ex_000203",
+    "slug": "rfinex",
+    "canonical_name": "Rfinex",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2017-01-01",
+    "death_date": "2021-04-10",
+    "country_or_origin": "United Kingdom",
+    "summary": "United Kingdom-based cryptocurrency exchange launched in January 2017 that was publicly treated as dead on 2021-04-10 after its website became inaccessible without any maintenance or continuity notice.",
+    "official_url_original": "https://rfinex.com/",
+    "official_domain_original": "rfinex.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://rfinex.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-22",
+    "notes": "Terminal handling uses the 2021-04-10 public dead-side marker. Cause stays conservative as unknown because public status coverage only confirms that the website was inaccessible, with no preceding maintenance or replacement-site notice. HEI keeps United Kingdom as the canonical origin marker from the public exchange review."
   }
 ]
