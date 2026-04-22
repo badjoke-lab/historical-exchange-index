@@ -4149,5 +4149,29 @@
     "confidence": "high",
     "last_verified_at": "2026-04-22",
     "notes": "Terminal handling uses 2024-07-08 because public status coverage reported a site notice saying EXNOMY services were terminated on that date. Death reason is mapped to voluntary_shutdown because the public message described service termination rather than hack, scam, or enforcement-driven closure."
+  },
+  {
+    "id": "hei_ex_000198",
+    "slug": "coinbene",
+    "canonical_name": "CoinBene",
+    "aliases": [
+      "Coinbene"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2017-01-01",
+    "death_date": "2022-02-01",
+    "country_or_origin": "Singapore",
+    "summary": "Singapore-based cryptocurrency exchange active since 2017 that was publicly treated as dead on 2022-02-01 after its website became inaccessible without any preceding maintenance or migration notice.",
+    "official_url_original": "https://www.coinbene.com/",
+    "official_domain_original": "coinbene.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.coinbene.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-22",
+    "notes": "Terminal handling uses the 2022-02-01 public dead-side marker. Cause stays conservative as unknown because public status coverage only confirms that the website had become inaccessible, with no preceding maintenance or migration message. HEI uses 2017-01-01 as a conservative public launch marker from exchange-status coverage."
   }
 ]
