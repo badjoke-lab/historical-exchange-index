@@ -2392,5 +2392,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the 2022-02-01 dead-side update as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000284",
+    "exchange_id": "hei_ex_000199",
+    "event_type": "shutdown_announced",
+    "event_date": "2019-08-08",
+    "title": "Bitholic announced transition to Bithumb Singapore",
+    "description": "Public reporting stated that Bitholic changed its name to Bithumb Singapore as part of Bithumb's expansion into Singapore.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The same-day reporting framed the change as a name change and acquisition-linked platform transition."
+  },
+  {
+    "id": "hei_ev_000285",
+    "exchange_id": "hei_ex_000199",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-08-08",
+    "title": "Bitholic was moved to dead-side handling after rebranding",
+    "description": "Public exchange-status sources marked Bitholic inactive on 2019-08-08 after it was acquired and thereafter known as Bithumb Singapore.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the rebranding-day inactive marker as the terminal date for Bitholic."
   }
 ]

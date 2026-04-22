@@ -4173,5 +4173,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-22",
     "notes": "Terminal handling uses the 2022-02-01 public dead-side marker. Cause stays conservative as unknown because public status coverage only confirms that the website had become inaccessible, with no preceding maintenance or migration message. HEI uses 2017-01-01 as a conservative public launch marker from exchange-status coverage."
+  },
+  {
+    "id": "hei_ex_000199",
+    "slug": "bitholic",
+    "canonical_name": "Bitholic",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "rebranding",
+    "launch_date": "2018-05-01",
+    "death_date": "2019-08-08",
+    "country_or_origin": "Singapore",
+    "summary": "Singapore-based cryptocurrency exchange launched in May 2018 that was acquired and rebranded as Bithumb Singapore on 2019-08-08.",
+    "official_url_original": "https://www.bitholic.com/",
+    "official_domain_original": "bitholic.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitholic.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-22",
+    "notes": "Terminal handling uses the 2019-08-08 public inactive/rebrand marker. Death reason is mapped to rebranding because Cryptowisser states that Bitholic was acquired by Bithumb Singapore and was thereafter known as Bithumb Singapore. HEI uses 2018-05-01 as a conservative launch marker from public launch announcements."
   }
 ]
