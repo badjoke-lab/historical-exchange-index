@@ -2420,5 +2420,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the rebranding-day inactive marker as the terminal date for Bitholic."
+  },
+  {
+    "id": "hei_ev_000286",
+    "exchange_id": "hei_ex_000200",
+    "event_type": "shutdown_announced",
+    "event_date": "2021-11-01",
+    "title": "Coineal announced final shutdown timeline",
+    "description": "Public exchange-status coverage stated on 2021-11-01 that Coineal had already stopped registration and identity verification for new mainland China users in 2019 and would officially cease operations on 2021-11-15.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "HEI uses the posted 2021-11-01 update as the public shutdown-announcement marker."
+  },
+  {
+    "id": "hei_ev_000287",
+    "exchange_id": "hei_ex_000200",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-11-15",
+    "title": "Coineal officially ceased operations and was treated as dead",
+    "description": "Public exchange-status sources treated Coineal as dead based on the posted statement that the platform would officially cease operations on 2021-11-15.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the stated official cessation date rather than the earlier update date."
   }
 ]
