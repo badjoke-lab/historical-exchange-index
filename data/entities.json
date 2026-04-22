@@ -4217,5 +4217,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-22",
     "notes": "Terminal handling uses 2021-11-15 because public status coverage stated that the exchange would officially cease operations on that date. Cause stays conservative as unknown because the cited public dead-side update confirms the closure timeline but does not give a single explicit terminal cause for the final shutdown."
+  },
+  {
+    "id": "hei_ex_000201",
+    "slug": "coinegg",
+    "canonical_name": "CoinEgg",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2017-01-01",
+    "death_date": "2021-07-15",
+    "country_or_origin": "United Kingdom",
+    "summary": "United Kingdom-based cryptocurrency exchange active since 2017 that was publicly treated as dead on 2021-07-15 after its website became inaccessible without any preceding maintenance or migration notice.",
+    "official_url_original": "https://www.coinegg.com/",
+    "official_domain_original": "coinegg.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.coinegg.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-22",
+    "notes": "Terminal handling uses the 2021-07-15 public dead-side marker. Cause stays conservative as unknown because public status coverage only confirms that the website was inaccessible, with no preceding maintenance or migration notice. Public directories also referenced later CoinEgg domains such as coinegg.im or coinegg.in, but HEI keeps coinegg.com as the conservative original-domain marker."
   }
 ]
