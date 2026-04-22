@@ -4083,5 +4083,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-21",
     "notes": "Terminal handling uses the 2022-12-02 public dead-side marker. Cause stays conservative as unknown because public status coverage only confirms inaccessibility and loss of operational signs. The original BQT exchange domain now appears repurposed into QNFT marketplace content while still retaining legacy BQT exchange text on some pages."
+  },
+  {
+    "id": "hei_ex_000195",
+    "slug": "bgogo",
+    "canonical_name": "Bgogo",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "rebranding",
+    "launch_date": "2018-05-01",
+    "death_date": "2021-08-31",
+    "country_or_origin": "Cayman Islands",
+    "summary": "Cayman Islands-based centralized cryptocurrency exchange launched in May 2018 that shut down its centralized platform and transitioned its decentralized side into Gogoswap by 2021-08-31.",
+    "official_url_original": "https://bgogo.com/",
+    "official_domain_original": "bgogo.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://bgogo.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-21",
+    "notes": "Terminal handling uses the 2021-08-31 public dead-side marker. Death reason is mapped to rebranding because Cryptowisser states that the centralized exchange was closed and the decentralized part was rebranded into Gogoswap. HEI uses 2018-05-01 as a conservative launch marker supported by public exchange directories."
   }
 ]

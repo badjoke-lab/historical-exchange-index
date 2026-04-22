@@ -2280,5 +2280,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the 2022-12-02 dead-side update as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000276",
+    "exchange_id": "hei_ex_000195",
+    "event_type": "shutdown_announced",
+    "event_date": "2021-08-31",
+    "title": "Bgogo announced closure of its centralized exchange and transition to Gogoswap",
+    "description": "Public exchange-status coverage recorded that Bgogo decided to close the centralized part of its platform and transition the decentralized side into Gogoswap, instructing users to withdraw assets from the centralized exchange.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The update stated that the old centralized exchange would stop trading before 2021-08-31."
+  },
+  {
+    "id": "hei_ev_000277",
+    "exchange_id": "hei_ex_000195",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-08-31",
+    "title": "Bgogo was moved to dead-side handling after rebranding",
+    "description": "Public exchange-status sources marked Bgogo dead on 2021-08-31 after the centralized platform shut down and the decentralized component was rebranded into Gogoswap.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the rebranding-day dead-side update as the terminal marker for the centralized exchange."
   }
 ]
