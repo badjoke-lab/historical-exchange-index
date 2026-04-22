@@ -2364,5 +2364,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the stated service-termination date rather than the later September 2024 observation date."
+  },
+  {
+    "id": "hei_ev_000282",
+    "exchange_id": "hei_ex_000198",
+    "event_type": "service_suspended",
+    "event_date": "2022-02-01",
+    "title": "CoinBene website became inaccessible",
+    "description": "Public exchange-status coverage stated that CoinBene's website could not be reached on 2022-02-01 and that there had been no preceding messages about maintenance, migration, or any replacement site.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "This inaccessible-site observation is the immediate trigger for later dead-side handling."
+  },
+  {
+    "id": "hei_ev_000283",
+    "exchange_id": "hei_ex_000198",
+    "event_type": "shutdown_effective",
+    "event_date": "2022-02-01",
+    "title": "CoinBene was moved to dead-side handling",
+    "description": "Public exchange-status sources marked CoinBene dead on 2022-02-01 after the site became inaccessible and no continuity notice was found.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the 2022-02-01 dead-side update as the terminal marker."
   }
 ]
