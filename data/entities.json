@@ -4105,5 +4105,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-21",
     "notes": "Terminal handling uses the 2021-08-31 public dead-side marker. Death reason is mapped to rebranding because Cryptowisser states that the centralized exchange was closed and the decentralized part was rebranded into Gogoswap. HEI uses 2018-05-01 as a conservative launch marker supported by public exchange directories."
+  },
+  {
+    "id": "hei_ex_000196",
+    "slug": "biki",
+    "canonical_name": "BiKi",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2018-08-01",
+    "death_date": "2021-11-30",
+    "country_or_origin": "Singapore",
+    "summary": "Singapore-based cryptocurrency exchange officially opened in August 2018 and was publicly treated as dead on 2021-11-30 after announcing closure due to regulatory reasons.",
+    "official_url_original": "https://www.biki.com/",
+    "official_domain_original": "biki.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.biki.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-22",
+    "notes": "Terminal handling uses the 2021-11-30 public dead-side marker. Death reason is mapped to regulation because Cryptowisser states that BiKi decided to close down its operations due to regulatory reasons and was then moved to the Exchange Graveyard."
   }
 ]
