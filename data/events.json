@@ -2308,5 +2308,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the rebranding-day dead-side update as the terminal marker for the centralized exchange."
+  },
+  {
+    "id": "hei_ev_000278",
+    "exchange_id": "hei_ex_000196",
+    "event_type": "shutdown_announced",
+    "event_date": "2021-11-30",
+    "title": "BiKi announced closure due to regulatory reasons",
+    "description": "Public exchange-status coverage stated that BiKi decided to close down its operations due to regulatory reasons and announced this on its website.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The same-day update is the key public closure marker."
+  },
+  {
+    "id": "hei_ev_000279",
+    "exchange_id": "hei_ex_000196",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-11-30",
+    "title": "BiKi was moved to dead-side handling",
+    "description": "Public exchange-status sources marked BiKi dead on 2021-11-30 after the regulatory-reasons closure announcement.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the 2021-11-30 dead-side update as the terminal marker."
   }
 ]
