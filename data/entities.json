@@ -4239,5 +4239,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-22",
     "notes": "Terminal handling uses the 2021-07-15 public dead-side marker. Cause stays conservative as unknown because public status coverage only confirms that the website was inaccessible, with no preceding maintenance or migration notice. Public directories also referenced later CoinEgg domains such as coinegg.im or coinegg.in, but HEI keeps coinegg.com as the conservative original-domain marker."
+  },
+  {
+    "id": "hei_ex_000202",
+    "slug": "unidax",
+    "canonical_name": "UniDAX",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2018-03-01",
+    "death_date": "2021-03-11",
+    "country_or_origin": "Singapore",
+    "summary": "Singapore-based cryptocurrency exchange launched in March 2018 that was publicly treated as dead on 2021-03-11 after its website became inaccessible without any preceding maintenance or continuity notice.",
+    "official_url_original": "https://www.unidax.com/",
+    "official_domain_original": "unidax.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.unidax.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-22",
+    "notes": "Terminal handling uses the 2021-03-11 public dead-side marker. Cause stays conservative as unknown because public status coverage only confirms that the website was inaccessible, with no preceding maintenance notice. HEI keeps Singapore as the canonical origin marker while preserving the Hong Kong HQ note in supporting evidence."
   }
 ]
