@@ -2336,5 +2336,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the 2021-11-30 dead-side update as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000280",
+    "exchange_id": "hei_ex_000197",
+    "event_type": "shutdown_announced",
+    "event_date": "2024-07-08",
+    "title": "Exnomy published service termination notice",
+    "description": "Public exchange-status coverage captured a notice stating that EXNOMY services were terminated on July 8, 2024, that trading was no longer possible, and that asset withdrawals had to be requested by email.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The notice was later observed when the website became inaccessible in September 2024."
+  },
+  {
+    "id": "hei_ev_000281",
+    "exchange_id": "hei_ex_000197",
+    "event_type": "shutdown_effective",
+    "event_date": "2024-07-08",
+    "title": "Exnomy was moved to dead-side handling",
+    "description": "Public exchange-status sources treated Exnomy as dead based on the posted termination notice stating that services had ended on 2024-07-08.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the stated service-termination date rather than the later September 2024 observation date."
   }
 ]

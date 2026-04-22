@@ -4127,5 +4127,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-22",
     "notes": "Terminal handling uses the 2021-11-30 public dead-side marker. Death reason is mapped to regulation because Cryptowisser states that BiKi decided to close down its operations due to regulatory reasons and was then moved to the Exchange Graveyard."
+  },
+  {
+    "id": "hei_ex_000197",
+    "slug": "exnomy",
+    "canonical_name": "Exnomy",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2020-01-01",
+    "death_date": "2024-07-08",
+    "country_or_origin": "India",
+    "summary": "India-based cryptocurrency exchange active since 2020 that terminated services on 2024-07-08 and was later publicly treated as dead.",
+    "official_url_original": "https://exnomy.com/",
+    "official_domain_original": "exnomy.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://exnomy.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-22",
+    "notes": "Terminal handling uses 2024-07-08 because public status coverage reported a site notice saying EXNOMY services were terminated on that date. Death reason is mapped to voluntary_shutdown because the public message described service termination rather than hack, scam, or enforcement-driven closure."
   }
 ]
