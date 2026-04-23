@@ -2532,5 +2532,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the 2021-04-10 dead-side update as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000294",
+    "exchange_id": "hei_ex_000204",
+    "event_type": "shutdown_announced",
+    "event_date": "2021-04-26",
+    "title": "Vebitcoin announced cessation of all activities",
+    "description": "Public coverage recorded Vebitcoin's notice that it had ceased all activities after financial strain and would update clients as soon as possible.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The shutdown notice is the key public closure marker used by HEI."
+  },
+  {
+    "id": "hei_ev_000295",
+    "exchange_id": "hei_ex_000204",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-04-26",
+    "title": "Vebitcoin was moved to dead-side handling",
+    "description": "Public exchange-status sources marked Vebitcoin dead on 2021-04-26 after the closure notice on its domain.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the 2021-04-26 dead-side update as the terminal marker."
   }
 ]
