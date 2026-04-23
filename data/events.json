@@ -2588,5 +2588,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the 2021-05-10 dead-side update as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000298",
+    "exchange_id": "hei_ex_000206",
+    "event_type": "shutdown_announced",
+    "event_date": "2021-10-11",
+    "title": "Coinzo was reported to have shut down amid regulatory pressure",
+    "description": "Public exchange-status coverage stated on 2021-10-11 that Coinzo seemed to have closed down its operations and that Turkish media had linked the shutdown to increased regulatory pressure from Turkish authorities.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "HEI uses the 2021-10-11 public update as the shutdown announcement marker."
+  },
+  {
+    "id": "hei_ev_000299",
+    "exchange_id": "hei_ex_000206",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-10-11",
+    "title": "Coinzo was moved to dead-side handling",
+    "description": "Public exchange-status sources marked Coinzo dead on 2021-10-11 after reports that the exchange had shut down.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the 2021-10-11 dead-side update as the terminal marker."
   }
 ]

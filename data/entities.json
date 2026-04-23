@@ -4327,5 +4327,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-23",
     "notes": "Terminal handling uses the 2021-05-10 public dead-side marker. Death reason is mapped to regulation because Cryptowisser's graveyard classifies the exchange under regulatory reasons, while the review page states that the exchange had closed down and reproduced a site notice that trading had ceased. HEI keeps China as the canonical country marker from Cryptowisser and the graveyard flag, while later directory pages also describe Hong Kong operating context."
+  },
+  {
+    "id": "hei_ex_000206",
+    "slug": "coinzo",
+    "canonical_name": "Coinzo",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2018-01-01",
+    "death_date": "2021-10-11",
+    "country_or_origin": "Turkey",
+    "summary": "Turkey-based cryptocurrency exchange active since 2018 that was publicly treated as dead on 2021-10-11 after reports that it had shut down amid increased regulatory pressure from Turkish authorities.",
+    "official_url_original": "https://www.coinzo.com/",
+    "official_domain_original": "coinzo.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.coinzo.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-23",
+    "notes": "Terminal handling uses the 2021-10-11 public dead-side marker. Death reason is mapped to regulation because Cryptowisser states that the closure was allegedly due to increased regulatory pressure from Turkish authorities. HEI keeps 2018-01-01 as a conservative public launch marker because the review page only states that the exchange had been active since 2018."
   }
 ]
