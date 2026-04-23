@@ -4305,5 +4305,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-22",
     "notes": "Terminal handling uses the 2021-04-26 public dead-side marker. Death reason is mapped to voluntary_shutdown because the platform published a cessation notice citing financial strain and stating that it had decided to cease activities. HEI keeps the closure-note date as the terminal marker rather than the later reporting and investigation timeline."
+  },
+  {
+    "id": "hei_ex_000205",
+    "slug": "c2cx",
+    "canonical_name": "C2CX",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2016-12-01",
+    "death_date": "2021-05-10",
+    "country_or_origin": "China",
+    "summary": "China-linked cryptocurrency exchange launched in December 2016 that was publicly treated as dead on 2021-05-10 after announcing that trading operations had ceased.",
+    "official_url_original": "https://c2cx.com/",
+    "official_domain_original": "c2cx.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://c2cx.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-23",
+    "notes": "Terminal handling uses the 2021-05-10 public dead-side marker. Death reason is mapped to regulation because Cryptowisser's graveyard classifies the exchange under regulatory reasons, while the review page states that the exchange had closed down and reproduced a site notice that trading had ceased. HEI keeps China as the canonical country marker from Cryptowisser and the graveyard flag, while later directory pages also describe Hong Kong operating context."
   }
 ]

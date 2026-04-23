@@ -2560,5 +2560,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the 2021-04-26 dead-side update as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000296",
+    "exchange_id": "hei_ex_000205",
+    "event_type": "shutdown_announced",
+    "event_date": "2021-05-10",
+    "title": "C2CX announced that trading operations had ceased",
+    "description": "Public exchange-status coverage stated on 2021-05-10 that C2CX had closed down and reproduced a site notice indicating that trading operations had ceased.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The public update and reproduced site notice are the key shutdown marker used by HEI."
+  },
+  {
+    "id": "hei_ev_000297",
+    "exchange_id": "hei_ex_000205",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-05-10",
+    "title": "C2CX was moved to dead-side handling",
+    "description": "Public exchange-status sources marked C2CX dead on 2021-05-10 after the exchange announced that it had closed down.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the 2021-05-10 dead-side update as the terminal marker."
   }
 ]
