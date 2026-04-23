@@ -4283,5 +4283,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-22",
     "notes": "Terminal handling uses the 2021-04-10 public dead-side marker. Cause stays conservative as unknown because public status coverage only confirms that the website was inaccessible, with no preceding maintenance or replacement-site notice. HEI keeps United Kingdom as the canonical origin marker from the public exchange review."
+  },
+  {
+    "id": "hei_ex_000204",
+    "slug": "vebitcoin",
+    "canonical_name": "Vebitcoin",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2017-01-01",
+    "death_date": "2021-04-26",
+    "country_or_origin": "Turkey",
+    "summary": "Turkey-based cryptocurrency exchange founded in 2017 that announced it had ceased all activities on 2021-04-26 after financial strain and was subsequently treated as dead.",
+    "official_url_original": "https://vebitcoin.com/",
+    "official_domain_original": "vebitcoin.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://vebitcoin.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-22",
+    "notes": "Terminal handling uses the 2021-04-26 public dead-side marker. Death reason is mapped to voluntary_shutdown because the platform published a cessation notice citing financial strain and stating that it had decided to cease activities. HEI keeps the closure-note date as the terminal marker rather than the later reporting and investigation timeline."
   }
 ]
