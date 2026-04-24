@@ -4400,5 +4400,29 @@
     "confidence": "high",
     "last_verified_at": "2026-04-24",
     "notes": "Terminal handling uses 2020-05-15 because public exchange-status coverage states that OpenLedger DEX closed down as of that date after releasing a closure message. Death reason is mapped to voluntary_shutdown because the closure was announced by the exchange itself. Launch date uses the 2015-10-13 official launch marker from public launch reporting."
+  },
+  {
+    "id": "hei_ex_000209",
+    "slug": "anxpro",
+    "canonical_name": "ANXPRO",
+    "aliases": [
+      "ANX Pro"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2013-01-01",
+    "death_date": "2020-09-01",
+    "country_or_origin": "Hong Kong",
+    "summary": "Hong Kong-based cryptocurrency exchange launched in 2013 that publicly stated on 2020-09-01 that it would not resume digital-asset exchange services and was later treated as inactive.",
+    "official_url_original": "https://anxpro.com/",
+    "official_domain_original": "anxpro.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://anxpro.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-24",
+    "notes": "Terminal handling uses 2020-09-01 because public exchange-status coverage quotes an ANXPRO website message saying it had decided not to resume digital assets exchange services. Death reason is mapped to voluntary_shutdown because the closure/non-resumption was announced by the exchange itself. HEI keeps 2013-01-01 as a conservative launch marker from secondary exchange profiles."
   }
 ]
