@@ -2274,21 +2274,23 @@
     "id": "hei_ex_000114",
     "slug": "cobinhood",
     "canonical_name": "Cobinhood",
-    "aliases": [],
+    "aliases": [
+      "COBINHOOD"
+    ],
     "type": "cex",
     "status": "dead",
-    "death_reason": "voluntary_shutdown",
+    "death_reason": "unknown",
     "launch_date": "2017-12-18",
     "death_date": "2020-01-10",
     "country_or_origin": "Taiwan",
-    "summary": "Taiwan-based centralized exchange that ceased operations in 2020 after a voluntary shutdown.",
+    "summary": "Taiwan-based cryptocurrency exchange launched in 2017 that entered a shutdown and account-balance audit period beginning on 2020-01-10 amid bankruptcy and exit-scam rumors.",
     "official_url_original": "https://cobinhood.com/",
     "official_domain_original": "cobinhood.com",
     "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://cobinhood.com/",
     "confidence": "medium",
-    "notes": "Reuters announced the platform launch in September 2017, but the live platform launch reference used here is 2017-12-18. Shutdown marker uses the 2020-01-10 customer notice.",
-    "last_verified_at": "2026-04-07"
+    "notes": "Reuters announced the platform in September 2017, while the live platform launch reference used here is 2017-12-18. Terminal handling uses the 2020-01-10 shutdown/audit notice. Death reason is kept as unknown because public reporting described a shutdown and balance-audit period, with bankruptcy and exit-scam rumors not treated here as a confirmed terminal cause.",
+    "last_verified_at": "2026-04-24"
   },
   {
     "id": "hei_ex_000115",
