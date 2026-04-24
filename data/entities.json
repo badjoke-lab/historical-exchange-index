@@ -3170,9 +3170,9 @@
     "status": "dead",
     "death_reason": "scam_rug",
     "launch_date": "2016-11-01",
-    "death_date": "2019-06-27",
+    "death_date": "2019-06-17",
     "country_or_origin": "Ireland",
-    "summary": "Ireland-registered cryptocurrency exchange launched in 2016 that disappeared in June 2019 after withdrawal problems and was publicly treated as an exit-scam style dead exchange.",
+    "summary": "Ireland-registered cryptocurrency exchange launched in 2016 that disappeared from the web in June 2019 after withdrawal failures and was publicly treated as an exit-scam style dead exchange.",
     "official_url_original": "https://bitsane.com/",
     "official_domain_original": "bitsane.com",
     "official_url_status": "dead_domain",
@@ -3180,8 +3180,8 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-20",
-    "notes": "Terminal handling uses the 2019-06-27 public inactive / scam-style marker from Cryptowisser rather than the earlier 2019-06-17 disappearance date. Death reason is mapped to scam_rug because public reporting and the exchange review both describe classic exit-scam characteristics after blocked withdrawals and deletion of the website and social accounts."
+    "last_verified_at": "2026-04-24",
+    "notes": "Terminal handling uses the 2019-06-17 disappearance marker. Public inactive / scam-style reporting followed on 2019-06-27 and is preserved in evidence. Death reason is mapped to scam_rug because public reporting and the exchange review describe classic exit-scam characteristics after blocked withdrawals and deletion of the website and social accounts."
   },
   {
     "id": "hei_ex_000155",
