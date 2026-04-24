@@ -4424,5 +4424,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-24",
     "notes": "Terminal handling uses 2020-09-01 because public exchange-status coverage quotes an ANXPRO website message saying it had decided not to resume digital assets exchange services. Death reason is mapped to voluntary_shutdown because the closure/non-resumption was announced by the exchange itself. HEI keeps 2013-01-01 as a conservative launch marker from secondary exchange profiles."
+  },
+  {
+    "id": "hei_ex_000210",
+    "slug": "comkort",
+    "canonical_name": "Comkort",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2014-02-01",
+    "death_date": "2015-07-19",
+    "country_or_origin": "Estonia",
+    "summary": "Estonia-based cryptocurrency exchange launched in February 2014 that announced on 2015-06-10 it would close on 2015-07-19 because the exchange had not generated a return during the prior year.",
+    "official_url_original": "https://comkort.com/",
+    "official_domain_original": "comkort.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://comkort.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-24",
+    "notes": "Terminal handling uses 2015-07-19 as the planned closure date from the shutdown notice. Death reason is mapped to voluntary_shutdown because the exchange announced an orderly closure due to lack of return / operating costs, with trades stopping earlier and servers scheduled to turn off on 2015-07-20. Launch date uses month-level February 2014 from public interview coverage."
   }
 ]

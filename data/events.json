@@ -2700,5 +2700,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the 2020-09-01 non-resumption message as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000308",
+    "exchange_id": "hei_ex_000210",
+    "event_type": "shutdown_announced",
+    "event_date": "2015-06-10",
+    "title": "Comkort announced its planned closure",
+    "description": "Comkort announced that the exchange would cease to exist on 2015-07-19, citing lack of return during the prior year and asking customers to withdraw funds before the closure.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The notice also stated that trading would be turned off on 2015-07-01 and that servers would be turned off on 2015-07-20."
+  },
+  {
+    "id": "hei_ev_000309",
+    "exchange_id": "hei_ex_000210",
+    "event_type": "shutdown_effective",
+    "event_date": "2015-07-19",
+    "title": "Comkort reached its terminal closure date",
+    "description": "Comkort's published closure notice set 2015-07-19 as the final date for users to withdraw funds before servers were scheduled to be turned off the following day.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the final withdrawal / closure date as the terminal marker rather than the 2015-07-20 technical server-off date."
   }
 ]
