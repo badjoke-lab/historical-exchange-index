@@ -565,13 +565,13 @@
     "event_type": "shutdown_effective",
     "event_date": "2019-03-13",
     "title": "Gatecoin ordered to wind up and cease operations",
-    "description": "Gatecoin ceased operations after a Hong Kong court granted a winding-up order against the company.",
+    "description": "Gatecoin ceased operations after a Hong Kong court granted a winding-up order against the company, leading to compulsory liquidation.",
     "confidence": "high",
-    "impact_level": "high",
+    "impact_level": "critical",
     "event_status_effect": "dead",
-    "source_count": 2,
-    "sort_order": 1,
-    "notes": "Liquidators were formally appointed on 2019-03-20; the event date here follows the operational stop marker."
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Liquidators were formally appointed on 2019-03-20; HEI keeps 2019-03-13 as the operational stop and terminal marker."
   },
   {
     "id": "hei_ev_000154",
@@ -2616,5 +2616,19 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the 2021-10-11 dead-side update as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000300",
+    "exchange_id": "hei_ex_000131",
+    "event_type": "shutdown_announced",
+    "event_date": "2019-03-13",
+    "title": "Gatecoin announced winding-up and immediate cessation of operations",
+    "description": "Public reporting reproduced Gatecoin's notice that a Hong Kong court had granted a winding-up order and that operations ceased immediately.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Some secondary coverage appeared after the 2019-03-13 order date; HEI uses the order and immediate cessation date."
   }
 ]

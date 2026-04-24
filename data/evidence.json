@@ -6733,5 +6733,35 @@
     "reliability": "medium",
     "claim_scope": "url_history",
     "notes": "Used as supporting evidence that the exchange listing and market surface remained associated with the Coinzo identity and domain in Cryptowisser's archive."
+  },
+  {
+    "id": "hei_src_000671",
+    "exchange_id": "hei_ex_000131",
+    "event_id": null,
+    "source_type": "archive_capture",
+    "title": "Archive index for the former Gatecoin site",
+    "url": "https://www.gatecoin.com/",
+    "publisher": "Internet Archive",
+    "published_at": "2026-04-24",
+    "archived_url": "https://web.archive.org/web/*/https://www.gatecoin.com/",
+    "accessed_at": "2026-04-24",
+    "reliability": "medium",
+    "claim_scope": "url_history",
+    "notes": "Archive-first access for historical reference."
+  },
+  {
+    "id": "hei_src_000672",
+    "exchange_id": "hei_ex_000131",
+    "event_id": "hei_ev_000153",
+    "source_type": "news_article",
+    "title": "Gatecoin review with 2019 closed-down update",
+    "url": "https://www.cryptowisser.com/exchange/gatecoin/",
+    "publisher": "Cryptowisser",
+    "published_at": "2019-04-01",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/gatecoin/",
+    "accessed_at": "2026-04-24",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "States that Gatecoin had closed down operations as of 2019-03-13 and describes the exchange as registered in Hong Kong."
   }
 ]
