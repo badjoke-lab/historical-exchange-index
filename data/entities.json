@@ -4496,5 +4496,27 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-24",
     "notes": "Terminal handling uses 2015-03-22 because contemporaneous forum evidence quotes Coin-Swap.net's permanent-closure notice with that final date. Death reason is mapped to voluntary_shutdown because the exchange announced a planned closure and told users to withdraw funds. Launch date uses a conservative first-public-active marker from Bitcointalk rather than a formal launch announcement. Country/origin remains Unknown because the current evidence set does not establish an operating jurisdiction."
+  },
+  {
+    "id": "hei_ex_000213",
+    "slug": "justcoin",
+    "canonical_name": "Justcoin",
+    "aliases": [],
+    "type": "cex",
+    "status": "acquired",
+    "death_reason": "acquisition",
+    "launch_date": "2013-01-01",
+    "death_date": "2014-11-24",
+    "country_or_origin": "Norway",
+    "summary": "Norway-based cryptocurrency exchange and Ripple/Stellar gateway founded in 2013 that suspended operations on 2014-10-28 after losing its banking partner, then had its domain and brand rights acquired by ANX and was revived under new management on 2014-11-24.",
+    "official_url_original": "https://justcoin.com/",
+    "official_domain_original": "justcoin.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://justcoin.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-24",
+    "notes": "Terminal handling uses 2014-11-24 as the acquired / revived-under-new-management marker. The original operating halt on 2014-10-28 is preserved as a separate shutdown_announced / service-suspended event. Death reason is acquisition because ANX acquired the Justcoin domain and brand rights and revived the service under new management."
   }
 ]
