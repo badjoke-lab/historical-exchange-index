@@ -647,17 +647,17 @@
   {
     "id": "hei_src_000164",
     "exchange_id": "hei_ex_000114",
-    "event_id": "hei_ev_000126",
+    "event_id": "hei_ev_000303",
     "source_type": "news_article",
-    "title": "COBINHOOD announces shutdown",
+    "title": "Cobinhood Announces Shutdown, Claims It Will Audit User Accounts",
     "url": "https://www.coindesk.com/markets/2020/01/10/cobinhood-announces-shutdown-claims-it-will-audit-user-accounts",
     "publisher": "CoinDesk",
     "published_at": "2020-01-10",
     "archived_url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2020/01/10/cobinhood-announces-shutdown-claims-it-will-audit-user-accounts",
     "accessed_at": "2026-04-10",
-    "reliability": "medium",
-    "claim_scope": "death_date",
-    "notes": "Reports the shutdown and balance-audit notice."
+    "reliability": "high",
+    "claim_scope": "event",
+    "notes": "Reports Cobinhood's shutdown notice, the 2020-01-10 to 2020-02-09 account audit window, and the claim that users could retrieve funds after reopening."
   },
   {
     "id": "hei_src_000165",
@@ -6823,5 +6823,35 @@
     "reliability": "medium",
     "claim_scope": "event",
     "notes": "Secondary corroboration of the 2019-07-08 liquidity-loss shutdown notice and cessation of operations."
+  },
+  {
+    "id": "hei_src_000677",
+    "exchange_id": "hei_ex_000114",
+    "event_id": "hei_ev_000303",
+    "source_type": "news_article",
+    "title": "Crypto exchange behind Jamie Foxx endorsed ICO is temporarily shutting down",
+    "url": "https://www.theblock.co/post/52637/crypto-exchange-behind-jamie-foxx-endorsed-ico-is-temporarily-shutting-down",
+    "publisher": "The Block",
+    "published_at": "2020-01-10",
+    "archived_url": "https://web.archive.org/web/*/https://www.theblock.co/post/52637/crypto-exchange-behind-jamie-foxx-endorsed-ico-is-temporarily-shutting-down",
+    "accessed_at": "2026-04-24",
+    "reliability": "high",
+    "claim_scope": "event",
+    "notes": "Reports the shutdown/audit notice, deposit warning, planned 2020-02-10 reopening for fund retrieval, and Cobinhood's 2017 launch context."
+  },
+  {
+    "id": "hei_src_000678",
+    "exchange_id": "hei_ex_000114",
+    "event_id": "hei_ev_000126",
+    "source_type": "news_article",
+    "title": "Cobinhood Shutting Down Months After Bankruptcy Rumors",
+    "url": "https://cryptobriefing.com/cobinhood-shut-down-bankruptcy-rumors/",
+    "publisher": "Crypto Briefing",
+    "published_at": "2020-01-11",
+    "archived_url": "https://web.archive.org/web/*/https://cryptobriefing.com/cobinhood-shut-down-bankruptcy-rumors/",
+    "accessed_at": "2026-04-24",
+    "reliability": "medium",
+    "claim_scope": "status",
+    "notes": "Used as secondary context for bankruptcy-rumor framing and the shutdown announcement; HEI does not treat the rumors as a confirmed death reason."
   }
 ]
