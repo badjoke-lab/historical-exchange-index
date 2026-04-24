@@ -2672,5 +2672,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the 2020-05-15 close-down date as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000306",
+    "exchange_id": "hei_ex_000209",
+    "event_type": "shutdown_announced",
+    "event_date": "2020-09-01",
+    "title": "ANXPRO announced it would not resume exchange services",
+    "description": "Public exchange-status coverage recorded an ANXPRO website message stating that the exchange had decided not to resume digital assets exchange services.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The public message is treated as the shutdown / non-resumption announcement marker."
+  },
+  {
+    "id": "hei_ev_000307",
+    "exchange_id": "hei_ex_000209",
+    "event_type": "shutdown_effective",
+    "event_date": "2020-09-01",
+    "title": "ANXPRO was moved to dead-side handling",
+    "description": "Public exchange-status sources treated ANXPRO as inactive after the exchange stated that it would not resume digital-asset exchange services.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the 2020-09-01 non-resumption message as the terminal marker."
   }
 ]
