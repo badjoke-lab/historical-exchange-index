@@ -2644,5 +2644,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "The announcement said the exchange would reopen on 2020-02-10 for users to retrieve funds, but public reporting treated the situation as troubled and ambiguous."
+  },
+  {
+    "id": "hei_ev_000304",
+    "exchange_id": "hei_ex_000208",
+    "event_type": "shutdown_announced",
+    "event_date": "2020-04-25",
+    "title": "OpenLedger DEX closure notice was published",
+    "description": "Public exchange-status coverage recorded an OpenLedger DEX closure notice on 2020-04-25 stating that the exchange would close down as of 2020-05-15.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "HEI keeps the update date separate from the later terminal close-down date."
+  },
+  {
+    "id": "hei_ev_000305",
+    "exchange_id": "hei_ex_000208",
+    "event_type": "shutdown_effective",
+    "event_date": "2020-05-15",
+    "title": "OpenLedger DEX closed down",
+    "description": "Public exchange-status sources state that OpenLedger DEX closed down as of 2020-05-15 and is no longer operational.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the 2020-05-15 close-down date as the terminal marker."
   }
 ]

@@ -4376,5 +4376,29 @@
     "confidence": "high",
     "last_verified_at": "2026-04-24",
     "notes": "Terminal handling uses the 2019-07-08 public closure marker. Death reason is mapped to insolvency because the platform notice and secondary reporting cite loss of liquidity. Public notices refer to Bitmarket.pl/net; HEI keeps bitmarket.pl as the canonical original-domain marker."
+  },
+  {
+    "id": "hei_ex_000208",
+    "slug": "openledger-dex",
+    "canonical_name": "OpenLedger DEX",
+    "aliases": [
+      "OpenLedger"
+    ],
+    "type": "dex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2015-10-13",
+    "death_date": "2020-05-15",
+    "country_or_origin": "Denmark",
+    "summary": "Denmark-based BitShares decentralized exchange platform officially launched in October 2015 and closed down on 2020-05-15 after an exchange closure notice.",
+    "official_url_original": "https://dex.openledger.io/",
+    "official_domain_original": "dex.openledger.io",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://dex.openledger.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-24",
+    "notes": "Terminal handling uses 2020-05-15 because public exchange-status coverage states that OpenLedger DEX closed down as of that date after releasing a closure message. Death reason is mapped to voluntary_shutdown because the closure was announced by the exchange itself. Launch date uses the 2015-10-13 official launch marker from public launch reporting."
   }
 ]
