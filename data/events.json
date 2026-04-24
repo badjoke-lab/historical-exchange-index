@@ -2784,5 +2784,47 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "HEI uses the final withdrawal / permanent closure date as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000314",
+    "exchange_id": "hei_ex_000213",
+    "event_type": "shutdown_announced",
+    "event_date": "2014-10-28",
+    "title": "Justcoin announced shutdown after losing banking partner",
+    "description": "Justcoin announced that it was shutting down after its banking partner terminated the relationship and the exchange could not secure an alternative banking partner in Norway.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "This was the operating halt before the later ANX acquisition and revival."
+  },
+  {
+    "id": "hei_ev_000315",
+    "exchange_id": "hei_ex_000213",
+    "event_type": "acquired",
+    "event_date": "2014-11-21",
+    "title": "ANX acquired Justcoin domain and brand rights",
+    "description": "ANX acquired the domain name and brand rights to the troubled Norway-based Justcoin exchange and planned to revive the exchange under new management.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "inactive",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "The acquisition announcement is the basis for HEI's acquired status."
+  },
+  {
+    "id": "hei_ev_000316",
+    "exchange_id": "hei_ex_000213",
+    "event_type": "reopened",
+    "event_date": "2014-11-24",
+    "title": "Justcoin was scheduled to resume under new management",
+    "description": "Public reporting stated that Justcoin would resume operations under new ANX management on 2014-11-24 using ANX technology.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "inactive",
+    "source_count": 2,
+    "sort_order": 3,
+    "notes": "HEI treats this as the terminal marker for the original independent Justcoin identity."
   }
 ]
