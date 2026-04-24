@@ -2644,16 +2644,16 @@
     "launch_date": "2013-01-01",
     "death_date": "2019-03-13",
     "country_or_origin": "Hong Kong",
-    "summary": "Hong Kong centralized exchange that ceased operations in March 2019 after a court-ordered wind-up and liquidation process.",
+    "summary": "Hong Kong-based cryptocurrency exchange founded in 2013 that ceased operations after a court-ordered winding-up and compulsory liquidation process in March 2019.",
     "official_url_original": "https://www.gatecoin.com/",
     "official_domain_original": "gatecoin.com",
-    "official_url_status": "unknown",
+    "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://www.gatecoin.com/",
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-11",
-    "notes": "Operational stop follows the 2019-03-13 winding-up order. Liquidators were appointed on 2019-03-20 and that later date remains documented in evidence."
+    "last_verified_at": "2026-04-24",
+    "notes": "Operational stop follows the 2019-03-13 winding-up order. Liquidators were formally appointed on 2019-03-20. This upgrade preserves the liquidation basis and adds archive/status corroboration while retaining the insolvency classification."
   },
   {
     "id": "hei_ex_000132",
