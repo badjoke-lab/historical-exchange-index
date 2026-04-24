@@ -2630,5 +2630,33 @@
     "source_count": 2,
     "sort_order": 1,
     "notes": "Some secondary coverage appeared after the 2019-03-13 order date; HEI uses the order and immediate cessation date."
+  },
+  {
+    "id": "hei_ev_000301",
+    "exchange_id": "hei_ex_000207",
+    "event_type": "shutdown_announced",
+    "event_date": "2019-07-08",
+    "title": "BitMarket announced closure due to loss of liquidity",
+    "description": "BitMarket posted a notice stating that, due to loss of liquidity, Bitmarket.pl/net was forced to cease operations from 2019-07-08.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "The platform notice is quoted by multiple public sources."
+  },
+  {
+    "id": "hei_ev_000302",
+    "exchange_id": "hei_ex_000207",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-07-08",
+    "title": "BitMarket was moved to dead-side handling after liquidity failure",
+    "description": "Public exchange-status sources marked BitMarket inactive after the platform announced that it had ceased operations because of liquidity loss.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "HEI uses the closure-notice date as the terminal marker."
   }
 ]

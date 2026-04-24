@@ -4349,5 +4349,30 @@
     "confidence": "high",
     "last_verified_at": "2026-04-23",
     "notes": "Terminal handling uses the 2021-10-11 public dead-side marker. Death reason is mapped to regulation because Cryptowisser states that the closure was allegedly due to increased regulatory pressure from Turkish authorities. HEI keeps 2018-01-01 as a conservative public launch marker because the review page only states that the exchange had been active since 2018."
+  },
+  {
+    "id": "hei_ex_000207",
+    "slug": "bitmarket",
+    "canonical_name": "BitMarket",
+    "aliases": [
+      "Bitmarket",
+      "Bitmarket.pl"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "insolvency",
+    "launch_date": "2014-01-01",
+    "death_date": "2019-07-08",
+    "country_or_origin": "Poland",
+    "summary": "Poland-based cryptocurrency exchange founded in 2014 that ceased operations on 2019-07-08 after announcing a loss of liquidity.",
+    "official_url_original": "https://www.bitmarket.pl/",
+    "official_domain_original": "bitmarket.pl",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitmarket.pl/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-24",
+    "notes": "Terminal handling uses the 2019-07-08 public closure marker. Death reason is mapped to insolvency because the platform notice and secondary reporting cite loss of liquidity. Public notices refer to Bitmarket.pl/net; HEI keeps bitmarket.pl as the canonical original-domain marker."
   }
 ]
