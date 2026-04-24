@@ -3655,9 +3655,9 @@
     "published_at": "2019-06-27",
     "archived_url": "https://web.archive.org/web/*/https://www.forbes.com/sites/hanktucker/2019/06/27/crypto-exchange-and-xrp-refuge-bitsane-vanishes-scamming-as-many-as-246000-users/",
     "accessed_at": "2026-04-14",
-    "reliability": "medium",
-    "claim_scope": "status",
-    "notes": "Reports launch month, May 2019 withdrawal failures, and disappearance by June 17, 2019."
+    "reliability": "high",
+    "claim_scope": "event",
+    "notes": "Reports launch month, May 2019 withdrawal failures, disappearance by 2019-06-17, Ireland context, and the 246,000 registered-user figure."
   },
   {
     "id": "hei_src_000466",
@@ -3670,9 +3670,9 @@
     "published_at": "2019-06-28",
     "archived_url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2019/06/28/irish-crypto-exchange-bitsane-may-have-disappeared-with-users-funds",
     "accessed_at": "2026-04-14",
-    "reliability": "medium",
-    "claim_scope": "status",
-    "notes": "Independent corroboration of the disappearance and possible customer losses."
+    "reliability": "high",
+    "claim_scope": "event",
+    "notes": "Independent corroboration that the Ireland-linked exchange disappeared after withdrawal problems and possible customer losses."
   },
   {
     "id": "hei_src_000467",
@@ -3686,8 +3686,8 @@
     "archived_url": "https://web.archive.org/web/*/https://cointelegraph.com/news/exit-scam-dublin-based-exchange-bitsane-vanishes-with-users-funds",
     "accessed_at": "2026-04-14",
     "reliability": "medium",
-    "claim_scope": "status",
-    "notes": "Independent corroboration that the site and social accounts were gone by June 17, 2019."
+    "claim_scope": "event",
+    "notes": "Independent corroboration that the site and social accounts were gone by 2019-06-17 and that the case was treated as a possible exit scam."
   },
   {
     "id": "hei_src_000468",
@@ -5807,7 +5807,7 @@
   {
     "url": "https://www.cryptowisser.com/exchange/bitsane/",
     "title": "Bitsane review with 2019 inactive / exit-scam update",
-    "event_id": "hei_ev_000269",
+    "event_id": "hei_ev_000180",
     "source_type": "news_article",
     "publisher": "Cryptowisser",
     "published_at": "2019-06-27",
