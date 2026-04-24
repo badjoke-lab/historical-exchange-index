@@ -2728,5 +2728,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the final withdrawal / closure date as the terminal marker rather than the 2015-07-20 technical server-off date."
+  },
+  {
+    "id": "hei_ev_000310",
+    "exchange_id": "hei_ex_000211",
+    "event_type": "shutdown_announced",
+    "event_date": "2016-05-15",
+    "title": "CCEDK announced trading-engine transition",
+    "description": "Public reporting stated that CCEDK's current trading engine would cease in May 2016 while withdrawals remained available through June and the operation prepared to relaunch in a new OpenLedger-centered form.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The exact announcement appears across 2016-05-15 and 2016-05-16 coverage; HEI uses the Forbes publication date as the announcement marker."
+  },
+  {
+    "id": "hei_ev_000311",
+    "exchange_id": "hei_ex_000211",
+    "event_type": "rebranded",
+    "event_date": "2016-07-01",
+    "title": "CCEDK relaunched into OpenLedger-centered structure",
+    "description": "Public reporting stated that CCEDK would relaunch on 2016-07-01 as a decentralized conglomerate and transition from hosting a traditional exchange to supporting OpenLedger as service center, fiat gateway, and crowdfunding partner.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "rebranded",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses 2016-07-01 as the terminal rebrand marker for the original CCEDK exchange identity."
   }
 ]

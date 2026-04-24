@@ -4395,11 +4395,11 @@
     "official_domain_original": "dex.openledger.io",
     "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://dex.openledger.io/",
-    "predecessor_id": null,
+    "predecessor_id": "hei_ex_000211",
     "successor_id": null,
     "confidence": "high",
     "last_verified_at": "2026-04-24",
-    "notes": "Terminal handling uses 2020-05-15 because public exchange-status coverage states that OpenLedger DEX closed down as of that date after releasing a closure message. Death reason is mapped to voluntary_shutdown because the closure was announced by the exchange itself. Launch date uses the 2015-10-13 official launch marker from public launch reporting."
+    "notes": "Terminal handling uses 2020-05-15 because public exchange-status coverage states that OpenLedger DEX closed down as of that date after releasing a closure message. Death reason is mapped to voluntary_shutdown because the closure was announced by the exchange itself. Launch date uses the 2015-10-13 official launch marker from public launch reporting. CCEDK is recorded as a predecessor because CCEDK transitioned from its original exchange role into the OpenLedger-centered structure in 2016."
   },
   {
     "id": "hei_ex_000209",
@@ -4446,5 +4446,30 @@
     "confidence": "high",
     "last_verified_at": "2026-04-24",
     "notes": "Terminal handling uses 2015-07-19 as the planned closure date from the shutdown notice. Death reason is mapped to voluntary_shutdown because the exchange announced an orderly closure due to lack of return / operating costs, with trades stopping earlier and servers scheduled to turn off on 2015-07-20. Launch date uses month-level February 2014 from public interview coverage."
+  },
+  {
+    "id": "hei_ex_000211",
+    "slug": "ccedk",
+    "canonical_name": "CCEDK",
+    "aliases": [
+      "Crypto Coins Exchange Denmark",
+      "Crypto Coins Enterprise Denmark"
+    ],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": "2014-01-01",
+    "death_date": "2016-07-01",
+    "country_or_origin": "Denmark",
+    "summary": "Denmark-based cryptocurrency exchange founded in 2014 that ceased its original trading-engine role in 2016 and transitioned into an OpenLedger-centered service, fiat gateway, and crowdfunding support structure.",
+    "official_url_original": "https://www.ccedk.com/",
+    "official_domain_original": "ccedk.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.ccedk.com/",
+    "predecessor_id": null,
+    "successor_id": "hei_ex_000208",
+    "confidence": "high",
+    "last_verified_at": "2026-04-24",
+    "notes": "Terminal handling uses 2016-07-01 as the rebrand / transition marker because public reporting described CCEDK's current trading engine ceasing in May 2016 and the operation relaunching on 2016-07-01 as a decentralized conglomerate / OpenLedger-centered structure. This is modeled as rebranded rather than dead because CCEDK transitioned into the OpenLedger ecosystem and related service/crowdfunding role."
   }
 ]
