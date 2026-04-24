@@ -2756,5 +2756,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses 2016-07-01 as the terminal rebrand marker for the original CCEDK exchange identity."
+  },
+  {
+    "id": "hei_ev_000312",
+    "exchange_id": "hei_ex_000212",
+    "event_type": "shutdown_announced",
+    "event_date": "2015-03-07",
+    "title": "Coin-Swap announced permanent closure",
+    "description": "A public forum post quoted Coin-Swap.net's notice that the exchange would close permanently on 2015-03-22 and that users must withdraw all coins before that date.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The notice date is taken from the forum timestamp that reproduced the closure notice."
+  },
+  {
+    "id": "hei_ev_000313",
+    "exchange_id": "hei_ex_000212",
+    "event_type": "shutdown_effective",
+    "event_date": "2015-03-22",
+    "title": "Coin-Swap reached its terminal closure date",
+    "description": "Coin-Swap.net's quoted closure notice set 2015-03-22 as the permanent shutdown date and stated that servers and the AWS account would be terminated.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "HEI uses the final withdrawal / permanent closure date as the terminal marker."
   }
 ]
