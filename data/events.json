@@ -2826,5 +2826,33 @@
     "source_count": 2,
     "sort_order": 3,
     "notes": "HEI treats this as the terminal marker for the original independent Justcoin identity."
+  },
+  {
+    "id": "hei_ev_000317",
+    "exchange_id": "hei_ex_000214",
+    "event_type": "shutdown_announced",
+    "event_date": "2015-10-13",
+    "title": "Yacuna announced planned closure",
+    "description": "Yacuna announced via customer email that it would close the exchange and asked customers to withdraw any remaining funds before 2015-11-15.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "The announcement was described as an orderly closure, with withdrawals processed manually in batches."
+  },
+  {
+    "id": "hei_ev_000318",
+    "exchange_id": "hei_ex_000214",
+    "event_type": "shutdown_effective",
+    "event_date": "2015-11-15",
+    "title": "Yacuna reached its terminal closure date",
+    "description": "Yacuna's closure notice gave 2015-11-15 as the deadline for customers to withdraw remaining funds before the exchange closed.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "HEI uses the customer withdrawal deadline / closure date as the terminal marker."
   }
 ]
