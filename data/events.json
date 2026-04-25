@@ -2952,5 +2952,33 @@
     "source_count": 1,
     "sort_order": 5,
     "notes": "Keep this as supporting crisis context, not as the primary status-changing event."
+  },
+  {
+    "id": "hei_ev_000326",
+    "exchange_id": "hei_ex_000217",
+    "event_type": "launched",
+    "event_date": "2013-09-03",
+    "title": "CoinMKT public beta launched",
+    "description": "CoinMKT launched its public beta as a United States cryptocurrency exchange supporting USD and multiple cryptocurrency markets.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Launch marker uses CoinDesk's pre-launch coverage saying public beta would launch the following week and later exchange profile references."
+  },
+  {
+    "id": "hei_ev_000327",
+    "exchange_id": "hei_ex_000217",
+    "event_type": "acquired",
+    "event_date": "2015-01-27",
+    "title": "ANX acquired CoinMKT domain and brand rights",
+    "description": "ANX acquired the domain name and brand rights to CoinMKT.com, with CoinMKT continuing under the ANX umbrella using ANX technology.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "inactive",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI treats this as the terminal acquired marker for the original independent CoinMKT identity."
   }
 ]
