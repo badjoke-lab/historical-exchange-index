@@ -4542,5 +4542,29 @@
     "confidence": "high",
     "last_verified_at": "2026-04-24",
     "notes": "Terminal handling uses 2015-11-15 because Yacuna's customer email instructed users to withdraw funds before that date. Death reason is mapped to voluntary_shutdown because the closure was orderly and publicly explained as a low-volume / below-expectations growth decision rather than insolvency, theft, or enforcement. Launch date uses a conservative month-level marker from CoinDesk's statement that London-based Yacuna launched in September 2014."
+  },
+  {
+    "id": "hei_ex_000215",
+    "slug": "allcrypt",
+    "canonical_name": "AllCrypt",
+    "aliases": [
+      "AllCrypt.com"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "hack",
+    "launch_date": "2014-03-01",
+    "death_date": "2015-03-18",
+    "country_or_origin": "Unknown",
+    "summary": "Small altcoin-focused cryptocurrency exchange launched publicly in March 2014 that went offline in March 2015 after a WordPress-related compromise and hot-wallet theft.",
+    "official_url_original": "https://www.allcrypt.com/",
+    "official_domain_original": "allcrypt.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.allcrypt.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-25",
+    "notes": "Terminal handling uses 2015-03-18 as the public hacked/site-offline marker because multiple reports describe AllCrypt going down after a WordPress-related compromise and stolen BTC. Death reason is mapped to hack. Country/origin remains Unknown because the current evidence set does not establish an operating jurisdiction."
   }
 ]

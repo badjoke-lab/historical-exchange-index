@@ -2854,5 +2854,33 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "HEI uses the customer withdrawal deadline / closure date as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000319",
+    "exchange_id": "hei_ex_000215",
+    "event_type": "hack",
+    "event_date": "2015-03-18",
+    "title": "AllCrypt reported a WordPress-related compromise and BTC theft",
+    "description": "Public reporting and security analysis described AllCrypt as having been compromised through its WordPress setup, resulting in stolen cryptocurrency and the exchange going offline.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "The reported theft amount varies slightly across sources, but the compromise and site-offline state are consistently described."
+  },
+  {
+    "id": "hei_ev_000320",
+    "exchange_id": "hei_ex_000215",
+    "event_type": "shutdown_effective",
+    "event_date": "2015-03-18",
+    "title": "AllCrypt was moved to dead-side handling after the hack",
+    "description": "After the March 2015 compromise, AllCrypt went offline and is now listed as inactive by exchange data references.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "HEI uses the public hack/site-offline marker as the terminal date rather than a later unstated final domain-offline date."
   }
 ]
