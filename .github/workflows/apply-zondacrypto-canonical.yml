@@ -105,3 +105,5 @@ jobs:
           git add data/entities.json data/events.json data/evidence.json
           git commit -m "Apply zondacrypto canonical limited record"
           git push
+
+# trigger: 2026-04-25T06:00Z
