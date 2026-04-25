@@ -4518,5 +4518,29 @@
     "confidence": "high",
     "last_verified_at": "2026-04-24",
     "notes": "Terminal handling uses 2014-11-24 as the acquired / revived-under-new-management marker. The original operating halt on 2014-10-28 is preserved as a separate shutdown_announced / service-suspended event. Death reason is acquisition because ANX acquired the Justcoin domain and brand rights and revived the service under new management."
+  },
+  {
+    "id": "hei_ex_000214",
+    "slug": "yacuna",
+    "canonical_name": "Yacuna",
+    "aliases": [
+      "Yacuna.com"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2014-09-01",
+    "death_date": "2015-11-15",
+    "country_or_origin": "United Kingdom",
+    "summary": "UK-based European cryptocurrency exchange launched in 2014 that announced an orderly closure in October 2015 and asked customers to withdraw remaining funds before 2015-11-15.",
+    "official_url_original": "https://yacuna.com/",
+    "official_domain_original": "yacuna.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://yacuna.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-24",
+    "notes": "Terminal handling uses 2015-11-15 because Yacuna's customer email instructed users to withdraw funds before that date. Death reason is mapped to voluntary_shutdown because the closure was orderly and publicly explained as a low-volume / below-expectations growth decision rather than insolvency, theft, or enforcement. Launch date uses a conservative month-level marker from CoinDesk's statement that London-based Yacuna launched in September 2014."
   }
 ]
