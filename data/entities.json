@@ -4566,5 +4566,33 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-25",
     "notes": "Terminal handling uses 2015-03-18 as the public hacked/site-offline marker because multiple reports describe AllCrypt going down after a WordPress-related compromise and stolen BTC. Death reason is mapped to hack. Country/origin remains Unknown because the current evidence set does not establish an operating jurisdiction."
+  },
+  {
+    "id": "hei_ex_000216",
+    "slug": "zondacrypto",
+    "canonical_name": "zondacrypto",
+    "aliases": [
+      "BitBay",
+      "BitBay.net",
+      "Zonda",
+      "Zonda Exchange",
+      "ZondaCrypto"
+    ],
+    "type": "cex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": "2014-01-01",
+    "death_date": null,
+    "country_or_origin": "Poland / Estonia",
+    "summary": "Poland-origin, Estonia-registered centralized exchange formerly known as BitBay and Zonda. In April 2026 it entered a major custody and withdrawal crisis after Polish prosecutors opened an investigation and reported that the exchange lacked access to an approximately 4,500 BTC cold wallet.",
+    "official_url_original": "https://zondacrypto.com/",
+    "official_domain_original": "zondacrypto.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://zondacrypto.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-25",
+    "notes": "Do not mark dead yet. The official website is still live and no formal shutdown / bankruptcy / liquidation marker has been confirmed. Status is limited because prosecutor materials and victim instructions document withdrawal problems, an inaccessible approximately 4,500 BTC cold wallet, and losses reported at no less than 350 million PLN. Recheck frequently; potential future reclassification paths are inactive, dead, or scam_rug/insolvency depending on court, regulator, or liquidation evidence."
   }
 ]
