@@ -4618,5 +4618,29 @@
     "confidence": "high",
     "last_verified_at": "2026-04-25",
     "notes": "Terminal handling uses the 2015-01-27 ANX acquisition announcement as the acquired marker for the original independent CoinMKT identity. Public reporting stated that CoinMKT would continue to operate under the ANX umbrella using ANX technology. The original domain is not treated as an active continuation of the original exchange identity."
+  },
+  {
+    "id": "hei_ex_000218",
+    "slug": "mcxnow",
+    "canonical_name": "McxNOW",
+    "aliases": [
+      "mcxNOW"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2013-01-01",
+    "death_date": "2014-11-15",
+    "country_or_origin": "Unknown",
+    "summary": "Early cryptocurrency exchange offering bitcoin and altcoin trading that suspended trading in 2013 and later entered a 2014 maintenance period after which unwithdrawn coins were to be destroyed.",
+    "official_url_original": "https://mcxnow.com/",
+    "official_domain_original": "mcxnow.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://mcxnow.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-25",
+    "notes": "Terminal handling uses the 2014-11-15 maintenance / withdrawal-deadline marker from public exchange references. Death reason is kept as unknown because the current evidence shows operator-announced suspension / maintenance but does not establish a clean permanent-closure cause such as insolvency, hack, enforcement, or acquisition. Country/origin remains Unknown because the current evidence set does not establish an operating jurisdiction."
   }
 ]
