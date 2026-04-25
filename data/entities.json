@@ -4642,5 +4642,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-25",
     "notes": "Terminal handling uses the 2014-11-15 maintenance / withdrawal-deadline marker from public exchange references. Death reason is kept as unknown because the current evidence shows operator-announced suspension / maintenance but does not establish a clean permanent-closure cause such as insolvency, hack, enforcement, or acquisition. Country/origin remains Unknown because the current evidence set does not establish an operating jurisdiction."
+  },
+  {
+    "id": "hei_ex_000219",
+    "slug": "coinpulse",
+    "canonical_name": "CoinPulse",
+    "aliases": [
+      "CoinPulse Exchange",
+      "CoinPulse.io"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2018-06-01",
+    "death_date": "2019-02-07",
+    "country_or_origin": "Panama",
+    "summary": "Small Panama-linked cryptocurrency exchange launched in 2018 that suspended trading and deposits on 2019-02-01, kept withdrawals open until 2019-02-07, and then entered indefinite maintenance while seeking acquisition offers.",
+    "official_url_original": "https://coinpulse.io/",
+    "official_domain_original": "coinpulse.io",
+    "official_url_status": "repurposed",
+    "archived_url": "https://web.archive.org/web/*/https://coinpulse.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-25",
+    "notes": "Terminal handling uses 2019-02-07 because CoinPulse's official notice said withdrawals would remain open until that date and the exchange would then enter maintenance until further notice. Death reason is mapped to voluntary_shutdown because the team announced an orderly suspension / indefinite maintenance state and invited acquisition offers, with secondary reporting framing the closure around liquidity / crypto-winter pressure. Country/origin uses Panama from secondary exchange-profile reporting."
   }
 ]
