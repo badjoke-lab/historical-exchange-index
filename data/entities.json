@@ -4594,5 +4594,29 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-25",
     "notes": "Do not mark dead yet. The official website is still live and no formal shutdown / bankruptcy / liquidation marker has been confirmed. Status is limited because prosecutor materials and victim instructions document withdrawal problems, an inaccessible approximately 4,500 BTC cold wallet, and losses reported at no less than 350 million PLN. Recheck frequently; potential future reclassification paths are inactive, dead, or scam_rug/insolvency depending on court, regulator, or liquidation evidence."
+  },
+  {
+    "id": "hei_ex_000217",
+    "slug": "coinmkt",
+    "canonical_name": "CoinMKT",
+    "aliases": [
+      "CoinMKT.com"
+    ],
+    "type": "cex",
+    "status": "acquired",
+    "death_reason": "acquisition",
+    "launch_date": "2013-09-03",
+    "death_date": "2015-01-27",
+    "country_or_origin": "United States",
+    "summary": "Santa Monica-based United States cryptocurrency exchange launched in 2013 that was acquired by ANX in January 2015 through the acquisition of CoinMKT.com domain and brand rights.",
+    "official_url_original": "https://coinmkt.com/",
+    "official_domain_original": "coinmkt.com",
+    "official_url_status": "repurposed",
+    "archived_url": "https://web.archive.org/web/*/https://coinmkt.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-25",
+    "notes": "Terminal handling uses the 2015-01-27 ANX acquisition announcement as the acquired marker for the original independent CoinMKT identity. Public reporting stated that CoinMKT would continue to operate under the ANX umbrella using ANX technology. The original domain is not treated as an active continuation of the original exchange identity."
   }
 ]
