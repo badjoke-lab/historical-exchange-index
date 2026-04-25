@@ -1,7 +1,7 @@
 {
   "package_type": "manual_canonical_batch_package",
   "created_at": "2026-04-25",
-  "rationale": "Recent exchange shutdown / crisis watch batch covering Bit.com, Drift Protocol, Gemini regional exit, ProBit Global, and Fastex Exchange. Bit.com and ProBit Global are modeled as dead-side orderly wind-downs. Drift Protocol is modeled as limited after a major exploit. Gemini remains active but receives regional exit events. Fastex is modeled as limited rather than dead because the shutdown report is weaker and some exchange-listing references still show market data.",
+  "rationale": "Recent exchange shutdown / crisis watch batch covering Bit.com, Drift Protocol, Gemini regional exit, ProBit Global, and Fastex Exchange. Bit.com and ProBit Global are modeled as dead-side orderly wind-downs. Drift Protocol is modeled as limited after a major exploit. Gemini remains active and receives regional exit events only. Fastex Exchange is modeled as dead / regulation because official Fastex-domain pages display a notice stating that exchange operations halt on April 1 at 23:59 Yerevan time; the regulatory / MiCA rationale is supported by secondary reporting, so confidence remains medium.",
   "canonical_append_targets": {
     "entities": "data/entities.json",
     "events": "data/events.json",
@@ -13,7 +13,10 @@
         "id": "hei_ex_000217",
         "slug": "bit-com",
         "canonical_name": "Bit.com",
-        "aliases": ["BIT", "Bit.com Exchange"],
+        "aliases": [
+          "BIT",
+          "Bit.com Exchange"
+        ],
         "type": "cex",
         "status": "dead",
         "death_reason": "voluntary_shutdown",
@@ -29,13 +32,16 @@
         "successor_id": null,
         "confidence": "medium",
         "last_verified_at": "2026-04-25",
-        "notes": "Death reason is mapped to voluntary_shutdown because the available evidence describes an orderly three-phase wind-down and user asset migration plan rather than insolvency, hack, or enforcement. Source coverage is currently mostly secondary / mirrored exchange news; upgrade with an archived official Bit.com notice if available."
+        "notes": "Death reason is mapped to voluntary_shutdown because available evidence describes an orderly three-phase wind-down and user asset migration plan rather than insolvency, hack, or enforcement. Source coverage is mostly secondary / mirrored exchange news; upgrade with archived official Bit.com notice if found."
       },
       {
         "id": "hei_ex_000218",
         "slug": "drift-protocol",
         "canonical_name": "Drift Protocol",
-        "aliases": ["Drift", "Drift Trade"],
+        "aliases": [
+          "Drift",
+          "Drift Trade"
+        ],
         "type": "dex",
         "status": "limited",
         "death_reason": null,
@@ -51,13 +57,16 @@
         "successor_id": null,
         "confidence": "medium",
         "last_verified_at": "2026-04-25",
-        "notes": "Do not mark dead yet. The April 2026 incident is material enough for HEI because it changed platform availability and involved a critical exploit, but there is no final shutdown marker in the current evidence set."
+        "notes": "Do not mark dead yet. The April 2026 exploit and deposit / withdrawal suspension are material enough for HEI because they changed platform availability, but no final shutdown marker is confirmed."
       },
       {
         "id": "hei_ex_000219",
         "slug": "probit-global",
         "canonical_name": "ProBit Global",
-        "aliases": ["ProBit", "ProBit Exchange"],
+        "aliases": [
+          "ProBit",
+          "ProBit Exchange"
+        ],
         "type": "cex",
         "status": "dead",
         "death_reason": "voluntary_shutdown",
@@ -73,29 +82,31 @@
         "successor_id": null,
         "confidence": "medium",
         "last_verified_at": "2026-04-25",
-        "notes": "Death reason is mapped to voluntary_shutdown because available materials describe an orderly service termination driven by regulatory environment and strategic restructuring, not a direct enforcement shutdown. The final asset-return / forfeiture deadline is tracked as a separate event on 2026-04-01."
+        "notes": "Death reason is mapped to voluntary_shutdown because available materials describe an orderly service termination driven by regulatory environment and strategic restructuring, not a direct enforcement shutdown. The later 2026-04-01 asset-return / forfeiture deadline is tracked as a separate post-shutdown event."
       },
       {
         "id": "hei_ex_000220",
         "slug": "fastex-exchange",
         "canonical_name": "Fastex Exchange",
-        "aliases": ["Fastex"],
+        "aliases": [
+          "Fastex"
+        ],
         "type": "cex",
-        "status": "limited",
-        "death_reason": null,
+        "status": "dead",
+        "death_reason": "regulation",
         "launch_date": "2022-08-12",
-        "death_date": null,
+        "death_date": "2026-04-01",
         "country_or_origin": "Armenia / Dubai",
-        "summary": "Fastex ecosystem centralized exchange reported to have entered a withdrawal-only / service-termination process in early 2026. HEI keeps this as limited pending stronger official or archived confirmation because some exchange-listing references still show market data.",
+        "summary": "Fastex ecosystem centralized exchange that entered a withdrawal-only / service-termination process and whose official-domain pages stated that exchange operations would halt on April 1, 2026 at 23:59 Yerevan time.",
         "official_url_original": "https://exchange.fastex.com/",
         "official_domain_original": "exchange.fastex.com",
-        "official_url_status": "unknown",
+        "official_url_status": "live_verified",
         "archived_url": "https://web.archive.org/web/*/https://exchange.fastex.com/",
         "predecessor_id": null,
         "successor_id": null,
-        "confidence": "low",
+        "confidence": "medium",
         "last_verified_at": "2026-04-25",
-        "notes": "Candidate remains limited, not dead. One source reports a 2026-04-01 terminal service notice attributed to MiCA / regulatory alignment, but current evidence is not strong enough for a definitive dead-side classification. Upgrade or reclassify after an archived official notice is found."
+        "notes": "Classified as dead / regulation rather than limited because official Fastex-domain pages displayed a termination notice for exchange operations. MiCA / regulatory alignment is reported as the driver by secondary coverage, while official-domain pages are used for the terminal operations marker. Confidence remains medium because the reason is supported indirectly."
       }
     ],
     "events": [
@@ -209,7 +220,7 @@
         "event_status_effect": "limited",
         "source_count": 2,
         "sort_order": 3,
-        "notes": "Regional service termination only; entity status stays active."
+        "notes": "Regional service termination only; Gemini entity status stays active."
       },
       {
         "id": "hei_ev_000334",
@@ -276,10 +287,10 @@
         "description": "A February 2026 report described a Fastex Exchange service-termination notice and withdrawal-only state attributed to MiCA / regulatory alignment.",
         "confidence": "low",
         "impact_level": "high",
-        "event_status_effect": "limited",
+        "event_status_effect": "inactive",
         "source_count": 1,
         "sort_order": 1,
-        "notes": "Month-level proxy date. Upgrade this if an archived official notice with an exact publication date is found."
+        "notes": "Month-level proxy date for the reported service-termination notice. Secondary reporting provides the regulatory / MiCA context; official-domain pages are attached to the effective halt event."
       },
       {
         "id": "hei_ev_000339",
@@ -288,12 +299,12 @@
         "event_date": "2026-04-01",
         "title": "Fastex Exchange termination deadline reported",
         "description": "The reported service-termination notice set April 1, 2026 at 00:00 Yerevan Time as the terminal deadline for exchange operations.",
-        "confidence": "low",
+        "confidence": "high",
         "impact_level": "critical",
-        "event_status_effect": "limited",
-        "source_count": 1,
+        "event_status_effect": "dead",
+        "source_count": 3,
         "sort_order": 2,
-        "notes": "Kept as limited rather than dead because the current evidence set is thin and some exchange listing references continue to show market data."
+        "notes": "Official Fastex-domain pages state that exchange operations will halt on April 1 at 23:59 Yerevan time."
       }
     ],
     "evidence": [
@@ -506,15 +517,45 @@
         "reliability": "medium",
         "claim_scope": "entity",
         "notes": "Used for Fastex identity, official exchange URL, launch date, and origin context. The continued presence of market data is one reason HEI keeps the record limited rather than dead."
+      },
+      {
+        "id": "hei_src_000735",
+        "exchange_id": "hei_ex_000220",
+        "event_id": "hei_ev_000339",
+        "source_type": "official_statement",
+        "title": "Account Verification",
+        "url": "https://www.fastex.com/account-verification",
+        "publisher": "Fastex",
+        "published_at": null,
+        "archived_url": "https://web.archive.org/web/*/https://www.fastex.com/account-verification",
+        "accessed_at": "2026-04-25",
+        "reliability": "high",
+        "claim_scope": "event",
+        "notes": "Official Fastex-domain page displayed a service termination notice stating that exchange operations will halt on April 1 at 23:59 Yerevan time."
+      },
+      {
+        "id": "hei_src_000736",
+        "exchange_id": "hei_ex_000220",
+        "event_id": "hei_ev_000339",
+        "source_type": "official_statement",
+        "title": "Listing Rules",
+        "url": "https://www.fastex.com/listing-rules",
+        "publisher": "Fastex",
+        "published_at": null,
+        "archived_url": "https://web.archive.org/web/*/https://www.fastex.com/listing-rules",
+        "accessed_at": "2026-04-25",
+        "reliability": "high",
+        "claim_scope": "event",
+        "notes": "Official Fastex-domain page displayed the same exchange-operation halt notice and post-deadline account fee warning."
       }
     ]
   },
   "manual_review_checklist": [
-    "Check for existing Bit.com, Drift Protocol, ProBit Global, and Fastex Exchange canonical records before applying.",
-    "Gemini is an existing entity and should receive events / evidence only; do not change Gemini entity status.",
-    "Keep Fastex as limited until a stronger archived official termination notice is found.",
-    "Keep Drift as limited unless a formal shutdown or recovery completion changes the classification.",
-    "Use event ids hei_ev_000326 through hei_ev_000339 only if available.",
-    "Use evidence ids hei_src_000721 through hei_src_000734 only if available."
+    "Bit.com is accepted as dead / voluntary_shutdown / medium because multiple secondary sources agree on a phased shutdown timeline.",
+    "Drift Protocol is accepted as limited / exploit / medium and must not be marked dead without a final shutdown marker.",
+    "Gemini receives regional exit events only; do not change the Gemini entity status from active.",
+    "ProBit Global is accepted as dead / voluntary_shutdown / medium because shutdown dates and asset-return process are consistent across sources.",
+    "Fastex Exchange is accepted as dead / regulation / medium because official-domain pages confirm the halt of exchange operations, while the regulatory cause is supported by secondary coverage.",
+    "Remove one-off apply workflow and trigger file after canonical application."
   ]
 }
