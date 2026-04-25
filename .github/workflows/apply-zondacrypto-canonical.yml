@@ -1,0 +1,107 @@
+name: Apply zondacrypto canonical package
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-zondacrypto-canonical.yml
+      - data-staging/manual/zondacrypto-20260425.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-zondacrypto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply staged zondacrypto package to canonical JSON
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+
+          const packagePath = 'data-staging/manual/zondacrypto-20260425.json';
+          const entityPath = 'data/entities.json';
+          const eventPath = 'data/events.json';
+          const evidencePath = 'data/evidence.json';
+
+          const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
+          const entity = pkg.records.entity;
+          const events = pkg.records.events;
+          const evidence = pkg.records.evidence;
+
+          function readJson(path) {
+            return JSON.parse(fs.readFileSync(path, 'utf8'));
+          }
+
+          function writeJson(path, value) {
+            fs.writeFileSync(path, JSON.stringify(value, null, 2) + '\n');
+          }
+
+          function fail(message) {
+            console.error(message);
+            process.exit(1);
+          }
+
+          const entities = readJson(entityPath);
+          const canonicalEvents = readJson(eventPath);
+          const canonicalEvidence = readJson(evidencePath);
+
+          if (entities.some((row) => row.id === entity.id)) {
+            console.log(`${entity.id} already exists; canonical package appears applied. Skipping.`);
+            process.exit(0);
+          }
+
+          const duplicateSlug = entities.find((row) => row.slug === entity.slug || row.aliases?.some((alias) => ['BitBay', 'BitBay.net', 'Zonda', 'Zonda Exchange', 'ZondaCrypto'].includes(alias)));
+          if (duplicateSlug) {
+            fail(`Possible duplicate existing entity found: ${duplicateSlug.id} ${duplicateSlug.slug}`);
+          }
+
+          const eventIdSet = new Set(canonicalEvents.map((row) => row.id));
+          const evidenceIdSet = new Set(canonicalEvidence.map((row) => row.id));
+
+          for (const event of events) {
+            if (eventIdSet.has(event.id)) fail(`Event id already exists: ${event.id}`);
+            if (event.exchange_id !== entity.id) fail(`Event ${event.id} does not point to ${entity.id}`);
+          }
+
+          for (const src of evidence) {
+            if (evidenceIdSet.has(src.id)) fail(`Evidence id already exists: ${src.id}`);
+            if (src.exchange_id !== entity.id) fail(`Evidence ${src.id} does not point to ${entity.id}`);
+            if (src.event_id && !events.some((event) => event.id === src.event_id)) {
+              fail(`Evidence ${src.id} points to missing staged event ${src.event_id}`);
+            }
+          }
+
+          if (entity.status !== 'limited' || entity.death_reason !== null) {
+            fail('Expected zondacrypto to remain status=limited and death_reason=null.');
+          }
+
+          entities.push(entity);
+          canonicalEvents.push(...events);
+          canonicalEvidence.push(...evidence);
+
+          writeJson(entityPath, entities);
+          writeJson(eventPath, canonicalEvents);
+          writeJson(evidencePath, canonicalEvidence);
+
+          console.log(`Applied ${entity.id} with ${events.length} events and ${evidence.length} evidence records.`);
+          NODE
+
+      - name: Commit canonical JSON updates
+        run: |
+          if git diff --quiet -- data/entities.json data/events.json data/evidence.json; then
+            echo "No canonical changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/entities.json data/events.json data/evidence.json
+          git commit -m "Apply zondacrypto canonical limited record"
+          git push
