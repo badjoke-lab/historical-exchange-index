@@ -20,6 +20,13 @@ type RootLayoutProps = {
   children: ReactNode
 }
 
+const SOCIAL_IMAGE = {
+  url: '/opengraph-image',
+  width: 1200,
+  height: 630,
+  alt: SITE_NAME,
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
@@ -37,11 +44,13 @@ export const metadata: Metadata = {
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
     siteName: SITE_NAME,
+    images: [SOCIAL_IMAGE],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
+    images: ['/twitter-image'],
   },
   verification: GSC_VERIFICATION_TOKEN
     ? {
