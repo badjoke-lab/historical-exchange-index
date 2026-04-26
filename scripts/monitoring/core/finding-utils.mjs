@@ -100,6 +100,6 @@ export function hasMeaningfulFindings(results = []) {
   return results.some((result) => {
     const findings = result?.findings || [];
     const candidates = result?.candidates || [];
-    return candidates.length > 0 || findings.some((finding) => ['critical', 'high'].includes(finding.severity));
+    return candidates.length > 0 || findings.length > 0;
   });
 }
