@@ -27,6 +27,17 @@ const SOCIAL_IMAGE = {
   alt: SITE_NAME,
 }
 
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website`,
+  name: SITE_NAME,
+  alternateName: SITE_SHORT_NAME,
+  url: SITE_URL,
+  description: SITE_DESCRIPTION,
+  inLanguage: 'en',
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
@@ -68,6 +79,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body>
         <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <style>{`
 @media (max-width: 767px) {
   .home-list-item-recent {
