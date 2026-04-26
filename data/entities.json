@@ -4849,5 +4849,83 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-26",
     "notes": "Included because HEI tracks major state-changing exchange events, not only deaths. Keep entity active unless later evidence shows unresolved service failure or closure. The 2025 breach should be modeled through hack, deposit_suspended, and trading_halted events with limited event effects."
+  },
+  {
+    "id": "hei_ex_000228",
+    "slug": "balancer",
+    "canonical_name": "Balancer",
+    "aliases": [
+      "Balancer Protocol",
+      "Balancer Labs",
+      "BAL"
+    ],
+    "type": "dex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Ethereum ecosystem",
+    "summary": "Decentralized exchange and automated-market-maker protocol. In March 2026, Balancer Labs, the corporate entity historically associated with the protocol, announced it would wind down after the November 2025 Balancer v2 exploit, while the protocol itself was expected to continue through DAO/Foundation/OpCo structures.",
+    "official_url_original": "https://balancer.fi/",
+    "official_domain_original": "balancer.fi",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://balancer.fi/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-26",
+    "notes": "Do not mark dead. The public record supports Balancer Labs winding down and a major exploit history, but the protocol continuation path is explicitly described in the official forum post and secondary coverage. Treat this as limited / restructuring unless later evidence shows protocol-level shutdown."
+  },
+  {
+    "id": "hei_ex_000229",
+    "slug": "polynomial-protocol",
+    "canonical_name": "Polynomial Protocol",
+    "aliases": [
+      "Polynomial",
+      "Polynomial Trade",
+      "Polynomial Chain"
+    ],
+    "type": "hybrid",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": null,
+    "death_date": "2026-03-03",
+    "country_or_origin": "DeFi derivatives / Optimism ecosystem",
+    "summary": "DeFi derivatives protocol and trading stack that announced the shutdown of Polynomial Chain and Polynomial Trade in February 2026, with operations ceased, forced liquidations, liquidity-layer closure, and chain shutdown scheduled by March 3, 2026.",
+    "official_url_original": "https://polynomial.fi/",
+    "official_domain_original": "polynomial.fi",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://polynomial.fi/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-26",
+    "notes": "Modeled as dead / voluntary_shutdown. Sources report a dated wind-down rather than an exploit, insolvency proceeding, or enforcement shutdown. Confidence remains medium because current evidence set is mainly syndicated / mirrored reporting of the team announcement rather than a directly archived official page."
+  },
+  {
+    "id": "hei_ex_000230",
+    "slug": "step-finance",
+    "canonical_name": "Step Finance",
+    "aliases": [
+      "STEP",
+      "SolanaFloor",
+      "Remora Markets"
+    ],
+    "type": "hybrid",
+    "status": "dead",
+    "death_reason": "hack",
+    "launch_date": null,
+    "death_date": "2026-02-23",
+    "country_or_origin": "Solana ecosystem",
+    "summary": "Solana DeFi dashboard / aggregator group whose linked operations included SolanaFloor and the Remora Markets trading/RWA platform. It announced a wind-down of operations after a January 2026 treasury breach that drained tens of millions of dollars and left the team unable to secure financing or an acquisition.",
+    "official_url_original": "https://step.finance/",
+    "official_domain_original": "step.finance",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://step.finance/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-26",
+    "notes": "Modeled as hybrid because Step Finance itself is a DeFi dashboard/aggregator while Remora Markets adds trading/RWA exposure. The terminal marker is the group wind-down announcement following the treasury breach. Loss figures vary by report, so amounts are described in event/evidence notes rather than hard-coded as a numeric field."
   }
 ]
