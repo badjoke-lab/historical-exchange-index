@@ -4240,5 +4240,47 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI uses the planned site-offline date as the terminal marker."
+  },
+  {
+    "id": "hei_ev_000418",
+    "exchange_id": "hei_ex_000247",
+    "event_type": "launched",
+    "event_date": "2014-02-01",
+    "title": "SwissCEX public announcement thread opened",
+    "description": "SwissCEX publicly described itself as a Switzerland-based cryptocurrency exchange operating since February 2014.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Launch marker uses the public announcement thread rather than a formal company registration record."
+  },
+  {
+    "id": "hei_ev_000419",
+    "exchange_id": "hei_ex_000247",
+    "event_type": "shutdown_announced",
+    "event_date": "2015-05-28",
+    "title": "SwissCEX closure process was publicly discussed",
+    "description": "The SwissCEX operator referenced an exchange-closure document and said users would receive private keys for settled accounts as part of the closure process.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 2,
+    "notes": "The date follows quoted closure-process discussion in the public Bitcointalk thread."
+  },
+  {
+    "id": "hei_ev_000420",
+    "exchange_id": "hei_ex_000247",
+    "event_type": "shutdown_effective",
+    "event_date": "2015-06-03",
+    "title": "SwissCEX was reported closed",
+    "description": "Public forum discussion reported that the SwissCEX site had closed while users were receiving private keys for coins held on the exchange.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 3,
+    "notes": "HEI uses the public site-closed discussion as the terminal marker, supported by later inactive market-data listings."
   }
 ]
