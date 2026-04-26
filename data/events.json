@@ -4282,5 +4282,33 @@
     "source_count": 2,
     "sort_order": 3,
     "notes": "HEI uses the public site-closed discussion as the terminal marker, supported by later inactive market-data listings."
+  },
+  {
+    "id": "hei_ev_000421",
+    "exchange_id": "hei_ex_000248",
+    "event_type": "launched",
+    "event_date": "2018-07-01",
+    "title": "CryptalDash launch marker",
+    "description": "Public exchange-review coverage describes CryptalDash as a cryptocurrency exchange launched around July 2018.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "HEI uses a month-level launch marker from secondary exchange-review coverage."
+  },
+  {
+    "id": "hei_ev_000422",
+    "exchange_id": "hei_ex_000248",
+    "event_type": "rebranded",
+    "event_date": "2020-12-28",
+    "title": "CryptalDash rebranded into DLTify",
+    "description": "Public exchange-status coverage stated that CryptalDash was no longer active under the CryptalDash name and had rebranded into DLTify.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "rebranded",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI treats this as the terminal marker for the original CryptalDash exchange identity."
   }
 ]
