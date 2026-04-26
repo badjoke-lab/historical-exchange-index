@@ -1,0 +1,139 @@
+{
+  "watchlist_type": "recent_negative_cex_dex_candidates_addendum",
+  "created_at": "2026-04-26",
+  "purpose": "Additional candidate pool for later HEI canonical batches while terminal access is unavailable. These candidates are not canonical records yet. They require final duplicate checks and public-quality staging packages before append.",
+  "status_legend": {
+    "A": "Likely HEI-addable after one more source/duplicate pass",
+    "B": "Potential event/update candidate, usually active entity or service-level incident",
+    "C": "Hold / weak / likely non-HEI unless better evidence appears"
+  },
+  "candidates": [
+    {
+      "candidate_id": "watch_20260426_b_001",
+      "canonical_name": "DMM Bitcoin",
+      "aliases": ["DMM Bitcoin Co., Ltd.", "DMMビットコイン"],
+      "candidate_class": "A",
+      "likely_type": "cex",
+      "likely_status": "dead",
+      "likely_death_reason": "hack",
+      "record_shape": "new_entity_if_not_existing",
+      "headline": "Japanese exchange DMM Bitcoin ended service on 2025-03-08 and transferred customer accounts/assets to SBI VC Trade after the 2024 BTC theft.",
+      "hei_relevance": "Strong HEI dead-side candidate. It has official Japanese service-end and SBI transfer pages plus secondary coverage linking the closure/liquidation path to the May 2024 hack.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["DMM Bitcoin", "DMM"],
+        "result": "no existing repository hit via connector search"
+      },
+      "source_urls": [
+        "https://bitcoin.dmm.com/news/20241227_01",
+        "https://www.sbivc.co.jp/dmm_vct",
+        "https://prtimes.jp/main/html/rd/p/000000133.000059421.html",
+        "https://www.fintechobserver.com/dmm-bitcoin-will-transfer-assets-to-sbi-vc-trade-then-shut-down/"
+      ],
+      "source_quality": "high",
+      "next_action": "Stage as dead / hack with events for hack, transfer agreement, transfer completed, and service ended. Death date should likely be 2025-03-08."
+    },
+    {
+      "candidate_id": "watch_20260426_b_002",
+      "canonical_name": "BtcTurk",
+      "aliases": ["BTCTurk", "BtcTurk Kripto"],
+      "candidate_class": "A",
+      "likely_type": "cex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity_or_existing_update",
+      "headline": "Turkish exchange BtcTurk suspended crypto deposits and withdrawals in August 2025 after about USD 48-49 million in suspicious hot-wallet outflows.",
+      "hei_relevance": "Good active-side CEX incident candidate: hack/suspicious outflow, temporary deposits/withdrawals suspension, trading and local-currency operations reportedly continued. Not dead.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["BtcTurk", "BTCTurk"],
+        "result": "no existing repository hit via connector search"
+      },
+      "source_urls": [
+        "https://www.coindesk.com/business/2025/08/14/turkish-crypto-exchange-btcturk-witnesses-usd48m-of-suspicious-outflows-amid-hack-fears",
+        "https://www.theblock.co/post/366953/turkeys-oldest-crypto-exchange-btcturk-halts-deposits-withdrawals-after-48-million-in-unusual-outflows",
+        "https://www.aa.com.tr/en/economy/crypto-platform-btcturk-says-all-security-measures-taken-after-claims-of-30m-hacking/3659754"
+      ],
+      "source_quality": "high",
+      "next_action": "Stage as active CEX with hack/suspicious_outflow and withdrawal_suspended events. Add restoration event only if a reliable reopening notice is found."
+    },
+    {
+      "candidate_id": "watch_20260426_b_003",
+      "canonical_name": "Hyperliquid",
+      "aliases": ["HyperLiquid", "Hyperliquidity Provider", "HLP"],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity_or_existing_update",
+      "headline": "Hyperliquid delisted JELLY/JELLYJELLY perps and forcibly settled/closed positions after a whale manipulation incident involving HLP vault losses.",
+      "hei_relevance": "Useful active-side perp DEX incident candidate. It is not a closure, but it records market manipulation, forced settlement, delisting, and reimbursement/settlement actions on a major perp DEX.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["Hyperliquid", "HyperLiquid"],
+        "result": "no existing repository hit via connector search"
+      },
+      "source_urls": [
+        "https://www.coindesk.com/markets/2025/03/26/hyperliquid-delists-jellyjelly-after-vault-squeezed-in-usd13m-tussle",
+        "https://www.theblock.co/post/348314/hyperliquid-delists-jellyjelly-memecoin-amid-whale-manipulation-fiasco/",
+        "https://cointelegraph.com/news/hyperliquid-delists-jelly-perps-citing-suspicious-activity"
+      ],
+      "source_quality": "high",
+      "next_action": "Stage only if HEI wants active DEX market-structure incidents. Use active status with events such as trading_halted/other; avoid dead-side classification."
+    },
+    {
+      "candidate_id": "watch_20260426_b_004",
+      "canonical_name": "GMX",
+      "aliases": ["GMX v1", "GMX Protocol"],
+      "candidate_class": "A",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity_or_existing_update",
+      "headline": "GMX v1 suffered a July 2025 approximately USD 42 million GLP liquidity-pool exploit; GMX disabled v1 trading and GLP mint/redeem on Arbitrum and Avalanche, while GMX v2 was not affected.",
+      "hei_relevance": "Strong active-side DEX incident candidate because it directly affected a major decentralized perpetual exchange, halted v1 trading, and created a material protocol-state event. Not dead because v2 and the broader protocol continued.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["GMX", "GMX v1"],
+        "result": "not checked via connector in this addendum; perform final duplicate search before staging"
+      },
+      "source_urls": [
+        "https://www.coindesk.com/business/2025/07/09/decentralized-exchange-gmx-exploited-for-usd42m-offers-hacker-10-white-hat-bounty",
+        "https://www.theblock.co/post/361806/hacker-drains-42-million-from-decentralized-perpetual-exchange-gmx/",
+        "https://coincentral.com/gmx-crypto-exchange-hacked-for-42-million-as-token-crashes/"
+      ],
+      "source_quality": "high",
+      "next_action": "Run final repo duplicate search, then stage as active DEX with exploit and trading_halted events; notes should clarify that v1/GLP was affected while v2 continued."
+    },
+    {
+      "candidate_id": "watch_20260426_b_005",
+      "canonical_name": "BingX",
+      "aliases": ["BingX Exchange"],
+      "candidate_class": "B",
+      "likely_type": "cex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity_or_existing_update",
+      "headline": "BingX reported a September 2024 hot-wallet incident and said it restored major-asset withdrawals within 24 hours, with later wallet upgrade/maintenance notices.",
+      "hei_relevance": "Possible active-side CEX incident candidate. It is older and partially restoration-focused, but official BingX source quality is good. Lower priority than DMM, BtcTurk, and GMX.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["BingX"],
+        "result": "no existing repository hit via connector search"
+      },
+      "source_urls": [
+        "https://blog.bingx.com/bingx-updates/bingx-swiftly-recovers-from-hot-wallet-incident-ensures-user-asset-security/",
+        "https://bingx.com/en/support/articles/11398717781519/"
+      ],
+      "source_quality": "medium_to_high",
+      "next_action": "Hold unless more active-side CEX incident coverage is desired. If staged, use active with hack and withdrawal_suspended/restored events."
+    }
+  ],
+  "next_batch_recommendation": {
+    "batch_name": "candidate-batch-d2-dmm-btcturk-gmx",
+    "recommended_include": ["DMM Bitcoin", "BtcTurk", "GMX"],
+    "recommended_possible_include": ["Hyperliquid"],
+    "recommended_hold": ["BingX"],
+    "reason": "DMM Bitcoin is a strong dead-side CEX record, BtcTurk is a strong active-side CEX hack/suspension record, and GMX is a strong active-side DEX exploit/trading-halt record. Hyperliquid is valuable but not a closure; BingX is valid but lower priority and older."
+  }
+}
