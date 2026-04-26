@@ -4927,5 +4927,80 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-26",
     "notes": "Modeled as hybrid because Step Finance itself is a DeFi dashboard/aggregator while Remora Markets adds trading/RWA exposure. The terminal marker is the group wind-down announcement following the treasury breach. Loss figures vary by report, so amounts are described in event/evidence notes rather than hard-coded as a numeric field."
+  },
+  {
+    "id": "hei_ex_000231",
+    "slug": "cetus-protocol",
+    "canonical_name": "Cetus Protocol",
+    "aliases": [
+      "Cetus",
+      "CETUS"
+    ],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Sui / Aptos ecosystem",
+    "summary": "Sui- and Aptos-based decentralized exchange and liquidity protocol. In May 2025 it suffered a very large exploit that halted trading and paused smart contracts, but it restarted in June 2025 after a recovery plan, frozen-fund transfer, and Sui Foundation support.",
+    "official_url_original": "https://www.cetus.zone/",
+    "official_domain_original": "cetus.zone",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://www.cetus.zone/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-26",
+    "notes": "Do not mark dead. The May 2025 exploit was severe and temporarily halted trading, but the protocol relaunched in June 2025. HEI records it as active with critical exploit, trading halt, and restart events."
+  },
+  {
+    "id": "hei_ex_000232",
+    "slug": "kiloex",
+    "canonical_name": "KiloEx",
+    "aliases": [
+      "KiloEX",
+      "Kilo Ex"
+    ],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Multi-chain perp DEX",
+    "summary": "Multi-chain perpetual futures decentralized exchange that suffered an approximately USD 7 million oracle-manipulation exploit in April 2025. Operations were paused and a compensation / resolution plan was later announced, so the entity is tracked as active with major incident events rather than dead.",
+    "official_url_original": "https://www.kiloex.io/",
+    "official_domain_original": "kiloex.io",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://www.kiloex.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-26",
+    "notes": "Do not mark dead. Current evidence supports exploit and temporary operational suspension, followed by a compensation/resolution plan and service-resumption framing."
+  },
+  {
+    "id": "hei_ex_000235",
+    "slug": "paradex",
+    "canonical_name": "Paradex",
+    "aliases": [
+      "Paradex Exchange",
+      "Paradex DEX"
+    ],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Starknet ecosystem",
+    "summary": "Starknet-based decentralized perpetuals exchange. In January 2026 a database migration / pricing-data error briefly caused BTC to be priced at zero, triggering unintended liquidations and a rare chain rollback with refunds, but the platform was not permanently shut down.",
+    "official_url_original": "https://www.paradex.trade/",
+    "official_domain_original": "paradex.trade",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://www.paradex.trade/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-26",
+    "notes": "Do not mark dead. Track as active with critical pricing-error, rollback, and refund/compensation events."
   }
 ]
