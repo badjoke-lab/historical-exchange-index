@@ -5152,5 +5152,31 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-26",
     "notes": "Do not mark dead. The exploit affected GMX v1 / GLP and triggered temporary v1/GLP disablement, while GMX v2 was reported as unaffected and the broader protocol continued."
+  },
+  {
+    "id": "hei_ex_000245",
+    "slug": "woo-x",
+    "canonical_name": "WOO X",
+    "aliases": [
+      "WOOX",
+      "WOO Exchange",
+      "WOO Network Exchange"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2019-01-01",
+    "death_date": null,
+    "country_or_origin": "Taiwan / Global",
+    "summary": "Centralized cryptocurrency trading platform associated with WOO Network. In July 2025 it reported a contained incident in which nine user accounts suffered unauthorized withdrawals totaling about USD 14 million; withdrawals were temporarily paused and the exchange said affected users would be fully covered.",
+    "official_url_original": "https://woox.io/",
+    "official_domain_original": "woox.io",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://woox.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-26",
+    "notes": "Do not mark dead. The July 2025 incident caused unauthorized withdrawals and a temporary withdrawal pause, but available evidence describes a contained incident, full compensation, and continued trading rather than a terminal shutdown."
   }
 ]

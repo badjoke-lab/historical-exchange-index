@@ -4170,5 +4170,47 @@
     "source_count": 2,
     "sort_order": 3,
     "notes": "Regulatory inspection / scrutiny context; keep entity active."
+  },
+  {
+    "id": "hei_ev_000413",
+    "exchange_id": "hei_ex_000245",
+    "event_type": "hack",
+    "event_date": "2025-07-24",
+    "title": "WOO X reported unauthorized withdrawals from nine accounts",
+    "description": "WOO X reported a contained incident in which nine user accounts experienced unauthorized withdrawals totaling about USD 14 million, while saying the affected users would be fully covered.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 4,
+    "sort_order": 1,
+    "notes": "Use hack as the nearest HEI enum for an unauthorized-withdrawal breach; wording should preserve that the incident was account-level and contained according to WOO X."
+  },
+  {
+    "id": "hei_ev_000414",
+    "exchange_id": "hei_ex_000245",
+    "event_type": "withdrawal_suspended",
+    "event_date": "2025-07-24",
+    "title": "WOO X temporarily paused withdrawals",
+    "description": "As a precaution after the unauthorized-withdrawal incident, WOO X temporarily suspended withdrawals while completing an internal review and coordinating with security teams and other exchanges.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Temporary withdrawal pause only; not a shutdown or global trading halt."
+  },
+  {
+    "id": "hei_ev_000415",
+    "exchange_id": "hei_ex_000245",
+    "event_type": "other",
+    "event_date": "2025-07-24",
+    "title": "WOO X committed to cover all unauthorized withdrawals",
+    "description": "WOO X said affected users had been contacted and that all unauthorized withdrawals would be fully covered, supporting active-side treatment rather than dead or insolvent classification.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "active",
+    "source_count": 3,
+    "sort_order": 3,
+    "notes": "Modeled as other because HEI has no compensation_commitment enum."
   }
 ]
