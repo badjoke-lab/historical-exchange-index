@@ -4310,5 +4310,47 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI treats this as the terminal marker for the original CryptalDash exchange identity."
+  },
+  {
+    "id": "hei_ev_000423",
+    "exchange_id": "hei_ex_000249",
+    "event_type": "trading_halted",
+    "event_date": "2020-02-17",
+    "title": "FCoin paused trading",
+    "description": "FCoin paused trading after disclosing that its asset reserve had fallen short of user liabilities.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "CoinDesk reported that FCoin had paused trading and withdrawals while revealing the asset shortfall."
+  },
+  {
+    "id": "hei_ev_000424",
+    "exchange_id": "hei_ex_000249",
+    "event_type": "withdrawal_suspended",
+    "event_date": "2020-02-17",
+    "title": "FCoin could no longer process user withdrawals",
+    "description": "FCoin disclosed that it was unable to process user withdrawal demands because its asset reserve was below liabilities.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "The disclosed shortfall was estimated at roughly 7,000 to 13,000 BTC."
+  },
+  {
+    "id": "hei_ev_000425",
+    "exchange_id": "hei_ex_000249",
+    "event_type": "insolvency_declared",
+    "event_date": "2020-02-17",
+    "title": "FCoin disclosed a major BTC shortfall",
+    "description": "FCoin disclosed a reserve shortfall estimated at 7,000 to 13,000 BTC, creating an insolvency / withdrawal-impediment state for the exchange.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 3,
+    "notes": "HEI uses this disclosure date as the terminal marker for the FCoin exchange record."
   }
 ]
