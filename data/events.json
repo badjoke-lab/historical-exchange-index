@@ -4212,5 +4212,33 @@
     "source_count": 3,
     "sort_order": 3,
     "notes": "Modeled as other because HEI has no compensation_commitment enum."
+  },
+  {
+    "id": "hei_ev_000416",
+    "exchange_id": "hei_ex_000246",
+    "event_type": "shutdown_announced",
+    "event_date": "2015-01-26",
+    "title": "Crypto-Trade announced permanent shutdown",
+    "description": "Crypto-Trade announced that it would shut down permanently because low volume and a weak userbase left it unable to cover server costs, staff salaries, and promotion costs.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The quoted announcement gave users a short withdrawal window."
+  },
+  {
+    "id": "hei_ev_000417",
+    "exchange_id": "hei_ex_000246",
+    "event_type": "shutdown_effective",
+    "event_date": "2015-01-29",
+    "title": "Crypto-Trade reached its planned offline date",
+    "description": "Crypto-Trade's quoted shutdown notice said the site would go offline on 2015-01-29 at 06:00 UTC after processing pending withdrawals.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI uses the planned site-offline date as the terminal marker."
   }
 ]
