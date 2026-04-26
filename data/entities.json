@@ -4121,7 +4121,7 @@
     "aliases": [],
     "type": "cex",
     "status": "dead",
-    "death_reason": "rebranding",
+    "death_reason": "rebrand",
     "launch_date": "2018-05-01",
     "death_date": "2021-08-31",
     "country_or_origin": "Cayman Islands",
@@ -4134,7 +4134,7 @@
     "successor_id": null,
     "confidence": "high",
     "last_verified_at": "2026-04-21",
-    "notes": "Terminal handling uses the 2021-08-31 public dead-side marker. Death reason is mapped to rebranding because Cryptowisser states that the centralized exchange was closed and the decentralized part was rebranded into Gogoswap. HEI uses 2018-05-01 as a conservative launch marker supported by public exchange directories."
+    "notes": "Terminal handling uses the 2021-08-31 public dead-side marker. Death reason is mapped to rebrand because Cryptowisser states that the centralized exchange was closed and the decentralized part was rebranded into Gogoswap. HEI uses 2018-05-01 as a conservative launch marker supported by public exchange directories."
   },
   {
     "id": "hei_ex_000196",
@@ -4211,7 +4211,7 @@
     "aliases": [],
     "type": "cex",
     "status": "dead",
-    "death_reason": "rebranding",
+    "death_reason": "rebrand",
     "launch_date": "2018-05-01",
     "death_date": "2019-08-08",
     "country_or_origin": "Singapore",
@@ -4224,7 +4224,7 @@
     "successor_id": null,
     "confidence": "high",
     "last_verified_at": "2026-04-22",
-    "notes": "Terminal handling uses the 2019-08-08 public inactive/rebrand marker. Death reason is mapped to rebranding because Cryptowisser states that Bitholic was acquired by Bithumb Singapore and was thereafter known as Bithumb Singapore. HEI uses 2018-05-01 as a conservative launch marker from public launch announcements."
+    "notes": "Terminal handling uses the 2019-08-08 public inactive/rebrand marker. Death reason is mapped to rebrand because Cryptowisser states that Bitholic was acquired by Bithumb Singapore and was thereafter known as Bithumb Singapore. HEI uses 2018-05-01 as a conservative launch marker from public launch announcements."
   },
   {
     "id": "hei_ex_000200",
