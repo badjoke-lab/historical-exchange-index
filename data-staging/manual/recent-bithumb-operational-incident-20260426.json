@@ -1,0 +1,148 @@
+{
+  "package_type": "manual_canonical_batch_package",
+  "created_at": "2026-04-26",
+  "rationale": "Recent active-side CEX operational incident package for Bithumb. This is not a shutdown or hack record. Bithumb is modeled as an active centralized exchange with a February 2026 erroneous promotional credit / internal ledger incident, temporary affected-account restrictions, recovery of most erroneous balances, and regulatory inspection context.",
+  "canonical_append_targets": {
+    "entities": "data/entities.json",
+    "events": "data/events.json",
+    "evidence": "data/evidence.json"
+  },
+  "records": {
+    "entities": [
+      {
+        "id": "hei_ex_000245",
+        "slug": "bithumb",
+        "canonical_name": "Bithumb",
+        "aliases": ["Bithumb Korea", "Bithumb Exchange"],
+        "type": "cex",
+        "status": "active",
+        "death_reason": null,
+        "launch_date": "2014-01-01",
+        "death_date": null,
+        "country_or_origin": "South Korea",
+        "summary": "South Korean centralized cryptocurrency exchange. In February 2026 it accidentally credited users with approximately 620,000 BTC in an internal promotional payout / ledger error, temporarily restricted affected accounts, recovered most erroneous balances, and came under regulatory inspection. The exchange remained active.",
+        "official_url_original": "https://www.bithumb.com/",
+        "official_domain_original": "bithumb.com",
+        "official_url_status": "live_unverified",
+        "archived_url": "https://web.archive.org/web/*/https://www.bithumb.com/",
+        "predecessor_id": null,
+        "successor_id": null,
+        "confidence": "high",
+        "last_verified_at": "2026-04-26",
+        "notes": "Do not mark dead or hacked. The February 2026 incident was reported as an internal ledger / promotional payout error rather than an external theft. Track it as a severe operational incident with affected-account restrictions and regulatory review while keeping the entity active."
+      }
+    ],
+    "events": [
+      {
+        "id": "hei_ev_000410",
+        "exchange_id": "hei_ex_000245",
+        "event_type": "other",
+        "event_date": "2026-02-06",
+        "title": "Bithumb accidentally credited users with massive BTC balances",
+        "description": "Bithumb mistakenly recorded approximately 620,000 BTC as promotional rewards in user accounts, a ledger/payout error widely reported as equivalent to tens of billions of U.S. dollars at the time.",
+        "confidence": "high",
+        "impact_level": "critical",
+        "event_status_effect": "limited",
+        "source_count": 4,
+        "sort_order": 1,
+        "notes": "Modeled as other because HEI has no dedicated operational_error enum. This was not reported as a hack."
+      },
+      {
+        "id": "hei_ev_000411",
+        "exchange_id": "hei_ex_000245",
+        "event_type": "withdrawal_suspended",
+        "event_date": "2026-02-06",
+        "title": "Bithumb restricted affected accounts after the crediting error",
+        "description": "Bithumb restricted affected users' trading and withdrawals within about 35 minutes of the erroneous crediting incident and later recovered the vast majority of the mistaken balances.",
+        "confidence": "high",
+        "impact_level": "high",
+        "event_status_effect": "limited",
+        "source_count": 3,
+        "sort_order": 2,
+        "notes": "Modeled as withdrawal_suspended because the status-changing user impact involved account and withdrawal restrictions, not global exchange closure."
+      },
+      {
+        "id": "hei_ev_000412",
+        "exchange_id": "hei_ex_000245",
+        "event_type": "regulatory_action",
+        "event_date": "2026-02-08",
+        "title": "Bithumb incident prompted regulatory inspection",
+        "description": "South Korean regulators and authorities were reported to be inspecting Bithumb after the erroneous BTC crediting incident exposed internal-control and operational-risk concerns.",
+        "confidence": "medium",
+        "impact_level": "high",
+        "event_status_effect": "limited",
+        "source_count": 2,
+        "sort_order": 3,
+        "notes": "Regulatory inspection / scrutiny context; keep entity active."
+      }
+    ],
+    "evidence": [
+      {
+        "id": "hei_src_000821",
+        "exchange_id": "hei_ex_000245",
+        "event_id": "hei_ev_000410",
+        "source_type": "news_article",
+        "title": "Crypto firm accidentally sends $44 billion in bitcoins to users",
+        "url": "https://www.reuters.com/world/asia-pacific/crypto-firm-accidentally-sends-44-billion-bitcoins-users-2026-02-07/",
+        "publisher": "Reuters",
+        "published_at": "2026-02-07",
+        "archived_url": "https://web.archive.org/web/*/https://www.reuters.com/world/asia-pacific/crypto-firm-accidentally-sends-44-billion-bitcoins-users-2026-02-07/",
+        "accessed_at": "2026-04-26",
+        "reliability": "high",
+        "claim_scope": "event",
+        "notes": "Primary source for the erroneous crediting incident, approximate BTC amount, USD equivalent, restrictions, and recovery percentage."
+      },
+      {
+        "id": "hei_src_000822",
+        "exchange_id": "hei_ex_000245",
+        "event_id": "hei_ev_000411",
+        "source_type": "news_article",
+        "title": "Bithumb mistakenly records 620,000 bitcoin token payout, exposes internal structural flaws",
+        "url": "https://koreajoongangdaily.joins.com/news/2026-02-08/business/finance/Bithumb-mistakenly-records-620000-bitcoin-token-payout-exposes-internal-structural-flaws/2518840",
+        "publisher": "Korea JoongAng Daily",
+        "published_at": "2026-02-08",
+        "archived_url": "https://web.archive.org/web/*/https://koreajoongangdaily.joins.com/news/2026-02-08/business/finance/Bithumb-mistakenly-records-620000-bitcoin-token-payout-exposes-internal-structural-flaws/2518840",
+        "accessed_at": "2026-04-26",
+        "reliability": "high",
+        "claim_scope": "event",
+        "notes": "Used for internal-control context, affected-account restrictions, recovery percentage, and regulatory scrutiny."
+      },
+      {
+        "id": "hei_src_000823",
+        "exchange_id": "hei_ex_000245",
+        "event_id": "hei_ev_000410",
+        "source_type": "news_article",
+        "title": "South Korean Cryptocurrency Exchange Bithumb Accidentally Sends $40 Billion In Bitcoin To Users",
+        "url": "https://www.ndtv.com/world-news/south-korean-cryptocurrency-exchange-bithumb-accidentally-sends-40-billion-in-bitcoin-to-users-10963506",
+        "publisher": "NDTV",
+        "published_at": "2026-02-08",
+        "archived_url": "https://web.archive.org/web/*/https://www.ndtv.com/world-news/south-korean-cryptocurrency-exchange-bithumb-accidentally-sends-40-billion-in-bitcoin-to-users-10963506",
+        "accessed_at": "2026-04-26",
+        "reliability": "medium",
+        "claim_scope": "event",
+        "notes": "Supporting source for scale of erroneous crediting and user-impact framing."
+      },
+      {
+        "id": "hei_src_000824",
+        "exchange_id": "hei_ex_000245",
+        "event_id": "hei_ev_000412",
+        "source_type": "news_article",
+        "title": "Bithumb mistakenly credited users with Bitcoin worth tens of billions of dollars",
+        "url": "https://www.donga.com/en/article/all/20260209/6095938/1",
+        "publisher": "The Dong-A Ilbo",
+        "published_at": "2026-02-09",
+        "archived_url": "https://web.archive.org/web/*/https://www.donga.com/en/article/all/20260209/6095938/1",
+        "accessed_at": "2026-04-26",
+        "reliability": "medium",
+        "claim_scope": "event",
+        "notes": "Supporting Korean mainstream source for regulatory/inspection and operational-risk context."
+      }
+    ]
+  },
+  "manual_review_checklist": [
+    "Confirm Bithumb is not already canonical before apply; if existing, update rather than duplicate.",
+    "Keep Bithumb active; this is an operational incident, not a shutdown or hack.",
+    "Use event ids hei_ev_000410 through hei_ev_000412 only if available.",
+    "Use evidence ids hei_src_000821 through hei_src_000824 only if available."
+  ]
+}
