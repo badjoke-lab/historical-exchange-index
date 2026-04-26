@@ -1,0 +1,148 @@
+{
+  "package_type": "manual_canonical_batch_package",
+  "created_at": "2026-04-26",
+  "rationale": "Recent active-side CEX incident package for WOO X. WOO X is modeled as an active centralized exchange with a July 2025 contained incident / unauthorized-withdrawal breach affecting nine user accounts, temporary withdrawal suspension, and full-compensation commitment. This is not a shutdown record.",
+  "canonical_append_targets": {
+    "entities": "data/entities.json",
+    "events": "data/events.json",
+    "evidence": "data/evidence.json"
+  },
+  "records": {
+    "entities": [
+      {
+        "id": "hei_ex_000245",
+        "slug": "woo-x",
+        "canonical_name": "WOO X",
+        "aliases": ["WOOX", "WOO Exchange", "WOO Network Exchange"],
+        "type": "cex",
+        "status": "active",
+        "death_reason": null,
+        "launch_date": "2019-01-01",
+        "death_date": null,
+        "country_or_origin": "Taiwan / Global",
+        "summary": "Centralized cryptocurrency trading platform associated with WOO Network. In July 2025 it reported a contained incident in which nine user accounts suffered unauthorized withdrawals totaling about USD 14 million; withdrawals were temporarily paused and the exchange said affected users would be fully covered.",
+        "official_url_original": "https://woox.io/",
+        "official_domain_original": "woox.io",
+        "official_url_status": "live_unverified",
+        "archived_url": "https://web.archive.org/web/*/https://woox.io/",
+        "predecessor_id": null,
+        "successor_id": null,
+        "confidence": "high",
+        "last_verified_at": "2026-04-26",
+        "notes": "Do not mark dead. The July 2025 incident caused unauthorized withdrawals and a temporary withdrawal pause, but available evidence describes a contained incident, full compensation, and continued trading rather than a terminal shutdown."
+      }
+    ],
+    "events": [
+      {
+        "id": "hei_ev_000413",
+        "exchange_id": "hei_ex_000245",
+        "event_type": "hack",
+        "event_date": "2025-07-24",
+        "title": "WOO X reported unauthorized withdrawals from nine accounts",
+        "description": "WOO X reported a contained incident in which nine user accounts experienced unauthorized withdrawals totaling about USD 14 million, while saying the affected users would be fully covered.",
+        "confidence": "high",
+        "impact_level": "critical",
+        "event_status_effect": "limited",
+        "source_count": 4,
+        "sort_order": 1,
+        "notes": "Use hack as the nearest HEI enum for an unauthorized-withdrawal breach; wording should preserve that the incident was account-level and contained according to WOO X."
+      },
+      {
+        "id": "hei_ev_000414",
+        "exchange_id": "hei_ex_000245",
+        "event_type": "withdrawal_suspended",
+        "event_date": "2025-07-24",
+        "title": "WOO X temporarily paused withdrawals",
+        "description": "As a precaution after the unauthorized-withdrawal incident, WOO X temporarily suspended withdrawals while completing an internal review and coordinating with security teams and other exchanges.",
+        "confidence": "high",
+        "impact_level": "critical",
+        "event_status_effect": "limited",
+        "source_count": 4,
+        "sort_order": 2,
+        "notes": "Temporary withdrawal pause only; not a shutdown or global trading halt."
+      },
+      {
+        "id": "hei_ev_000415",
+        "exchange_id": "hei_ex_000245",
+        "event_type": "other",
+        "event_date": "2025-07-24",
+        "title": "WOO X committed to cover all unauthorized withdrawals",
+        "description": "WOO X said affected users had been contacted and that all unauthorized withdrawals would be fully covered, supporting active-side treatment rather than dead or insolvent classification.",
+        "confidence": "high",
+        "impact_level": "high",
+        "event_status_effect": "active",
+        "source_count": 3,
+        "sort_order": 3,
+        "notes": "Modeled as other because HEI has no compensation_commitment enum."
+      }
+    ],
+    "evidence": [
+      {
+        "id": "hei_src_000825",
+        "exchange_id": "hei_ex_000245",
+        "event_id": "hei_ev_000414",
+        "source_type": "official_statement",
+        "title": "Temporary withdrawal suspension - July 24, 2025",
+        "url": "https://support.woox.io/hc/en-us/articles/49178783818777-Temporary-withdrawal-suspension-July-24-2025",
+        "publisher": "WOO X",
+        "published_at": "2025-07-24",
+        "archived_url": "https://web.archive.org/web/*/https://support.woox.io/hc/en-us/articles/49178783818777-Temporary-withdrawal-suspension-July-24-2025",
+        "accessed_at": "2026-04-26",
+        "reliability": "high",
+        "claim_scope": "event",
+        "notes": "Primary source for the contained incident, nine affected accounts, unauthorized-withdrawal coverage, and temporary withdrawal suspension."
+      },
+      {
+        "id": "hei_src_000826",
+        "exchange_id": "hei_ex_000245",
+        "event_id": "hei_ev_000413",
+        "source_type": "news_article",
+        "title": "Trading platform WOO X pauses withdrawals after $14M breach",
+        "url": "https://cointelegraph.com/news/woo-x-pauses-withdrawals-14-million-breach",
+        "publisher": "Cointelegraph",
+        "published_at": "2025-07-24",
+        "archived_url": "https://web.archive.org/web/*/https://cointelegraph.com/news/woo-x-pauses-withdrawals-14-million-breach",
+        "accessed_at": "2026-04-26",
+        "reliability": "high",
+        "claim_scope": "event",
+        "notes": "Used for USD 14M loss estimate, nine affected accounts, withdrawal pause, and contained-incident framing."
+      },
+      {
+        "id": "hei_src_000827",
+        "exchange_id": "hei_ex_000245",
+        "event_id": "hei_ev_000413",
+        "source_type": "news_article",
+        "title": "Centralized exchange WOO X investigates 'contained incident' resulting in estimated $14 million loss",
+        "url": "https://www.theblock.co/post/364188/centralized-exchange-woo-x-investigates-contained-incident-resulting-in-estimated-14-million-loss/",
+        "publisher": "The Block",
+        "published_at": "2025-07-24",
+        "archived_url": "https://web.archive.org/web/*/https://www.theblock.co/post/364188/centralized-exchange-woo-x-investigates-contained-incident-resulting-in-estimated-14-million-loss/",
+        "accessed_at": "2026-04-26",
+        "reliability": "high",
+        "claim_scope": "event",
+        "notes": "Used for CEX classification, contained-incident wording, estimated USD 14M loss, and customer-coverage statement."
+      },
+      {
+        "id": "hei_src_000828",
+        "exchange_id": "hei_ex_000245",
+        "event_id": "hei_ev_000415",
+        "source_type": "news_article",
+        "title": "Crypto exchange WOO X suspends withdrawals, users hacked for $14M",
+        "url": "https://protos.com/crypto-exchange-woo-x-suspends-withdrawals-users-hacked-for-14m/",
+        "publisher": "Protos",
+        "published_at": "2025-07-24",
+        "archived_url": "https://web.archive.org/web/*/https://protos.com/crypto-exchange-woo-x-suspends-withdrawals-users-hacked-for-14m/",
+        "accessed_at": "2026-04-26",
+        "reliability": "medium",
+        "claim_scope": "event",
+        "notes": "Supporting source for the temporary withdrawal freeze, user-loss coverage, and external security/exchange coordination."
+      }
+    ]
+  },
+  "manual_review_checklist": [
+    "Confirm WOO X is not already canonical before apply; if existing, update rather than duplicate.",
+    "Keep WOO X active; this is an unauthorized-withdrawal / temporary withdrawal-suspension incident, not a shutdown.",
+    "Use event ids hei_ev_000413 through hei_ev_000415 only if available.",
+    "Use evidence ids hei_src_000825 through hei_src_000828 only if available."
+  ]
+}
