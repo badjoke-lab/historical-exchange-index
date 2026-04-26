@@ -5228,5 +5228,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-26",
     "notes": "Terminal handling uses 2015-06-03 as the conservative site-closed marker from the public Bitcointalk closure discussion. Death reason is mapped to voluntary_shutdown because the operator described a closure process and distribution of private keys rather than a hack, insolvency, enforcement action, or acquisition. Evidence quality is medium because the closure record is forum-based and references a now-external closure document."
+  },
+  {
+    "id": "hei_ex_000248",
+    "slug": "cryptaldash",
+    "canonical_name": "CryptalDash",
+    "aliases": [
+      "CryptalDash Exchange",
+      "CryptalDash.com"
+    ],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": "2018-07-01",
+    "death_date": "2020-12-28",
+    "country_or_origin": "Ukraine",
+    "summary": "Ukraine-linked cryptocurrency exchange launched around July 2018 that later ceased operating under the CryptalDash name and was publicly described as rebranded into DLTify in December 2020.",
+    "official_url_original": "https://www.cryptaldash.com/",
+    "official_domain_original": "cryptaldash.com",
+    "official_url_status": "repurposed",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptaldash.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-26",
+    "notes": "Terminal handling uses 2020-12-28 because Cryptowisser's inactive update states that CryptalDash was no longer active under the CryptalDash name and had rebranded into DLTify. Status is modeled as rebranded rather than dead because the public record describes a name/platform transition. Country/origin uses Ukraine from secondary exchange-review coverage."
   }
 ]
