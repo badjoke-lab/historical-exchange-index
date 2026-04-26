@@ -7,7 +7,7 @@ import { formatYears } from '../../../lib/utils/format-years'
 import { STATUS_LABELS } from '../../../lib/utils/status-meta'
 import { DEATH_REASON_LABELS } from '../../../lib/utils/death-reason-meta'
 import { URL_STATUS_LABELS } from '../../../lib/utils/url-meta'
-import { CONTACT_HREF, ISSUES_HREF, SITE_NAME } from '../../../lib/site-constants'
+import { CONTACT_HREF, ISSUES_HREF, SITE_NAME, SITE_URL } from '../../../lib/site-constants'
 
 type DetailPageProps = {
   params: Promise<{
@@ -17,6 +17,12 @@ type DetailPageProps = {
 
 const DEAD_SIDE = new Set(['dead', 'merged', 'acquired', 'rebranded'])
 const ACTIVE_SIDE = new Set(['active', 'limited', 'inactive'])
+const SOCIAL_IMAGE = {
+  url: '/opengraph-image',
+  width: 1200,
+  height: 630,
+  alt: SITE_NAME,
+}
 
 function chipClass(status: string) {
   return `chip ${status}`
@@ -31,6 +37,15 @@ function sortDeadSide(a: ReturnType<typeof loadEntities>[number], b: ReturnType<
 
 function sortActiveSide(a: ReturnType<typeof loadEntities>[number], b: ReturnType<typeof loadEntities>[number]) {
   return a.canonical_name.localeCompare(b.canonical_name)
+}
+
+function buildMetadataDescription(entity: ReturnType<typeof loadEntities>[number]) {
+  const statusLabel = STATUS_LABELS[entity.status].toLowerCase()
+  const typeLabel = entity.type.toUpperCase()
+  const origin = entity.country_or_origin ? ` from ${entity.country_or_origin}` : ''
+  const deathReason = entity.death_reason ? ` Death reason: ${DEATH_REASON_LABELS[entity.death_reason].toLowerCase()}.` : ''
+
+  return `Historical record for ${entity.canonical_name}, a ${statusLabel} ${typeLabel} crypto exchange${origin}, with timeline events, archived URLs, and evidence links.${deathReason}`
 }
 
 export function generateStaticParams() {
@@ -54,25 +69,29 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
   }
 
   const { entity } = detail
-  const isDeadSide = DEAD_SIDE.has(entity.status)
-  const sideLabel = isDeadSide ? 'Dead-side' : 'Active-side'
+  const statusLabel = STATUS_LABELS[entity.status]
+  const description = buildMetadataDescription(entity)
+  const title = `${entity.canonical_name} — ${statusLabel} crypto exchange record`
+  const url = `/exchange/${entity.slug}`
 
   return {
-    title: entity.canonical_name,
-    description: `${entity.summary} ${sideLabel} exchange record in ${SITE_NAME}.`,
+    title,
+    description,
     alternates: {
-      canonical: `/exchange/${entity.slug}`,
+      canonical: url,
     },
     openGraph: {
-      title: entity.canonical_name,
-      description: `${entity.summary} ${sideLabel} exchange record in ${SITE_NAME}.`,
+      title,
+      description,
       type: 'article',
-      url: `/exchange/${entity.slug}`,
+      url,
+      images: [SOCIAL_IMAGE],
     },
     twitter: {
-      card: 'summary',
-      title: entity.canonical_name,
-      description: `${entity.summary} ${sideLabel} exchange record in ${SITE_NAME}.`,
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/twitter-image'],
     },
   }
 }
@@ -101,6 +120,51 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
 
   const { entity, events, evidence, relatedEntities, prefersArchive } = detail
   const isDeadSide = DEAD_SIDE.has(entity.status)
+  const canonicalUrl = `${SITE_URL}/exchange/${entity.slug}`
+  const pageDescription = buildMetadataDescription(entity)
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': canonicalUrl,
+    url: canonicalUrl,
+    name: `${entity.canonical_name} — ${STATUS_LABELS[entity.status]} crypto exchange record`,
+    description: pageDescription,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    about: {
+      '@type': 'Organization',
+      name: entity.canonical_name,
+      alternateName: entity.aliases.length > 0 ? entity.aliases : undefined,
+      description: entity.summary,
+    },
+    dateModified: entity.last_verified_at,
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: SITE_URL,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: isDeadSide ? 'Dead Exchanges' : 'Active Exchanges',
+          item: `${SITE_URL}${isDeadSide ? '/dead' : '/active'}`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: entity.canonical_name,
+          item: canonicalUrl,
+        },
+      ],
+    },
+  }
 
   const sideEntities = loadEntities()
     .filter((item) => (isDeadSide ? DEAD_SIDE.has(item.status) : ACTIVE_SIDE.has(item.status)))
@@ -122,6 +186,10 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
 
   return (
     <main className="longform">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="panel longform-panel">
         <div style={{ display: 'grid', gap: '18px' }}>
           <div className="muted" style={{ fontSize: '12px' }}>
