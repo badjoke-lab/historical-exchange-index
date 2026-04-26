@@ -15,6 +15,10 @@ function sectionList(items, render, emptyText = 'None.') {
   return items.map(render).join('\n');
 }
 
+function findResult(results, monitor) {
+  return results.find((result) => result.monitor === monitor) || null;
+}
+
 export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, results, hasMeaningfulFindings }) {
   const findings = flattenFindings(results);
   const candidates = flattenCandidates(results);
@@ -23,6 +27,9 @@ export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, resul
   const criticalHigh = findings.filter((finding) => ['critical', 'high'].includes(finding.severity));
   const dataQuality = findings.filter((finding) => finding.monitor === 'evidence-and-record-quality-watch');
   const siteSeo = findings.filter((finding) => finding.monitor === 'site-and-seo-watch');
+  const watchlistFindings = findings.filter((finding) => finding.monitor === 'monitoring-health-watch' && finding.category?.includes('watchlist'));
+  const monitoringHealth = findResult(results, 'monitoring-health-watch');
+  const watchlistState = monitoringHealth?.watchlist_state || null;
 
   const severityCounts = Object.fromEntries(SEVERITIES.map((severity) => [severity, 0]));
   for (const finding of findings) {
@@ -40,6 +47,9 @@ export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, resul
   }
   if (bCandidates.length) {
     suggestedActions.push('Keep B candidates in watchlist or downgrade/resolve them after review.');
+  }
+  if (watchlistFindings.length) {
+    suggestedActions.push('Review watchlist-state findings and update staging or resolution files as needed.');
   }
   if (!suggestedActions.length) {
     suggestedActions.push('No operator action required.');
@@ -80,6 +90,12 @@ ${sectionList(criticalHigh, (finding) => `- [${finding.severity}] ${finding.titl
 ## Data quality
 
 ${sectionList(dataQuality, (finding) => `- [${finding.severity}] ${finding.title} — ${finding.recommended_action || 'review'}`)}
+
+## Watchlist state
+
+${watchlistState ? `- watchlist_files: ${watchlistState.watchlist_files}\n- watchlist_candidates: ${watchlistState.watchlist_candidates}\n- class_A: ${watchlistState.watchlist_class_counts?.A || 0}\n- class_B: ${watchlistState.watchlist_class_counts?.B || 0}\n- class_C: ${watchlistState.watchlist_class_counts?.C || 0}\n- manual_staging_packages: ${watchlistState.manual_staging_packages}\n- resolution_files: ${watchlistState.resolution_files}` : '- Not available.'}
+
+${sectionList(watchlistFindings, (finding) => `- [${finding.severity}] ${finding.title} — ${finding.recommended_action || 'review'}`)}
 
 ## Site / SEO
 
