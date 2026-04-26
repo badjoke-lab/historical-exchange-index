@@ -39,11 +39,38 @@ function sortActiveSide(a: ReturnType<typeof loadEntities>[number], b: ReturnTyp
   return a.canonical_name.localeCompare(b.canonical_name)
 }
 
+function humanizeFallback(value: string | null | undefined, fallback = 'Unknown') {
+  if (!value) return fallback
+
+  return value
+    .replace(/_/g, ' ')
+    .replace(/-/g, ' ')
+    .replace(/\\b\\w/g, (char) => char.toUpperCase())
+}
+
+function getStatusLabel(status: string | null | undefined) {
+  return status
+    ? STATUS_LABELS[status as keyof typeof STATUS_LABELS] ?? humanizeFallback(status)
+    : 'Unknown'
+}
+
+function getDeathReasonLabel(reason: string | null | undefined) {
+  return reason
+    ? DEATH_REASON_LABELS[reason as keyof typeof DEATH_REASON_LABELS] ?? humanizeFallback(reason)
+    : 'Unknown'
+}
+
+function getUrlStatusLabel(status: string | null | undefined) {
+  return status
+    ? URL_STATUS_LABELS[status as keyof typeof URL_STATUS_LABELS] ?? humanizeFallback(status)
+    : 'Unknown'
+}
+
 function buildMetadataDescription(entity: ReturnType<typeof loadEntities>[number]) {
-  const statusLabel = STATUS_LABELS[entity.status].toLowerCase()
-  const typeLabel = entity.type.toUpperCase()
+  const statusLabel = getStatusLabel(entity.status).toLowerCase()
+  const typeLabel = entity.type ? entity.type.toUpperCase() : 'UNKNOWN'
   const origin = entity.country_or_origin ? ` from ${entity.country_or_origin}` : ''
-  const deathReason = entity.death_reason ? ` Death reason: ${DEATH_REASON_LABELS[entity.death_reason].toLowerCase()}.` : ''
+  const deathReason = entity.death_reason ? ` Death reason: ${getDeathReasonLabel(entity.death_reason).toLowerCase()}.` : ''
 
   return `Historical record for ${entity.canonical_name}, a ${statusLabel} ${typeLabel} crypto exchange${origin}, with timeline events, archived URLs, and evidence links.${deathReason}`
 }
@@ -69,7 +96,7 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
   }
 
   const { entity } = detail
-  const statusLabel = STATUS_LABELS[entity.status]
+  const statusLabel = getStatusLabel(entity.status)
   const description = buildMetadataDescription(entity)
   const title = `${entity.canonical_name} — ${statusLabel} crypto exchange record`
   const url = `/exchange/${entity.slug}`
@@ -127,7 +154,7 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
     '@type': 'WebPage',
     '@id': canonicalUrl,
     url: canonicalUrl,
-    name: `${entity.canonical_name} — ${STATUS_LABELS[entity.status]} crypto exchange record`,
+    name: `${entity.canonical_name} — ${getStatusLabel(entity.status)} crypto exchange record`,
     description: pageDescription,
     isPartOf: {
       '@type': 'WebSite',
@@ -213,9 +240,9 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
 
             <div className="chips">
               <span className="chip type">{entity.type.toUpperCase()}</span>
-              <span className={chipClass(entity.status)}>{STATUS_LABELS[entity.status]}</span>
+              <span className={chipClass(entity.status)}>{getStatusLabel(entity.status)}</span>
               {entity.death_reason ? (
-                <span className="chip reason">{DEATH_REASON_LABELS[entity.death_reason]}</span>
+                <span className="chip reason">{getDeathReasonLabel(entity.death_reason)}</span>
               ) : null}
             </div>
           </div>
@@ -300,7 +327,7 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
 
               <div className="fact">
                 <div className="k">URL status</div>
-                <div className="v">{URL_STATUS_LABELS[entity.official_url_status]}</div>
+                <div className="v">{getUrlStatusLabel(entity.official_url_status)}</div>
               </div>
 
               <div className="fact">
