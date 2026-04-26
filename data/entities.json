@@ -5253,5 +5253,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-26",
     "notes": "Terminal handling uses 2020-12-28 because Cryptowisser's inactive update states that CryptalDash was no longer active under the CryptalDash name and had rebranded into DLTify. Status is modeled as rebranded rather than dead because the public record describes a name/platform transition. Country/origin uses Ukraine from secondary exchange-review coverage."
+  },
+  {
+    "id": "hei_ex_000249",
+    "slug": "fcoin",
+    "canonical_name": "FCoin",
+    "aliases": [
+      "Fcoin",
+      "FCoin Exchange"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "insolvency",
+    "launch_date": "2018-05-01",
+    "death_date": "2020-02-17",
+    "country_or_origin": "China",
+    "summary": "China-linked cryptocurrency exchange launched in May 2018 by former Huobi CTO Zhang Jian that halted trading and withdrawals in February 2020 after disclosing a 7,000–13,000 BTC asset shortfall.",
+    "official_url_original": "https://www.fcoin.com/",
+    "official_domain_original": "fcoin.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.fcoin.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-26",
+    "notes": "Terminal handling uses 2020-02-17 because public reporting states that FCoin had paused trading and withdrawals and disclosed that its asset reserve was short of liabilities by roughly 7,000 to 13,000 BTC. Death reason is mapped to insolvency. Later analysis raised questions about whether the shortfall was purely technical error or misconduct, but this record uses the publicly disclosed insolvency / withdrawal-impediment basis."
   }
 ]
