@@ -1,0 +1,135 @@
+{
+  "watchlist_type": "recent_negative_cex_dex_candidates",
+  "created_at": "2026-04-26",
+  "purpose": "Candidate pool for later HEI canonical batches while terminal access is unavailable. These are not canonical records yet. Each candidate needs a final duplicate check and public-quality staging package before append.",
+  "status_legend": {
+    "A": "Likely HEI-addable after one more source/duplicate pass",
+    "B": "Potential event/update candidate, usually existing entity or service-level incident",
+    "C": "Hold / weak / likely non-HEI unless better evidence appears"
+  },
+  "candidates": [
+    {
+      "candidate_id": "watch_20260426_001",
+      "canonical_name": "Arkham Exchange",
+      "aliases": ["Arkham", "Arkham Intelligence Exchange"],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "limited",
+      "likely_death_reason": null,
+      "record_shape": "new_entity_or_existing_arkham_update",
+      "headline": "Reports of Arkham Exchange shutdown were denied; Arkham said the exchange was pivoting from a centralized model to a fully decentralized DEX model.",
+      "hei_relevance": "Useful as a rebrand/pivot/service-model-change record, but not a dead record. Treat as limited/pivot unless stronger evidence shows CEX closure without continuity.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["Arkham Exchange", "Arkham Intelligence"],
+        "result": "no existing repository hit via connector search"
+      },
+      "source_urls": [
+        "https://cointelegraph.com/news/arkham-exchange-pivots-to-decentralized-dex"
+      ],
+      "source_quality": "medium",
+      "next_action": "Confirm whether HEI should model Arkham as hybrid limited / rebranded / active with service pivot. Need one additional source or official Arkham statement before canonical insertion."
+    },
+    {
+      "candidate_id": "watch_20260426_002",
+      "canonical_name": "Slingshot",
+      "aliases": ["Slingshot Finance", "Slingshot DeFi trade aggregator"],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity_if_confirmed_exchange_like",
+      "headline": "Q1 2026 shutdown roundups list Slingshot, described as a DeFi trade aggregator, among projects that shut down amid lower volumes and funding pressure.",
+      "hei_relevance": "Potential HEI target only if Slingshot is treated as a trading/DEX aggregator rather than a generic DeFi tool. Needs direct team notice or official shutdown page before public-quality canonical insertion.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["Slingshot", "Slingshot DeFi aggregator"],
+        "result": "no existing repository hit via connector search"
+      },
+      "source_urls": [
+        "https://coin360.com/news/q1-2026-crypto-shutdowns-market-reset",
+        "https://www.gncrypto.news/news/magic-eden-wallet-leap-20-plus-crypto-closures-q1-2026",
+        "https://www.mexc.com/news/1004126"
+      ],
+      "source_quality": "low_to_medium",
+      "next_action": "Find direct Slingshot team announcement. If found, stage as dead / voluntary_shutdown / medium. If not found, keep as watchlist only."
+    },
+    {
+      "candidate_id": "watch_20260426_003",
+      "canonical_name": "CoinDCX",
+      "aliases": ["CoinDCX Exchange"],
+      "candidate_class": "A",
+      "likely_type": "cex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity_or_existing_update",
+      "headline": "CoinDCX confirmed a July 2025 security breach in an internal operational account, with about USD 44 million stolen; reports say customer funds were not affected and withdrawals later resumed.",
+      "hei_relevance": "Good active-side CEX incident candidate: hack/security breach, temporary service impact or Web3 pause, later restoration. Not a dead record.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["CoinDCX"],
+        "result": "no existing repository hit via connector search"
+      },
+      "source_urls": [
+        "https://techcrunch.com/2025/07/21/indian-crypto-exchange-coindcx-confirms-44-million-stolen-during-hack/",
+        "https://www.coindesk.com/web3/2025/07/19/indian-crypto-exchange-coindcx-suffers-44m-hack",
+        "https://economictimes.indiatimes.com/markets/cryptocurrency/coindcx-resumes-withdrawals-after-44-million-security-breach-assures-user-funds-are-safe/articleshow/123084236.cms"
+      ],
+      "source_quality": "high",
+      "next_action": "Stage as active CEX with hack/security_breach and restoration/withdrawal-resumed events. Use careful wording that internal operational funds, not customer funds, were reported affected."
+    },
+    {
+      "candidate_id": "watch_20260426_004",
+      "canonical_name": "Bybit",
+      "aliases": ["Bybit Exchange"],
+      "candidate_class": "A",
+      "likely_type": "cex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "existing_entity_event_update",
+      "known_entity_hint": "Bybit is already in canonical data as hei_ex_000011 from the prior regional-exit batch.",
+      "headline": "Bybit suffered a February 2025 Ethereum wallet hack widely reported as about USD 1.4-1.5 billion, then closed the ETH gap / restored 1:1 backing.",
+      "hei_relevance": "Very strong active-side CEX incident update for an existing entity. Not a shutdown, but one of the largest exchange theft events and therefore material to HEI history.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["Bybit"],
+        "result": "existing canonical Bybit entity expected; add events/evidence only"
+      },
+      "source_urls": [
+        "https://www.coindesk.com/markets/2025/02/24/bybit-closes-eth-gap-as-exchange-amasses-usd1-2b-after-hack",
+        "https://www.theguardian.com/technology/2025/feb/23/crypto-exchange-seeks-bybit-ethereum-stolen-digital-wallet",
+        "https://www.euronews.com/next/2025/02/25/crypto-platform-bybit-closes-15-billion-gap-following-largest-crypto-heist-of-all-time"
+      ],
+      "source_quality": "high",
+      "next_action": "Stage as existing Bybit event update: hack, withdrawal_pressure/operational_stress if supported by source, reserve_gap_closed/recovery as other. Keep entity active."
+    },
+    {
+      "candidate_id": "watch_20260426_005",
+      "canonical_name": "FTX Japan / Custodiem data leak",
+      "aliases": ["FTX Japan", "Custodiem"],
+      "candidate_class": "C",
+      "likely_type": "cex",
+      "likely_status": "dead_or_acquired_context_only",
+      "likely_death_reason": null,
+      "record_shape": "possible_existing_ftx_japan_event_if_record_exists",
+      "headline": "Reports described a post-shutdown user-data leak involving FTX Japan / Custodiem infrastructure.",
+      "hei_relevance": "Negative and exchange-related, but not a closure, hack of exchange funds, or current exchange-status change. Only add if HEI decides to track post-mortem data-leak events for dead exchanges.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["FTX Japan", "Custodiem"],
+        "result": "not checked in detail yet"
+      },
+      "source_urls": [
+        "https://www.techradar.com/pro/security/defunct-crypto-platform-ftx-japan-leaked-thousands-of-user-records-after-shutting-down"
+      ],
+      "source_quality": "medium",
+      "next_action": "Hold unless user wants post-shutdown security/privacy incidents included in HEI."
+    }
+  ],
+  "next_batch_recommendation": {
+    "batch_name": "candidate-batch-d1-active-incidents-and-pivots",
+    "recommended_include": ["CoinDCX", "Bybit"],
+    "recommended_hold": ["Arkham Exchange", "Slingshot", "FTX Japan / Custodiem data leak"],
+    "reason": "CoinDCX and Bybit are strong CEX incident records with multiple good sources. Arkham and Slingshot need direct/official confirmation or clearer HEI modeling. FTX Japan data leak is exchange-related but may be outside the core HEI event scope."
+  }
+}
