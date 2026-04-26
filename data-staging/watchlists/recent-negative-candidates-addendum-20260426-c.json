@@ -1,0 +1,112 @@
+{
+  "watchlist_type": "recent_negative_cex_dex_candidates_addendum",
+  "created_at": "2026-04-26",
+  "purpose": "Additional candidate pool for later HEI canonical batches while terminal access is unavailable. These candidates are not canonical records yet and require final duplicate checks and public-quality staging packages before append.",
+  "status_legend": {
+    "A": "Likely HEI-addable after one more source/duplicate pass",
+    "B": "Potential event/update candidate, usually active entity or service-level incident",
+    "C": "Hold / weak / likely non-HEI unless better evidence appears"
+  },
+  "candidates": [
+    {
+      "candidate_id": "watch_20260426_c_001",
+      "canonical_name": "Bithumb",
+      "aliases": ["Bithumb Korea", "Bithumb Exchange"],
+      "candidate_class": "A",
+      "likely_type": "cex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity_or_existing_update",
+      "headline": "Bithumb accidentally credited users with about 620,000 BTC / USD 40-44B in a February 2026 promotional payout error, restricted affected trading and withdrawals within about 35 minutes, and recovered 99.7% of the erroneous internal ledger balances.",
+      "hei_relevance": "Strong active-side CEX operational incident candidate. It is not a hack and not a shutdown, but it caused exchange-side price dislocation, account/trading/withdrawal restrictions, and regulatory scrutiny. Should be modeled as active with operational_error / trading_halted / withdrawal_suspended-style events using HEI's closest enums.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["Bithumb"],
+        "result": "no existing repository hit via connector search"
+      },
+      "source_urls": [
+        "https://www.reuters.com/world/asia-pacific/crypto-firm-accidentally-sends-44-billion-bitcoins-users-2026-02-07/",
+        "https://koreajoongangdaily.joins.com/news/2026-02-08/business/finance/Bithumb-mistakenly-records-620000-bitcoin-token-payout-exposes-internal-structural-flaws/2518840",
+        "https://www.ndtv.com/world-news/south-korean-cryptocurrency-exchange-bithumb-accidentally-sends-40-billion-in-bitcoin-to-users-10963506",
+        "https://www.donga.com/en/article/all/20260209/6095938/1"
+      ],
+      "source_quality": "high",
+      "next_action": "Stage as active CEX with events: operational error / erroneous crediting, trading_halted or withdrawal_suspended for affected accounts, regulatory_action or other for FSC inspection. Do not mark hack or dead."
+    },
+    {
+      "candidate_id": "watch_20260426_c_002",
+      "canonical_name": "BlockFills",
+      "aliases": ["BlockFills Global", "Blockfills"],
+      "candidate_class": "C",
+      "likely_type": "institutional_liquidity_platform",
+      "likely_status": "limited",
+      "likely_death_reason": null,
+      "record_shape": "hold_unless_scope_expands",
+      "headline": "BlockFills paused client deposits and withdrawals in February 2026 amid market stress while clients could reportedly still open and close spot and derivatives positions.",
+      "hei_relevance": "Negative and trading-adjacent, but likely outside HEI v0 scope because BlockFills is more crypto lender/liquidity provider/institutional platform than public CEX/DEX. Keep as hold unless HEI explicitly adds institutional liquidity venues.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["BlockFills", "Blockfills"],
+        "result": "no existing repository hit via connector search"
+      },
+      "source_urls": [
+        "https://www.reuters.com/legal/government/crypto-lender-blockfills-suspends-withdrawals-amid-faltering-bitcoin-price-2026-02-11/",
+        "https://coin360.com/news/q1-2026-crypto-shutdowns-market-reset"
+      ],
+      "source_quality": "high_for_event_but_scope_weak",
+      "next_action": "Hold. Do not stage for HEI canonical unless the project scope expands beyond CEX/DEX/hybrid exchange entities."
+    },
+    {
+      "candidate_id": "watch_20260426_c_003",
+      "canonical_name": "Magic Eden Wallet",
+      "aliases": ["Magic Eden Wallet", "Magic Eden multi-chain wallet"],
+      "candidate_class": "C",
+      "likely_type": "wallet",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "likely_out_of_scope",
+      "headline": "Q1 2026 shutdown roundups list Magic Eden wallet shutdown and multi-chain scale-back as part of a broader refocus.",
+      "hei_relevance": "Likely outside HEI because this is wallet/NFT-marketplace infrastructure rather than CEX/DEX exchange entity. Mentioned only to avoid rediscovering it repeatedly.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["Magic Eden", "Magic Eden Wallet"],
+        "result": "not checked in detail; likely out of scope"
+      },
+      "source_urls": [
+        "https://coin360.com/news/q1-2026-crypto-shutdowns-market-reset",
+        "https://finance.yahoo.com/markets/crypto/articles/over-20-crypto-projects-shutting-072928774.html"
+      ],
+      "source_quality": "medium",
+      "next_action": "Hold as out-of-scope unless HEI expands to wallets/NFT tools."
+    },
+    {
+      "candidate_id": "watch_20260426_c_004",
+      "canonical_name": "Leap Wallet",
+      "aliases": ["Leap"],
+      "candidate_class": "C",
+      "likely_type": "wallet",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "likely_out_of_scope",
+      "headline": "Q1 2026 shutdown roundups report Leap Wallet's full shutdown by late May 2026.",
+      "hei_relevance": "Likely outside HEI because it is a wallet rather than an exchange, even if the shutdown is clear.",
+      "duplicate_check": {
+        "performed_at": "2026-04-26",
+        "repo_search_terms": ["Leap Wallet"],
+        "result": "not checked in detail; likely out of scope"
+      },
+      "source_urls": [
+        "https://finance.yahoo.com/markets/crypto/articles/over-20-crypto-projects-shutting-072928774.html",
+        "https://coin360.com/news/q1-2026-crypto-shutdowns-market-reset"
+      ],
+      "source_quality": "medium",
+      "next_action": "Hold as out-of-scope unless HEI expands to wallets."
+    }
+  ],
+  "next_batch_recommendation": {
+    "batch_name": "candidate-batch-d3-bithumb-operational-incident",
+    "recommended_include": ["Bithumb"],
+    "recommended_hold": ["BlockFills", "Magic Eden Wallet", "Leap Wallet"],
+    "reason": "Bithumb is a clear CEX operational incident with Reuters and Korean mainstream sources and is HEI-relevant as active-side CEX history. BlockFills is high-quality but outside CEX/DEX scope, while Magic Eden Wallet and Leap Wallet are wallet/product shutdowns rather than exchange records."
+  }
+}
