@@ -4,43 +4,49 @@ import type { MetadataRoute } from 'next'
 import { loadEntities } from '../lib/data/load-entities'
 import { SITE_URL } from '../lib/site-constants'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
+const STATIC_PAGE_LAST_MODIFIED = new Date('2026-04-26T00:00:00.000Z')
 
+export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${SITE_URL}/`,
-      lastModified: now,
+      lastModified: STATIC_PAGE_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${SITE_URL}/dead`,
-      lastModified: now,
+      lastModified: STATIC_PAGE_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/active`,
-      lastModified: now,
+      lastModified: STATIC_PAGE_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/stats`,
+      lastModified: STATIC_PAGE_LAST_MODIFIED,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
       url: `${SITE_URL}/methodology`,
-      lastModified: now,
+      lastModified: STATIC_PAGE_LAST_MODIFIED,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${SITE_URL}/about`,
-      lastModified: now,
+      lastModified: STATIC_PAGE_LAST_MODIFIED,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${SITE_URL}/donate`,
-      lastModified: now,
+      lastModified: STATIC_PAGE_LAST_MODIFIED,
       changeFrequency: 'monthly',
       priority: 0.4,
     },
@@ -48,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const entityRoutes: MetadataRoute.Sitemap = loadEntities().map((entity) => ({
     url: `${SITE_URL}/exchange/${entity.slug}`,
-    lastModified: entity.last_verified_at ? new Date(entity.last_verified_at) : now,
+    lastModified: entity.last_verified_at ? new Date(entity.last_verified_at) : STATIC_PAGE_LAST_MODIFIED,
     changeFrequency: 'monthly',
     priority: 0.8,
   }))
