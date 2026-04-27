@@ -24,6 +24,8 @@ export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, resul
   const candidates = flattenCandidates(results);
   const aCandidates = candidates.filter((candidate) => candidate.candidate_class === 'A');
   const bCandidates = candidates.filter((candidate) => candidate.candidate_class === 'B');
+  const regulatoryCandidates = candidates.filter((candidate) => candidate.source_category === 'regulatory_source');
+  const regulatoryFindings = findings.filter((finding) => finding.monitor === 'news-and-event-watch' && finding.category?.includes('regulatory'));
   const criticalHigh = findings.filter((finding) => ['critical', 'high'].includes(finding.severity));
   const dataQuality = findings.filter((finding) => finding.monitor === 'evidence-and-record-quality-watch');
   const evidenceHealthFindings = findings.filter((finding) => finding.monitor === 'evidence-health-watch');
@@ -31,8 +33,10 @@ export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, resul
   const watchlistFindings = findings.filter((finding) => finding.monitor === 'monitoring-health-watch' && finding.category?.includes('watchlist'));
   const monitoringHealth = findResult(results, 'monitoring-health-watch');
   const evidenceHealth = findResult(results, 'evidence-health-watch');
+  const newsAndEvent = findResult(results, 'news-and-event-watch');
   const watchlistState = monitoringHealth?.watchlist_state || null;
   const evidenceHealthSummary = evidenceHealth?.evidence_health_summary || null;
+  const regulatorySummary = newsAndEvent?.regulatory_summary || null;
 
   const severityCounts = Object.fromEntries(SEVERITIES.map((severity) => [severity, 0]));
   for (const finding of findings) {
@@ -50,6 +54,9 @@ export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, resul
   }
   if (bCandidates.length) {
     suggestedActions.push('Keep B candidates in watchlist or downgrade/resolve them after review.');
+  }
+  if (regulatoryCandidates.length || regulatoryFindings.length) {
+    suggestedActions.push('Review regulatory-source candidates separately and avoid status/death_reason changes without source confirmation.');
   }
   if (watchlistFindings.length) {
     suggestedActions.push('Review watchlist-state findings and update staging or resolution files as needed.');
@@ -92,6 +99,14 @@ ${sectionList(bCandidates, (candidate) => `- ${candidate.canonical_name || candi
 ## Critical / high alerts
 
 ${sectionList(criticalHigh, (finding) => `- [${finding.severity}] ${finding.title} (${finding.monitor}) — ${finding.recommended_action || 'review'}`)}
+
+## Regulatory watch
+
+${regulatorySummary ? `- enabled: ${regulatorySummary.enabled}\n- authorities_configured: ${regulatorySummary.authorities_configured}\n- query_templates: ${regulatorySummary.query_templates}\n- queries: ${regulatorySummary.queries}\n- items: ${regulatorySummary.items}\n- candidates: ${regulatorySummary.candidates}` : '- Not available.'}
+
+${sectionList(regulatoryCandidates, (candidate) => `- [${candidate.candidate_class}] ${candidate.canonical_name || candidate.headline || candidate.candidate_id} — ${(candidate.regulatory_authorities || []).join(', ') || candidate.source_name || 'regulatory source'} — ${candidate.next_action || 'review'}`)}
+
+${sectionList(regulatoryFindings, (finding) => `- [${finding.severity}] ${finding.title} — ${finding.recommended_action || 'review'}`)}
 
 ## Data quality
 
