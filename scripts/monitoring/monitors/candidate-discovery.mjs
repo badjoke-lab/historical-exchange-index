@@ -4,7 +4,7 @@ import { createFinding, createMonitorResult } from '../core/finding-utils.mjs';
 import { slugifyName, uniqueStrings } from '../core/normalize.mjs';
 import { buildEntityIndex, duplicateCheckForCandidate } from '../core/dedupe.mjs';
 import { classifyCandidate } from '../core/classify.mjs';
-import { getStaticExternalItems } from '../sources/external-lists.mjs';
+import { getExternalItems } from '../sources/external-lists.mjs';
 
 function runDateFromRunId(runId) {
   return String(runId || new Date().toISOString().slice(0, 10).replace(/-/g, '')).slice(0, 8);
@@ -23,6 +23,7 @@ function toCandidateRecord(rawItem, index, runId, ordinal) {
     source_urls: uniqueStrings(rawItem.source_urls || rawItem.urls || (rawItem.url ? [rawItem.url] : [])),
     source_quality: rawItem.source_quality || 'low',
     source_name: rawItem.source_name || 'unknown',
+    source_category: rawItem.source_category || 'unknown',
     description: rawItem.description || rawItem.summary || rawItem.notes || '',
     signals: uniqueStrings(rawItem.signals || []),
   };
@@ -51,6 +52,7 @@ function toCandidateRecord(rawItem, index, runId, ordinal) {
     source_quality: base.source_quality,
     next_action: classification.next_action,
     source_name: base.source_name,
+    source_category: base.source_category,
   };
 }
 
@@ -58,9 +60,25 @@ export async function runCandidateDiscovery(context, { startedAt } = {}) {
   const monitor = 'candidate-discovery';
   const started_at = startedAt || new Date().toISOString();
   const findings = [];
+  const errors = [];
   const entities = context?.canonicalData?.entities || [];
   const entityIndex = buildEntityIndex(entities);
-  const rawItems = getStaticExternalItems();
+  const external = await getExternalItems();
+  const rawItems = external.items;
+
+  for (const error of external.errors) {
+    errors.push(`${error.source_name}: ${error.error}`);
+    findings.push(createFinding({
+      monitor,
+      severity: 'medium',
+      category: 'external_source_fetch_failed',
+      title: `External source fetch failed: ${error.source_name}`,
+      summary: `${error.url}: ${error.error}`,
+      recommended_action: 'inspect_external_source_adapter',
+      confidence: 'medium',
+      dedupe_key: `${monitor}:source_fetch_failed:${error.source_name}`,
+    }));
+  }
 
   const candidates = rawItems
     .filter((item) => item && (item.canonical_name || item.name || item.title || item.slug))
@@ -76,10 +94,10 @@ export async function runCandidateDiscovery(context, { startedAt } = {}) {
       severity: 'low',
       category: 'candidate_discovery_source_empty',
       title: 'Candidate discovery source is empty',
-      summary: 'The static external-list seed is empty. This is expected until external source adapters are added.',
-      recommended_action: 'add_external_source_adapter_or_seed_items_in_later_phase',
+      summary: 'No candidate source items were available. Static seeds may be empty and remote lists may be disabled.',
+      recommended_action: 'enable_remote_lists_or_add_seed_items_in_later_phase',
       confidence: 'medium',
-      dedupe_key: `${monitor}:source_empty:manual_seed`,
+      dedupe_key: `${monitor}:source_empty:all_sources`,
     }));
   }
 
@@ -103,6 +121,7 @@ export async function runCandidateDiscovery(context, { startedAt } = {}) {
       watchlist_type: 'auto_candidate_discovery',
       created_at: new Date().toISOString(),
       purpose: 'Auto-generated candidate discovery output. Not canonical. Requires review before staging/canonical append.',
+      source_summary: external.source_summary,
       candidates,
       summary: {
         total: candidates.length,
@@ -121,13 +140,14 @@ export async function runCandidateDiscovery(context, { startedAt } = {}) {
     finished_at: new Date().toISOString(),
     findings,
     candidates,
-    errors: [],
+    errors,
     extra: {
       discovery_summary: {
         raw_items: rawItems.length,
         candidates: candidates.length,
         missing_in_hei: missingInHei.length,
         matched_existing: matchedExisting.length,
+        source_summary: external.source_summary,
       },
     },
   });
