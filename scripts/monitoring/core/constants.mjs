@@ -13,6 +13,7 @@ export const MONITOR_NAMES = [
   'news-and-event-watch',
   'active-status-watch',
   'evidence-and-record-quality-watch',
+  'evidence-health-watch',
   'site-and-seo-watch',
   'monitoring-health-watch',
 ];

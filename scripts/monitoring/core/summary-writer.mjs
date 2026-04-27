@@ -26,10 +26,13 @@ export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, resul
   const bCandidates = candidates.filter((candidate) => candidate.candidate_class === 'B');
   const criticalHigh = findings.filter((finding) => ['critical', 'high'].includes(finding.severity));
   const dataQuality = findings.filter((finding) => finding.monitor === 'evidence-and-record-quality-watch');
+  const evidenceHealthFindings = findings.filter((finding) => finding.monitor === 'evidence-health-watch');
   const siteSeo = findings.filter((finding) => finding.monitor === 'site-and-seo-watch');
   const watchlistFindings = findings.filter((finding) => finding.monitor === 'monitoring-health-watch' && finding.category?.includes('watchlist'));
   const monitoringHealth = findResult(results, 'monitoring-health-watch');
+  const evidenceHealth = findResult(results, 'evidence-health-watch');
   const watchlistState = monitoringHealth?.watchlist_state || null;
+  const evidenceHealthSummary = evidenceHealth?.evidence_health_summary || null;
 
   const severityCounts = Object.fromEntries(SEVERITIES.map((severity) => [severity, 0]));
   for (const finding of findings) {
@@ -50,6 +53,9 @@ export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, resul
   }
   if (watchlistFindings.length) {
     suggestedActions.push('Review watchlist-state findings and update staging or resolution files as needed.');
+  }
+  if (evidenceHealthFindings.some((finding) => ['critical', 'high', 'medium'].includes(finding.severity))) {
+    suggestedActions.push('Review evidence-health findings and add archives or replacement evidence where needed.');
   }
   if (!suggestedActions.length) {
     suggestedActions.push('No operator action required.');
@@ -90,6 +96,12 @@ ${sectionList(criticalHigh, (finding) => `- [${finding.severity}] ${finding.titl
 ## Data quality
 
 ${sectionList(dataQuality, (finding) => `- [${finding.severity}] ${finding.title} — ${finding.recommended_action || 'review'}`)}
+
+## Evidence health
+
+${evidenceHealthSummary ? `- enabled: ${evidenceHealthSummary.enabled}\n- evidence_with_urls: ${evidenceHealthSummary.evidence_with_urls}\n- checked: ${evidenceHealthSummary.checked}\n- findings: ${evidenceHealthSummary.findings || 0}\n- without_archive_total: ${evidenceHealthSummary.without_archive_total || 0}` : '- Not available.'}
+
+${sectionList(evidenceHealthFindings, (finding) => `- [${finding.severity}] ${finding.title} — ${finding.recommended_action || 'review'}`)}
 
 ## Watchlist state
 
