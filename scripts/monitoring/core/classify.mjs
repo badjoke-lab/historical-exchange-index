@@ -1,4 +1,5 @@
 import { isExchangeLikeText, isLikelyOutOfScopeText, normalizeText } from './normalize.mjs';
+import { evaluateHistoricalDeadSignals } from './historical-dead-signals.mjs';
 
 function includesAny(text, patterns) {
   return patterns.some((pattern) => text.includes(pattern));
@@ -13,11 +14,13 @@ export function classifyCandidate(candidate, duplicateCheck) {
     candidate?.notes,
     ...(candidate?.signals || []),
   ].filter(Boolean).join(' '));
+  const historical = evaluateHistoricalDeadSignals(candidate);
 
   const hasShutdown = includesAny(text, [
     'shutdown',
     'shut down',
     'closed',
+    'closure',
     'cease operations',
     'ceased operations',
     'wind down',
@@ -49,12 +52,12 @@ export function classifyCandidate(candidate, duplicateCheck) {
     'regional exit',
     'warning list',
   ]);
-  const exchangeLike = isExchangeLikeText(text) || candidate?.likely_type === 'cex' || candidate?.likely_type === 'dex';
+  const exchangeLike = isExchangeLikeText(text) || candidate?.likely_type === 'cex' || candidate?.likely_type === 'dex' || candidate?.likely_type === 'hybrid';
   const outOfScope = isLikelyOutOfScopeText(text);
 
   let candidateClass = 'B';
-  let likelyStatus = candidate?.likely_status || 'unknown';
-  let likelyDeathReason = candidate?.likely_death_reason || null;
+  let likelyStatus = historical.suggested_status || candidate?.likely_status || 'unknown';
+  let likelyDeathReason = historical.suggested_death_reason || candidate?.likely_death_reason || null;
   let recordShape = duplicateCheck.matched_existing_entity ? 'existing_entity_event_update' : 'new_entity';
   let nextAction = 'hold_for_review';
   let heiRelevance = 'Potential HEI candidate, but requires scope/source review.';
@@ -64,6 +67,13 @@ export function classifyCandidate(candidate, duplicateCheck) {
     recordShape = 'out_of_scope';
     nextAction = 'ignore_or_keep_for_reference';
     heiRelevance = 'Likely out of scope or too weak for canonical insertion.';
+  } else if (historical.historical_dead_strength === 'strong') {
+    candidateClass = 'A';
+    likelyStatus = historical.suggested_status;
+    likelyDeathReason = historical.suggested_death_reason;
+    recordShape = duplicateCheck.matched_existing_entity ? 'existing_entity_event_update' : 'new_entity';
+    nextAction = 'review_and_stage_public_quality_record';
+    heiRelevance = 'Likely HEI-relevant historical dead/continuity candidate.';
   } else if (hasShutdown) {
     candidateClass = 'A';
     likelyStatus = 'dead';
@@ -80,6 +90,12 @@ export function classifyCandidate(candidate, duplicateCheck) {
     likelyStatus = 'limited';
     nextAction = 'hold_for_regulatory_scope_review';
     heiRelevance = 'Potential HEI regulatory candidate; do not mark dead unless service closure is proven.';
+  } else if (historical.historical_dead_strength === 'medium') {
+    candidateClass = 'B';
+    likelyStatus = historical.suggested_status;
+    likelyDeathReason = historical.suggested_death_reason;
+    nextAction = 'hold_for_more_sources_or_scope_decision';
+    heiRelevance = 'Potential historical dead/continuity candidate; needs more source review.';
   } else if (!duplicateCheck.matched_existing_entity) {
     candidateClass = 'B';
     likelyStatus = candidate?.likely_status || 'active';
@@ -95,5 +111,8 @@ export function classifyCandidate(candidate, duplicateCheck) {
     record_shape: recordShape,
     hei_relevance: heiRelevance,
     next_action: nextAction,
+    historical_dead_score: historical.historical_dead_score,
+    historical_dead_strength: historical.historical_dead_strength,
+    historical_dead_tags: historical.historical_dead_tags,
   };
 }
