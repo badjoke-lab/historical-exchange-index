@@ -53,6 +53,9 @@ function toCandidateRecord(rawItem, index, runId, ordinal) {
     next_action: classification.next_action,
     source_name: base.source_name,
     source_category: base.source_category,
+    historical_dead_score: classification.historical_dead_score,
+    historical_dead_strength: classification.historical_dead_strength,
+    historical_dead_tags: classification.historical_dead_tags,
   };
 }
 
@@ -87,6 +90,7 @@ export async function runCandidateDiscovery(context, { startedAt } = {}) {
   const missingInHei = candidates.filter((candidate) => !candidate.duplicate_check.matched_existing_entity);
   const matchedExisting = candidates.filter((candidate) => candidate.duplicate_check.matched_existing_entity);
   const aCandidates = candidates.filter((candidate) => candidate.candidate_class === 'A');
+  const historicalCandidates = candidates.filter((candidate) => ['strong', 'medium'].includes(candidate.historical_dead_strength));
 
   if (rawItems.length === 0) {
     findings.push(createFinding({
@@ -127,6 +131,7 @@ export async function runCandidateDiscovery(context, { startedAt } = {}) {
         total: candidates.length,
         missing_in_hei: missingInHei.length,
         matched_existing: matchedExisting.length,
+        historical_dead_or_continuity: historicalCandidates.length,
         A: candidates.filter((candidate) => candidate.candidate_class === 'A').length,
         B: candidates.filter((candidate) => candidate.candidate_class === 'B').length,
         C: candidates.filter((candidate) => candidate.candidate_class === 'C').length,
@@ -147,6 +152,7 @@ export async function runCandidateDiscovery(context, { startedAt } = {}) {
         candidates: candidates.length,
         missing_in_hei: missingInHei.length,
         matched_existing: matchedExisting.length,
+        historical_dead_or_continuity: historicalCandidates.length,
         source_summary: external.source_summary,
       },
     },
