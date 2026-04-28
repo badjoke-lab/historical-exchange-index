@@ -148,6 +148,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           BRANCH="auto/monitoring/$(date -u +%Y%m%d-%H%M%S)"
+          RUN_DATE="$(date -u +%Y-%m-%d)"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
@@ -160,15 +161,22 @@ jobs:
           done
           git commit -m "Add HEI auto monitoring report"
           git push origin "$BRANCH"
+
+          BODY_FILE="/tmp/hei-monitoring-pr-body.md"
           SUMMARY_FILE="$(find data-staging/monitoring -name summary.md | sort | tail -n 1)"
-          if [ -f "$SUMMARY_FILE" ]; then
-            BODY_FILE="$SUMMARY_FILE"
-          else
-            BODY_FILE="/tmp/hei-monitoring-pr-body.md"
-            echo "HEI auto monitoring report." > "$BODY_FILE"
-          fi
+          REPORT_DIR="$(dirname "$SUMMARY_FILE")"
+          echo "## HEI auto monitoring report" > "$BODY_FILE"
+          echo "" >> "$BODY_FILE"
+          echo "Run date: $RUN_DATE" >> "$BODY_FILE"
+          echo "" >> "$BODY_FILE"
+          echo "- Monitoring report directory: $REPORT_DIR" >> "$BODY_FILE"
+          echo "- Summary file: $SUMMARY_FILE" >> "$BODY_FILE"
+          echo "- State file: data-staging/monitoring/state/latest-findings.json" >> "$BODY_FILE"
+          echo "" >> "$BODY_FILE"
+          echo "Open the summary file in this PR. Canonical data files must not be changed by monitoring PRs." >> "$BODY_FILE"
+
           gh pr create \
             --base main \
             --head "$BRANCH" \
-            --title "Auto monitoring report: $(date -u +%Y-%m-%d)" \
+            --title "Auto monitoring report: $RUN_DATE" \
             --body-file "$BODY_FILE"
