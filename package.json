@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "monitor": "node scripts/monitoring/run.mjs",
-    "monitor:dry": "HEI_MONITORING_MODE=manual node scripts/monitoring/run.mjs"
+    "monitor:dry": "HEI_MONITORING_MODE=manual node scripts/monitoring/run.mjs",
+    "monitor:promote-candidate": "node scripts/monitoring/promote-candidate-to-staging.mjs"
   },
   "dependencies": {
     "next": "15.2.4",
