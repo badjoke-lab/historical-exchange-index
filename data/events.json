@@ -4352,5 +4352,33 @@
     "source_count": 4,
     "sort_order": 3,
     "notes": "HEI uses this disclosure date as the terminal marker for the FCoin exchange record."
+  },
+  {
+    "id": "hei_ev_000426",
+    "exchange_id": "hei_ex_000250",
+    "event_type": "launched",
+    "event_date": "2014-01-01",
+    "title": "CoinedUp public-use marker",
+    "description": "Public forum discussion in early January 2014 shows users discussing and using coinedup.com as an altcoin exchange.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "HEI uses a conservative year-start marker because the current evidence shows use in early January 2014 but does not establish a precise launch date."
+  },
+  {
+    "id": "hei_ev_000427",
+    "exchange_id": "hei_ex_000250",
+    "event_type": "other",
+    "event_date": "2014-08-02",
+    "title": "CoinedUp service reduction was publicly observed",
+    "description": "Public forum discussion observed CoinedUp reduced to a small number of listed coins and speculated that the exchange might be closing or restructuring.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "limited",
+    "source_count": 1,
+    "sort_order": 2,
+    "notes": "This is not treated as a shutdown_effective event because it is community observation rather than an official terminal notice."
   }
 ]
