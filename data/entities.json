@@ -5430,5 +5430,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-28",
     "notes": "HEI uses 2013-04-12 as the terminal shutdown marker based on public shutdown notices and reporting. CoinDesk later described the exchange as offline for two weeks after Polish and German bank accounts were closed."
+  },
+  {
+    "id": "hei_ex_000256",
+    "slug": "bitfloor",
+    "canonical_name": "Bitfloor",
+    "aliases": [
+      "BitFloor",
+      "Bit Floor"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2011-01-01",
+    "death_date": "2013-04-17",
+    "country_or_origin": "United States",
+    "summary": "New York-based Bitcoin exchange that operated from 2011, suffered a major 24,000 BTC hot-wallet theft in September 2012, resumed operations, and then halted operations indefinitely on 2013-04-17 after its U.S. bank account was scheduled to be closed.",
+    "official_url_original": "https://bitfloor.com/",
+    "official_domain_original": "bitfloor.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://bitfloor.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-28",
+    "notes": "HEI models Bitfloor as dead / voluntary_shutdown because the terminal public marker was the founder's decision to halt operations and return funds after banking access was lost. The 2012 hack is recorded as a major incident but not as the final shutdown marker."
   }
 ]

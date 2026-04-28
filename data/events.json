@@ -4520,5 +4520,47 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "Used as the terminal regulatory / banking shutdown marker."
+  },
+  {
+    "id": "hei_ev_000438",
+    "exchange_id": "hei_ex_000256",
+    "event_type": "launched",
+    "event_date": "2011-01-01",
+    "title": "Bitfloor operating since 2011",
+    "description": "Bitfloor is described as a New York-based Bitcoin exchange operating since 2011, with first publicity in February 2012.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2011-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000439",
+    "exchange_id": "hei_ex_000256",
+    "event_type": "hack",
+    "event_date": "2012-09-04",
+    "title": "Bitfloor lost about 24,000 BTC in hot-wallet theft",
+    "description": "Bitfloor suspended operations after attackers compromised servers and stole roughly 24,000 BTC from an unencrypted wallet-key backup.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Major incident. Bitfloor later resumed operations, so this is not used as the terminal shutdown marker."
+  },
+  {
+    "id": "hei_ev_000440",
+    "exchange_id": "hei_ex_000256",
+    "event_type": "shutdown_effective",
+    "event_date": "2013-04-17",
+    "title": "Bitfloor halted operations indefinitely",
+    "description": "Bitfloor announced it would halt operations and return funds after its U.S. bank account was scheduled to be closed and it could no longer provide the same level of USD deposits and withdrawals.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 3,
+    "notes": "Used as the terminal shutdown marker."
   }
 ]
