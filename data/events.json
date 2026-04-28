@@ -4478,5 +4478,19 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "HEI records this as a major incident, not as a shutdown marker."
+  },
+  {
+    "id": "hei_ev_000435",
+    "exchange_id": "hei_ex_000254",
+    "event_type": "launched",
+    "event_date": "2013-01-01",
+    "title": "BitKonan founded / launched",
+    "description": "BitKonan is described by multiple references as a Croatia-based centralized cryptocurrency exchange founded or launched in 2013.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Date is year-level. Cryptowisser and Blank describe 2013; CoinPaprika describes the exchange as running since 2014."
   }
 ]
