@@ -5455,5 +5455,27 @@
     "confidence": "high",
     "last_verified_at": "2026-04-28",
     "notes": "HEI models Bitfloor as dead / voluntary_shutdown because the terminal public marker was the founder's decision to halt operations and return funds after banking access was lost. The 2012 hack is recorded as a major incident but not as the final shutdown marker."
+  },
+  {
+    "id": "hei_ex_000257",
+    "slug": "harborly",
+    "canonical_name": "Harborly",
+    "aliases": [],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2014-01-01",
+    "death_date": "2015-08-14",
+    "country_or_origin": "United States",
+    "summary": "Texas-based Bitcoin exchange / retail Bitcoin platform founded in 2014 and closed in August 2015 after the team chose to focus on a separate project. Reporting stated the shutdown was not caused by a hack, fraud, or a security incident.",
+    "official_url_original": "https://harborly.com/",
+    "official_domain_original": "harborly.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://harborly.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-28",
+    "notes": "HEI models Harborly as dead / voluntary_shutdown because contemporary reporting says the team closed the exchange to focus on a separate project and explicitly said the shutdown was not caused by hack, fraud, or a security-related incident. Regulatory and compliance burden is retained as context, not the primary death_reason."
   }
 ]

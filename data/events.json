@@ -4562,5 +4562,33 @@
     "source_count": 2,
     "sort_order": 3,
     "notes": "Used as the terminal shutdown marker."
+  },
+  {
+    "id": "hei_ev_000441",
+    "exchange_id": "hei_ex_000257",
+    "event_type": "launched",
+    "event_date": "2014-01-01",
+    "title": "Harborly founded",
+    "description": "Harborly is described as a Texas-based online Bitcoin platform founded in 2014.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2014-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000442",
+    "exchange_id": "hei_ex_000257",
+    "event_type": "shutdown_effective",
+    "event_date": "2015-08-14",
+    "title": "Harborly announced shutdown",
+    "description": "Harborly said it was closing to focus on a separate project and that the closure was not caused by a hack, fraud, or security incident.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Used as the terminal voluntary shutdown marker. CoinDesk published its report on 2015-08-20 and refers to a 2015-08-14 Harborly blog post."
   }
 ]
