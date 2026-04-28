@@ -5502,5 +5502,31 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-28",
     "notes": "HEI models Igot as inactive rather than dead because contemporary reporting strongly supports severe operational distress and non-payment complaints, but does not provide a clean official shutdown announcement or terminal operating date. Do not mark as dead without stronger terminal evidence."
+  },
+  {
+    "id": "hei_ex_000259",
+    "slug": "bitparking",
+    "canonical_name": "Bitparking",
+    "aliases": [
+      "Bitparking Exchange",
+      "exchange.bitparking.com",
+      "BitParking"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2012-01-01",
+    "death_date": null,
+    "country_or_origin": "New Zealand",
+    "summary": "Namecoin / Bitcoin exchange operated under the Bitparking name and associated with Chris Double. Public forum records show exchange.bitparking.com operating by 2012, followed by an April 2013 exchange data-drive corruption incident, withdrawal-only recovery efforts, and statements that the exchange would cease operation.",
+    "official_url_original": "https://exchange.bitparking.com/",
+    "official_domain_original": "exchange.bitparking.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://exchange.bitparking.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI models Bitparking as inactive rather than dead because available sources strongly support exchange operation, drive-corruption failure, withdrawal-only recovery, and cessation language, but the current evidence set is largely forum / community-preserved rather than a clean official shutdown notice. Do not assign a death_reason without stronger terminal evidence."
   }
 ]
