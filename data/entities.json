@@ -5381,5 +5381,29 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-26",
     "notes": "HEI models 796 Exchange as inactive rather than dead because the current evidence set supports historical operation and a major 2015 incident, but does not establish a definitive shutdown announcement or terminal date. Launch date uses the 2013-06-09 public-launch marker referenced from the official Bitcointalk announcement context."
+  },
+  {
+    "id": "hei_ex_000254",
+    "slug": "bitkonan",
+    "canonical_name": "BitKonan",
+    "aliases": [
+      "Bitkonan"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2013-01-01",
+    "death_date": null,
+    "country_or_origin": "Croatia",
+    "summary": "Croatia-based centralized cryptocurrency exchange founded in 2013. Current market-data trackers mark BitKonan as inactive, untracked, or without usable market data, so HEI models it as inactive rather than dead.",
+    "official_url_original": "https://www.bitkonan.com/",
+    "official_domain_original": "bitkonan.com",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitkonan.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-28",
+    "notes": "HEI models BitKonan as inactive rather than dead because the current evidence set supports historical operation and current lack of tracked market activity, but does not establish a definitive shutdown announcement or terminal date. Launch date is stored at year precision based on multiple secondary references to 2013 founding / launch; one tracker describes operation since 2014."
   }
 ]
