@@ -1,11 +1,11 @@
 {
   "monitor": "active-status-watch",
   "status": "ok",
-  "started_at": "2026-04-28T14:28:13.510Z",
-  "finished_at": "2026-04-28T14:28:13.517Z",
+  "started_at": "2026-04-28T17:19:15.200Z",
+  "finished_at": "2026-04-28T17:19:15.211Z",
   "findings": [
     {
-      "finding_id": "finding_1777386493517_1l0nee",
+      "finding_id": "finding_1777396755211_0fb3im",
       "monitor": "active-status-watch",
       "severity": "low",
       "category": "domain_watch_disabled",
@@ -17,12 +17,12 @@
       "confidence": "medium",
       "dedupe_key": "active-status-watch:domain_checks_disabled",
       "first_seen_at": "2026-04-28T14:28:13.538Z",
-      "last_seen_at": "2026-04-28T14:28:13.538Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
+      "last_seen_at": "2026-04-28T17:19:15.236Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_backlog"
     }
   ],
   "candidates": [],
@@ -39,7 +39,7 @@
   },
   "active_status_summary": {
     "enabled": false,
-    "active_side_entities_with_urls": 118,
+    "active_side_entities_with_urls": 124,
     "checked": 0
   }
 }
