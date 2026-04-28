@@ -1,0 +1,52 @@
+{
+  "monitor": "candidate-discovery",
+  "status": "ok",
+  "started_at": "2026-04-28T14:28:13.506Z",
+  "finished_at": "2026-04-28T14:28:13.508Z",
+  "findings": [
+    {
+      "finding_id": "finding_1777386493508_ov1nhz",
+      "monitor": "candidate-discovery",
+      "severity": "low",
+      "category": "candidate_discovery_source_empty",
+      "title": "Candidate discovery source is empty",
+      "summary": "No candidate source items were available. Static seeds may be empty and remote lists may be disabled.",
+      "affected_entity": null,
+      "recommended_action": "enable_remote_lists_or_add_seed_items_in_later_phase",
+      "source_urls": [],
+      "confidence": "medium",
+      "dedupe_key": "candidate-discovery:source_empty:all_sources",
+      "first_seen_at": "2026-04-28T14:28:13.538Z",
+      "last_seen_at": "2026-04-28T14:28:13.538Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    }
+  ],
+  "candidates": [],
+  "errors": [],
+  "summary": {
+    "findings_count": 1,
+    "visible_findings_count": 1,
+    "candidate_count": 0,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 1
+  },
+  "discovery_summary": {
+    "raw_items": 0,
+    "candidates": 0,
+    "missing_in_hei": 0,
+    "matched_existing": 0,
+    "historical_dead_or_continuity": 0,
+    "source_summary": {
+      "static_sources": 2,
+      "remote_sources": 1,
+      "remote_enabled": 0
+    }
+  }
+}
