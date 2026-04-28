@@ -4704,5 +4704,33 @@
     "source_count": 2,
     "sort_order": 2,
     "notes": "Used as the terminal voluntary shutdown marker. The closure context is banking-access loss rather than a hack."
+  },
+  {
+    "id": "hei_ev_000451",
+    "exchange_id": "hei_ex_000262",
+    "event_type": "launched",
+    "event_date": "2017-01-01",
+    "title": "Coinrail established",
+    "description": "Coinrail is described by market-data trackers as a South Korea-registered centralized exchange established in 2017.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2017-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000452",
+    "exchange_id": "hei_ex_000262",
+    "event_type": "hack",
+    "event_date": "2018-06-10",
+    "title": "Coinrail suffered major cyber intrusion",
+    "description": "Coinrail suspended services after a cyber intrusion in June 2018, with public reporting estimating losses around $40 million in cryptocurrencies.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Recorded as a major hack / suspension event. It is not used as a definitive shutdown marker because later references indicate service resumption attempts."
   }
 ]

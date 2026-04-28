@@ -5578,5 +5578,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-29",
     "notes": "HEI models BitNZ as dead / voluntary_shutdown because reporting describes a planned closure driven by banking-access problems rather than a hack or insolvency. The terminal date uses the customer withdrawal deadline of 2017-04-15."
+  },
+  {
+    "id": "hei_ex_000262",
+    "slug": "coinrail",
+    "canonical_name": "Coinrail",
+    "aliases": [
+      "Coinrail Korea",
+      "Coinrail.co.kr"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2017-01-01",
+    "death_date": null,
+    "country_or_origin": "South Korea",
+    "summary": "South Korea-based centralized cryptocurrency exchange established in 2017. Coinrail suffered a major June 2018 hack reported at roughly $40 million, later resumed service, but current market-data trackers show no active markets or classify it as inactive / untracked.",
+    "official_url_original": "https://coinrail.co.kr/",
+    "official_domain_original": "coinrail.co.kr",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://coinrail.co.kr/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI models Coinrail as inactive rather than dead because the current evidence set supports historical operation, a major 2018 hack, and current lack of tracked markets, but does not establish a definitive shutdown announcement or terminal date."
   }
 ]
