@@ -5303,5 +5303,31 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-26",
     "notes": "HEI does not force a dead classification because the current evidence set has inactive / untracked database references and community discussion of apparent wind-down, but no strong official shutdown notice or definitive terminal date. Status is therefore modeled as inactive rather than dead."
+  },
+  {
+    "id": "hei_ex_000251",
+    "slug": "atomic-trade",
+    "canonical_name": "Atomic Trade",
+    "aliases": [
+      "Atomic-Trade",
+      "Atomic-Trade.com",
+      "Atomic Trade LLC"
+    ],
+    "type": "cex",
+    "status": "acquired",
+    "death_reason": "acquisition",
+    "launch_date": "2014-02-05",
+    "death_date": "2015-02-23",
+    "country_or_origin": "United States",
+    "summary": "United States centralized exchange operated as Atomic Trade / Atomic-Trade.com, publicly described as live in February 2014 and later bought out by Banx.io, after which Atomic-Trade.com became known as Banx.io.",
+    "official_url_original": "https://www.atomic-trade.com/",
+    "official_domain_original": "atomic-trade.com",
+    "official_url_status": "repurposed",
+    "archived_url": "https://web.archive.org/web/*/https://www.atomic-trade.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-26",
+    "notes": "Terminal handling uses 2015-02-23 because public acquisition / partnership coverage states that Atomic-Trade.com became known as Banx.io as of that date and that Banx.io bought out Atomic-Trade.com. Successor_id remains null unless / until a canonical Banx.io exchange record is added. URL status is repurposed because current references no longer establish the original Atomic Trade exchange as independently operating."
   }
 ]
