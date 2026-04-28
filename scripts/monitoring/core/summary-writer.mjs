@@ -34,9 +34,11 @@ export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, resul
   const monitoringHealth = findResult(results, 'monitoring-health-watch');
   const evidenceHealth = findResult(results, 'evidence-health-watch');
   const newsAndEvent = findResult(results, 'news-and-event-watch');
+  const siteAndSeo = findResult(results, 'site-and-seo-watch');
   const watchlistState = monitoringHealth?.watchlist_state || null;
   const evidenceHealthSummary = evidenceHealth?.evidence_health_summary || null;
   const regulatorySummary = newsAndEvent?.regulatory_summary || null;
+  const siteSeoSummary = siteAndSeo?.site_seo_summary || null;
 
   const severityCounts = Object.fromEntries(SEVERITIES.map((severity) => [severity, 0]));
   for (const finding of findings) {
@@ -63,6 +65,9 @@ export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, resul
   }
   if (evidenceHealthFindings.some((finding) => ['critical', 'high', 'medium'].includes(finding.severity))) {
     suggestedActions.push('Review evidence-health findings and add archives or replacement evidence where needed.');
+  }
+  if (siteSeo.some((finding) => ['critical', 'high', 'medium'].includes(finding.severity))) {
+    suggestedActions.push('Review site/SEO findings and inspect deploy, sitemap, robots, or route generation.');
   }
   if (!suggestedActions.length) {
     suggestedActions.push('No operator action required.');
@@ -125,6 +130,8 @@ ${watchlistState ? `- watchlist_files: ${watchlistState.watchlist_files}\n- watc
 ${sectionList(watchlistFindings, (finding) => `- [${finding.severity}] ${finding.title} — ${finding.recommended_action || 'review'}`)}
 
 ## Site / SEO
+
+${siteSeoSummary ? `- enabled: ${siteSeoSummary.enabled}\n- site_url: ${siteSeoSummary.site_url}\n- routes_checked: ${siteSeoSummary.routes_checked}\n- route_findings: ${siteSeoSummary.route_findings || 0}\n- sitemap_checked: ${siteSeoSummary.sitemap_checked}\n- sitemap_status: ${siteSeoSummary.sitemap_status}\n- sitemap_exchange_routes_expected: ${siteSeoSummary.sitemap_exchange_routes_expected || 0}\n- sitemap_exchange_routes_actual: ${siteSeoSummary.sitemap_exchange_routes_actual || 0}\n- robots_checked: ${siteSeoSummary.robots_checked}\n- robots_status: ${siteSeoSummary.robots_status || 'not_checked'}` : '- Not available.'}
 
 ${sectionList(siteSeo, (finding) => `- [${finding.severity}] ${finding.title} — ${finding.recommended_action || 'review'}`)}
 
