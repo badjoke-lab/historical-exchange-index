@@ -27,6 +27,7 @@ jobs:
         run: npm ci
 
       - name: Run monitoring
+        id: monitor
         run: npm run monitor
 
       - name: Guard canonical data files
@@ -39,6 +40,10 @@ jobs:
       - name: Check monitoring changes
         id: changes
         run: |
+          if [ "${{ steps.monitor.outputs.meaningful_findings }}" != "true" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           if git status --porcelain -- data-staging/monitoring data-staging/watchlists/auto data-staging/watchlists/resolution | grep .; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
