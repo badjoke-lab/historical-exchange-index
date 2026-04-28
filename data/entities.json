@@ -5553,5 +5553,30 @@
     "confidence": "high",
     "last_verified_at": "2026-04-29",
     "notes": "HEI models this as the historical BTCChina brand record. The 2015-09-15 rebrand to BTCC is used as the terminal brand marker. Later BTCC trading restrictions and ownership changes should be handled separately if a BTCC successor record is modeled."
+  },
+  {
+    "id": "hei_ex_000261",
+    "slug": "bitnz",
+    "canonical_name": "BitNZ",
+    "aliases": [
+      "bitNZ",
+      "bitnz.com"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2011-09-12",
+    "death_date": "2017-04-15",
+    "country_or_origin": "New Zealand",
+    "summary": "New Zealand BTC/NZD exchange announced in September 2011. BitNZ later announced it would close because New Zealand banking access made Bitcoin exchange operations impossible, and customers were asked to withdraw funds by 2017-04-15.",
+    "official_url_original": "https://bitnz.com/",
+    "official_domain_original": "bitnz.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://bitnz.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI models BitNZ as dead / voluntary_shutdown because reporting describes a planned closure driven by banking-access problems rather than a hack or insolvency. The terminal date uses the customer withdrawal deadline of 2017-04-15."
   }
 ]
