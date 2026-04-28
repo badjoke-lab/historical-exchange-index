@@ -1,0 +1,632 @@
+# HEI Auto Monitoring Report - 20260428
+
+## Run
+
+- run_id: 20260428-142813
+- mode: scheduled
+- started_at: 2026-04-28T14:28:13.500Z
+- finished_at: 2026-04-28T14:28:13.538Z
+- meaningful_findings: yes
+
+## Noise control
+
+- total_findings_seen: 493
+- visible_findings: 493
+- suppressed_repeated_low_findings: 0
+- new_findings: 493
+- repeated_findings: 0
+
+## Counts
+
+- monitors: 7
+- findings: 493
+- suppressed_findings: 0
+- candidates: 0
+- critical: 0
+- high: 47
+- medium: 373
+- low: 73
+
+## A candidates
+
+- None.
+
+## B candidates
+
+- None.
+
+## Critical / high alerts
+
+- [high] Invalid event_type on hei_ev_000168 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_status_effect on hei_ev_000168 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_type on hei_ev_000182 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_status_effect on hei_ev_000182 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_type on hei_ev_000189 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_type on hei_ev_000190 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_status_effect on hei_ev_000190 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_type on hei_ev_000193 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_type on hei_ev_000270 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_type on hei_ev_000272 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_type on hei_ev_000274 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_type on hei_ev_000282 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_type on hei_ev_000288 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_type on hei_ev_000290 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_type on hei_ev_000292 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_status_effect on hei_ev_000311 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_type on hei_ev_000328 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_type on hei_ev_000331 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid event_status_effect on hei_ev_000422 (evidence-and-record-quality-watch) — fix_event_enum
+- [high] Invalid source_type on hei_src_000471 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid claim_scope on hei_src_000471 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000478 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000481 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000483 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid claim_scope on hei_src_000483 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000484 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000487 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000490 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000493 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000496 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000499 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000502 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000505 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000508 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000511 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000515 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000518 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid claim_scope on hei_src_000549 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid claim_scope on hei_src_000621 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid claim_scope on hei_src_000637 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000696 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000699 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000714 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid claim_scope on hei_src_000724 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000813 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000834 (evidence-and-record-quality-watch) — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000835 (evidence-and-record-quality-watch) — fix_evidence_enum
+
+## Regulatory watch
+
+- enabled: false
+- authorities_configured: 7
+- query_templates: 5
+- queries: 0
+- items: 0
+- candidates: 0
+
+- None.
+
+- [low] News and regulatory RSS fetching is disabled — enable_external_rss_checks_when_ready_for_scheduled_external_checks
+
+## Data quality
+
+- [medium] Entity has no event records: Kraken — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Bitstamp — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Coinbase Exchange — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: KuCoin — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: MEXC — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Gate.io — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Bitfinex — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HTX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Crypto.com Exchange — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: bitFlyer — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Coincheck — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Kraken Pro — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Bullish — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: LBank — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Bitget — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Bitbank — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Bitbank — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Mercado Bitcoin — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Mercado Bitcoin — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Coinone — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Coinone — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Bitso — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Bitso — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Bitkub — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Bitkub — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Foxbit — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Foxbit — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: BTC Markets — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: BTC Markets — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Paribu — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Paribu — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Indodax — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Indodax — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Luno — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Luno — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Coins.ph — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Coins.ph — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: WhiteBIT — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: WhiteBIT — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Bitvavo — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Bitvavo — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Tokocrypto — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Tokocrypto — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Korbit — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Korbit — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Bitrue — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Bitrue — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: XT.COM — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: XT.COM — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: BTSE — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: BTSE — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Independent Reserve — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Independent Reserve — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Buda.com — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Buda.com — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Ripio — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Ripio — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Coinhako — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Coinhako — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: PDAX — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: PDAX — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: VALR — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: VALR — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: BitoPro — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: BitoPro — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Bit2Me — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Bit2Me — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: ZebPay — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: ZebPay — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: BitMEX — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: BitMEX — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Zaif — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Zaif — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: CoinW — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: CoinW — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: OrangeX — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: OrangeX — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: AscendEX — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: AscendEX — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Toobit — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Toobit — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Backpack Exchange — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Backpack Exchange — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: CoinJar — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: CoinJar — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Swyftx — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Swyftx — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Rain — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Rain — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Trubit — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Trubit — improve_evidence_or_review_confidence
+- [low] official_url_status unknown: Nobitex — review_official_url_status_when_available
+- [medium] Entity has no event records: Bitexen — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Bitexen — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: UpHold Exchange — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: UpHold Exchange — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Coinmetro — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Coinmetro — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Cryptology — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Cryptology — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Wirex Exchange — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Wirex Exchange — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: CEX.IO — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: CEX.IO — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: CoinSpot — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: CoinSpot — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Deepcoin — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Deepcoin — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Tapbit — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Tapbit — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: WEEX — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: WEEX — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: BloFin — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: BloFin — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: KCEX — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: KCEX — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Flipster — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Flipster — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: LCX — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: LCX — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Coinsquare — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Coinsquare — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Newton — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Newton — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: VirgoCX — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: VirgoCX — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Bitunix — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Bitunix — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Pionex — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Pionex — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: HashKey Exchange — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: HashKey Exchange — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Biconomy Exchange — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Biconomy Exchange — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: DigiFinex — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: DigiFinex — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Aibit — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Aibit — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Ourbit — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Ourbit — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Lykke Exchange — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Lykke Exchange — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: ChangeNOW Pro — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: ChangeNOW Pro — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: BingX — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: BingX — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: CryptoMarket — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: CryptoMarket — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Coinstore — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Coinstore — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: BVOX — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: BVOX — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: TimeX — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: TimeX — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Bity — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Bity — improve_evidence_or_review_confidence
+- [medium] Entity has no event records: Paybis Exchange — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: Paybis Exchange — improve_evidence_or_review_confidence
+- [low] official_url_status unknown: Livecoin — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: WEX — review_lineage_fields_when_record_is_touched
+- [medium] Dead-side entity has fewer than 2 evidence records: CryptoRush — add_second_source_or_archive
+- [medium] Entity has no event records: CryptoRush — add_minimum_event_or_review_record_shape
+- [medium] Low/medium confidence with thin evidence: CryptoRush — improve_evidence_or_review_confidence
+- [low] official_url_status unknown: Coinsetter — review_official_url_status_when_available
+- [low] official_url_status unknown: Cavirtex — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: BitBay — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: BITFRONT — review_official_url_status_when_available
+- [low] official_url_status unknown: OPNX — review_official_url_status_when_available
+- [low] country_or_origin unknown: OPNX — add_origin_if_sourceable
+- [low] Possible successor/predecessor link missing: OPNX — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: Youbit — review_official_url_status_when_available
+- [low] official_url_status unknown: Coinfloor — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: Coinfloor — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: CleverCoin — review_official_url_status_when_available
+- [low] official_url_status unknown: Coinnest — review_official_url_status_when_available
+- [low] official_url_status unknown: Liqui — review_official_url_status_when_available
+- [low] official_url_status unknown: Nova Exchange — review_official_url_status_when_available
+- [low] official_url_status unknown: Einstein Exchange — review_official_url_status_when_available
+- [low] country_or_origin unknown: CryptoBridge — add_origin_if_sourceable
+- [medium] Invalid official_url_status on hei_ex_000159 — fix_entity_enum
+- [low] Possible successor/predecessor link missing: C-Trade — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: eXch — review_official_url_status_when_available
+- [low] official_url_status unknown: Hoo Exchange — review_official_url_status_when_available
+- [low] official_url_status unknown: BiteBTC — review_official_url_status_when_available
+- [low] official_url_status unknown: Trade Satoshi — review_official_url_status_when_available
+- [low] official_url_status unknown: IDAX — review_official_url_status_when_available
+- [low] official_url_status unknown: Bololex Exchange — review_official_url_status_when_available
+- [low] official_url_status unknown: Bitzlato — review_official_url_status_when_available
+- [low] official_url_status unknown: Bgogo — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: Bgogo — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: BiKi — review_official_url_status_when_available
+- [low] official_url_status unknown: Exnomy — review_official_url_status_when_available
+- [low] official_url_status unknown: CoinBene — review_official_url_status_when_available
+- [low] official_url_status unknown: Bitholic — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: Bitholic — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: Coineal — review_official_url_status_when_available
+- [low] official_url_status unknown: CoinEgg — review_official_url_status_when_available
+- [low] official_url_status unknown: UniDAX — review_official_url_status_when_available
+- [low] official_url_status unknown: Rfinex — review_official_url_status_when_available
+- [low] official_url_status unknown: Vebitcoin — review_official_url_status_when_available
+- [low] official_url_status unknown: C2CX — review_official_url_status_when_available
+- [low] official_url_status unknown: Coinzo — review_official_url_status_when_available
+- [low] official_url_status unknown: CCEDK — review_official_url_status_when_available
+- [low] country_or_origin unknown: Coin-Swap — add_origin_if_sourceable
+- [low] country_or_origin unknown: AllCrypt — add_origin_if_sourceable
+- [low] country_or_origin unknown: McxNOW — add_origin_if_sourceable
+- [low] official_url_status unknown: Bit.com — review_official_url_status_when_available
+- [low] official_url_status unknown: ProBit Global — review_official_url_status_when_available
+- [low] official_url_status unknown: Grinex — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: Grinex — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: Bunni — review_official_url_status_when_available
+- [low] official_url_status unknown: Polynomial Protocol — review_official_url_status_when_available
+- [low] official_url_status unknown: Step Finance — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: Cetus Protocol — review_lineage_fields_when_record_is_touched
+- [medium] Provisional text found: KiloEx — replace_provisional_notes_with_reviewed_text
+- [low] official_url_status unknown: Mango Markets — review_official_url_status_when_available
+- [low] official_url_status unknown: DMM Bitcoin — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: DMM Bitcoin — review_lineage_fields_when_record_is_touched
+- [medium] Provisional text found: BtcTurk — replace_provisional_notes_with_reviewed_text
+- [medium] Provisional text found: GMX — replace_provisional_notes_with_reviewed_text
+- [medium] Provisional text found: WOO X — replace_provisional_notes_with_reviewed_text
+- [low] country_or_origin unknown: Crypto-Trade — add_origin_if_sourceable
+- [low] official_url_status unknown: CoinedUp — review_official_url_status_when_available
+- [low] country_or_origin unknown: CoinedUp — add_origin_if_sourceable
+- [low] official_url_status unknown: LazyCoins — review_official_url_status_when_available
+- [low] official_url_status unknown: 796 Exchange — review_official_url_status_when_available
+- [medium] source_count mismatch on hei_ev_000126 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000153 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000157 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000158 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000159 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000162 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000168 — fix_event_enum
+- [high] Invalid event_status_effect on hei_ev_000168 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000174 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000175 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000176 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000179 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000180 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000181 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000182 — fix_event_enum
+- [high] Invalid event_status_effect on hei_ev_000182 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000184 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000185 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000187 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000188 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000189 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000189 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000190 — fix_event_enum
+- [high] Invalid event_status_effect on hei_ev_000190 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000190 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000191 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000192 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000193 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000193 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000195 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000197 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000199 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000201 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000203 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000205 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000207 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000209 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000211 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000213 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000215 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000224 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000228 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000229 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000231 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000232 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000233 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000234 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000235 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000236 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000238 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000239 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000240 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000242 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000243 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000245 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000246 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000247 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000248 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000249 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000252 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000253 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000254 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000255 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000256 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000257 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000258 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000259 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000260 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000261 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000262 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000263 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000264 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000265 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000266 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000267 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000270 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000270 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000271 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000272 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000273 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000274 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000274 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000275 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000276 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000277 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000278 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000279 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000280 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000281 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000282 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000282 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000283 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000284 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000285 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000286 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000287 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000288 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000288 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000289 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000290 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000290 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000291 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000292 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000292 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000293 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000294 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000295 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000296 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000297 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000298 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000299 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000300 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000301 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000302 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000304 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000305 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000306 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000307 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000308 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000309 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000310 — review_event_source_count
+- [high] Invalid event_status_effect on hei_ev_000311 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000312 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000313 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000314 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000315 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000316 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000317 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000318 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000319 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000320 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000322 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000323 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000326 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000327 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000328 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000329 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000330 — review_event_source_count
+- [high] Invalid event_type on hei_ev_000331 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000331 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000332 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000333 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000334 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000335 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000336 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000337 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000339 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000340 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000341 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000342 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000343 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000344 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000346 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000347 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000348 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000349 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000351 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000352 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000353 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000354 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000355 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000356 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000357 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000358 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000359 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000360 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000361 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000362 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000363 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000364 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000365 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000366 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000367 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000368 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000369 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000370 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000371 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000372 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000373 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000374 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000375 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000376 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000377 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000378 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000379 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000380 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000381 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000382 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000383 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000384 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000385 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000386 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000387 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000388 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000389 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000390 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000392 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000393 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000394 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000395 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000396 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000397 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000398 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000400 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000401 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000402 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000403 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000404 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000405 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000406 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000407 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000408 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000409 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000410 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000411 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000412 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000413 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000414 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000415 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000416 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000417 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000419 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000421 — review_event_source_count
+- [high] Invalid event_status_effect on hei_ev_000422 — fix_event_enum
+- [medium] source_count mismatch on hei_ev_000423 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000424 — review_event_source_count
+- [medium] source_count mismatch on hei_ev_000430 — review_event_source_count
+- [high] Invalid source_type on hei_src_000471 — fix_evidence_enum
+- [high] Invalid claim_scope on hei_src_000471 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000478 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000481 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000483 — fix_evidence_enum
+- [high] Invalid claim_scope on hei_src_000483 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000484 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000487 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000490 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000493 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000496 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000499 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000502 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000505 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000508 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000511 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000515 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000518 — fix_evidence_enum
+- [high] Invalid claim_scope on hei_src_000549 — fix_evidence_enum
+- [high] Invalid claim_scope on hei_src_000621 — fix_evidence_enum
+- [high] Invalid claim_scope on hei_src_000637 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000696 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000699 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000714 — fix_evidence_enum
+- [high] Invalid claim_scope on hei_src_000724 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000813 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000834 — fix_evidence_enum
+- [high] Invalid source_type on hei_src_000835 — fix_evidence_enum
+
+## Evidence health
+
+- enabled: false
+- evidence_with_urls: 646
+- checked: 0
+- findings: 0
+- without_archive_total: 0
+
+- [low] Evidence URL checks are disabled — enable_evidence_url_checks_when_ready_for_scheduled_external_checks
+
+## Watchlist state
+
+- watchlist_files: 3
+- watchlist_candidates: 14
+- class_A: 6
+- class_B: 4
+- class_C: 4
+- manual_staging_packages: 9
+- resolution_files: 0
+
+- [low] Watchlist candidate appears canonicalized but unresolved: CoinDCX — add_resolution_promoted_to_canonical
+- [low] Watchlist candidate appears canonicalized but unresolved: Bybit — add_resolution_promoted_to_canonical
+- [low] Watchlist candidate appears canonicalized but unresolved: DMM Bitcoin — add_resolution_promoted_to_canonical
+- [low] Watchlist candidate appears canonicalized but unresolved: BtcTurk — add_resolution_promoted_to_canonical
+- [low] Watchlist candidate appears canonicalized but unresolved: GMX — add_resolution_promoted_to_canonical
+- [low] Watchlist candidate appears canonicalized but unresolved: BingX — add_resolution_promoted_to_canonical
+- [low] Watchlist candidate appears canonicalized but unresolved: Bithumb — add_resolution_promoted_to_canonical
+
+## Site / SEO
+
+- enabled: false
+- site_url: https://hei.badjoke-lab.com
+- routes_checked: 0
+- route_findings: 0
+- sitemap_checked: false
+- sitemap_status: undefined
+- sitemap_exchange_routes_expected: 0
+- sitemap_exchange_routes_actual: 0
+- robots_checked: false
+- robots_status: not_checked
+
+- [low] Site and SEO checks are disabled — enable_site_seo_checks_when_ready_for_scheduled_external_checks
+
+## Suggested operator actions
+
+1. Review critical/high alerts before accepting new staging work.
+2. Review regulatory-source candidates separately and avoid status/death_reason changes without source confirmation.
+3. Review watchlist-state findings and update staging or resolution files as needed.

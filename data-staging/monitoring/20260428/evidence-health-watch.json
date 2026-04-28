@@ -1,0 +1,45 @@
+{
+  "monitor": "evidence-health-watch",
+  "status": "ok",
+  "started_at": "2026-04-28T14:28:13.530Z",
+  "finished_at": "2026-04-28T14:28:13.532Z",
+  "findings": [
+    {
+      "finding_id": "finding_1777386493532_rzucv7",
+      "monitor": "evidence-health-watch",
+      "severity": "low",
+      "category": "evidence_url_watch_disabled",
+      "title": "Evidence URL checks are disabled",
+      "summary": "Set HEI_MONITORING_ENABLE_EVIDENCE_URL_CHECKS=1 to enable evidence source URL checks.",
+      "affected_entity": null,
+      "recommended_action": "enable_evidence_url_checks_when_ready_for_scheduled_external_checks",
+      "source_urls": [],
+      "confidence": "medium",
+      "dedupe_key": "evidence-health-watch:evidence_url_checks_disabled",
+      "first_seen_at": "2026-04-28T14:28:13.538Z",
+      "last_seen_at": "2026-04-28T14:28:13.538Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    }
+  ],
+  "candidates": [],
+  "errors": [],
+  "summary": {
+    "findings_count": 1,
+    "visible_findings_count": 1,
+    "candidate_count": 0,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 1
+  },
+  "evidence_health_summary": {
+    "enabled": false,
+    "evidence_with_urls": 646,
+    "checked": 0
+  }
+}
