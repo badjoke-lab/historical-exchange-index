@@ -4590,5 +4590,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "Used as the terminal voluntary shutdown marker. CoinDesk published its report on 2015-08-20 and refers to a 2015-08-14 Harborly blog post."
+  },
+  {
+    "id": "hei_ev_000443",
+    "exchange_id": "hei_ex_000258",
+    "event_type": "launched",
+    "event_date": "2013-01-01",
+    "title": "Igot founded",
+    "description": "Igot is described by ABC and CoinTelegraph reporting as an Australian-founded Bitcoin exchange founded in 2013.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2013-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000444",
+    "exchange_id": "hei_ex_000258",
+    "event_type": "withdrawal_suspended",
+    "event_date": "2016-04-11",
+    "title": "Igot customers reported unpaid withdrawals and collapse risk",
+    "description": "ABC reported that Igot appeared on the verge of collapse, with customers owed funds, months-long withdrawal failures, and the owner acknowledging difficulty paying customers back.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Recorded as severe operational distress / withdrawal failure, not as a confirmed shutdown marker."
   }
 ]

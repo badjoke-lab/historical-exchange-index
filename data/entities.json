@@ -5477,5 +5477,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-28",
     "notes": "HEI models Harborly as dead / voluntary_shutdown because contemporary reporting says the team closed the exchange to focus on a separate project and explicitly said the shutdown was not caused by hack, fraud, or a security-related incident. Regulatory and compliance burden is retained as context, not the primary death_reason."
+  },
+  {
+    "id": "hei_ex_000258",
+    "slug": "igot",
+    "canonical_name": "Igot",
+    "aliases": [
+      "igot",
+      "13th Pty Ltd"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2013-01-01",
+    "death_date": null,
+    "country_or_origin": "Australia",
+    "summary": "Australian-founded Bitcoin exchange founded in 2013. By April 2016, major Australian reporting described Igot as on the verge of collapse, with customers claiming unpaid balances and the owner acknowledging difficulty paying customers back. HEI models it as inactive rather than dead because the current evidence set does not establish a definitive shutdown announcement or terminal date.",
+    "official_url_original": "https://igot.com/",
+    "official_domain_original": "igot.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://igot.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-28",
+    "notes": "HEI models Igot as inactive rather than dead because contemporary reporting strongly supports severe operational distress and non-payment complaints, but does not provide a clean official shutdown announcement or terminal operating date. Do not mark as dead without stronger terminal evidence."
   }
 ]
