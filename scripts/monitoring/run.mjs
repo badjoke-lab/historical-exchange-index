@@ -5,23 +5,7 @@ import { createRunId, writeAllReports } from './core/report-writer.mjs';
 import { buildSummaryMarkdown } from './core/summary-writer.mjs';
 import { hasMeaningfulFindings, runMonitorSafely } from './core/finding-utils.mjs';
 import { loadMonitoringState, applyNoiseControl, writeMonitoringState, writeGitHubOutput } from './core/state-store.mjs';
-import { runCandidateDiscovery } from './monitors/candidate-discovery.mjs';
-import { runNewsAndEventWatch } from './monitors/news-and-event-watch.mjs';
-import { runActiveStatusWatch } from './monitors/active-status-watch.mjs';
-import { runEvidenceAndRecordQualityWatch } from './monitors/evidence-and-record-quality-watch.mjs';
-import { runEvidenceHealthWatch } from './monitors/evidence-health-watch.mjs';
-import { runSiteAndSeoWatch } from './monitors/site-and-seo-watch.mjs';
-import { runMonitoringHealthWatch } from './monitors/monitoring-health-watch.mjs';
-
-const monitorFns = [
-  ['candidate-discovery', runCandidateDiscovery],
-  ['news-and-event-watch', runNewsAndEventWatch],
-  ['active-status-watch', runActiveStatusWatch],
-  ['evidence-and-record-quality-watch', runEvidenceAndRecordQualityWatch],
-  ['evidence-health-watch', runEvidenceHealthWatch],
-  ['site-and-seo-watch', runSiteAndSeoWatch],
-  ['monitoring-health-watch', runMonitoringHealthWatch],
-];
+import { MONITOR_REGISTRY } from './core/monitor-registry.mjs';
 
 async function main() {
   const runId = process.env.HEI_MONITORING_RUN_ID || createRunId();
@@ -34,7 +18,7 @@ async function main() {
   };
 
   const rawResults = [];
-  for (const [name, fn] of monitorFns) {
+  for (const [name, fn] of MONITOR_REGISTRY) {
     rawResults.push(await runMonitorSafely(name, fn, context));
   }
 
