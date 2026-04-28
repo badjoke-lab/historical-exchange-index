@@ -80,17 +80,17 @@ jobs:
       - name: Run monitoring
         id: monitor
         env:
-          INPUT_ENABLE_EXTERNAL_LISTS: ${{ inputs.enable_external_lists || 'false' }}
-          INPUT_ENABLE_NEWS_RSS: ${{ inputs.enable_news_rss || 'false' }}
-          INPUT_ENABLE_DOMAIN_CHECKS: ${{ inputs.enable_domain_checks || 'false' }}
-          INPUT_ENABLE_EVIDENCE_URL_CHECKS: ${{ inputs.enable_evidence_url_checks || 'false' }}
-          INPUT_ENABLE_REGULATORY_WATCH: ${{ inputs.enable_regulatory_watch || 'false' }}
-          INPUT_ENABLE_SITE_SEO_CHECKS: ${{ inputs.enable_site_seo_checks || 'false' }}
-          INPUT_SITE_URL: ${{ inputs.site_url || 'https://hei.badjoke-lab.com' }}
-          INPUT_NEWS_QUERY_LIMIT: ${{ inputs.news_query_limit || '20' }}
-          INPUT_REGULATORY_QUERY_LIMIT: ${{ inputs.regulatory_query_limit || '25' }}
-          INPUT_DOMAIN_CHECK_LIMIT: ${{ inputs.domain_check_limit || '50' }}
-          INPUT_EVIDENCE_URL_CHECK_LIMIT: ${{ inputs.evidence_url_check_limit || '50' }}
+          INPUT_ENABLE_EXTERNAL_LISTS: ${{ github.event.inputs.enable_external_lists || 'false' }}
+          INPUT_ENABLE_NEWS_RSS: ${{ github.event.inputs.enable_news_rss || 'false' }}
+          INPUT_ENABLE_DOMAIN_CHECKS: ${{ github.event.inputs.enable_domain_checks || 'false' }}
+          INPUT_ENABLE_EVIDENCE_URL_CHECKS: ${{ github.event.inputs.enable_evidence_url_checks || 'false' }}
+          INPUT_ENABLE_REGULATORY_WATCH: ${{ github.event.inputs.enable_regulatory_watch || 'false' }}
+          INPUT_ENABLE_SITE_SEO_CHECKS: ${{ github.event.inputs.enable_site_seo_checks || 'false' }}
+          INPUT_SITE_URL: ${{ github.event.inputs.site_url || 'https://hei.badjoke-lab.com' }}
+          INPUT_NEWS_QUERY_LIMIT: ${{ github.event.inputs.news_query_limit || '20' }}
+          INPUT_REGULATORY_QUERY_LIMIT: ${{ github.event.inputs.regulatory_query_limit || '25' }}
+          INPUT_DOMAIN_CHECK_LIMIT: ${{ github.event.inputs.domain_check_limit || '50' }}
+          INPUT_EVIDENCE_URL_CHECK_LIMIT: ${{ github.event.inputs.evidence_url_check_limit || '50' }}
         run: |
           bool_to_flag() {
             if [ "$1" = "true" ]; then
