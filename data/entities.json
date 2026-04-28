@@ -5528,5 +5528,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-29",
     "notes": "HEI models Bitparking as inactive rather than dead because available sources strongly support exchange operation, drive-corruption failure, withdrawal-only recovery, and cessation language, but the current evidence set is largely forum / community-preserved rather than a clean official shutdown notice. Do not assign a death_reason without stronger terminal evidence."
+  },
+  {
+    "id": "hei_ex_000260",
+    "slug": "btcchina",
+    "canonical_name": "BTCChina",
+    "aliases": [
+      "BTC China",
+      "BTCChina.com"
+    ],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": "2011-06-01",
+    "death_date": "2015-09-15",
+    "country_or_origin": "China",
+    "summary": "China-based Bitcoin exchange founded in 2011 and widely described as China's first Bitcoin exchange. In September 2015, BTCChina rebranded to BTCC as the company shifted toward a more global identity.",
+    "official_url_original": "https://btcchina.com/",
+    "official_domain_original": "btcchina.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://btcchina.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI models this as the historical BTCChina brand record. The 2015-09-15 rebrand to BTCC is used as the terminal brand marker. Later BTCC trading restrictions and ownership changes should be handled separately if a BTCC successor record is modeled."
   }
 ]
