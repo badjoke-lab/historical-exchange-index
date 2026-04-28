@@ -5405,5 +5405,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-28",
     "notes": "HEI models BitKonan as inactive rather than dead because the current evidence set supports historical operation and current lack of tracked market activity, but does not establish a definitive shutdown announcement or terminal date. Launch date is stored at year precision based on multiple secondary references to 2013 founding / launch; one tracker describes operation since 2014."
+  },
+  {
+    "id": "hei_ex_000255",
+    "slug": "bitcoin-24",
+    "canonical_name": "Bitcoin-24",
+    "aliases": [
+      "Bitcoin-24.com",
+      "Bitcoin24"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2012-05-01",
+    "death_date": "2013-04-12",
+    "country_or_origin": "Europe",
+    "summary": "Europe-focused Bitcoin exchange that was live from May 2012 and went offline in April 2013 after Polish and German bank-account closures and related legal / regulatory action.",
+    "official_url_original": "https://bitcoin-24.com/",
+    "official_domain_original": "bitcoin-24.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://bitcoin-24.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-28",
+    "notes": "HEI uses 2013-04-12 as the terminal shutdown marker based on public shutdown notices and reporting. CoinDesk later described the exchange as offline for two weeks after Polish and German bank accounts were closed."
   }
 ]

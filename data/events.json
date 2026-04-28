@@ -4492,5 +4492,33 @@
     "source_count": 3,
     "sort_order": 1,
     "notes": "Date is year-level. Cryptowisser and Blank describe 2013; CoinPaprika describes the exchange as running since 2014."
+  },
+  {
+    "id": "hei_ev_000436",
+    "exchange_id": "hei_ex_000255",
+    "event_type": "launched",
+    "event_date": "2012-05-01",
+    "title": "Bitcoin-24 first live",
+    "description": "Bitcoin-24 is described by Bitcoin Wiki as first live in May 2012.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Date is month-level. Stored as 2012-05-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000437",
+    "exchange_id": "hei_ex_000255",
+    "event_type": "regulatory_action",
+    "event_date": "2013-04-12",
+    "title": "Bitcoin-24 shut down after bank-account closures",
+    "description": "Bitcoin-24 displayed a shutdown / unavailable notice in April 2013, citing closure of its Polish bank account, while later reporting described both Polish and German account closures and legal action.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Used as the terminal regulatory / banking shutdown marker."
   }
 ]
