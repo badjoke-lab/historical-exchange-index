@@ -4408,5 +4408,47 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "HEI treats this as the terminal marker for the original Atomic Trade exchange identity."
+  },
+  {
+    "id": "hei_ev_000430",
+    "exchange_id": "hei_ex_000252",
+    "event_type": "launched",
+    "event_date": "2014-07-21",
+    "title": "LazyCoins beta launch marker",
+    "description": "Public forum and trading references show LazyCoins operating as an exchange from July 2014, with the announcement thread describing a beta launch on 2014-07-21.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "HEI uses the beta-launch marker rather than the later official-launch publicity date."
+  },
+  {
+    "id": "hei_ev_000431",
+    "exchange_id": "hei_ex_000252",
+    "event_type": "other",
+    "event_date": "2015-01-04",
+    "title": "LazyCoins relaunch and LazyPay expansion were reported",
+    "description": "Public reporting described LazyCoins as relaunching its online exchange and expanding toward LazyPay mobile wallet and merchant services.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 2,
+    "notes": "Recorded as contextual operational expansion rather than a status transition."
+  },
+  {
+    "id": "hei_ev_000432",
+    "exchange_id": "hei_ex_000252",
+    "event_type": "other",
+    "event_date": "2015-03-02",
+    "title": "LazyCoins official launch was reported",
+    "description": "Cointelegraph reported LazyCoins' official launch as a UK-based digital currency exchange supporting GBP and euro markets.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 3,
+    "notes": "This is retained as a later official-launch publicity marker after the beta / relaunch phase."
   }
 ]
