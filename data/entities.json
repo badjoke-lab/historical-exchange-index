@@ -5628,5 +5628,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-29",
     "notes": "HEI models Bitcoin-Central as inactive rather than dead because the historical service is marked discontinued, but the current evidence set does not provide a definitive final shutdown announcement or terminal date. Paymium / BTCC-style successor modeling should be handled separately if needed."
+  },
+  {
+    "id": "hei_ex_000264",
+    "slug": "coinffeine",
+    "canonical_name": "Coinffeine",
+    "aliases": [
+      "Coinffeine S.L.",
+      "Coinffeine SL"
+    ],
+    "type": "dex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2015-07-21",
+    "death_date": null,
+    "country_or_origin": "Spain",
+    "summary": "Spain-based open-source decentralized peer-to-peer Bitcoin exchange project. Coinffeine publicly launched in July 2015 across more than 70 countries, but later references describe the project as having ceased active development and operations around 2016-2017. HEI models it as inactive because a definitive shutdown announcement or terminal date is not established.",
+    "official_url_original": "http://coinffeine.com/",
+    "official_domain_original": "coinffeine.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/http://coinffeine.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI treats Coinffeine as an entity-level DEX / P2P exchange record. It is kept inactive rather than dead because launch and project history are well supported, but the terminal status is based on secondary profile references rather than a clean official shutdown notice."
   }
 ]
