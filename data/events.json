@@ -4676,5 +4676,33 @@
     "counterparty_name": "BTCC",
     "counterparty_exchange_id": null,
     "notes": "Used as the terminal brand marker for the BTCChina historical record."
+  },
+  {
+    "id": "hei_ev_000449",
+    "exchange_id": "hei_ex_000261",
+    "event_type": "launched",
+    "event_date": "2011-09-12",
+    "title": "BitNZ announced",
+    "description": "Bitcoin Wiki records BitNZ as announced on 2011-09-12 as a New Zealand BTC/NZD exchange.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Used as the launch / public announcement marker."
+  },
+  {
+    "id": "hei_ev_000450",
+    "exchange_id": "hei_ex_000261",
+    "event_type": "shutdown_effective",
+    "event_date": "2017-04-15",
+    "title": "BitNZ withdrawal deadline after closure announcement",
+    "description": "BitNZ announced it would close due to New Zealand banking problems and asked customers to withdraw funds by 2017-04-15.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "Used as the terminal voluntary shutdown marker. The closure context is banking-access loss rather than a hack."
   }
 ]
