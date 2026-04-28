@@ -4450,5 +4450,33 @@
     "source_count": 1,
     "sort_order": 3,
     "notes": "This is retained as a later official-launch publicity marker after the beta / relaunch phase."
+  },
+  {
+    "id": "hei_ev_000433",
+    "exchange_id": "hei_ex_000253",
+    "event_type": "launched",
+    "event_date": "2013-06-09",
+    "title": "796 Exchange public launch marker",
+    "description": "796 Exchange publicly described itself as a Hong Kong-operated Bitcoin futures and finance exchange and referenced public launch / trading activity beginning around 2013-06-09.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "The English announcement thread describes 796 Xchange Limited, the 796.com domain, Hong Kong incorporation, and trading activity just after 2013-06-09. The Chinese announcement describes the internal test period before the public launch."
+  },
+  {
+    "id": "hei_ev_000434",
+    "exchange_id": "hei_ex_000253",
+    "event_type": "hack",
+    "event_date": "2015-01-28",
+    "title": "796 Exchange reported 1,000 BTC withdrawal-address tampering loss",
+    "description": "Public reporting described a 1,000 BTC loss at 796 after a withdrawal address was allegedly tampered with during a compromised customer-service / withdrawal process.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "HEI records this as a major incident, not as a shutdown marker."
   }
 ]
