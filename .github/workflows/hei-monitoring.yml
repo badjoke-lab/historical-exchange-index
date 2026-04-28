@@ -148,7 +148,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
-          git add data-staging/monitoring data-staging/watchlists/auto data-staging/watchlists/resolution
+          for path in data-staging/monitoring data-staging/watchlists/auto data-staging/watchlists/resolution; do
+            if [ -e "$path" ]; then
+              git add "$path"
+            else
+              echo "Skipping missing monitoring path: $path"
+            fi
+          done
           git commit -m "Add HEI auto monitoring report"
           git push origin "$BRANCH"
           SUMMARY_FILE="$(find data-staging/monitoring -name summary.md | sort | tail -n 1)"
