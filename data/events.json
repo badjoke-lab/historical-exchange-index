@@ -4380,5 +4380,33 @@
     "source_count": 1,
     "sort_order": 2,
     "notes": "This is not treated as a shutdown_effective event because it is community observation rather than an official terminal notice."
+  },
+  {
+    "id": "hei_ev_000428",
+    "exchange_id": "hei_ex_000251",
+    "event_type": "launched",
+    "event_date": "2014-02-05",
+    "title": "Atomic Trade went live",
+    "description": "Public forum discussion described Atomic-Trade.com as a United States exchange and stated that it went live on 2014-02-05.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "HEI uses the explicit 2014-02-05 live-date claim from public Bitcointalk discussion."
+  },
+  {
+    "id": "hei_ev_000429",
+    "exchange_id": "hei_ex_000251",
+    "event_type": "acquired",
+    "event_date": "2015-02-23",
+    "title": "Atomic Trade was bought out by Banx.io",
+    "description": "Public acquisition coverage stated that Banx.io bought out Atomic-Trade.com and that Atomic-Trade.com became known as Banx.io as of 2015-02-23.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "HEI treats this as the terminal marker for the original Atomic Trade exchange identity."
   }
 ]
