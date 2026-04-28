@@ -1,4 +1,5 @@
 import { SEVERITIES } from './constants.mjs';
+import { visibleFindings } from './finding-utils.mjs';
 
 function flattenFindings(results) {
   return results.flatMap((result) => (result.findings || []).map((finding) => ({ ...finding, monitor: finding.monitor || result.monitor })));
@@ -19,8 +20,9 @@ function findResult(results, monitor) {
   return results.find((result) => result.monitor === monitor) || null;
 }
 
-export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, results, hasMeaningfulFindings }) {
-  const findings = flattenFindings(results);
+export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, results, hasMeaningfulFindings, noiseSummary = null }) {
+  const allFindings = flattenFindings(results);
+  const findings = visibleFindings(allFindings);
   const candidates = flattenCandidates(results);
   const aCandidates = candidates.filter((candidate) => candidate.candidate_class === 'A');
   const bCandidates = candidates.filter((candidate) => candidate.candidate_class === 'B');
@@ -83,10 +85,15 @@ export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, resul
 - finished_at: ${finishedAt}
 - meaningful_findings: ${hasMeaningfulFindings ? 'yes' : 'no'}
 
+## Noise control
+
+${noiseSummary ? `- total_findings_seen: ${noiseSummary.total_findings}\n- visible_findings: ${noiseSummary.visible_count}\n- suppressed_repeated_low_findings: ${noiseSummary.suppressed_count}\n- new_findings: ${noiseSummary.new_count}\n- repeated_findings: ${noiseSummary.repeated_count}` : '- Not available.'}
+
 ## Counts
 
 - monitors: ${results.length}
 - findings: ${findings.length}
+- suppressed_findings: ${allFindings.length - findings.length}
 - candidates: ${candidates.length}
 - critical: ${severityCounts.critical}
 - high: ${severityCounts.high}
