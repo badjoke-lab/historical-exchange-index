@@ -5355,5 +5355,31 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-26",
     "notes": "HEI models LazyCoins as inactive rather than dead because the current evidence set has strong historical launch / operation references but does not establish a definitive shutdown announcement or terminal date. Launch date uses the 2014-07-21 beta-launch marker from the public Bitcointalk announcement title. Later reporting describes a relaunch / official launch in early 2015."
+  },
+  {
+    "id": "hei_ex_000253",
+    "slug": "796-exchange",
+    "canonical_name": "796 Exchange",
+    "aliases": [
+      "796",
+      "796.com",
+      "796 Xchange Limited"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2013-06-09",
+    "death_date": null,
+    "country_or_origin": "Hong Kong",
+    "summary": "Hong Kong Bitcoin futures and finance-focused exchange operated through 796.com, publicly launched in June 2013 and later associated with a 1,000 BTC withdrawal-address tampering incident in January 2015.",
+    "official_url_original": "https://796.com/",
+    "official_domain_original": "796.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://796.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-26",
+    "notes": "HEI models 796 Exchange as inactive rather than dead because the current evidence set supports historical operation and a major 2015 incident, but does not establish a definitive shutdown announcement or terminal date. Launch date uses the 2013-06-09 public-launch marker referenced from the official Bitcointalk announcement context."
   }
 ]
