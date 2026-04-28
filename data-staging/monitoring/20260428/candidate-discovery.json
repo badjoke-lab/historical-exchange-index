@@ -1,11 +1,11 @@
 {
   "monitor": "candidate-discovery",
   "status": "ok",
-  "started_at": "2026-04-28T14:28:13.506Z",
-  "finished_at": "2026-04-28T14:28:13.508Z",
+  "started_at": "2026-04-28T16:48:41.899Z",
+  "finished_at": "2026-04-28T16:48:41.903Z",
   "findings": [
     {
-      "finding_id": "finding_1777386493508_ov1nhz",
+      "finding_id": "finding_1777394921903_lw8p16",
       "monitor": "candidate-discovery",
       "severity": "low",
       "category": "candidate_discovery_source_empty",
@@ -17,12 +17,12 @@
       "confidence": "medium",
       "dedupe_key": "candidate-discovery:source_empty:all_sources",
       "first_seen_at": "2026-04-28T14:28:13.538Z",
-      "last_seen_at": "2026-04-28T14:28:13.538Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
+      "last_seen_at": "2026-04-28T16:48:41.936Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_low"
     }
   ],
   "candidates": [],
