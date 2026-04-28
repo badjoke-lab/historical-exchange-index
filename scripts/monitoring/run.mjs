@@ -4,6 +4,7 @@ import { assertCanonicalUnchanged, checkCanonicalGuard } from './core/guard-cano
 import { createRunId, writeAllReports } from './core/report-writer.mjs';
 import { buildSummaryMarkdown } from './core/summary-writer.mjs';
 import { hasMeaningfulFindings, runMonitorSafely } from './core/finding-utils.mjs';
+import { loadMonitoringState, applyNoiseControl, writeMonitoringState, writeGitHubOutput } from './core/state-store.mjs';
 import { runCandidateDiscovery } from './monitors/candidate-discovery.mjs';
 import { runNewsAndEventWatch } from './monitors/news-and-event-watch.mjs';
 import { runActiveStatusWatch } from './monitors/active-status-watch.mjs';
@@ -32,13 +33,18 @@ async function main() {
     canonicalData,
   };
 
-  const results = [];
+  const rawResults = [];
   for (const [name, fn] of monitorFns) {
-    results.push(await runMonitorSafely(name, fn, context));
+    rawResults.push(await runMonitorSafely(name, fn, context));
   }
 
-  const meaningfulFindings = hasMeaningfulFindings(results);
+  const previousState = await loadMonitoringState();
   const finishedAt = new Date().toISOString();
+  const noise = applyNoiseControl(rawResults, previousState, finishedAt);
+  const results = noise.results;
+  await writeMonitoringState(noise.state);
+
+  const meaningfulFindings = hasMeaningfulFindings(results);
   const preWriteGuard = await checkCanonicalGuard();
 
   const summaryMarkdown = buildSummaryMarkdown({
@@ -48,6 +54,7 @@ async function main() {
     finishedAt,
     results,
     hasMeaningfulFindings: meaningfulFindings,
+    noiseSummary: noise.summary,
   });
 
   const { runDir } = await writeAllReports({
@@ -60,6 +67,12 @@ async function main() {
     canonicalGuard: preWriteGuard,
   });
 
+  await writeGitHubOutput({
+    meaningful_findings: meaningfulFindings ? 'true' : 'false',
+    visible_findings: String(noise.summary.visible_count),
+    suppressed_findings: String(noise.summary.suppressed_count),
+  });
+
   if (monitoringConfig.shouldFailOnCanonicalChange) {
     await assertCanonicalUnchanged();
   }
@@ -67,6 +80,7 @@ async function main() {
   console.log(`HEI monitoring run complete: ${runId}`);
   console.log(`Reports written to: ${runDir}`);
   console.log(`Meaningful findings: ${meaningfulFindings ? 'yes' : 'no'}`);
+  console.log(`Suppressed repeated low findings: ${noise.summary.suppressed_count}`);
 }
 
 main().catch((error) => {
