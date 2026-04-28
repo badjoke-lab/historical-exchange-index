@@ -4618,5 +4618,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "Recorded as severe operational distress / withdrawal failure, not as a confirmed shutdown marker."
+  },
+  {
+    "id": "hei_ev_000445",
+    "exchange_id": "hei_ex_000259",
+    "event_type": "launched",
+    "event_date": "2012-01-01",
+    "title": "Bitparking exchange operating by 2012",
+    "description": "Public forum and Q&A references show exchange.bitparking.com operating as a Namecoin / Bitcoin exchange by 2012.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2012-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000446",
+    "exchange_id": "hei_ex_000259",
+    "event_type": "shutdown_effective",
+    "event_date": "2013-04-05",
+    "title": "Bitparking exchange moved toward withdrawal-only recovery",
+    "description": "Forum-preserved exchange status text stated that the exchange suffered drive corruption, would be brought up for withdrawals only after balance recovery, and that the exchange would cease operation.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Recorded as a severe operational failure / withdrawal-only transition, not a fully classified terminal shutdown with death_reason."
   }
 ]
