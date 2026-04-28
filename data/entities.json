@@ -5278,5 +5278,30 @@
     "confidence": "high",
     "last_verified_at": "2026-04-26",
     "notes": "Terminal handling uses 2020-02-17 because public reporting states that FCoin had paused trading and withdrawals and disclosed that its asset reserve was short of liabilities by roughly 7,000 to 13,000 BTC. Death reason is mapped to insolvency. Later analysis raised questions about whether the shortfall was purely technical error or misconduct, but this record uses the publicly disclosed insolvency / withdrawal-impediment basis."
+  },
+  {
+    "id": "hei_ex_000250",
+    "slug": "coinedup",
+    "canonical_name": "CoinedUp",
+    "aliases": [
+      "Coined Up",
+      "CoinedUp.com"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2014-01-01",
+    "death_date": null,
+    "country_or_origin": "Unknown",
+    "summary": "Early altcoin-focused centralized exchange using coinedup.com, with public use visible in early 2014 and later exchange-data listings marking it inactive or untracked.",
+    "official_url_original": "https://coinedup.com/",
+    "official_domain_original": "coinedup.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://coinedup.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-26",
+    "notes": "HEI does not force a dead classification because the current evidence set has inactive / untracked database references and community discussion of apparent wind-down, but no strong official shutdown notice or definitive terminal date. Status is therefore modeled as inactive rather than dead."
   }
 ]
