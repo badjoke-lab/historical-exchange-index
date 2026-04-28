@@ -4,14 +4,64 @@ on:
   schedule:
     - cron: "0 3 * * 1"
   workflow_dispatch:
+    inputs:
+      enable_external_lists:
+        description: "Enable optional remote external-list discovery"
+        type: boolean
+        default: false
+      enable_news_rss:
+        description: "Enable optional Google News RSS monitoring"
+        type: boolean
+        default: false
+      enable_domain_checks:
+        description: "Enable optional official site/domain checks"
+        type: boolean
+        default: false
+      enable_evidence_url_checks:
+        description: "Enable optional evidence URL checks"
+        type: boolean
+        default: false
+      enable_regulatory_watch:
+        description: "Enable optional regulatory source watch"
+        type: boolean
+        default: false
+      enable_site_seo_checks:
+        description: "Enable optional public site/SEO checks"
+        type: boolean
+        default: false
+      site_url:
+        description: "Site URL for public route/sitemap checks"
+        type: string
+        default: "https://hei.badjoke-lab.com"
+      news_query_limit:
+        description: "Maximum news RSS queries"
+        type: string
+        default: "20"
+      regulatory_query_limit:
+        description: "Maximum regulatory RSS queries"
+        type: string
+        default: "25"
+      domain_check_limit:
+        description: "Maximum official site/domain URLs to check"
+        type: string
+        default: "50"
+      evidence_url_check_limit:
+        description: "Maximum evidence URLs to check"
+        type: string
+        default: "50"
 
 permissions:
   contents: write
   pull-requests: write
 
+concurrency:
+  group: hei-monitoring-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   monitoring:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -22,13 +72,47 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --no-audit --no-fund
 
       - name: Run monitoring
         id: monitor
-        run: npm run monitor
+        env:
+          INPUT_ENABLE_EXTERNAL_LISTS: ${{ inputs.enable_external_lists || 'false' }}
+          INPUT_ENABLE_NEWS_RSS: ${{ inputs.enable_news_rss || 'false' }}
+          INPUT_ENABLE_DOMAIN_CHECKS: ${{ inputs.enable_domain_checks || 'false' }}
+          INPUT_ENABLE_EVIDENCE_URL_CHECKS: ${{ inputs.enable_evidence_url_checks || 'false' }}
+          INPUT_ENABLE_REGULATORY_WATCH: ${{ inputs.enable_regulatory_watch || 'false' }}
+          INPUT_ENABLE_SITE_SEO_CHECKS: ${{ inputs.enable_site_seo_checks || 'false' }}
+          INPUT_SITE_URL: ${{ inputs.site_url || 'https://hei.badjoke-lab.com' }}
+          INPUT_NEWS_QUERY_LIMIT: ${{ inputs.news_query_limit || '20' }}
+          INPUT_REGULATORY_QUERY_LIMIT: ${{ inputs.regulatory_query_limit || '25' }}
+          INPUT_DOMAIN_CHECK_LIMIT: ${{ inputs.domain_check_limit || '50' }}
+          INPUT_EVIDENCE_URL_CHECK_LIMIT: ${{ inputs.evidence_url_check_limit || '50' }}
+        run: |
+          bool_to_flag() {
+            if [ "$1" = "true" ]; then
+              echo "1"
+            else
+              echo "0"
+            fi
+          }
+
+          export HEI_MONITORING_ENABLE_REMOTE_LISTS="$(bool_to_flag "$INPUT_ENABLE_EXTERNAL_LISTS")"
+          export HEI_MONITORING_ENABLE_NEWS_RSS="$(bool_to_flag "$INPUT_ENABLE_NEWS_RSS")"
+          export HEI_MONITORING_ENABLE_DOMAIN_CHECKS="$(bool_to_flag "$INPUT_ENABLE_DOMAIN_CHECKS")"
+          export HEI_MONITORING_ENABLE_EVIDENCE_URL_CHECKS="$(bool_to_flag "$INPUT_ENABLE_EVIDENCE_URL_CHECKS")"
+          export HEI_MONITORING_ENABLE_REGULATORY_WATCH="$(bool_to_flag "$INPUT_ENABLE_REGULATORY_WATCH")"
+          export HEI_MONITORING_ENABLE_SITE_SEO_CHECKS="$(bool_to_flag "$INPUT_ENABLE_SITE_SEO_CHECKS")"
+          export HEI_MONITORING_SITE_URL="$INPUT_SITE_URL"
+          export HEI_MONITORING_NEWS_QUERY_LIMIT="$INPUT_NEWS_QUERY_LIMIT"
+          export HEI_MONITORING_REGULATORY_QUERY_LIMIT="$INPUT_REGULATORY_QUERY_LIMIT"
+          export HEI_MONITORING_DOMAIN_CHECK_LIMIT="$INPUT_DOMAIN_CHECK_LIMIT"
+          export HEI_MONITORING_EVIDENCE_URL_CHECK_LIMIT="$INPUT_EVIDENCE_URL_CHECK_LIMIT"
+
+          npm run monitor
 
       - name: Guard canonical data files
         run: |
@@ -40,10 +124,15 @@ jobs:
       - name: Check monitoring changes
         id: changes
         run: |
+          echo "meaningful_findings=${{ steps.monitor.outputs.meaningful_findings }}"
+          echo "visible_findings=${{ steps.monitor.outputs.visible_findings }}"
+          echo "suppressed_findings=${{ steps.monitor.outputs.suppressed_findings }}"
+
           if [ "${{ steps.monitor.outputs.meaningful_findings }}" != "true" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+
           if git status --porcelain -- data-staging/monitoring data-staging/watchlists/auto data-staging/watchlists/resolution | grep .; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
