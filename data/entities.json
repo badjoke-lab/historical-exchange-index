@@ -5603,5 +5603,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-29",
     "notes": "HEI models Coinrail as inactive rather than dead because the current evidence set supports historical operation, a major 2018 hack, and current lack of tracked markets, but does not establish a definitive shutdown announcement or terminal date."
+  },
+  {
+    "id": "hei_ex_000263",
+    "slug": "bitcoin-central",
+    "canonical_name": "Bitcoin-Central",
+    "aliases": [
+      "Bitcoin Central",
+      "Bitcoin-Central.net"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2010-12-29",
+    "death_date": null,
+    "country_or_origin": "France",
+    "summary": "France-based BTC/EUR exchange operated by Paymium. Bitcoin-Central launched in December 2010, later announced a regulated banking / payment-institution framework in December 2012, and relaunched in September 2013 after a months-long closure. HEI models it as inactive because available sources mark the historical exchange as discontinued but do not establish a clean terminal shutdown date.",
+    "official_url_original": "https://bitcoin-central.net/",
+    "official_domain_original": "bitcoin-central.net",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://bitcoin-central.net/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI models Bitcoin-Central as inactive rather than dead because the historical service is marked discontinued, but the current evidence set does not provide a definitive final shutdown announcement or terminal date. Paymium / BTCC-style successor modeling should be handled separately if needed."
   }
 ]
