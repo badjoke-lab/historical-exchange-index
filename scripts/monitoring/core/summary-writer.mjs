@@ -87,7 +87,7 @@ export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, resul
 
 ## Noise control
 
-${noiseSummary ? `- total_findings_seen: ${noiseSummary.total_findings}\n- visible_findings: ${noiseSummary.visible_count}\n- suppressed_repeated_low_findings: ${noiseSummary.suppressed_count}\n- new_findings: ${noiseSummary.new_count}\n- repeated_findings: ${noiseSummary.repeated_count}` : '- Not available.'}
+${noiseSummary ? `- total_findings_seen: ${noiseSummary.total_findings}\n- visible_findings: ${noiseSummary.visible_count}\n- suppressed_repeated_backlog_findings: ${noiseSummary.suppressed_count}\n- new_findings: ${noiseSummary.new_count}\n- repeated_findings: ${noiseSummary.repeated_count}` : '- Not available.'}
 
 ## Counts
 
