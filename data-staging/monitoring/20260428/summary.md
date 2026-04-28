@@ -2,30 +2,30 @@
 
 ## Run
 
-- run_id: 20260428-142813
+- run_id: 20260428-165230
 - mode: scheduled
-- started_at: 2026-04-28T14:28:13.500Z
-- finished_at: 2026-04-28T14:28:13.538Z
+- started_at: 2026-04-28T16:52:30.943Z
+- finished_at: 2026-04-28T16:52:30.988Z
 - meaningful_findings: yes
 
 ## Noise control
 
-- total_findings_seen: 493
-- visible_findings: 493
-- suppressed_repeated_low_findings: 0
-- new_findings: 493
-- repeated_findings: 0
+- total_findings_seen: 505
+- visible_findings: 432
+- suppressed_repeated_low_findings: 73
+- new_findings: 12
+- repeated_findings: 493
 
 ## Counts
 
 - monitors: 7
-- findings: 493
-- suppressed_findings: 0
+- findings: 432
+- suppressed_findings: 73
 - candidates: 0
 - critical: 0
 - high: 47
 - medium: 373
-- low: 73
+- low: 12
 
 ## A candidates
 
@@ -96,7 +96,7 @@
 
 - None.
 
-- [low] News and regulatory RSS fetching is disabled — enable_external_rss_checks_when_ready_for_scheduled_external_checks
+- None.
 
 ## Data quality
 
@@ -191,7 +191,6 @@
 - [medium] Low/medium confidence with thin evidence: Rain — improve_evidence_or_review_confidence
 - [medium] Entity has no event records: Trubit — add_minimum_event_or_review_record_shape
 - [medium] Low/medium confidence with thin evidence: Trubit — improve_evidence_or_review_confidence
-- [low] official_url_status unknown: Nobitex — review_official_url_status_when_available
 - [medium] Entity has no event records: Bitexen — add_minimum_event_or_review_record_shape
 - [medium] Low/medium confidence with thin evidence: Bitexen — improve_evidence_or_review_confidence
 - [medium] Entity has no event records: UpHold Exchange — add_minimum_event_or_review_record_shape
@@ -258,74 +257,26 @@
 - [medium] Low/medium confidence with thin evidence: Bity — improve_evidence_or_review_confidence
 - [medium] Entity has no event records: Paybis Exchange — add_minimum_event_or_review_record_shape
 - [medium] Low/medium confidence with thin evidence: Paybis Exchange — improve_evidence_or_review_confidence
-- [low] official_url_status unknown: Livecoin — review_official_url_status_when_available
-- [low] Possible successor/predecessor link missing: WEX — review_lineage_fields_when_record_is_touched
 - [medium] Dead-side entity has fewer than 2 evidence records: CryptoRush — add_second_source_or_archive
 - [medium] Entity has no event records: CryptoRush — add_minimum_event_or_review_record_shape
 - [medium] Low/medium confidence with thin evidence: CryptoRush — improve_evidence_or_review_confidence
-- [low] official_url_status unknown: Coinsetter — review_official_url_status_when_available
-- [low] official_url_status unknown: Cavirtex — review_official_url_status_when_available
-- [low] Possible successor/predecessor link missing: BitBay — review_lineage_fields_when_record_is_touched
-- [low] official_url_status unknown: BITFRONT — review_official_url_status_when_available
-- [low] official_url_status unknown: OPNX — review_official_url_status_when_available
-- [low] country_or_origin unknown: OPNX — add_origin_if_sourceable
-- [low] Possible successor/predecessor link missing: OPNX — review_lineage_fields_when_record_is_touched
-- [low] official_url_status unknown: Youbit — review_official_url_status_when_available
-- [low] official_url_status unknown: Coinfloor — review_official_url_status_when_available
-- [low] Possible successor/predecessor link missing: Coinfloor — review_lineage_fields_when_record_is_touched
-- [low] official_url_status unknown: CleverCoin — review_official_url_status_when_available
-- [low] official_url_status unknown: Coinnest — review_official_url_status_when_available
-- [low] official_url_status unknown: Liqui — review_official_url_status_when_available
-- [low] official_url_status unknown: Nova Exchange — review_official_url_status_when_available
-- [low] official_url_status unknown: Einstein Exchange — review_official_url_status_when_available
-- [low] country_or_origin unknown: CryptoBridge — add_origin_if_sourceable
 - [medium] Invalid official_url_status on hei_ex_000159 — fix_entity_enum
-- [low] Possible successor/predecessor link missing: C-Trade — review_lineage_fields_when_record_is_touched
-- [low] official_url_status unknown: eXch — review_official_url_status_when_available
-- [low] official_url_status unknown: Hoo Exchange — review_official_url_status_when_available
-- [low] official_url_status unknown: BiteBTC — review_official_url_status_when_available
-- [low] official_url_status unknown: Trade Satoshi — review_official_url_status_when_available
-- [low] official_url_status unknown: IDAX — review_official_url_status_when_available
-- [low] official_url_status unknown: Bololex Exchange — review_official_url_status_when_available
-- [low] official_url_status unknown: Bitzlato — review_official_url_status_when_available
-- [low] official_url_status unknown: Bgogo — review_official_url_status_when_available
-- [low] Possible successor/predecessor link missing: Bgogo — review_lineage_fields_when_record_is_touched
-- [low] official_url_status unknown: BiKi — review_official_url_status_when_available
-- [low] official_url_status unknown: Exnomy — review_official_url_status_when_available
-- [low] official_url_status unknown: CoinBene — review_official_url_status_when_available
-- [low] official_url_status unknown: Bitholic — review_official_url_status_when_available
-- [low] Possible successor/predecessor link missing: Bitholic — review_lineage_fields_when_record_is_touched
-- [low] official_url_status unknown: Coineal — review_official_url_status_when_available
-- [low] official_url_status unknown: CoinEgg — review_official_url_status_when_available
-- [low] official_url_status unknown: UniDAX — review_official_url_status_when_available
-- [low] official_url_status unknown: Rfinex — review_official_url_status_when_available
-- [low] official_url_status unknown: Vebitcoin — review_official_url_status_when_available
-- [low] official_url_status unknown: C2CX — review_official_url_status_when_available
-- [low] official_url_status unknown: Coinzo — review_official_url_status_when_available
-- [low] official_url_status unknown: CCEDK — review_official_url_status_when_available
-- [low] country_or_origin unknown: Coin-Swap — add_origin_if_sourceable
-- [low] country_or_origin unknown: AllCrypt — add_origin_if_sourceable
-- [low] country_or_origin unknown: McxNOW — add_origin_if_sourceable
-- [low] official_url_status unknown: Bit.com — review_official_url_status_when_available
-- [low] official_url_status unknown: ProBit Global — review_official_url_status_when_available
-- [low] official_url_status unknown: Grinex — review_official_url_status_when_available
-- [low] Possible successor/predecessor link missing: Grinex — review_lineage_fields_when_record_is_touched
-- [low] official_url_status unknown: Bunni — review_official_url_status_when_available
-- [low] official_url_status unknown: Polynomial Protocol — review_official_url_status_when_available
-- [low] official_url_status unknown: Step Finance — review_official_url_status_when_available
-- [low] Possible successor/predecessor link missing: Cetus Protocol — review_lineage_fields_when_record_is_touched
 - [medium] Provisional text found: KiloEx — replace_provisional_notes_with_reviewed_text
-- [low] official_url_status unknown: Mango Markets — review_official_url_status_when_available
-- [low] official_url_status unknown: DMM Bitcoin — review_official_url_status_when_available
-- [low] Possible successor/predecessor link missing: DMM Bitcoin — review_lineage_fields_when_record_is_touched
 - [medium] Provisional text found: BtcTurk — replace_provisional_notes_with_reviewed_text
 - [medium] Provisional text found: GMX — replace_provisional_notes_with_reviewed_text
 - [medium] Provisional text found: WOO X — replace_provisional_notes_with_reviewed_text
-- [low] country_or_origin unknown: Crypto-Trade — add_origin_if_sourceable
-- [low] official_url_status unknown: CoinedUp — review_official_url_status_when_available
-- [low] country_or_origin unknown: CoinedUp — add_origin_if_sourceable
-- [low] official_url_status unknown: LazyCoins — review_official_url_status_when_available
-- [low] official_url_status unknown: 796 Exchange — review_official_url_status_when_available
+- [low] official_url_status unknown: Bitcoin-24 — review_official_url_status_when_available
+- [low] official_url_status unknown: Bitfloor — review_official_url_status_when_available
+- [low] official_url_status unknown: Harborly — review_official_url_status_when_available
+- [low] official_url_status unknown: Igot — review_official_url_status_when_available
+- [low] official_url_status unknown: Bitparking — review_official_url_status_when_available
+- [low] official_url_status unknown: BTCChina — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: BTCChina — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: BitNZ — review_official_url_status_when_available
+- [low] official_url_status unknown: Coinrail — review_official_url_status_when_available
+- [low] official_url_status unknown: Bitcoin-Central — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: Bitcoin-Central — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: Coinffeine — review_official_url_status_when_available
 - [medium] source_count mismatch on hei_ev_000126 — review_event_source_count
 - [medium] source_count mismatch on hei_ev_000153 — review_event_source_count
 - [medium] source_count mismatch on hei_ev_000157 — review_event_source_count
@@ -585,12 +536,12 @@
 ## Evidence health
 
 - enabled: false
-- evidence_with_urls: 646
+- evidence_with_urls: 708
 - checked: 0
 - findings: 0
 - without_archive_total: 0
 
-- [low] Evidence URL checks are disabled — enable_evidence_url_checks_when_ready_for_scheduled_external_checks
+- None.
 
 ## Watchlist state
 
@@ -602,13 +553,7 @@
 - manual_staging_packages: 9
 - resolution_files: 0
 
-- [low] Watchlist candidate appears canonicalized but unresolved: CoinDCX — add_resolution_promoted_to_canonical
-- [low] Watchlist candidate appears canonicalized but unresolved: Bybit — add_resolution_promoted_to_canonical
-- [low] Watchlist candidate appears canonicalized but unresolved: DMM Bitcoin — add_resolution_promoted_to_canonical
-- [low] Watchlist candidate appears canonicalized but unresolved: BtcTurk — add_resolution_promoted_to_canonical
-- [low] Watchlist candidate appears canonicalized but unresolved: GMX — add_resolution_promoted_to_canonical
-- [low] Watchlist candidate appears canonicalized but unresolved: BingX — add_resolution_promoted_to_canonical
-- [low] Watchlist candidate appears canonicalized but unresolved: Bithumb — add_resolution_promoted_to_canonical
+- None.
 
 ## Site / SEO
 
@@ -623,10 +568,8 @@
 - robots_checked: false
 - robots_status: not_checked
 
-- [low] Site and SEO checks are disabled — enable_site_seo_checks_when_ready_for_scheduled_external_checks
+- None.
 
 ## Suggested operator actions
 
 1. Review critical/high alerts before accepting new staging work.
-2. Review regulatory-source candidates separately and avoid status/death_reason changes without source confirmation.
-3. Review watchlist-state findings and update staging or resolution files as needed.

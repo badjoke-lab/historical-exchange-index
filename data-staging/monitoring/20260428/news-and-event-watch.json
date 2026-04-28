@@ -1,11 +1,11 @@
 {
   "monitor": "news-and-event-watch",
   "status": "ok",
-  "started_at": "2026-04-28T14:28:13.508Z",
-  "finished_at": "2026-04-28T14:28:13.510Z",
+  "started_at": "2026-04-28T16:52:30.952Z",
+  "finished_at": "2026-04-28T16:52:30.954Z",
   "findings": [
     {
-      "finding_id": "finding_1777386493510_zp8ywl",
+      "finding_id": "finding_1777395150953_pe6ocz",
       "monitor": "news-and-event-watch",
       "severity": "low",
       "category": "news_and_regulatory_watch_disabled",
@@ -17,12 +17,12 @@
       "confidence": "medium",
       "dedupe_key": "news-and-event-watch:news_and_regulatory_disabled",
       "first_seen_at": "2026-04-28T14:28:13.538Z",
-      "last_seen_at": "2026-04-28T14:28:13.538Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
+      "last_seen_at": "2026-04-28T16:52:30.988Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_low"
     }
   ],
   "candidates": [],
