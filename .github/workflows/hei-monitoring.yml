@@ -77,6 +77,9 @@ jobs:
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
 
+      - name: Smoke test monitoring modules
+        run: npm run monitor:smoke
+
       - name: Run monitoring
         id: monitor
         env:
