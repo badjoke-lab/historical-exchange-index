@@ -4,6 +4,10 @@ function safeText(value, fallback = '') {
   return typeof value === 'string' && value.trim() ? value.trim() : fallback;
 }
 
+export function visibleFindings(findings = []) {
+  return findings.filter((finding) => !finding?.suppressed);
+}
+
 export function countBySeverity(findings = []) {
   const counts = Object.fromEntries(SEVERITIES.map((severity) => [severity, 0]));
   for (const finding of findings) {
@@ -62,6 +66,7 @@ export function createMonitorResult({ monitor, started_at, finished_at, findings
     errors,
     summary: {
       findings_count: findings.length,
+      visible_findings_count: visibleFindings(findings).length,
       candidate_count: candidates.length,
       errors_count: errors.length,
       ...severityCounts,
@@ -98,7 +103,7 @@ export async function runMonitorSafely(monitorName, monitorFn, context) {
 
 export function hasMeaningfulFindings(results = []) {
   return results.some((result) => {
-    const findings = result?.findings || [];
+    const findings = visibleFindings(result?.findings || []);
     const candidates = result?.candidates || [];
     return candidates.length > 0 || findings.length > 0;
   });
