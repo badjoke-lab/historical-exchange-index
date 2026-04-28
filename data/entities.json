@@ -5329,5 +5329,31 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-26",
     "notes": "Terminal handling uses 2015-02-23 because public acquisition / partnership coverage states that Atomic-Trade.com became known as Banx.io as of that date and that Banx.io bought out Atomic-Trade.com. Successor_id remains null unless / until a canonical Banx.io exchange record is added. URL status is repurposed because current references no longer establish the original Atomic Trade exchange as independently operating."
+  },
+  {
+    "id": "hei_ex_000252",
+    "slug": "lazycoins",
+    "canonical_name": "LazyCoins",
+    "aliases": [
+      "Lazy Coins",
+      "LazyCoins.com",
+      "LazyCoins Exchange"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2014-07-21",
+    "death_date": null,
+    "country_or_origin": "United Kingdom",
+    "summary": "United Kingdom-based cryptocurrency exchange associated with lazycoins.com, publicly visible in 2014, relaunched around early 2015, and later no longer evidenced as an active exchange in the current public record set.",
+    "official_url_original": "https://lazycoins.com/",
+    "official_domain_original": "lazycoins.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://lazycoins.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-26",
+    "notes": "HEI models LazyCoins as inactive rather than dead because the current evidence set has strong historical launch / operation references but does not establish a definitive shutdown announcement or terminal date. Launch date uses the 2014-07-21 beta-launch marker from the public Bitcointalk announcement title. Later reporting describes a relaunch / official launch in early 2015."
   }
 ]
