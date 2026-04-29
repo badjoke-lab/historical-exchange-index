@@ -21,20 +21,42 @@ function activeSideEntities(entities = []) {
     .sort((a, b) => String(a.slug || '').localeCompare(String(b.slug || '')));
 }
 
+function isAccessControlNoise(check) {
+  return check.status === 'http_error' && [401, 403, 429].includes(check.http_status);
+}
+
+function isHealthyRedirect(check) {
+  return check.status === 'redirected' && check.http_status === 200 && check.final_url;
+}
+
+function shouldCreateFinding(entity, check) {
+  if (check.status === 'ok') return false;
+  if (isHealthyRedirect(check)) return false;
+  if (isAccessControlNoise(check)) return false;
+
+  // Inactive records are monitored for bookkeeping, but a DNS failure on an
+  // already-inactive exchange is not an active-to-inactive candidate.
+  if (entity.status === 'inactive' && check.status === 'dns_failure') return false;
+
+  return true;
+}
+
 function severityForCheck(entity, check) {
   if (['dns_failure', 'tls_failure', 'parked_or_for_sale'].includes(check.status)) return entity.status === 'active' ? 'high' : 'medium';
   if (['not_found', 'server_error', 'timeout'].includes(check.status)) return entity.status === 'active' ? 'medium' : 'low';
-  if (check.status === 'redirected') return 'low';
   return 'low';
 }
 
-function actionForCheck(check) {
+function actionForCheck(entity, check) {
   if (check.status === 'parked_or_for_sale') return 'investigate_active_status_and_domain_repurpose';
-  if (check.status === 'dns_failure') return 'investigate_active_to_inactive_candidate';
+  if (check.status === 'dns_failure') {
+    return entity.status === 'active'
+      ? 'investigate_active_to_inactive_candidate'
+      : 'review_inactive_official_url_status';
+  }
   if (check.status === 'tls_failure') return 'review_official_site_tls_status';
   if (check.status === 'not_found') return 'review_official_url_or_archive';
   if (check.status === 'server_error' || check.status === 'timeout') return 'recheck_before_status_change';
-  if (check.status === 'redirected') return 'review_redirect_target';
   return 'review';
 }
 
@@ -89,9 +111,10 @@ export async function runActiveStatusWatch(context, { startedAt } = {}) {
       status: entity.status,
       official_url: url,
       check,
+      finding_created: shouldCreateFinding(entity, check),
     });
 
-    if (check.status !== 'ok') {
+    if (shouldCreateFinding(entity, check)) {
       const severity = severityForCheck(entity, check);
       findings.push(createFinding({
         monitor,
@@ -105,7 +128,7 @@ export async function runActiveStatusWatch(context, { startedAt } = {}) {
           slug: entity.slug,
           canonical_name: entity.canonical_name,
         },
-        recommended_action: actionForCheck(check),
+        recommended_action: actionForCheck(entity, check),
         source_urls: [url].filter(Boolean),
         confidence: severity === 'high' ? 'medium' : 'low',
         dedupe_key: `${monitor}:official_site_${check.status}:${entity.id}`,
@@ -126,6 +149,9 @@ export async function runActiveStatusWatch(context, { startedAt } = {}) {
         active_side_entities_with_urls: targets.length,
         checked: selected.length,
         findings: findings.length,
+        access_control_noise: checks.filter((item) => isAccessControlNoise(item.check)).length,
+        healthy_redirects: checks.filter((item) => isHealthyRedirect(item.check)).length,
+        inactive_dns_noise: checks.filter((item) => item.status === 'inactive' && item.check.status === 'dns_failure').length,
       },
       official_site_checks: checks,
     },
