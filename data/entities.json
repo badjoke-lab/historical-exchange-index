@@ -5863,5 +5863,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-29",
     "notes": "HEI models DragonEX as inactive rather than dead. The March 2019 hack is recorded as a major incident, not a terminal shutdown marker. Do not assign death_reason or death_date without stronger closure evidence."
+  },
+  {
+    "id": "hei_ex_000273",
+    "slug": "coingather",
+    "canonical_name": "CoinGather",
+    "aliases": [
+      "Coin Gather",
+      "CoinGather.com"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "scam_rug",
+    "launch_date": "2014-08-01",
+    "death_date": "2017-11-22",
+    "country_or_origin": "United States",
+    "summary": "Small centralized altcoin exchange launched in 2014. CoinGather abruptly went offline in November 2017 after user withdrawal complaints, and the domain was later seized by the FBI / DOJ in relation to forfeiture proceedings over cryptocurrency wallets accessible through the exchange.",
+    "official_url_original": "https://www.coingather.com/",
+    "official_domain_original": "coingather.com",
+    "official_url_status": "offline",
+    "archived_url": "https://web.archive.org/web/*/https://www.coingather.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI uses scam_rug as the death_reason because contemporary reporting described CoinGather as abruptly disappearing after withdrawal problems and later reporting / DOJ material tied the exchange to seized assets. This should be read as suspected / reported exit-scam context, not as a final criminal adjudication in this record."
   }
 ]
