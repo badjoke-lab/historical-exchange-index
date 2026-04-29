@@ -101,10 +101,14 @@ export async function runMonitorSafely(monitorName, monitorFn, context) {
   }
 }
 
+function hasAlertCandidate(result) {
+  const candidates = result?.candidates || [];
+  return candidates.some((candidate) => candidate?.candidate_class === 'A');
+}
+
 export function hasMeaningfulFindings(results = []) {
   return results.some((result) => {
     const findings = visibleFindings(result?.findings || []);
-    const candidates = result?.candidates || [];
-    return candidates.length > 0 || findings.length > 0;
+    return findings.length > 0 || hasAlertCandidate(result);
   });
 }
