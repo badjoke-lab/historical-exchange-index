@@ -2,30 +2,30 @@
 
 ## Run
 
-- run_id: 20260429-012440
+- run_id: 20260429-040832
 - mode: scheduled
-- started_at: 2026-04-29T01:24:40.320Z
-- finished_at: 2026-04-29T01:24:40.364Z
+- started_at: 2026-04-29T04:08:32.562Z
+- finished_at: 2026-04-29T04:08:32.614Z
 - meaningful_findings: yes
 
 ## Noise control
 
-- total_findings_seen: 508
-- visible_findings: 3
-- suppressed_repeated_backlog_findings: 505
-- new_findings: 3
-- repeated_findings: 505
+- total_findings_seen: 502
+- visible_findings: 1
+- suppressed_repeated_backlog_findings: 501
+- new_findings: 1
+- repeated_findings: 501
 
 ## Counts
 
 - monitors: 7
-- findings: 3
-- suppressed_findings: 505
+- findings: 1
+- suppressed_findings: 501
 - candidates: 0
 - critical: 0
 - high: 0
-- medium: 0
-- low: 3
+- medium: 1
+- low: 0
 
 ## A candidates
 
@@ -54,14 +54,12 @@
 
 ## Data quality
 
-- [low] official_url_status unknown: GLBSE — review_official_url_status_when_available
-- [low] official_url_status unknown: BTCQuick — review_official_url_status_when_available
-- [low] official_url_status unknown: BitFunder — review_official_url_status_when_available
+- [medium] Invalid official_url_status on hei_ex_000268 — fix_entity_enum
 
 ## Evidence health
 
 - enabled: false
-- evidence_with_urls: 726
+- evidence_with_urls: 734
 - checked: 0
 - findings: 0
 - without_archive_total: 0
@@ -70,13 +68,13 @@
 
 ## Watchlist state
 
-- watchlist_files: 3
-- watchlist_candidates: 14
+- watchlist_files: 4
+- watchlist_candidates: 21
 - class_A: 6
 - class_B: 4
 - class_C: 4
 - manual_staging_packages: 9
-- resolution_files: 0
+- resolution_files: 1
 
 - None.
 
