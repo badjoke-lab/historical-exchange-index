@@ -4844,5 +4844,33 @@
     "source_count": 2,
     "sort_order": 1,
     "notes": "Date is month-level. Stored as 2012-11-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000461",
+    "exchange_id": "hei_ex_000267",
+    "event_type": "launched",
+    "event_date": "2012-12-01",
+    "title": "BitFunder launched",
+    "description": "Contemporary reporting describes BitFunder as launched around December 2012 as a Bitcoin-denominated stock / securities exchange.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is month-level. Stored as 2012-12-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000462",
+    "exchange_id": "hei_ex_000267",
+    "event_type": "shutdown_effective",
+    "event_date": "2013-11-14",
+    "title": "BitFunder ceased new trading",
+    "description": "BitFunder announced that from 2013-11-14 users would no longer be able to enter new positions or sell positions on the website, with remaining bitcoin balances to be transferred later.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 5,
+    "sort_order": 2,
+    "notes": "Used as the terminal trading-shutdown marker. Later SEC and DOJ actions are retained as regulatory / fraud context."
   }
 ]
