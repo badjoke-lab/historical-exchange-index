@@ -5705,5 +5705,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-29",
     "notes": "BTCQuick appears closer to a broker / retail bitcoin seller than a conventional order-book exchange. It is included as a historical exchange-like bitcoin buying platform and kept inactive rather than dead because no clean terminal shutdown evidence is currently attached."
+  },
+  {
+    "id": "hei_ex_000267",
+    "slug": "bitfunder",
+    "canonical_name": "BitFunder",
+    "aliases": [
+      "Bitfunder",
+      "BitFunder.com"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2012-12-01",
+    "death_date": "2013-11-14",
+    "country_or_origin": "United States",
+    "summary": "Bitcoin-denominated securities / asset exchange operated by Jon Montroll, also known as Ukyo. BitFunder launched around December 2012 and announced that users would no longer be able to enter new positions from 2013-11-14. The SEC later charged BitFunder and Montroll with operating an unregistered securities exchange and defrauding users.",
+    "official_url_original": "https://bitfunder.com/",
+    "official_domain_original": "bitfunder.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://bitfunder.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-29",
+    "notes": "BitFunder was not a conventional fiat/crypto spot exchange; it is included as a historical Bitcoin-denominated securities / asset exchange. HEI uses regulation as death_reason because the shutdown followed US-user restrictions and later SEC action characterized the platform as an unregistered securities exchange."
   }
 ]
