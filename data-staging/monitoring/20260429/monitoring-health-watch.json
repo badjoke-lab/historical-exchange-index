@@ -1,8 +1,8 @@
 {
   "monitor": "monitoring-health-watch",
   "status": "ok",
-  "started_at": "2026-04-29T12:46:05.663Z",
-  "finished_at": "2026-04-29T12:46:05.670Z",
+  "started_at": "2026-04-29T13:25:47.844Z",
+  "finished_at": "2026-04-29T13:25:47.850Z",
   "findings": [],
   "candidates": [],
   "errors": [],
@@ -29,11 +29,11 @@
     ]
   },
   "watchlist_state": {
-    "watchlist_files": 6,
-    "watchlist_candidates": 28,
+    "watchlist_files": 7,
+    "watchlist_candidates": 128,
     "watchlist_class_counts": {
       "A": 9,
-      "B": 4,
+      "B": 104,
       "C": 4,
       "unknown": 11
     },

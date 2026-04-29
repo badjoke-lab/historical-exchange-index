@@ -1,11 +1,11 @@
 {
   "monitor": "evidence-health-watch",
   "status": "ok",
-  "started_at": "2026-04-29T12:46:05.661Z",
-  "finished_at": "2026-04-29T12:46:05.663Z",
+  "started_at": "2026-04-29T13:25:47.841Z",
+  "finished_at": "2026-04-29T13:25:47.844Z",
   "findings": [
     {
-      "finding_id": "finding_1777466765663_gamuk6",
+      "finding_id": "finding_1777469147843_v6gr3g",
       "monitor": "evidence-health-watch",
       "severity": "low",
       "category": "evidence_url_watch_disabled",
@@ -17,8 +17,8 @@
       "confidence": "medium",
       "dedupe_key": "evidence-health-watch:evidence_url_checks_disabled",
       "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:46:05.671Z",
-      "repeat_count": 3,
+      "last_seen_at": "2026-04-29T13:25:47.851Z",
+      "repeat_count": 4,
       "is_new": false,
       "is_repeated": true,
       "suppressed": true,

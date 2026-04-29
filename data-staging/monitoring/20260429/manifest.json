@@ -1,16 +1,16 @@
 {
-  "run_id": "20260429-124559",
-  "created_at": "2026-04-29T12:46:05.671Z",
-  "started_at": "2026-04-29T12:45:59.710Z",
-  "finished_at": "2026-04-29T12:46:05.671Z",
+  "run_id": "20260429-132547",
+  "created_at": "2026-04-29T13:25:47.851Z",
+  "started_at": "2026-04-29T13:25:47.201Z",
+  "finished_at": "2026-04-29T13:25:47.851Z",
   "mode": "scheduled",
   "monitors": [
     {
       "name": "candidate-discovery",
-      "status": "degraded",
-      "findings_count": 2,
-      "candidate_count": 0,
-      "errors_count": 1
+      "status": "ok",
+      "findings_count": 0,
+      "candidate_count": 100,
+      "errors_count": 0
     },
     {
       "name": "news-and-event-watch",
