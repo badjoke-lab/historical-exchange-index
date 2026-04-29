@@ -1,236 +1,54 @@
 {
   "monitor": "news-and-event-watch",
   "status": "ok",
-  "started_at": "2026-04-29T12:06:05.797Z",
-  "finished_at": "2026-04-29T12:06:20.648Z",
+  "started_at": "2026-04-29T12:46:05.634Z",
+  "finished_at": "2026-04-29T12:46:05.637Z",
   "findings": [
     {
-      "finding_id": "finding_1777464380647_t0c0wn",
+      "finding_id": "finding_1777466765637_sa7txd",
       "monitor": "news-and-event-watch",
-      "severity": "medium",
-      "category": "news_event_actionable_candidate",
-      "title": "News/event candidate: Zedxion",
-      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "severity": "low",
+      "category": "news_and_regulatory_watch_disabled",
+      "title": "News and regulatory RSS fetching is disabled",
+      "summary": "Set HEI_MONITORING_ENABLE_NEWS_RSS=1 and/or HEI_MONITORING_ENABLE_REGULATORY_WATCH=1 to enable external RSS candidate discovery.",
       "affected_entity": null,
-      "recommended_action": "review_and_stage_public_quality_record",
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMitAFBVV95cUxNTlBaMkE3eXlrUU94RDlINWwtYlJrSzJyVjdYV3lHcnBBOGtTc1ltci1DUFU2amxSQjBqMkFTNmszWXFkQ1loVHpzMTlWX0JzWUh3Tl9VNFliUy11QXRkNXlXOGhnV1EwNXQ0RUpfOXJCSnR6Z1pmQWlnNkFRVXR6cWhJZ21OaXo3YmstNGJNc2dOWkRrQWktb3JtZUZfc2EtdEtjUVVIQkJYVEpKdFpLdVZBQl8?oc=5"
-      ],
-      "confidence": "low",
-      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:zedxion",
-      "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:06:20.678Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777464380647_ovyej5",
-      "monitor": "news-and-event-watch",
-      "severity": "medium",
-      "category": "news_event_actionable_candidate",
-      "title": "News/event candidate: Txbit",
-      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
-      "affected_entity": null,
-      "recommended_action": "review_and_stage_public_quality_record",
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMiXkFVX3lxTE01NkE2UjV4OWxtYVE4ZXRMY3p0MXZBQWZ1bENZYmpUTnFoOTNKMGFVeDV4UkJsMnFfTjJzMDc0TEJwTkVEeTdBTzVjRmZwWDNCODFQMlJkZG1HWTBRaWc?oc=5"
-      ],
+      "recommended_action": "enable_external_rss_checks_when_ready_for_scheduled_external_checks",
+      "source_urls": [],
       "confidence": "medium",
-      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:txbit",
-      "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:06:20.678Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777464380647_xx5s47",
-      "monitor": "news-and-event-watch",
-      "severity": "medium",
-      "category": "news_event_actionable_candidate",
-      "title": "News/event candidate: Serum",
-      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
-      "affected_entity": null,
-      "recommended_action": "review_and_stage_public_quality_record",
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMizwFBVV95cUxQS2ZRblRtM2pIcWdERVptbWx6MnVMa0dqR1lCc3o3UFR1Y0xTUzJ2RGQ2am5jSlRBZEJMR29ybmROMTYxNmNfSmx4WWVtbHpxaVpHRExGbDZPQnhfc2k5QVJzVGRJQ2dEVEVrU1ZoWE9EaTRZbENITVR2V3FHVndtZDhmaFVnUVUxeGFvWTJSS2J1YVV2SldFbTRRVUU3eUd2Z2ZURHV2THAwMkJWT3dEblFKYmltUTNxNFplWENHVGV2cmE2OW5TaHR4Y3ZrdW8?oc=5"
-      ],
-      "confidence": "medium",
-      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:serum",
-      "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:06:20.678Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
+      "dedupe_key": "news-and-event-watch:news_and_regulatory_disabled",
+      "first_seen_at": "2026-04-29T12:46:05.671Z",
+      "last_seen_at": "2026-04-29T12:46:05.671Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
       "suppressed": false,
       "noise_control": "visible"
     }
   ],
-  "candidates": [
-    {
-      "candidate_id": "news_20260429_005",
-      "canonical_name": "Zedxion",
-      "aliases": [],
-      "candidate_class": "A",
-      "likely_type": "unknown",
-      "likely_status": "dead",
-      "likely_death_reason": "regulation",
-      "record_shape": "new_entity",
-      "headline": "UK shuts down crypto exchange Zedxion after sanctions probe ties platform to Iranian networks - crypto.news",
-      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
-      "duplicate_check": {
-        "matched_existing_entity": false,
-        "matched_id": null,
-        "matched_slug": null,
-        "method": "no_match"
-      },
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMitAFBVV95cUxNTlBaMkE3eXlrUU94RDlINWwtYlJrSzJyVjdYV3lHcnBBOGtTc1ltci1DUFU2amxSQjBqMkFTNmszWXFkQ1loVHpzMTlWX0JzWUh3Tl9VNFliUy11QXRkNXlXOGhnV1EwNXQ0RUpfOXJCSnR6Z1pmQWlnNkFRVXR6cWhJZ21OaXo3YmstNGJNc2dOWkRrQWktb3JtZUZfc2EtdEtjUVVIQkJYVEpKdFpLdVZBQl8?oc=5"
-      ],
-      "source_quality": "medium",
-      "next_action": "review_and_stage_public_quality_record",
-      "source_name": "crypto.news",
-      "source_category": "news_event",
-      "likely_event_types": [
-        "shutdown_announced",
-        "shutdown_effective"
-      ],
-      "news_event_categories": [
-        "shutdown"
-      ],
-      "regulatory_authorities": [],
-      "regulatory_regions": [],
-      "regulatory_signals": [],
-      "historical_dead_score": 5,
-      "historical_dead_strength": "medium",
-      "historical_dead_tags": [
-        "shutdown_language",
-        "regulatory_language"
-      ]
-    },
-    {
-      "candidate_id": "news_20260429_015",
-      "canonical_name": "Txbit",
-      "aliases": [],
-      "candidate_class": "A",
-      "likely_type": "unknown",
-      "likely_status": "dead",
-      "likely_death_reason": "voluntary_shutdown",
-      "record_shape": "new_entity",
-      "headline": "Crypto exchange Txbit to permanently close due to 'adverse market shifts' - The Block",
-      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
-      "duplicate_check": {
-        "matched_existing_entity": false,
-        "matched_id": null,
-        "matched_slug": null,
-        "method": "no_match"
-      },
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMiXkFVX3lxTE01NkE2UjV4OWxtYVE4ZXRMY3p0MXZBQWZ1bENZYmpUTnFoOTNKMGFVeDV4UkJsMnFfTjJzMDc0TEJwTkVEeTdBTzVjRmZwWDNCODFQMlJkZG1HWTBRaWc?oc=5"
-      ],
-      "source_quality": "high",
-      "next_action": "review_and_stage_public_quality_record",
-      "source_name": "The Block",
-      "source_category": "news_event",
-      "likely_event_types": [
-        "shutdown_announced",
-        "shutdown_effective",
-        "withdrawal_suspended",
-        "deposit_suspended",
-        "trading_halted"
-      ],
-      "news_event_categories": [
-        "shutdown",
-        "withdrawal_deposit_trading_suspension"
-      ],
-      "regulatory_authorities": [],
-      "regulatory_regions": [],
-      "regulatory_signals": [],
-      "historical_dead_score": 4,
-      "historical_dead_strength": "medium",
-      "historical_dead_tags": [
-        "shutdown_language",
-        "high_quality_source"
-      ]
-    },
-    {
-      "candidate_id": "news_20260429_047",
-      "canonical_name": "Serum",
-      "aliases": [],
-      "candidate_class": "A",
-      "likely_type": "unknown",
-      "likely_status": "dead",
-      "likely_death_reason": "voluntary_shutdown",
-      "record_shape": "new_entity",
-      "headline": "FTX Hack Sparks Revolution at Serum DEX as Solana Devs Plot Alameda's Ouster - CoinDesk",
-      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
-      "duplicate_check": {
-        "matched_existing_entity": false,
-        "matched_id": null,
-        "matched_slug": null,
-        "method": "no_match"
-      },
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMizwFBVV95cUxQS2ZRblRtM2pIcWdERVptbWx6MnVMa0dqR1lCc3o3UFR1Y0xTUzJ2RGQ2am5jSlRBZEJMR29ybmROMTYxNmNfSmx4WWVtbHpxaVpHRExGbDZPQnhfc2k5QVJzVGRJQ2dEVEVrU1ZoWE9EaTRZbENITVR2V3FHVndtZDhmaFVnUVUxeGFvWTJSS2J1YVV2SldFbTRRVUU3eUd2Z2ZURHV2THAwMkJWT3dEblFKYmltUTNxNFplWENHVGV2cmE2OW5TaHR4Y3ZrdW8?oc=5"
-      ],
-      "source_quality": "high",
-      "next_action": "review_and_stage_public_quality_record",
-      "source_name": "CoinDesk",
-      "source_category": "news_event",
-      "likely_event_types": [
-        "shutdown_announced",
-        "shutdown_effective"
-      ],
-      "news_event_categories": [
-        "hack_incident"
-      ],
-      "regulatory_authorities": [],
-      "regulatory_regions": [],
-      "regulatory_signals": [],
-      "historical_dead_score": 4,
-      "historical_dead_strength": "medium",
-      "historical_dead_tags": [
-        "shutdown_language",
-        "high_quality_source"
-      ]
-    }
-  ],
+  "candidates": [],
   "errors": [],
   "summary": {
-    "findings_count": 3,
-    "visible_findings_count": 3,
-    "candidate_count": 3,
+    "findings_count": 1,
+    "visible_findings_count": 1,
+    "candidate_count": 0,
     "errors_count": 0,
     "critical": 0,
     "high": 0,
-    "medium": 3,
-    "low": 0
+    "medium": 0,
+    "low": 1
   },
   "news_summary": {
-    "enabled": true,
-    "queries": 20,
-    "items": 1419,
-    "candidates": 3
-  },
-  "regulatory_summary": {
-    "enabled": true,
-    "authorities_configured": 7,
-    "query_templates": 5,
-    "queries": 25,
-    "items": 1940,
+    "enabled": false,
+    "queries": 0,
+    "items": 0,
     "candidates": 0
   },
-  "combined_summary": {
-    "items": 3359,
-    "raw_candidates": 126,
-    "candidates": 3,
-    "dropped_candidates": 123,
-    "missing_in_hei": 3,
-    "matched_existing": 0
+  "regulatory_summary": {
+    "enabled": false,
+    "authorities_configured": 7,
+    "query_templates": 5,
+    "queries": 0,
+    "items": 0,
+    "candidates": 0
   }
 }

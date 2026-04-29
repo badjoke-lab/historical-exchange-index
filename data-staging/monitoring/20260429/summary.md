@@ -2,36 +2,34 @@
 
 ## Run
 
-- run_id: 20260429-120605
+- run_id: 20260429-124559
 - mode: scheduled
-- started_at: 2026-04-29T12:06:05.786Z
-- finished_at: 2026-04-29T12:06:20.678Z
+- started_at: 2026-04-29T12:45:59.710Z
+- finished_at: 2026-04-29T12:46:05.671Z
 - meaningful_findings: yes
 
 ## Noise control
 
-- total_findings_seen: 511
-- visible_findings: 7
-- suppressed_repeated_backlog_findings: 504
-- new_findings: 1
-- repeated_findings: 510
+- total_findings_seen: 507
+- visible_findings: 2
+- suppressed_repeated_backlog_findings: 505
+- new_findings: 2
+- repeated_findings: 505
 
 ## Counts
 
 - monitors: 7
-- findings: 7
-- suppressed_findings: 504
-- candidates: 3
+- findings: 2
+- suppressed_findings: 505
+- candidates: 0
 - critical: 0
 - high: 0
-- medium: 6
+- medium: 1
 - low: 1
 
 ## A candidates
 
-- Zedxion — review_and_stage_public_quality_record
-- Txbit — review_and_stage_public_quality_record
-- Serum — review_and_stage_public_quality_record
+- None.
 
 ## B candidates
 
@@ -43,25 +41,25 @@
 
 ## Regulatory watch
 
-- enabled: true
+- enabled: false
 - authorities_configured: 7
 - query_templates: 5
-- queries: 25
-- items: 1940
+- queries: 0
+- items: 0
 - candidates: 0
 
 - None.
 
-- None.
+- [low] News and regulatory RSS fetching is disabled — enable_external_rss_checks_when_ready_for_scheduled_external_checks
 
 ## Data quality
 
-- [low] official_url_status unknown: Altilly — review_official_url_status_when_available
+- None.
 
 ## Evidence health
 
 - enabled: false
-- evidence_with_urls: 772
+- evidence_with_urls: 778
 - checked: 0
 - findings: 0
 - without_archive_total: 0
@@ -70,17 +68,15 @@
 
 ## Watchlist state
 
-- watchlist_files: 5
-- watchlist_candidates: 24
+- watchlist_files: 6
+- watchlist_candidates: 28
 - class_A: 9
 - class_B: 4
 - class_C: 4
 - manual_staging_packages: 9
-- resolution_files: 1
+- resolution_files: 2
 
-- [medium] A candidate still pending: Zedxion — stage_downgrade_or_resolve_candidate
-- [medium] A candidate still pending: Txbit — stage_downgrade_or_resolve_candidate
-- [medium] A candidate still pending: Serum — stage_downgrade_or_resolve_candidate
+- None.
 
 ## Site / SEO
 
@@ -99,5 +95,4 @@
 
 ## Suggested operator actions
 
-1. Review A candidates and decide whether to promote them to manual staging packages.
-2. Review watchlist-state findings and update staging or resolution files as needed.
+1. Review regulatory-source candidates separately and avoid status/death_reason changes without source confirmation.

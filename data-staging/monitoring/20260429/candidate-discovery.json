@@ -1,11 +1,31 @@
 {
   "monitor": "candidate-discovery",
-  "status": "ok",
-  "started_at": "2026-04-29T12:06:05.794Z",
-  "finished_at": "2026-04-29T12:06:05.797Z",
+  "status": "degraded",
+  "started_at": "2026-04-29T12:45:59.718Z",
+  "finished_at": "2026-04-29T12:46:05.634Z",
   "findings": [
     {
-      "finding_id": "finding_1777464365797_214fjb",
+      "finding_id": "finding_1777466765634_31d78v",
+      "monitor": "candidate-discovery",
+      "severity": "medium",
+      "category": "external_source_fetch_failed",
+      "title": "External source fetch failed: defillama-protocols-dexlike",
+      "summary": "https://api.llama.fi/protocols: terminated",
+      "affected_entity": null,
+      "recommended_action": "inspect_external_source_adapter",
+      "source_urls": [],
+      "confidence": "medium",
+      "dedupe_key": "candidate-discovery:source_fetch_failed:defillama-protocols-dexlike",
+      "first_seen_at": "2026-04-29T12:46:05.671Z",
+      "last_seen_at": "2026-04-29T12:46:05.671Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    },
+    {
+      "finding_id": "finding_1777466765634_0mbjts",
       "monitor": "candidate-discovery",
       "severity": "low",
       "category": "candidate_discovery_source_empty",
@@ -17,8 +37,8 @@
       "confidence": "medium",
       "dedupe_key": "candidate-discovery:source_empty:all_sources",
       "first_seen_at": "2026-04-28T14:28:13.538Z",
-      "last_seen_at": "2026-04-29T12:06:20.678Z",
-      "repeat_count": 11,
+      "last_seen_at": "2026-04-29T12:46:05.671Z",
+      "repeat_count": 12,
       "is_new": false,
       "is_repeated": true,
       "suppressed": true,
@@ -26,15 +46,17 @@
     }
   ],
   "candidates": [],
-  "errors": [],
+  "errors": [
+    "defillama-protocols-dexlike: terminated"
+  ],
   "summary": {
-    "findings_count": 1,
-    "visible_findings_count": 1,
+    "findings_count": 2,
+    "visible_findings_count": 2,
     "candidate_count": 0,
-    "errors_count": 0,
+    "errors_count": 1,
     "critical": 0,
     "high": 0,
-    "medium": 0,
+    "medium": 1,
     "low": 1
   },
   "discovery_summary": {
@@ -46,7 +68,7 @@
     "source_summary": {
       "static_sources": 2,
       "remote_sources": 1,
-      "remote_enabled": 0
+      "remote_enabled": 1
     }
   }
 }
