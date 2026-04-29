@@ -72,6 +72,7 @@ export const EVENT_TYPE_VALUES = [
   'regulatory_action',
   'lawsuit',
   'bankruptcy_filed',
+  'insolvency',
   'insolvency_declared',
   'shutdown_announced',
   'shutdown_effective',
