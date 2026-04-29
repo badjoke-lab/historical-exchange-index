@@ -20,11 +20,13 @@ const GENERIC_CANDIDATE_NAMES = new Set([
   'complex',
   'consumer',
   'dominance',
+  'etherdelta still holds',
   'first fca',
   'germany',
   'korea',
   'launch',
   'london block',
+  'mango markets shutting down',
   'monthly volume smashes',
   'network introduces build-your-own perp',
   'offering the complete solution',
@@ -50,6 +52,13 @@ const GENERIC_CANDIDATE_NAMES = new Set([
   'volumes nearly triple',
 ]);
 
+const AMBIGUOUS_GLOBAL_BRANDS = new Set([
+  'coinbase',
+  'huobi',
+  'mercado libre',
+  'tokenize',
+]);
+
 function runDateFromRunId(runId) {
   return String(runId || new Date().toISOString().slice(0, 10).replace(/-/g, '')).slice(0, 8);
 }
@@ -60,12 +69,30 @@ function isGenericCandidateName(name) {
   if (GENERIC_CANDIDATE_NAMES.has(normalized)) return true;
   if (normalized.length < 3) return true;
   if (/^(the|this|that|these|those)\b/.test(normalized)) return true;
-  if (/\b(after|before|following|amid|faces|announces|offers|introduces|proposes|surges|soars|suffers|shutters|shuts down)\b/.test(normalized) && normalized.split(/\s+/).length > 2) return true;
+  if (/\b(after|before|following|amid|faces|announces|offers|introduces|proposes|surges|soars|suffers|shutters|holds|shuts down)\b/.test(normalized) && normalized.split(/\s+/).length > 2) return true;
   return false;
+}
+
+function isAmbiguousBrandCandidate(candidate) {
+  const normalized = String(candidate?.canonical_name || '').trim().toLowerCase();
+  if (!AMBIGUOUS_GLOBAL_BRANDS.has(normalized)) return false;
+
+  const headline = String(candidate?.headline || '').toLowerCase();
+  return /\b(unit|operations|services|tool|product|coin|market|region|country|india|thai|thailand|singapore)\b/.test(headline);
+}
+
+function isLikelyHeadlineFragment(candidate) {
+  const name = String(candidate?.canonical_name || '').trim();
+  const headline = String(candidate?.headline || '').trim();
+  if (!name || !headline) return false;
+  if (name.split(/\s+/).length < 3) return false;
+  return headline.toLowerCase().includes(name.toLowerCase());
 }
 
 function isActionableNewsCandidate(candidate) {
   if (!candidate || isGenericCandidateName(candidate.canonical_name)) return false;
+  if (isAmbiguousBrandCandidate(candidate)) return false;
+  if (isLikelyHeadlineFragment(candidate)) return false;
 
   const sourceUrls = candidate.source_urls || [];
   if (sourceUrls.length === 0) return false;
@@ -284,7 +311,7 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
     await writeJsonFile(`${WATCHLIST_AUTO_ROOT}/news-event-candidates-${runDate}.json`, {
       watchlist_type: 'auto_news_event_candidates',
       created_at: new Date().toISOString(),
-      purpose: 'Conservatively filtered auto-generated news/regulatory/event candidate output. Not canonical. Requires review before staging/canonical append.',
+      purpose: 'Tightly filtered auto-generated news/regulatory/event candidate output. Not canonical. Requires review before staging/canonical append.',
       news_summary: {
         enabled: NEWS_WATCH_ENABLED,
         queries: newsQueries.length,
