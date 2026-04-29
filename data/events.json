@@ -5168,5 +5168,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "Recorded as a major security incident, not as a terminal shutdown marker."
+  },
+  {
+    "id": "hei_ev_000484",
+    "exchange_id": "hei_ex_000277",
+    "event_type": "launched",
+    "event_date": "2017-02-01",
+    "title": "Stocks.exchange / STEX launched",
+    "description": "Exchange profile references describe STEX, previously Stocks.exchange, as launched around 2017-02.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is month-level. Stored as 2017-02-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000485",
+    "exchange_id": "hei_ex_000277",
+    "event_type": "trading_halted",
+    "event_date": "2026-04-29",
+    "title": "Stocks.exchange / STEX has no active tracked markets",
+    "description": "Current exchange trackers show no available trading-pair / volume data or mark STEX as no longer operational.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Recorded as a current inactive / no-market-data status marker, not as a confirmed shutdown date."
   }
 ]

@@ -5964,5 +5964,32 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-29",
     "notes": "Coinapult is included as an exchange-like historical bitcoin wallet / brokerage / payment service rather than a conventional order-book exchange. HEI keeps it inactive because current references indicate the original wallet service is no longer operational, but the evidence set does not establish a clean official shutdown announcement or terminal date. Current coinapult.com content appears repurposed and should not be treated as proof of original service continuity."
+  },
+  {
+    "id": "hei_ex_000277",
+    "slug": "stocks-exchange",
+    "canonical_name": "Stocks.exchange",
+    "aliases": [
+      "Stocks Exchange",
+      "STEX",
+      "Stex",
+      "stex.com"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2017-02-01",
+    "death_date": null,
+    "country_or_origin": "Estonia / Seychelles",
+    "summary": "Centralized cryptocurrency exchange originally known as Stocks.exchange and later presented as STEX. Market-data references describe STEX as previously Stocks.exchange and launched around 2017. Current tracker pages show no available markets / no operational trading data or mark the exchange as no longer operational, so HEI models the record as inactive rather than dead.",
+    "official_url_original": "https://stocks.exchange/",
+    "official_domain_original": "stocks.exchange",
+    "official_url_status": "offline",
+    "archived_url": "https://web.archive.org/web/*/https://stocks.exchange/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI treats Stocks.exchange and STEX as the same historical exchange record because multiple tracker references describe STEX as previously Stocks.exchange. The record is inactive rather than dead because the evidence set supports no active market data / no longer operational status, but does not establish a clean official terminal shutdown date."
   }
 ]
