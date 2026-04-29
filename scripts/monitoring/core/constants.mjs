@@ -50,6 +50,7 @@ export const OFFICIAL_URL_STATUS_VALUES = [
   'live_verified',
   'live_unverified',
   'partial',
+  'offline',
   'dead_domain',
   'redirected',
   'repurposed',
