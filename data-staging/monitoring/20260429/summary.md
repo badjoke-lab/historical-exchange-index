@@ -2,30 +2,30 @@
 
 ## Run
 
-- run_id: 20260429-075931
+- run_id: 20260429-081002
 - mode: scheduled
-- started_at: 2026-04-29T07:59:31.255Z
-- finished_at: 2026-04-29T08:00:01.949Z
+- started_at: 2026-04-29T08:10:02.856Z
+- finished_at: 2026-04-29T08:10:33.992Z
 - meaningful_findings: yes
 
 ## Noise control
 
-- total_findings_seen: 523
-- visible_findings: 24
-- suppressed_repeated_backlog_findings: 499
-- new_findings: 24
-- repeated_findings: 499
+- total_findings_seen: 522
+- visible_findings: 7
+- suppressed_repeated_backlog_findings: 515
+- new_findings: 1
+- repeated_findings: 521
 
 ## Counts
 
 - monitors: 7
-- findings: 24
-- suppressed_findings: 499
+- findings: 7
+- suppressed_findings: 515
 - candidates: 0
 - critical: 0
 - high: 0
 - medium: 6
-- low: 18
+- low: 1
 
 ## A candidates
 
@@ -91,7 +91,7 @@
 - robots_checked: false
 - robots_status: not_checked
 
-- [low] Site and SEO checks are disabled — enable_site_seo_checks_when_ready_for_scheduled_external_checks
+- None.
 
 ## Suggested operator actions
 
