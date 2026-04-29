@@ -5784,5 +5784,32 @@
     "confidence": "high",
     "last_verified_at": "2026-04-29",
     "notes": "HEI uses regulation as death_reason because contemporary reports preserve BitZ's shutdown schedule and state that the closure followed Chinese regulatory policy requirements. The terminal date uses 2021-10-21, when spot trading and platform login were scheduled to stop."
+  },
+  {
+    "id": "hei_ex_000270",
+    "slug": "crex24",
+    "canonical_name": "Crex24",
+    "aliases": [
+      "CREX24",
+      "Crex 24",
+      "crex24.com",
+      "crex.exchange"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2017-08-01",
+    "death_date": null,
+    "country_or_origin": "Estonia / Cyprus",
+    "summary": "Centralized cryptocurrency exchange launched around 2017. Current market-data trackers show Crex24 with no active markets, no tracked volume, or as no longer operational. HEI models it as inactive because available evidence supports lack of active exchange operation but does not establish a definitive shutdown announcement or terminal date.",
+    "official_url_original": "https://crex24.com/",
+    "official_domain_original": "crex24.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://crex24.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI keeps Crex24 inactive rather than dead because public trackers indicate no operational market data / no longer operational status, while stronger official terminal shutdown evidence is not attached. Do not assign death_reason or death_date without stronger closure evidence."
   }
 ]
