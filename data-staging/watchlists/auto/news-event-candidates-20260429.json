@@ -1,210 +1,25 @@
 {
-  "monitor": "news-and-event-watch",
-  "status": "ok",
-  "started_at": "2026-04-29T11:41:22.310Z",
-  "finished_at": "2026-04-29T11:41:38.890Z",
-  "findings": [
-    {
-      "finding_id": "finding_1777462898889_6ct48t",
-      "monitor": "news-and-event-watch",
-      "severity": "medium",
-      "category": "news_event_actionable_candidate",
-      "title": "News/event candidate: Mercado Libre",
-      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
-      "affected_entity": null,
-      "recommended_action": "review_and_stage_public_quality_record",
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMixAFBVV95cUxQZHh6YzFJdkszVmpzVWF6bDNCQkZlQjRIakQ2dEpCTXVvX0gyVmpkbm5NcWxtTHk3bXdqTl9rTmxZbEtRR05FbVlWcHdPdmZCTnFmd09TbGVhZWE0cWdlU0NMZlpEQS1US3B5LW9lMVMyVmdiREZsV3hFeDVfaThuUUh5WkxLbHRyU0FwWTMxU01TRzNaSkZ3SFRJcVkzdUxOVGRaZUY4T3hnYTg4dV9PRC1YOGk5SUptcktmVHdXQi1DQ0JN?oc=5"
-      ],
-      "confidence": "medium",
-      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:mercado libre",
-      "first_seen_at": "2026-04-29T11:41:38.920Z",
-      "last_seen_at": "2026-04-29T11:41:38.920Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777462898889_ez9q80",
-      "monitor": "news-and-event-watch",
-      "severity": "medium",
-      "category": "news_event_actionable_candidate",
-      "title": "News/event candidate: Zedxion",
-      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
-      "affected_entity": null,
-      "recommended_action": "review_and_stage_public_quality_record",
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMitAFBVV95cUxNTlBaMkE3eXlrUU94RDlINWwtYlJrSzJyVjdYV3lHcnBBOGtTc1ltci1DUFU2amxSQjBqMkFTNmszWXFkQ1loVHpzMTlWX0JzWUh3Tl9VNFliUy11QXRkNXlXOGhnV1EwNXQ0RUpfOXJCSnR6Z1pmQWlnNkFRVXR6cWhJZ21OaXo3YmstNGJNc2dOWkRrQWktb3JtZUZfc2EtdEtjUVVIQkJYVEpKdFpLdVZBQl8?oc=5"
-      ],
-      "confidence": "low",
-      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:zedxion",
-      "first_seen_at": "2026-04-29T11:41:38.920Z",
-      "last_seen_at": "2026-04-29T11:41:38.920Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777462898889_9c2onj",
-      "monitor": "news-and-event-watch",
-      "severity": "medium",
-      "category": "news_event_actionable_candidate",
-      "title": "News/event candidate: Txbit",
-      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
-      "affected_entity": null,
-      "recommended_action": "review_and_stage_public_quality_record",
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMiXkFVX3lxTE01NkE2UjV4OWxtYVE4ZXRMY3p0MXZBQWZ1bENZYmpUTnFoOTNKMGFVeDV4UkJsMnFfTjJzMDc0TEJwTkVEeTdBTzVjRmZwWDNCODFQMlJkZG1HWTBRaWc?oc=5"
-      ],
-      "confidence": "medium",
-      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:txbit",
-      "first_seen_at": "2026-04-29T11:41:38.920Z",
-      "last_seen_at": "2026-04-29T11:41:38.920Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777462898889_64lwh0",
-      "monitor": "news-and-event-watch",
-      "severity": "medium",
-      "category": "news_event_actionable_candidate",
-      "title": "News/event candidate: Huobi",
-      "summary": "Likely HEI-relevant historical dead/continuity candidate.",
-      "affected_entity": null,
-      "recommended_action": "review_and_stage_public_quality_record",
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMisAFBVV95cUxQUXZKXzlaQ1NYa1MzSUpJS2ZUVUZaVHhBWU5pWEluSEJHUjY5aUdZZGl0bjdqNDQyVVN5SDZlREZTbUNKUHFlUnMtWnBrNkJ1M1hrOExkWG1WYVpQY1VwaVZadGxySEh0NXROaDUyTTdBMDFqTzMzb2xRQUlEbi1YWmtpMXZjZnVIZGxuTnZaWDc3c1pwajlZdUtIOUcxdWNVaDU4RS0waGdXT3Q1OVJlVA?oc=5"
-      ],
-      "confidence": "medium",
-      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:huobi",
-      "first_seen_at": "2026-04-29T11:41:38.920Z",
-      "last_seen_at": "2026-04-29T11:41:38.920Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777462898889_kb2e0k",
-      "monitor": "news-and-event-watch",
-      "severity": "medium",
-      "category": "news_event_actionable_candidate",
-      "title": "News/event candidate: Tokenize",
-      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
-      "affected_entity": null,
-      "recommended_action": "review_and_stage_public_quality_record",
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMivwFBVV95cUxORmhzTGh2bTZNblppQktjUG5WdnJVQU5BRzdQb3ZRN3NLYVlBb05HYlBYTEZ1cEFHelotQ3pSTzBJRXVaVWV4X0xfdDk1VFdMcFlVNkQzVWs5d0ctbFllaWhlcHM3dG5mdnh5cEY5TnI5ekRqdDRBcXVpRU9fb1hRT05ZNTRHRnFabTViN3JlUzRRWk9CSmFqV0xsc05FVHZxeWVLM3BTMk1USTBYRDlUYjA4M3prX21JbUZBbFF0WQ?oc=5"
-      ],
-      "confidence": "low",
-      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:tokenize",
-      "first_seen_at": "2026-04-29T11:41:38.920Z",
-      "last_seen_at": "2026-04-29T11:41:38.920Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777462898889_iu9swc",
-      "monitor": "news-and-event-watch",
-      "severity": "medium",
-      "category": "news_event_actionable_candidate",
-      "title": "News/event candidate: Coinbase",
-      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
-      "affected_entity": null,
-      "recommended_action": "review_and_stage_public_quality_record",
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOZnpfRXUzMWxDWlRjUlRyMUdPbS1KY1ZwdzRYUjBFYzhmb3JIUGYtU3F4M1M2dDhXNVVNX2N4QUlGdFNpMEUxM0FaMktMN2xFUXk3cmlDZ0NSX00ydHdSRWpfYUJKZnZqaW03SHVvU2NwLXlTcWE1YXJ5LTUzVUVib2cyRHRlOE9hZFp3b2hqT2wwMl9MOENMM0ZBQTRkVVVQdUd3TFNKT1htaExzMExjYkdUMGlnWGt1eWY1d3ROTFBSUW9RVVpIZ2ZjZXh5ZUFIYmFHVGJfQVAtTEhhMFhmY1JNQdIB6AFBVV95cUxPaWxtWnpCOXRQcjJiWEFiN05tNDdEOUhDT05LS2lKWFI2Ym9mQkFORVczSXRKcF9HSTJaWlQzRTVOYUJJWGlZTUNzamRRMzdfOTR3N2hIVmo0MzdkYlRPVkFpRW1HdlMxMm9NbXVzYXhkNVFWOURWUVVENDNrcGVLaHJCSVBXWDVvVnk0UTRfYUNwaXRITXc5aktEWmh5ZklNQm03aEk0dzhnNVZ2dWh6T3lIT2ZhU3BPYzVkWW5WNW9JRTdfSnlndHQ5M01sWWhYUFhLNlJjOHdscy0weW5CM1pSNEtvTERI?oc=5",
-        "https://news.google.com/rss/articles/CBMirAFBVV95cUxQVEZoQW9ybGxNeGFjY2RjZ3hmYlhKN0hyNlYzcDBNN2NCOWpYeW5NaVpQczRPN0h5WndJdjh0UVFFRjdnd19QbHhSbjJmS210Ni1MeGQ4VWlIbFdrLU9CbXdmbmR5VDZVeUt3UnB0VjNiWjRncXM3YXh4UkZuRm9zWWg5T2FMWHo5a2t4c3FvdE1jT05tTDdnX0ZMcENaRmNjNjJkNm9tT0k0QktG?oc=5"
-      ],
-      "confidence": "low",
-      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:coinbase",
-      "first_seen_at": "2026-04-29T11:41:38.920Z",
-      "last_seen_at": "2026-04-29T11:41:38.920Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777462898889_1wwic3",
-      "monitor": "news-and-event-watch",
-      "severity": "medium",
-      "category": "news_event_actionable_candidate",
-      "title": "News/event candidate: Etherdelta Still Holds",
-      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
-      "affected_entity": null,
-      "recommended_action": "review_and_stage_public_quality_record",
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUVVZRkc1dGtBZjQtV05CMTVFMFVlLUl3ZXBiOWUwQVNDZnFkV256MHF5cnpyekxqVjVrNHBoZUl0WHRFNUFGTkhkbXJTRi1sNlVPbUxVeDNUc0xRVTVFZzdFbTJRWkwxNmFuZ2Fzd1VMeWtaempxdG5Ia0sxR21IM3c2NVV3V2xlcDB1ZjhtWkpITTZwUXgzU2ZXVmpzbmdEWl9Wb3dUVlJjVHFGZVNURzE2cTVpVXRZQTlXUU9qTzM?oc=5",
-        "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5zWG1qZnFhNFhEeF9sdzNmM2JqSkdIWDJ3Q0cxeFdtY0RDSk5IbXdic19BM3BhOVVxdXZaZGN3TmNEbkdDZHlaRkE2eG5JN1dyeHFOZFpKOA?oc=5"
-      ],
-      "confidence": "low",
-      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:etherdelta still holds",
-      "first_seen_at": "2026-04-29T11:41:38.920Z",
-      "last_seen_at": "2026-04-29T11:41:38.920Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777462898889_7k9mq9",
-      "monitor": "news-and-event-watch",
-      "severity": "medium",
-      "category": "news_event_actionable_candidate",
-      "title": "News/event candidate: Mango Markets Shutting Down",
-      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
-      "affected_entity": null,
-      "recommended_action": "review_and_stage_public_quality_record",
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVFRoUDVxZ2RrWjVPY0VFcVE4WllHLVV4YmNLaXVwVERIUWc2QjBlcUpDXzYyWW9PSllwWGVhTjZ4ZnlJT09fbFRpWWNMT0UzeGpHVlhZa0I3RGRYNDZyUGZnckxuNV9mcUZndkhxcGdRYlFYeWpjVzlXTEtBWjd1WDVCaVhjbDNrc3BOS2luVS1fbXE2T3Vjd3dkZFIxSGEyak03RmpYQVA1dG03azNQMktxcjdoSW5MMlRmdENDQThfaTJK0gHKAUFVX3lxTE1lbFpkeHJhYVYwT3F6UFR5R3Vxc2hCM2hySVdaSmI4V0hCR0dLa1JQcnMzYlRwTEVJNU5pb1hLZWV6eWttUzZlMmplaHZ6SXlYRERKazNTdkpzcEtZNXRSb2tXbHNXbnVLNmtaS2d0MHlzbXNEc2Y3cGdJX2hGUldqc09scFR4bmFQTkJ0MWRyRFZVZ0FnektmSzFpblJRajlSS1RvRmY3TGVKY2t3M0VrTDZhbERJdkxqRGRWczV3b05QYkg2RENaYnc?oc=5"
-      ],
-      "confidence": "low",
-      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:mango markets shutting down",
-      "first_seen_at": "2026-04-29T11:41:38.920Z",
-      "last_seen_at": "2026-04-29T11:41:38.920Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777462898889_6d4f4q",
-      "monitor": "news-and-event-watch",
-      "severity": "medium",
-      "category": "news_event_actionable_candidate",
-      "title": "News/event candidate: Serum",
-      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
-      "affected_entity": null,
-      "recommended_action": "review_and_stage_public_quality_record",
-      "source_urls": [
-        "https://news.google.com/rss/articles/CBMizwFBVV95cUxQS2ZRblRtM2pIcWdERVptbWx6MnVMa0dqR1lCc3o3UFR1Y0xTUzJ2RGQ2am5jSlRBZEJMR29ybmROMTYxNmNfSmx4WWVtbHpxaVpHRExGbDZPQnhfc2k5QVJzVGRJQ2dEVEVrU1ZoWE9EaTRZbENITVR2V3FHVndtZDhmaFVnUVUxeGFvWTJSS2J1YVV2SldFbTRRVUU3eUd2Z2ZURHV2THAwMkJWT3dEblFKYmltUTNxNFplWENHVGV2cmE2OW5TaHR4Y3ZrdW8?oc=5"
-      ],
-      "confidence": "medium",
-      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:serum",
-      "first_seen_at": "2026-04-29T11:41:38.920Z",
-      "last_seen_at": "2026-04-29T11:41:38.920Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
-    }
-  ],
+  "watchlist_type": "auto_news_event_candidates",
+  "created_at": "2026-04-29T11:41:38.889Z",
+  "purpose": "Conservatively filtered auto-generated news/regulatory/event candidate output. Not canonical. Requires review before staging/canonical append.",
+  "news_summary": {
+    "enabled": true,
+    "queries": 20,
+    "items": 1408
+  },
+  "regulatory_summary": {
+    "enabled": true,
+    "authorities_configured": 7,
+    "query_templates": 5,
+    "queries": 25,
+    "items": 1937,
+    "raw_candidates": 4
+  },
+  "filtering_summary": {
+    "raw_candidates": 118,
+    "retained_candidates": 9,
+    "dropped_candidates": 109
+  },
   "candidates": [
     {
       "candidate_id": "news_20260429_003",
@@ -588,37 +403,13 @@
       ]
     }
   ],
-  "errors": [],
   "summary": {
-    "findings_count": 9,
-    "visible_findings_count": 9,
-    "candidate_count": 9,
-    "errors_count": 0,
-    "critical": 0,
-    "high": 0,
-    "medium": 9,
-    "low": 0
-  },
-  "news_summary": {
-    "enabled": true,
-    "queries": 20,
-    "items": 1408,
-    "candidates": 9
-  },
-  "regulatory_summary": {
-    "enabled": true,
-    "authorities_configured": 7,
-    "query_templates": 5,
-    "queries": 25,
-    "items": 1937,
-    "candidates": 0
-  },
-  "combined_summary": {
-    "items": 3345,
-    "raw_candidates": 118,
-    "candidates": 9,
-    "dropped_candidates": 109,
+    "total": 9,
     "missing_in_hei": 9,
-    "matched_existing": 0
+    "matched_existing": 0,
+    "regulatory_candidates": 0,
+    "A": 9,
+    "B": 0,
+    "C": 0
   }
 }
