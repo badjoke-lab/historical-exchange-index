@@ -5679,5 +5679,31 @@
     "confidence": "high",
     "last_verified_at": "2026-04-29",
     "notes": "GLBSE was not a conventional fiat/crypto spot exchange; it is included as a historical Bitcoin-denominated asset / securities exchange. HEI uses regulation as the death_reason because contemporary reporting and community records cite AML, tax, and regulatory concerns as the stated closure rationale."
+  },
+  {
+    "id": "hei_ex_000266",
+    "slug": "btcquick",
+    "canonical_name": "BTCQuick",
+    "aliases": [
+      "btcQuick",
+      "BTC Quick",
+      "btcquick.com"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2012-11-01",
+    "death_date": null,
+    "country_or_origin": "United States",
+    "summary": "US-focused bitcoin seller / broker platform launched around November 2012. CoinDesk and Cointelegraph reported in October 2013 that BTCQuick had reached nearly $2 million in bitcoin sales. HEI models BTCQuick as inactive because the current evidence set supports historical operation but does not establish a definitive shutdown announcement or terminal date.",
+    "official_url_original": "https://btcquick.com/",
+    "official_domain_original": "btcquick.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://btcquick.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-29",
+    "notes": "BTCQuick appears closer to a broker / retail bitcoin seller than a conventional order-book exchange. It is included as a historical exchange-like bitcoin buying platform and kept inactive rather than dead because no clean terminal shutdown evidence is currently attached."
   }
 ]
