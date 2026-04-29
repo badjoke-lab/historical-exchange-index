@@ -1,11 +1,11 @@
 {
   "monitor": "site-and-seo-watch",
   "status": "ok",
-  "started_at": "2026-04-29T08:00:01.942Z",
-  "finished_at": "2026-04-29T08:00:01.942Z",
+  "started_at": "2026-04-29T10:42:16.226Z",
+  "finished_at": "2026-04-29T10:42:16.226Z",
   "findings": [
     {
-      "finding_id": "finding_1777449601942_1wtjqv",
+      "finding_id": "finding_1777459336226_3t88ub",
       "monitor": "site-and-seo-watch",
       "severity": "low",
       "category": "site_seo_watch_disabled",
@@ -17,12 +17,12 @@
       "confidence": "medium",
       "dedupe_key": "site-and-seo-watch:site_seo_checks_disabled",
       "first_seen_at": "2026-04-29T08:00:01.949Z",
-      "last_seen_at": "2026-04-29T08:00:01.949Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
+      "last_seen_at": "2026-04-29T10:42:16.234Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_backlog"
     }
   ],
   "candidates": [],
