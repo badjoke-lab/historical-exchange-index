@@ -1,11 +1,11 @@
 {
   "monitor": "evidence-health-watch",
   "status": "ok",
-  "started_at": "2026-04-29T10:40:58.101Z",
-  "finished_at": "2026-04-29T10:42:16.226Z",
+  "started_at": "2026-04-29T11:04:00.364Z",
+  "finished_at": "2026-04-29T11:05:22.942Z",
   "findings": [
     {
-      "finding_id": "finding_1777459262764_i0aoyo",
+      "finding_id": "finding_1777460644623_n1n2dw",
       "monitor": "evidence-health-watch",
       "severity": "medium",
       "category": "source_404_archive_ok",
@@ -25,15 +25,15 @@
       "confidence": "low",
       "dedupe_key": "evidence-health-watch:source_404_archive_ok:hei_src_000039",
       "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T10:42:16.234Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
+      "last_seen_at": "2026-04-29T11:05:22.950Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
       "suppressed": false,
       "noise_control": "visible"
     },
     {
-      "finding_id": "finding_1777459263459_fvo4qz",
+      "finding_id": "finding_1777460647791_02sg2j",
       "monitor": "evidence-health-watch",
       "severity": "low",
       "category": "source_redirected",
@@ -53,15 +53,15 @@
       "confidence": "low",
       "dedupe_key": "evidence-health-watch:source_redirected:hei_src_000376",
       "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T10:42:16.234Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
+      "last_seen_at": "2026-04-29T11:05:22.950Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_backlog"
     },
     {
-      "finding_id": "finding_1777459280388_x39kq8",
+      "finding_id": "finding_1777460666623_pg1kfb",
       "monitor": "evidence-health-watch",
       "severity": "medium",
       "category": "source_timeout",
@@ -81,7 +81,35 @@
       "confidence": "low",
       "dedupe_key": "evidence-health-watch:source_timeout:hei_src_000382",
       "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T10:42:16.234Z",
+      "last_seen_at": "2026-04-29T11:05:22.950Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": false,
+      "noise_control": "visible"
+    },
+    {
+      "finding_id": "finding_1777460667059_158u1b",
+      "monitor": "evidence-health-watch",
+      "severity": "medium",
+      "category": "source_404_archive_ok",
+      "title": "Evidence source URL issue: hei_src_000385",
+      "summary": "[NOTICE] BITFRONT Exchange to Close — https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2 -> http_error HTTP 403",
+      "affected_entity": {
+        "matched_existing_entity": true,
+        "id": "hei_ex_000128",
+        "slug": null,
+        "canonical_name": null
+      },
+      "recommended_action": "verify_archived_url_and_consider_source_note",
+      "source_urls": [
+        "https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+        "https://web.archive.org/web/*/https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2"
+      ],
+      "confidence": "low",
+      "dedupe_key": "evidence-health-watch:source_404_archive_ok:hei_src_000385",
+      "first_seen_at": "2026-04-29T11:05:22.950Z",
+      "last_seen_at": "2026-04-29T11:05:22.950Z",
       "repeat_count": 1,
       "is_new": true,
       "is_repeated": false,
@@ -89,7 +117,35 @@
       "noise_control": "visible"
     },
     {
-      "finding_id": "finding_1777459305236_01y5ki",
+      "finding_id": "finding_1777460688384_xuwrkp",
+      "monitor": "evidence-health-watch",
+      "severity": "medium",
+      "category": "source_timeout",
+      "title": "Evidence source URL issue: hei_src_000549",
+      "summary": "Krypto-Swapping-Dienst „eXch“ abgeschaltet — https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html -> timeout error=This operation was aborted",
+      "affected_entity": {
+        "matched_existing_entity": true,
+        "id": "hei_ex_000176",
+        "slug": null,
+        "canonical_name": null
+      },
+      "recommended_action": "recheck_before_replacing_evidence",
+      "source_urls": [
+        "https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
+        "https://web.archive.org/web/*/https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html"
+      ],
+      "confidence": "low",
+      "dedupe_key": "evidence-health-watch:source_timeout:hei_src_000549",
+      "first_seen_at": "2026-04-29T11:05:22.950Z",
+      "last_seen_at": "2026-04-29T11:05:22.950Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    },
+    {
+      "finding_id": "finding_1777460691820_k97u77",
       "monitor": "evidence-health-watch",
       "severity": "low",
       "category": "source_redirected",
@@ -109,15 +165,15 @@
       "confidence": "low",
       "dedupe_key": "evidence-health-watch:source_redirected:hei_src_000617",
       "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T10:42:16.234Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
+      "last_seen_at": "2026-04-29T11:05:22.950Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_backlog"
     },
     {
-      "finding_id": "finding_1777459307985_566y4j",
+      "finding_id": "finding_1777460694673_g95nr7",
       "monitor": "evidence-health-watch",
       "severity": "low",
       "category": "source_redirected",
@@ -137,15 +193,15 @@
       "confidence": "low",
       "dedupe_key": "evidence-health-watch:source_redirected:hei_src_000749",
       "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T10:42:16.234Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
+      "last_seen_at": "2026-04-29T11:05:22.950Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_backlog"
     },
     {
-      "finding_id": "finding_1777459308461_hfg1fg",
+      "finding_id": "finding_1777460695817_qs5wti",
       "monitor": "evidence-health-watch",
       "severity": "low",
       "category": "source_redirected",
@@ -165,15 +221,15 @@
       "confidence": "low",
       "dedupe_key": "evidence-health-watch:source_redirected:hei_src_000750",
       "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T10:42:16.234Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
+      "last_seen_at": "2026-04-29T11:05:22.950Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_backlog"
     },
     {
-      "finding_id": "finding_1777459314344_jchsuq",
+      "finding_id": "finding_1777460708023_3lz4jz",
       "monitor": "evidence-health-watch",
       "severity": "low",
       "category": "source_redirected",
@@ -193,15 +249,15 @@
       "confidence": "low",
       "dedupe_key": "evidence-health-watch:source_redirected:hei_src_000904",
       "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T10:42:16.234Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
+      "last_seen_at": "2026-04-29T11:05:22.950Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_backlog"
     },
     {
-      "finding_id": "finding_1777459320666_2aijla",
+      "finding_id": "finding_1777460714420_6modsd",
       "monitor": "evidence-health-watch",
       "severity": "medium",
       "category": "source_404_archive_ok",
@@ -221,15 +277,15 @@
       "confidence": "low",
       "dedupe_key": "evidence-health-watch:source_404_archive_ok:hei_src_000003",
       "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T10:42:16.234Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
+      "last_seen_at": "2026-04-29T11:05:22.950Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
       "suppressed": false,
       "noise_control": "visible"
     },
     {
-      "finding_id": "finding_1777459321321_anrsc1",
+      "finding_id": "finding_1777460714917_l3l08a",
       "monitor": "evidence-health-watch",
       "severity": "low",
       "category": "source_redirected",
@@ -249,31 +305,31 @@
       "confidence": "low",
       "dedupe_key": "evidence-health-watch:source_redirected:hei_src_000004",
       "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T10:42:16.234Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
+      "last_seen_at": "2026-04-29T11:05:22.950Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_backlog"
     }
   ],
   "candidates": [],
   "errors": [],
   "summary": {
-    "findings_count": 9,
-    "visible_findings_count": 9,
+    "findings_count": 11,
+    "visible_findings_count": 11,
     "candidate_count": 0,
     "errors_count": 0,
     "critical": 0,
     "high": 0,
-    "medium": 3,
+    "medium": 5,
     "low": 6
   },
   "evidence_health_summary": {
     "enabled": true,
-    "evidence_with_urls": 734,
+    "evidence_with_urls": 741,
     "checked": 50,
-    "findings": 9,
+    "findings": 11,
     "without_archive_total": 0
   },
   "evidence_url_checks": [
@@ -585,10 +641,10 @@
       "source_check": {
         "input_url": "https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
         "normalized_url": "https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
-        "status": "ok",
-        "http_status": 200,
+        "status": "http_error",
+        "http_status": 403,
         "final_url": "https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
-        "content_type": "text/html; charset=utf-8",
+        "content_type": "text/html; charset=UTF-8",
         "error": null
       },
       "archive_check": {
@@ -855,11 +911,11 @@
       "source_check": {
         "input_url": "https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
         "normalized_url": "https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
-        "status": "ok",
-        "http_status": 200,
-        "final_url": "https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
-        "content_type": "text/html;charset=utf-8",
-        "error": null
+        "status": "timeout",
+        "http_status": null,
+        "final_url": null,
+        "content_type": null,
+        "error": "This operation was aborted"
       },
       "archive_check": {
         "input_url": "https://web.archive.org/web/*/https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
