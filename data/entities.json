@@ -5811,5 +5811,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-29",
     "notes": "HEI keeps Crex24 inactive rather than dead because public trackers indicate no operational market data / no longer operational status, while stronger official terminal shutdown evidence is not attached. Do not assign death_reason or death_date without stronger closure evidence."
+  },
+  {
+    "id": "hei_ex_000271",
+    "slug": "chbtc",
+    "canonical_name": "CHBTC",
+    "aliases": [
+      "CHBTC.com",
+      "CHBTC Exchange"
+    ],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": "2013-06-01",
+    "death_date": "2017-12-31",
+    "country_or_origin": "China",
+    "summary": "China-based centralized cryptocurrency exchange founded in 2013. CHBTC ceased China-market trading activity around September 2017 amid Chinese regulatory pressure and later transitioned into the overseas ZB.com brand at the end of 2017.",
+    "official_url_original": "https://chbtc.com/",
+    "official_domain_original": "chbtc.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://chbtc.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI models CHBTC as rebranded rather than dead because multiple profile sources describe the China-market trading stop followed by a name change / overseas transition to ZB.com. The death_date is stored as 2017-12-31 as an end-of-year brand-transition marker, while the 2017-09-30 China-market trading stop is recorded as a separate regulatory event."
   }
 ]
