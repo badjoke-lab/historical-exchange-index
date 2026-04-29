@@ -1,11 +1,11 @@
 {
   "monitor": "evidence-health-watch",
   "status": "ok",
-  "started_at": "2026-04-29T12:06:20.669Z",
-  "finished_at": "2026-04-29T12:06:20.671Z",
+  "started_at": "2026-04-29T12:15:57.405Z",
+  "finished_at": "2026-04-29T12:15:57.407Z",
   "findings": [
     {
-      "finding_id": "finding_1777464380671_d6fpjf",
+      "finding_id": "finding_1777464957407_wjahpy",
       "monitor": "evidence-health-watch",
       "severity": "low",
       "category": "evidence_url_watch_disabled",
@@ -17,8 +17,8 @@
       "confidence": "medium",
       "dedupe_key": "evidence-health-watch:evidence_url_checks_disabled",
       "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:06:20.678Z",
-      "repeat_count": 2,
+      "last_seen_at": "2026-04-29T12:15:57.414Z",
+      "repeat_count": 3,
       "is_new": false,
       "is_repeated": true,
       "suppressed": true,

@@ -1,66 +1,26 @@
 {
   "monitor": "monitoring-health-watch",
   "status": "ok",
-  "started_at": "2026-04-29T12:06:20.672Z",
-  "finished_at": "2026-04-29T12:06:20.677Z",
+  "started_at": "2026-04-29T12:15:57.407Z",
+  "finished_at": "2026-04-29T12:15:57.413Z",
   "findings": [
     {
-      "finding_id": "finding_1777464380677_p67b5k",
+      "finding_id": "finding_1777464957412_q2oym8",
       "monitor": "monitoring-health-watch",
       "severity": "medium",
       "category": "watchlist_a_candidate_pending",
-      "title": "A candidate still pending: Zedxion",
-      "summary": "Zedxion is still in watchlist and has not been staged, canonicalized, or resolved. age_days=0",
+      "title": "A candidate still pending: DX.",
+      "summary": "DX. is still in watchlist and has not been staged, canonicalized, or resolved. age_days=0",
       "affected_entity": null,
       "recommended_action": "stage_downgrade_or_resolve_candidate",
       "source_urls": [],
       "confidence": "medium",
-      "dedupe_key": "monitoring-health-watch:a_pending:zedxion",
-      "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:06:20.678Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777464380677_iksb9t",
-      "monitor": "monitoring-health-watch",
-      "severity": "medium",
-      "category": "watchlist_a_candidate_pending",
-      "title": "A candidate still pending: Txbit",
-      "summary": "Txbit is still in watchlist and has not been staged, canonicalized, or resolved. age_days=0",
-      "affected_entity": null,
-      "recommended_action": "stage_downgrade_or_resolve_candidate",
-      "source_urls": [],
-      "confidence": "medium",
-      "dedupe_key": "monitoring-health-watch:a_pending:txbit",
-      "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:06:20.678Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777464380677_7n2x3e",
-      "monitor": "monitoring-health-watch",
-      "severity": "medium",
-      "category": "watchlist_a_candidate_pending",
-      "title": "A candidate still pending: Serum",
-      "summary": "Serum is still in watchlist and has not been staged, canonicalized, or resolved. age_days=0",
-      "affected_entity": null,
-      "recommended_action": "stage_downgrade_or_resolve_candidate",
-      "source_urls": [],
-      "confidence": "medium",
-      "dedupe_key": "monitoring-health-watch:a_pending:serum",
-      "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:06:20.678Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
+      "dedupe_key": "monitoring-health-watch:a_pending:dx",
+      "first_seen_at": "2026-04-29T12:15:57.414Z",
+      "last_seen_at": "2026-04-29T12:15:57.414Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
       "suppressed": false,
       "noise_control": "visible"
     }
@@ -68,13 +28,13 @@
   "candidates": [],
   "errors": [],
   "summary": {
-    "findings_count": 3,
-    "visible_findings_count": 3,
+    "findings_count": 1,
+    "visible_findings_count": 1,
     "candidate_count": 0,
     "errors_count": 0,
     "critical": 0,
     "high": 0,
-    "medium": 3,
+    "medium": 1,
     "low": 0
   },
   "checked": {
@@ -90,16 +50,16 @@
     ]
   },
   "watchlist_state": {
-    "watchlist_files": 5,
-    "watchlist_candidates": 24,
+    "watchlist_files": 6,
+    "watchlist_candidates": 28,
     "watchlist_class_counts": {
-      "A": 9,
+      "A": 10,
       "B": 4,
       "C": 4,
-      "unknown": 7
+      "unknown": 10
     },
     "manual_staging_packages": 9,
-    "resolution_files": 1,
-    "resolved_names": 7
+    "resolution_files": 2,
+    "resolved_names": 10
   }
 }

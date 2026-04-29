@@ -1,11 +1,11 @@
 {
   "monitor": "news-and-event-watch",
   "status": "ok",
-  "started_at": "2026-04-29T12:06:05.797Z",
-  "finished_at": "2026-04-29T12:06:20.648Z",
+  "started_at": "2026-04-29T12:15:40.968Z",
+  "finished_at": "2026-04-29T12:15:57.385Z",
   "findings": [
     {
-      "finding_id": "finding_1777464380647_t0c0wn",
+      "finding_id": "finding_1777464957383_llc8oa",
       "monitor": "news-and-event-watch",
       "severity": "medium",
       "category": "news_event_actionable_candidate",
@@ -19,15 +19,15 @@
       "confidence": "low",
       "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:zedxion",
       "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:06:20.678Z",
-      "repeat_count": 2,
+      "last_seen_at": "2026-04-29T12:15:57.414Z",
+      "repeat_count": 3,
       "is_new": false,
       "is_repeated": true,
       "suppressed": false,
       "noise_control": "visible"
     },
     {
-      "finding_id": "finding_1777464380647_ovyej5",
+      "finding_id": "finding_1777464957383_2m1zyb",
       "monitor": "news-and-event-watch",
       "severity": "medium",
       "category": "news_event_actionable_candidate",
@@ -41,15 +41,37 @@
       "confidence": "medium",
       "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:txbit",
       "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:06:20.678Z",
-      "repeat_count": 2,
+      "last_seen_at": "2026-04-29T12:15:57.414Z",
+      "repeat_count": 3,
       "is_new": false,
       "is_repeated": true,
       "suppressed": false,
       "noise_control": "visible"
     },
     {
-      "finding_id": "finding_1777464380647_xx5s47",
+      "finding_id": "finding_1777464957383_szux3b",
+      "monitor": "news-and-event-watch",
+      "severity": "medium",
+      "category": "news_event_actionable_candidate",
+      "title": "News/event candidate: DX.",
+      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "affected_entity": null,
+      "recommended_action": "review_and_stage_public_quality_record",
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMihgFBVV95cUxPZndERW4tMFQ4ME1UYWM0RG9LVU9XSE9iOG1uYXBrWjVFYVh5MFZtdEFXa1JNZkRWeXlSRVZJUElpcTRsRDYxaWZPaEVfOWRJSnh5eUtfQ0ZMN05oUnBTSFlYZ2tzazFkZE9KX2tTSmtOV3hBWjIyQm9JNC1MdVM2VEVaUlZmdw?oc=5"
+      ],
+      "confidence": "low",
+      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:dx.",
+      "first_seen_at": "2026-04-29T12:15:57.414Z",
+      "last_seen_at": "2026-04-29T12:15:57.414Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    },
+    {
+      "finding_id": "finding_1777464957383_3z5peq",
       "monitor": "news-and-event-watch",
       "severity": "medium",
       "category": "news_event_actionable_candidate",
@@ -63,8 +85,8 @@
       "confidence": "medium",
       "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:serum",
       "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:06:20.678Z",
-      "repeat_count": 2,
+      "last_seen_at": "2026-04-29T12:15:57.414Z",
+      "repeat_count": 3,
       "is_new": false,
       "is_repeated": true,
       "suppressed": false,
@@ -73,7 +95,7 @@
   ],
   "candidates": [
     {
-      "candidate_id": "news_20260429_005",
+      "candidate_id": "news_20260429_003",
       "canonical_name": "Zedxion",
       "aliases": [],
       "candidate_class": "A",
@@ -114,7 +136,7 @@
       ]
     },
     {
-      "candidate_id": "news_20260429_015",
+      "candidate_id": "news_20260429_011",
       "canonical_name": "Txbit",
       "aliases": [],
       "candidate_class": "A",
@@ -159,7 +181,48 @@
       ]
     },
     {
-      "candidate_id": "news_20260429_047",
+      "candidate_id": "news_20260429_015",
+      "canonical_name": "DX.",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "Nasdaq-powered crypto platform DX.Exchange shuts down; on lookout for merger or acquisition - Yahoo Finance",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMihgFBVV95cUxPZndERW4tMFQ4ME1UYWM0RG9LVU9XSE9iOG1uYXBrWjVFYVh5MFZtdEFXa1JNZkRWeXlSRVZJUElpcTRsRDYxaWZPaEVfOWRJSnh5eUtfQ0ZMN05oUnBTSFlYZ2tzazFkZE9KX2tTSmtOV3hBWjIyQm9JNC1MdVM2VEVaUlZmdw?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "Yahoo Finance",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "acquisition_migration_rebrand"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 5,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "continuity_language"
+      ]
+    },
+    {
+      "candidate_id": "news_20260429_048",
       "canonical_name": "Serum",
       "aliases": [],
       "candidate_class": "A",
@@ -202,35 +265,35 @@
   ],
   "errors": [],
   "summary": {
-    "findings_count": 3,
-    "visible_findings_count": 3,
-    "candidate_count": 3,
+    "findings_count": 4,
+    "visible_findings_count": 4,
+    "candidate_count": 4,
     "errors_count": 0,
     "critical": 0,
     "high": 0,
-    "medium": 3,
+    "medium": 4,
     "low": 0
   },
   "news_summary": {
     "enabled": true,
     "queries": 20,
-    "items": 1419,
-    "candidates": 3
+    "items": 1439,
+    "candidates": 4
   },
   "regulatory_summary": {
     "enabled": true,
     "authorities_configured": 7,
     "query_templates": 5,
     "queries": 25,
-    "items": 1940,
+    "items": 1937,
     "candidates": 0
   },
   "combined_summary": {
-    "items": 3359,
-    "raw_candidates": 126,
-    "candidates": 3,
-    "dropped_candidates": 123,
-    "missing_in_hei": 3,
+    "items": 3376,
+    "raw_candidates": 128,
+    "candidates": 4,
+    "dropped_candidates": 124,
+    "missing_in_hei": 4,
     "matched_existing": 0
   }
 }

@@ -1,28 +1,28 @@
 {
   "watchlist_type": "auto_news_event_candidates",
-  "created_at": "2026-04-29T12:06:20.647Z",
+  "created_at": "2026-04-29T12:15:57.383Z",
   "purpose": "Tightly filtered auto-generated news/regulatory/event candidate output. Not canonical. Requires review before staging/canonical append.",
   "news_summary": {
     "enabled": true,
     "queries": 20,
-    "items": 1419
+    "items": 1439
   },
   "regulatory_summary": {
     "enabled": true,
     "authorities_configured": 7,
     "query_templates": 5,
     "queries": 25,
-    "items": 1940,
+    "items": 1937,
     "raw_candidates": 4
   },
   "filtering_summary": {
-    "raw_candidates": 126,
-    "retained_candidates": 3,
-    "dropped_candidates": 123
+    "raw_candidates": 128,
+    "retained_candidates": 4,
+    "dropped_candidates": 124
   },
   "candidates": [
     {
-      "candidate_id": "news_20260429_005",
+      "candidate_id": "news_20260429_003",
       "canonical_name": "Zedxion",
       "aliases": [],
       "candidate_class": "A",
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "candidate_id": "news_20260429_015",
+      "candidate_id": "news_20260429_011",
       "canonical_name": "Txbit",
       "aliases": [],
       "candidate_class": "A",
@@ -108,7 +108,48 @@
       ]
     },
     {
-      "candidate_id": "news_20260429_047",
+      "candidate_id": "news_20260429_015",
+      "canonical_name": "DX.",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "Nasdaq-powered crypto platform DX.Exchange shuts down; on lookout for merger or acquisition - Yahoo Finance",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMihgFBVV95cUxPZndERW4tMFQ4ME1UYWM0RG9LVU9XSE9iOG1uYXBrWjVFYVh5MFZtdEFXa1JNZkRWeXlSRVZJUElpcTRsRDYxaWZPaEVfOWRJSnh5eUtfQ0ZMN05oUnBTSFlYZ2tzazFkZE9KX2tTSmtOV3hBWjIyQm9JNC1MdVM2VEVaUlZmdw?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "Yahoo Finance",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "acquisition_migration_rebrand"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 5,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "continuity_language"
+      ]
+    },
+    {
+      "candidate_id": "news_20260429_048",
       "canonical_name": "Serum",
       "aliases": [],
       "candidate_class": "A",
@@ -150,11 +191,11 @@
     }
   ],
   "summary": {
-    "total": 3,
-    "missing_in_hei": 3,
+    "total": 4,
+    "missing_in_hei": 4,
     "matched_existing": 0,
     "regulatory_candidates": 0,
-    "A": 3,
+    "A": 4,
     "B": 0,
     "C": 0
   }

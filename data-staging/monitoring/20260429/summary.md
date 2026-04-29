@@ -2,35 +2,36 @@
 
 ## Run
 
-- run_id: 20260429-120605
+- run_id: 20260429-121540
 - mode: scheduled
-- started_at: 2026-04-29T12:06:05.786Z
-- finished_at: 2026-04-29T12:06:20.678Z
+- started_at: 2026-04-29T12:15:40.955Z
+- finished_at: 2026-04-29T12:15:57.414Z
 - meaningful_findings: yes
 
 ## Noise control
 
-- total_findings_seen: 511
-- visible_findings: 7
-- suppressed_repeated_backlog_findings: 504
-- new_findings: 1
-- repeated_findings: 510
+- total_findings_seen: 510
+- visible_findings: 5
+- suppressed_repeated_backlog_findings: 505
+- new_findings: 2
+- repeated_findings: 508
 
 ## Counts
 
 - monitors: 7
-- findings: 7
-- suppressed_findings: 504
-- candidates: 3
+- findings: 5
+- suppressed_findings: 505
+- candidates: 4
 - critical: 0
 - high: 0
-- medium: 6
-- low: 1
+- medium: 5
+- low: 0
 
 ## A candidates
 
 - Zedxion — review_and_stage_public_quality_record
 - Txbit — review_and_stage_public_quality_record
+- DX. — review_and_stage_public_quality_record
 - Serum — review_and_stage_public_quality_record
 
 ## B candidates
@@ -47,7 +48,7 @@
 - authorities_configured: 7
 - query_templates: 5
 - queries: 25
-- items: 1940
+- items: 1937
 - candidates: 0
 
 - None.
@@ -56,7 +57,7 @@
 
 ## Data quality
 
-- [low] official_url_status unknown: Altilly — review_official_url_status_when_available
+- None.
 
 ## Evidence health
 
@@ -70,17 +71,15 @@
 
 ## Watchlist state
 
-- watchlist_files: 5
-- watchlist_candidates: 24
-- class_A: 9
+- watchlist_files: 6
+- watchlist_candidates: 28
+- class_A: 10
 - class_B: 4
 - class_C: 4
 - manual_staging_packages: 9
-- resolution_files: 1
+- resolution_files: 2
 
-- [medium] A candidate still pending: Zedxion — stage_downgrade_or_resolve_candidate
-- [medium] A candidate still pending: Txbit — stage_downgrade_or_resolve_candidate
-- [medium] A candidate still pending: Serum — stage_downgrade_or_resolve_candidate
+- [medium] A candidate still pending: DX. — stage_downgrade_or_resolve_candidate
 
 ## Site / SEO
 
