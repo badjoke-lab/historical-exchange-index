@@ -5836,5 +5836,32 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-29",
     "notes": "HEI models CHBTC as rebranded rather than dead because multiple profile sources describe the China-market trading stop followed by a name change / overseas transition to ZB.com. The death_date is stored as 2017-12-31 as an end-of-year brand-transition marker, while the 2017-09-30 China-market trading stop is recorded as a separate regulatory event."
+  },
+  {
+    "id": "hei_ex_000272",
+    "slug": "dragonex",
+    "canonical_name": "DragonEX",
+    "aliases": [
+      "DragonEx",
+      "DragonEX.io",
+      "DragonEx.io",
+      "DragonEX.in"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2017-11-02",
+    "death_date": null,
+    "country_or_origin": "Singapore",
+    "summary": "Singapore-based centralized cryptocurrency exchange launched on 2017-11-02. DragonEX suffered a major March 2019 hack and current market-data trackers list its volume data as untracked / unavailable. HEI models it as inactive because the current evidence set supports historical operation, a major security incident, and lack of tracked markets, but does not establish a definitive shutdown announcement or terminal date.",
+    "official_url_original": "https://dragonex.io/",
+    "official_domain_original": "dragonex.io",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://dragonex.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI models DragonEX as inactive rather than dead. The March 2019 hack is recorded as a major incident, not a terminal shutdown marker. Do not assign death_reason or death_date without stronger closure evidence."
   }
 ]
