@@ -2,30 +2,30 @@
 
 ## Run
 
-- run_id: 20260429-104058
+- run_id: 20260429-110400
 - mode: scheduled
-- started_at: 2026-04-29T10:40:58.064Z
-- finished_at: 2026-04-29T10:42:16.234Z
+- started_at: 2026-04-29T11:04:00.312Z
+- finished_at: 2026-04-29T11:05:22.950Z
 - meaningful_findings: yes
 
 ## Noise control
 
-- total_findings_seen: 509
-- visible_findings: 10
-- suppressed_repeated_backlog_findings: 499
-- new_findings: 10
-- repeated_findings: 499
+- total_findings_seen: 512
+- visible_findings: 6
+- suppressed_repeated_backlog_findings: 506
+- new_findings: 3
+- repeated_findings: 509
 
 ## Counts
 
 - monitors: 7
-- findings: 10
-- suppressed_findings: 499
+- findings: 6
+- suppressed_findings: 506
 - candidates: 0
 - critical: 0
 - high: 0
-- medium: 3
-- low: 7
+- medium: 5
+- low: 1
 
 ## A candidates
 
@@ -54,25 +54,21 @@
 
 ## Data quality
 
-- None.
+- [low] official_url_status unknown: Bit-Z — review_official_url_status_when_available
 
 ## Evidence health
 
 - enabled: true
-- evidence_with_urls: 734
+- evidence_with_urls: 741
 - checked: 50
-- findings: 9
+- findings: 11
 - without_archive_total: 0
 
 - [medium] Evidence source URL issue: hei_src_000039 — verify_archived_url_and_consider_source_note
-- [low] Evidence source URL issue: hei_src_000376 — review_redirect_target
 - [medium] Evidence source URL issue: hei_src_000382 — recheck_before_replacing_evidence
-- [low] Evidence source URL issue: hei_src_000617 — review_redirect_target
-- [low] Evidence source URL issue: hei_src_000749 — review_redirect_target
-- [low] Evidence source URL issue: hei_src_000750 — review_redirect_target
-- [low] Evidence source URL issue: hei_src_000904 — review_redirect_target
+- [medium] Evidence source URL issue: hei_src_000385 — verify_archived_url_and_consider_source_note
+- [medium] Evidence source URL issue: hei_src_000549 — recheck_before_replacing_evidence
 - [medium] Evidence source URL issue: hei_src_000003 — verify_archived_url_and_consider_source_note
-- [low] Evidence source URL issue: hei_src_000004 — review_redirect_target
 
 ## Watchlist state
 
