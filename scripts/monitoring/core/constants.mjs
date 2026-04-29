@@ -49,6 +49,7 @@ export const DEATH_REASON_VALUES = [
 export const OFFICIAL_URL_STATUS_VALUES = [
   'live_verified',
   'live_unverified',
+  'partial',
   'dead_domain',
   'redirected',
   'repurposed',
