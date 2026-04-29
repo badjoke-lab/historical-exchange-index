@@ -1,0 +1,47 @@
+{
+  "monitor": "site-and-seo-watch",
+  "status": "ok",
+  "started_at": "2026-04-29T00:14:51.353Z",
+  "finished_at": "2026-04-29T00:14:51.353Z",
+  "findings": [
+    {
+      "finding_id": "finding_1777421691353_vfl6eu",
+      "monitor": "site-and-seo-watch",
+      "severity": "low",
+      "category": "site_seo_watch_disabled",
+      "title": "Site and SEO checks are disabled",
+      "summary": "Set HEI_MONITORING_ENABLE_SITE_SEO_CHECKS=1 to enable route, sitemap, and robots checks.",
+      "affected_entity": null,
+      "recommended_action": "enable_site_seo_checks_when_ready_for_scheduled_external_checks",
+      "source_urls": [],
+      "confidence": "medium",
+      "dedupe_key": "site-and-seo-watch:site_seo_checks_disabled",
+      "first_seen_at": "2026-04-28T14:28:13.538Z",
+      "last_seen_at": "2026-04-29T00:14:51.359Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_backlog"
+    }
+  ],
+  "candidates": [],
+  "errors": [],
+  "summary": {
+    "findings_count": 1,
+    "visible_findings_count": 1,
+    "candidate_count": 0,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 1
+  },
+  "site_seo_summary": {
+    "enabled": false,
+    "site_url": "https://hei.badjoke-lab.com",
+    "routes_checked": 0,
+    "sitemap_checked": false,
+    "robots_checked": false
+  }
+}
