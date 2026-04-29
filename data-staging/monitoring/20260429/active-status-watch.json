@@ -1,11 +1,11 @@
 {
   "monitor": "active-status-watch",
   "status": "ok",
-  "started_at": "2026-04-29T11:04:00.330Z",
-  "finished_at": "2026-04-29T11:04:00.344Z",
+  "started_at": "2026-04-29T11:15:27.295Z",
+  "finished_at": "2026-04-29T11:15:27.302Z",
   "findings": [
     {
-      "finding_id": "finding_1777460640344_cyoy0s",
+      "finding_id": "finding_1777461327302_7nri78",
       "monitor": "active-status-watch",
       "severity": "low",
       "category": "domain_watch_disabled",
@@ -17,8 +17,8 @@
       "confidence": "medium",
       "dedupe_key": "active-status-watch:domain_checks_disabled",
       "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T11:05:22.950Z",
-      "repeat_count": 2,
+      "last_seen_at": "2026-04-29T11:16:50.339Z",
+      "repeat_count": 3,
       "is_new": false,
       "is_repeated": true,
       "suppressed": true,
@@ -39,7 +39,7 @@
   },
   "active_status_summary": {
     "enabled": false,
-    "active_side_entities_with_urls": 125,
+    "active_side_entities_with_urls": 126,
     "checked": 0
   }
 }

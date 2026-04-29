@@ -2,29 +2,29 @@
 
 ## Run
 
-- run_id: 20260429-110400
+- run_id: 20260429-111527
 - mode: scheduled
-- started_at: 2026-04-29T11:04:00.312Z
-- finished_at: 2026-04-29T11:05:22.950Z
+- started_at: 2026-04-29T11:15:27.284Z
+- finished_at: 2026-04-29T11:16:50.339Z
 - meaningful_findings: yes
 
 ## Noise control
 
-- total_findings_seen: 512
-- visible_findings: 6
-- suppressed_repeated_backlog_findings: 506
-- new_findings: 3
-- repeated_findings: 509
+- total_findings_seen: 502
+- visible_findings: 1
+- suppressed_repeated_backlog_findings: 501
+- new_findings: 1
+- repeated_findings: 501
 
 ## Counts
 
 - monitors: 7
-- findings: 6
-- suppressed_findings: 506
+- findings: 1
+- suppressed_findings: 501
 - candidates: 0
 - critical: 0
 - high: 0
-- medium: 5
+- medium: 0
 - low: 1
 
 ## A candidates
@@ -54,21 +54,17 @@
 
 ## Data quality
 
-- [low] official_url_status unknown: Bit-Z — review_official_url_status_when_available
+- [low] official_url_status unknown: Crex24 — review_official_url_status_when_available
 
 ## Evidence health
 
 - enabled: true
-- evidence_with_urls: 741
+- evidence_with_urls: 747
 - checked: 50
-- findings: 11
+- findings: 0
 - without_archive_total: 0
 
-- [medium] Evidence source URL issue: hei_src_000039 — verify_archived_url_and_consider_source_note
-- [medium] Evidence source URL issue: hei_src_000382 — recheck_before_replacing_evidence
-- [medium] Evidence source URL issue: hei_src_000385 — verify_archived_url_and_consider_source_note
-- [medium] Evidence source URL issue: hei_src_000549 — recheck_before_replacing_evidence
-- [medium] Evidence source URL issue: hei_src_000003 — verify_archived_url_and_consider_source_note
+- None.
 
 ## Watchlist state
 
@@ -99,4 +95,4 @@
 
 ## Suggested operator actions
 
-1. Review evidence-health findings and add archives or replacement evidence where needed.
+1. No operator action required.
