@@ -5756,5 +5756,33 @@
     "confidence": "high",
     "last_verified_at": "2026-04-29",
     "notes": "HEI models LocalCryptos as a dead P2P / DEX-like marketplace because new trade creation was disabled after 2022-11-18. The website and wallet interface may remain available, so official_url_status is partial rather than offline."
+  },
+  {
+    "id": "hei_ex_000269",
+    "slug": "bit-z",
+    "canonical_name": "Bit-Z",
+    "aliases": [
+      "BitZ",
+      "Bit Z",
+      "BitZ Group",
+      "Bit-Z.com",
+      "bitz.com"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2016-01-01",
+    "death_date": "2021-10-21",
+    "country_or_origin": "Hong Kong",
+    "summary": "Hong Kong / China-linked centralized cryptocurrency exchange founded in 2016. BitZ announced an orderly shutdown in October 2021 in response to Chinese regulatory policy, with spot trading and website / app access scheduled to stop on 2021-10-21.",
+    "official_url_original": "http://www.bitz.com/",
+    "official_domain_original": "bitz.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/http://www.bitz.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI uses regulation as death_reason because contemporary reports preserve BitZ's shutdown schedule and state that the closure followed Chinese regulatory policy requirements. The terminal date uses 2021-10-21, when spot trading and platform login were scheduled to stop."
   }
 ]

@@ -4914,5 +4914,33 @@
     "source_count": 4,
     "sort_order": 3,
     "notes": "Used as the terminal marketplace shutdown marker. Existing wallet UI availability is not treated as continued exchange operation."
+  },
+  {
+    "id": "hei_ev_000466",
+    "exchange_id": "hei_ex_000269",
+    "event_type": "launched",
+    "event_date": "2016-01-01",
+    "title": "Bit-Z founded",
+    "description": "Market-data and company-profile sources describe BitZ / Bit-Z as founded or launched in 2016.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2016-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000467",
+    "exchange_id": "hei_ex_000269",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-10-21",
+    "title": "BitZ scheduled final platform shutdown",
+    "description": "BitZ announced that it would stop spot trading and disable website / app login on 2021-10-21 as part of an orderly exit following Chinese regulatory policy requirements.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the terminal regulatory shutdown marker."
   }
 ]
