@@ -4970,5 +4970,49 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "Recorded as a current inactive / no-market-data status marker, not as a confirmed terminal shutdown date."
+  },
+  {
+    "id": "hei_ev_000470",
+    "exchange_id": "hei_ex_000271",
+    "event_type": "launched",
+    "event_date": "2013-06-01",
+    "title": "CHBTC founded",
+    "description": "Profile and exchange-history sources describe CHBTC as a China-based exchange founded in 2013, with one source giving June 2013.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is month-level. Stored as 2013-06-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000471",
+    "exchange_id": "hei_ex_000271",
+    "event_type": "regulatory_action",
+    "event_date": "2017-09-30",
+    "title": "CHBTC ceased China-market trading activity",
+    "description": "Profile sources describe CHBTC as ceasing trading activity on 2017-09-30 due to Chinese regulatory compliance / pressure.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Recorded as the China-market regulatory stop, not the final brand-transition marker."
+  },
+  {
+    "id": "hei_ev_000472",
+    "exchange_id": "hei_ex_000271",
+    "event_type": "rebranded",
+    "event_date": "2017-12-31",
+    "title": "CHBTC transitioned to ZB.com",
+    "description": "Several profile sources describe CHBTC as changing its name to ZB.com and focusing on international operations after the China-market shutdown.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 1,
+    "sort_order": 3,
+    "counterparty_name": "ZB.com",
+    "counterparty_exchange_id": null,
+    "notes": "Used as the terminal brand-transition marker for the CHBTC historical record."
   }
 ]
