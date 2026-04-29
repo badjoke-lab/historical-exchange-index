@@ -1,0 +1,54 @@
+{
+  "monitor": "news-and-event-watch",
+  "status": "ok",
+  "started_at": "2026-04-29T00:14:51.328Z",
+  "finished_at": "2026-04-29T00:14:51.329Z",
+  "findings": [
+    {
+      "finding_id": "finding_1777421691329_7xk7mq",
+      "monitor": "news-and-event-watch",
+      "severity": "low",
+      "category": "news_and_regulatory_watch_disabled",
+      "title": "News and regulatory RSS fetching is disabled",
+      "summary": "Set HEI_MONITORING_ENABLE_NEWS_RSS=1 and/or HEI_MONITORING_ENABLE_REGULATORY_WATCH=1 to enable external RSS candidate discovery.",
+      "affected_entity": null,
+      "recommended_action": "enable_external_rss_checks_when_ready_for_scheduled_external_checks",
+      "source_urls": [],
+      "confidence": "medium",
+      "dedupe_key": "news-and-event-watch:news_and_regulatory_disabled",
+      "first_seen_at": "2026-04-28T14:28:13.538Z",
+      "last_seen_at": "2026-04-29T00:14:51.359Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_backlog"
+    }
+  ],
+  "candidates": [],
+  "errors": [],
+  "summary": {
+    "findings_count": 1,
+    "visible_findings_count": 1,
+    "candidate_count": 0,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 1
+  },
+  "news_summary": {
+    "enabled": false,
+    "queries": 0,
+    "items": 0,
+    "candidates": 0
+  },
+  "regulatory_summary": {
+    "enabled": false,
+    "authorities_configured": 7,
+    "query_templates": 5,
+    "queries": 0,
+    "items": 0,
+    "candidates": 0
+  }
+}
