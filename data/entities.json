@@ -5913,5 +5913,31 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-29",
     "notes": "HEI models Altilly as inactive rather than dead because public trackers and exchange-review references support a security-breach disruption and inactive / untracked status, but the current evidence set does not establish a clean official shutdown announcement or terminal date. Some current Altilly-branded domains may be cloned or repurposed and should not be treated as proof of original exchange continuity."
+  },
+  {
+    "id": "hei_ex_000275",
+    "slug": "bitmarket-eu",
+    "canonical_name": "BitMarket.eu",
+    "aliases": [
+      "BitMarket.Eu",
+      "BitMarket EU",
+      "BitMarket.eu Exchange"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "insolvency",
+    "launch_date": "2011-04-05",
+    "death_date": "2013-03-19",
+    "country_or_origin": "Europe / Poland",
+    "summary": "Early European Bitcoin exchange / order-matching market announced in April 2011. After degraded service, the operator disclosed in December 2012 that customer funds had been used for speculation and nearly 20,000 BTC had been lost; by March 2013, investor communications stated that BitMarket.eu operations would be closed down.",
+    "official_url_original": "https://bitmarket.eu/",
+    "official_domain_original": "bitmarket.eu",
+    "official_url_status": "offline",
+    "archived_url": "https://web.archive.org/web/*/https://bitmarket.eu/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI treats BitMarket.eu separately from BitMarket.pl. The death_reason is insolvency because contemporary records describe customer funds being lost through operator speculation and old balances being frozen. The 2013-03-19 date is used as the terminal operations-closed marker from investor communications."
   }
 ]
