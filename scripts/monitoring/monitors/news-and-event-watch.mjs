@@ -4,6 +4,7 @@ import { createFinding, createMonitorResult } from '../core/finding-utils.mjs';
 import { slugifyName, uniqueStrings } from '../core/normalize.mjs';
 import { buildEntityIndex, duplicateCheckForCandidate } from '../core/dedupe.mjs';
 import { classifyCandidate } from '../core/classify.mjs';
+import { loadResolutionFiles, normalizeName } from '../core/load-watchlists.mjs';
 import { NEWS_WATCH_ENABLED, getNewsQueries } from '../sources/news-queries.mjs';
 import { REGULATORY_WATCH_ENABLED, getRegulatoryQueries, getRegulatorySourceSummary } from '../sources/regulatory-sources.mjs';
 import { fetchGoogleNewsRss } from '../adapters/rss-google-news.mjs';
@@ -20,6 +21,7 @@ const GENERIC_CANDIDATE_NAMES = new Set([
   'complex',
   'consumer',
   'dominance',
+  'dx.',
   'etherdelta still holds',
   'first fca',
   'germany',
@@ -89,8 +91,13 @@ function isLikelyHeadlineFragment(candidate) {
   return headline.toLowerCase().includes(name.toLowerCase());
 }
 
-function isActionableNewsCandidate(candidate) {
+function isResolvedCandidate(candidate, resolutions) {
+  return resolutions?.resolvedNames?.has(normalizeName(candidate?.canonical_name || '')) || false;
+}
+
+function isActionableNewsCandidate(candidate, resolutions) {
   if (!candidate || isGenericCandidateName(candidate.canonical_name)) return false;
+  if (isResolvedCandidate(candidate, resolutions)) return false;
   if (isAmbiguousBrandCandidate(candidate)) return false;
   if (isLikelyHeadlineFragment(candidate)) return false;
 
@@ -116,8 +123,9 @@ function isActionableNewsCandidate(candidate) {
   return hasStrongSignal && qualityOk;
 }
 
-function isActionableRegulatoryCandidate(candidate) {
+function isActionableRegulatoryCandidate(candidate, resolutions) {
   if (!candidate || isGenericCandidateName(candidate.canonical_name)) return false;
+  if (isResolvedCandidate(candidate, resolutions)) return false;
   if (candidate.source_category !== 'regulatory_source') return false;
   if (candidate.duplicate_check?.matched_existing_entity) return false;
   if (!['A', 'B'].includes(candidate.candidate_class)) return false;
@@ -215,6 +223,7 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
   const entities = context?.canonicalData?.entities || [];
   const entityIndex = buildEntityIndex(entities);
   const regulatorySourceSummary = getRegulatorySourceSummary();
+  const resolutions = await loadResolutionFiles();
 
   if (!NEWS_WATCH_ENABLED && !REGULATORY_WATCH_ENABLED) {
     findings.push(createFinding({
@@ -260,7 +269,7 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
 
   const rawCandidates = groupNewsItemsIntoCandidates(allItems);
   const allCandidates = rawCandidates.map((candidate, index) => toCandidateRecord(candidate, entityIndex, context?.runId, index + 1));
-  const candidates = allCandidates.filter((candidate) => isActionableNewsCandidate(candidate) || isActionableRegulatoryCandidate(candidate));
+  const candidates = allCandidates.filter((candidate) => isActionableNewsCandidate(candidate, resolutions) || isActionableRegulatoryCandidate(candidate, resolutions));
   const aCandidates = candidates.filter((candidate) => candidate.candidate_class === 'A');
   const regulatoryCandidates = candidates.filter((candidate) => candidate.source_category === 'regulatory_source');
   const matchedExisting = candidates.filter((candidate) => candidate.duplicate_check.matched_existing_entity);
@@ -327,6 +336,7 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
         raw_candidates: allCandidates.length,
         retained_candidates: candidates.length,
         dropped_candidates: allCandidates.length - candidates.length,
+        resolved_candidate_names: resolutions.resolvedNames.size,
       },
       candidates,
       summary: {
@@ -366,6 +376,7 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
         raw_candidates: allCandidates.length,
         candidates: candidates.length,
         dropped_candidates: allCandidates.length - candidates.length,
+        resolved_candidate_names: resolutions.resolvedNames.size,
         missing_in_hei: missingInHei.length,
         matched_existing: matchedExisting.length,
       },
