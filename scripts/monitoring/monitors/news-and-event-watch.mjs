@@ -9,8 +9,92 @@ import { REGULATORY_WATCH_ENABLED, getRegulatoryQueries, getRegulatorySourceSumm
 import { fetchGoogleNewsRss } from '../adapters/rss-google-news.mjs';
 import { groupNewsItemsIntoCandidates } from '../core/news-extract.mjs';
 
+const GENERIC_CANDIDATE_NAMES = new Set([
+  'after',
+  'another',
+  'biggest',
+  'c2c',
+  'ceo',
+  'chicago mercantile',
+  'coinbase-backed',
+  'complex',
+  'consumer',
+  'dominance',
+  'first fca',
+  'germany',
+  'korea',
+  'launch',
+  'london block',
+  'monthly volume smashes',
+  'network introduces build-your-own perp',
+  'offering the complete solution',
+  'offers',
+  'p2p',
+  'perp',
+  'perpetual',
+  'prices fair',
+  'protocols for decentralized margin',
+  'reverses blockchain',
+  'right perp',
+  'rolls back after btc',
+  'sector',
+  'shuts down',
+  'singapore',
+  'soars',
+  'suffers',
+  'suspended',
+  'that reshaped crypto',
+  'volume',
+  'volume soars',
+  'volume surges',
+  'volumes nearly triple',
+]);
+
 function runDateFromRunId(runId) {
   return String(runId || new Date().toISOString().slice(0, 10).replace(/-/g, '')).slice(0, 8);
+}
+
+function isGenericCandidateName(name) {
+  const normalized = String(name || '').trim().toLowerCase();
+  if (!normalized) return true;
+  if (GENERIC_CANDIDATE_NAMES.has(normalized)) return true;
+  if (normalized.length < 3) return true;
+  if (/^(the|this|that|these|those)\b/.test(normalized)) return true;
+  if (/\b(after|before|following|amid|faces|announces|offers|introduces|proposes|surges|soars|suffers|shutters|shuts down)\b/.test(normalized) && normalized.split(/\s+/).length > 2) return true;
+  return false;
+}
+
+function isActionableNewsCandidate(candidate) {
+  if (!candidate || isGenericCandidateName(candidate.canonical_name)) return false;
+
+  const sourceUrls = candidate.source_urls || [];
+  if (sourceUrls.length === 0) return false;
+
+  // Existing canonical entities should not be auto-promoted into watchlist noise.
+  // They are useful raw monitoring context, but event updates need manual review.
+  if (candidate.duplicate_check?.matched_existing_entity) return false;
+
+  if (candidate.candidate_class !== 'A') return false;
+  if (candidate.source_category === 'regulatory_source') return false;
+
+  const tags = new Set(candidate.historical_dead_tags || []);
+  const categories = new Set(candidate.news_event_categories || []);
+  const hasShutdownSignal = tags.has('shutdown_language') || categories.has('shutdown');
+  const hasRegulatorySignal = tags.has('regulatory_language') || categories.has('regulatory_action');
+  const hasStrongSignal = hasShutdownSignal || hasRegulatorySignal;
+
+  // Require either a high-quality source, multiple sources, or a strong score.
+  const qualityOk = candidate.source_quality === 'high' || sourceUrls.length >= 2 || Number(candidate.historical_dead_score || 0) >= 5;
+
+  return hasStrongSignal && qualityOk;
+}
+
+function isActionableRegulatoryCandidate(candidate) {
+  if (!candidate || isGenericCandidateName(candidate.canonical_name)) return false;
+  if (candidate.source_category !== 'regulatory_source') return false;
+  if (candidate.duplicate_check?.matched_existing_entity) return false;
+  if (!['A', 'B'].includes(candidate.candidate_class)) return false;
+  return (candidate.source_urls || []).length > 0;
 }
 
 function toCandidateRecord(rawItem, index, runId, ordinal) {
@@ -148,7 +232,8 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
   const allItems = [...newsItems, ...regulatoryItems];
 
   const rawCandidates = groupNewsItemsIntoCandidates(allItems);
-  const candidates = rawCandidates.map((candidate, index) => toCandidateRecord(candidate, entityIndex, context?.runId, index + 1));
+  const allCandidates = rawCandidates.map((candidate, index) => toCandidateRecord(candidate, entityIndex, context?.runId, index + 1));
+  const candidates = allCandidates.filter((candidate) => isActionableNewsCandidate(candidate) || isActionableRegulatoryCandidate(candidate));
   const aCandidates = candidates.filter((candidate) => candidate.candidate_class === 'A');
   const regulatoryCandidates = candidates.filter((candidate) => candidate.source_category === 'regulatory_source');
   const matchedExisting = candidates.filter((candidate) => candidate.duplicate_check.matched_existing_entity);
@@ -183,14 +268,14 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
   for (const candidate of aCandidates) {
     findings.push(createFinding({
       monitor,
-      severity: 'high',
-      category: candidate.source_category === 'regulatory_source' ? 'regulatory_a_candidate' : 'news_event_a_candidate',
-      title: `${candidate.source_category === 'regulatory_source' ? 'Regulatory' : 'News/event'} A candidate: ${candidate.canonical_name}`,
+      severity: 'medium',
+      category: candidate.source_category === 'regulatory_source' ? 'regulatory_actionable_candidate' : 'news_event_actionable_candidate',
+      title: `${candidate.source_category === 'regulatory_source' ? 'Regulatory' : 'News/event'} candidate: ${candidate.canonical_name}`,
       summary: candidate.hei_relevance,
       recommended_action: candidate.next_action,
       source_urls: candidate.source_urls,
-      confidence: candidate.source_quality === 'high' ? 'high' : 'medium',
-      dedupe_key: `${monitor}:a_candidate:${candidate.source_category}:${candidate.canonical_name.toLowerCase()}`,
+      confidence: candidate.source_quality === 'high' ? 'medium' : 'low',
+      dedupe_key: `${monitor}:actionable_candidate:${candidate.source_category}:${candidate.canonical_name.toLowerCase()}`,
     }));
   }
 
@@ -199,7 +284,7 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
     await writeJsonFile(`${WATCHLIST_AUTO_ROOT}/news-event-candidates-${runDate}.json`, {
       watchlist_type: 'auto_news_event_candidates',
       created_at: new Date().toISOString(),
-      purpose: 'Auto-generated news/regulatory/event candidate output. Not canonical. Requires review before staging/canonical append.',
+      purpose: 'Conservatively filtered auto-generated news/regulatory/event candidate output. Not canonical. Requires review before staging/canonical append.',
       news_summary: {
         enabled: NEWS_WATCH_ENABLED,
         queries: newsQueries.length,
@@ -209,7 +294,12 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
         ...regulatorySourceSummary,
         queries: regulatoryQueries.length,
         items: regulatoryItems.length,
-        raw_candidates: regulatoryCandidates.length,
+        raw_candidates: allCandidates.filter((candidate) => candidate.source_category === 'regulatory_source').length,
+      },
+      filtering_summary: {
+        raw_candidates: allCandidates.length,
+        retained_candidates: candidates.length,
+        dropped_candidates: allCandidates.length - candidates.length,
       },
       candidates,
       summary: {
@@ -246,7 +336,9 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
       },
       combined_summary: {
         items: allItems.length,
+        raw_candidates: allCandidates.length,
         candidates: candidates.length,
+        dropped_candidates: allCandidates.length - candidates.length,
         missing_in_hei: missingInHei.length,
         matched_existing: matchedExisting.length,
       },
