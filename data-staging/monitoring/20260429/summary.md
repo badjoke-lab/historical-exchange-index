@@ -2,30 +2,30 @@
 
 ## Run
 
-- run_id: 20260429-115954
+- run_id: 20260429-120605
 - mode: scheduled
-- started_at: 2026-04-29T11:59:54.231Z
-- finished_at: 2026-04-29T12:00:11.726Z
+- started_at: 2026-04-29T12:06:05.786Z
+- finished_at: 2026-04-29T12:06:20.678Z
 - meaningful_findings: yes
 
 ## Noise control
 
-- total_findings_seen: 510
-- visible_findings: 9
-- suppressed_repeated_backlog_findings: 501
-- new_findings: 9
-- repeated_findings: 501
+- total_findings_seen: 511
+- visible_findings: 7
+- suppressed_repeated_backlog_findings: 504
+- new_findings: 1
+- repeated_findings: 510
 
 ## Counts
 
 - monitors: 7
-- findings: 9
-- suppressed_findings: 501
+- findings: 7
+- suppressed_findings: 504
 - candidates: 3
 - critical: 0
 - high: 0
 - medium: 6
-- low: 3
+- low: 1
 
 ## A candidates
 
@@ -47,7 +47,7 @@
 - authorities_configured: 7
 - query_templates: 5
 - queries: 25
-- items: 1941
+- items: 1940
 - candidates: 0
 
 - None.
@@ -56,18 +56,17 @@
 
 ## Data quality
 
-- [low] official_url_status unknown: CHBTC — review_official_url_status_when_available
-- [low] official_url_status unknown: DragonEX — review_official_url_status_when_available
+- [low] official_url_status unknown: Altilly — review_official_url_status_when_available
 
 ## Evidence health
 
 - enabled: false
-- evidence_with_urls: 766
+- evidence_with_urls: 772
 - checked: 0
 - findings: 0
 - without_archive_total: 0
 
-- [low] Evidence URL checks are disabled — enable_evidence_url_checks_when_ready_for_scheduled_external_checks
+- None.
 
 ## Watchlist state
 

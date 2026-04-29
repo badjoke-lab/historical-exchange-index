@@ -1,24 +1,24 @@
 {
   "watchlist_type": "auto_news_event_candidates",
-  "created_at": "2026-04-29T12:00:11.694Z",
+  "created_at": "2026-04-29T12:06:20.647Z",
   "purpose": "Tightly filtered auto-generated news/regulatory/event candidate output. Not canonical. Requires review before staging/canonical append.",
   "news_summary": {
     "enabled": true,
     "queries": 20,
-    "items": 1434
+    "items": 1419
   },
   "regulatory_summary": {
     "enabled": true,
     "authorities_configured": 7,
     "query_templates": 5,
     "queries": 25,
-    "items": 1941,
+    "items": 1940,
     "raw_candidates": 4
   },
   "filtering_summary": {
-    "raw_candidates": 127,
+    "raw_candidates": 126,
     "retained_candidates": 3,
-    "dropped_candidates": 124
+    "dropped_candidates": 123
   },
   "candidates": [
     {

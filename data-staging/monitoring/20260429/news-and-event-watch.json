@@ -1,11 +1,11 @@
 {
   "monitor": "news-and-event-watch",
   "status": "ok",
-  "started_at": "2026-04-29T11:59:54.241Z",
-  "finished_at": "2026-04-29T12:00:11.695Z",
+  "started_at": "2026-04-29T12:06:05.797Z",
+  "finished_at": "2026-04-29T12:06:20.648Z",
   "findings": [
     {
-      "finding_id": "finding_1777464011693_j8oc4a",
+      "finding_id": "finding_1777464380647_t0c0wn",
       "monitor": "news-and-event-watch",
       "severity": "medium",
       "category": "news_event_actionable_candidate",
@@ -19,15 +19,15 @@
       "confidence": "low",
       "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:zedxion",
       "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:00:11.726Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
+      "last_seen_at": "2026-04-29T12:06:20.678Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
       "suppressed": false,
       "noise_control": "visible"
     },
     {
-      "finding_id": "finding_1777464011693_gklva2",
+      "finding_id": "finding_1777464380647_ovyej5",
       "monitor": "news-and-event-watch",
       "severity": "medium",
       "category": "news_event_actionable_candidate",
@@ -41,15 +41,15 @@
       "confidence": "medium",
       "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:txbit",
       "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:00:11.726Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
+      "last_seen_at": "2026-04-29T12:06:20.678Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
       "suppressed": false,
       "noise_control": "visible"
     },
     {
-      "finding_id": "finding_1777464011693_gvdax1",
+      "finding_id": "finding_1777464380647_xx5s47",
       "monitor": "news-and-event-watch",
       "severity": "medium",
       "category": "news_event_actionable_candidate",
@@ -63,10 +63,10 @@
       "confidence": "medium",
       "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:serum",
       "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:00:11.726Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
+      "last_seen_at": "2026-04-29T12:06:20.678Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
       "suppressed": false,
       "noise_control": "visible"
     }
@@ -214,7 +214,7 @@
   "news_summary": {
     "enabled": true,
     "queries": 20,
-    "items": 1434,
+    "items": 1419,
     "candidates": 3
   },
   "regulatory_summary": {
@@ -222,14 +222,14 @@
     "authorities_configured": 7,
     "query_templates": 5,
     "queries": 25,
-    "items": 1941,
+    "items": 1940,
     "candidates": 0
   },
   "combined_summary": {
-    "items": 3375,
-    "raw_candidates": 127,
+    "items": 3359,
+    "raw_candidates": 126,
     "candidates": 3,
-    "dropped_candidates": 124,
+    "dropped_candidates": 123,
     "missing_in_hei": 3,
     "matched_existing": 0
   }

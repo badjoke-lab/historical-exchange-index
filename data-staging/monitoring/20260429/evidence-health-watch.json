@@ -1,11 +1,11 @@
 {
   "monitor": "evidence-health-watch",
   "status": "ok",
-  "started_at": "2026-04-29T12:00:11.715Z",
-  "finished_at": "2026-04-29T12:00:11.717Z",
+  "started_at": "2026-04-29T12:06:20.669Z",
+  "finished_at": "2026-04-29T12:06:20.671Z",
   "findings": [
     {
-      "finding_id": "finding_1777464011717_2tumkl",
+      "finding_id": "finding_1777464380671_d6fpjf",
       "monitor": "evidence-health-watch",
       "severity": "low",
       "category": "evidence_url_watch_disabled",
@@ -17,12 +17,12 @@
       "confidence": "medium",
       "dedupe_key": "evidence-health-watch:evidence_url_checks_disabled",
       "first_seen_at": "2026-04-29T12:00:11.726Z",
-      "last_seen_at": "2026-04-29T12:00:11.726Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
+      "last_seen_at": "2026-04-29T12:06:20.678Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_backlog"
     }
   ],
   "candidates": [],
@@ -39,7 +39,7 @@
   },
   "evidence_health_summary": {
     "enabled": false,
-    "evidence_with_urls": 766,
+    "evidence_with_urls": 772,
     "checked": 0
   }
 }
