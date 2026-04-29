@@ -5014,5 +5014,33 @@
     "counterparty_name": "ZB.com",
     "counterparty_exchange_id": null,
     "notes": "Used as the terminal brand-transition marker for the CHBTC historical record."
+  },
+  {
+    "id": "hei_ev_000473",
+    "exchange_id": "hei_ex_000272",
+    "event_type": "launched",
+    "event_date": "2017-11-02",
+    "title": "DragonEX launched",
+    "description": "CoinMarketCap describes DragonEX as launched on 2017-11-02 in Singapore.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Used as the launch marker."
+  },
+  {
+    "id": "hei_ev_000474",
+    "exchange_id": "hei_ex_000272",
+    "event_type": "hack",
+    "event_date": "2019-03-24",
+    "title": "DragonEX suffered a major cyberattack",
+    "description": "DragonEX announced that user and platform crypto assets were transferred and stolen in a March 2019 cyberattack, and temporarily closed platform services while investigating the incident.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Recorded as a major hack / service disruption event, not as a confirmed terminal shutdown."
   }
 ]
