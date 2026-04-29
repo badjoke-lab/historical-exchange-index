@@ -5888,5 +5888,30 @@
     "confidence": "high",
     "last_verified_at": "2026-04-29",
     "notes": "HEI uses scam_rug as the death_reason because contemporary reporting described CoinGather as abruptly disappearing after withdrawal problems and later reporting / DOJ material tied the exchange to seized assets. This should be read as suspected / reported exit-scam context, not as a final criminal adjudication in this record."
+  },
+  {
+    "id": "hei_ex_000274",
+    "slug": "altilly",
+    "canonical_name": "Altilly",
+    "aliases": [
+      "Altilly Exchange",
+      "Altilly.com"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2018-01-01",
+    "death_date": null,
+    "country_or_origin": "Sweden / Hong Kong",
+    "summary": "Centralized cryptocurrency exchange associated with the Altilly brand. Public exchange trackers describe Altilly as launched around 2018 and currently untracked / inactive. The exchange was affected by a late-2020 security breach, after which public references indicate the service became inaccessible or effectively non-operational.",
+    "official_url_original": "https://www.altilly.com/",
+    "official_domain_original": "altilly.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.altilly.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI models Altilly as inactive rather than dead because public trackers and exchange-review references support a security-breach disruption and inactive / untracked status, but the current evidence set does not establish a clean official shutdown announcement or terminal date. Some current Altilly-branded domains may be cloned or repurposed and should not be treated as proof of original exchange continuity."
   }
 ]

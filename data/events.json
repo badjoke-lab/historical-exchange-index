@@ -5070,5 +5070,33 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "Used as the terminal disappearance marker. DOJ forfeiture material is recorded as post-shutdown legal context."
+  },
+  {
+    "id": "hei_ev_000477",
+    "exchange_id": "hei_ex_000274",
+    "event_type": "launched",
+    "event_date": "2018-01-01",
+    "title": "Altilly launched",
+    "description": "Exchange profile references describe Altilly as a centralized exchange established around 2018.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2018-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000478",
+    "exchange_id": "hei_ex_000274",
+    "event_type": "hack",
+    "event_date": "2020-12-23",
+    "title": "Altilly suffered a major security breach",
+    "description": "Public exchange trackers and reviews describe Altilly as having suffered a late-2020 security breach, after which the service became inaccessible or inactive.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Recorded as a major breach / service-disruption marker, not as a definitive terminal shutdown date."
   }
 ]
