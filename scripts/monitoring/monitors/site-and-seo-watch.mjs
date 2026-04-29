@@ -10,14 +10,32 @@ import {
   getSitemapUrl,
 } from '../sources/site-routes.mjs';
 
+function trimTrailingSlash(value) {
+  if (typeof value !== 'string') return value;
+  if (value === '/') return value;
+  return value.replace(/\/+$/, '');
+}
+
+function isHealthyTrailingSlashRedirect(check) {
+  if (check.status !== 'redirected') return false;
+  if (check.http_status !== 200) return false;
+  if (!check.normalized_url || !check.final_url) return false;
+  return trimTrailingSlash(check.normalized_url) === trimTrailingSlash(check.final_url);
+}
+
+function isHealthyRouteCheck(check) {
+  return check.status === 'ok' || isHealthyTrailingSlashRedirect(check);
+}
+
 function severityForRoute(check) {
-  if (check.status === 'ok' || check.status === 'redirected') return 'low';
+  if (isHealthyRouteCheck(check)) return 'low';
+  if (check.status === 'redirected') return 'low';
   if (['not_found', 'server_error', 'dns_failure', 'tls_failure', 'timeout'].includes(check.status)) return 'critical';
   return 'high';
 }
 
 function routeAction(check) {
-  if (check.status === 'ok') return 'no_action';
+  if (isHealthyRouteCheck(check)) return 'no_action';
   if (check.status === 'redirected') return 'review_redirect_target';
   if (['dns_failure', 'tls_failure'].includes(check.status)) return 'inspect_site_domain_or_tls';
   if (check.status === 'not_found') return 'inspect_route_or_deploy';
@@ -26,7 +44,7 @@ function routeAction(check) {
 }
 
 function addRouteFinding(findings, monitor, target, check) {
-  if (check.status === 'ok') return;
+  if (isHealthyRouteCheck(check)) return;
   findings.push(createFinding({
     monitor,
     severity: severityForRoute(check),
@@ -184,7 +202,7 @@ export async function runSiteAndSeoWatch(context, { startedAt } = {}) {
         enabled: true,
         site_url: MONITORING_SITE_URL,
         routes_checked: routeTargets.length,
-        route_findings: routeChecks.filter((item) => item.check.status !== 'ok').length,
+        route_findings: routeChecks.filter((item) => !isHealthyRouteCheck(item.check)).length,
         sitemap_checked: Boolean(sitemapResult),
         sitemap_status: sitemapResult?.status || 'not_checked',
         sitemap_urls: sitemapResult?.urls?.length || 0,
