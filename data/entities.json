@@ -5939,5 +5939,30 @@
     "confidence": "high",
     "last_verified_at": "2026-04-29",
     "notes": "HEI treats BitMarket.eu separately from BitMarket.pl. The death_reason is insolvency because contemporary records describe customer funds being lost through operator speculation and old balances being frozen. The 2013-03-19 date is used as the terminal operations-closed marker from investor communications."
+  },
+  {
+    "id": "hei_ex_000276",
+    "slug": "coinapult",
+    "canonical_name": "Coinapult",
+    "aliases": [
+      "Coinapult Wallet",
+      "Coinapult.com"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2012-01-01",
+    "death_date": null,
+    "country_or_origin": "Panama",
+    "summary": "Bitcoin wallet, payment-processing, brokerage, and exchange-like service founded around 2012 by Ira Miller and Erik Voorhees. Coinapult suffered a 150 BTC hot-wallet compromise in March 2015 and restored services afterward. Later wallet-directory references mark the service inactive / no longer operational, so HEI models it as inactive rather than dead.",
+    "official_url_original": "https://coinapult.com/",
+    "official_domain_original": "coinapult.com",
+    "official_url_status": "repurposed",
+    "archived_url": "https://web.archive.org/web/*/https://coinapult.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-04-29",
+    "notes": "Coinapult is included as an exchange-like historical bitcoin wallet / brokerage / payment service rather than a conventional order-book exchange. HEI keeps it inactive because current references indicate the original wallet service is no longer operational, but the evidence set does not establish a clean official shutdown announcement or terminal date. Current coinapult.com content appears repurposed and should not be treated as proof of original service continuity."
   }
 ]
