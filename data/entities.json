@@ -5653,5 +5653,31 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-29",
     "notes": "HEI treats Coinffeine as an entity-level DEX / P2P exchange record. It is kept inactive rather than dead because launch and project history are well supported, but the terminal status is based on secondary profile references rather than a clean official shutdown notice."
+  },
+  {
+    "id": "hei_ex_000265",
+    "slug": "glbse",
+    "canonical_name": "GLBSE",
+    "aliases": [
+      "Global Bitcoin Stock Exchange",
+      "Bitcoin Global",
+      "GLBSE.com"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2011-05-01",
+    "death_date": "2012-10-04",
+    "country_or_origin": "United Kingdom",
+    "summary": "Bitcoin-denominated asset and securities exchange founded by James McCarthy / Nefario. GLBSE operated as a central platform for trading Bitcoin economy shares and bonds, then abruptly closed in October 2012 amid legal, AML, tax, and regulatory concerns.",
+    "official_url_original": "https://glbse.com/",
+    "official_domain_original": "glbse.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://glbse.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-29",
+    "notes": "GLBSE was not a conventional fiat/crypto spot exchange; it is included as a historical Bitcoin-denominated asset / securities exchange. HEI uses regulation as the death_reason because contemporary reporting and community records cite AML, tax, and regulatory concerns as the stated closure rationale."
   }
 ]
