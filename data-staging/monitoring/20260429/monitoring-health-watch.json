@@ -1,8 +1,8 @@
 {
   "monitor": "monitoring-health-watch",
   "status": "ok",
-  "started_at": "2026-04-29T04:08:32.606Z",
-  "finished_at": "2026-04-29T04:08:32.612Z",
+  "started_at": "2026-04-29T04:36:24.736Z",
+  "finished_at": "2026-04-29T04:36:24.742Z",
   "findings": [],
   "candidates": [],
   "errors": [],

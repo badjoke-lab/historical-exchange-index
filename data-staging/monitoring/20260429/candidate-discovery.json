@@ -1,11 +1,11 @@
 {
   "monitor": "candidate-discovery",
   "status": "ok",
-  "started_at": "2026-04-29T04:08:32.573Z",
-  "finished_at": "2026-04-29T04:08:32.577Z",
+  "started_at": "2026-04-29T04:36:22.670Z",
+  "finished_at": "2026-04-29T04:36:22.673Z",
   "findings": [
     {
-      "finding_id": "finding_1777435712577_0c85o4",
+      "finding_id": "finding_1777437382673_ifiy76",
       "monitor": "candidate-discovery",
       "severity": "low",
       "category": "candidate_discovery_source_empty",
@@ -17,8 +17,8 @@
       "confidence": "medium",
       "dedupe_key": "candidate-discovery:source_empty:all_sources",
       "first_seen_at": "2026-04-28T14:28:13.538Z",
-      "last_seen_at": "2026-04-29T04:08:32.614Z",
-      "repeat_count": 4,
+      "last_seen_at": "2026-04-29T04:36:24.743Z",
+      "repeat_count": 5,
       "is_new": false,
       "is_repeated": true,
       "suppressed": true,

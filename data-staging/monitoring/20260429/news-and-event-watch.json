@@ -1,11 +1,11 @@
 {
   "monitor": "news-and-event-watch",
   "status": "ok",
-  "started_at": "2026-04-29T04:08:32.577Z",
-  "finished_at": "2026-04-29T04:08:32.579Z",
+  "started_at": "2026-04-29T04:36:22.673Z",
+  "finished_at": "2026-04-29T04:36:22.676Z",
   "findings": [
     {
-      "finding_id": "finding_1777435712579_isofqd",
+      "finding_id": "finding_1777437382676_ksdjl7",
       "monitor": "news-and-event-watch",
       "severity": "low",
       "category": "news_and_regulatory_watch_disabled",
@@ -17,8 +17,8 @@
       "confidence": "medium",
       "dedupe_key": "news-and-event-watch:news_and_regulatory_disabled",
       "first_seen_at": "2026-04-28T14:28:13.538Z",
-      "last_seen_at": "2026-04-29T04:08:32.614Z",
-      "repeat_count": 4,
+      "last_seen_at": "2026-04-29T04:36:24.743Z",
+      "repeat_count": 5,
       "is_new": false,
       "is_repeated": true,
       "suppressed": true,
