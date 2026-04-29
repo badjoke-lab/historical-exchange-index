@@ -2,30 +2,30 @@
 
 ## Run
 
-- run_id: 20260429-040832
+- run_id: 20260429-043622
 - mode: scheduled
-- started_at: 2026-04-29T04:08:32.562Z
-- finished_at: 2026-04-29T04:08:32.614Z
+- started_at: 2026-04-29T04:36:22.663Z
+- finished_at: 2026-04-29T04:36:24.743Z
 - meaningful_findings: yes
 
 ## Noise control
 
-- total_findings_seen: 502
-- visible_findings: 1
-- suppressed_repeated_backlog_findings: 501
-- new_findings: 1
-- repeated_findings: 501
+- total_findings_seen: 507
+- visible_findings: 7
+- suppressed_repeated_backlog_findings: 500
+- new_findings: 7
+- repeated_findings: 500
 
 ## Counts
 
 - monitors: 7
-- findings: 1
-- suppressed_findings: 501
+- findings: 7
+- suppressed_findings: 500
 - candidates: 0
 - critical: 0
 - high: 0
-- medium: 1
-- low: 0
+- medium: 0
+- low: 7
 
 ## A candidates
 
@@ -54,7 +54,7 @@
 
 ## Data quality
 
-- [medium] Invalid official_url_status on hei_ex_000268 — fix_entity_enum
+- None.
 
 ## Evidence health
 
@@ -80,18 +80,24 @@
 
 ## Site / SEO
 
-- enabled: false
+- enabled: true
 - site_url: https://hei.badjoke-lab.com
-- routes_checked: 0
-- route_findings: 0
-- sitemap_checked: false
-- sitemap_status: undefined
-- sitemap_exchange_routes_expected: 0
-- sitemap_exchange_routes_actual: 0
-- robots_checked: false
-- robots_status: not_checked
+- routes_checked: 8
+- route_findings: 7
+- sitemap_checked: true
+- sitemap_status: ok
+- sitemap_exchange_routes_expected: 261
+- sitemap_exchange_routes_actual: 261
+- robots_checked: true
+- robots_status: ok
 
-- None.
+- [low] Site route check redirected: /dead — review_redirect_target
+- [low] Site route check redirected: /active — review_redirect_target
+- [low] Site route check redirected: /stats — review_redirect_target
+- [low] Site route check redirected: /methodology — review_redirect_target
+- [low] Site route check redirected: /about — review_redirect_target
+- [low] Site route check redirected: /donate — review_redirect_target
+- [low] Site route check redirected: /exchange/mt-gox — review_redirect_target
 
 ## Suggested operator actions
 
