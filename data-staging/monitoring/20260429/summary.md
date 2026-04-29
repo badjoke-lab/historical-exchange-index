@@ -2,30 +2,30 @@
 
 ## Run
 
-- run_id: 20260429-001451
+- run_id: 20260429-012440
 - mode: scheduled
-- started_at: 2026-04-29T00:14:51.318Z
-- finished_at: 2026-04-29T00:14:51.359Z
+- started_at: 2026-04-29T01:24:40.320Z
+- finished_at: 2026-04-29T01:24:40.364Z
 - meaningful_findings: yes
 
 ## Noise control
 
-- total_findings_seen: 505
-- visible_findings: 12
-- suppressed_repeated_backlog_findings: 493
-- new_findings: 12
-- repeated_findings: 493
+- total_findings_seen: 508
+- visible_findings: 3
+- suppressed_repeated_backlog_findings: 505
+- new_findings: 3
+- repeated_findings: 505
 
 ## Counts
 
 - monitors: 7
-- findings: 12
-- suppressed_findings: 493
+- findings: 3
+- suppressed_findings: 505
 - candidates: 0
 - critical: 0
 - high: 0
 - medium: 0
-- low: 12
+- low: 3
 
 ## A candidates
 
@@ -54,23 +54,14 @@
 
 ## Data quality
 
-- [low] official_url_status unknown: Bitcoin-24 — review_official_url_status_when_available
-- [low] official_url_status unknown: Bitfloor — review_official_url_status_when_available
-- [low] official_url_status unknown: Harborly — review_official_url_status_when_available
-- [low] official_url_status unknown: Igot — review_official_url_status_when_available
-- [low] official_url_status unknown: Bitparking — review_official_url_status_when_available
-- [low] official_url_status unknown: BTCChina — review_official_url_status_when_available
-- [low] Possible successor/predecessor link missing: BTCChina — review_lineage_fields_when_record_is_touched
-- [low] official_url_status unknown: BitNZ — review_official_url_status_when_available
-- [low] official_url_status unknown: Coinrail — review_official_url_status_when_available
-- [low] official_url_status unknown: Bitcoin-Central — review_official_url_status_when_available
-- [low] Possible successor/predecessor link missing: Bitcoin-Central — review_lineage_fields_when_record_is_touched
-- [low] official_url_status unknown: Coinffeine — review_official_url_status_when_available
+- [low] official_url_status unknown: GLBSE — review_official_url_status_when_available
+- [low] official_url_status unknown: BTCQuick — review_official_url_status_when_available
+- [low] official_url_status unknown: BitFunder — review_official_url_status_when_available
 
 ## Evidence health
 
 - enabled: false
-- evidence_with_urls: 708
+- evidence_with_urls: 726
 - checked: 0
 - findings: 0
 - without_archive_total: 0

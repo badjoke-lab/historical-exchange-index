@@ -1,11 +1,11 @@
 {
   "monitor": "site-and-seo-watch",
   "status": "ok",
-  "started_at": "2026-04-29T00:14:51.353Z",
-  "finished_at": "2026-04-29T00:14:51.353Z",
+  "started_at": "2026-04-29T01:24:40.356Z",
+  "finished_at": "2026-04-29T01:24:40.357Z",
   "findings": [
     {
-      "finding_id": "finding_1777421691353_vfl6eu",
+      "finding_id": "finding_1777425880357_7188q2",
       "monitor": "site-and-seo-watch",
       "severity": "low",
       "category": "site_seo_watch_disabled",
@@ -17,8 +17,8 @@
       "confidence": "medium",
       "dedupe_key": "site-and-seo-watch:site_seo_checks_disabled",
       "first_seen_at": "2026-04-28T14:28:13.538Z",
-      "last_seen_at": "2026-04-29T00:14:51.359Z",
-      "repeat_count": 2,
+      "last_seen_at": "2026-04-29T01:24:40.364Z",
+      "repeat_count": 3,
       "is_new": false,
       "is_repeated": true,
       "suppressed": true,
