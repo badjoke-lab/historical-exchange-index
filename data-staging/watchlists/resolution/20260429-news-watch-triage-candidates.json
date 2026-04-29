@@ -1,0 +1,26 @@
+{
+  "resolution_type": "news_watch_candidates_triaged",
+  "created_at": "2026-04-29",
+  "source_monitoring_pr": "https://github.com/badjoke-lab/historical-exchange-index/pull/155",
+  "source_monitoring_run": "data-staging/monitoring/20260429/news-and-event-watch.json",
+  "purpose": "Record the remaining auto-discovered news candidates from the first filtered news/regulatory monitoring pass as triaged, so monitoring-health-watch no longer treats them as unresolved A candidates every run. This does not decide final canonical inclusion.",
+  "hold_or_out_of_scope": [
+    {
+      "canonical_name": "Zedxion",
+      "resolution": "triaged_for_manual_review",
+      "notes": "Potentially HEI-relevant regulatory shutdown candidate. Keep out of automatic pending-A alert loop until manually researched for public-quality entity/event/evidence records."
+    },
+    {
+      "canonical_name": "Txbit",
+      "resolution": "triaged_for_manual_review",
+      "notes": "Potentially HEI-relevant exchange closure candidate. Keep out of automatic pending-A alert loop until manually researched for public-quality entity/event/evidence records."
+    },
+    {
+      "canonical_name": "Serum",
+      "resolution": "triaged_for_manual_review",
+      "notes": "Potentially HEI-relevant DEX/protocol continuity candidate after FTX/Alameda-related disruption. Requires manual scope review before canonical inclusion because it may be protocol-level rather than exchange-entity-level."
+    }
+  ],
+  "canonical_data_changed": false,
+  "operator_notes": "This is watchlist bookkeeping only. It does not modify data/entities.json, data/events.json, or data/evidence.json. These candidates can still be promoted later through normal public-quality record PRs."
+}
