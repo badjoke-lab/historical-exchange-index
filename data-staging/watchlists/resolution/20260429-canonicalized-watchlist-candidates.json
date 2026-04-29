@@ -1,0 +1,45 @@
+{
+  "resolution_type": "watchlist_candidates_canonicalized",
+  "created_at": "2026-04-29",
+  "source_monitoring_run": "data-staging/monitoring/20260429/monitoring-health-watch.json",
+  "purpose": "Record watchlist candidates that already appear in canonical entities so monitoring-health-watch no longer treats them as unresolved watchlist items.",
+  "promoted_to_canonical": [
+    {
+      "canonical_name": "CoinDCX",
+      "resolution": "promoted_to_canonical",
+      "notes": "Detected by monitoring-health-watch as present in canonical entities. This resolution records the watchlist candidate as handled."
+    },
+    {
+      "canonical_name": "Bybit",
+      "resolution": "promoted_to_canonical",
+      "notes": "Detected by monitoring-health-watch as present in canonical entities. This resolution records the watchlist candidate as handled."
+    },
+    {
+      "canonical_name": "DMM Bitcoin",
+      "resolution": "promoted_to_canonical",
+      "notes": "Detected by monitoring-health-watch as present in canonical entities. This resolution records the watchlist candidate as handled."
+    },
+    {
+      "canonical_name": "BtcTurk",
+      "resolution": "promoted_to_canonical",
+      "notes": "Detected by monitoring-health-watch as present in canonical entities. This resolution records the watchlist candidate as handled."
+    },
+    {
+      "canonical_name": "GMX",
+      "resolution": "promoted_to_canonical",
+      "notes": "Detected by monitoring-health-watch as present in canonical entities. This resolution records the watchlist candidate as handled."
+    },
+    {
+      "canonical_name": "BingX",
+      "resolution": "promoted_to_canonical",
+      "notes": "Detected by monitoring-health-watch as present in canonical entities. This resolution records the watchlist candidate as handled."
+    },
+    {
+      "canonical_name": "Bithumb",
+      "resolution": "promoted_to_canonical",
+      "notes": "Detected by monitoring-health-watch as present in canonical entities. This resolution records the watchlist candidate as handled."
+    }
+  ],
+  "canonical_data_changed": false,
+  "operator_notes": "This is a staging/watchlist bookkeeping change only. It does not modify data/entities.json, data/events.json, or data/evidence.json."
+}
