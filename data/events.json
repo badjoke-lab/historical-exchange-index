@@ -5042,5 +5042,33 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "Recorded as a major hack / service disruption event, not as a confirmed terminal shutdown."
+  },
+  {
+    "id": "hei_ev_000475",
+    "exchange_id": "hei_ex_000273",
+    "event_type": "launched",
+    "event_date": "2014-08-01",
+    "title": "CoinGather launched",
+    "description": "CoinGather announced itself as an alternate cryptocurrency exchange in 2014 and later DOJ forfeiture material also described CoinGather as launched in 2014.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date follows the Bitcointalk announcement month. Stored as 2014-08-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000476",
+    "exchange_id": "hei_ex_000273",
+    "event_type": "shutdown_effective",
+    "event_date": "2017-11-22",
+    "title": "CoinGather abruptly went offline",
+    "description": "CoinGather went offline in late November 2017 after withdrawal complaints and later became the subject of FBI / DOJ seizure and forfeiture activity involving cryptocurrency wallets accessible through the exchange.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the terminal disappearance marker. DOJ forfeiture material is recorded as post-shutdown legal context."
   }
 ]
