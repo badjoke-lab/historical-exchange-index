@@ -1,11 +1,11 @@
 {
   "monitor": "candidate-discovery",
   "status": "ok",
-  "started_at": "2026-04-29T00:14:51.324Z",
-  "finished_at": "2026-04-29T00:14:51.327Z",
+  "started_at": "2026-04-29T01:24:40.326Z",
+  "finished_at": "2026-04-29T01:24:40.329Z",
   "findings": [
     {
-      "finding_id": "finding_1777421691327_ger541",
+      "finding_id": "finding_1777425880329_fouecy",
       "monitor": "candidate-discovery",
       "severity": "low",
       "category": "candidate_discovery_source_empty",
@@ -17,8 +17,8 @@
       "confidence": "medium",
       "dedupe_key": "candidate-discovery:source_empty:all_sources",
       "first_seen_at": "2026-04-28T14:28:13.538Z",
-      "last_seen_at": "2026-04-29T00:14:51.359Z",
-      "repeat_count": 2,
+      "last_seen_at": "2026-04-29T01:24:40.364Z",
+      "repeat_count": 3,
       "is_new": false,
       "is_repeated": true,
       "suppressed": true,
