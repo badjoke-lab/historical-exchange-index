@@ -1,11 +1,11 @@
 {
   "monitor": "active-status-watch",
   "status": "ok",
-  "started_at": "2026-04-29T11:15:27.295Z",
-  "finished_at": "2026-04-29T11:15:27.302Z",
+  "started_at": "2026-04-29T11:27:37.027Z",
+  "finished_at": "2026-04-29T11:27:37.034Z",
   "findings": [
     {
-      "finding_id": "finding_1777461327302_7nri78",
+      "finding_id": "finding_1777462057034_q5gt3b",
       "monitor": "active-status-watch",
       "severity": "low",
       "category": "domain_watch_disabled",
@@ -17,8 +17,8 @@
       "confidence": "medium",
       "dedupe_key": "active-status-watch:domain_checks_disabled",
       "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T11:16:50.339Z",
-      "repeat_count": 3,
+      "last_seen_at": "2026-04-29T11:27:37.057Z",
+      "repeat_count": 4,
       "is_new": false,
       "is_repeated": true,
       "suppressed": true,
