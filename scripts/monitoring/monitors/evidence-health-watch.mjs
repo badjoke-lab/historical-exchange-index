@@ -35,20 +35,47 @@ function selectEvidenceTargets(evidence = [], entities = []) {
 
 function sourceStatusCategory(check, hasArchive) {
   if (check.status === 'ok') return 'source_ok';
-  if (['not_found', 'http_error'].includes(check.status) && hasArchive) return 'source_404_archive_ok';
-  if (['not_found', 'http_error'].includes(check.status) && !hasArchive) return 'source_404_archive_missing';
+  if (['not_found', 'http_error'].includes(check.status) && hasArchive) return 'source_unavailable_archive_ok';
+  if (['not_found', 'http_error'].includes(check.status) && !hasArchive) return 'source_unavailable_archive_missing';
   if (check.status === 'redirected') return 'source_redirected';
   if (['server_error', 'timeout', 'dns_failure', 'tls_failure'].includes(check.status)) return `source_${check.status}`;
   return `source_${check.status || 'unknown'}`;
 }
 
+function isArchiveHealthy(archiveCheck) {
+  return archiveCheck && ['ok', 'redirected'].includes(archiveCheck.status);
+}
+
+function isAccessControlNoise(check) {
+  return check.status === 'http_error' && [401, 403, 429].includes(check.http_status);
+}
+
+function isHealthyRedirect(check) {
+  return check.status === 'redirected' && check.http_status === 200 && check.final_url;
+}
+
+function shouldCreateSourceFinding(sourceCheck, archiveCheck, hasArchive) {
+  if (sourceCheck.status === 'ok') return false;
+  if (isHealthyRedirect(sourceCheck)) return false;
+
+  // If an archive is configured and currently reachable, the original source
+  // URL being gone, access-controlled, redirected, or slow is useful raw data
+  // but not an actionable visible finding.
+  if (hasArchive && isArchiveHealthy(archiveCheck)) return false;
+
+  // Common bot/WAF responses are not actionable without a missing archive.
+  if (isAccessControlNoise(sourceCheck)) return false;
+
+  return true;
+}
+
 function severityForSourceCheck(check, hasArchive) {
   if (check.status === 'ok') return 'low';
   if (['not_found', 'http_error'].includes(check.status) && !hasArchive) return 'high';
-  if (['not_found', 'http_error'].includes(check.status) && hasArchive) return 'medium';
+  if (['not_found', 'http_error'].includes(check.status) && hasArchive) return 'low';
   if (['dns_failure', 'tls_failure'].includes(check.status) && !hasArchive) return 'high';
-  if (['dns_failure', 'tls_failure'].includes(check.status)) return 'medium';
-  if (['server_error', 'timeout'].includes(check.status)) return 'medium';
+  if (['dns_failure', 'tls_failure'].includes(check.status)) return 'low';
+  if (['server_error', 'timeout'].includes(check.status)) return hasArchive ? 'low' : 'medium';
   if (check.status === 'redirected') return 'low';
   return 'medium';
 }
@@ -56,9 +83,9 @@ function severityForSourceCheck(check, hasArchive) {
 function recommendedActionForSourceCheck(check, hasArchive) {
   if (check.status === 'ok') return 'no_action';
   if (['not_found', 'http_error', 'dns_failure', 'tls_failure'].includes(check.status) && !hasArchive) return 'find_archive_or_replacement_evidence';
-  if (['not_found', 'http_error', 'dns_failure', 'tls_failure'].includes(check.status) && hasArchive) return 'verify_archived_url_and_consider_source_note';
-  if (['server_error', 'timeout'].includes(check.status)) return 'recheck_before_replacing_evidence';
-  if (check.status === 'redirected') return 'review_redirect_target';
+  if (['not_found', 'http_error', 'dns_failure', 'tls_failure'].includes(check.status) && hasArchive) return 'raw_only_archive_available';
+  if (['server_error', 'timeout'].includes(check.status)) return hasArchive ? 'raw_only_recheck_later' : 'recheck_before_replacing_evidence';
+  if (check.status === 'redirected') return 'raw_only_redirect_recorded';
   return 'review_evidence_url_health';
 }
 
@@ -113,6 +140,7 @@ export async function runEvidenceHealthWatch(context, { startedAt } = {}) {
     const archiveCheck = await maybeCheckArchive(source);
     const hasArchive = Boolean(source.archived_url);
     const category = sourceStatusCategory(sourceCheck, hasArchive);
+    const sourceFindingCreated = shouldCreateSourceFinding(sourceCheck, archiveCheck, hasArchive);
 
     checks.push({
       evidence_id: source.id,
@@ -124,9 +152,11 @@ export async function runEvidenceHealthWatch(context, { startedAt } = {}) {
       archived_url: source.archived_url || null,
       source_check: sourceCheck,
       archive_check: archiveCheck,
+      source_finding_created: sourceFindingCreated,
+      source_raw_only: sourceCheck.status !== 'ok' && !sourceFindingCreated,
     });
 
-    if (sourceCheck.status !== 'ok') {
+    if (sourceFindingCreated) {
       const severity = severityForSourceCheck(sourceCheck, hasArchive);
       findings.push(createFinding({
         monitor,
@@ -181,6 +211,8 @@ export async function runEvidenceHealthWatch(context, { startedAt } = {}) {
         evidence_with_urls: targets.length,
         checked: selected.length,
         findings: findings.length,
+        source_raw_only: checks.filter((item) => item.source_raw_only).length,
+        archive_healthy: checks.filter((item) => isArchiveHealthy(item.archive_check)).length,
         without_archive_total: evidence.filter((source) => source.url && !source.archived_url).length,
       },
       evidence_url_checks: checks,
