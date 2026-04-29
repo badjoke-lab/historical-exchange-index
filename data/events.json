@@ -4802,5 +4802,33 @@
     "source_count": 1,
     "sort_order": 2,
     "notes": "Approximate year-level marker only. This is not treated as a definitive shutdown date."
+  },
+  {
+    "id": "hei_ev_000458",
+    "exchange_id": "hei_ex_000265",
+    "event_type": "launched",
+    "event_date": "2011-05-01",
+    "title": "GLBSE launched",
+    "description": "GLBSE launched in 2011 as a Bitcoin-denominated asset and securities exchange for shares, bonds, and other Bitcoin economy assets.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is month-level. Bitcoin Wiki records testing in April 2011 and launch soon after; Bitcoin Magazine describes launch in May 2011."
+  },
+  {
+    "id": "hei_ev_000459",
+    "exchange_id": "hei_ex_000265",
+    "event_type": "shutdown_effective",
+    "event_date": "2012-10-04",
+    "title": "GLBSE abruptly closed",
+    "description": "GLBSE abruptly closed in October 2012. Contemporary reporting and community explanations cite legal, AML, tax, and regulatory concerns as the core closure rationale.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Used as the terminal closure marker. Some public records preserve later customer-claim and refund-process updates after the initial closure."
   }
 ]
