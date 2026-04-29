@@ -5098,5 +5098,47 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "Recorded as a major breach / service-disruption marker, not as a definitive terminal shutdown date."
+  },
+  {
+    "id": "hei_ev_000479",
+    "exchange_id": "hei_ex_000275",
+    "event_type": "launched",
+    "event_date": "2011-04-05",
+    "title": "BitMarket.eu announced",
+    "description": "Bitcoin Wiki records BitMarket.eu as announced on 2011-04-05 as a multi-currency Bitcoin exchange / order-matching market.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 1,
+    "notes": "Used as the public launch / announcement marker."
+  },
+  {
+    "id": "hei_ev_000480",
+    "exchange_id": "hei_ex_000275",
+    "event_type": "insolvency",
+    "event_date": "2012-12-21",
+    "title": "BitMarket.eu disclosed major customer-fund loss",
+    "description": "The operator disclosed that customer funds had been used for speculation and that nearly 20,000 BTC of customer funds had been lost.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "Recorded as the insolvency / balance-freeze marker before final closure."
+  },
+  {
+    "id": "hei_ev_000481",
+    "exchange_id": "hei_ex_000275",
+    "event_type": "shutdown_effective",
+    "event_date": "2013-03-19",
+    "title": "BitMarket.eu operations closed down",
+    "description": "Investor communications in the Bitcointalk thread stated that BitMarket.eu operations would be closed down, leaving the site only to handle old frozen coin issues.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 3,
+    "notes": "Used as the terminal operations-closed marker."
   }
 ]
