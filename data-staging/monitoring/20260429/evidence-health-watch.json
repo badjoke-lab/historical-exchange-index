@@ -1,335 +1,28 @@
 {
   "monitor": "evidence-health-watch",
   "status": "ok",
-  "started_at": "2026-04-29T11:04:00.364Z",
-  "finished_at": "2026-04-29T11:05:22.942Z",
-  "findings": [
-    {
-      "finding_id": "finding_1777460644623_n1n2dw",
-      "monitor": "evidence-health-watch",
-      "severity": "medium",
-      "category": "source_404_archive_ok",
-      "title": "Evidence source URL issue: hei_src_000039",
-      "summary": "Hotbit Phase IV Global Video Contest — https://hotbit.zendesk.com/hc/en-us/articles/4402193362455-Hotbit-Phase-IV-Global-Video-Contest -> not_found HTTP 404",
-      "affected_entity": {
-        "matched_existing_entity": true,
-        "id": "hei_ex_000032",
-        "slug": null,
-        "canonical_name": null
-      },
-      "recommended_action": "verify_archived_url_and_consider_source_note",
-      "source_urls": [
-        "https://hotbit.zendesk.com/hc/en-us/articles/4402193362455-Hotbit-Phase-IV-Global-Video-Contest",
-        "https://web.archive.org/web/*/https://hotbit.zendesk.com/hc/en-us/articles/4402193362455-Hotbit-Phase-IV-Global-Video-Contest"
-      ],
-      "confidence": "low",
-      "dedupe_key": "evidence-health-watch:source_404_archive_ok:hei_src_000039",
-      "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T11:05:22.950Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777460647791_02sg2j",
-      "monitor": "evidence-health-watch",
-      "severity": "low",
-      "category": "source_redirected",
-      "title": "Evidence source URL issue: hei_src_000376",
-      "summary": "LocalBitcoins closure notice and timeline — https://localbitcoins.com/lobby/ -> redirected HTTP 200",
-      "affected_entity": {
-        "matched_existing_entity": true,
-        "id": "hei_ex_000124",
-        "slug": null,
-        "canonical_name": null
-      },
-      "recommended_action": "review_redirect_target",
-      "source_urls": [
-        "https://localbitcoins.com/lobby/",
-        "https://web.archive.org/web/*/https://localbitcoins.com/lobby/"
-      ],
-      "confidence": "low",
-      "dedupe_key": "evidence-health-watch:source_redirected:hei_src_000376",
-      "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T11:05:22.950Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
-      "suppressed": true,
-      "noise_control": "suppressed_repeated_backlog"
-    },
-    {
-      "finding_id": "finding_1777460666623_pg1kfb",
-      "monitor": "evidence-health-watch",
-      "severity": "medium",
-      "category": "source_timeout",
-      "title": "Evidence source URL issue: hei_src_000382",
-      "summary": "Exchange platform URLs update — https://zondacrypto.com/en/news/exchange-platform-urls-update -> timeout error=This operation was aborted",
-      "affected_entity": {
-        "matched_existing_entity": true,
-        "id": "hei_ex_000127",
-        "slug": null,
-        "canonical_name": null
-      },
-      "recommended_action": "recheck_before_replacing_evidence",
-      "source_urls": [
-        "https://zondacrypto.com/en/news/exchange-platform-urls-update",
-        "https://web.archive.org/web/*/https://zondacrypto.com/en/news/exchange-platform-urls-update"
-      ],
-      "confidence": "low",
-      "dedupe_key": "evidence-health-watch:source_timeout:hei_src_000382",
-      "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T11:05:22.950Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777460667059_158u1b",
-      "monitor": "evidence-health-watch",
-      "severity": "medium",
-      "category": "source_404_archive_ok",
-      "title": "Evidence source URL issue: hei_src_000385",
-      "summary": "[NOTICE] BITFRONT Exchange to Close — https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2 -> http_error HTTP 403",
-      "affected_entity": {
-        "matched_existing_entity": true,
-        "id": "hei_ex_000128",
-        "slug": null,
-        "canonical_name": null
-      },
-      "recommended_action": "verify_archived_url_and_consider_source_note",
-      "source_urls": [
-        "https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
-        "https://web.archive.org/web/*/https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2"
-      ],
-      "confidence": "low",
-      "dedupe_key": "evidence-health-watch:source_404_archive_ok:hei_src_000385",
-      "first_seen_at": "2026-04-29T11:05:22.950Z",
-      "last_seen_at": "2026-04-29T11:05:22.950Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777460688384_xuwrkp",
-      "monitor": "evidence-health-watch",
-      "severity": "medium",
-      "category": "source_timeout",
-      "title": "Evidence source URL issue: hei_src_000549",
-      "summary": "Krypto-Swapping-Dienst „eXch“ abgeschaltet — https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html -> timeout error=This operation was aborted",
-      "affected_entity": {
-        "matched_existing_entity": true,
-        "id": "hei_ex_000176",
-        "slug": null,
-        "canonical_name": null
-      },
-      "recommended_action": "recheck_before_replacing_evidence",
-      "source_urls": [
-        "https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
-        "https://web.archive.org/web/*/https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html"
-      ],
-      "confidence": "low",
-      "dedupe_key": "evidence-health-watch:source_timeout:hei_src_000549",
-      "first_seen_at": "2026-04-29T11:05:22.950Z",
-      "last_seen_at": "2026-04-29T11:05:22.950Z",
-      "repeat_count": 1,
-      "is_new": true,
-      "is_repeated": false,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777460691820_k97u77",
-      "monitor": "evidence-health-watch",
-      "severity": "low",
-      "category": "source_redirected",
-      "title": "Evidence source URL issue: hei_src_000617",
-      "summary": "Founder and Majority Owner of Cryptocurrency Exchange Charged with Processing Over $700 Million of Illicit Funds — https://www.justice.gov/opa/pr/founder-and-majority-owner-cryptocurrency-exchange-charged-processing-over-700-million -> redirected HTTP 200",
-      "affected_entity": {
-        "matched_existing_entity": true,
-        "id": "hei_ex_000193",
-        "slug": null,
-        "canonical_name": null
-      },
-      "recommended_action": "review_redirect_target",
-      "source_urls": [
-        "https://www.justice.gov/opa/pr/founder-and-majority-owner-cryptocurrency-exchange-charged-processing-over-700-million",
-        "https://web.archive.org/web/*/https://www.justice.gov/opa/pr/founder-and-majority-owner-cryptocurrency-exchange-charged-processing-over-700-million"
-      ],
-      "confidence": "low",
-      "dedupe_key": "evidence-health-watch:source_redirected:hei_src_000617",
-      "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T11:05:22.950Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
-      "suppressed": true,
-      "noise_control": "suppressed_repeated_backlog"
-    },
-    {
-      "finding_id": "finding_1777460694673_g95nr7",
-      "monitor": "evidence-health-watch",
-      "severity": "low",
-      "category": "source_redirected",
-      "title": "Evidence source URL issue: hei_src_000749",
-      "summary": "Account Verification — https://www.fastex.com/account-verification -> redirected HTTP 200",
-      "affected_entity": {
-        "matched_existing_entity": true,
-        "id": "hei_ex_000099",
-        "slug": null,
-        "canonical_name": null
-      },
-      "recommended_action": "review_redirect_target",
-      "source_urls": [
-        "https://www.fastex.com/account-verification",
-        "https://web.archive.org/web/*/https://www.fastex.com/account-verification"
-      ],
-      "confidence": "low",
-      "dedupe_key": "evidence-health-watch:source_redirected:hei_src_000749",
-      "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T11:05:22.950Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
-      "suppressed": true,
-      "noise_control": "suppressed_repeated_backlog"
-    },
-    {
-      "finding_id": "finding_1777460695817_qs5wti",
-      "monitor": "evidence-health-watch",
-      "severity": "low",
-      "category": "source_redirected",
-      "title": "Evidence source URL issue: hei_src_000750",
-      "summary": "Listing Rules — https://www.fastex.com/listing-rules -> redirected HTTP 200",
-      "affected_entity": {
-        "matched_existing_entity": true,
-        "id": "hei_ex_000099",
-        "slug": null,
-        "canonical_name": null
-      },
-      "recommended_action": "review_redirect_target",
-      "source_urls": [
-        "https://www.fastex.com/listing-rules",
-        "https://web.archive.org/web/*/https://www.fastex.com/listing-rules"
-      ],
-      "confidence": "low",
-      "dedupe_key": "evidence-health-watch:source_redirected:hei_src_000750",
-      "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T11:05:22.950Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
-      "suppressed": true,
-      "noise_control": "suppressed_repeated_backlog"
-    },
-    {
-      "finding_id": "finding_1777460708023_3lz4jz",
-      "monitor": "evidence-health-watch",
-      "severity": "low",
-      "category": "source_redirected",
-      "title": "Evidence source URL issue: hei_src_000904",
-      "summary": "BTCChina Rebrands as BTCC with Focus on Global Audience — https://www.prweb.com/releases/2015/09/prweb12961730.htm -> redirected HTTP 200",
-      "affected_entity": {
-        "matched_existing_entity": true,
-        "id": "hei_ex_000260",
-        "slug": null,
-        "canonical_name": null
-      },
-      "recommended_action": "review_redirect_target",
-      "source_urls": [
-        "https://www.prweb.com/releases/2015/09/prweb12961730.htm",
-        "https://web.archive.org/web/*/https://www.prweb.com/releases/2015/09/prweb12961730.htm"
-      ],
-      "confidence": "low",
-      "dedupe_key": "evidence-health-watch:source_redirected:hei_src_000904",
-      "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T11:05:22.950Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
-      "suppressed": true,
-      "noise_control": "suppressed_repeated_backlog"
-    },
-    {
-      "finding_id": "finding_1777460714420_6modsd",
-      "monitor": "evidence-health-watch",
-      "severity": "medium",
-      "category": "source_404_archive_ok",
-      "title": "Evidence source URL issue: hei_src_000003",
-      "summary": "FTX Trading Ltd. restructuring case portal — https://restructuring.ra.kroll.com/ftx/ -> http_error HTTP 403",
-      "affected_entity": {
-        "matched_existing_entity": true,
-        "id": "hei_ex_000002",
-        "slug": null,
-        "canonical_name": null
-      },
-      "recommended_action": "verify_archived_url_and_consider_source_note",
-      "source_urls": [
-        "https://restructuring.ra.kroll.com/ftx/",
-        "https://web.archive.org/web/*/https://restructuring.ra.kroll.com/ftx/"
-      ],
-      "confidence": "low",
-      "dedupe_key": "evidence-health-watch:source_404_archive_ok:hei_src_000003",
-      "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T11:05:22.950Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
-      "suppressed": false,
-      "noise_control": "visible"
-    },
-    {
-      "finding_id": "finding_1777460714917_l3l08a",
-      "monitor": "evidence-health-watch",
-      "severity": "low",
-      "category": "source_redirected",
-      "title": "Evidence source URL issue: hei_src_000004",
-      "summary": "Archived FTX homepage — https://ftx.com/ -> redirected HTTP 200",
-      "affected_entity": {
-        "matched_existing_entity": true,
-        "id": "hei_ex_000002",
-        "slug": null,
-        "canonical_name": null
-      },
-      "recommended_action": "review_redirect_target",
-      "source_urls": [
-        "https://ftx.com/",
-        "https://web.archive.org/web/*/https://ftx.com/"
-      ],
-      "confidence": "low",
-      "dedupe_key": "evidence-health-watch:source_redirected:hei_src_000004",
-      "first_seen_at": "2026-04-29T10:42:16.234Z",
-      "last_seen_at": "2026-04-29T11:05:22.950Z",
-      "repeat_count": 2,
-      "is_new": false,
-      "is_repeated": true,
-      "suppressed": true,
-      "noise_control": "suppressed_repeated_backlog"
-    }
-  ],
+  "started_at": "2026-04-29T11:15:27.317Z",
+  "finished_at": "2026-04-29T11:16:50.330Z",
+  "findings": [],
   "candidates": [],
   "errors": [],
   "summary": {
-    "findings_count": 11,
-    "visible_findings_count": 11,
+    "findings_count": 0,
+    "visible_findings_count": 0,
     "candidate_count": 0,
     "errors_count": 0,
     "critical": 0,
     "high": 0,
-    "medium": 5,
-    "low": 6
+    "medium": 0,
+    "low": 0
   },
   "evidence_health_summary": {
     "enabled": true,
-    "evidence_with_urls": 741,
+    "evidence_with_urls": 747,
     "checked": 50,
-    "findings": 11,
+    "findings": 0,
+    "source_raw_only": 11,
+    "archive_healthy": 50,
     "without_archive_total": 0
   },
   "evidence_url_checks": [
@@ -358,7 +51,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.mtgox.com/img/pdf/20140424_announce_qa_en.pdf",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000010",
@@ -385,7 +80,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.grantthornton.co.nz/press/press-releases-2019/cryptopia-limited-appoints-grant-thornton-as-liquidators/",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000011",
@@ -412,7 +109,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.grantthornton.co.nz/insights/important-notice-for-cryptopia-account-holders-to-register-claims-before-the-soft-cut-off-date/",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000037",
@@ -439,7 +138,9 @@
         "final_url": "https://web.archive.org/web/*/https://bittrexglobal.com/",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000039",
@@ -466,7 +167,9 @@
         "final_url": "https://web.archive.org/web/*/https://hotbit.zendesk.com/hc/en-us/articles/4402193362455-Hotbit-Phase-IV-Global-Video-Contest",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
     },
     {
       "evidence_id": "hei_src_000376",
@@ -493,7 +196,9 @@
         "final_url": "https://web.archive.org/web/*/https://localbitcoins.com/lobby/",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
     },
     {
       "evidence_id": "hei_src_000378",
@@ -520,7 +225,9 @@
         "final_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000379",
@@ -547,7 +254,9 @@
         "final_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000380",
@@ -574,7 +283,9 @@
         "final_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000381",
@@ -601,7 +312,9 @@
         "final_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000382",
@@ -628,7 +341,9 @@
         "final_url": "https://web.archive.org/web/*/https://zondacrypto.com/en/news/exchange-platform-urls-update",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
     },
     {
       "evidence_id": "hei_src_000385",
@@ -655,7 +370,9 @@
         "final_url": "https://web.archive.org/web/*/https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
     },
     {
       "evidence_id": "hei_src_000391",
@@ -682,7 +399,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.gatecoinliquidation.com/",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000393",
@@ -709,7 +428,9 @@
         "final_url": "https://web.archive.org/web/*/https://medium.com/koinex-crunch/post-shutdown-how-to-withdraw-your-crypto-from-koinex-wallet-dbac2d3d9022",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000396",
@@ -736,7 +457,9 @@
         "final_url": "https://web.archive.org/web/*/https://support.coincorner.com/hc/en-us/articles/7321793874716-Accessing-migrated-Coinfloor-accounts",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000397",
@@ -763,7 +486,9 @@
         "final_url": "https://web.archive.org/web/*/https://support.coincorner.com/hc/en-us/articles/7322107981340-Coinfloor-transaction-history",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000399",
@@ -790,7 +515,9 @@
         "final_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquires-dutch-bitcoin-exchange-clevercoin",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000400",
@@ -817,7 +544,9 @@
         "final_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000406",
@@ -844,7 +573,9 @@
         "final_url": "https://web.archive.org/web/*/https://medium.com/%40Liqui_io/dear-users-of-original-liqui-exchange-who-were-unable-to-withdraw-funds-following-the-shutdown-7712ba7e7457",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000416",
@@ -871,7 +602,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.therocktrading.com/disclaimer/",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000546",
@@ -898,7 +631,9 @@
         "final_url": "https://web.archive.org/web/*/https://rcmp.ca/en/news/2025/09/rcmp-executes-record-seizure-more-56-million-dollars-cryptocurrency",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000549",
@@ -925,7 +660,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
     },
     {
       "evidence_id": "hei_src_000550",
@@ -952,7 +689,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.fiod.nl/bka-and-fiod-shut-down-cryptocurrency-swap-service-exch-e-34-million-in-cryptocurrency-has-been-seized-during-the-operation/",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000584",
@@ -979,7 +718,9 @@
         "final_url": "https://web.archive.org/web/*/https://nominex.io/sunset",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000588",
@@ -1006,7 +747,9 @@
         "final_url": "https://web.archive.org/web/*/https://help.coindirect.com/hc/en-us/articles/8183123549330-Coindirect-Closure-Announcement",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000617",
@@ -1033,7 +776,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.justice.gov/opa/pr/founder-and-majority-owner-cryptocurrency-exchange-charged-processing-over-700-million",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
     },
     {
       "evidence_id": "hei_src_000731",
@@ -1060,7 +805,9 @@
         "final_url": "https://web.archive.org/web/*/https://medium.com/@CoinPulse/coinpulse-urgent-notice-exchange-headed-for-indefinite-maintenance-a4944fb269a",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000749",
@@ -1087,7 +834,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.fastex.com/account-verification",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
     },
     {
       "evidence_id": "hei_src_000750",
@@ -1114,7 +863,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.fastex.com/listing-rules",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
     },
     {
       "evidence_id": "hei_src_000811",
@@ -1141,7 +892,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.sbivc.co.jp/dmm_vct",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000812",
@@ -1168,7 +921,9 @@
         "final_url": "https://web.archive.org/web/*/https://bitcoin.dmm.com/news/20241227_01",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000903",
@@ -1195,7 +950,9 @@
         "final_url": "https://web.archive.org/web/*/https://rss.globenewswire.com/news-release/2015/09/15/768450/37162/en/BTCChina-Rebrands-as-BTCC-with-Focus-on-Global-Audience.html",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000904",
@@ -1222,7 +979,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.prweb.com/releases/2015/09/prweb12961730.htm",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
     },
     {
       "evidence_id": "hei_src_000366",
@@ -1249,7 +1008,9 @@
         "final_url": "https://web.archive.org/web/*/https://exchange.fastex.com/",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000394",
@@ -1276,7 +1037,9 @@
         "final_url": "https://web.archive.org/web/*/https://medium.com/@koinexindia",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000589",
@@ -1303,7 +1066,9 @@
         "final_url": "https://web.archive.org/web/*/https://pressreleases.responsesource.com/newsroom/coindirect/",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000621",
@@ -1330,7 +1095,9 @@
         "final_url": "https://web.archive.org/web/*/https://bqt.io/jp/about-us.html",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000622",
@@ -1357,7 +1124,9 @@
         "final_url": "https://web.archive.org/web/*/https://bqt.io/",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000002",
@@ -1384,7 +1153,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.mtgox.com/",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000003",
@@ -1411,7 +1182,9 @@
         "final_url": "https://web.archive.org/web/*/https://restructuring.ra.kroll.com/ftx/",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
     },
     {
       "evidence_id": "hei_src_000004",
@@ -1438,7 +1211,9 @@
         "final_url": "https://web.archive.org/web/*/https://ftx.com/",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
     },
     {
       "evidence_id": "hei_src_000006",
@@ -1465,7 +1240,9 @@
         "final_url": "https://web.archive.org/web/*/https://documentcentre.ey.com/api/Document/download?docId=32800&language=EN",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000007",
@@ -1492,7 +1269,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.fincen.gov/system/files/2017-07/BTC-e%20July%2026%20Press%20Release%20FINAL1.pdf",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000038",
@@ -1519,7 +1298,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.sec.gov/newsroom/press-releases/2023-78",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000164",
@@ -1546,7 +1327,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2020/01/10/cobinhood-announces-shutdown-claims-it-will-audit-user-accounts",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000411",
@@ -1573,7 +1356,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2019/68-bcsc-acts-to-protect-customers-of-einstein-exchange-cryptoasset-trading-platform",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000412",
@@ -1600,7 +1385,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2019/73-courtappointed-receiver-of-einstein-exchange-concludes-its-duties",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000413",
@@ -1627,7 +1414,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2026/12-director-of-companies-behind-crypto-trading-platform-agrees-to-pay-1-million-to-bcsc",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000417",
@@ -1654,7 +1443,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.portalecreditori.it/procedura?id=3m9QozpVMR",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     },
     {
       "evidence_id": "hei_src_000429",
@@ -1681,7 +1472,9 @@
         "final_url": "https://web.archive.org/web/*/https://www.secretservice.gov/newsroom/releases/2017/01/operator-unlawful-bitcoin-exchange-pleads-guilty-multimillion-dollar",
         "content_type": "text/html",
         "error": null
-      }
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
     }
   ]
 }
