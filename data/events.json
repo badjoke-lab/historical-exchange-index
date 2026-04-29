@@ -4872,5 +4872,47 @@
     "source_count": 5,
     "sort_order": 2,
     "notes": "Used as the terminal trading-shutdown marker. Later SEC and DOJ actions are retained as regulatory / fraud context."
+  },
+  {
+    "id": "hei_ev_000463",
+    "exchange_id": "hei_ex_000268",
+    "event_type": "launched",
+    "event_date": "2017-10-21",
+    "title": "LocalEthereum launched",
+    "description": "LocalCryptos began in 2017 as LocalEthereum, a non-custodial peer-to-peer Ethereum marketplace.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Used as the original platform launch marker."
+  },
+  {
+    "id": "hei_ev_000464",
+    "exchange_id": "hei_ex_000268",
+    "event_type": "rebranded",
+    "event_date": "2019-11-18",
+    "title": "LocalEthereum rebranded to LocalCryptos",
+    "description": "LocalEthereum rebranded to LocalCryptos and added non-custodial peer-to-peer Bitcoin trading support.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "active",
+    "source_count": 1,
+    "sort_order": 2,
+    "notes": "Rebrand / expansion event, not a terminal event."
+  },
+  {
+    "id": "hei_ev_000465",
+    "exchange_id": "hei_ex_000268",
+    "event_type": "shutdown_effective",
+    "event_date": "2022-11-18",
+    "title": "LocalCryptos disabled new trade creation",
+    "description": "LocalCryptos announced a voluntary wind-down in October 2022, with new account creation disabled after 2022-11-04 and new trade creation disabled after 2022-11-18.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 3,
+    "notes": "Used as the terminal marketplace shutdown marker. Existing wallet UI availability is not treated as continued exchange operation."
   }
 ]

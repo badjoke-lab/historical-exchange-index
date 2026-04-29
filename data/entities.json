@@ -5730,5 +5730,31 @@
     "confidence": "high",
     "last_verified_at": "2026-04-29",
     "notes": "BitFunder was not a conventional fiat/crypto spot exchange; it is included as a historical Bitcoin-denominated securities / asset exchange. HEI uses regulation as death_reason because the shutdown followed US-user restrictions and later SEC action characterized the platform as an unregistered securities exchange."
+  },
+  {
+    "id": "hei_ex_000268",
+    "slug": "localcryptos",
+    "canonical_name": "LocalCryptos",
+    "aliases": [
+      "LocalEthereum",
+      "LocalEthereum.com",
+      "LocalCryptos.com"
+    ],
+    "type": "dex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2017-10-21",
+    "death_date": "2022-11-18",
+    "country_or_origin": "Australia",
+    "summary": "Non-custodial peer-to-peer cryptocurrency marketplace launched in 2017 as LocalEthereum and rebranded to LocalCryptos in 2019 when it added Bitcoin support. LocalCryptos announced a voluntary wind-down in October 2022 and disabled new trade creation after 2022-11-18, while keeping its non-custodial wallet interface available.",
+    "official_url_original": "https://localcryptos.com/",
+    "official_domain_original": "localcryptos.com",
+    "official_url_status": "partial",
+    "archived_url": "https://web.archive.org/web/*/https://localcryptos.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI models LocalCryptos as a dead P2P / DEX-like marketplace because new trade creation was disabled after 2022-11-18. The website and wallet interface may remain available, so official_url_status is partial rather than offline."
   }
 ]
