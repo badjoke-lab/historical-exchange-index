@@ -1,0 +1,42 @@
+{
+  "monitor": "news-and-event-watch",
+  "status": "ok",
+  "started_at": "2026-04-30T14:15:13.084Z",
+  "finished_at": "2026-04-30T14:15:31.785Z",
+  "findings": [],
+  "candidates": [],
+  "errors": [],
+  "summary": {
+    "findings_count": 0,
+    "visible_findings_count": 0,
+    "candidate_count": 0,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "news_summary": {
+    "enabled": true,
+    "queries": 20,
+    "items": 1421,
+    "candidates": 0
+  },
+  "regulatory_summary": {
+    "enabled": true,
+    "authorities_configured": 7,
+    "query_templates": 5,
+    "queries": 25,
+    "items": 1945,
+    "candidates": 0
+  },
+  "combined_summary": {
+    "items": 3366,
+    "raw_candidates": 124,
+    "candidates": 0,
+    "dropped_candidates": 124,
+    "resolved_candidate_names": 11,
+    "missing_in_hei": 0,
+    "matched_existing": 0
+  }
+}
