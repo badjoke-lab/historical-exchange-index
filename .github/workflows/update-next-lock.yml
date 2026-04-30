@@ -33,3 +33,5 @@ jobs:
           fi
           git commit -m "Update Next.js lockfile"
           git push
+
+# trigger: 2026-04-29 next lockfile refresh
