@@ -5238,5 +5238,47 @@
     "source_count": 2,
     "sort_order": 3,
     "notes": "Used as the terminal operational shutdown marker."
+  },
+  {
+    "id": "hei_ev_000489",
+    "exchange_id": "hei_ex_000279",
+    "event_type": "launched",
+    "event_date": "2013-08-01",
+    "title": "AEX launched",
+    "description": "Exchange tracker references describe AEX as one of the early centralized digital asset exchanges, founded around 2013-08.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is month-level. Stored as 2013-08-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000490",
+    "exchange_id": "hei_ex_000279",
+    "event_type": "withdrawals_halted",
+    "event_date": "2022-07-14",
+    "title": "AEX closed withdrawal function amid liquidity pressure",
+    "description": "AEX reportedly closed the withdrawal function because short-term liquidity problems had not been resolved and the platform could not meet withdrawal demand in the short term.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "Recorded as the liquidity / withdrawal freeze marker before the later full service suspension."
+  },
+  {
+    "id": "hei_ev_000491",
+    "exchange_id": "hei_ex_000279",
+    "event_type": "shutdown_effective",
+    "event_date": "2022-07-17",
+    "title": "AEX suspended all platform services",
+    "description": "AEX announced that all platform-related services would be suspended from 2022-07-17 while it cooperated with a Guangxi police investigation.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 3,
+    "notes": "Used as the terminal platform service suspension marker."
   }
 ]
