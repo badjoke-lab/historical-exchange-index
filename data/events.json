@@ -5196,5 +5196,47 @@
     "source_count": 3,
     "sort_order": 2,
     "notes": "Recorded as a current inactive / no-market-data status marker, not as a confirmed shutdown date."
+  },
+  {
+    "id": "hei_ev_000486",
+    "exchange_id": "hei_ex_000278",
+    "event_type": "launched",
+    "event_date": "2015-01-01",
+    "title": "SouthXchange founded",
+    "description": "Exchange tracker references describe SouthXchange as an Argentina-based centralized cryptocurrency exchange founded around 2015.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2015-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000487",
+    "exchange_id": "hei_ex_000278",
+    "event_type": "shutdown_announced",
+    "event_date": "2024-01-15",
+    "title": "SouthXchange deactivated deposits and trading",
+    "description": "Tracker references preserve SouthXchange's wind-down notice stating that operational activities were concluding and deposits and trading were deactivated.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "The 2024-01-15 date is used as the trading-disabled marker based on tracker summaries; the final withdrawal deadline is recorded separately."
+  },
+  {
+    "id": "hei_ev_000488",
+    "exchange_id": "hei_ex_000278",
+    "event_type": "shutdown_effective",
+    "event_date": "2024-01-31",
+    "title": "SouthXchange final withdrawal deadline",
+    "description": "SouthXchange users were instructed to withdraw remaining funds before 2024-01-31 as the exchange concluded all operational activities.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 3,
+    "notes": "Used as the terminal operational shutdown marker."
   }
 ]

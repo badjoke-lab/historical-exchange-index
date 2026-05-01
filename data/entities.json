@@ -5991,5 +5991,30 @@
     "confidence": "medium",
     "last_verified_at": "2026-04-29",
     "notes": "HEI treats Stocks.exchange and STEX as the same historical exchange record because multiple tracker references describe STEX as previously Stocks.exchange. The record is inactive rather than dead because the evidence set supports no active market data / no longer operational status, but does not establish a clean official terminal shutdown date."
+  },
+  {
+    "id": "hei_ex_000278",
+    "slug": "southxchange",
+    "canonical_name": "SouthXchange",
+    "aliases": [
+      "South Xchange",
+      "SouthXchange.com"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2015-01-01",
+    "death_date": "2024-01-31",
+    "country_or_origin": "Argentina",
+    "summary": "Argentina-based centralized cryptocurrency exchange founded around 2015. SouthXchange later announced that it was concluding all operational activities; tracker references preserve that deposits and trading were deactivated and users were told to withdraw remaining funds before 2024-01-31.",
+    "official_url_original": "https://www.southxchange.com/",
+    "official_domain_original": "southxchange.com",
+    "official_url_status": "partial",
+    "archived_url": "https://web.archive.org/web/*/https://www.southxchange.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-04-29",
+    "notes": "HEI uses voluntary_shutdown because current tracker references preserve SouthXchange's own wind-down message: operational activities are concluding, deposits and trading are deactivated, and users were instructed to withdraw funds before 2024-01-31. The site may remain reachable for notice / withdrawal context, so official_url_status is partial rather than offline."
   }
 ]
