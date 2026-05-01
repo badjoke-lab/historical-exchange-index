@@ -5308,5 +5308,47 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "Used as the terminal exchange shutdown marker."
+  },
+  {
+    "id": "hei_ev_000494",
+    "exchange_id": "hei_ex_000281",
+    "event_type": "launched",
+    "event_date": "2017-01-01",
+    "title": "Dasset founded",
+    "description": "Exchange tracker and industry references describe Dasset as a New Zealand digital asset exchange founded in 2017.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2017-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000495",
+    "exchange_id": "hei_ex_000281",
+    "event_type": "shutdown_effective",
+    "event_date": "2023-08-14",
+    "title": "Dasset entered liquidation",
+    "description": "Digital Asset Exchange Limited, trading as Dasset, entered liquidation on 2023-08-14 after customers had been unable to access funds and the company had been unable to secure replacement banking services.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the terminal exchange shutdown marker."
+  },
+  {
+    "id": "hei_ev_000496",
+    "exchange_id": "hei_ex_000281",
+    "event_type": "regulatory_action",
+    "event_date": "2024-02-26",
+    "title": "New Zealand SFO opened investigation into Dasset",
+    "description": "New Zealand's Serious Fraud Office opened an investigation into Digital Asset Exchange Ltd, trading as Dasset, after the company entered liquidation.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "none",
+    "source_count": 2,
+    "sort_order": 3,
+    "notes": "Post-liquidation investigation marker. It is not treated as the primary death_reason."
   }
 ]

@@ -6071,5 +6071,32 @@
     "confidence": "high",
     "last_verified_at": "2026-05-01",
     "notes": "HEI uses regulation as the primary death_reason because the terminal shutdown coincided with SEC enforcement over alleged unregistered exchange, broker, and clearing-agency activity. Allegations about the founder and token sale are recorded as context through evidence, but the exchange-level terminal classification follows the regulatory action and shutdown."
+  },
+  {
+    "id": "hei_ex_000281",
+    "slug": "dasset",
+    "canonical_name": "Dasset",
+    "aliases": [
+      "Dasset Exchange",
+      "DassetX",
+      "Digital Asset Exchange Limited",
+      "Dasset.co.nz"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "insolvency",
+    "launch_date": "2017-01-01",
+    "death_date": "2023-08-14",
+    "country_or_origin": "New Zealand",
+    "summary": "Auckland-based centralized crypto asset exchange founded in 2017. Dasset entered liquidation in August 2023 after customers had been unable to access funds and the company reported difficulty securing banking services; New Zealand's Serious Fraud Office later opened an investigation into Digital Asset Exchange Ltd, trading as Dasset.",
+    "official_url_original": "https://dassetx.com/",
+    "official_domain_original": "dassetx.com",
+    "official_url_status": "redirected",
+    "archived_url": "https://web.archive.org/web/*/https://dassetx.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-01",
+    "notes": "HEI uses insolvency because the terminal event is liquidation with customers unable to access funds and public reporting of banking-provider and trading-viability problems. The later SFO investigation is recorded as a separate event and is not used as the primary death_reason."
   }
 ]
