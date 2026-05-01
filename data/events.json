@@ -5280,5 +5280,33 @@
     "source_count": 3,
     "sort_order": 3,
     "notes": "Used as the terminal platform service suspension marker."
+  },
+  {
+    "id": "hei_ev_000492",
+    "exchange_id": "hei_ex_000280",
+    "event_type": "launched",
+    "event_date": "2019-06-10",
+    "title": "Beaxy launched",
+    "description": "Beaxy Exchange launched as a centralized cryptocurrency exchange in June 2019.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "CoinMarketCap lists 2019-06-10; The Block reported Beaxy opening on 2019-06-11 after a delayed launch."
+  },
+  {
+    "id": "hei_ev_000493",
+    "exchange_id": "hei_ex_000280",
+    "event_type": "shutdown_effective",
+    "event_date": "2023-03-29",
+    "title": "Beaxy shut down amid SEC enforcement action",
+    "description": "Beaxy ceased operations after the U.S. SEC charged the platform and associated parties with operating as an unregistered exchange, broker, and clearing agency.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the terminal exchange shutdown marker."
   }
 ]

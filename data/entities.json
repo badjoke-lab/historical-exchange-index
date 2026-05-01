@@ -6045,5 +6045,31 @@
     "confidence": "high",
     "last_verified_at": "2026-05-01",
     "notes": "HEI uses regulation as the primary death_reason because the terminal service suspension was announced as cooperation with a Guangxi police investigation. The record also notes the preceding liquidity crisis and withdrawal restrictions in June-July 2022."
+  },
+  {
+    "id": "hei_ex_000280",
+    "slug": "beaxy",
+    "canonical_name": "Beaxy",
+    "aliases": [
+      "Beaxy Exchange",
+      "Beaxy Digital",
+      "Beaxy.com"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2019-06-10",
+    "death_date": "2023-03-29",
+    "country_or_origin": "United States",
+    "summary": "Chicago-linked centralized cryptocurrency exchange launched in June 2019. Beaxy ceased operations in March 2023 after the U.S. SEC charged the Beaxy Platform and associated executives with operating an unregistered exchange, broker, and clearing agency.",
+    "official_url_original": "https://www.beaxy.com/",
+    "official_domain_original": "beaxy.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.beaxy.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-01",
+    "notes": "HEI uses regulation as the primary death_reason because the terminal shutdown coincided with SEC enforcement over alleged unregistered exchange, broker, and clearing-agency activity. Allegations about the founder and token sale are recorded as context through evidence, but the exchange-level terminal classification follows the regulatory action and shutdown."
   }
 ]
