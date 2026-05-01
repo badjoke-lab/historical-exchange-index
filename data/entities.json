@@ -6016,5 +6016,34 @@
     "confidence": "high",
     "last_verified_at": "2026-04-29",
     "notes": "HEI uses voluntary_shutdown because current tracker references preserve SouthXchange's own wind-down message: operational activities are concluding, deposits and trading are deactivated, and users were instructed to withdraw funds before 2024-01-31. The site may remain reachable for notice / withdrawal context, so official_url_status is partial rather than offline."
+  },
+  {
+    "id": "hei_ex_000279",
+    "slug": "aex",
+    "canonical_name": "AEX",
+    "aliases": [
+      "AEX Global",
+      "AEX Exchange",
+      "AEX.com",
+      "安银",
+      "Bit Era",
+      "比特时代"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2013-08-01",
+    "death_date": "2022-07-17",
+    "country_or_origin": "China / United Kingdom",
+    "summary": "China-linked centralized cryptocurrency exchange founded around 2013. AEX faced a liquidity crisis and withdrawal restrictions in mid-2022, then announced on 2022-07-17 that all platform services would be suspended in order to cooperate with a Guangxi police investigation.",
+    "official_url_original": "https://www.aex.com/",
+    "official_domain_original": "aex.com",
+    "official_url_status": "partial",
+    "archived_url": "https://web.archive.org/web/*/https://www.aex.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-01",
+    "notes": "HEI uses regulation as the primary death_reason because the terminal service suspension was announced as cooperation with a Guangxi police investigation. The record also notes the preceding liquidity crisis and withdrawal restrictions in June-July 2022."
   }
 ]
