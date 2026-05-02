@@ -1,0 +1,1480 @@
+{
+  "monitor": "evidence-health-watch",
+  "status": "ok",
+  "started_at": "2026-05-02T10:12:38.455Z",
+  "finished_at": "2026-05-02T10:13:34.222Z",
+  "findings": [],
+  "candidates": [],
+  "errors": [],
+  "summary": {
+    "findings_count": 0,
+    "visible_findings_count": 0,
+    "candidate_count": 0,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "evidence_health_summary": {
+    "enabled": true,
+    "evidence_with_urls": 817,
+    "checked": 50,
+    "findings": 0,
+    "source_raw_only": 19,
+    "archive_healthy": 50,
+    "without_archive_total": 0
+  },
+  "evidence_url_checks": [
+    {
+      "evidence_id": "hei_src_000001",
+      "exchange_id": "hei_ex_000001",
+      "event_id": "hei_ev_000003",
+      "title": "Announcement of Commencement of Bankruptcy Proceedings",
+      "publisher": "MtGox Co., Ltd. Bankruptcy Trustee",
+      "url": "https://www.mtgox.com/img/pdf/20140424_announce_qa_en.pdf",
+      "archived_url": "https://web.archive.org/web/*/https://www.mtgox.com/img/pdf/20140424_announce_qa_en.pdf",
+      "source_check": {
+        "input_url": "https://www.mtgox.com/img/pdf/20140424_announce_qa_en.pdf",
+        "normalized_url": "https://www.mtgox.com/img/pdf/20140424_announce_qa_en.pdf",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.mtgox.com/img/pdf/20140424_announce_qa_en.pdf",
+        "content_type": "application/pdf",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.mtgox.com/img/pdf/20140424_announce_qa_en.pdf",
+        "normalized_url": "https://web.archive.org/web/*/https://www.mtgox.com/img/pdf/20140424_announce_qa_en.pdf",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.mtgox.com/img/pdf/20140424_announce_qa_en.pdf",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000010",
+      "exchange_id": "hei_ex_000008",
+      "event_id": "hei_ev_000012",
+      "title": "Cryptopia Limited appoints Grant Thornton as liquidators",
+      "publisher": "Grant Thornton New Zealand",
+      "url": "https://www.grantthornton.co.nz/press/press-releases-2019/cryptopia-limited-appoints-grant-thornton-as-liquidators/",
+      "archived_url": "https://web.archive.org/web/*/https://www.grantthornton.co.nz/press/press-releases-2019/cryptopia-limited-appoints-grant-thornton-as-liquidators/",
+      "source_check": {
+        "input_url": "https://www.grantthornton.co.nz/press/press-releases-2019/cryptopia-limited-appoints-grant-thornton-as-liquidators/",
+        "normalized_url": "https://www.grantthornton.co.nz/press/press-releases-2019/cryptopia-limited-appoints-grant-thornton-as-liquidators/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.grantthornton.co.nz/press/press-releases-2019/cryptopia-limited-appoints-grant-thornton-as-liquidators/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.grantthornton.co.nz/press/press-releases-2019/cryptopia-limited-appoints-grant-thornton-as-liquidators/",
+        "normalized_url": "https://web.archive.org/web/*/https://www.grantthornton.co.nz/press/press-releases-2019/cryptopia-limited-appoints-grant-thornton-as-liquidators/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.grantthornton.co.nz/press/press-releases-2019/cryptopia-limited-appoints-grant-thornton-as-liquidators/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000011",
+      "exchange_id": "hei_ex_000008",
+      "event_id": "hei_ev_000013",
+      "title": "Important notice for Cryptopia account holders",
+      "publisher": "Grant Thornton New Zealand",
+      "url": "https://www.grantthornton.co.nz/insights/important-notice-for-cryptopia-account-holders-to-register-claims-before-the-soft-cut-off-date/",
+      "archived_url": "https://web.archive.org/web/*/https://www.grantthornton.co.nz/insights/important-notice-for-cryptopia-account-holders-to-register-claims-before-the-soft-cut-off-date/",
+      "source_check": {
+        "input_url": "https://www.grantthornton.co.nz/insights/important-notice-for-cryptopia-account-holders-to-register-claims-before-the-soft-cut-off-date/",
+        "normalized_url": "https://www.grantthornton.co.nz/insights/important-notice-for-cryptopia-account-holders-to-register-claims-before-the-soft-cut-off-date/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.grantthornton.co.nz/insights/important-notice-for-cryptopia-account-holders-to-register-claims-before-the-soft-cut-off-date/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.grantthornton.co.nz/insights/important-notice-for-cryptopia-account-holders-to-register-claims-before-the-soft-cut-off-date/",
+        "normalized_url": "https://web.archive.org/web/*/https://www.grantthornton.co.nz/insights/important-notice-for-cryptopia-account-holders-to-register-claims-before-the-soft-cut-off-date/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.grantthornton.co.nz/insights/important-notice-for-cryptopia-account-holders-to-register-claims-before-the-soft-cut-off-date/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000037",
+      "exchange_id": "hei_ex_000031",
+      "event_id": "hei_ev_000019",
+      "title": "Important Update Regarding Bittrex Global",
+      "publisher": "Bittrex Global",
+      "url": "https://bittrexglobal.com/",
+      "archived_url": "https://web.archive.org/web/*/https://bittrexglobal.com/",
+      "source_check": {
+        "input_url": "https://bittrexglobal.com/",
+        "normalized_url": "https://bittrexglobal.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://bittrexglobal.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://bittrexglobal.com/",
+        "normalized_url": "https://web.archive.org/web/*/https://bittrexglobal.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://bittrexglobal.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000039",
+      "exchange_id": "hei_ex_000032",
+      "event_id": "hei_ev_000020",
+      "title": "Hotbit Phase IV Global Video Contest",
+      "publisher": "Hotbit",
+      "url": "https://hotbit.zendesk.com/hc/en-us/articles/4402193362455-Hotbit-Phase-IV-Global-Video-Contest",
+      "archived_url": "https://web.archive.org/web/*/https://hotbit.zendesk.com/hc/en-us/articles/4402193362455-Hotbit-Phase-IV-Global-Video-Contest",
+      "source_check": {
+        "input_url": "https://hotbit.zendesk.com/hc/en-us/articles/4402193362455-Hotbit-Phase-IV-Global-Video-Contest",
+        "normalized_url": "https://hotbit.zendesk.com/hc/en-us/articles/4402193362455-Hotbit-Phase-IV-Global-Video-Contest",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://hotbit.zendesk.com/hc/en-us/articles/4402193362455-Hotbit-Phase-IV-Global-Video-Contest",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://hotbit.zendesk.com/hc/en-us/articles/4402193362455-Hotbit-Phase-IV-Global-Video-Contest",
+        "normalized_url": "https://web.archive.org/web/*/https://hotbit.zendesk.com/hc/en-us/articles/4402193362455-Hotbit-Phase-IV-Global-Video-Contest",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://hotbit.zendesk.com/hc/en-us/articles/4402193362455-Hotbit-Phase-IV-Global-Video-Contest",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000376",
+      "exchange_id": "hei_ex_000124",
+      "event_id": "hei_ev_000146",
+      "title": "LocalBitcoins closure notice and timeline",
+      "publisher": "LocalBitcoins",
+      "url": "https://localbitcoins.com/lobby/",
+      "archived_url": "https://web.archive.org/web/*/https://localbitcoins.com/lobby/",
+      "source_check": {
+        "input_url": "https://localbitcoins.com/lobby/",
+        "normalized_url": "https://localbitcoins.com/lobby/",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://localbitcoins.com/service_closure/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://localbitcoins.com/lobby/",
+        "normalized_url": "https://web.archive.org/web/*/https://localbitcoins.com/lobby/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://localbitcoins.com/lobby/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000378",
+      "exchange_id": "hei_ex_000125",
+      "event_id": "hei_ev_000147",
+      "title": "Kraken Acquiring Coinsetter and Cavirtex to Expand in US and Canada",
+      "publisher": "Kraken Blog",
+      "url": "https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+      "archived_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+      "source_check": {
+        "input_url": "https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+        "normalized_url": "https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+        "normalized_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000379",
+      "exchange_id": "hei_ex_000125",
+      "event_id": "hei_ev_000147",
+      "title": "Happy holidays and happy new year! (Kraken 2016 recap)",
+      "publisher": "Kraken Blog",
+      "url": "https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+      "archived_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+      "source_check": {
+        "input_url": "https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "normalized_url": "https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "normalized_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000380",
+      "exchange_id": "hei_ex_000126",
+      "event_id": "hei_ev_000148",
+      "title": "Kraken Acquiring Coinsetter and Cavirtex to Expand in US and Canada",
+      "publisher": "Kraken Blog",
+      "url": "https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+      "archived_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+      "source_check": {
+        "input_url": "https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+        "normalized_url": "https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+        "normalized_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquiring-coinsetter-and-cavirtex-to-expand",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000381",
+      "exchange_id": "hei_ex_000126",
+      "event_id": "hei_ev_000148",
+      "title": "Happy holidays and happy new year! (Kraken 2016 recap)",
+      "publisher": "Kraken Blog",
+      "url": "https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+      "archived_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+      "source_check": {
+        "input_url": "https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "normalized_url": "https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "normalized_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000382",
+      "exchange_id": "hei_ex_000127",
+      "event_id": "hei_ev_000149",
+      "title": "Exchange platform URLs update",
+      "publisher": "zondacrypto",
+      "url": "https://zondacrypto.com/en/news/exchange-platform-urls-update",
+      "archived_url": "https://web.archive.org/web/*/https://zondacrypto.com/en/news/exchange-platform-urls-update",
+      "source_check": {
+        "input_url": "https://zondacrypto.com/en/news/exchange-platform-urls-update",
+        "normalized_url": "https://zondacrypto.com/en/news/exchange-platform-urls-update",
+        "status": "timeout",
+        "http_status": null,
+        "final_url": null,
+        "content_type": null,
+        "error": "This operation was aborted"
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://zondacrypto.com/en/news/exchange-platform-urls-update",
+        "normalized_url": "https://web.archive.org/web/*/https://zondacrypto.com/en/news/exchange-platform-urls-update",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://zondacrypto.com/en/news/exchange-platform-urls-update",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000385",
+      "exchange_id": "hei_ex_000128",
+      "event_id": "hei_ev_000150",
+      "title": "[NOTICE] BITFRONT Exchange to Close",
+      "publisher": "Finschia / LINE Blockchain Team",
+      "url": "https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+      "source_check": {
+        "input_url": "https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+        "normalized_url": "https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+        "normalized_url": "https://web.archive.org/web/*/https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000391",
+      "exchange_id": "hei_ex_000131",
+      "event_id": "hei_ev_000153",
+      "title": "Liquidation of Gatecoin Limited",
+      "publisher": "Gatecoin Liquidators",
+      "url": "https://www.gatecoinliquidation.com/",
+      "archived_url": "https://web.archive.org/web/*/https://www.gatecoinliquidation.com/",
+      "source_check": {
+        "input_url": "https://www.gatecoinliquidation.com/",
+        "normalized_url": "https://www.gatecoinliquidation.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.gatecoinliquidation.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.gatecoinliquidation.com/",
+        "normalized_url": "https://web.archive.org/web/*/https://www.gatecoinliquidation.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.gatecoinliquidation.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000393",
+      "exchange_id": "hei_ex_000132",
+      "event_id": "hei_ev_000154",
+      "title": "Post Shutdown: How to withdraw your crypto from Koinex wallets?",
+      "publisher": "Koinex Crunch",
+      "url": "https://medium.com/koinex-crunch/post-shutdown-how-to-withdraw-your-crypto-from-koinex-wallet-dbac2d3d9022",
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/koinex-crunch/post-shutdown-how-to-withdraw-your-crypto-from-koinex-wallet-dbac2d3d9022",
+      "source_check": {
+        "input_url": "https://medium.com/koinex-crunch/post-shutdown-how-to-withdraw-your-crypto-from-koinex-wallet-dbac2d3d9022",
+        "normalized_url": "https://medium.com/koinex-crunch/post-shutdown-how-to-withdraw-your-crypto-from-koinex-wallet-dbac2d3d9022",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://medium.com/koinex-crunch/post-shutdown-how-to-withdraw-your-crypto-from-koinex-wallet-dbac2d3d9022",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://medium.com/koinex-crunch/post-shutdown-how-to-withdraw-your-crypto-from-koinex-wallet-dbac2d3d9022",
+        "normalized_url": "https://web.archive.org/web/*/https://medium.com/koinex-crunch/post-shutdown-how-to-withdraw-your-crypto-from-koinex-wallet-dbac2d3d9022",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://medium.com/koinex-crunch/post-shutdown-how-to-withdraw-your-crypto-from-koinex-wallet-dbac2d3d9022",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000396",
+      "exchange_id": "hei_ex_000133",
+      "event_id": "hei_ev_000155",
+      "title": "Accessing migrated Coinfloor accounts",
+      "publisher": "CoinCorner Support",
+      "url": "https://support.coincorner.com/hc/en-us/articles/7321793874716-Accessing-migrated-Coinfloor-accounts",
+      "archived_url": "https://web.archive.org/web/*/https://support.coincorner.com/hc/en-us/articles/7321793874716-Accessing-migrated-Coinfloor-accounts",
+      "source_check": {
+        "input_url": "https://support.coincorner.com/hc/en-us/articles/7321793874716-Accessing-migrated-Coinfloor-accounts",
+        "normalized_url": "https://support.coincorner.com/hc/en-us/articles/7321793874716-Accessing-migrated-Coinfloor-accounts",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://support.coincorner.com/hc/en-us/articles/7321793874716-Accessing-migrated-Coinfloor-accounts",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://support.coincorner.com/hc/en-us/articles/7321793874716-Accessing-migrated-Coinfloor-accounts",
+        "normalized_url": "https://web.archive.org/web/*/https://support.coincorner.com/hc/en-us/articles/7321793874716-Accessing-migrated-Coinfloor-accounts",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://support.coincorner.com/hc/en-us/articles/7321793874716-Accessing-migrated-Coinfloor-accounts",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000397",
+      "exchange_id": "hei_ex_000133",
+      "event_id": "hei_ev_000155",
+      "title": "Coinfloor transaction history",
+      "publisher": "CoinCorner Support",
+      "url": "https://support.coincorner.com/hc/en-us/articles/7322107981340-Coinfloor-transaction-history",
+      "archived_url": "https://web.archive.org/web/*/https://support.coincorner.com/hc/en-us/articles/7322107981340-Coinfloor-transaction-history",
+      "source_check": {
+        "input_url": "https://support.coincorner.com/hc/en-us/articles/7322107981340-Coinfloor-transaction-history",
+        "normalized_url": "https://support.coincorner.com/hc/en-us/articles/7322107981340-Coinfloor-transaction-history",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://support.coincorner.com/hc/en-us/articles/7322107981340-Coinfloor-transaction-history",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://support.coincorner.com/hc/en-us/articles/7322107981340-Coinfloor-transaction-history",
+        "normalized_url": "https://web.archive.org/web/*/https://support.coincorner.com/hc/en-us/articles/7322107981340-Coinfloor-transaction-history",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://support.coincorner.com/hc/en-us/articles/7322107981340-Coinfloor-transaction-history",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000399",
+      "exchange_id": "hei_ex_000134",
+      "event_id": "hei_ev_000156",
+      "title": "Kraken Acquires Dutch Bitcoin Exchange CleverCoin",
+      "publisher": "Kraken Blog",
+      "url": "https://blog.kraken.com/news/kraken-acquires-dutch-bitcoin-exchange-clevercoin",
+      "archived_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquires-dutch-bitcoin-exchange-clevercoin",
+      "source_check": {
+        "input_url": "https://blog.kraken.com/news/kraken-acquires-dutch-bitcoin-exchange-clevercoin",
+        "normalized_url": "https://blog.kraken.com/news/kraken-acquires-dutch-bitcoin-exchange-clevercoin",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://blog.kraken.com/news/kraken-acquires-dutch-bitcoin-exchange-clevercoin",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquires-dutch-bitcoin-exchange-clevercoin",
+        "normalized_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquires-dutch-bitcoin-exchange-clevercoin",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquires-dutch-bitcoin-exchange-clevercoin",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000400",
+      "exchange_id": "hei_ex_000134",
+      "event_id": "hei_ev_000156",
+      "title": "Happy holidays and happy new year!",
+      "publisher": "Kraken Blog",
+      "url": "https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+      "archived_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+      "source_check": {
+        "input_url": "https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "normalized_url": "https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "normalized_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/happy-holidays-and-happy-new-year",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000406",
+      "exchange_id": "hei_ex_000136",
+      "event_id": "hei_ev_000158",
+      "title": "Dear users of original Liqui Exchange who were unable to withdraw funds following the shutdown announcement in January 2019",
+      "publisher": "Liqui",
+      "url": "https://medium.com/%40Liqui_io/dear-users-of-original-liqui-exchange-who-were-unable-to-withdraw-funds-following-the-shutdown-7712ba7e7457",
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/%40Liqui_io/dear-users-of-original-liqui-exchange-who-were-unable-to-withdraw-funds-following-the-shutdown-7712ba7e7457",
+      "source_check": {
+        "input_url": "https://medium.com/%40Liqui_io/dear-users-of-original-liqui-exchange-who-were-unable-to-withdraw-funds-following-the-shutdown-7712ba7e7457",
+        "normalized_url": "https://medium.com/%40Liqui_io/dear-users-of-original-liqui-exchange-who-were-unable-to-withdraw-funds-following-the-shutdown-7712ba7e7457",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://medium.com/%40Liqui_io/dear-users-of-original-liqui-exchange-who-were-unable-to-withdraw-funds-following-the-shutdown-7712ba7e7457",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://medium.com/%40Liqui_io/dear-users-of-original-liqui-exchange-who-were-unable-to-withdraw-funds-following-the-shutdown-7712ba7e7457",
+        "normalized_url": "https://web.archive.org/web/*/https://medium.com/%40Liqui_io/dear-users-of-original-liqui-exchange-who-were-unable-to-withdraw-funds-following-the-shutdown-7712ba7e7457",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://medium.com/%40Liqui_io/dear-users-of-original-liqui-exchange-who-were-unable-to-withdraw-funds-following-the-shutdown-7712ba7e7457",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000416",
+      "exchange_id": "hei_ex_000139",
+      "event_id": "hei_ev_000161",
+      "title": "Official information for creditors of The Rock Trading S.R.L.",
+      "publisher": "TheRockTrading.com disclaimer page",
+      "url": "https://www.therocktrading.com/disclaimer/",
+      "archived_url": "https://web.archive.org/web/*/https://www.therocktrading.com/disclaimer/",
+      "source_check": {
+        "input_url": "https://www.therocktrading.com/disclaimer/",
+        "normalized_url": "https://www.therocktrading.com/disclaimer/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.therocktrading.com/disclaimer/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.therocktrading.com/disclaimer/",
+        "normalized_url": "https://web.archive.org/web/*/https://www.therocktrading.com/disclaimer/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.therocktrading.com/disclaimer/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000546",
+      "exchange_id": "hei_ex_000105",
+      "event_id": "hei_ev_000230",
+      "title": "RCMP executes record seizure of more than 56 million dollars in cryptocurrency",
+      "publisher": "Royal Canadian Mounted Police",
+      "url": "https://rcmp.ca/en/news/2025/09/rcmp-executes-record-seizure-more-56-million-dollars-cryptocurrency",
+      "archived_url": "https://web.archive.org/web/*/https://rcmp.ca/en/news/2025/09/rcmp-executes-record-seizure-more-56-million-dollars-cryptocurrency",
+      "source_check": {
+        "input_url": "https://rcmp.ca/en/news/2025/09/rcmp-executes-record-seizure-more-56-million-dollars-cryptocurrency",
+        "normalized_url": "https://rcmp.ca/en/news/2025/09/rcmp-executes-record-seizure-more-56-million-dollars-cryptocurrency",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://rcmp.ca/en/news/2025/09/rcmp-executes-record-seizure-more-56-million-dollars-cryptocurrency",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://rcmp.ca/en/news/2025/09/rcmp-executes-record-seizure-more-56-million-dollars-cryptocurrency",
+        "normalized_url": "https://web.archive.org/web/*/https://rcmp.ca/en/news/2025/09/rcmp-executes-record-seizure-more-56-million-dollars-cryptocurrency",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://rcmp.ca/en/news/2025/09/rcmp-executes-record-seizure-more-56-million-dollars-cryptocurrency",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000549",
+      "exchange_id": "hei_ex_000176",
+      "event_id": "hei_ev_000232",
+      "title": "Krypto-Swapping-Dienst „eXch“ abgeschaltet",
+      "publisher": "Bundeskriminalamt",
+      "url": "https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
+      "archived_url": "https://web.archive.org/web/*/https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
+      "source_check": {
+        "input_url": "https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
+        "normalized_url": "https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
+        "status": "dns_failure",
+        "http_status": null,
+        "final_url": null,
+        "content_type": null,
+        "error": "fetch failed"
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
+        "normalized_url": "https://web.archive.org/web/*/https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2025/Presse2025/250509_exch_abgeschaltet.html",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000550",
+      "exchange_id": "hei_ex_000176",
+      "event_id": "hei_ev_000233",
+      "title": "BKA and FIOD shut down cryptocurrency swap service eXch",
+      "publisher": "FIOD",
+      "url": "https://www.fiod.nl/bka-and-fiod-shut-down-cryptocurrency-swap-service-exch-e-34-million-in-cryptocurrency-has-been-seized-during-the-operation/",
+      "archived_url": "https://web.archive.org/web/*/https://www.fiod.nl/bka-and-fiod-shut-down-cryptocurrency-swap-service-exch-e-34-million-in-cryptocurrency-has-been-seized-during-the-operation/",
+      "source_check": {
+        "input_url": "https://www.fiod.nl/bka-and-fiod-shut-down-cryptocurrency-swap-service-exch-e-34-million-in-cryptocurrency-has-been-seized-during-the-operation/",
+        "normalized_url": "https://www.fiod.nl/bka-and-fiod-shut-down-cryptocurrency-swap-service-exch-e-34-million-in-cryptocurrency-has-been-seized-during-the-operation/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.fiod.nl/bka-and-fiod-shut-down-cryptocurrency-swap-service-exch-e-34-million-in-cryptocurrency-has-been-seized-during-the-operation/",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.fiod.nl/bka-and-fiod-shut-down-cryptocurrency-swap-service-exch-e-34-million-in-cryptocurrency-has-been-seized-during-the-operation/",
+        "normalized_url": "https://web.archive.org/web/*/https://www.fiod.nl/bka-and-fiod-shut-down-cryptocurrency-swap-service-exch-e-34-million-in-cryptocurrency-has-been-seized-during-the-operation/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.fiod.nl/bka-and-fiod-shut-down-cryptocurrency-swap-service-exch-e-34-million-in-cryptocurrency-has-been-seized-during-the-operation/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000584",
+      "exchange_id": "hei_ex_000186",
+      "event_id": "hei_ev_000254",
+      "title": "Official announcement on the closure of nominex.io cryptocurrency exchange",
+      "publisher": "Nominex",
+      "url": "https://nominex.io/sunset",
+      "archived_url": "https://web.archive.org/web/*/https://nominex.io/sunset",
+      "source_check": {
+        "input_url": "https://nominex.io/sunset",
+        "normalized_url": "https://nominex.io/sunset",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://nominex.io/sunset",
+        "content_type": "text/html",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://nominex.io/sunset",
+        "normalized_url": "https://web.archive.org/web/*/https://nominex.io/sunset",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://nominex.io/sunset",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000588",
+      "exchange_id": "hei_ex_000187",
+      "event_id": "hei_ev_000256",
+      "title": "Coindirect Closure Announcement",
+      "publisher": "Coindirect",
+      "url": "https://help.coindirect.com/hc/en-us/articles/8183123549330-Coindirect-Closure-Announcement",
+      "archived_url": "https://web.archive.org/web/*/https://help.coindirect.com/hc/en-us/articles/8183123549330-Coindirect-Closure-Announcement",
+      "source_check": {
+        "input_url": "https://help.coindirect.com/hc/en-us/articles/8183123549330-Coindirect-Closure-Announcement",
+        "normalized_url": "https://help.coindirect.com/hc/en-us/articles/8183123549330-Coindirect-Closure-Announcement",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://help.coindirect.com/hc/en-us/articles/8183123549330-Coindirect-Closure-Announcement",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://help.coindirect.com/hc/en-us/articles/8183123549330-Coindirect-Closure-Announcement",
+        "normalized_url": "https://web.archive.org/web/*/https://help.coindirect.com/hc/en-us/articles/8183123549330-Coindirect-Closure-Announcement",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://help.coindirect.com/hc/en-us/articles/8183123549330-Coindirect-Closure-Announcement",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000617",
+      "exchange_id": "hei_ex_000193",
+      "event_id": "hei_ev_000272",
+      "title": "Founder and Majority Owner of Cryptocurrency Exchange Charged with Processing Over $700 Million of Illicit Funds",
+      "publisher": "U.S. Department of Justice",
+      "url": "https://www.justice.gov/opa/pr/founder-and-majority-owner-cryptocurrency-exchange-charged-processing-over-700-million",
+      "archived_url": "https://web.archive.org/web/*/https://www.justice.gov/opa/pr/founder-and-majority-owner-cryptocurrency-exchange-charged-processing-over-700-million",
+      "source_check": {
+        "input_url": "https://www.justice.gov/opa/pr/founder-and-majority-owner-cryptocurrency-exchange-charged-processing-over-700-million",
+        "normalized_url": "https://www.justice.gov/opa/pr/founder-and-majority-owner-cryptocurrency-exchange-charged-processing-over-700-million",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://www.justice.gov/archives/opa/pr/founder-and-majority-owner-cryptocurrency-exchange-charged-processing-over-700-million",
+        "content_type": "text/html",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.justice.gov/opa/pr/founder-and-majority-owner-cryptocurrency-exchange-charged-processing-over-700-million",
+        "normalized_url": "https://web.archive.org/web/*/https://www.justice.gov/opa/pr/founder-and-majority-owner-cryptocurrency-exchange-charged-processing-over-700-million",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.justice.gov/opa/pr/founder-and-majority-owner-cryptocurrency-exchange-charged-processing-over-700-million",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000731",
+      "exchange_id": "hei_ex_000219",
+      "event_id": "hei_ev_000332",
+      "title": "CoinPulse Urgent Notice: Exchange headed for indefinite maintenance",
+      "publisher": "CoinPulse",
+      "url": "https://medium.com/@CoinPulse/coinpulse-urgent-notice-exchange-headed-for-indefinite-maintenance-a4944fb269a",
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/@CoinPulse/coinpulse-urgent-notice-exchange-headed-for-indefinite-maintenance-a4944fb269a",
+      "source_check": {
+        "input_url": "https://medium.com/@CoinPulse/coinpulse-urgent-notice-exchange-headed-for-indefinite-maintenance-a4944fb269a",
+        "normalized_url": "https://medium.com/@CoinPulse/coinpulse-urgent-notice-exchange-headed-for-indefinite-maintenance-a4944fb269a",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://medium.com/@CoinPulse/coinpulse-urgent-notice-exchange-headed-for-indefinite-maintenance-a4944fb269a",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://medium.com/@CoinPulse/coinpulse-urgent-notice-exchange-headed-for-indefinite-maintenance-a4944fb269a",
+        "normalized_url": "https://web.archive.org/web/*/https://medium.com/@CoinPulse/coinpulse-urgent-notice-exchange-headed-for-indefinite-maintenance-a4944fb269a",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://medium.com/@CoinPulse/coinpulse-urgent-notice-exchange-headed-for-indefinite-maintenance-a4944fb269a",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000749",
+      "exchange_id": "hei_ex_000099",
+      "event_id": "hei_ev_000346",
+      "title": "Account Verification",
+      "publisher": "Fastex",
+      "url": "https://www.fastex.com/account-verification",
+      "archived_url": "https://web.archive.org/web/*/https://www.fastex.com/account-verification",
+      "source_check": {
+        "input_url": "https://www.fastex.com/account-verification",
+        "normalized_url": "https://www.fastex.com/account-verification",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://exchange.fastex.com/account-verification",
+        "content_type": "text/html",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.fastex.com/account-verification",
+        "normalized_url": "https://web.archive.org/web/*/https://www.fastex.com/account-verification",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.fastex.com/account-verification",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000750",
+      "exchange_id": "hei_ex_000099",
+      "event_id": "hei_ev_000346",
+      "title": "Listing Rules",
+      "publisher": "Fastex",
+      "url": "https://www.fastex.com/listing-rules",
+      "archived_url": "https://web.archive.org/web/*/https://www.fastex.com/listing-rules",
+      "source_check": {
+        "input_url": "https://www.fastex.com/listing-rules",
+        "normalized_url": "https://www.fastex.com/listing-rules",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://exchange.fastex.com/listing-rules",
+        "content_type": "text/html",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.fastex.com/listing-rules",
+        "normalized_url": "https://web.archive.org/web/*/https://www.fastex.com/listing-rules",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.fastex.com/listing-rules",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000811",
+      "exchange_id": "hei_ex_000242",
+      "event_id": "hei_ev_000403",
+      "title": "SBI VC Trade account/asset transfer information for DMM Bitcoin customers",
+      "publisher": "SBI VC Trade",
+      "url": "https://www.sbivc.co.jp/dmm_vct",
+      "archived_url": "https://web.archive.org/web/*/https://www.sbivc.co.jp/dmm_vct",
+      "source_check": {
+        "input_url": "https://www.sbivc.co.jp/dmm_vct",
+        "normalized_url": "https://www.sbivc.co.jp/dmm_vct",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.sbivc.co.jp/dmm_vct",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.sbivc.co.jp/dmm_vct",
+        "normalized_url": "https://web.archive.org/web/*/https://www.sbivc.co.jp/dmm_vct",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.sbivc.co.jp/dmm_vct",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000812",
+      "exchange_id": "hei_ex_000242",
+      "event_id": "hei_ev_000403",
+      "title": "DMM Bitcoin notice on transfer of customer accounts/assets to SBI VC Trade",
+      "publisher": "DMM Bitcoin",
+      "url": "https://bitcoin.dmm.com/news/20241227_01",
+      "archived_url": "https://web.archive.org/web/*/https://bitcoin.dmm.com/news/20241227_01",
+      "source_check": {
+        "input_url": "https://bitcoin.dmm.com/news/20241227_01",
+        "normalized_url": "https://bitcoin.dmm.com/news/20241227_01",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://bitcoin.dmm.com/news/20241227_01",
+        "content_type": "text/html",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://bitcoin.dmm.com/news/20241227_01",
+        "normalized_url": "https://web.archive.org/web/*/https://bitcoin.dmm.com/news/20241227_01",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://bitcoin.dmm.com/news/20241227_01",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000903",
+      "exchange_id": "hei_ex_000260",
+      "event_id": "hei_ev_000448",
+      "title": "BTCChina Rebrands as BTCC with Focus on Global Audience",
+      "publisher": "BTCC / GlobeNewswire",
+      "url": "https://rss.globenewswire.com/news-release/2015/09/15/768450/37162/en/BTCChina-Rebrands-as-BTCC-with-Focus-on-Global-Audience.html",
+      "archived_url": "https://web.archive.org/web/*/https://rss.globenewswire.com/news-release/2015/09/15/768450/37162/en/BTCChina-Rebrands-as-BTCC-with-Focus-on-Global-Audience.html",
+      "source_check": {
+        "input_url": "https://rss.globenewswire.com/news-release/2015/09/15/768450/37162/en/BTCChina-Rebrands-as-BTCC-with-Focus-on-Global-Audience.html",
+        "normalized_url": "https://rss.globenewswire.com/news-release/2015/09/15/768450/37162/en/BTCChina-Rebrands-as-BTCC-with-Focus-on-Global-Audience.html",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://rss.globenewswire.com/news-release/2015/09/15/768450/37162/en/BTCChina-Rebrands-as-BTCC-with-Focus-on-Global-Audience.html",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://rss.globenewswire.com/news-release/2015/09/15/768450/37162/en/BTCChina-Rebrands-as-BTCC-with-Focus-on-Global-Audience.html",
+        "normalized_url": "https://web.archive.org/web/*/https://rss.globenewswire.com/news-release/2015/09/15/768450/37162/en/BTCChina-Rebrands-as-BTCC-with-Focus-on-Global-Audience.html",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://rss.globenewswire.com/news-release/2015/09/15/768450/37162/en/BTCChina-Rebrands-as-BTCC-with-Focus-on-Global-Audience.html",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000904",
+      "exchange_id": "hei_ex_000260",
+      "event_id": "hei_ev_000448",
+      "title": "BTCChina Rebrands as BTCC with Focus on Global Audience",
+      "publisher": "BTCC / PRWeb",
+      "url": "https://www.prweb.com/releases/2015/09/prweb12961730.htm",
+      "archived_url": "https://web.archive.org/web/*/https://www.prweb.com/releases/2015/09/prweb12961730.htm",
+      "source_check": {
+        "input_url": "https://www.prweb.com/releases/2015/09/prweb12961730.htm",
+        "normalized_url": "https://www.prweb.com/releases/2015/09/prweb12961730.htm",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://www.prweb.com/releases/btcchina_rebrands_as_btcc_with_focus_on_global_audience/prweb12961730.htm",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.prweb.com/releases/2015/09/prweb12961730.htm",
+        "normalized_url": "https://web.archive.org/web/*/https://www.prweb.com/releases/2015/09/prweb12961730.htm",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.prweb.com/releases/2015/09/prweb12961730.htm",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000366",
+      "exchange_id": "hei_ex_000099",
+      "event_id": null,
+      "title": "Fastex Exchange official site snapshot",
+      "publisher": "Fastex Exchange",
+      "url": "https://exchange.fastex.com/",
+      "archived_url": "https://web.archive.org/web/*/https://exchange.fastex.com/",
+      "source_check": {
+        "input_url": "https://exchange.fastex.com/",
+        "normalized_url": "https://exchange.fastex.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://exchange.fastex.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://exchange.fastex.com/",
+        "normalized_url": "https://web.archive.org/web/*/https://exchange.fastex.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://exchange.fastex.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000394",
+      "exchange_id": "hei_ex_000132",
+      "event_id": "hei_ev_000154",
+      "title": "Team Koinex publication index showing June 27 shutdown posts",
+      "publisher": "Team Koinex",
+      "url": "https://medium.com/@koinexindia",
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/@koinexindia",
+      "source_check": {
+        "input_url": "https://medium.com/@koinexindia",
+        "normalized_url": "https://medium.com/@koinexindia",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://medium.com/@koinexindia",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://medium.com/@koinexindia",
+        "normalized_url": "https://web.archive.org/web/*/https://medium.com/@koinexindia",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://medium.com/@koinexindia",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000589",
+      "exchange_id": "hei_ex_000187",
+      "event_id": null,
+      "title": "Coindirect makes digital currency trading simple, now live in UK",
+      "publisher": "ResponseSource / Coindirect",
+      "url": "https://pressreleases.responsesource.com/newsroom/coindirect/",
+      "archived_url": "https://web.archive.org/web/*/https://pressreleases.responsesource.com/newsroom/coindirect/",
+      "source_check": {
+        "input_url": "https://pressreleases.responsesource.com/newsroom/coindirect/",
+        "normalized_url": "https://pressreleases.responsesource.com/newsroom/coindirect/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://pressreleases.responsesource.com/newsroom/coindirect/",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://pressreleases.responsesource.com/newsroom/coindirect/",
+        "normalized_url": "https://web.archive.org/web/*/https://pressreleases.responsesource.com/newsroom/coindirect/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://pressreleases.responsesource.com/newsroom/coindirect/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000621",
+      "exchange_id": "hei_ex_000194",
+      "event_id": null,
+      "title": "About Us",
+      "publisher": "BQT",
+      "url": "https://bqt.io/jp/about-us.html",
+      "archived_url": "https://web.archive.org/web/*/https://bqt.io/jp/about-us.html",
+      "source_check": {
+        "input_url": "https://bqt.io/jp/about-us.html",
+        "normalized_url": "https://bqt.io/jp/about-us.html",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://bqt.io/jp/about-us.html",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://bqt.io/jp/about-us.html",
+        "normalized_url": "https://web.archive.org/web/*/https://bqt.io/jp/about-us.html",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://bqt.io/jp/about-us.html",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000622",
+      "exchange_id": "hei_ex_000194",
+      "event_id": null,
+      "title": "QNFT — Quantum NFT Marketplace",
+      "publisher": "QNFT / BQT domain",
+      "url": "https://bqt.io/",
+      "archived_url": "https://web.archive.org/web/*/https://bqt.io/",
+      "source_check": {
+        "input_url": "https://bqt.io/",
+        "normalized_url": "https://bqt.io/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://bqt.io/",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://bqt.io/",
+        "normalized_url": "https://web.archive.org/web/*/https://bqt.io/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://bqt.io/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000002",
+      "exchange_id": "hei_ex_000001",
+      "event_id": null,
+      "title": "Archived Mt. Gox homepage",
+      "publisher": "Internet Archive",
+      "url": "https://www.mtgox.com/",
+      "archived_url": "https://web.archive.org/web/*/https://www.mtgox.com/",
+      "source_check": {
+        "input_url": "https://www.mtgox.com/",
+        "normalized_url": "https://www.mtgox.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.mtgox.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.mtgox.com/",
+        "normalized_url": "https://web.archive.org/web/*/https://www.mtgox.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.mtgox.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000003",
+      "exchange_id": "hei_ex_000002",
+      "event_id": "hei_ev_000005",
+      "title": "FTX Trading Ltd. restructuring case portal",
+      "publisher": "Kroll Restructuring Administration",
+      "url": "https://restructuring.ra.kroll.com/ftx/",
+      "archived_url": "https://web.archive.org/web/*/https://restructuring.ra.kroll.com/ftx/",
+      "source_check": {
+        "input_url": "https://restructuring.ra.kroll.com/ftx/",
+        "normalized_url": "https://restructuring.ra.kroll.com/ftx/",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://restructuring.ra.kroll.com/ftx/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://restructuring.ra.kroll.com/ftx/",
+        "normalized_url": "https://web.archive.org/web/*/https://restructuring.ra.kroll.com/ftx/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://restructuring.ra.kroll.com/ftx/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000004",
+      "exchange_id": "hei_ex_000002",
+      "event_id": null,
+      "title": "Archived FTX homepage",
+      "publisher": "Internet Archive",
+      "url": "https://ftx.com/",
+      "archived_url": "https://web.archive.org/web/*/https://ftx.com/",
+      "source_check": {
+        "input_url": "https://ftx.com/",
+        "normalized_url": "https://ftx.com/",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://claims.ftx.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://ftx.com/",
+        "normalized_url": "https://web.archive.org/web/*/https://ftx.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://ftx.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000006",
+      "exchange_id": "hei_ex_000004",
+      "event_id": "hei_ev_000008",
+      "title": "EY court record on Quadriga shutdown and CCAA protection",
+      "publisher": "Ernst & Young Inc.",
+      "url": "https://documentcentre.ey.com/api/Document/download?docId=32800&language=EN",
+      "archived_url": "https://web.archive.org/web/*/https://documentcentre.ey.com/api/Document/download?docId=32800&language=EN",
+      "source_check": {
+        "input_url": "https://documentcentre.ey.com/api/Document/download?docId=32800&language=EN",
+        "normalized_url": "https://documentcentre.ey.com/api/Document/download?docId=32800&language=EN",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://documentcentre.ey.com/api/Document/download?docId=32800&language=EN",
+        "content_type": "application/pdf",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://documentcentre.ey.com/api/Document/download?docId=32800&language=EN",
+        "normalized_url": "https://web.archive.org/web/*/https://documentcentre.ey.com/api/Document/download?docId=32800&language=EN",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://documentcentre.ey.com/api/Document/download?docId=32800&language=EN",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000007",
+      "exchange_id": "hei_ex_000005",
+      "event_id": "hei_ev_000009",
+      "title": "FinCEN fines BTC-e virtual currency exchange $110 million",
+      "publisher": "Financial Crimes Enforcement Network (FinCEN)",
+      "url": "https://www.fincen.gov/system/files/2017-07/BTC-e%20July%2026%20Press%20Release%20FINAL1.pdf",
+      "archived_url": "https://web.archive.org/web/*/https://www.fincen.gov/system/files/2017-07/BTC-e%20July%2026%20Press%20Release%20FINAL1.pdf",
+      "source_check": {
+        "input_url": "https://www.fincen.gov/system/files/2017-07/BTC-e%20July%2026%20Press%20Release%20FINAL1.pdf",
+        "normalized_url": "https://www.fincen.gov/system/files/2017-07/BTC-e%20July%2026%20Press%20Release%20FINAL1.pdf",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.fincen.gov/system/files/2017-07/BTC-e%20July%2026%20Press%20Release%20FINAL1.pdf",
+        "content_type": "application/pdf",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.fincen.gov/system/files/2017-07/BTC-e%20July%2026%20Press%20Release%20FINAL1.pdf",
+        "normalized_url": "https://web.archive.org/web/*/https://www.fincen.gov/system/files/2017-07/BTC-e%20July%2026%20Press%20Release%20FINAL1.pdf",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.fincen.gov/system/files/2017-07/BTC-e%20July%2026%20Press%20Release%20FINAL1.pdf",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000038",
+      "exchange_id": "hei_ex_000031",
+      "event_id": "hei_ev_000019",
+      "title": "SEC charges Bittrex and Bittrex Global",
+      "publisher": "SEC",
+      "url": "https://www.sec.gov/newsroom/press-releases/2023-78",
+      "archived_url": "https://web.archive.org/web/*/https://www.sec.gov/newsroom/press-releases/2023-78",
+      "source_check": {
+        "input_url": "https://www.sec.gov/newsroom/press-releases/2023-78",
+        "normalized_url": "https://www.sec.gov/newsroom/press-releases/2023-78",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/newsroom/press-releases/2023-78",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.sec.gov/newsroom/press-releases/2023-78",
+        "normalized_url": "https://web.archive.org/web/*/https://www.sec.gov/newsroom/press-releases/2023-78",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.sec.gov/newsroom/press-releases/2023-78",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000164",
+      "exchange_id": "hei_ex_000114",
+      "event_id": "hei_ev_000303",
+      "title": "Cobinhood Announces Shutdown, Claims It Will Audit User Accounts",
+      "publisher": "CoinDesk",
+      "url": "https://www.coindesk.com/markets/2020/01/10/cobinhood-announces-shutdown-claims-it-will-audit-user-accounts",
+      "archived_url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2020/01/10/cobinhood-announces-shutdown-claims-it-will-audit-user-accounts",
+      "source_check": {
+        "input_url": "https://www.coindesk.com/markets/2020/01/10/cobinhood-announces-shutdown-claims-it-will-audit-user-accounts",
+        "normalized_url": "https://www.coindesk.com/markets/2020/01/10/cobinhood-announces-shutdown-claims-it-will-audit-user-accounts",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.coindesk.com/markets/2020/01/10/cobinhood-announces-shutdown-claims-it-will-audit-user-accounts",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2020/01/10/cobinhood-announces-shutdown-claims-it-will-audit-user-accounts",
+        "normalized_url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2020/01/10/cobinhood-announces-shutdown-claims-it-will-audit-user-accounts",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2020/01/10/cobinhood-announces-shutdown-claims-it-will-audit-user-accounts",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000411",
+      "exchange_id": "hei_ex_000138",
+      "event_id": "hei_ev_000160",
+      "title": "BCSC acts to protect customers of Einstein Exchange crypto-asset trading platform",
+      "publisher": "British Columbia Securities Commission",
+      "url": "https://www.bcsc.bc.ca/about/media-room/news-releases/2019/68-bcsc-acts-to-protect-customers-of-einstein-exchange-cryptoasset-trading-platform",
+      "archived_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2019/68-bcsc-acts-to-protect-customers-of-einstein-exchange-cryptoasset-trading-platform",
+      "source_check": {
+        "input_url": "https://www.bcsc.bc.ca/about/media-room/news-releases/2019/68-bcsc-acts-to-protect-customers-of-einstein-exchange-cryptoasset-trading-platform",
+        "normalized_url": "https://www.bcsc.bc.ca/about/media-room/news-releases/2019/68-bcsc-acts-to-protect-customers-of-einstein-exchange-cryptoasset-trading-platform",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.bcsc.bc.ca/about/media-room/news-releases/2019/68-bcsc-acts-to-protect-customers-of-einstein-exchange-cryptoasset-trading-platform",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2019/68-bcsc-acts-to-protect-customers-of-einstein-exchange-cryptoasset-trading-platform",
+        "normalized_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2019/68-bcsc-acts-to-protect-customers-of-einstein-exchange-cryptoasset-trading-platform",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2019/68-bcsc-acts-to-protect-customers-of-einstein-exchange-cryptoasset-trading-platform",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000412",
+      "exchange_id": "hei_ex_000138",
+      "event_id": "hei_ev_000160",
+      "title": "Court-appointed receiver of Einstein Exchange concludes its duties",
+      "publisher": "British Columbia Securities Commission",
+      "url": "https://www.bcsc.bc.ca/about/media-room/news-releases/2019/73-courtappointed-receiver-of-einstein-exchange-concludes-its-duties",
+      "archived_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2019/73-courtappointed-receiver-of-einstein-exchange-concludes-its-duties",
+      "source_check": {
+        "input_url": "https://www.bcsc.bc.ca/about/media-room/news-releases/2019/73-courtappointed-receiver-of-einstein-exchange-concludes-its-duties",
+        "normalized_url": "https://www.bcsc.bc.ca/about/media-room/news-releases/2019/73-courtappointed-receiver-of-einstein-exchange-concludes-its-duties",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.bcsc.bc.ca/about/media-room/news-releases/2019/73-courtappointed-receiver-of-einstein-exchange-concludes-its-duties",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2019/73-courtappointed-receiver-of-einstein-exchange-concludes-its-duties",
+        "normalized_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2019/73-courtappointed-receiver-of-einstein-exchange-concludes-its-duties",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2019/73-courtappointed-receiver-of-einstein-exchange-concludes-its-duties",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000413",
+      "exchange_id": "hei_ex_000138",
+      "event_id": "hei_ev_000160",
+      "title": "Director of companies behind crypto trading platform agrees to pay $1 million to BCSC",
+      "publisher": "British Columbia Securities Commission",
+      "url": "https://www.bcsc.bc.ca/about/media-room/news-releases/2026/12-director-of-companies-behind-crypto-trading-platform-agrees-to-pay-1-million-to-bcsc",
+      "archived_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2026/12-director-of-companies-behind-crypto-trading-platform-agrees-to-pay-1-million-to-bcsc",
+      "source_check": {
+        "input_url": "https://www.bcsc.bc.ca/about/media-room/news-releases/2026/12-director-of-companies-behind-crypto-trading-platform-agrees-to-pay-1-million-to-bcsc",
+        "normalized_url": "https://www.bcsc.bc.ca/about/media-room/news-releases/2026/12-director-of-companies-behind-crypto-trading-platform-agrees-to-pay-1-million-to-bcsc",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.bcsc.bc.ca/about/media-room/news-releases/2026/12-director-of-companies-behind-crypto-trading-platform-agrees-to-pay-1-million-to-bcsc",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2026/12-director-of-companies-behind-crypto-trading-platform-agrees-to-pay-1-million-to-bcsc",
+        "normalized_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2026/12-director-of-companies-behind-crypto-trading-platform-agrees-to-pay-1-million-to-bcsc",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.bcsc.bc.ca/about/media-room/news-releases/2026/12-director-of-companies-behind-crypto-trading-platform-agrees-to-pay-1-million-to-bcsc",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    },
+    {
+      "evidence_id": "hei_src_000417",
+      "exchange_id": "hei_ex_000139",
+      "event_id": "hei_ev_000161",
+      "title": "203/2023 THE ROCK TRADING S.R.L. - Liquidazione Giudiziale",
+      "publisher": "Portale dei Creditori / Milan court portal",
+      "url": "https://www.portalecreditori.it/procedura?id=3m9QozpVMR",
+      "archived_url": "https://web.archive.org/web/*/https://www.portalecreditori.it/procedura?id=3m9QozpVMR",
+      "source_check": {
+        "input_url": "https://www.portalecreditori.it/procedura?id=3m9QozpVMR",
+        "normalized_url": "https://www.portalecreditori.it/procedura?id=3m9QozpVMR",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://www.portalecreditori.it/procedura?id=3m9QozpVMR",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.portalecreditori.it/procedura?id=3m9QozpVMR",
+        "normalized_url": "https://web.archive.org/web/*/https://www.portalecreditori.it/procedura?id=3m9QozpVMR",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.portalecreditori.it/procedura?id=3m9QozpVMR",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": true
+    },
+    {
+      "evidence_id": "hei_src_000429",
+      "exchange_id": "hei_ex_000143",
+      "event_id": "hei_ev_000165",
+      "title": "Operator of Unlawful Bitcoin Exchange Pleads Guilty in Multimillion-Dollar Money Laundering and Fraud Scheme",
+      "publisher": "United States Secret Service",
+      "url": "https://www.secretservice.gov/newsroom/releases/2017/01/operator-unlawful-bitcoin-exchange-pleads-guilty-multimillion-dollar",
+      "archived_url": "https://web.archive.org/web/*/https://www.secretservice.gov/newsroom/releases/2017/01/operator-unlawful-bitcoin-exchange-pleads-guilty-multimillion-dollar",
+      "source_check": {
+        "input_url": "https://www.secretservice.gov/newsroom/releases/2017/01/operator-unlawful-bitcoin-exchange-pleads-guilty-multimillion-dollar",
+        "normalized_url": "https://www.secretservice.gov/newsroom/releases/2017/01/operator-unlawful-bitcoin-exchange-pleads-guilty-multimillion-dollar",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.secretservice.gov/newsroom/releases/2017/01/operator-unlawful-bitcoin-exchange-pleads-guilty-multimillion-dollar",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "archive_check": {
+        "input_url": "https://web.archive.org/web/*/https://www.secretservice.gov/newsroom/releases/2017/01/operator-unlawful-bitcoin-exchange-pleads-guilty-multimillion-dollar",
+        "normalized_url": "https://web.archive.org/web/*/https://www.secretservice.gov/newsroom/releases/2017/01/operator-unlawful-bitcoin-exchange-pleads-guilty-multimillion-dollar",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/*/https://www.secretservice.gov/newsroom/releases/2017/01/operator-unlawful-bitcoin-exchange-pleads-guilty-multimillion-dollar",
+        "content_type": "text/html",
+        "error": null
+      },
+      "source_finding_created": false,
+      "source_raw_only": false
+    }
+  ]
+}
