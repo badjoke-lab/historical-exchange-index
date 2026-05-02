@@ -1,0 +1,2830 @@
+{
+  "monitor": "candidate-discovery",
+  "status": "ok",
+  "started_at": "2026-05-02T05:44:35.259Z",
+  "finished_at": "2026-05-02T05:44:35.822Z",
+  "findings": [],
+  "candidates": [
+    {
+      "candidate_id": "auto_20260502_001",
+      "canonical_name": "Lido",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Lido appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://lido.fi/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_002",
+      "canonical_name": "Binance staked ETH",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "unknown",
+      "likely_death_reason": null,
+      "record_shape": "existing_entity_event_update",
+      "headline": "Binance staked ETH appears in a remote protocol directory",
+      "hei_relevance": "Potential HEI candidate, but requires scope/source review.",
+      "duplicate_check": {
+        "matched_existing_entity": true,
+        "matched_id": "hei_ex_000003",
+        "matched_slug": "binance",
+        "method": "domain"
+      },
+      "source_urls": [
+        "https://www.binance.com/en/wbeth"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_review",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_003",
+      "canonical_name": "Curve DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Curve DEX appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://curve.finance"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_004",
+      "canonical_name": "Rocket Pool",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Rocket Pool appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://rocketpool.net"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_005",
+      "canonical_name": "Sanctum Validator LSTs",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Sanctum Validator LSTs appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.sanctum.so"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_006",
+      "canonical_name": "Binance Staked SOL",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "unknown",
+      "likely_death_reason": null,
+      "record_shape": "existing_entity_event_update",
+      "headline": "Binance Staked SOL appears in a remote protocol directory",
+      "hei_relevance": "Potential HEI candidate, but requires scope/source review.",
+      "duplicate_check": {
+        "matched_existing_entity": true,
+        "matched_id": "hei_ex_000003",
+        "matched_slug": "binance",
+        "method": "domain"
+      },
+      "source_urls": [
+        "https://www.binance.com/en/solana-staking"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_review",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_007",
+      "canonical_name": "StakeWise V2",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "StakeWise V2 appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://stakewise.io/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_008",
+      "canonical_name": "Jito Liquid Staking",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Jito Liquid Staking appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://jito.network"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_009",
+      "canonical_name": "Liquid Collective",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Liquid Collective appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://liquidcollective.io"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_010",
+      "canonical_name": "Jupiter Staked SOL",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Jupiter Staked SOL appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://jup.ag/?ref=f6y1ryr2snn3"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_011",
+      "canonical_name": "Kinetiq kHYPE",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Kinetiq kHYPE appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://kinetiq.xyz/stake"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_012",
+      "canonical_name": "DoubleZero Staked SOL",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "DoubleZero Staked SOL appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://doublezero.xyz/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_013",
+      "canonical_name": "Jupiter Perpetual Exchange",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Jupiter Perpetual Exchange appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://jup.ag/?ref=f6y1ryr2snn3"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_014",
+      "canonical_name": "Lista Liquid Staking",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Lista Liquid Staking appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://lista.org/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_015",
+      "canonical_name": "mETH Protocol",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "mETH Protocol appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.methprotocol.xyz/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_016",
+      "canonical_name": "Quickswap Dex",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Quickswap Dex appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://quickswap.exchange/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_017",
+      "canonical_name": "Hyperliquid HLP",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Hyperliquid HLP appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.hyperliquid.xyz"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_018",
+      "canonical_name": "Stader",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Stader appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://staderlabs.com"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_019",
+      "canonical_name": "CIAN Yield Layer",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "CIAN Yield Layer appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://yieldlayer.cian.app/vaults/0xB13aa2d0345b0439b064f26B82D8dCf3f508775d?chainId=1&utm_source=TPFDZE"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_020",
+      "canonical_name": "Coinbase Wrapped Staked ETH",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Coinbase Wrapped Staked ETH appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.coinbase.com/price/coinbase-wrapped-staked-eth"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_021",
+      "canonical_name": "Marinade Liquid Staking",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Marinade Liquid Staking appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://marinade.finance"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_022",
+      "canonical_name": "Orca DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Orca DEX appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.orca.so"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_023",
+      "canonical_name": "Benqi Staked Avax",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Benqi Staked Avax appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.benqi.fi/savax"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_024",
+      "canonical_name": "GMX V2 Perps",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "unknown",
+      "likely_death_reason": null,
+      "record_shape": "existing_entity_event_update",
+      "headline": "GMX V2 Perps appears in a remote protocol directory",
+      "hei_relevance": "Potential HEI candidate, but requires scope/source review.",
+      "duplicate_check": {
+        "matched_existing_entity": true,
+        "matched_id": "hei_ex_000244",
+        "matched_slug": "gmx",
+        "method": "domain"
+      },
+      "source_urls": [
+        "https://gmx.io/#/?ref=defillama"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_review",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_025",
+      "canonical_name": "Drift Staked SOL",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Drift Staked SOL appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.drift.trade/ref/defillama"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_026",
+      "canonical_name": "Yearn Finance",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Yearn Finance appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://yearn.fi/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_027",
+      "canonical_name": "Fluid Lite",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Fluid Lite appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://fluid.io/lite/1"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_028",
+      "canonical_name": "Extended",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Extended appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.extended.exchange/join/LLAMAS123"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_029",
+      "canonical_name": "stHYPE",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "stHYPE appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.valantis.xyz/vaults?af=defillama"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_030",
+      "canonical_name": "Frax Ether",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Frax Ether appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://frax.com/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_031",
+      "canonical_name": "Beefy",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Beefy appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://beefy.com"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_032",
+      "canonical_name": "Derive V2",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Derive V2 appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.derive.xyz?ref=defillama"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_033",
+      "canonical_name": "Phantom SOL",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Phantom SOL appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://phantom.com/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_034",
+      "canonical_name": "The Vault Liquid Staking",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "The Vault Liquid Staking appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://thevault.finance"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_035",
+      "canonical_name": "JPool",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "JPool appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.jpool.one?ref=npkn8nfoja"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_036",
+      "canonical_name": "Bybit Staked SOL",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "unknown",
+      "likely_death_reason": null,
+      "record_shape": "existing_entity_event_update",
+      "headline": "Bybit Staked SOL appears in a remote protocol directory",
+      "hei_relevance": "Potential HEI candidate, but requires scope/source review.",
+      "duplicate_check": {
+        "matched_existing_entity": true,
+        "matched_id": "hei_ex_000011",
+        "matched_slug": "bybit",
+        "method": "domain"
+      },
+      "source_urls": [
+        "https://www.bybit.com/en/web3/staking/BybitSOL"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_review",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_037",
+      "canonical_name": "dYdX V4",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "dYdX V4 appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://dydx.trade?ref=LoneHull0UN"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_038",
+      "canonical_name": "Tonstakers LSD",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Tonstakers LSD appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://tonstakers.com"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_039",
+      "canonical_name": "BlazeStake",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "BlazeStake appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://stake.solblaze.org/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_040",
+      "canonical_name": "Lulo",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Lulo appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://lulo.fi/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_041",
+      "canonical_name": "Thorchain DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Thorchain DEX appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://thorchain.org/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_042",
+      "canonical_name": "Edgevana",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Edgevana appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.edgevana.com"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_043",
+      "canonical_name": "STKESOL by SOL Strategies",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "STKESOL by SOL Strategies appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.solstrategies.io"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_044",
+      "canonical_name": "JagPool Staked SOL",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "JagPool Staked SOL appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.jagpool.xyz/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_045",
+      "canonical_name": "stake.link liquid",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "stake.link liquid appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://stake.link/staking-pools"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_046",
+      "canonical_name": "DFDV Staked SOL",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "DFDV Staked SOL appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://defidevcorp.com/?tab=dfdvSOLcom"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_047",
+      "canonical_name": "Lista DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Lista DEX appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://lista.org/swap"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_048",
+      "canonical_name": "Ostium",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Ostium appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.ostium.io/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_049",
+      "canonical_name": "Helius Staked SOL",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Helius Staked SOL appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.helius.dev"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_050",
+      "canonical_name": "SpringSui",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "SpringSui appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://springsui.com/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_051",
+      "canonical_name": "Origin Ether",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Origin Ether appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.originprotocol.com/oeth"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_052",
+      "canonical_name": "YO Protocol",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "YO Protocol appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.yo.xyz?ref=defillama"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_053",
+      "canonical_name": "Infrared Finance",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Infrared Finance appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://infrared.finance"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_054",
+      "canonical_name": "Avantis",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Avantis appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.avantisfi.com/referral?code=DefiLlama"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_055",
+      "canonical_name": "Meteora vaults",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Meteora vaults appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.meteora.ag/vaults"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_056",
+      "canonical_name": "Vesper",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Vesper appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://vesper.finance/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_057",
+      "canonical_name": "Kinetiq Earn",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Kinetiq Earn appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://kinetiq.xyz/stake-hype#kinetiq-earn"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_058",
+      "canonical_name": "Decibel",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Decibel appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.decibel.trade/trade"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_059",
+      "canonical_name": "Veno Finance",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Veno Finance appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://veno.finance/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_060",
+      "canonical_name": "Synthetix V3",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Synthetix V3 appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://synthetix.io"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_061",
+      "canonical_name": "dYdX V3",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "dYdX V3 appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://dydx.trade?ref=LoneHull0UN"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_062",
+      "canonical_name": "Haedal Protocol",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Haedal Protocol appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://haedal.xyz"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_063",
+      "canonical_name": "Apex Omni",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Apex Omni appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://omni.apex.exchange/referral?referralCode=T0S8V482"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_064",
+      "canonical_name": "LiNEAR Protocol",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "LiNEAR Protocol appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://linearprotocol.org"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_065",
+      "canonical_name": "vfat.io",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "vfat.io appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://vfat.io/yield"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_066",
+      "canonical_name": "XRPL DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "XRPL DEX appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://xrpl.org/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_067",
+      "canonical_name": "NodeDAO",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "NodeDAO appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.nodedao.com"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_068",
+      "canonical_name": "Rysk V12",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Rysk V12 appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.rysk.finance/join?code=DEFILLAMA"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_069",
+      "canonical_name": "Ethereal DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Ethereal DEX appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.ethereal.trade/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_070",
+      "canonical_name": "Swell Liquid Staking",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Swell Liquid Staking appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.swellnetwork.io/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_071",
+      "canonical_name": "Meta Pool Near",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Meta Pool Near appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://metapool.app"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_072",
+      "canonical_name": "Hydration DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Hydration DEX appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://hydration.net"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_073",
+      "canonical_name": "Alchemix V3",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Alchemix V3 appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://alchemix.fi/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_074",
+      "canonical_name": "Superform",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Superform appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.superform.xyz/earn?ref=3TSV5oRxhsPiRq8F3aoi7"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_075",
+      "canonical_name": "Hyperbeat Earn",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Hyperbeat Earn appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.hyperbeat.org/earn?referral=5C37264D"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_076",
+      "canonical_name": "GLIF",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "GLIF appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://glif.io"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_077",
+      "canonical_name": "GMTrade",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "GMTrade appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://gmtrade.xyz/referrals/?ref=545"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_078",
+      "canonical_name": "Moonlander",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Moonlander appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://moonlander.trade/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_079",
+      "canonical_name": "Lazy Summer Protocol",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Lazy Summer Protocol appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://summer.fi/earn?referralCode=2001317"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_080",
+      "canonical_name": "Minswap DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Minswap DEX appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://minswap.org"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_081",
+      "canonical_name": "Pacifica",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Pacifica appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.pacifica.fi?referral=defillama"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_082",
+      "canonical_name": "Nucleus",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Nucleus appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.nucleusearn.io"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_083",
+      "canonical_name": "xALGO Liquid Staking",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "xALGO Liquid Staking appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.folks.finance/liquid-staking"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_084",
+      "canonical_name": "Kinetiq kmHype",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Kinetiq kmHype appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://markets.xyz/join/llama"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_085",
+      "canonical_name": "Metronome Synth",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Metronome Synth appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.metronome.io/synth"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_086",
+      "canonical_name": "Crypto.com Liquid Staking",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "unknown",
+      "likely_death_reason": null,
+      "record_shape": "existing_entity_event_update",
+      "headline": "Crypto.com Liquid Staking appears in a remote protocol directory",
+      "hei_relevance": "Potential HEI candidate, but requires scope/source review.",
+      "duplicate_check": {
+        "matched_existing_entity": true,
+        "matched_id": "hei_ex_000020",
+        "matched_slug": "crypto-com-exchange",
+        "method": "domain"
+      },
+      "source_urls": [
+        "https://crypto.com/staking"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_review",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_087",
+      "canonical_name": "Nerona",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Nerona appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_088",
+      "canonical_name": "Ankr",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Ankr appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.ankr.com/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_089",
+      "canonical_name": "Meta Pool ETH",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Meta Pool ETH appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://metapool.app"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_090",
+      "canonical_name": "Amnis Finance",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Amnis Finance appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://amnis.finance"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_091",
+      "canonical_name": "Fusion by IPOR",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Fusion by IPOR appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.ipor.io/fusion"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_092",
+      "canonical_name": "StakeStone STONE",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "StakeStone STONE appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://stakestone.io/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_093",
+      "canonical_name": "Stellar DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Stellar DEX appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://developers.stellar.org/docs/learn/fundamentals/liquidity-on-stellar-sdex-liquidity-pools"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_094",
+      "canonical_name": "Rhea Dex",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Rhea Dex appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://dex.rhea.finance/"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_095",
+      "canonical_name": "Bifrost Liquid Staking",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Bifrost Liquid Staking appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.bifrost.io/?channelId=17"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_096",
+      "canonical_name": "Youves",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Youves appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.youves.com"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_097",
+      "canonical_name": "Aevo Perps",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Aevo Perps appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.aevo.xyz/r/defillama"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_098",
+      "canonical_name": "StackingDAO",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "StackingDAO appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.stackingdao.com"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_099",
+      "canonical_name": "Stakee",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Stakee appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://stakee.org"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    },
+    {
+      "candidate_id": "auto_20260502_100",
+      "canonical_name": "Hylo LSTs",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Hylo LSTs appears in a remote protocol directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://hylo.so/leverage?ref=XG3NTI"
+      ],
+      "source_quality": "medium",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "source_name": "defillama-protocols-dexlike",
+      "source_category": "active_motherlist",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": []
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "findings_count": 0,
+    "visible_findings_count": 0,
+    "candidate_count": 100,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "discovery_summary": {
+    "raw_items": 100,
+    "candidates": 100,
+    "missing_in_hei": 95,
+    "matched_existing": 5,
+    "historical_dead_or_continuity": 0,
+    "source_summary": {
+      "static_sources": 2,
+      "remote_sources": 1,
+      "remote_enabled": 1
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "monitor": "monitoring-health-watch",
+  "status": "ok",
+  "started_at": "2026-05-02T05:44:51.411Z",
+  "finished_at": "2026-05-02T05:44:51.417Z",
+  "findings": [
+    {
+      "finding_id": "finding_1777700691417_uusgqw",
+      "monitor": "monitoring-health-watch",
+      "severity": "medium",
+      "category": "watchlist_a_candidate_pending",
+      "title": "A candidate still pending: Tapp",
+      "summary": "Tapp is still in watchlist and has not been staged, canonicalized, or resolved. age_days=0",
+      "affected_entity": null,
+      "recommended_action": "stage_downgrade_or_resolve_candidate",
+      "source_urls": [],
+      "confidence": "medium",
+      "dedupe_key": "monitoring-health-watch:a_pending:tapp",
+      "first_seen_at": "2026-05-02T05:44:51.418Z",
+      "last_seen_at": "2026-05-02T05:44:51.418Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    }
+  ],
+  "candidates": [],
+  "errors": [],
+  "summary": {
+    "findings_count": 1,
+    "visible_findings_count": 1,
+    "candidate_count": 0,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0
+  },
+  "checked": {
+    "canonical_data_loaded": true,
+    "registered_monitors": [
+      "candidate-discovery",
+      "news-and-event-watch",
+      "active-status-watch",
+      "evidence-and-record-quality-watch",
+      "evidence-health-watch",
+      "site-and-seo-watch",
+      "monitoring-health-watch"
+    ]
+  },
+  "watchlist_state": {
+    "watchlist_files": 9,
+    "watchlist_candidates": 229,
+    "watchlist_class_counts": {
+      "A": 10,
+      "B": 204,
+      "C": 4,
+      "unknown": 11
+    },
+    "manual_staging_packages": 9,
+    "resolution_files": 2,
+    "resolved_names": 11
+  }
+}
