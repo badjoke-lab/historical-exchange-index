@@ -6150,5 +6150,33 @@
     "confidence": "high",
     "last_verified_at": "2026-05-02",
     "notes": "HEI models LiteBit as acquired because Bitvavo acquired the LiteBit customer base after LiteBit decided to cease operations. This should not be read as a full corporate acquisition of every LiteBit asset; the record is specifically about the exchange/broker service ending and the customer-base migration to Bitvavo."
+  },
+  {
+    "id": "hei_ex_000284",
+    "slug": "crypto-facilities",
+    "canonical_name": "Crypto Facilities",
+    "aliases": [
+      "Crypto Facilities Ltd",
+      "CryptoFacilities",
+      "CryptoFacilities.com",
+      "Kraken Futures",
+      "Kraken MTF"
+    ],
+    "type": "cex",
+    "status": "acquired",
+    "death_reason": "acquisition",
+    "launch_date": "2014-08-12",
+    "death_date": "2019-02-04",
+    "country_or_origin": "United Kingdom",
+    "summary": "London-based FCA-regulated cryptocurrency derivatives trading platform and index provider incorporated in 2014. Kraken acquired Crypto Facilities in a nine-figure deal on 2019-02-04, integrating futures trading into Kraken while Crypto Facilities remained a UK-regulated subsidiary / trading venue.",
+    "official_url_original": "https://www.cryptofacilities.com/",
+    "official_domain_original": "cryptofacilities.com",
+    "official_url_status": "redirected",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptofacilities.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-02",
+    "notes": "HEI models Crypto Facilities as acquired because Kraken acquired the company in February 2019. This is not a dead exchange record: later Kraken materials describe Crypto Facilities as a Kraken subsidiary and FCA-authorised trading venue. The terminal date here marks the independent exchange/platform identity being acquired, not corporate dissolution."
   }
 ]

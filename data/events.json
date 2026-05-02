@@ -5448,5 +5448,33 @@
     "source_count": 1,
     "sort_order": 4,
     "notes": "Used as the terminal service cutoff / migration deadline marker."
+  },
+  {
+    "id": "hei_ev_000504",
+    "exchange_id": "hei_ex_000284",
+    "event_type": "launched",
+    "event_date": "2014-08-12",
+    "title": "Crypto Facilities incorporated / founded",
+    "description": "Crypto Facilities Ltd was incorporated in the United Kingdom on 2014-08-12 and is described by company-profile sources as founded in 2014.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Uses UK incorporation date as the precise launch marker."
+  },
+  {
+    "id": "hei_ev_000505",
+    "exchange_id": "hei_ex_000284",
+    "event_type": "acquired",
+    "event_date": "2019-02-04",
+    "title": "Kraken acquired Crypto Facilities",
+    "description": "Kraken acquired Crypto Facilities, a London-based regulated cryptocurrency derivatives trading platform and index provider, in a nine-figure deal.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "inactive",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the independent-platform acquisition marker. Crypto Facilities continued under Kraken as a subsidiary / regulated venue."
   }
 ]
