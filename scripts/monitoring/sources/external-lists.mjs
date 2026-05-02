@@ -21,12 +21,16 @@ export const EXTERNAL_LIST_SOURCES = [
     type: 'remote_json',
     enabled: ENABLE_REMOTE_LISTS,
     url: 'https://api.llama.fi/protocols',
-    description: 'Optional remote adapter for DEX-like protocol discovery. Disabled by default to avoid noisy scheduled runs.',
-    category: 'active_motherlist',
-    item_limit: 100,
+    description: 'Optional remote adapter for DEX / derivatives / trading-venue discovery. Disabled by default and deliberately excludes staking, lending, vault, and yield products.',
+    category: 'active_trading_venue_motherlist',
+    item_limit: 75,
     transform: 'defillama_protocols_dexlike',
   },
 ];
+
+const DEFINITELY_TRADING_VENUE_RE = /\b(dex|derivatives?|options?|synthetics?)\b/i;
+const TRADING_NAME_RE = /\b(dex|swap|exchange|perp|perps|perpetual|trade|trading|market|markets)\b/i;
+const NON_EXCHANGE_PROTOCOL_RE = /\b(liquid\s+staking|staking|staked|lst\b|lsd\b|restaking|validator|yield|vault|vaults|earn|lending|borrow|borrowing|cdp|rwa|bridge|wallet|nft|index|privacy|oracle)\b/i;
 
 function withSource(item, source) {
   return {
@@ -59,24 +63,41 @@ async function fetchJson(url) {
   }
 }
 
+function isDefillamaTradingVenueCandidate(item) {
+  const category = String(item.category || '');
+  const name = String(item.name || '');
+  const descriptionText = `${name} ${category} ${(item.chains || []).join(' ')}`;
+  const hasTradingCategory = DEFINITELY_TRADING_VENUE_RE.test(category);
+  const hasTradingName = TRADING_NAME_RE.test(name);
+  const looksLikeNonExchangeProduct = NON_EXCHANGE_PROTOCOL_RE.test(descriptionText);
+
+  if (looksLikeNonExchangeProduct && !hasTradingCategory) return false;
+  if (hasTradingCategory) return true;
+  if (hasTradingName && !looksLikeNonExchangeProduct) return true;
+  return false;
+}
+
+function inferDefillamaType(item) {
+  const category = String(item.category || '');
+  const name = String(item.name || '');
+  if (/\b(dex|derivatives?|options?|synthetics?)\b/i.test(`${category} ${name}`)) return 'dex';
+  return 'hybrid';
+}
+
 function transformDefillamaProtocolsDexlike(json, source) {
   const protocols = Array.isArray(json) ? json : [];
-  const dexLike = protocols.filter((item) => {
-    const text = `${item.name || ''} ${item.category || ''} ${(item.chains || []).join(' ')}`.toLowerCase();
-    return /\b(dex|derivatives|options|synthetics|yield aggregator|liquid staking)\b/.test(text)
-      && !/\b(lending|wallet|nft|bridge)\b/.test(text);
-  });
+  const dexLike = protocols.filter(isDefillamaTradingVenueCandidate);
 
-  return dexLike.slice(0, source.item_limit || 100).map((item) => withSource({
+  return dexLike.slice(0, source.item_limit || 75).map((item) => withSource({
     canonical_name: item.name,
     aliases: [],
-    likely_type: /dex|derivatives|options|synthetics/i.test(item.category || '') ? 'dex' : 'hybrid',
+    likely_type: inferDefillamaType(item),
     likely_status: 'active',
-    headline: `${item.name} appears in a remote protocol directory`,
+    headline: `${item.name} appears in a remote trading-venue directory`,
     description: `${item.name} category=${item.category || 'unknown'} chains=${(item.chains || []).slice(0, 8).join(', ')}`,
     source_urls: [item.url || `https://defillama.com/protocol/${item.slug}`].filter(Boolean),
     source_quality: 'medium',
-    signals: ['external list diff', 'active motherlist candidate', item.category || 'unknown'],
+    signals: ['external list diff', 'active trading venue candidate', item.category || 'unknown'],
     url: item.url || null,
     official_url: item.url || null,
   }, source));
