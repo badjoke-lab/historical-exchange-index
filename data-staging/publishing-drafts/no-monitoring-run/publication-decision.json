@@ -1,0 +1,21 @@
+{
+  "run_id": "no-monitoring-run",
+  "source_monitoring_dir": null,
+  "generated_at": "2026-05-02T00:00:00.000Z",
+  "should_publish": false,
+  "recommended_publication_type": "no_publish",
+  "homepage_headliner_available": false,
+  "x_post_available": false,
+  "counts": {
+    "publishable": 0,
+    "review_needed": 0,
+    "internal_only": 0,
+    "no_material": 1
+  },
+  "reasons": [
+    "No monitoring run directory was found."
+  ],
+  "next_actions": [
+    "Run HEI Monitoring first, then run publish:draft against that monitoring output."
+  ]
+}
