@@ -101,6 +101,14 @@ function normalizeMonitoringDir(input) {
   return input.replace(/\/$/, '');
 }
 
+function getEntityKey(source) {
+  return String(source.canonical_name || source.affected_entity || source.title || source.headline || source.id || '').toLowerCase();
+}
+
+function shouldKeepExternalMotherlistItem(source) {
+  return source?.source_category !== 'active_trading_venue_motherlist';
+}
+
 function makePublicationItem({ sourceMonitor, sourceFile, sourceType, source }) {
   const sourceId = source.finding_id || source.candidate_id || source.id || null;
   const title = source.title || source.headline || source.canonical_name || `${sourceMonitor} item`;
@@ -116,6 +124,7 @@ function makePublicationItem({ sourceMonitor, sourceFile, sourceType, source }) 
     source_file: sourceFile,
     source_type: sourceType,
     source_ids: sourceId ? [sourceId] : [],
+    entity_key: getEntityKey(source),
     source_category: category,
     source_severity: severity,
     candidate_class: candidateClass,
@@ -159,7 +168,12 @@ function applyPublishabilityRules(item, source) {
   }
 
   if (monitor === 'candidate-discovery') {
-    if (candidateClass === 'A') {
+    if (!shouldKeepExternalMotherlistItem(source)) {
+      item.publishability = 'internal_only';
+      item.recommended_type = 'no_publish';
+      item.public_status_label = 'Internal active motherlist item';
+      item.safety_notes.push('Active trading-venue motherlist candidates are useful for internal discovery but not external publishing drafts in v1.');
+    } else if (candidateClass === 'A') {
       item.publishability = 'review_needed';
       item.recommended_type = 'research_note';
       item.public_status_label = 'A candidate / not canonical yet';
@@ -235,6 +249,22 @@ function sortPublicationItems(items) {
     if (a.priority !== b.priority) return a.priority - b.priority;
     return String(a.title).localeCompare(String(b.title));
   });
+}
+
+function dedupePublicationItems(items) {
+  const sorted = sortPublicationItems(items);
+  const seen = new Set();
+  const out = [];
+
+  for (const item of sorted) {
+    const sourceKey = item.entity_key || item.title;
+    const key = `${item.source_monitor}:${item.recommended_type}:${sourceKey}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(item);
+  }
+
+  return out;
 }
 
 function toSafeSummary(value) {
@@ -525,7 +555,7 @@ function collectPublicationItems(monitorReports) {
   }
 
   const datePart = new Date().toISOString().slice(0, 10).replaceAll('-', '');
-  return assignPublicationIds(sortPublicationItems(items), datePart);
+  return assignPublicationIds(dedupePublicationItems(items), datePart);
 }
 
 async function writeOutputs(outputDir, outputs) {
