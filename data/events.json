@@ -5350,5 +5350,47 @@
     "source_count": 2,
     "sort_order": 3,
     "notes": "Post-liquidation investigation marker. It is not treated as the primary death_reason."
+  },
+  {
+    "id": "hei_ev_000497",
+    "exchange_id": "hei_ex_000282",
+    "event_type": "launched",
+    "event_date": "2014-01-01",
+    "title": "Coinsecure founded",
+    "description": "Company and exchange-profile references describe Coinsecure as an India-based Bitcoin exchange founded around 2014.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2014-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000498",
+    "exchange_id": "hei_ex_000282",
+    "event_type": "hack",
+    "event_date": "2018-04-09",
+    "title": "438.318 BTC stolen from Coinsecure",
+    "description": "Coinsecure reported that 438.318 BTC had been exposed and siphoned to an address outside its control, after which the exchange became unavailable.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the terminal failure marker because later exchange references mark Coinsecure inactive / unavailable following the theft."
+  },
+  {
+    "id": "hei_ev_000499",
+    "exchange_id": "hei_ex_000282",
+    "event_type": "other",
+    "event_date": "2018-06-30",
+    "title": "Coinsecure customer compensation claim deadline",
+    "description": "Reports citing Coinsecure's compensation announcement said customers had to submit claims and supporting documents by 2018-06-30.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "none",
+    "source_count": 1,
+    "sort_order": 3,
+    "notes": "Follow-up compensation deadline marker, not the terminal shutdown date."
   }
 ]

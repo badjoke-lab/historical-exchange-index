@@ -6098,5 +6098,31 @@
     "confidence": "high",
     "last_verified_at": "2026-05-01",
     "notes": "HEI uses insolvency because the terminal event is liquidation with customers unable to access funds and public reporting of banking-provider and trading-viability problems. The later SFO investigation is recorded as a separate event and is not used as the primary death_reason."
+  },
+  {
+    "id": "hei_ex_000282",
+    "slug": "coinsecure",
+    "canonical_name": "Coinsecure",
+    "aliases": [
+      "Coinsecure India",
+      "Secure Bitcoin Traders Pvt. Ltd.",
+      "Coinsecure.in"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "hack",
+    "launch_date": "2014-01-01",
+    "death_date": "2018-04-09",
+    "country_or_origin": "India",
+    "summary": "India-based Bitcoin exchange founded around 2014. Coinsecure became unavailable after 438.318 BTC were stolen from the exchange in April 2018, with later reports describing delayed customer compensation and exchange trackers marking the service inactive.",
+    "official_url_original": "https://coinsecure.in/",
+    "official_domain_original": "coinsecure.in",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://coinsecure.in/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-01",
+    "notes": "HEI uses hack as the primary death_reason because the exchange became unavailable following the April 2018 theft of 438.318 BTC. Later compensation-processing reports are preserved as follow-up context. The later coinsecure.exchange domain is not treated as the original exchange."
   }
 ]
