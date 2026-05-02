@@ -6124,5 +6124,31 @@
     "confidence": "high",
     "last_verified_at": "2026-05-01",
     "notes": "HEI uses hack as the primary death_reason because the exchange became unavailable following the April 2018 theft of 438.318 BTC. Later compensation-processing reports are preserved as follow-up context. The later coinsecure.exchange domain is not treated as the original exchange."
+  },
+  {
+    "id": "hei_ex_000283",
+    "slug": "litebit",
+    "canonical_name": "LiteBit",
+    "aliases": [
+      "LiteBit.eu",
+      "LiteBit Exchange",
+      "LiteBit Broker"
+    ],
+    "type": "cex",
+    "status": "acquired",
+    "death_reason": "acquisition",
+    "launch_date": "2013-01-01",
+    "death_date": "2023-08-14",
+    "country_or_origin": "Netherlands",
+    "summary": "Rotterdam-based European crypto broker / exchange platform founded in 2013. LiteBit announced in May 2023 that it would cease operations because of market developments, increased competition, and regulatory pressure; Bitvavo subsequently received ACM approval to acquire LiteBit's customer base and migrate user assets and accounts.",
+    "official_url_original": "https://www.litebit.eu/",
+    "official_domain_original": "litebit.eu",
+    "official_url_status": "redirected",
+    "archived_url": "https://web.archive.org/web/*/https://www.litebit.eu/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-02",
+    "notes": "HEI models LiteBit as acquired because Bitvavo acquired the LiteBit customer base after LiteBit decided to cease operations. This should not be read as a full corporate acquisition of every LiteBit asset; the record is specifically about the exchange/broker service ending and the customer-base migration to Bitvavo."
   }
 ]
