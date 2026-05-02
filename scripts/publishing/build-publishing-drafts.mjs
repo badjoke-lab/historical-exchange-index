@@ -91,9 +91,7 @@ async function findLatestMonitoringDir() {
     .filter((name) => /^\d{8}$/.test(name))
     .sort();
 
-  if (dirs.length === 0) {
-    throw new Error(`No monitoring run directories found under ${MONITORING_ROOT}`);
-  }
+  if (dirs.length === 0) return null;
 
   return path.join(MONITORING_ROOT, dirs.at(-1));
 }
@@ -264,6 +262,9 @@ function buildDecision({ runId, monitoringDir, generatedAt, items, minPublishabl
   } else if (counts.review_needed > 0) {
     reasons.push('No publishable items, but review-needed items exist.');
     nextActions.push('Manually verify review-needed items and add source review before publication.');
+  } else if (!monitoringDir) {
+    reasons.push('No monitoring run directory was found.');
+    nextActions.push('Run HEI Monitoring first, then run publish:draft against that monitoring output.');
   } else {
     reasons.push('No publishable material after safety filtering.');
     nextActions.push('Do not publish this run.');
@@ -271,7 +272,7 @@ function buildDecision({ runId, monitoringDir, generatedAt, items, minPublishabl
 
   return {
     run_id: runId,
-    source_monitoring_dir: monitoringDir,
+    source_monitoring_dir: monitoringDir || null,
     generated_at: generatedAt,
     should_publish: shouldPublish,
     recommended_publication_type: recommendedPublicationType,
@@ -341,7 +342,7 @@ function buildHomepageHeadliner({ dateLabel, decision, items }) {
 function buildUpdatesArticleDraft({ dateLabel, decision, items }) {
   const reviewNeeded = items.filter((item) => item.publishability === 'review_needed');
   const publishable = items.filter((item) => item.publishability === 'publishable');
-  const safeToPublish = decision.should_publish ? 'false' : 'false';
+  const safeToPublish = 'false';
   const type = decision.recommended_publication_type;
   const lines = [];
 
@@ -435,7 +436,22 @@ function truncate(value, length) {
   return text.length <= length ? text : `${text.slice(0, length - 1)}…`;
 }
 
+function makeNoMonitoringRun() {
+  return {
+    manifest: {
+      run_id: 'no-monitoring-run',
+      created_at: new Date().toISOString(),
+      mode: 'publishing-draft-only',
+      monitors: [],
+    },
+    summary: '',
+    monitorReports: [],
+  };
+}
+
 async function loadMonitoringRun(monitoringDir) {
+  if (!monitoringDir) return makeNoMonitoringRun();
+
   const manifestPath = path.join(monitoringDir, 'manifest.json');
   const manifest = await readJson(manifestPath, null);
   if (!manifest) {
@@ -464,7 +480,7 @@ async function loadMonitoringRun(monitoringDir) {
 
 function collectPublicationItems(monitorReports) {
   const items = [];
-  for (const { fileName, filePath, report } of monitorReports) {
+  for (const { filePath, report } of monitorReports) {
     const sourceMonitor = report.monitor;
     for (const finding of report.findings || []) {
       items.push(makePublicationItem({
@@ -481,9 +497,6 @@ function collectPublicationItems(monitorReports) {
         sourceType: 'candidate',
         source: candidate,
       }));
-    }
-    if ((report.findings || []).length === 0 && (report.candidates || []).length === 0 && report.summary) {
-      // No item needed. The decision file records no_material when nothing is collected.
     }
   }
 
@@ -506,7 +519,7 @@ async function main() {
   const args = parseArgs(process.argv);
   const monitoringDir = normalizeMonitoringDir(args.monitoringDir) || await findLatestMonitoringDir();
   const { manifest, monitorReports } = await loadMonitoringRun(monitoringDir);
-  const runId = manifest.run_id || path.basename(monitoringDir);
+  const runId = manifest.run_id || path.basename(monitoringDir || 'no-monitoring-run');
   const generatedAt = new Date().toISOString();
   const dateLabel = generatedAt.slice(0, 10);
   const outputDir = path.join(OUTPUT_ROOT, runId);
