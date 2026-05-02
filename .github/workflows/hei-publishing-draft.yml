@@ -4,9 +4,17 @@ on:
   workflow_dispatch:
     inputs:
       monitoring_dir:
-        description: "Monitoring output directory, for example data-staging/monitoring/20260429. Empty means latest local monitoring directory."
+        description: "Existing monitoring output directory. Leave empty to run monitoring first and use the generated output."
         type: string
         required: false
+      run_monitoring_first:
+        description: "Run HEI Monitoring in this job before generating publishing drafts"
+        type: boolean
+        default: true
+      include_monitoring_output:
+        description: "Commit generated monitoring output together with publishing drafts"
+        type: boolean
+        default: true
       include_review_needed:
         description: "Include review-needed items in generated drafts"
         type: boolean
@@ -15,6 +23,34 @@ on:
         description: "Minimum publishable items required for should_publish=true"
         type: string
         default: "1"
+      enable_external_lists:
+        description: "Enable optional remote external-list discovery during monitoring"
+        type: boolean
+        default: false
+      enable_news_rss:
+        description: "Enable optional Google News RSS monitoring"
+        type: boolean
+        default: false
+      enable_domain_checks:
+        description: "Enable optional official site/domain checks"
+        type: boolean
+        default: false
+      enable_evidence_url_checks:
+        description: "Enable optional evidence URL checks"
+        type: boolean
+        default: false
+      enable_regulatory_watch:
+        description: "Enable optional regulatory source watch"
+        type: boolean
+        default: false
+      enable_site_seo_checks:
+        description: "Enable optional public site/SEO checks"
+        type: boolean
+        default: false
+      site_url:
+        description: "Site URL for public route/sitemap checks"
+        type: string
+        default: "https://hei.badjoke-lab.com"
 
 permissions:
   contents: write
@@ -30,7 +66,7 @@ concurrency:
 jobs:
   publishing-draft:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -46,15 +82,67 @@ jobs:
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
 
-      - name: Generate publishing draft
+      - name: Smoke test monitoring modules
+        if: ${{ github.event.inputs.run_monitoring_first != 'false' }}
+        run: npm run monitor:smoke
+
+      - name: Run monitoring first
+        if: ${{ github.event.inputs.run_monitoring_first != 'false' }}
+        env:
+          INPUT_ENABLE_EXTERNAL_LISTS: ${{ github.event.inputs.enable_external_lists || 'false' }}
+          INPUT_ENABLE_NEWS_RSS: ${{ github.event.inputs.enable_news_rSS || github.event.inputs.enable_news_rss || 'false' }}
+          INPUT_ENABLE_DOMAIN_CHECKS: ${{ github.event.inputs.enable_domain_checks || 'false' }}
+          INPUT_ENABLE_EVIDENCE_URL_CHECKS: ${{ github.event.inputs.enable_evidence_url_checks || 'false' }}
+          INPUT_ENABLE_REGULATORY_WATCH: ${{ github.event.inputs.enable_regulatory_watch || 'false' }}
+          INPUT_ENABLE_SITE_SEO_CHECKS: ${{ github.event.inputs.enable_site_seo_checks || 'false' }}
+          INPUT_SITE_URL: ${{ github.event.inputs.site_url || 'https://hei.badjoke-lab.com' }}
+        run: |
+          bool_to_flag() {
+            if [ "$1" = "true" ]; then
+              echo "1"
+            else
+              echo "0"
+            fi
+          }
+
+          export HEI_MONITORING_ENABLE_REMOTE_LISTS="$(bool_to_flag "$INPUT_ENABLE_EXTERNAL_LISTS")"
+          export HEI_MONITORING_ENABLE_NEWS_RSS="$(bool_to_flag "$INPUT_ENABLE_NEWS_RSS")"
+          export HEI_MONITORING_ENABLE_DOMAIN_CHECKS="$(bool_to_flag "$INPUT_ENABLE_DOMAIN_CHECKS")"
+          export HEI_MONITORING_ENABLE_EVIDENCE_URL_CHECKS="$(bool_to_flag "$INPUT_ENABLE_EVIDENCE_URL_CHECKS")"
+          export HEI_MONITORING_ENABLE_REGULATORY_WATCH="$(bool_to_flag "$INPUT_ENABLE_REGULATORY_WATCH")"
+          export HEI_MONITORING_ENABLE_SITE_SEO_CHECKS="$(bool_to_flag "$INPUT_ENABLE_SITE_SEO_CHECKS")"
+          export HEI_MONITORING_SITE_URL="$INPUT_SITE_URL"
+
+          npm run monitor
+
+      - name: Resolve monitoring directory
+        id: monitoring_dir
         env:
           INPUT_MONITORING_DIR: ${{ github.event.inputs.monitoring_dir || '' }}
+        run: |
+          if [ -n "$INPUT_MONITORING_DIR" ]; then
+            MONITORING_DIR="$INPUT_MONITORING_DIR"
+          else
+            MONITORING_DIR="$(find data-staging/monitoring -maxdepth 1 -type d -name '20??????' | sort | tail -n 1 || true)"
+          fi
+
+          if [ -n "$MONITORING_DIR" ]; then
+            echo "monitoring_dir=$MONITORING_DIR" >> "$GITHUB_OUTPUT"
+            echo "Resolved monitoring dir: $MONITORING_DIR"
+          else
+            echo "monitoring_dir=" >> "$GITHUB_OUTPUT"
+            echo "No monitoring dir found. publish:draft will generate a no-monitoring-run decision."
+          fi
+
+      - name: Generate publishing draft
+        env:
+          RESOLVED_MONITORING_DIR: ${{ steps.monitoring_dir.outputs.monitoring_dir }}
           INPUT_INCLUDE_REVIEW_NEEDED: ${{ github.event.inputs.include_review_needed || 'true' }}
           INPUT_MIN_PUBLISHABLE: ${{ github.event.inputs.min_publishable || '1' }}
         run: |
           ARGS="--min-publishable $INPUT_MIN_PUBLISHABLE --include-review-needed $INPUT_INCLUDE_REVIEW_NEEDED"
-          if [ -n "$INPUT_MONITORING_DIR" ]; then
-            ARGS="$ARGS --monitoring-dir $INPUT_MONITORING_DIR"
+          if [ -n "$RESOLVED_MONITORING_DIR" ]; then
+            ARGS="$ARGS --monitoring-dir $RESOLVED_MONITORING_DIR"
           fi
           npm run publish:draft -- $ARGS
 
@@ -69,8 +157,15 @@ jobs:
 
       - name: Check publishing draft changes
         id: changes
+        env:
+          INCLUDE_MONITORING_OUTPUT: ${{ github.event.inputs.include_monitoring_output || 'true' }}
         run: |
-          if git status --porcelain -- data-staging/publishing-drafts | grep .; then
+          CHECK_PATHS="data-staging/publishing-drafts"
+          if [ "$INCLUDE_MONITORING_OUTPUT" = "true" ]; then
+            CHECK_PATHS="$CHECK_PATHS data-staging/monitoring data-staging/watchlists/auto data-staging/watchlists/resolution"
+          fi
+
+          if git status --porcelain -- $CHECK_PATHS | grep .; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -80,6 +175,8 @@ jobs:
         if: steps.changes.outputs.changed == 'true'
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          INCLUDE_MONITORING_OUTPUT: ${{ github.event.inputs.include_monitoring_output || 'true' }}
+          RESOLVED_MONITORING_DIR: ${{ steps.monitoring_dir.outputs.monitoring_dir }}
         run: |
           BRANCH="auto/publishing-draft/$(date -u +%Y%m%d-%H%M%S)"
           RUN_DATE="$(date -u +%Y-%m-%d)"
@@ -87,6 +184,13 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
           git add data-staging/publishing-drafts
+          if [ "$INCLUDE_MONITORING_OUTPUT" = "true" ]; then
+            for path in data-staging/monitoring data-staging/watchlists/auto data-staging/watchlists/resolution; do
+              if [ -e "$path" ]; then
+                git add "$path"
+              fi
+            done
+          fi
           git commit -m "Add HEI publishing draft"
           git push origin "$BRANCH"
 
@@ -99,6 +203,7 @@ jobs:
           echo "" >> "$BODY_FILE"
           echo "Run date: $RUN_DATE" >> "$BODY_FILE"
           echo "" >> "$BODY_FILE"
+          echo "- Source monitoring directory: ${RESOLVED_MONITORING_DIR:-none}" >> "$BODY_FILE"
           echo "- Draft directory: $DRAFT_DIR" >> "$BODY_FILE"
           echo "- Decision file: $DECISION_FILE" >> "$BODY_FILE"
           echo "- Internal review: $INTERNAL_REVIEW" >> "$BODY_FILE"
