@@ -14,7 +14,7 @@ on:
       include_monitoring_output:
         description: "Commit generated monitoring output together with publishing drafts"
         type: boolean
-        default: true
+        default: false
       include_review_needed:
         description: "Include review-needed items in generated drafts"
         type: boolean
@@ -158,7 +158,7 @@ jobs:
       - name: Check publishing draft changes
         id: changes
         env:
-          INCLUDE_MONITORING_OUTPUT: ${{ github.event.inputs.include_monitoring_output || 'true' }}
+          INCLUDE_MONITORING_OUTPUT: ${{ github.event.inputs.include_monitoring_output || 'false' }}
         run: |
           CHECK_PATHS="data-staging/publishing-drafts"
           if [ "$INCLUDE_MONITORING_OUTPUT" = "true" ]; then
@@ -175,7 +175,7 @@ jobs:
         if: steps.changes.outputs.changed == 'true'
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          INCLUDE_MONITORING_OUTPUT: ${{ github.event.inputs.include_monitoring_output || 'true' }}
+          INCLUDE_MONITORING_OUTPUT: ${{ github.event.inputs.include_monitoring_output || 'false' }}
           RESOLVED_MONITORING_DIR: ${{ steps.monitoring_dir.outputs.monitoring_dir }}
         run: |
           BRANCH="auto/publishing-draft/$(date -u +%Y%m%d-%H%M%S)"
@@ -208,6 +208,7 @@ jobs:
           echo "- Decision file: $DECISION_FILE" >> "$BODY_FILE"
           echo "- Internal review: $INTERNAL_REVIEW" >> "$BODY_FILE"
           echo "- X draft: $X_DRAFTS" >> "$BODY_FILE"
+          echo "- Monitoring output included: $INCLUDE_MONITORING_OUTPUT" >> "$BODY_FILE"
           echo "" >> "$BODY_FILE"
           echo "Canonical data, public content, app, and components must not be changed by publishing draft PRs." >> "$BODY_FILE"
           echo "" >> "$BODY_FILE"
