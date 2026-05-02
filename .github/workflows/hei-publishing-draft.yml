@@ -1,0 +1,115 @@
+name: HEI Publishing Draft
+
+on:
+  workflow_dispatch:
+    inputs:
+      monitoring_dir:
+        description: "Monitoring output directory, for example data-staging/monitoring/20260429. Empty means latest local monitoring directory."
+        type: string
+        required: false
+      include_review_needed:
+        description: "Include review-needed items in generated drafts"
+        type: boolean
+        default: true
+      min_publishable:
+        description: "Minimum publishable items required for should_publish=true"
+        type: string
+        default: "1"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+concurrency:
+  group: hei-publishing-draft-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publishing-draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Generate publishing draft
+        env:
+          INPUT_MONITORING_DIR: ${{ github.event.inputs.monitoring_dir || '' }}
+          INPUT_INCLUDE_REVIEW_NEEDED: ${{ github.event.inputs.include_review_needed || 'true' }}
+          INPUT_MIN_PUBLISHABLE: ${{ github.event.inputs.min_publishable || '1' }}
+        run: |
+          ARGS="--min-publishable $INPUT_MIN_PUBLISHABLE --include-review-needed $INPUT_INCLUDE_REVIEW_NEEDED"
+          if [ -n "$INPUT_MONITORING_DIR" ]; then
+            ARGS="$ARGS --monitoring-dir $INPUT_MONITORING_DIR"
+          fi
+          npm run publish:draft -- $ARGS
+
+      - name: Guard canonical and public content
+        run: |
+          GUARDED_PATHS="data/entities.json data/events.json data/evidence.json content app components"
+          if git status --porcelain -- $GUARDED_PATHS | grep .; then
+            echo "Publishing draft workflow must not modify canonical data, content, app, or components."
+            git status --porcelain -- $GUARDED_PATHS
+            exit 1
+          fi
+
+      - name: Check publishing draft changes
+        id: changes
+        run: |
+          if git status --porcelain -- data-staging/publishing-drafts | grep .; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create publishing draft pull request
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH="auto/publishing-draft/$(date -u +%Y%m%d-%H%M%S)"
+          RUN_DATE="$(date -u +%Y-%m-%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add data-staging/publishing-drafts
+          git commit -m "Add HEI publishing draft"
+          git push origin "$BRANCH"
+
+          BODY_FILE="/tmp/hei-publishing-draft-pr-body.md"
+          DECISION_FILE="$(find data-staging/publishing-drafts -name publication-decision.json | sort | tail -n 1)"
+          DRAFT_DIR="$(dirname "$DECISION_FILE")"
+          INTERNAL_REVIEW="$DRAFT_DIR/internal-review.md"
+          X_DRAFTS="$DRAFT_DIR/x-post-drafts.md"
+          echo "## HEI publishing draft" > "$BODY_FILE"
+          echo "" >> "$BODY_FILE"
+          echo "Run date: $RUN_DATE" >> "$BODY_FILE"
+          echo "" >> "$BODY_FILE"
+          echo "- Draft directory: $DRAFT_DIR" >> "$BODY_FILE"
+          echo "- Decision file: $DECISION_FILE" >> "$BODY_FILE"
+          echo "- Internal review: $INTERNAL_REVIEW" >> "$BODY_FILE"
+          echo "- X draft: $X_DRAFTS" >> "$BODY_FILE"
+          echo "" >> "$BODY_FILE"
+          echo "Canonical data, public content, app, and components must not be changed by publishing draft PRs." >> "$BODY_FILE"
+          echo "" >> "$BODY_FILE"
+          echo "Review the generated draft before promoting anything to /updates or posting to X." >> "$BODY_FILE"
+
+          gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "Publishing draft: $RUN_DATE" \
+            --body-file "$BODY_FILE"
