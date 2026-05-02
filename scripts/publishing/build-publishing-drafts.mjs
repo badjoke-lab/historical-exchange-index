@@ -106,7 +106,7 @@ function makePublicationItem({ sourceMonitor, sourceFile, sourceType, source }) 
   const title = source.title || source.headline || source.canonical_name || `${sourceMonitor} item`;
   const summary = source.summary || source.hei_relevance || source.description || 'Monitoring item requires review.';
   const sourceUrls = Array.isArray(source.source_urls) ? source.source_urls.filter(Boolean) : [];
-  const category = source.category || source.record_shape || source.candidate_class || 'unknown';
+  const category = source.category || source.source_category || source.record_shape || source.candidate_class || 'unknown';
   const candidateClass = source.candidate_class || null;
   const severity = source.severity || null;
 
@@ -127,9 +127,11 @@ function makePublicationItem({ sourceMonitor, sourceFile, sourceType, source }) 
     source_urls: sourceUrls,
     safety_notes: [],
     recommended_action: source.recommended_action || source.next_action || 'review',
+    priority: 100,
   };
 
   applyPublishabilityRules(item, source);
+  item.priority = publicationPriority(item, source);
   return item;
 }
 
@@ -157,10 +159,15 @@ function applyPublishabilityRules(item, source) {
   }
 
   if (monitor === 'candidate-discovery') {
-    if (candidateClass === 'A' || candidateClass === 'B') {
+    if (candidateClass === 'A') {
       item.publishability = 'review_needed';
       item.recommended_type = 'research_note';
-      item.public_status_label = 'Not canonical yet';
+      item.public_status_label = 'A candidate / not canonical yet';
+      item.safety_notes.push('Candidate discovery requires manual source review before publication.');
+    } else if (candidateClass === 'B') {
+      item.publishability = 'review_needed';
+      item.recommended_type = 'research_note';
+      item.public_status_label = 'B candidate / not canonical yet';
       item.safety_notes.push('Candidate discovery requires manual source review before publication.');
     } else {
       item.publishability = 'internal_only';
@@ -174,7 +181,7 @@ function applyPublishabilityRules(item, source) {
     if (sourceUrls.length > 0) {
       item.publishability = source.review_status === 'reviewed' ? 'publishable' : 'review_needed';
       item.recommended_type = 'weekly_watch';
-      item.public_status_label = source.review_status === 'reviewed' ? 'Reviewed item' : 'Monitoring signal only';
+      item.public_status_label = source.review_status === 'reviewed' ? 'Reviewed item' : 'News/event monitoring signal';
       item.safety_notes.push('News/event item should not be treated as a final HEI classification before review.');
     } else {
       item.publishability = 'internal_only';
@@ -213,6 +220,23 @@ function applyPublishabilityRules(item, source) {
   item.public_status_label = 'Internal only';
 }
 
+function publicationPriority(item, source) {
+  if (item.publishability === 'publishable') return 0;
+  if (item.source_monitor === 'news-and-event-watch' && item.candidate_class === 'A') return 5;
+  if (item.source_monitor === 'news-and-event-watch') return 10;
+  if (item.candidate_class === 'A') return 20;
+  if (item.candidate_class === 'B') return 40;
+  if (source?.historical_dead_strength === 'medium') return 45;
+  return 100;
+}
+
+function sortPublicationItems(items) {
+  return [...items].sort((a, b) => {
+    if (a.priority !== b.priority) return a.priority - b.priority;
+    return String(a.title).localeCompare(String(b.title));
+  });
+}
+
 function toSafeSummary(value) {
   const text = String(value || '').replace(/\s+/g, ' ').trim();
   if (!text) return 'Monitoring item requires review.';
@@ -236,8 +260,8 @@ function assignPublicationIds(items, datePart) {
 }
 
 function determineRecommendedType(items) {
-  const publishable = items.filter((item) => item.publishability === 'publishable');
-  const reviewNeeded = items.filter((item) => item.publishability === 'review_needed');
+  const publishable = sortPublicationItems(items.filter((item) => item.publishability === 'publishable'));
+  const reviewNeeded = sortPublicationItems(items.filter((item) => item.publishability === 'review_needed'));
   const source = publishable[0] || reviewNeeded[0];
   return source?.recommended_type || 'no_publish';
 }
@@ -285,8 +309,8 @@ function buildDecision({ runId, monitoringDir, generatedAt, items, minPublishabl
 }
 
 function buildInternalReview({ dateLabel, decision, items }) {
-  const publishable = items.filter((item) => item.publishability === 'publishable');
-  const reviewNeeded = items.filter((item) => item.publishability === 'review_needed');
+  const publishable = sortPublicationItems(items.filter((item) => item.publishability === 'publishable'));
+  const reviewNeeded = sortPublicationItems(items.filter((item) => item.publishability === 'review_needed'));
   const internalOnly = items.filter((item) => item.publishability === 'internal_only');
   const lines = [];
 
@@ -335,13 +359,13 @@ function buildHomepageHeadliner({ dateLabel, decision, items }) {
   if (!decision.homepage_headliner_available) {
     return `---\nsafe_to_publish: false\nreason: no_publishable_material\n---\n\nNo homepage headliner for this run.\n`;
   }
-  const first = items.find((item) => item.publishability === 'publishable');
+  const first = sortPublicationItems(items).find((item) => item.publishability === 'publishable');
   return `---\ntype: ${decision.recommended_publication_type}\ndate: ${dateLabel}\nsafe_to_publish: true\n---\n\n## Latest from HEI\n\n${first.title}\n\n${first.safe_summary}\n`;
 }
 
 function buildUpdatesArticleDraft({ dateLabel, decision, items }) {
-  const reviewNeeded = items.filter((item) => item.publishability === 'review_needed');
-  const publishable = items.filter((item) => item.publishability === 'publishable');
+  const reviewNeeded = sortPublicationItems(items.filter((item) => item.publishability === 'review_needed'));
+  const publishable = sortPublicationItems(items.filter((item) => item.publishability === 'publishable'));
   const safeToPublish = 'false';
   const type = decision.recommended_publication_type;
   const lines = [];
@@ -385,7 +409,7 @@ function buildXPostDrafts({ dateLabel, decision, items }) {
   if (!decision.x_post_available) {
     return `# X Post Drafts - ${dateLabel}\n\nNo X post draft generated for this run.\nReason: no publishable material after safety filtering.\n`;
   }
-  const publishable = items.filter((item) => item.publishability === 'publishable').slice(0, 4);
+  const publishable = sortPublicationItems(items.filter((item) => item.publishability === 'publishable')).slice(0, 4);
   const lines = [];
   lines.push(`# X Post Drafts - ${dateLabel}`);
   lines.push('');
@@ -501,7 +525,7 @@ function collectPublicationItems(monitorReports) {
   }
 
   const datePart = new Date().toISOString().slice(0, 10).replaceAll('-', '');
-  return assignPublicationIds(items, datePart);
+  return assignPublicationIds(sortPublicationItems(items), datePart);
 }
 
 async function writeOutputs(outputDir, outputs) {
