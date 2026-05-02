@@ -90,7 +90,7 @@ jobs:
         if: ${{ github.event.inputs.run_monitoring_first != 'false' }}
         env:
           INPUT_ENABLE_EXTERNAL_LISTS: ${{ github.event.inputs.enable_external_lists || 'false' }}
-          INPUT_ENABLE_NEWS_RSS: ${{ github.event.inputs.enable_news_rSS || github.event.inputs.enable_news_rss || 'false' }}
+          INPUT_ENABLE_NEWS_RSS: ${{ github.event.inputs.enable_news_rss || 'false' }}
           INPUT_ENABLE_DOMAIN_CHECKS: ${{ github.event.inputs.enable_domain_checks || 'false' }}
           INPUT_ENABLE_EVIDENCE_URL_CHECKS: ${{ github.event.inputs.enable_evidence_url_checks || 'false' }}
           INPUT_ENABLE_REGULATORY_WATCH: ${{ github.event.inputs.enable_regulatory_watch || 'false' }}
