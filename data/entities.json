@@ -6178,5 +6178,35 @@
     "confidence": "high",
     "last_verified_at": "2026-05-02",
     "notes": "HEI models Crypto Facilities as acquired because Kraken acquired the company in February 2019. This is not a dead exchange record: later Kraken materials describe Crypto Facilities as a Kraken subsidiary and FCA-authorised trading venue. The terminal date here marks the independent exchange/platform identity being acquired, not corporate dissolution."
+  },
+  {
+    "id": "hei_ex_000285",
+    "slug": "bittrade-australia",
+    "canonical_name": "BitTrade Australia",
+    "aliases": [
+      "Bit Trade",
+      "Bit Trade Australia",
+      "Bit Trade Pty Ltd",
+      "Bit Trade Pty Limited",
+      "Bit Trade Australia Pty Ltd",
+      "BitTrade.com.au",
+      "Kraken Australia"
+    ],
+    "type": "cex",
+    "status": "acquired",
+    "death_reason": "acquisition",
+    "launch_date": "2013-04-10",
+    "death_date": "2020-01-14",
+    "country_or_origin": "Australia",
+    "summary": "Australia-based cryptocurrency exchange / service provider founded in 2013. Kraken acquired Bit Trade on 2020-01-14, bringing the Bit Trade team into Kraken Australia and using the acquisition to expand AUD liquidity, spot exchange, and OTC services in the Australian market.",
+    "official_url_original": "https://www.bittrade.com.au/",
+    "official_domain_original": "bittrade.com.au",
+    "official_url_status": "redirected",
+    "archived_url": "https://web.archive.org/web/*/https://www.bittrade.com.au/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-02",
+    "notes": "HEI models BitTrade Australia as acquired because Kraken acquired the Australian crypto service provider on 2020-01-14. Later regulatory materials refer to Bit Trade Pty Ltd as the operator/provider of Kraken services in Australia, so this is not a dead exchange record; the terminal date marks the end of the independent Bit Trade exchange/service identity."
   }
 ]

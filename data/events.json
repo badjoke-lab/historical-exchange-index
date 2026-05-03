@@ -5476,5 +5476,33 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "Used as the independent-platform acquisition marker. Crypto Facilities continued under Kraken as a subsidiary / regulated venue."
+  },
+  {
+    "id": "hei_ev_000506",
+    "exchange_id": "hei_ex_000285",
+    "event_type": "launched",
+    "event_date": "2013-04-10",
+    "title": "BitTrade Australia founded / registered",
+    "description": "Bit Trade was established in Australia in 2013 and later described as Australia's longest-running crypto service provider.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Uses company registration date as the precise marker; other sources describe the service as founded in 2013."
+  },
+  {
+    "id": "hei_ev_000507",
+    "exchange_id": "hei_ex_000285",
+    "event_type": "acquired",
+    "event_date": "2020-01-14",
+    "title": "Kraken acquired Bit Trade",
+    "description": "Kraken acquired Bit Trade, described as Australia's longest-running crypto service provider, and brought the Bit Trade team into Kraken Australia.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "inactive",
+    "source_count": 5,
+    "sort_order": 2,
+    "notes": "Used as the independent BitTrade Australia acquisition marker."
   }
 ]
