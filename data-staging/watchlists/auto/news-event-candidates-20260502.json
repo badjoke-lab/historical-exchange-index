@@ -1,0 +1,77 @@
+{
+  "watchlist_type": "auto_news_event_candidates",
+  "created_at": "2026-05-02T11:07:12.653Z",
+  "purpose": "Tightly filtered auto-generated news/regulatory/event candidate output. Not canonical. Requires review before staging/canonical append.",
+  "news_summary": {
+    "enabled": true,
+    "queries": 20,
+    "items": 1424
+  },
+  "regulatory_summary": {
+    "enabled": true,
+    "authorities_configured": 7,
+    "query_templates": 5,
+    "queries": 25,
+    "items": 1944,
+    "raw_candidates": 3
+  },
+  "filtering_summary": {
+    "raw_candidates": 120,
+    "retained_candidates": 1,
+    "dropped_candidates": 119,
+    "resolved_candidate_names": 11
+  },
+  "candidates": [
+    {
+      "candidate_id": "news_20260502_034",
+      "canonical_name": "Tapp",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "Aptos-Based DEX Tapp Exchange to Shut Down, Urges Users to Withdraw by May 31 - bloomingbit",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1WTkhFMFAwVzZRSUdCNG9pLXlMOGlHay1yNDRZOVNFa0J6ZHhNTU1JelhpUXp6ZF9mdm0wRjVXNUVMaFd5WS1FLWx1eGZWVUNSWC1PWg?oc=5",
+        "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNWUkxOEZTZTVtYTEtYXc2eG5SS2JSLURuZmdZTDMwSU5ESTgyanJ3NEZpTkdUbU54RU1fM3hoMEdKTnhVNmh6S3hITGFYODdRWHExMEhxMy1EenV2dE5VdVJZZUFkMHBjMjUwOFlLVTNoa29ENFF1bEUxbURlQ2RiZExGTHkyeU5BcGptV1ROZ0ZZV1Rxd0pYWVNYbE8wSHMweDA2am5oMHl2ZGxIUWJyTWl0ak9GMWpyMHpjOTJLTzFySDktT1hkWExjTGhiYk5CQjBR?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "bloomingbit, WEEX",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "shutdown"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 4,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "multiple_source_urls"
+      ]
+    }
+  ],
+  "summary": {
+    "total": 1,
+    "missing_in_hei": 1,
+    "matched_existing": 0,
+    "regulatory_candidates": 0,
+    "A": 1,
+    "B": 0,
+    "C": 0
+  }
+}
