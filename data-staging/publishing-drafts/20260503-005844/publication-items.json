@@ -1,0 +1,24 @@
+[
+  {
+    "publication_item_id": "pubitem_20260503_001",
+    "source_monitor": "news-and-event-watch",
+    "source_type": "candidate",
+    "source_ids": [
+      "news_20260503_032"
+    ],
+    "entity_key": "tapp",
+    "publishability": "review_needed",
+    "recommended_type": "weekly_watch",
+    "title": "Aptos-Based DEX Tapp Exchange to Shut Down, Urges Users to Withdraw by May 31 - bloomingbit",
+    "safe_summary": "Likely HEI-relevant shutdown / wind-down candidate.",
+    "public_status_label": "News/event monitoring signal",
+    "source_urls": [
+      "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1WTkhFMFAwVzZRSUdCNG9pLXlMOGlHay1yNDRZOVNFa0J6ZHhNTU1JelhpUXp6ZF9mdm0wRjVXNUVMaFd5WS1FLWx1eGZWVUNSWC1PWg?oc=5",
+      "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNWUkxOEZTZTVtYTEtYXc2eG5SS2JSLURuZmdZTDMwSU5ESTgyanJ3NEZpTkdUbU54RU1fM3hoMEdKTnhVNmh6S3hITGFYODdRWHExMEhxMy1EenV2dE5VdVJZZUFkMHBjMjUwOFlLVTNoa29ENFF1bEUxbURlQ2RiZExGTHkyeU5BcGptV1ROZ0ZZV1Rxd0pYWVNYbE8wSHMweDA2am5oMHl2ZGxIUWJyTWl0ak9GMWpyMHpjOTJLTzFySDktT1hkWExjTGhiYk5CQjBR?oc=5"
+    ],
+    "safety_notes": [
+      "News/event item should not be treated as a final HEI classification before review."
+    ],
+    "recommended_action": "review_and_stage_public_quality_record"
+  }
+]
