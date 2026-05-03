@@ -282,6 +282,30 @@ function dedupePublicationItems(items) {
   return out;
 }
 
+function compactItem(item) {
+  return {
+    publication_item_id: item.publication_item_id,
+    source_monitor: item.source_monitor,
+    source_type: item.source_type,
+    source_ids: item.source_ids,
+    entity_key: item.entity_key,
+    publishability: item.publishability,
+    recommended_type: item.recommended_type,
+    title: item.title,
+    safe_summary: item.safe_summary,
+    public_status_label: item.public_status_label,
+    source_urls: item.source_urls,
+    safety_notes: item.safety_notes,
+    recommended_action: item.recommended_action,
+  };
+}
+
+function compactItemsForOutput(items) {
+  return sortPublicationItems(items)
+    .filter((item) => item.publishability !== 'internal_only')
+    .map(compactItem);
+}
+
 function toSafeSummary(value) {
   const text = String(value || '').replace(/\s+/g, ' ').trim();
   if (!text) return 'Monitoring item requires review.';
@@ -476,9 +500,10 @@ function buildXPostDrafts({ dateLabel, decision, items }) {
 }
 
 function buildSourceMap({ runId, items }) {
+  const externalItems = sortPublicationItems(items).filter((item) => item.publishability !== 'internal_only');
   return {
     run_id: runId,
-    items: items.map((item) => ({
+    items: externalItems.map((item) => ({
       publication_item_id: item.publication_item_id,
       draft_files: [
         'updates-article-draft.md',
@@ -576,7 +601,7 @@ function collectPublicationItems(monitorReports) {
 async function writeOutputs(outputDir, outputs) {
   await fs.mkdir(outputDir, { recursive: true });
   await fs.writeFile(path.join(outputDir, 'publication-decision.json'), `${JSON.stringify(outputs.decision, null, 2)}\n`);
-  await fs.writeFile(path.join(outputDir, 'publication-items.json'), `${JSON.stringify(outputs.items, null, 2)}\n`);
+  await fs.writeFile(path.join(outputDir, 'publication-items.json'), `${JSON.stringify(outputs.publicationItems, null, 2)}\n`);
   await fs.writeFile(path.join(outputDir, 'source-map.json'), `${JSON.stringify(outputs.sourceMap, null, 2)}\n`);
   await fs.writeFile(path.join(outputDir, 'internal-review.md'), outputs.internalReview);
   await fs.writeFile(path.join(outputDir, 'homepage-headliner.md'), outputs.homepageHeadliner);
@@ -593,6 +618,7 @@ async function main() {
   const dateLabel = generatedAt.slice(0, 10);
   const outputDir = path.join(OUTPUT_ROOT, runId);
   const items = collectPublicationItems(monitorReports);
+  const publicationItems = compactItemsForOutput(items);
   const decision = buildDecision({
     runId,
     monitoringDir,
@@ -603,7 +629,7 @@ async function main() {
 
   const outputs = {
     decision,
-    items,
+    publicationItems,
     sourceMap: buildSourceMap({ runId, items }),
     internalReview: buildInternalReview({ dateLabel, decision, items }),
     homepageHeadliner: buildHomepageHeadliner({ dateLabel, decision, items }),
