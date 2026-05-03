@@ -101,8 +101,22 @@ function normalizeMonitoringDir(input) {
   return input.replace(/\/$/, '');
 }
 
+function normalizeKey(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
 function getEntityKey(source) {
-  return String(source.canonical_name || source.affected_entity || source.title || source.headline || source.id || '').toLowerCase();
+  const canonicalName = source.canonical_name || source.affected_entity;
+  if (canonicalName) return normalizeKey(canonicalName);
+
+  const title = String(source.title || source.headline || source.id || '');
+  const newsCandidateMatch = title.match(/^News\/event candidate:\s*(.+)$/i);
+  if (newsCandidateMatch) return normalizeKey(newsCandidateMatch[1]);
+
+  return normalizeKey(title);
 }
 
 function shouldKeepExternalMotherlistItem(source) {
@@ -236,6 +250,7 @@ function applyPublishabilityRules(item, source) {
 
 function publicationPriority(item, source) {
   if (item.publishability === 'publishable') return 0;
+  if (item.source_monitor === 'news-and-event-watch' && item.source_type === 'candidate') return 4;
   if (item.source_monitor === 'news-and-event-watch' && item.candidate_class === 'A') return 5;
   if (item.source_monitor === 'news-and-event-watch') return 10;
   if (item.candidate_class === 'A') return 20;
