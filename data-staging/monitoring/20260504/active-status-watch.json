@@ -1,0 +1,45 @@
+{
+  "monitor": "active-status-watch",
+  "status": "ok",
+  "started_at": "2026-05-04T05:55:19.511Z",
+  "finished_at": "2026-05-04T05:55:19.517Z",
+  "findings": [
+    {
+      "finding_id": "finding_1777874119517_gft05q",
+      "monitor": "active-status-watch",
+      "severity": "low",
+      "category": "domain_watch_disabled",
+      "title": "Official site/domain checks are disabled",
+      "summary": "Set HEI_MONITORING_ENABLE_DOMAIN_CHECKS=1 to enable active-side official URL checks.",
+      "affected_entity": null,
+      "recommended_action": "enable_domain_checks_when_ready_for_scheduled_external_checks",
+      "source_urls": [],
+      "confidence": "medium",
+      "dedupe_key": "active-status-watch:domain_checks_disabled",
+      "first_seen_at": "2026-05-02T11:07:12.682Z",
+      "last_seen_at": "2026-05-04T05:55:19.535Z",
+      "repeat_count": 2,
+      "is_new": false,
+      "is_repeated": true,
+      "suppressed": true,
+      "noise_control": "suppressed_repeated_backlog"
+    }
+  ],
+  "candidates": [],
+  "errors": [],
+  "summary": {
+    "findings_count": 1,
+    "visible_findings_count": 1,
+    "candidate_count": 0,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 1
+  },
+  "active_status_summary": {
+    "enabled": false,
+    "active_side_entities_with_urls": 130,
+    "checked": 0
+  }
+}
