@@ -6285,5 +6285,31 @@
     "confidence": "high",
     "last_verified_at": "2026-05-09",
     "notes": "HEI uses limited rather than dead because BitForex's own current notice says withdrawal processing resumed after July 24, 2024, while other reporting says trading and deposits remain suspended and all services are to cease after withdrawals. death_reason is null because this is not classified as a terminal dead-side record yet."
+  },
+  {
+    "id": "hei_ex_000289",
+    "slug": "bkex",
+    "canonical_name": "BKEX",
+    "aliases": [
+      "BKEX Global",
+      "BKEX Exchange",
+      "BKEX.com"
+    ],
+    "type": "cex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": "2018-06-01",
+    "death_date": null,
+    "country_or_origin": "British Virgin Islands",
+    "summary": "British Virgin Islands-linked centralized cryptocurrency exchange launched around June 2018. BKEX suspended withdrawals on 2023-05-29, citing cooperation with a police investigation after some platform user funds were allegedly involved in money laundering. Public market trackers now list BKEX as untracked, and normal exchange operations have not been treated as restored.",
+    "official_url_original": "https://www.bkex.com/",
+    "official_domain_original": "bkex.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.bkex.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-09",
+    "notes": "HEI uses limited rather than dead because the available sources show withdrawal suspension and apparent non-restoration of normal service, but do not provide a primary liquidation, bankruptcy, or formal permanent-closure notice. death_reason remains null until a terminal closure classification is better supported."
   }
 ]
