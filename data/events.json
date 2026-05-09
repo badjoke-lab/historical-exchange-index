@@ -5588,5 +5588,61 @@
     "source_count": 3,
     "sort_order": 3,
     "notes": "Used as the terminal independent-brand marker for QRYPTOS."
+  },
+  {
+    "id": "hei_ev_000514",
+    "exchange_id": "hei_ex_000288",
+    "event_type": "launched",
+    "event_date": "2017-01-01",
+    "title": "BitForex founded / launched",
+    "description": "Exchange tracker and company materials describe BitForex as a centralized exchange founded around 2017 and active by 2018.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2017-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000515",
+    "exchange_id": "hei_ex_000288",
+    "event_type": "withdrawals_halted",
+    "event_date": "2024-02-23",
+    "title": "BitForex halted withdrawals and became inaccessible",
+    "description": "BitForex users were unable to withdraw or access the platform after large hot-wallet outflows and a period of no communication from the exchange.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Used as the operational failure marker, not as a final death marker."
+  },
+  {
+    "id": "hei_ev_000516",
+    "exchange_id": "hei_ex_000288",
+    "event_type": "regulatory_action",
+    "event_date": "2024-03-04",
+    "title": "Hong Kong SFC warned public about BitForex",
+    "description": "Hong Kong's Securities and Futures Commission warned the public about suspected virtual asset fraud involving BitForex and placed BitForex on its Suspicious Virtual Asset Trading Platforms Alert List.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 3,
+    "notes": "Regulatory warning marker. SFC said BitForex was not licensed and investors were prevented from accessing accounts and withdrawing assets."
+  },
+  {
+    "id": "hei_ev_000517",
+    "exchange_id": "hei_ex_000288",
+    "event_type": "other",
+    "event_date": "2024-07-24",
+    "title": "BitForex reopened for withdrawal processing only",
+    "description": "BitForex said it would reopen for withdrawal applications after a five-month outage, while trading, deposits, and other services remained unavailable or subject to closure.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 4,
+    "notes": "Used to justify limited status instead of dead. This does not establish normal exchange operation."
   }
 ]
