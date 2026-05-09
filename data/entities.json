@@ -6208,5 +6208,30 @@
     "confidence": "high",
     "last_verified_at": "2026-05-02",
     "notes": "HEI models BitTrade Australia as acquired because Kraken acquired the Australian crypto service provider on 2020-01-14. Later regulatory materials refer to Bit Trade Pty Ltd as the operator/provider of Kraken services in Australia, so this is not a dead exchange record; the terminal date marks the end of the independent Bit Trade exchange/service identity."
+  },
+  {
+    "id": "hei_ex_000286",
+    "slug": "urdubit",
+    "canonical_name": "Urdubit",
+    "aliases": [
+      "Urdubit Bitcoin Exchange",
+      "Urdubit.com"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2014-10-11",
+    "death_date": "2018-04-07",
+    "country_or_origin": "Pakistan",
+    "summary": "Pakistan-based Bitcoin exchange launched in 2014 as one of the country's first local Bitcoin exchange platforms. Urdubit announced it would shut down after the State Bank of Pakistan issued an April 2018 circular barring banks and payment providers from facilitating virtual-currency transactions.",
+    "official_url_original": "https://urdubit.com/",
+    "official_domain_original": "urdubit.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://urdubit.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-03",
+    "notes": "HEI uses regulation as the primary death_reason because Urdubit announced closure immediately after the State Bank of Pakistan's April 2018 prohibition on banks and payment providers facilitating virtual-currency transactions. Launch date follows CoinDesk's 2014-10-11 launch report."
   }
 ]

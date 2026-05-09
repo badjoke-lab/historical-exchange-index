@@ -5504,5 +5504,47 @@
     "source_count": 5,
     "sort_order": 2,
     "notes": "Used as the independent BitTrade Australia acquisition marker."
+  },
+  {
+    "id": "hei_ev_000508",
+    "exchange_id": "hei_ex_000286",
+    "event_type": "launched",
+    "event_date": "2014-10-11",
+    "title": "Urdubit launched as Pakistan's first Bitcoin exchange",
+    "description": "Urdubit launched in October 2014 as a Pakistan-based Bitcoin exchange using BlinkTrade infrastructure.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Uses the CoinDesk launch report date as the launch marker."
+  },
+  {
+    "id": "hei_ev_000509",
+    "exchange_id": "hei_ex_000286",
+    "event_type": "regulatory_action",
+    "event_date": "2018-04-06",
+    "title": "State Bank of Pakistan prohibited banks from facilitating virtual-currency transactions",
+    "description": "The State Bank of Pakistan issued BPRD Circular No. 03 of 2018, advising banks and payment providers to refrain from processing, using, trading, holding, transferring value, promoting, investing in, or facilitating virtual currencies / tokens.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "Regulatory trigger for Urdubit's closure."
+  },
+  {
+    "id": "hei_ev_000510",
+    "exchange_id": "hei_ex_000286",
+    "event_type": "shutdown_effective",
+    "event_date": "2018-04-07",
+    "title": "Urdubit announced shutdown after SBP circular",
+    "description": "Urdubit announced it would close following the State Bank of Pakistan's stance on virtual currencies and urged customers to withdraw funds.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 3,
+    "notes": "Used as the terminal exchange shutdown marker. Some reports mention withdrawal windows continuing around 2018-04-08."
   }
 ]
