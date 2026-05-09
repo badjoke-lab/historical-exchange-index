@@ -5672,5 +5672,47 @@
     "source_count": 5,
     "sort_order": 2,
     "notes": "Used as the operational restriction marker. This is not classified as a final death event because no primary formal closure or liquidation notice is included."
+  },
+  {
+    "id": "hei_ev_000520",
+    "exchange_id": "hei_ex_000290",
+    "event_type": "launched",
+    "event_date": "2013-01-01",
+    "title": "ZB.com platform lineage launched",
+    "description": "Market-tracker references describe ZB Group's flagship ZB.com platform lineage as launching in early 2013, while other trackers describe the modern ZB exchange as established in 2017.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Uses 2013-01-01 for the platform-lineage marker. Some sources instead describe the modern ZB exchange as established in 2017."
+  },
+  {
+    "id": "hei_ev_000521",
+    "exchange_id": "hei_ex_000290",
+    "event_type": "withdrawals_halted",
+    "event_date": "2022-08-02",
+    "title": "ZB.com suspended deposits and withdrawals",
+    "description": "ZB.com announced that deposit and withdrawal services were suspended, citing temporary maintenance / core-application failure; market trackers continued to display this suspension notice.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the operational restriction marker. Not classified as a final death event."
+  },
+  {
+    "id": "hei_ev_000522",
+    "exchange_id": "hei_ex_000290",
+    "event_type": "hack",
+    "event_date": "2022-08-04",
+    "title": "Suspected ZB.com hot-wallet exploit reported",
+    "description": "Media reports and blockchain-security monitoring described a suspected ZB.com hot-wallet exploit involving roughly USD 4.8-5 million in token outflows shortly after withdrawals were suspended.",
+    "confidence": "medium",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 3,
+    "notes": "Recorded as suspected / reported exploit context. The exchange did not provide a clear public confirmation in the cited reports."
   }
 ]
