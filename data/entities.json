@@ -6260,5 +6260,30 @@
     "confidence": "high",
     "last_verified_at": "2026-05-09",
     "notes": "HEI uses rebranded because QRYPTOS was not an insolvency or hack shutdown; it was merged/relaunched into Liquid together with QUOINEX. A future Liquid/Liquid by Quoine entity can be linked as successor_id once present in the canonical dataset."
+  },
+  {
+    "id": "hei_ex_000288",
+    "slug": "bitforex",
+    "canonical_name": "BitForex",
+    "aliases": [
+      "BitForex Exchange",
+      "BitForex.com"
+    ],
+    "type": "cex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": "2017-01-01",
+    "death_date": null,
+    "country_or_origin": "Hong Kong",
+    "summary": "Hong Kong-linked centralized cryptocurrency exchange founded around 2017. BitForex halted withdrawals and became inaccessible in February 2024 after large wallet outflows and alleged police detention of team members. Hong Kong's SFC warned the public about suspected virtual asset fraud involving BitForex in March 2024. BitForex later said it would reopen only for withdrawals, with trading and deposits remaining unavailable.",
+    "official_url_original": "https://www.bitforex.com/",
+    "official_domain_original": "bitforex.com",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitforex.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-09",
+    "notes": "HEI uses limited rather than dead because BitForex's own current notice says withdrawal processing resumed after July 24, 2024, while other reporting says trading and deposits remain suspended and all services are to cease after withdrawals. death_reason is null because this is not classified as a terminal dead-side record yet."
   }
 ]
