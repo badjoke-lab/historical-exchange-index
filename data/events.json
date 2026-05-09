@@ -5546,5 +5546,47 @@
     "source_count": 4,
     "sort_order": 3,
     "notes": "Used as the terminal exchange shutdown marker. Some reports mention withdrawal windows continuing around 2018-04-08."
+  },
+  {
+    "id": "hei_ev_000511",
+    "exchange_id": "hei_ex_000287",
+    "event_type": "launched",
+    "event_date": "2017-06-14",
+    "title": "QUOINE launched QRYPTOS",
+    "description": "QUOINE launched QRYPTOS as a fully digital cryptocurrency-only exchange and trading platform.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Uses QUOINE / PRNewswire launch announcement date."
+  },
+  {
+    "id": "hei_ev_000512",
+    "exchange_id": "hei_ex_000287",
+    "event_type": "other",
+    "event_date": "2018-05-06",
+    "title": "QUOINE announced ICO platform initially integrated with QRYPTOS before Liquid",
+    "description": "QUOINE announced that ICO Mission Control would initially be integrated within QRYPTOS before becoming part of the forthcoming Liquid platform.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "This is a transition-context marker showing QRYPTOS functionality moving toward the Liquid platform."
+  },
+  {
+    "id": "hei_ev_000513",
+    "exchange_id": "hei_ex_000287",
+    "event_type": "rebranded",
+    "event_date": "2018-09-05",
+    "title": "QRYPTOS merged / relaunched into Liquid",
+    "description": "QUOINE launched Liquid on 2018-09-05; Quoinex and Qryptos were put into maintenance mode shortly before launch and merged into the new Liquid platform.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "inactive",
+    "source_count": 3,
+    "sort_order": 3,
+    "notes": "Used as the terminal independent-brand marker for QRYPTOS."
   }
 ]
