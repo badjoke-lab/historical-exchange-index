@@ -5798,5 +5798,61 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "Used as a year-level terminal inactivity marker. This is not backed by a primary CoinFalcon shutdown notice, so death_reason remains unknown."
+  },
+  {
+    "id": "hei_ev_000529",
+    "exchange_id": "hei_ex_000294",
+    "event_type": "launched",
+    "event_date": "2017-01-01",
+    "title": "AgoraDesk / LocalMonero platform era began",
+    "description": "The official wind-down notice says the platform had operated for almost seven years before the May 2024 closure announcement, placing the platform's start around 2017.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2017-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000530",
+    "exchange_id": "hei_ex_000294",
+    "event_type": "other",
+    "event_date": "2024-05-07",
+    "title": "AgoraDesk announced wind-down",
+    "description": "AgoraDesk / LocalMonero announced that the platform would wind down after almost seven years of operation, disabling new signups and ad postings immediately.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Announcement / wind-down start marker."
+  },
+  {
+    "id": "hei_ev_000531",
+    "exchange_id": "hei_ex_000294",
+    "event_type": "other",
+    "event_date": "2024-05-14",
+    "title": "AgoraDesk disabled new trades",
+    "description": "The official wind-down schedule said new trades would be disabled on 2024-05-14, one week after the announcement.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 3,
+    "notes": "Trading-disable marker during the wind-down process."
+  },
+  {
+    "id": "hei_ev_000532",
+    "exchange_id": "hei_ex_000294",
+    "event_type": "shutdown_effective",
+    "event_date": "2024-11-07",
+    "title": "AgoraDesk / LocalMonero wind-down completed",
+    "description": "The official wind-down schedule said the website would be taken down after 2024-11-07 and that users should recover any remaining arbitration bond funds before that date.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 4,
+    "notes": "Used as the terminal shutdown marker."
   }
 ]
