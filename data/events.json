@@ -5742,5 +5742,33 @@
     "source_count": 5,
     "sort_order": 2,
     "notes": "Used as the terminal inactivity marker. This is not backed by a primary Allcoin shutdown notice, so death_reason remains unknown."
+  },
+  {
+    "id": "hei_ev_000525",
+    "exchange_id": "hei_ex_000292",
+    "event_type": "launched",
+    "event_date": "2017-01-01",
+    "title": "Neraex established",
+    "description": "Market-tracker sources describe Neraex as a Japan-registered centralized cryptocurrency exchange established in 2017.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2017-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000526",
+    "exchange_id": "hei_ex_000292",
+    "event_type": "shutdown_effective",
+    "event_date": "2020-03-17",
+    "title": "Neraex marked dead after apparent website takeover",
+    "description": "Cryptowisser marked Neraex dead after reporting that the exchange website appeared to have been hacked or taken over; CoinGecko later showed no available coins, trading pairs, or reported volume.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the terminal inactivity marker. This is not backed by a primary Neraex shutdown notice, so death_reason remains unknown."
   }
 ]

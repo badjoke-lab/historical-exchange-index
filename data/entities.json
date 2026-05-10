@@ -6365,5 +6365,33 @@
     "confidence": "medium",
     "last_verified_at": "2026-05-09",
     "notes": "HEI uses death_reason unknown because available public sources support inactive/dead status but do not establish a primary cause such as insolvency, hack, regulation, acquisition, or voluntary shutdown. The 2022-01-12 date follows Cryptowisser's dead-status update after failed access to the Allcoin website."
+  },
+  {
+    "id": "hei_ex_000292",
+    "slug": "neraex",
+    "canonical_name": "Neraex",
+    "aliases": [
+      "Neraex Exchange",
+      "Neraex.pro",
+      "Neraex.com",
+      "Neraex.net",
+      "Neraex.exchange"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2017-01-01",
+    "death_date": "2020-03-17",
+    "country_or_origin": "Japan",
+    "summary": "Japan-registered centralized cryptocurrency exchange established around 2017. Neraex later became inactive: CoinGecko shows zero coins, zero trading pairs, and zero reported 24h volume, while Cryptowisser marked the exchange dead after reporting that the exchange website appeared to have been hacked or taken over.",
+    "official_url_original": "https://neraex.pro/",
+    "official_domain_original": "neraex.pro",
+    "official_url_status": "repurposed",
+    "archived_url": "https://web.archive.org/web/*/https://neraex.pro/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-10",
+    "notes": "HEI uses death_reason unknown because the available public sources support dead / inactive status and website takeover, but do not establish a confirmed primary cause such as exchange insolvency, regulatory closure, acquisition, or a confirmed exchange-wallet hack. Current Neraex-branded domains should not be treated as evidence of continuity of the original exchange without further verification."
   }
 ]
