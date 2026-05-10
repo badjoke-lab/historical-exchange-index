@@ -6338,5 +6338,32 @@
     "confidence": "medium",
     "last_verified_at": "2026-05-09",
     "notes": "HEI uses limited rather than dead because the available sources support deposit/withdrawal suspension, suspected exploit, and apparent non-restoration of normal market activity, but do not provide a primary formal liquidation or permanent-closure notice. death_reason remains null until a terminal closure classification is better supported."
+  },
+  {
+    "id": "hei_ex_000291",
+    "slug": "allcoin",
+    "canonical_name": "Allcoin",
+    "aliases": [
+      "AllCoin",
+      "AllCoin Exchange",
+      "Allcoin.com",
+      "Cascadia Fintech Allcoin"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2016-04-01",
+    "death_date": "2022-01-12",
+    "country_or_origin": "Canada",
+    "summary": "Canada-registered centralized cryptocurrency exchange associated with Cascadia Fintech. Allcoin launched around 2016 and later became inactive: market trackers show zero coins, zero trading pairs, or untracked volume, while exchange-review and company-profile sources mark the platform closed / dead after the website became inaccessible.",
+    "official_url_original": "https://www.allcoin.com/",
+    "official_domain_original": "allcoin.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.allcoin.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-09",
+    "notes": "HEI uses death_reason unknown because available public sources support inactive/dead status but do not establish a primary cause such as insolvency, hack, regulation, acquisition, or voluntary shutdown. The 2022-01-12 date follows Cryptowisser's dead-status update after failed access to the Allcoin website."
   }
 ]

@@ -5714,5 +5714,33 @@
     "source_count": 2,
     "sort_order": 3,
     "notes": "Recorded as suspected / reported exploit context. The exchange did not provide a clear public confirmation in the cited reports."
+  },
+  {
+    "id": "hei_ev_000523",
+    "exchange_id": "hei_ex_000291",
+    "event_type": "launched",
+    "event_date": "2016-04-01",
+    "title": "Allcoin launched",
+    "description": "Market trackers and exchange-profile sources describe Allcoin as a Canada-registered centralized exchange launched around 2016.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Date is month-level because Coin360 describes Allcoin's platform as officially released in April 2016, while other trackers store 2016 year-level establishment."
+  },
+  {
+    "id": "hei_ev_000524",
+    "exchange_id": "hei_ex_000291",
+    "event_type": "shutdown_effective",
+    "event_date": "2022-01-12",
+    "title": "Allcoin marked inactive / closed by exchange trackers",
+    "description": "Exchange trackers and company-profile sources later marked Allcoin inactive, closed, or untracked, with zero coins / trading pairs and no reliable market activity.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 5,
+    "sort_order": 2,
+    "notes": "Used as the terminal inactivity marker. This is not backed by a primary Allcoin shutdown notice, so death_reason remains unknown."
   }
 ]
