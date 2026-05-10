@@ -6420,5 +6420,33 @@
     "confidence": "medium",
     "last_verified_at": "2026-05-10",
     "notes": "HEI uses death_reason unknown because available public sources support inactive / no-longer-operational status but do not establish a primary cause such as insolvency, hack, regulation, acquisition, or formal voluntary shutdown. The 2020-01-01 death_date is year-level and follows secondary sources describing operations as ceased from 2020."
+  },
+  {
+    "id": "hei_ex_000294",
+    "slug": "agoradesk",
+    "canonical_name": "AgoraDesk",
+    "aliases": [
+      "AgoraDesk.com",
+      "AgoraDesk Exchange",
+      "LocalMonero / AgoraDesk",
+      "LocalMonero",
+      "LocalMonero.co"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2017-01-01",
+    "death_date": "2024-11-07",
+    "country_or_origin": "Unknown",
+    "summary": "Peer-to-peer OTC cryptocurrency exchange platform associated with the LocalMonero team. AgoraDesk supported no-KYC P2P Bitcoin trading, while LocalMonero focused on Monero. In May 2024, the team announced an orderly wind-down after almost seven years of operation: new signups and ads were disabled immediately, new trades were disabled on 2024-05-14, and the website was to be taken down after 2024-11-07.",
+    "official_url_original": "https://agoradesk.com/",
+    "official_domain_original": "agoradesk.com",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://agoradesk.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-10",
+    "notes": "HEI uses voluntary_shutdown because the official AgoraDesk / LocalMonero wind-down notice describes an orderly closure due to internal and external factors, not insolvency, hack, acquisition, rebrand, or a specific regulatory enforcement action. AgoraDesk is treated as a centralized P2P exchange-style marketplace rather than a DEX."
   }
 ]
