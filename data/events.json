@@ -5770,5 +5770,33 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "Used as the terminal inactivity marker. This is not backed by a primary Neraex shutdown notice, so death_reason remains unknown."
+  },
+  {
+    "id": "hei_ev_000527",
+    "exchange_id": "hei_ex_000293",
+    "event_type": "launched",
+    "event_date": "2017-05-28",
+    "title": "CoinFalcon launched",
+    "description": "Exchange-profile sources describe CoinFalcon as a UK-based centralized cryptocurrency exchange launched in May 2017.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Uses BitDegree's 2017-05-28 launch date; other sources give May 2017 or 2017 year-level."
+  },
+  {
+    "id": "hei_ev_000528",
+    "exchange_id": "hei_ex_000293",
+    "event_type": "shutdown_effective",
+    "event_date": "2020-01-01",
+    "title": "CoinFalcon became inactive / no longer operational",
+    "description": "Exchange trackers and exchange-profile sources later marked CoinFalcon inactive, untracked, or no longer operational, with no reliable active market data.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as a year-level terminal inactivity marker. This is not backed by a primary CoinFalcon shutdown notice, so death_reason remains unknown."
   }
 ]
