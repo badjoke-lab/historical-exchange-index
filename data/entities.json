@@ -6504,5 +6504,33 @@
     "confidence": "medium",
     "last_verified_at": "2026-05-10",
     "notes": "HEI uses death_reason unknown because available public sources support inactive/dead status and website inaccessibility, but do not establish a primary cause such as insolvency, hack, regulation, acquisition, or formal voluntary shutdown. country_or_origin is Unknown because secondary sources conflict."
+  },
+  {
+    "id": "hei_ex_000297",
+    "slug": "55-global-markets",
+    "canonical_name": "55 Global Markets",
+    "aliases": [
+      "55.com",
+      "55 Global",
+      "55 Exchange",
+      "55 Global Markets Exchange",
+      "55.com Exchange"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2019-01-09",
+    "death_date": "2020-05-01",
+    "country_or_origin": "Unknown",
+    "summary": "Centralized cryptocurrency and tokenized-asset trading platform associated with the 55.com domain. Contemporary coverage in January 2019 described 55.com as launching trading for premium brand product tokens. In May 2020, Cryptowisser reported that it could no longer access the exchange website and moved 55 Global Markets to its Exchange Graveyard. Later exchange trackers show no active market data, untracked listings, or website-unavailable status.",
+    "official_url_original": "https://www.55.com/",
+    "official_domain_original": "55.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.55.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-10",
+    "notes": "HEI uses death_reason unknown because available public sources support inactive/dead status and website inaccessibility, but do not establish a primary cause such as insolvency, hack, regulation, acquisition, or formal voluntary shutdown. country_or_origin is Unknown because secondary sources disagree or provide unclear jurisdictional signals."
   }
 ]

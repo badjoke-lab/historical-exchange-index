@@ -5910,5 +5910,33 @@
     "source_count": 5,
     "sort_order": 2,
     "notes": "Used as the terminal status marker. This is not backed by a primary AidosMarket shutdown notice, so death_reason remains unknown and confidence remains medium."
+  },
+  {
+    "id": "hei_ev_000537",
+    "exchange_id": "hei_ex_000297",
+    "event_type": "launched",
+    "event_date": "2019-01-09",
+    "title": "55.com launched premium brand product token trading",
+    "description": "A January 2019 press-release article described 55.com as launching trading of premium brand product tokens and positioning itself as an asset trading platform using blockchain technology and tokens.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Used as the public operating marker. The platform may have existed earlier, but this is the clearest dated public-trading marker in the current evidence set."
+  },
+  {
+    "id": "hei_ev_000538",
+    "exchange_id": "hei_ex_000297",
+    "event_type": "shutdown_effective",
+    "event_date": "2020-05-01",
+    "title": "55 Global Markets marked dead after website became inaccessible",
+    "description": "Cryptowisser reported on 2020-05-01 that it could not access the 55 Global Markets website and, pending contrary information, marked the exchange as dead and moved it to the Exchange Graveyard. Other trackers later showed no current market data or website-unavailable status.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 5,
+    "sort_order": 2,
+    "notes": "Used as the terminal status marker. This is not backed by a primary 55 Global Markets shutdown notice, so death_reason remains unknown and confidence remains medium."
   }
 ]
