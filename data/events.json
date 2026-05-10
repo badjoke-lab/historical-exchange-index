@@ -5882,5 +5882,33 @@
     "source_count": 5,
     "sort_order": 2,
     "notes": "Used as the terminal BarterDEX lineage marker. The date is month-level from Komodo's July 2019 AtomicDEX beta launch."
+  },
+  {
+    "id": "hei_ev_000535",
+    "exchange_id": "hei_ex_000296",
+    "event_type": "launched",
+    "event_date": "2018-01-01",
+    "title": "AidosMarket launch era",
+    "description": "Secondary exchange-tracker sources describe AidosMarket as launched in or around January 2018.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Date is month-level. Stored as 2018-01-01 for schema consistency. Country/origin is not fixed because sources disagree."
+  },
+  {
+    "id": "hei_ev_000536",
+    "exchange_id": "hei_ex_000296",
+    "event_type": "shutdown_effective",
+    "event_date": "2024-09-18",
+    "title": "AidosMarket marked dead after website became inaccessible",
+    "description": "Cryptowisser reported that AidosMarket could not be accessed on 2024-09-18 and marked the exchange as dead; other trackers show inactive, untracked, or unavailable current exchange data.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 5,
+    "sort_order": 2,
+    "notes": "Used as the terminal status marker. This is not backed by a primary AidosMarket shutdown notice, so death_reason remains unknown and confidence remains medium."
   }
 ]
