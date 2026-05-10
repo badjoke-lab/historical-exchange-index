@@ -6393,5 +6393,32 @@
     "confidence": "medium",
     "last_verified_at": "2026-05-10",
     "notes": "HEI uses death_reason unknown because the available public sources support dead / inactive status and website takeover, but do not establish a confirmed primary cause such as exchange insolvency, regulatory closure, acquisition, or a confirmed exchange-wallet hack. Current Neraex-branded domains should not be treated as evidence of continuity of the original exchange without further verification."
+  },
+  {
+    "id": "hei_ex_000293",
+    "slug": "coinfalcon",
+    "canonical_name": "CoinFalcon",
+    "aliases": [
+      "Coin Falcon",
+      "CoinFalcon Exchange",
+      "CoinFalcon.com",
+      "Coin Falcon Digital Limited"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2017-05-28",
+    "death_date": "2020-01-01",
+    "country_or_origin": "United Kingdom",
+    "summary": "UK-linked centralized cryptocurrency exchange launched in May 2017. CoinFalcon later became inactive / non-operational: market trackers show untracked or unavailable trading data, while exchange-profile sources state that CoinFalcon ceased operations around 2020 or is no longer operational.",
+    "official_url_original": "https://coinfalcon.com/",
+    "official_domain_original": "coinfalcon.com",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://coinfalcon.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-10",
+    "notes": "HEI uses death_reason unknown because available public sources support inactive / no-longer-operational status but do not establish a primary cause such as insolvency, hack, regulation, acquisition, or formal voluntary shutdown. The 2020-01-01 death_date is year-level and follows secondary sources describing operations as ceased from 2020."
   }
 ]
