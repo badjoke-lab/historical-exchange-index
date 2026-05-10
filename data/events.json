@@ -5854,5 +5854,33 @@
     "source_count": 4,
     "sort_order": 4,
     "notes": "Used as the terminal shutdown marker."
+  },
+  {
+    "id": "hei_ev_000533",
+    "exchange_id": "hei_ex_000295",
+    "event_type": "launched",
+    "event_date": "2017-11-01",
+    "title": "BarterDEX released as Komodo atomic-swap GUI",
+    "description": "Komodo's roadmap describes a November 2017 release of the first GUI for atomic-swaps trading, enabling trustless peer-to-peer swaps; exchange-tracker sources describe BarterDEX as launched in 2017.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is month-level. Stored as 2017-11-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000534",
+    "exchange_id": "hei_ex_000295",
+    "event_type": "rebranded",
+    "event_date": "2019-07-01",
+    "title": "BarterDEX retired as Komodo shifted to AtomicDEX",
+    "description": "Komodo launched AtomicDEX beta in July 2019 as its third-generation decentralized exchange technology and described BarterDEX as the previous DEX that was officially retired.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 5,
+    "sort_order": 2,
+    "notes": "Used as the terminal BarterDEX lineage marker. The date is month-level from Komodo's July 2019 AtomicDEX beta launch."
   }
 ]
