@@ -6476,5 +6476,33 @@
     "confidence": "high",
     "last_verified_at": "2026-05-10",
     "notes": "HEI uses rebranded / rebrand because Komodo materials describe BarterDEX as the previous DEX and AtomicDEX as the third-generation successor, with BarterDEX officially retired and Komodo focusing development on AtomicDEX. AtomicDEX is not linked by successor_id because it is not yet a canonical HEI entity."
+  },
+  {
+    "id": "hei_ex_000296",
+    "slug": "aidosmarket",
+    "canonical_name": "AidosMarket",
+    "aliases": [
+      "Aidos Market",
+      "Aidosmarket",
+      "AidosMarket Exchange",
+      "Aidos Market Exchange",
+      "AidosMarket.com"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2018-01-01",
+    "death_date": "2024-09-18",
+    "country_or_origin": "Unknown",
+    "summary": "Centralized cryptocurrency exchange associated with Aidos Market and the ADK token ecosystem. Secondary exchange trackers describe AidosMarket as launched around 2018 and later inactive or untracked. Cryptowisser reported on 2024-09-18 that the AidosMarket website could not be accessed and marked the exchange as dead; other data aggregators list no current trading data or mark the platform inactive.",
+    "official_url_original": "https://aidosmarket.com/",
+    "official_domain_original": "aidosmarket.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://aidosmarket.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-10",
+    "notes": "HEI uses death_reason unknown because available public sources support inactive/dead status and website inaccessibility, but do not establish a primary cause such as insolvency, hack, regulation, acquisition, or formal voluntary shutdown. country_or_origin is Unknown because secondary sources conflict."
   }
 ]
