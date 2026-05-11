@@ -6731,5 +6731,34 @@
     "confidence": "medium",
     "last_verified_at": "2026-05-12",
     "notes": "HEI uses death_reason unknown because available sources support website failure / inactive status, but do not establish a formal shutdown cause such as hack, regulation, acquisition, insolvency, or rebrand."
+  },
+  {
+    "id": "hei_ex_000305",
+    "slug": "acdx-exchange",
+    "canonical_name": "ACDX Exchange",
+    "aliases": [
+      "ACDX",
+      "ACDX Derivatives Exchange",
+      "Advanced Crypto Derivatives Exchange",
+      "ACDX.io",
+      "trade.acdx.io",
+      "acdx.cash"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2020-09-29",
+    "death_date": "2022-10-08",
+    "country_or_origin": "Seychelles",
+    "summary": "Cryptocurrency derivatives exchange founded by former OKEx COO Andy Cheung. ACDX launched public beta on 2020-09-29 and offered futures, perpetuals, spread trading, and structured products. Cryptowisser later marked ACDX Exchange dead on 2022-10-08 after it could reach only the landing page, could not access other pages, and received user reports about inability to access funds. Other exchange trackers show ACDX as inactive, untracked, or with no current market data.",
+    "official_url_original": "https://trade.acdx.io/",
+    "official_domain_original": "acdx.io",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://trade.acdx.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-12",
+    "notes": "HEI uses death_reason unknown because available sources support inactive / inaccessible / MIA status, but do not establish a confirmed formal shutdown cause such as hack, regulation, acquisition, insolvency, or rebrand. country_or_origin follows the official launch announcement location signal; other sources also describe Hong Kong-related business context."
   }
 ]

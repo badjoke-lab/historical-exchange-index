@@ -6148,5 +6148,33 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "Used as the terminal marker. This is not backed by a primary shutdown notice, so death_reason remains unknown and confidence remains medium."
+  },
+  {
+    "id": "hei_ev_000554",
+    "exchange_id": "hei_ex_000305",
+    "event_type": "launched",
+    "event_date": "2020-09-29",
+    "title": "ACDX launched public beta",
+    "description": "ACDX announced the launch of its public beta on 2020-09-29 as a cryptocurrency derivatives exchange offering futures, perpetuals, spread trading, and structured products.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 4,
+    "sort_order": 1,
+    "notes": "Launch date follows ACDX's 2020-09-29 official launch announcement and supporting exchange-profile sources."
+  },
+  {
+    "id": "hei_ev_000555",
+    "exchange_id": "hei_ex_000305",
+    "event_type": "shutdown_effective",
+    "event_date": "2022-10-08",
+    "title": "ACDX Exchange marked dead after platform became inaccessible",
+    "description": "Cryptowisser reported on 2022-10-08 that ACDX Exchange reached only a landing page, that other pages could not be accessed, and that users reported inability to access funds. Cryptowisser moved ACDX to its Exchange Graveyard, while other trackers show the exchange as inactive or untracked.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the terminal marker. This is not backed by a primary shutdown notice, so death_reason remains unknown and confidence remains medium."
   }
 ]
