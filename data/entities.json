@@ -6789,5 +6789,32 @@
     "confidence": "high",
     "last_verified_at": "2026-05-12",
     "notes": "HEI uses status rebranded and death_reason rebrand because Alfacash states that ALFAcashier rebranded to alfa.cash in 2020, and Cryptowisser Exchange Graveyard lists AlfaCashier with a 2020-11-25 Rebranding marker. successor_id remains null because Alfacash is not yet a canonical HEI entity."
+  },
+  {
+    "id": "hei_ex_000307",
+    "slug": "aryana-exchange",
+    "canonical_name": "Aryana Exchange",
+    "aliases": [
+      "Aryana",
+      "Aryana Crypto Exchange",
+      "aryana.io",
+      "Aryana.io"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2020-07-28",
+    "death_date": "2023-03-23",
+    "country_or_origin": "United Kingdom",
+    "summary": "Centralized cryptocurrency exchange associated with aryana.io and focused on Middle Eastern markets. CoinMarketCap and BitDegree list Aryana as launched on 2020-07-28, while Cryptowisser describes Aryana Exchange as a UK-based exchange focused toward the Middle East. Cryptowisser later marked Aryana Exchange dead on 2023-03-23 after it could not access the exchange website; CoinMarketCap, CoinCarp, and BitDegree show untracked, inactive, or no current market data.",
+    "official_url_original": "https://www.aryana.io/",
+    "official_domain_original": "aryana.io",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.aryana.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-12",
+    "notes": "HEI uses death_reason unknown because available sources support inactive / inaccessible / untracked status, but do not establish a formal shutdown cause such as hack, regulation, acquisition, insolvency, or rebrand. country_or_origin follows Cryptowisser and BitDegree UK context; the exchange was focused on Middle Eastern markets."
   }
 ]
