@@ -6532,5 +6532,33 @@
     "confidence": "medium",
     "last_verified_at": "2026-05-10",
     "notes": "HEI uses death_reason unknown because available public sources support inactive/dead status and website inaccessibility, but do not establish a primary cause such as insolvency, hack, regulation, acquisition, or formal voluntary shutdown. country_or_origin is Unknown because secondary sources disagree or provide unclear jurisdictional signals."
+  },
+  {
+    "id": "hei_ex_000298",
+    "slug": "deex",
+    "canonical_name": "DEEX",
+    "aliases": [
+      "DEEX Exchange",
+      "Deex.Exchange",
+      "Deex",
+      "DEEX.exchange",
+      "deex.exchange"
+    ],
+    "type": "dex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2018-01-01",
+    "death_date": "2022-12-02",
+    "country_or_origin": "Russia",
+    "summary": "Decentralized cryptocurrency exchange associated with the deex.exchange domain and the DEEX token ecosystem. Exchange-tracker sources describe DEEX as established around 2018. CoinGecko later showed zero coins, zero trading pairs, and zero reported 24h volume, while Cryptowisser marked Deex.Exchange dead in December 2022 after stating that financial issues prevented the platform from becoming fully operational and resulted in closure.",
+    "official_url_original": "https://deex.exchange/",
+    "official_domain_original": "deex.exchange",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://deex.exchange/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-10",
+    "notes": "HEI uses death_reason unknown because available secondary sources mention financial issues and closure but do not establish a formal insolvency, hack, regulation, acquisition, rebrand, or voluntary_shutdown category. country_or_origin follows CoinGecko's Russia incorporation/address signal and should be treated as secondary-source based."
   }
 ]
