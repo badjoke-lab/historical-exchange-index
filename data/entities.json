@@ -6588,5 +6588,36 @@
     "confidence": "medium",
     "last_verified_at": "2026-05-11",
     "notes": "HEI uses status rebranded and death_reason rebrand because Cryptowisser says BayBit.io changed name to Vero Exchange around 2020-11-01 and lists BayBit.io in the Exchange Graveyard with reason Rebranding. successor_id remains null because Vero Exchange is not yet a canonical HEI entity."
+  },
+  {
+    "id": "hei_ex_000300",
+    "slug": "bcc-exchange-bitconnect-coin",
+    "canonical_name": "BCC Exchange (BitConnect Coin)",
+    "aliases": [
+      "BitConnect",
+      "Bitconnect",
+      "BitConnect Exchange",
+      "Bitconnect Exchange",
+      "BitConnect Coin",
+      "Bitconnect Coin",
+      "BCC Exchange",
+      "bitconnect.co"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2016-11-01",
+    "death_date": "2018-01-16",
+    "country_or_origin": "Unknown",
+    "summary": "Proprietary exchange operated by BitConnect for buying, trading, or selling BitConnect Coin (BCC). The FBI later stated that for most of BCC's existence, the only place to purchase, trade, or sell the cryptocurrency was through BitConnect's proprietary exchange. BitConnect shut down its lending and exchange platform in January 2018 after cease-and-desist actions from Texas and North Carolina securities regulators, causing the BCC market to collapse.",
+    "official_url_original": "https://bitconnect.co/",
+    "official_domain_original": "bitconnect.co",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://bitconnect.co/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-11",
+    "notes": "HEI treats this as an exchange entity because FBI materials state that BitConnect hosted a proprietary exchange for BCC and that shutting down the exchange eliminated the BCC market. death_reason is regulation because the January 2018 shutdown followed Texas and North Carolina cease-and-desist actions."
   }
 ]
