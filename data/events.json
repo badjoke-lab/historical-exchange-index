@@ -6204,5 +6204,33 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "Used as the terminal marker for the AlfaCashier identity. successor_id remains null because Alfacash is not yet a canonical HEI entity."
+  },
+  {
+    "id": "hei_ev_000558",
+    "exchange_id": "hei_ex_000307",
+    "event_type": "launched",
+    "event_date": "2020-07-28",
+    "title": "Aryana Exchange operating era",
+    "description": "CoinMarketCap and BitDegree list Aryana as launched on 2020-07-28. Cryptowisser describes Aryana Exchange as a United Kingdom-based centralized exchange focused toward the Middle East.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 4,
+    "sort_order": 1,
+    "notes": "Launch date follows CoinMarketCap and BitDegree's specific 2020-07-28 marker."
+  },
+  {
+    "id": "hei_ev_000559",
+    "exchange_id": "hei_ex_000307",
+    "event_type": "shutdown_effective",
+    "event_date": "2023-03-23",
+    "title": "Aryana Exchange marked dead after website became inaccessible",
+    "description": "Cryptowisser reported on 2023-03-23 that it was unable to access Aryana Exchange's website and marked the exchange dead. CoinMarketCap, CoinCarp, and BitDegree show untracked, inactive, or no current market data.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the terminal marker. This is not backed by a primary shutdown notice, so death_reason remains unknown and confidence remains medium."
   }
 ]
