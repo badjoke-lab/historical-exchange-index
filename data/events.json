@@ -5966,5 +5966,33 @@
     "source_count": 5,
     "sort_order": 2,
     "notes": "Used as the terminal status marker. This is not backed by a primary DEEX shutdown notice, so death_reason remains unknown and confidence remains medium."
+  },
+  {
+    "id": "hei_ev_000541",
+    "exchange_id": "hei_ex_000299",
+    "event_type": "launched",
+    "event_date": "2019-01-01",
+    "title": "BayBit.io operating era",
+    "description": "Cryptowisser describes BayBit.io, previously Bitcoinfive.com, as a United Kingdom-based Bitcoin-only exchange service supporting wire transfer and credit card deposits.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Launch date is year-level. Stored as 2019-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000542",
+    "exchange_id": "hei_ex_000299",
+    "event_type": "rebranded",
+    "event_date": "2020-11-01",
+    "title": "BayBit.io changed name to Vero Exchange",
+    "description": "Cryptowisser reported that around 2020-11-01 BayBit.io changed name to Vero Exchange, and its Exchange Graveyard lists BayBit.io with the reason Rebranding.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the terminal marker for the BayBit.io identity. Vero Exchange is not linked as successor_id because it is not yet a canonical HEI entity."
   }
 ]
