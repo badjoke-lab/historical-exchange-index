@@ -6816,5 +6816,33 @@
     "confidence": "medium",
     "last_verified_at": "2026-05-12",
     "notes": "HEI uses death_reason unknown because available sources support inactive / inaccessible / untracked status, but do not establish a formal shutdown cause such as hack, regulation, acquisition, insolvency, or rebrand. country_or_origin follows Cryptowisser and BitDegree UK context; the exchange was focused on Middle Eastern markets."
+  },
+  {
+    "id": "hei_ex_000308",
+    "slug": "binance-jex",
+    "canonical_name": "Binance JEX",
+    "aliases": [
+      "JEX",
+      "JEX Exchange",
+      "Binance JEX Exchange",
+      "JEX.com",
+      "jex.com"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2019-09-02",
+    "death_date": "2021-12-01",
+    "country_or_origin": "Seychelles",
+    "summary": "Crypto-asset derivatives and spot trading platform originally known as JEX and later operated as Binance JEX after Binance acquired it in September 2019. JEX offered futures, options, perpetual contracts, and spot trading. In October 2021, JEX announced that, under latest regulatory requirements, new mainland China registrations and KYC had stopped and the platform would officially cease operations on 2021-12-01. Cryptowisser later marked Binance JEX dead and moved it to the Exchange Graveyard.",
+    "official_url_original": "https://www.jex.com/",
+    "official_domain_original": "jex.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.jex.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-12",
+    "notes": "HEI uses death_reason regulation because the JEX suspension notice explicitly cites latest regulatory requirements and Cryptowisser attributes closure to regulatory pressure from Chinese authorities. country_or_origin follows CoinDesk/Nasdaq reporting that JEX was Seychelles-registered."
   }
 ]
