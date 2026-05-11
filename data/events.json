@@ -6022,5 +6022,47 @@
     "source_count": 5,
     "sort_order": 2,
     "notes": "Used as the terminal marker for the proprietary BCC exchange. The shutdown was directly tied to regulatory cease-and-desist actions."
+  },
+  {
+    "id": "hei_ev_000545",
+    "exchange_id": "hei_ex_000301",
+    "event_type": "launched",
+    "event_date": "2017-01-01",
+    "title": "BCM / Coin Meester operating era",
+    "description": "Kraken describes BCM, Coin Meester B.V., as founded in 2017 and as one of the Netherlands' oldest registered crypto brokers, offering buy, sell, and staking services for crypto assets.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Launch date is year-level. Stored as 2017-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000546",
+    "exchange_id": "hei_ex_000301",
+    "event_type": "acquired",
+    "event_date": "2024-09-24",
+    "title": "Kraken completed acquisition of BCM",
+    "description": "Kraken announced the closing of its acquisition of Coin Meester B.V. (BCM) on 2024-09-24 as part of its European expansion strategy.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "acquired",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Used as the acquisition completion marker."
+  },
+  {
+    "id": "hei_ev_000547",
+    "exchange_id": "hei_ex_000301",
+    "event_type": "shutdown_effective",
+    "event_date": "2025-01-07",
+    "title": "BCM independent user platform transitioned after Kraken acquisition",
+    "description": "BCM and Kraken support materials indicated that BCM clients would be migrated or directed to Kraken following the acquisition, with BCM account closure or transition communications centered on 2025-01-07.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 3,
+    "notes": "Used as the terminal marker for the independent BCM Exchange user platform. death_reason remains acquisition, not unknown."
   }
 ]
