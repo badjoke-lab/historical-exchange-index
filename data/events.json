@@ -6176,5 +6176,33 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "Used as the terminal marker. This is not backed by a primary shutdown notice, so death_reason remains unknown and confidence remains medium."
+  },
+  {
+    "id": "hei_ev_000556",
+    "exchange_id": "hei_ex_000306",
+    "event_type": "launched",
+    "event_date": "2012-05-01",
+    "title": "AlfaCashier operating era began",
+    "description": "Alfacash's own history describes the service as founded in May 2012 as an electronic currency exchange service, with Bitcoin support added in 2013 and later support for multiple cryptocurrencies.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 4,
+    "sort_order": 1,
+    "notes": "Launch date follows Alfacash's current history page, which states the service was founded in May 2012."
+  },
+  {
+    "id": "hei_ev_000557",
+    "exchange_id": "hei_ex_000306",
+    "event_type": "rebranded",
+    "event_date": "2020-11-25",
+    "title": "AlfaCashier rebranded to Alfacash",
+    "description": "Alfacash says ALFAcashier rebranded to alfa.cash in 2020, and Cryptowisser's Exchange Graveyard lists AlfaCashier with a 2020-11-25 Rebranding marker.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the terminal marker for the AlfaCashier identity. successor_id remains null because Alfacash is not yet a canonical HEI entity."
   }
 ]
