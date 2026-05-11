@@ -5938,5 +5938,33 @@
     "source_count": 5,
     "sort_order": 2,
     "notes": "Used as the terminal status marker. This is not backed by a primary 55 Global Markets shutdown notice, so death_reason remains unknown and confidence remains medium."
+  },
+  {
+    "id": "hei_ev_000539",
+    "exchange_id": "hei_ex_000298",
+    "event_type": "launched",
+    "event_date": "2018-01-01",
+    "title": "DEEX launch era",
+    "description": "CoinGecko and other exchange-tracker sources describe DEEX as a decentralized cryptocurrency exchange established around 2018.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2018-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000540",
+    "exchange_id": "hei_ex_000298",
+    "event_type": "shutdown_effective",
+    "event_date": "2022-12-02",
+    "title": "DEEX marked dead after closure report",
+    "description": "Cryptowisser reported on 2022-12-02 that DEEX had financial issues, did not manage to get services fully operational, and closed. Other trackers later showed no active market data or an offline website.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 5,
+    "sort_order": 2,
+    "notes": "Used as the terminal status marker. This is not backed by a primary DEEX shutdown notice, so death_reason remains unknown and confidence remains medium."
   }
 ]
