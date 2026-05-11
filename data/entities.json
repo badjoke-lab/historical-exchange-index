@@ -6703,5 +6703,33 @@
     "confidence": "medium",
     "last_verified_at": "2026-05-12",
     "notes": "HEI uses death_reason unknown because available sources support website failure / MIA status, but do not establish a formal shutdown cause such as hack, regulation, acquisition, insolvency, or rebrand. Type is stored as cex because the current entity schema does not have a dedicated crypto-shop category."
+  },
+  {
+    "id": "hei_ex_000304",
+    "slug": "6x",
+    "canonical_name": "6x",
+    "aliases": [
+      "6X",
+      "6x Exchange",
+      "6X Exchange",
+      "6x.com",
+      "6X Digital Asset Trading Platform"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2018-03-10",
+    "death_date": "2021-03-15",
+    "country_or_origin": "Singapore",
+    "summary": "Singapore-based digital asset trading platform associated with the 6x.com domain. Exchange-tracker and press sources describe 6X as a Singapore-registered cryptocurrency exchange launched around March 2018 and publicly listed on crypto data platforms in 2019. Cryptowisser later reported that it could not access the 6x Exchange website on 2021-03-15 and moved the exchange to its Exchange Graveyard; other trackers show untracked or no current market data.",
+    "official_url_original": "https://www.6x.com/",
+    "official_domain_original": "6x.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.6x.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-12",
+    "notes": "HEI uses death_reason unknown because available sources support website failure / inactive status, but do not establish a formal shutdown cause such as hack, regulation, acquisition, insolvency, or rebrand."
   }
 ]

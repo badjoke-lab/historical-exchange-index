@@ -6120,5 +6120,33 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "Used as the terminal marker. This is not backed by a primary shutdown notice, so death_reason remains unknown and confidence remains medium."
+  },
+  {
+    "id": "hei_ev_000552",
+    "exchange_id": "hei_ex_000304",
+    "event_type": "launched",
+    "event_date": "2018-03-10",
+    "title": "6x operating era",
+    "description": "CoinCarp describes 6x as a Singapore digital asset trading platform officially launched on 2018-03-10. 2019 press coverage also described 6X as a Singapore-based cryptocurrency exchange listed on crypto data platforms and licensed for offshore virtual currency exchange services through CEZA.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 4,
+    "sort_order": 1,
+    "notes": "Launch date follows CoinCarp's specific 2018-03-10 launch marker. Other 2019 sources are used as operating-era support."
+  },
+  {
+    "id": "hei_ev_000553",
+    "exchange_id": "hei_ex_000304",
+    "event_type": "shutdown_effective",
+    "event_date": "2021-03-15",
+    "title": "6x marked dead after website became inaccessible",
+    "description": "Cryptowisser reported that it could not access the 6x Exchange website on 2021-03-15 and marked the exchange dead in its Exchange Graveyard. Other trackers show the exchange as untracked or without current market data.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the terminal marker. This is not backed by a primary shutdown notice, so death_reason remains unknown and confidence remains medium."
   }
 ]
