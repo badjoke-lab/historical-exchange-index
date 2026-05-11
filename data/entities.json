@@ -6560,5 +6560,33 @@
     "confidence": "medium",
     "last_verified_at": "2026-05-10",
     "notes": "HEI uses death_reason unknown because available secondary sources mention financial issues and closure but do not establish a formal insolvency, hack, regulation, acquisition, rebrand, or voluntary_shutdown category. country_or_origin follows CoinGecko's Russia incorporation/address signal and should be treated as secondary-source based."
+  },
+  {
+    "id": "hei_ex_000299",
+    "slug": "baybit-io",
+    "canonical_name": "BayBit.io",
+    "aliases": [
+      "BayBit",
+      "BayBit Exchange",
+      "Bitcoinfive.com",
+      "Bitcoinfive",
+      "Vero Exchange predecessor"
+    ],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": "2019-01-01",
+    "death_date": "2020-11-01",
+    "country_or_origin": "United Kingdom",
+    "summary": "United Kingdom-based Bitcoin buying and selling platform formerly known as Bitcoinfive.com. Cryptowisser described BayBit.io as offering Bitcoin-only service via wire transfer and credit card, and later reported that around 2020-11-01 the exchange changed name to Vero Exchange. HEI treats the BayBit.io entity as rebranded rather than simply dead because the old BayBit.io identity was replaced by Vero Exchange.",
+    "official_url_original": "https://baybit.io/",
+    "official_domain_original": "baybit.io",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://baybit.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-11",
+    "notes": "HEI uses status rebranded and death_reason rebrand because Cryptowisser says BayBit.io changed name to Vero Exchange around 2020-11-01 and lists BayBit.io in the Exchange Graveyard with reason Rebranding. successor_id remains null because Vero Exchange is not yet a canonical HEI entity."
   }
 ]
