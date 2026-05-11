@@ -5994,5 +5994,33 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "Used as the terminal marker for the BayBit.io identity. Vero Exchange is not linked as successor_id because it is not yet a canonical HEI entity."
+  },
+  {
+    "id": "hei_ev_000543",
+    "exchange_id": "hei_ex_000300",
+    "event_type": "launched",
+    "event_date": "2016-11-01",
+    "title": "BitConnect BCC proprietary exchange operating era",
+    "description": "The FBI stated that BitConnect Coin was first released through an ICO in November 2016 and that, for most of BCC's existence, the only place to purchase, trade, or sell BCC was through BitConnect's proprietary exchange.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Launch date is month-level based on the FBI's November 2016 BCC release statement and exchange operating context."
+  },
+  {
+    "id": "hei_ev_000544",
+    "exchange_id": "hei_ex_000300",
+    "event_type": "shutdown_effective",
+    "event_date": "2018-01-16",
+    "title": "BitConnect shut down lending and exchange platform",
+    "description": "BitConnect shut down its lending and exchange platform in January 2018 after cease-and-desist actions from Texas and North Carolina securities regulators, causing the BCC market to collapse.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 5,
+    "sort_order": 2,
+    "notes": "Used as the terminal marker for the proprietary BCC exchange. The shutdown was directly tied to regulatory cease-and-desist actions."
   }
 ]
