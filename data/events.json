@@ -6092,5 +6092,33 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "Used as the terminal marker for the BITBOX identity. The successor is the existing BITFRONT entity."
+  },
+  {
+    "id": "hei_ev_000550",
+    "exchange_id": "hei_ex_000303",
+    "event_type": "launched",
+    "event_date": "2015-01-01",
+    "title": "247Exchange operating era",
+    "description": "F6S describes 247Exchange as a Bangkok, Thailand company founded in 2015 and offering fiat-to-digital-currency exchange services.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Launch date is year-level. Stored as 2015-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000551",
+    "exchange_id": "hei_ex_000303",
+    "event_type": "shutdown_effective",
+    "event_date": "2019-01-01",
+    "title": "247Exchange marked inactive / MIA",
+    "description": "Cryptowisser marked 247Exchange inactive, stating that the website no longer seemed to work and that the exchange appeared to have terminated its activities. Cryptowisser's Exchange Graveyard lists 247Exchange with a 2019-01-01 MIA marker, and CoinMarketCap lists the exchange as inactive and untracked.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the terminal marker. This is not backed by a primary shutdown notice, so death_reason remains unknown and confidence remains medium."
   }
 ]

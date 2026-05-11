@@ -6677,5 +6677,31 @@
     "confidence": "high",
     "last_verified_at": "2026-05-11",
     "notes": "HEI uses status rebranded and death_reason rebrand because Cryptowisser lists Bitbox in the Exchange Graveyard with reason Rebranding, and public exchange profiles describe BITFRONT as previously known as BITBOX. successor_id points to the existing BITFRONT record."
+  },
+  {
+    "id": "hei_ex_000303",
+    "slug": "247exchange",
+    "canonical_name": "247Exchange",
+    "aliases": [
+      "247 Exchange",
+      "247exchange.com",
+      "InterMoney Exchange"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2015-01-01",
+    "death_date": "2019-01-01",
+    "country_or_origin": "Thailand",
+    "summary": "Fiat-to-crypto buying service operated by InterMoney Exchange and associated with 247exchange.com. F6S describes 247Exchange as a Bangkok, Thailand company founded in 2015. Cryptowisser later marked the exchange inactive, saying the website no longer seemed to work and the exchange appeared to have terminated its activities; Cryptowisser's Exchange Graveyard lists 247Exchange with a 2019-01-01 MIA marker.",
+    "official_url_original": "https://www.247exchange.com/",
+    "official_domain_original": "247exchange.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.247exchange.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-12",
+    "notes": "HEI uses death_reason unknown because available sources support website failure / MIA status, but do not establish a formal shutdown cause such as hack, regulation, acquisition, insolvency, or rebrand. Type is stored as cex because the current entity schema does not have a dedicated crypto-shop category."
   }
 ]
