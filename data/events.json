@@ -6064,5 +6064,33 @@
     "source_count": 3,
     "sort_order": 3,
     "notes": "Used as the terminal marker for the independent BCM Exchange user platform. death_reason remains acquisition, not unknown."
+  },
+  {
+    "id": "hei_ev_000548",
+    "exchange_id": "hei_ex_000302",
+    "event_type": "launched",
+    "event_date": "2018-07-01",
+    "title": "LINE launched BITBOX operating era",
+    "description": "BITBOX launched around mid-2018 as LINE's Singapore-based global cryptocurrency exchange.",
+    "confidence": "high",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Launch date is month-level. Stored as 2018-07-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000549",
+    "exchange_id": "hei_ex_000302",
+    "event_type": "rebranded",
+    "event_date": "2020-02-28",
+    "title": "BITBOX replaced by BITFRONT",
+    "description": "In February 2020, LINE closed or replaced its Singapore BITBOX exchange and launched BITFRONT as a U.S.-based global platform.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the terminal marker for the BITBOX identity. The successor is the existing BITFRONT entity."
   }
 ]

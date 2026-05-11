@@ -6650,5 +6650,32 @@
     "confidence": "high",
     "last_verified_at": "2026-05-11",
     "notes": "HEI uses status acquired and death_reason acquisition because Kraken completed the BCM acquisition and BCM users were directed toward Kraken. successor_id remains null because Kraken is not currently linked as a successor entity in this record."
+  },
+  {
+    "id": "hei_ex_000302",
+    "slug": "bitbox",
+    "canonical_name": "Bitbox",
+    "aliases": [
+      "BITBOX",
+      "BITBOX Exchange",
+      "LINE BITBOX",
+      "bitbox.me"
+    ],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": "2018-07-01",
+    "death_date": "2020-02-28",
+    "country_or_origin": "Singapore",
+    "summary": "Singapore-based cryptocurrency exchange operated by LINE before the launch of BITFRONT. BITBOX launched around mid-2018 as LINE's global crypto-to-crypto exchange. In February 2020, LINE closed or replaced the Singapore BITBOX service and rolled out BITFRONT, a U.S.-based global platform. HEI treats Bitbox as rebranded with BITFRONT as successor.",
+    "official_url_original": "https://www.bitbox.me/",
+    "official_domain_original": "bitbox.me",
+    "official_url_status": "rebranded",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitbox.me/",
+    "predecessor_id": null,
+    "successor_id": "hei_ex_000128",
+    "confidence": "high",
+    "last_verified_at": "2026-05-11",
+    "notes": "HEI uses status rebranded and death_reason rebrand because Cryptowisser lists Bitbox in the Exchange Graveyard with reason Rebranding, and public exchange profiles describe BITFRONT as previously known as BITBOX. successor_id points to the existing BITFRONT record."
   }
 ]
