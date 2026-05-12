@@ -6274,5 +6274,33 @@
     "source_count": 3,
     "sort_order": 3,
     "notes": "Used as the terminal marker for the Binance JEX exchange entity."
+  },
+  {
+    "id": "hei_ev_000563",
+    "exchange_id": "hei_ex_000309",
+    "event_type": "launched",
+    "event_date": "2018-01-01",
+    "title": "Bingbon operating era",
+    "description": "BingX official support materials describe the platform's development since 2018, and third-party exchange profiles describe BingX as born from a rebranding of Bingbon.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 3,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2018-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000564",
+    "exchange_id": "hei_ex_000309",
+    "event_type": "rebranded",
+    "event_date": "2021-11-18",
+    "title": "Bingbon rebranded to BingX",
+    "description": "BingX official support materials announced the new BingX brand identity in November 2021, while Cryptowisser states that Bingbon rebranded into BingX and moved Bingbon to its inactive/graveyard classification.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "dead",
+    "source_count": 5,
+    "sort_order": 2,
+    "notes": "Used as the terminal marker for the Bingbon identity. Cryptowisser mentions an effective rebrand date of 2021-11-08; HEI uses 2021-11-18 because BingX official support and major press coverage identify that as the public rebrand date."
   }
 ]

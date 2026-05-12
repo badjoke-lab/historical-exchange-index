@@ -6844,5 +6844,31 @@
     "confidence": "high",
     "last_verified_at": "2026-05-12",
     "notes": "HEI uses death_reason regulation because the JEX suspension notice explicitly cites latest regulatory requirements and Cryptowisser attributes closure to regulatory pressure from Chinese authorities. country_or_origin follows CoinDesk/Nasdaq reporting that JEX was Seychelles-registered."
+  },
+  {
+    "id": "hei_ex_000309",
+    "slug": "bingbon",
+    "canonical_name": "Bingbon",
+    "aliases": [
+      "Bingbon Exchange",
+      "Bingbon.com",
+      "bingbon.com"
+    ],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": "2018-01-01",
+    "death_date": "2021-11-18",
+    "country_or_origin": "Singapore",
+    "summary": "Cryptocurrency social trading and derivatives platform that operated under the Bingbon brand before becoming BingX. BingX official support materials describe the platform's development since 2018 and announced a new brand identity in November 2021. Cryptowisser states that Bingbon rebranded into BingX, and BingX profiles describe the current exchange as born from a rebranding of Bingbon. HEI treats the Bingbon identity as rebranded, with the existing BingX record as successor.",
+    "official_url_original": "https://www.bingbon.com/",
+    "official_domain_original": "bingbon.com",
+    "official_url_status": "rebranded",
+    "archived_url": "https://web.archive.org/web/*/https://www.bingbon.com/",
+    "predecessor_id": null,
+    "successor_id": "hei_ex_000101",
+    "confidence": "high",
+    "last_verified_at": "2026-05-12",
+    "notes": "HEI uses status rebranded and death_reason rebrand because BingX official materials announced the new brand identity in November 2021 and Cryptowisser states that Bingbon rebranded into BingX. successor_id points to the existing BingX record."
   }
 ]
