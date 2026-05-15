@@ -6870,5 +6870,32 @@
     "confidence": "high",
     "last_verified_at": "2026-05-12",
     "notes": "HEI uses status rebranded and death_reason rebrand because BingX official materials announced the new brand identity in November 2021 and Cryptowisser states that Bingbon rebranded into BingX. successor_id points to the existing BingX record."
+  },
+  {
+    "id": "hei_ex_000310",
+    "slug": "anyswap",
+    "canonical_name": "Anyswap",
+    "aliases": [
+      "AnySwap",
+      "Anyswap Exchange",
+      "Anyswap DEX",
+      "anyswap.exchange"
+    ],
+    "type": "dex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": "2020-07-01",
+    "death_date": "2021-12-16",
+    "country_or_origin": "Singapore",
+    "summary": "Cross-chain DEX and bridge protocol originally known as Anyswap. Multichain's official rebrand announcement states that Anyswap was founded in July 2020, was originally positioned as a cross-chain DEX, removed the DEX function in early 2021, and officially rebranded as Multichain on 2021-12-16. CoinDesk and later Multichain materials also describe Multichain as formerly Anyswap. HEI treats the Anyswap identity as rebranded rather than simply dead.",
+    "official_url_original": "https://anyswap.exchange/",
+    "official_domain_original": "anyswap.exchange",
+    "official_url_status": "rebranded",
+    "archived_url": "https://web.archive.org/web/*/https://anyswap.exchange/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-12",
+    "notes": "HEI uses status rebranded and death_reason rebrand because Multichain's official announcement says Anyswap shall be known as Multichain from 2021-12-16. successor_id remains null because Multichain is not yet a canonical HEI entity. country_or_origin follows the Singapore dateline in official Multichain PR materials and should be treated as source-context based."
   }
 ]
