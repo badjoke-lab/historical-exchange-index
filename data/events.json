@@ -6372,5 +6372,47 @@
     "source_count": 3,
     "sort_order": 3,
     "notes": "Legal outcome supports scam_rug death_reason but is not the exchange's operational death date."
+  },
+  {
+    "id": "hei_ev_000570",
+    "exchange_id": "hei_ex_000312",
+    "event_type": "launched",
+    "event_date": "2019-01-01",
+    "title": "Txbit operating era began",
+    "description": "Txbit operated as a cryptocurrency exchange under the txbit.io domain before its 2023 shutdown announcement.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is approximate/year-level and stored as 2019-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000571",
+    "exchange_id": "hei_ex_000312",
+    "event_type": "shutdown_announced",
+    "event_date": "2023-08-14",
+    "title": "Txbit announced shutdown",
+    "description": "Txbit announced that it would close the exchange and instructed users to withdraw funds before the final shutdown date.",
+    "confidence": "high",
+    "impact_level": "high",
+    "event_status_effect": "limited",
+    "source_count": 2,
+    "sort_order": 2,
+    "notes": "Used as the operator-announced wind-down marker."
+  },
+  {
+    "id": "hei_ev_000572",
+    "exchange_id": "hei_ex_000312",
+    "event_type": "shutdown_effective",
+    "event_date": "2023-09-14",
+    "title": "Txbit shutdown took effect",
+    "description": "Txbit's announced final shutdown date passed, ending the exchange's operating identity.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 2,
+    "sort_order": 3,
+    "notes": "Used as the terminal status marker."
   }
 ]
