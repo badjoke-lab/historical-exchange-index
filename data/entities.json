@@ -6950,5 +6950,31 @@
     "confidence": "high",
     "last_verified_at": "2026-05-16",
     "notes": "Launch date is approximate/year-level and should be refined if stronger launch evidence is later added. Death date follows Txbit's announced 2023-09-14 shutdown schedule."
+  },
+  {
+    "id": "hei_ex_000313",
+    "slug": "coinflex",
+    "canonical_name": "CoinFLEX",
+    "aliases": [
+      "Coinflex",
+      "CoinFLEX Exchange",
+      "coinflex.com"
+    ],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": "2019-01-01",
+    "death_date": "2023-02-15",
+    "country_or_origin": "Seychelles",
+    "summary": "Cryptocurrency exchange that halted withdrawals in June 2022 during a liquidity dispute involving a large counterparty. CoinFLEX later became linked to the Open Exchange / OPNX transition, with OPNX positioned as a new venue connected to CoinFLEX leadership and creditor recovery plans. HEI treats CoinFLEX as a rebranded / superseded exchange identity with OPNX as the successor record, while retaining the 2022 withdrawal halt as the critical failure event.",
+    "official_url_original": "https://coinflex.com/",
+    "official_domain_original": "coinflex.com",
+    "official_url_status": "dead_or_redirected",
+    "archived_url": "https://web.archive.org/web/*/https://coinflex.com/",
+    "predecessor_id": null,
+    "successor_id": "hei_ex_000129",
+    "confidence": "medium",
+    "last_verified_at": "2026-05-16",
+    "notes": "CoinFLEX is added as a predecessor / superseded identity linked to existing OPNX record. Confidence is medium because public reporting supports the continuity, but the transition is not a simple clean exchange-name rebrand."
   }
 ]
