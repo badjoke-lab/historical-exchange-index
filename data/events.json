@@ -6414,5 +6414,47 @@
     "source_count": 2,
     "sort_order": 3,
     "notes": "Used as the terminal status marker."
+  },
+  {
+    "id": "hei_ev_000573",
+    "exchange_id": "hei_ex_000313",
+    "event_type": "launched",
+    "event_date": "2019-01-01",
+    "title": "CoinFLEX operating era began",
+    "description": "CoinFLEX operated as a centralized cryptocurrency exchange before its 2022 liquidity crisis and later OPNX-linked transition.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is approximate/year-level and should be refined if stronger launch evidence is later added."
+  },
+  {
+    "id": "hei_ev_000574",
+    "exchange_id": "hei_ex_000313",
+    "event_type": "withdrawals_halted",
+    "event_date": "2022-06-23",
+    "title": "CoinFLEX halted withdrawals",
+    "description": "CoinFLEX suspended customer withdrawals during a liquidity dispute involving a large counterparty later identified by CoinFLEX leadership as Roger Ver.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "limited",
+    "source_count": 3,
+    "sort_order": 2,
+    "notes": "Used as the critical operating failure marker."
+  },
+  {
+    "id": "hei_ev_000575",
+    "exchange_id": "hei_ex_000313",
+    "event_type": "rebranded",
+    "event_date": "2023-02-15",
+    "title": "CoinFLEX became linked to OPNX successor path",
+    "description": "Open Exchange / OPNX emerged as a new exchange venue connected to CoinFLEX leadership and creditor recovery plans. HEI links CoinFLEX to the existing OPNX successor record.",
+    "confidence": "medium",
+    "impact_level": "high",
+    "event_status_effect": "rebranded",
+    "source_count": 1,
+    "sort_order": 3,
+    "notes": "Used as the supersession marker. This is not treated as a clean corporate rename."
   }
 ]
