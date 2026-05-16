@@ -6897,5 +6897,32 @@
     "confidence": "high",
     "last_verified_at": "2026-05-12",
     "notes": "HEI uses status rebranded and death_reason rebrand because Multichain's official announcement says Anyswap shall be known as Multichain from 2021-12-16. successor_id remains null because Multichain is not yet a canonical HEI entity. country_or_origin follows the Singapore dateline in official Multichain PR materials and should be treated as source-context based."
+  },
+  {
+    "id": "hei_ex_000311",
+    "slug": "thodex",
+    "canonical_name": "Thodex",
+    "aliases": [
+      "Koineks",
+      "Koineks Teknoloji",
+      "Thodex Exchange",
+      "thodex.com"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "scam_rug",
+    "launch_date": "2017-01-01",
+    "death_date": "2021-04-21",
+    "country_or_origin": "Turkey",
+    "summary": "Turkey-based cryptocurrency exchange operated by Koineks Teknoloji under the Thodex brand. Thodex became one of Turkey's largest crypto exchanges before users lost access to accounts in April 2021 and founder Faruk Fatih Özer left Turkey. Turkish authorities investigated the platform, and Özer was later convicted and sentenced in 2023. HEI treats Thodex as a dead exchange with scam_rug as the death_reason because the terminal event was an alleged and later court-confirmed fraud-centered collapse rather than an ordinary voluntary shutdown.",
+    "official_url_original": "https://www.thodex.com/",
+    "official_domain_original": "thodex.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.thodex.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-16",
+    "notes": "Launch date is year-level and stored as 2017-01-01 for schema consistency. Death date uses 2021-04-21 because user access failure / temporary closure is reported around that date; wider collapse and investigation followed immediately after. death_reason uses scam_rug because the founder's disappearance and later fraud conviction establish a fraud-centered terminal collapse."
   }
 ]

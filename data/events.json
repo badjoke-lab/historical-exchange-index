@@ -6330,5 +6330,47 @@
     "source_count": 4,
     "sort_order": 2,
     "notes": "Used as the terminal marker for the Anyswap identity. Multichain is not yet canonical in HEI, so successor_id remains null."
+  },
+  {
+    "id": "hei_ev_000567",
+    "exchange_id": "hei_ex_000311",
+    "event_type": "launched",
+    "event_date": "2017-01-01",
+    "title": "Thodex operating era began",
+    "description": "Thodex, operated by Koineks Teknoloji and founded by Faruk Fatih Özer, operated as a Turkey-based cryptocurrency exchange from around 2017.",
+    "confidence": "medium",
+    "impact_level": "medium",
+    "event_status_effect": "active",
+    "source_count": 2,
+    "sort_order": 1,
+    "notes": "Date is year-level. Stored as 2017-01-01 for schema consistency."
+  },
+  {
+    "id": "hei_ev_000568",
+    "exchange_id": "hei_ex_000311",
+    "event_type": "trading_halted",
+    "event_date": "2021-04-21",
+    "title": "Thodex users lost access during platform collapse",
+    "description": "In April 2021, Thodex users could no longer access accounts after a maintenance / temporary closure notice, while founder Faruk Fatih Özer had left Turkey. The event became the terminal operating collapse of the exchange.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 4,
+    "sort_order": 2,
+    "notes": "Used as the practical shutdown marker. Sources describe the freeze, user access loss, and founder flight around 2021-04-20 to 2021-04-22."
+  },
+  {
+    "id": "hei_ev_000569",
+    "exchange_id": "hei_ex_000311",
+    "event_type": "lawsuit",
+    "event_date": "2023-09-07",
+    "title": "Thodex founder convicted in fraud case",
+    "description": "A Turkish court later convicted Thodex founder Faruk Fatih Özer and imposed a very long prison sentence in September 2023, confirming the fraud-centered nature of the exchange collapse.",
+    "confidence": "high",
+    "impact_level": "critical",
+    "event_status_effect": "dead",
+    "source_count": 3,
+    "sort_order": 3,
+    "notes": "Legal outcome supports scam_rug death_reason but is not the exchange's operational death date."
   }
 ]
