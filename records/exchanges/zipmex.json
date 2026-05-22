@@ -1,0 +1,99 @@
+{
+  "entity": {
+    "id": "hei_ex_000314",
+    "slug": "zipmex",
+    "canonical_name": "Zipmex",
+    "aliases": ["Zipmex Thailand", "Zipmex Co., Ltd."],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2020-07-20",
+    "death_date": "2024-05-28",
+    "country_or_origin": "Singapore / Thailand",
+    "summary": "Centralized digital asset exchange brand whose Thailand exchange and broker licenses were revoked in 2024 after regulatory suspension and unresolved operating issues.",
+    "official_url_original": "https://zipmex.com/",
+    "official_domain_original": "zipmex.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://zipmex.com/",
+    "confidence": "high",
+    "last_verified_at": "2026-05-22",
+    "notes": "Terminal marker follows Thailand license revocation."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000576",
+      "exchange_id": "hei_ex_000314",
+      "event_type": "launched",
+      "event_date": "2020-07-20",
+      "title": "Thailand operations launched",
+      "description": "Zipmex launched licensed digital asset exchange operations in Thailand.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "Launch date from public reporting."
+    },
+    {
+      "id": "hei_ev_000577",
+      "exchange_id": "hei_ex_000314",
+      "event_type": "regulatory_action",
+      "event_date": "2024-05-28",
+      "title": "Thailand licenses revoked",
+      "description": "Thailand revoked Zipmex exchange and broker licenses effective 2024-05-28.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "dead",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "Used as the death_date."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001285",
+      "exchange_id": "hei_ex_000314",
+      "event_id": "hei_ev_000576",
+      "source_type": "news_article",
+      "title": "Zipmex launches in Thailand",
+      "url": "https://www.nationthailand.com/business/30391618",
+      "publisher": "The Nation Thailand",
+      "published_at": "2020-07-20",
+      "archived_url": "https://web.archive.org/web/*/https://www.nationthailand.com/business/30391618",
+      "accessed_at": "2026-05-22",
+      "reliability": "medium",
+      "claim_scope": "launch_date",
+      "notes": "Used for Thailand launch date."
+    },
+    {
+      "id": "hei_src_001286",
+      "exchange_id": "hei_ex_000314",
+      "event_id": "hei_ev_000577",
+      "source_type": "regulatory_notice",
+      "title": "Zipmex licenses revoked",
+      "url": "https://www.sec.or.th/EN/Pages/News_Detail.aspx?SECID=10850",
+      "publisher": "Securities and Exchange Commission, Thailand",
+      "published_at": "2024-06-10",
+      "archived_url": "https://web.archive.org/web/*/https://www.sec.or.th/EN/Pages/News_Detail.aspx?SECID=10850",
+      "accessed_at": "2026-05-22",
+      "reliability": "high",
+      "claim_scope": "death_date",
+      "notes": "Primary source for revocation effective 2024-05-28."
+    },
+    {
+      "id": "hei_src_001287",
+      "exchange_id": "hei_ex_000314",
+      "event_id": "hei_ev_000577",
+      "source_type": "database_reference",
+      "title": "Zipmex market listing",
+      "url": "https://coinmarketcap.com/exchanges/zipmex/",
+      "publisher": "CoinMarketCap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/zipmex/",
+      "accessed_at": "2026-05-22",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Database reference for exchange market status."
+    }
+  ]
+}
