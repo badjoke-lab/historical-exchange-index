@@ -27,6 +27,35 @@ function idNumber(id) {
   return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
 }
 
+function stableStringify(value) {
+  if (Array.isArray(value)) {
+    return `[${value.map((item) => stableStringify(item)).join(',')}]`;
+  }
+
+  if (value && typeof value === 'object') {
+    return `{${Object.keys(value)
+      .sort()
+      .map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`)
+      .join(',')}}`;
+  }
+
+  return JSON.stringify(value);
+}
+
+function addOrVerify(map, item, filePath, label) {
+  const existing = map.get(item.id);
+  if (!existing) {
+    map.set(item.id, item);
+    return 'added';
+  }
+
+  if (stableStringify(existing) !== stableStringify(item)) {
+    throw new Error(`${filePath}: ${label} id already exists with different content: ${item.id}`);
+  }
+
+  return 'unchanged';
+}
+
 const entityPath = path.join(DATA_DIR, 'entities.json');
 const eventPath = path.join(DATA_DIR, 'events.json');
 const evidencePath = path.join(DATA_DIR, 'evidence.json');
@@ -40,6 +69,11 @@ const eventById = new Map(events.map((event) => [event.id, event]));
 const evidenceById = new Map(evidence.map((source) => [source.id, source]));
 
 let bundleCount = 0;
+let addedEntities = 0;
+let addedEvents = 0;
+let addedEvidence = 0;
+let unchangedEntries = 0;
+
 for (const filePath of listRecordFiles()) {
   const bundle = readJson(filePath);
   bundleCount += 1;
@@ -48,23 +82,26 @@ for (const filePath of listRecordFiles()) {
     throw new Error(`${filePath}: expected { entity, events, evidence }`);
   }
 
-  if (entityById.has(bundle.entity.id)) {
-    throw new Error(`${filePath}: entity id already exists in data/entities.json: ${bundle.entity.id}`);
+  if (addOrVerify(entityById, bundle.entity, filePath, 'entity') === 'added') {
+    addedEntities += 1;
+  } else {
+    unchangedEntries += 1;
   }
-  entityById.set(bundle.entity.id, bundle.entity);
 
   for (const event of bundle.events) {
-    if (eventById.has(event.id)) {
-      throw new Error(`${filePath}: event id already exists in data/events.json: ${event.id}`);
+    if (addOrVerify(eventById, event, filePath, 'event') === 'added') {
+      addedEvents += 1;
+    } else {
+      unchangedEntries += 1;
     }
-    eventById.set(event.id, event);
   }
 
   for (const source of bundle.evidence) {
-    if (evidenceById.has(source.id)) {
-      throw new Error(`${filePath}: evidence id already exists in data/evidence.json: ${source.id}`);
+    if (addOrVerify(evidenceById, source, filePath, 'evidence') === 'added') {
+      addedEvidence += 1;
+    } else {
+      unchangedEntries += 1;
     }
-    evidenceById.set(source.id, source);
   }
 }
 
@@ -77,6 +114,7 @@ writeJson(eventPath, nextEvents);
 writeJson(evidencePath, nextEvidence);
 
 console.log(`built data from ${bundleCount} record bundle(s)`);
-console.log(`entities: ${entities.length} -> ${nextEntities.length}`);
-console.log(`events: ${events.length} -> ${nextEvents.length}`);
-console.log(`evidence: ${evidence.length} -> ${nextEvidence.length}`);
+console.log(`entities: ${entities.length} -> ${nextEntities.length} (+${addedEntities})`);
+console.log(`events: ${events.length} -> ${nextEvents.length} (+${addedEvents})`);
+console.log(`evidence: ${evidence.length} -> ${nextEvidence.length} (+${addedEvidence})`);
+console.log(`unchanged existing bundle entries: ${unchangedEntries}`);
