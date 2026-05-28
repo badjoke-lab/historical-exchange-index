@@ -1,3 +1,4 @@
+# Validates HEI record bundles and duplicate identities.
 name: Records validation
 
 on:
@@ -39,4 +40,11 @@ jobs:
         run: npm ci
 
       - name: Validate record bundles and duplicate identities
-        run: npm run records:validate
+        run: npm run records:validate 2>&1 | tee records-validation-output.txt
+
+      - name: Upload validation output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: records-validation-output
+          path: records-validation-output.txt
