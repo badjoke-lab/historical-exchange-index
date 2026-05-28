@@ -13,7 +13,8 @@
     "monitor:smoke": "node scripts/monitoring/smoke-test.mjs",
     "publish:draft": "node scripts/publishing/build-publishing-drafts.mjs",
     "records:validate": "node scripts/validate-record-bundles.mjs",
-    "records:build": "node scripts/build-data-from-records.mjs"
+    "records:build": "node scripts/build-data-from-records.mjs",
+    "records:dedupe": "node scripts/check-record-duplicates.mjs"
   },
   "dependencies": {
     "next": "^15.2.8",
