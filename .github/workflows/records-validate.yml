@@ -1,3 +1,4 @@
+# Validates HEI record bundles and duplicate identities.
 name: Records validation
 
 on:
