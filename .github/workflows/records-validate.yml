@@ -1,0 +1,42 @@
+name: Records validation
+
+on:
+  pull_request:
+    paths:
+      - 'data/entities.json'
+      - 'records/exchanges/**'
+      - 'scripts/validate-record-bundles.mjs'
+      - 'scripts/check-record-duplicates.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/records-validate.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/entities.json'
+      - 'records/exchanges/**'
+      - 'scripts/validate-record-bundles.mjs'
+      - 'scripts/check-record-duplicates.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/records-validate.yml'
+
+jobs:
+  records-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate record bundles and duplicate identities
+        run: npm run records:validate
