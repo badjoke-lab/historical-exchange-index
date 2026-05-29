@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000347",
+    "slug": "acala-swap",
+    "canonical_name": "Acala Swap",
+    "aliases": ["Acala DEX", "Acala Swap DEX", "Acala apps swap"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Acala / Polkadot ecosystem",
+    "summary": "Decentralized swap venue in the Acala ecosystem, identified in the HEI verified-unadded backlog from CoinGecko and DefiLlama source data and currently treated as an active DEX record.",
+    "official_url_original": "https://apps.acala.network/",
+    "official_domain_original": "apps.acala.network",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://apps.acala.network/",
+    "confidence": "medium",
+    "last_verified_at": "2026-05-29",
+    "notes": "Added from verified-unadded backlog rows hei_unadded_0030 and hei_unadded_0031. This is an active DEX/protocol record, not a shutdown record. Launch date is left null pending stronger date-specific evidence."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000655",
+      "exchange_id": "hei_ex_000347",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-29",
+      "title": "Acala Swap present in DEX source data",
+      "description": "Acala Swap appeared in the verified-unadded candidate generator from CoinGecko and DefiLlama source data as an exchange-like DEX candidate not found in current HEI records.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "This is a database-reference event, not a verified launch event. Replace with a proper launch/history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001426",
+      "exchange_id": "hei_ex_000347",
+      "event_id": "hei_ev_000655",
+      "source_type": "official_statement",
+      "title": "Acala apps portal",
+      "url": "https://apps.acala.network/",
+      "publisher": "Acala",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://apps.acala.network/",
+      "accessed_at": "2026-05-29",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official Acala apps domain used to preserve the active venue/domain identity."
+    },
+    {
+      "id": "hei_src_001427",
+      "exchange_id": "hei_ex_000347",
+      "event_id": "hei_ev_000655",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchanges reference for Acala Swap",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "accessed_at": "2026-05-29",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0030, with source id acala_swap and domain apps.acala.network."
+    },
+    {
+      "id": "hei_src_001428",
+      "exchange_id": "hei_ex_000347",
+      "event_id": "hei_ev_000655",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX overview reference for Acala Swap",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-05-29",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0031, identifying Acala Swap as an Acala-chain DEX candidate."
+    }
+  ]
+}
