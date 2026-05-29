@@ -1,0 +1,37 @@
+name: Build verified unadded candidates
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/build-verified-unadded-candidates.mjs'
+      - 'package.json'
+      - '.github/workflows/build-unadded-candidates.yml'
+  workflow_dispatch:
+
+jobs:
+  build-unadded-candidates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build verified unadded candidates
+        run: npm run backlog:build-unadded 2>&1 | tee verified-unadded-candidates-build.log
+
+      - name: Upload verified unadded candidates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verified-unadded-candidates-v1
+          path: |
+            tmp/verified-unadded-candidates/**
+            verified-unadded-candidates-build.log
