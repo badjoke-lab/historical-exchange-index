@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000344",
+    "slug": "oneinch",
+    "canonical_name": "1inch",
+    "aliases": ["1inch Network", "1inch Swap", "1inch DEX Aggregator", "1inch.exchange", "oneinch"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2019-05-01",
+    "death_date": null,
+    "country_or_origin": "Ethereum ecosystem",
+    "summary": "Decentralized exchange aggregation and DeFi swap protocol ecosystem that routes token swaps across decentralized liquidity sources and remains active under the 1inch brand.",
+    "official_url_original": "https://1inch.io/",
+    "official_domain_original": "1inch.io",
+    "official_url_status": "redirected",
+    "archived_url": "https://web.archive.org/web/*/https://1inch.io/",
+    "confidence": "medium",
+    "last_verified_at": "2026-05-29",
+    "notes": "Added from verified-unadded backlog row hei_unadded_0010. The original 1inch.io domain now redirects to 1inch.com. Launch date is stored at month precision using the commonly reported May 2019 ETHGlobal prototype origin; HEI should later refine this if official launch-date evidence is added."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000652",
+      "exchange_id": "hei_ex_000344",
+      "event_type": "launched",
+      "event_date": "2019-05-01",
+      "title": "1inch DEX aggregator launched",
+      "description": "1inch emerged as a decentralized exchange aggregator for routing token swaps across multiple liquidity sources. HEI stores May 2019 as the approximate origin month pending stronger official date evidence.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Launch timing is approximate and should be refined if a stronger official date source is added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001419",
+      "exchange_id": "hei_ex_000344",
+      "event_id": "hei_ev_000652",
+      "source_type": "official_statement",
+      "title": "1inch official website",
+      "url": "https://1inch.io/",
+      "publisher": "1inch",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://1inch.io/",
+      "accessed_at": "2026-05-29",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official site describes 1inch as a DeFi swap product and DEX aggregator; the original 1inch.io URL redirects to 1inch.com."
+    },
+    {
+      "id": "hei_src_001420",
+      "exchange_id": "hei_ex_000344",
+      "event_id": "hei_ev_000652",
+      "source_type": "database_reference",
+      "title": "CoinPaprika exchanges reference for 1inch",
+      "url": "https://api.coinpaprika.com/v1/exchanges",
+      "publisher": "CoinPaprika",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
+      "accessed_at": "2026-05-29",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by the verified-unadded candidate generator for backlog row hei_unadded_0010."
+    },
+    {
+      "id": "hei_src_001421",
+      "exchange_id": "hei_ex_000344",
+      "event_id": "hei_ev_000652",
+      "source_type": "database_reference",
+      "title": "DeFiLlama DEX overview reference",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-05-29",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Used as a cross-check for DEX/protocol scope in the verified-unadded candidate workflow."
+    }
+  ]
+}
