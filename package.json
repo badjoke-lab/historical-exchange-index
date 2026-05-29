@@ -15,7 +15,8 @@
     "records:validate": "node scripts/validate-record-bundles.mjs && node scripts/check-record-duplicates.mjs",
     "records:build": "node scripts/build-data-from-records.mjs",
     "records:dedupe": "node scripts/check-record-duplicates.mjs",
-    "backlog:dedupe": "node scripts/check-backlog-dedupe.mjs"
+    "backlog:dedupe": "node scripts/check-backlog-dedupe.mjs",
+    "backlog:build-unadded": "node scripts/build-verified-unadded-candidates.mjs"
   },
   "dependencies": {
     "next": "^15.2.8",
