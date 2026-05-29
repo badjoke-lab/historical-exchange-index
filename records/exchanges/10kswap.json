@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000345",
+    "slug": "10kswap",
+    "canonical_name": "10KSwap",
+    "aliases": ["10kswap", "10KSwap Starknet Alpha", "10KSwap Starknet"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Starknet ecosystem",
+    "summary": "Starknet-based decentralized exchange candidate identified in the HEI verified-unadded backlog from CoinGecko and DefiLlama source data. The record is kept at low confidence pending stronger official-history evidence.",
+    "official_url_original": "https://10kswap.com/",
+    "official_domain_original": "10kswap.com",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://10kswap.com/",
+    "confidence": "low",
+    "last_verified_at": "2026-05-29",
+    "notes": "Added from verified-unadded backlog rows hei_unadded_0004 and hei_unadded_0005. External web search did not return strong official-history evidence during pre-add review, so the record relies on CoinGecko and DefiLlama database references and should be improved later before any high-confidence historical use."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000653",
+      "exchange_id": "hei_ex_000345",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-29",
+      "title": "10KSwap present in exchange and DEX data sources",
+      "description": "10KSwap appeared in the verified-unadded candidate generator from CoinGecko and DefiLlama source data as a Starknet DEX/exchange-like candidate not found in current HEI records.",
+      "confidence": "low",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "This is a database-reference event, not a verified launch event. Replace with a proper launch/history event if stronger sources are found."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001422",
+      "exchange_id": "hei_ex_000345",
+      "event_id": "hei_ev_000653",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchanges reference for 10KSwap",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "accessed_at": "2026-05-29",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0004, with domain 10kswap.com and source id 10kswap-starknet-alpha."
+    },
+    {
+      "id": "hei_src_001423",
+      "exchange_id": "hei_ex_000345",
+      "event_id": "hei_ev_000653",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX overview reference for 10KSwap",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-05-29",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0005, identifying 10KSwap as a Starknet DEX candidate."
+    }
+  ]
+}
