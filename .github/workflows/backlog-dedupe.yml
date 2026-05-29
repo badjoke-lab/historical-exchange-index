@@ -1,0 +1,35 @@
+name: Backlog dedupe
+
+on:
+  pull_request:
+    paths:
+      - 'docs/backlog/**'
+      - 'scripts/check-backlog-dedupe.mjs'
+      - 'package.json'
+      - '.github/workflows/backlog-dedupe.yml'
+
+jobs:
+  backlog-dedupe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check backlog dedupe
+        run: npm run backlog:dedupe 2>&1 | tee backlog-dedupe-output.txt
+
+      - name: Upload backlog dedupe output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backlog-dedupe-output
+          path: backlog-dedupe-output.txt
