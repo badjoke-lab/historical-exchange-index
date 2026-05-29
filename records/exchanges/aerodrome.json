@@ -1,0 +1,100 @@
+{
+  "entity": {
+    "id": "hei_ex_000348",
+    "slug": "aerodrome",
+    "canonical_name": "Aerodrome",
+    "aliases": ["Aerodrome Finance", "Aerodrome SlipStream", "Aerodrome V1", "Aerodrome V3"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Base ecosystem",
+    "summary": "Base-network decentralized exchange and liquidity marketplace identified in the HEI verified-unadded backlog from CoinPaprika, CoinGecko, and DefiLlama source data and currently treated as an active DEX record.",
+    "official_url_original": "https://aerodrome.finance/",
+    "official_domain_original": "aerodrome.finance",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://aerodrome.finance/",
+    "confidence": "medium",
+    "last_verified_at": "2026-05-29",
+    "notes": "Added from verified-unadded backlog rows hei_unadded_0033, hei_unadded_0034, hei_unadded_0035, hei_unadded_0036, and hei_unadded_0037. This is an active DEX/protocol record, not a shutdown record. Launch date is left null pending stronger date-specific evidence."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000656",
+      "exchange_id": "hei_ex_000348",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-29",
+      "title": "Aerodrome present in DEX source data",
+      "description": "Aerodrome appeared in the verified-unadded candidate generator from CoinPaprika, CoinGecko, and DefiLlama source data as an exchange-like DEX candidate not found in current HEI records.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 4,
+      "sort_order": 1,
+      "notes": "This is a database-reference event, not a verified launch event. Replace with a proper launch/history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001429",
+      "exchange_id": "hei_ex_000348",
+      "event_id": "hei_ev_000656",
+      "source_type": "official_statement",
+      "title": "Aerodrome official website",
+      "url": "https://aerodrome.finance/",
+      "publisher": "Aerodrome",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://aerodrome.finance/",
+      "accessed_at": "2026-05-29",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to preserve the active Aerodrome identity."
+    },
+    {
+      "id": "hei_src_001430",
+      "exchange_id": "hei_ex_000348",
+      "event_id": "hei_ev_000656",
+      "source_type": "database_reference",
+      "title": "CoinPaprika exchanges reference for Aerodrome",
+      "url": "https://api.coinpaprika.com/v1/exchanges",
+      "publisher": "CoinPaprika",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
+      "accessed_at": "2026-05-29",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0033, identifying Aerodrome as an exchange-like source candidate."
+    },
+    {
+      "id": "hei_src_001431",
+      "exchange_id": "hei_ex_000348",
+      "event_id": "hei_ev_000656",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchanges reference for Aerodrome SlipStream",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "accessed_at": "2026-05-29",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0035, with domain aerodrome.finance and source id aerodrome-slipstream."
+    },
+    {
+      "id": "hei_src_001432",
+      "exchange_id": "hei_ex_000348",
+      "event_id": "hei_ev_000656",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX overview reference for Aerodrome",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-05-29",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog rows for Aerodrome versions, identifying Aerodrome as a Base-chain DEX candidate."
+    }
+  ]
+}
