@@ -1,0 +1,100 @@
+{
+  "entity": {
+    "id": "hei_ex_000352",
+    "slug": "aftermath-finance",
+    "canonical_name": "Aftermath Finance",
+    "aliases": ["Aftermath", "Aftermath AMM", "aftermath", "aftermath.finance"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Sui ecosystem",
+    "summary": "Sui ecosystem decentralized exchange and AMM candidate identified in the HEI verified-unadded backlog from CCXT, CoinGecko, and DefiLlama source data and currently treated as an active DEX record.",
+    "official_url_original": "https://aftermath.finance/",
+    "official_domain_original": "aftermath.finance",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://aftermath.finance/",
+    "confidence": "medium",
+    "last_verified_at": "2026-05-30",
+    "notes": "Added from verified-unadded backlog rows hei_unadded_0040, hei_unadded_0041, and hei_unadded_0042. This is an active DEX/protocol record, not a shutdown record. Launch date is left null pending stronger date-specific evidence."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000660",
+      "exchange_id": "hei_ex_000352",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-30",
+      "title": "Aftermath Finance present in exchange and DEX source data",
+      "description": "Aftermath Finance appeared in the verified-unadded candidate generator from CCXT, CoinGecko, and DefiLlama source data as an exchange-like DEX candidate not found in current HEI records.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 4,
+      "sort_order": 1,
+      "notes": "This is a database-reference event, not a verified launch event. Replace with a proper launch/history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001440",
+      "exchange_id": "hei_ex_000352",
+      "event_id": "hei_ev_000660",
+      "source_type": "official_statement",
+      "title": "Aftermath Finance official website",
+      "url": "https://aftermath.finance/",
+      "publisher": "Aftermath Finance",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://aftermath.finance/",
+      "accessed_at": "2026-05-30",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to preserve the active Aftermath Finance identity."
+    },
+    {
+      "id": "hei_src_001441",
+      "exchange_id": "hei_ex_000352",
+      "event_id": "hei_ev_000660",
+      "source_type": "database_reference",
+      "title": "CCXT generated exchange list reference for aftermath",
+      "url": "https://raw.githubusercontent.com/ccxt/ccxt/master/js/ccxt.js",
+      "publisher": "CCXT",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://raw.githubusercontent.com/ccxt/ccxt/master/js/ccxt.js",
+      "accessed_at": "2026-05-30",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0040."
+    },
+    {
+      "id": "hei_src_001442",
+      "exchange_id": "hei_ex_000352",
+      "event_id": "hei_ev_000660",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX overview reference for Aftermath AMM",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-05-30",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0041, identifying Aftermath AMM as a Sui DEX candidate."
+    },
+    {
+      "id": "hei_src_001443",
+      "exchange_id": "hei_ex_000352",
+      "event_id": "hei_ev_000660",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchanges reference for Aftermath Finance",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "accessed_at": "2026-05-30",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0042, with domain aftermath.finance and source id aftermath_finance."
+    }
+  ]
+}
