@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000350",
+    "slug": "nine-inch",
+    "canonical_name": "9inch",
+    "aliases": ["9inch Exchange", "9inch DEX", "app.9inch.io"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "PulseChain ecosystem",
+    "summary": "Decentralized exchange candidate identified in the HEI verified-unadded backlog from CoinPaprika and CoinGecko source data and currently treated as an active DEX record.",
+    "official_url_original": "https://app.9inch.io/",
+    "official_domain_original": "app.9inch.io",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://app.9inch.io/",
+    "confidence": "low",
+    "last_verified_at": "2026-05-30",
+    "notes": "Added from verified-unadded backlog rows hei_unadded_0018 and hei_unadded_0019. Source evidence is limited to CoinPaprika and CoinGecko database references, so this record should be improved later if stronger official-history evidence is found. File slug is normalized as nine-inch while preserving 9inch as canonical_name."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000658",
+      "exchange_id": "hei_ex_000350",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-30",
+      "title": "9inch present in exchange source data",
+      "description": "9inch appeared in the verified-unadded candidate generator from CoinPaprika and CoinGecko source data as an exchange-like DEX candidate not found in current HEI records.",
+      "confidence": "low",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "This is a database-reference event, not a verified launch event. Replace with a proper launch/history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001435",
+      "exchange_id": "hei_ex_000350",
+      "event_id": "hei_ev_000658",
+      "source_type": "database_reference",
+      "title": "CoinPaprika exchanges reference for 9inch",
+      "url": "https://api.coinpaprika.com/v1/exchanges",
+      "publisher": "CoinPaprika",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
+      "accessed_at": "2026-05-30",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0018, identifying 9inch as an exchange-like source candidate."
+    },
+    {
+      "id": "hei_src_001436",
+      "exchange_id": "hei_ex_000350",
+      "event_id": "hei_ev_000658",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchanges reference for 9inch",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "accessed_at": "2026-05-30",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0019, with domain app.9inch.io and source id 9inch."
+    }
+  ]
+}
