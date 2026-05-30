@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000351",
+    "slug": "nine-mm",
+    "canonical_name": "9mm",
+    "aliases": ["9mm DEX", "9mm V2", "9mm V3", "9mm V3 (PulseChain)", "dex.9mm.pro"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "PulseChain / Base / Sonic ecosystem",
+    "summary": "Decentralized exchange candidate identified in the HEI verified-unadded backlog from CoinPaprika, CoinGecko, and DefiLlama source data and currently treated as an active DEX record.",
+    "official_url_original": "https://dex.9mm.pro/",
+    "official_domain_original": "dex.9mm.pro",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://dex.9mm.pro/",
+    "confidence": "low",
+    "last_verified_at": "2026-05-30",
+    "notes": "Added from verified-unadded backlog rows hei_unadded_0020 through hei_unadded_0023. Source evidence is limited to CoinPaprika, CoinGecko, and DefiLlama database references, so this record should be improved later if stronger official-history evidence is found. File slug is normalized as nine-mm while preserving 9mm as canonical_name."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000659",
+      "exchange_id": "hei_ex_000351",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-30",
+      "title": "9mm present in exchange and DEX source data",
+      "description": "9mm appeared in the verified-unadded candidate generator from CoinPaprika, CoinGecko, and DefiLlama source data as an exchange-like DEX candidate not found in current HEI records.",
+      "confidence": "low",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "This is a database-reference event, not a verified launch event. Replace with a proper launch/history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001437",
+      "exchange_id": "hei_ex_000351",
+      "event_id": "hei_ev_000659",
+      "source_type": "database_reference",
+      "title": "CoinPaprika exchanges reference for 9mm",
+      "url": "https://api.coinpaprika.com/v1/exchanges",
+      "publisher": "CoinPaprika",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
+      "accessed_at": "2026-05-30",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0020, identifying 9mm as an exchange-like source candidate."
+    },
+    {
+      "id": "hei_src_001438",
+      "exchange_id": "hei_ex_000351",
+      "event_id": "hei_ev_000659",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX overview reference for 9mm",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-05-30",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog rows hei_unadded_0021 and hei_unadded_0022, identifying 9mm V2/V3 as DEX candidates."
+    },
+    {
+      "id": "hei_src_001439",
+      "exchange_id": "hei_ex_000351",
+      "event_id": "hei_ev_000659",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchanges reference for 9mm V3",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "accessed_at": "2026-05-30",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0023, with domain dex.9mm.pro and source id 9mm-v3."
+    }
+  ]
+}
