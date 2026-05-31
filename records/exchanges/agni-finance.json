@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000353",
+    "slug": "agni-finance",
+    "canonical_name": "Agni Finance",
+    "aliases": ["Agni", "Agni DEX", "agni.finance"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Mantle ecosystem",
+    "summary": "Mantle ecosystem decentralized exchange candidate identified in the HEI verified-unadded backlog from CoinPaprika and CoinGecko source data and currently treated as an active DEX record.",
+    "official_url_original": "https://agni.finance/",
+    "official_domain_original": "agni.finance",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://agni.finance/",
+    "confidence": "low",
+    "last_verified_at": "2026-05-30",
+    "notes": "Added from verified-unadded backlog rows hei_unadded_0043 and hei_unadded_0044. Source evidence is limited to CoinPaprika and CoinGecko database references plus the official domain, so this record should be improved later if stronger official-history evidence is found."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000661",
+      "exchange_id": "hei_ex_000353",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-30",
+      "title": "Agni Finance present in exchange source data",
+      "description": "Agni Finance appeared in the verified-unadded candidate generator from CoinPaprika and CoinGecko source data as an exchange-like DEX candidate not found in current HEI records.",
+      "confidence": "low",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "This is a database-reference event, not a verified launch event. Replace with a proper launch/history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001444",
+      "exchange_id": "hei_ex_000353",
+      "event_id": "hei_ev_000661",
+      "source_type": "official_statement",
+      "title": "Agni Finance official website",
+      "url": "https://agni.finance/",
+      "publisher": "Agni Finance",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://agni.finance/",
+      "accessed_at": "2026-05-30",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to preserve the active Agni Finance identity."
+    },
+    {
+      "id": "hei_src_001445",
+      "exchange_id": "hei_ex_000353",
+      "event_id": "hei_ev_000661",
+      "source_type": "database_reference",
+      "title": "CoinPaprika exchanges reference for Agni Finance",
+      "url": "https://api.coinpaprika.com/v1/exchanges",
+      "publisher": "CoinPaprika",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
+      "accessed_at": "2026-05-30",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0043."
+    },
+    {
+      "id": "hei_src_001446",
+      "exchange_id": "hei_ex_000353",
+      "event_id": "hei_ev_000661",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchanges reference for Agni Finance",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "accessed_at": "2026-05-30",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0044, with domain agni.finance and source id agni-finance."
+    }
+  ]
+}
