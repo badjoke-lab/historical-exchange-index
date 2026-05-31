@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000354",
+    "slug": "alcor-exchange",
+    "canonical_name": "Alcor Exchange",
+    "aliases": ["Alcor", "Alcor DEX", "alcor.exchange"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "EOS / WAX ecosystem",
+    "summary": "EOS and WAX ecosystem decentralized exchange candidate identified during the HEI active DEX backlog continuation and currently treated as an active DEX record.",
+    "official_url_original": "https://alcor.exchange/",
+    "official_domain_original": "alcor.exchange",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://alcor.exchange/",
+    "confidence": "low",
+    "last_verified_at": "2026-05-31",
+    "notes": "Added as a low-confidence active DEX/protocol record during the verified-unadded backlog continuation after Agni Finance. Evidence is limited to the official domain and database-style references, so this record should be improved later if stronger launch/history evidence is found."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000662",
+      "exchange_id": "hei_ex_000354",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-31",
+      "title": "Alcor Exchange present in DEX source data",
+      "description": "Alcor Exchange was added as an exchange-like DEX candidate not found in current HEI records during the active DEX backlog continuation.",
+      "confidence": "low",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "This is a database-reference event, not a verified launch event. Replace with a proper launch/history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001447",
+      "exchange_id": "hei_ex_000354",
+      "event_id": "hei_ev_000662",
+      "source_type": "official_statement",
+      "title": "Alcor Exchange official website",
+      "url": "https://alcor.exchange/",
+      "publisher": "Alcor Exchange",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://alcor.exchange/",
+      "accessed_at": "2026-05-31",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to preserve the active Alcor Exchange identity."
+    },
+    {
+      "id": "hei_src_001448",
+      "exchange_id": "hei_ex_000354",
+      "event_id": "hei_ev_000662",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX overview reference for Alcor",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-05-31",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Database-style DEX overview source used as supporting evidence for an active DEX/protocol identity."
+    },
+    {
+      "id": "hei_src_001449",
+      "exchange_id": "hei_ex_000354",
+      "event_id": "hei_ev_000662",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchanges reference for Alcor",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "accessed_at": "2026-05-31",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Database-style exchange source used as supporting evidence for the Alcor Exchange candidate."
+    }
+  ]
+}
