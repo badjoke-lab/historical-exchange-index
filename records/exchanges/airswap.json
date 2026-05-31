@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000354",
+    "slug": "airswap",
+    "canonical_name": "AirSwap",
+    "aliases": ["AirSwap DEX", "airswap.io"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Ethereum ecosystem",
+    "summary": "Ethereum ecosystem decentralized exchange protocol candidate identified in the HEI verified-unadded backlog from CoinPaprika source data and currently treated as an active DEX record.",
+    "official_url_original": "https://www.airswap.io/",
+    "official_domain_original": "airswap.io",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://www.airswap.io/",
+    "confidence": "low",
+    "last_verified_at": "2026-05-31",
+    "notes": "Added from verified-unadded backlog row hei_unadded_0045. Evidence is limited to CoinPaprika and the official domain, so this record should be improved later if stronger historical sources are found."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000662",
+      "exchange_id": "hei_ex_000354",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-31",
+      "title": "AirSwap present in exchange source data",
+      "description": "AirSwap appeared in the verified-unadded candidate generator from CoinPaprika source data as an exchange-like DEX candidate not found in current HEI records.",
+      "confidence": "low",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Database-reference event. Replace with a proper launch or history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001447",
+      "exchange_id": "hei_ex_000354",
+      "event_id": "hei_ev_000662",
+      "source_type": "official_statement",
+      "title": "AirSwap official website",
+      "url": "https://www.airswap.io/",
+      "publisher": "AirSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.airswap.io/",
+      "accessed_at": "2026-05-31",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to preserve the active AirSwap identity."
+    },
+    {
+      "id": "hei_src_001448",
+      "exchange_id": "hei_ex_000354",
+      "event_id": "hei_ev_000662",
+      "source_type": "database_reference",
+      "title": "CoinPaprika exchanges reference for AirSwap",
+      "url": "https://api.coinpaprika.com/v1/exchanges",
+      "publisher": "CoinPaprika",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
+      "accessed_at": "2026-05-31",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0045."
+    }
+  ]
+}
