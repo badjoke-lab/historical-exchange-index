@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000355",
+    "slug": "aivora-exchange",
+    "canonical_name": "Aivora Exchange",
+    "aliases": ["Aivora", "aivora.com"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": null,
+    "summary": "Centralized exchange candidate identified in the HEI verified-unadded backlog from CoinGecko source data and currently treated as an active exchange record.",
+    "official_url_original": "https://www.aivora.com/",
+    "official_domain_original": "aivora.com",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://www.aivora.com/",
+    "confidence": "low",
+    "last_verified_at": "2026-05-31",
+    "notes": "Added from verified-unadded backlog row hei_unadded_0046. Evidence is limited to CoinGecko and the official domain, so this record should be improved later if stronger historical or operational sources are found."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000663",
+      "exchange_id": "hei_ex_000355",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-31",
+      "title": "Aivora Exchange present in exchange source data",
+      "description": "Aivora Exchange appeared in the verified-unadded candidate generator from CoinGecko source data as an exchange-like candidate not found in current HEI records.",
+      "confidence": "low",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Database-reference event. Replace with a proper launch or history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001449",
+      "exchange_id": "hei_ex_000355",
+      "event_id": "hei_ev_000663",
+      "source_type": "official_statement",
+      "title": "Aivora Exchange official website",
+      "url": "https://www.aivora.com/",
+      "publisher": "Aivora Exchange",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.aivora.com/",
+      "accessed_at": "2026-05-31",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to preserve the active Aivora Exchange identity."
+    },
+    {
+      "id": "hei_src_001450",
+      "exchange_id": "hei_ex_000355",
+      "event_id": "hei_ev_000663",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchanges reference for Aivora Exchange",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "accessed_at": "2026-05-31",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0046 with source id aivora-exchange."
+    }
+  ]
+}
