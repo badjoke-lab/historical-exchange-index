@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000359",
+    "slug": "algofi-swap",
+    "canonical_name": "Algofi Swap",
+    "aliases": ["Algofi", "Algofi Protocol", "Algofi DEX"],
+    "type": "dex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": null,
+    "death_date": "2023-07-31",
+    "country_or_origin": "Algorand ecosystem",
+    "summary": "Algorand ecosystem DeFi protocol with swap functionality. HEI records Algofi Swap as a DEX/protocol entity because the project announced that it would sunset, making it more suitable for HEI than thin active-only DEX rows.",
+    "official_url_original": "https://www.algofi.org/",
+    "official_domain_original": "algofi.org",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://www.algofi.org/",
+    "confidence": "medium",
+    "last_verified_at": "2026-05-31",
+    "notes": "Added from verified-unadded row hei_unadded_0054. Status is based on the public sunsetting / shutdown history rather than the DefiLlama database row alone."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000667",
+      "exchange_id": "hei_ex_000359",
+      "event_type": "shutdown_announced",
+      "event_date": "2023-07-31",
+      "title": "Algofi announced protocol sunsetting",
+      "description": "Algofi announced that the protocol would sunset, making Algofi Swap a dead or discontinued DEX/protocol record rather than a thin active listing.",
+      "confidence": "medium",
+      "impact_level": "high",
+      "event_status_effect": "dead",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "The exact shutdown wording/source should be strengthened later with an archived official announcement if needed."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001460",
+      "exchange_id": "hei_ex_000359",
+      "event_id": "hei_ev_000667",
+      "source_type": "official_statement",
+      "title": "Algofi official website",
+      "url": "https://www.algofi.org/",
+      "publisher": "Algofi",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.algofi.org/",
+      "accessed_at": "2026-05-31",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to preserve Algofi identity."
+    },
+    {
+      "id": "hei_src_001461",
+      "exchange_id": "hei_ex_000359",
+      "event_id": "hei_ev_000667",
+      "source_type": "news_article",
+      "title": "Algofi protocol sunsetting coverage",
+      "url": "https://www.coindesk.com/tech/2023/07/31/algorand-based-defi-protocol-algofi-to-shut-down/",
+      "publisher": "CoinDesk",
+      "published_at": "2023-07-31",
+      "archived_url": "https://web.archive.org/web/*/https://www.coindesk.com/tech/2023/07/31/algorand-based-defi-protocol-algofi-to-shut-down/",
+      "accessed_at": "2026-05-31",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Secondary source used to support the public shutdown/sunsetting event."
+    },
+    {
+      "id": "hei_src_001462",
+      "exchange_id": "hei_ex_000359",
+      "event_id": "hei_ev_000667",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX reference for Algofi Swap",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-05-31",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0054."
+    }
+  ]
+}
