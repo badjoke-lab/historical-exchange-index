@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000371",
+    "slug": "beets",
+    "canonical_name": "Beets",
+    "aliases": ["Beethoven X", "Beethoven X Optimism", "Beets Sonic", "Beets DEX", "Beets DEX V3", "beets.fi"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Fantom / Optimism / Sonic ecosystem",
+    "summary": "Multi-chain AMM and DEX protocol historically associated with Beethoven X and later Beets branding. HEI treats Beethoven X, Beets, and Beets DEX variant rows as one protocol-level entity for v0.",
+    "official_url_original": "https://beets.fi/",
+    "official_domain_original": "beets.fi",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://beets.fi/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-01",
+    "notes": "Added from verified-unadded rows hei_unadded_0213 through hei_unadded_0218 as one entity to avoid duplicate branding, chain, and version records."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000679",
+      "exchange_id": "hei_ex_000371",
+      "event_type": "rebrand",
+      "event_date": null,
+      "title": "Beethoven X / Beets rows consolidated under Beets",
+      "description": "Beets is recorded as the consolidated protocol-level entity for Beethoven X, Beets, and Beets DEX candidate rows.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Replace with a precise rebrand or migration event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001494",
+      "exchange_id": "hei_ex_000371",
+      "event_id": "hei_ev_000679",
+      "source_type": "official_statement",
+      "title": "Beets official website",
+      "url": "https://beets.fi/",
+      "publisher": "Beets",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://beets.fi/",
+      "accessed_at": "2026-06-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify current Beets identity."
+    },
+    {
+      "id": "hei_src_001495",
+      "exchange_id": "hei_ex_000371",
+      "event_id": "hei_ev_000679",
+      "source_type": "database_reference",
+      "title": "CoinGecko / CoinPaprika references for Beethoven X and Beets",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "publisher": "CoinGecko / CoinPaprika",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Backlog rows hei_unadded_0213-0216 referred to Beethoven X and Beets chain rows."
+    },
+    {
+      "id": "hei_src_001496",
+      "exchange_id": "hei_ex_000371",
+      "event_id": "hei_ev_000679",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX references for Beets variants",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Backlog rows hei_unadded_0217 and hei_unadded_0218 referred to Beets DEX variants."
+    }
+  ]
+}
