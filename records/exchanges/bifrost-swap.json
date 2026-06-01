@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000378",
+    "slug": "bifrost-swap",
+    "canonical_name": "Bifrost Swap",
+    "aliases": ["Bifrost DEX", "bifrost.app"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Bifrost ecosystem",
+    "summary": "Bifrost ecosystem DEX candidate represented by CoinGecko and DefiLlama source rows. HEI treats Bifrost Swap and Bifrost DEX rows as one protocol-level DEX entity for v0.",
+    "official_url_original": "https://bifrost.app/",
+    "official_domain_original": "bifrost.app",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bifrost.app/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-01",
+    "notes": "Added from verified-unadded rows hei_unadded_0237 and hei_unadded_0238 as one entity."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000686",
+      "exchange_id": "hei_ex_000378",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-01",
+      "title": "Bifrost Swap recorded as Bifrost ecosystem DEX",
+      "description": "Bifrost Swap is recorded as a Bifrost ecosystem DEX candidate with CoinGecko and DefiLlama rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Upgrade with a precise launch or operating-history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001512",
+      "exchange_id": "hei_ex_000378",
+      "event_id": "hei_ev_000686",
+      "source_type": "official_statement",
+      "title": "Bifrost official website",
+      "url": "https://bifrost.app/",
+      "publisher": "Bifrost",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bifrost.app/",
+      "accessed_at": "2026-06-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify Bifrost Swap identity."
+    },
+    {
+      "id": "hei_src_001513",
+      "exchange_id": "hei_ex_000378",
+      "event_id": "hei_ev_000686",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for Bifrost Swap",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0238."
+    },
+    {
+      "id": "hei_src_001514",
+      "exchange_id": "hei_ex_000378",
+      "event_id": "hei_ev_000686",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX reference for Bifrost DEX",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0237."
+    }
+  ]
+}
