@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000382",
+    "slug": "bitbaby",
+    "canonical_name": "Bitbaby",
+    "aliases": ["Bitbaby Exchange", "bitbaby.com"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": null,
+    "summary": "Centralized crypto exchange candidate with CoinGecko source data and official domain. HEI records Bitbaby as an active CEX seed record.",
+    "official_url_original": "https://bitbaby.com/",
+    "official_domain_original": "bitbaby.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bitbaby.com/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-01",
+    "notes": "Added from verified-unadded row hei_unadded_0269. This record should be improved later with stronger launch, licensing, or operating-history evidence."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000690",
+      "exchange_id": "hei_ex_000382",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-01",
+      "title": "Bitbaby recorded as centralized exchange",
+      "description": "Bitbaby is recorded as a centralized exchange entity based on its official domain and CoinGecko exchange source row.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Upgrade with a precise launch, licensing, or operating-history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001523",
+      "exchange_id": "hei_ex_000382",
+      "event_id": "hei_ev_000690",
+      "source_type": "official_statement",
+      "title": "Bitbaby official website",
+      "url": "https://bitbaby.com/",
+      "publisher": "Bitbaby",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bitbaby.com/",
+      "accessed_at": "2026-06-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify Bitbaby identity."
+    },
+    {
+      "id": "hei_src_001524",
+      "exchange_id": "hei_ex_000382",
+      "event_id": "hei_ev_000690",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for Bitbaby",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0269."
+    }
+  ]
+}
