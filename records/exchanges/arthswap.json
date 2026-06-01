@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000369",
+    "slug": "arthswap",
+    "canonical_name": "ArthSwap",
+    "aliases": ["ArthSwap V3", "app.arthswap.org"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Astar ecosystem",
+    "summary": "Astar ecosystem decentralized exchange and AMM protocol. HEI treats ArthSwap and ArthSwap V3 candidate rows as one protocol-level DEX entity.",
+    "official_url_original": "https://app.arthswap.org/",
+    "official_domain_original": "app.arthswap.org",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://app.arthswap.org/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-01",
+    "notes": "Added from verified-unadded rows hei_unadded_0124 and hei_unadded_0125 as one entity."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000677",
+      "exchange_id": "hei_ex_000369",
+      "event_type": "launched",
+      "event_date": null,
+      "title": "ArthSwap recorded as Astar ecosystem DEX",
+      "description": "ArthSwap is recorded as an Astar ecosystem AMM/DEX entity, with duplicate ArthSwap rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Replace with a precise launch or version migration event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001488",
+      "exchange_id": "hei_ex_000369",
+      "event_id": "hei_ev_000677",
+      "source_type": "official_statement",
+      "title": "ArthSwap official app",
+      "url": "https://app.arthswap.org/",
+      "publisher": "ArthSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://app.arthswap.org/",
+      "accessed_at": "2026-06-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official app domain used to verify ArthSwap identity."
+    },
+    {
+      "id": "hei_src_001489",
+      "exchange_id": "hei_ex_000369",
+      "event_id": "hei_ev_000677",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for ArthSwap",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0124."
+    },
+    {
+      "id": "hei_src_001490",
+      "exchange_id": "hei_ex_000369",
+      "event_id": "hei_ev_000677",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX reference for ArthSwap V3",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0125."
+    }
+  ]
+}
