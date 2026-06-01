@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000384",
+    "slug": "bitcastle",
+    "canonical_name": "bitcastle",
+    "aliases": ["Bitcastle", "bitcastle.io"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": null,
+    "summary": "Centralized crypto exchange candidate with CoinGecko source data and official domain. HEI records bitcastle as an active CEX seed record.",
+    "official_url_original": "https://bitcastle.io/",
+    "official_domain_original": "bitcastle.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bitcastle.io/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-01",
+    "notes": "Added from verified-unadded row hei_unadded_0274. This record should be improved later with stronger launch, licensing, or operating-history evidence."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000692",
+      "exchange_id": "hei_ex_000384",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-01",
+      "title": "bitcastle recorded as centralized exchange",
+      "description": "bitcastle is recorded as a centralized exchange entity based on its official domain and CoinGecko exchange source row.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Upgrade with a precise launch, licensing, or operating-history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001528",
+      "exchange_id": "hei_ex_000384",
+      "event_id": "hei_ev_000692",
+      "source_type": "official_statement",
+      "title": "bitcastle official website",
+      "url": "https://bitcastle.io/",
+      "publisher": "bitcastle",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bitcastle.io/",
+      "accessed_at": "2026-06-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify bitcastle identity."
+    },
+    {
+      "id": "hei_src_001529",
+      "exchange_id": "hei_ex_000384",
+      "event_id": "hei_ev_000692",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for bitcastle",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0274."
+    }
+  ]
+}
