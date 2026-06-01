@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000372",
+    "slug": "aquarius",
+    "canonical_name": "Aquarius",
+    "aliases": ["Aquarius Stellar", "Aqua", "aqua.network"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Stellar ecosystem",
+    "summary": "Stellar ecosystem liquidity and exchange protocol candidate. HEI treats Aquarius and Aquarius Stellar rows as one protocol-level DEX entity for v0.",
+    "official_url_original": "https://aqua.network/",
+    "official_domain_original": "aqua.network",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://aqua.network/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-01",
+    "notes": "Added from verified-unadded rows hei_unadded_0102 and hei_unadded_0103 as one entity."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000680",
+      "exchange_id": "hei_ex_000372",
+      "event_type": "launched",
+      "event_date": null,
+      "title": "Aquarius recorded as Stellar ecosystem exchange protocol",
+      "description": "Aquarius is recorded as a Stellar ecosystem liquidity and DEX-related protocol, with Aquarius and Aquarius Stellar candidate rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Replace with a precise launch event if stronger primary sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001497",
+      "exchange_id": "hei_ex_000372",
+      "event_id": "hei_ev_000680",
+      "source_type": "official_statement",
+      "title": "Aquarius official website",
+      "url": "https://aqua.network/",
+      "publisher": "Aquarius",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://aqua.network/",
+      "accessed_at": "2026-06-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify Aquarius identity."
+    },
+    {
+      "id": "hei_src_001498",
+      "exchange_id": "hei_ex_000372",
+      "event_id": "hei_ev_000680",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for Aquarius",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0102."
+    },
+    {
+      "id": "hei_src_001499",
+      "exchange_id": "hei_ex_000372",
+      "event_id": "hei_ev_000680",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX reference for Aquarius Stellar",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0103."
+    }
+  ]
+}

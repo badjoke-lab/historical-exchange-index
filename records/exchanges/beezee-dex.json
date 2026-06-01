@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000375",
+    "slug": "beezee-dex",
+    "canonical_name": "BeeZee DEX",
+    "aliases": ["BeeZee", "BZE DEX", "dex.getbze.com"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "BeeZee ecosystem",
+    "summary": "BeeZee ecosystem decentralized exchange candidate with a CoinGecko exchange row and official DEX domain.",
+    "official_url_original": "https://dex.getbze.com/",
+    "official_domain_original": "dex.getbze.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://dex.getbze.com/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-01",
+    "notes": "Added from verified-unadded row hei_unadded_0219."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000683",
+      "exchange_id": "hei_ex_000375",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-01",
+      "title": "BeeZee DEX recorded as DEX candidate",
+      "description": "BeeZee DEX is recorded as a DEX candidate based on its official DEX domain and CoinGecko exchange source row.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Upgrade with a precise launch or operating-history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001506",
+      "exchange_id": "hei_ex_000375",
+      "event_id": "hei_ev_000683",
+      "source_type": "official_statement",
+      "title": "BeeZee DEX official website",
+      "url": "https://dex.getbze.com/",
+      "publisher": "BeeZee",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://dex.getbze.com/",
+      "accessed_at": "2026-06-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official DEX domain used to verify BeeZee DEX identity."
+    },
+    {
+      "id": "hei_src_001507",
+      "exchange_id": "hei_ex_000375",
+      "event_id": "hei_ev_000683",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for BeeZee DEX",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0219."
+    }
+  ]
+}

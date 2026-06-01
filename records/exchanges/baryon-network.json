@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000374",
+    "slug": "baryon-network",
+    "canonical_name": "Baryon Network",
+    "aliases": ["Baryon", "baryon.network"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "multi-chain ecosystem",
+    "summary": "Decentralized exchange / DeFi protocol candidate represented by CoinGecko and DefiLlama source rows. HEI treats the Baryon Network rows as one protocol-level DEX entity.",
+    "official_url_original": "https://baryon.network/",
+    "official_domain_original": "baryon.network",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://baryon.network/",
+    "confidence": "low",
+    "last_verified_at": "2026-06-01",
+    "notes": "Added from verified-unadded rows hei_unadded_0190 and hei_unadded_0191 as one entity."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000682",
+      "exchange_id": "hei_ex_000374",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-01",
+      "title": "Baryon Network recorded as DEX candidate",
+      "description": "Baryon Network is recorded as a DEX/protocol entity, with CoinGecko and DefiLlama candidate rows consolidated into one HEI record.",
+      "confidence": "low",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Upgrade with a precise launch or operating-history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001503",
+      "exchange_id": "hei_ex_000374",
+      "event_id": "hei_ev_000682",
+      "source_type": "official_statement",
+      "title": "Baryon Network official website",
+      "url": "https://baryon.network/",
+      "publisher": "Baryon Network",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://baryon.network/",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Official domain from verified-unadded candidate rows."
+    },
+    {
+      "id": "hei_src_001504",
+      "exchange_id": "hei_ex_000374",
+      "event_id": "hei_ev_000682",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for Baryon Network",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0190."
+    },
+    {
+      "id": "hei_src_001505",
+      "exchange_id": "hei_ex_000374",
+      "event_id": "hei_ev_000682",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX reference for Baryon Network",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0191."
+    }
+  ]
+}
