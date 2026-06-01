@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000362",
+    "slug": "apeswap",
+    "canonical_name": "ApeSwap",
+    "aliases": ["ApeSwap BSC", "ApeSwap AMM", "ApeSwap Finance", "apeswap.finance"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "BNB Chain ecosystem",
+    "summary": "Multi-chain DeFi and automated market maker protocol, originally known for BNB Chain DEX activity. HEI treats ApeSwap, ApeSwap BSC, and ApeSwap AMM rows as one protocol-level DEX entity.",
+    "official_url_original": "https://apeswap.finance/",
+    "official_domain_original": "apeswap.finance",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://apeswap.finance/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-01",
+    "notes": "Added from verified-unadded rows hei_unadded_0093 through hei_unadded_0095 as one entity to avoid duplicate AMM / chain-specific records."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000670",
+      "exchange_id": "hei_ex_000362",
+      "event_type": "launched",
+      "event_date": null,
+      "title": "ApeSwap recorded as protocol-level DEX entity",
+      "description": "ApeSwap is recorded as a protocol-level AMM/DEX entity, with BSC and AMM candidate rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Replace with a precise launch or migration event if a stronger primary source is added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001469",
+      "exchange_id": "hei_ex_000362",
+      "event_id": "hei_ev_000670",
+      "source_type": "official_statement",
+      "title": "ApeSwap official website",
+      "url": "https://apeswap.finance/",
+      "publisher": "ApeSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://apeswap.finance/",
+      "accessed_at": "2026-06-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify current ApeSwap identity."
+    },
+    {
+      "id": "hei_src_001470",
+      "exchange_id": "hei_ex_000362",
+      "event_id": "hei_ev_000670",
+      "source_type": "official_statement",
+      "title": "ApeSwap documentation",
+      "url": "https://apeswap.gitbook.io/apeswap-finance/",
+      "publisher": "ApeSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://apeswap.gitbook.io/apeswap-finance/",
+      "accessed_at": "2026-06-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official documentation used for protocol-level identity."
+    },
+    {
+      "id": "hei_src_001471",
+      "exchange_id": "hei_ex_000362",
+      "event_id": "hei_ev_000670",
+      "source_type": "database_reference",
+      "title": "CoinPaprika / CoinGecko / DefiLlama references for ApeSwap variants",
+      "url": "https://api.coinpaprika.com/v1/exchanges",
+      "publisher": "CoinPaprika / CoinGecko / DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Backlog rows hei_unadded_0093-0095 contained ApeSwap and ApeSwap AMM references."
+    }
+  ]
+}

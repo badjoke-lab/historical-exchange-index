@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000365",
+    "slug": "bakeryswap",
+    "canonical_name": "BakerySwap",
+    "aliases": ["Bakeryswap", "BakerySwap AMM", "bakeryswap.org"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "BNB Chain ecosystem",
+    "summary": "BNB Chain ecosystem automated market maker and DeFi trading protocol. HEI treats CoinPaprika and CoinGecko BakerySwap candidate rows as one protocol-level DEX entity.",
+    "official_url_original": "https://www.bakeryswap.org/",
+    "official_domain_original": "bakeryswap.org",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.bakeryswap.org/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-01",
+    "notes": "Added from verified-unadded rows hei_unadded_0171 and hei_unadded_0172 as one entity."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000673",
+      "exchange_id": "hei_ex_000365",
+      "event_type": "launched",
+      "event_date": null,
+      "title": "BakerySwap recorded as protocol-level DEX entity",
+      "description": "BakerySwap is recorded as a BNB Chain ecosystem AMM/DEX entity, with duplicate candidate rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Replace with a precise launch event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001477",
+      "exchange_id": "hei_ex_000365",
+      "event_id": "hei_ev_000673",
+      "source_type": "official_statement",
+      "title": "BakerySwap official website",
+      "url": "https://www.bakeryswap.org/",
+      "publisher": "BakerySwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.bakeryswap.org/",
+      "accessed_at": "2026-06-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify BakerySwap identity."
+    },
+    {
+      "id": "hei_src_001478",
+      "exchange_id": "hei_ex_000365",
+      "event_id": "hei_ev_000673",
+      "source_type": "database_reference",
+      "title": "CoinPaprika exchange reference for BakerySwap",
+      "url": "https://api.coinpaprika.com/v1/exchanges",
+      "publisher": "CoinPaprika",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0171."
+    },
+    {
+      "id": "hei_src_001479",
+      "exchange_id": "hei_ex_000365",
+      "event_id": "hei_ev_000673",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for BakerySwap",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0172."
+    }
+  ]
+}
