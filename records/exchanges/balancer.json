@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000357",
+    "slug": "balancer",
+    "canonical_name": "Balancer",
+    "aliases": ["Balancer Protocol", "Balancer V1", "Balancer V2", "Balancer V3", "balancer.fi"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2020-03-31",
+    "death_date": null,
+    "country_or_origin": "Ethereum ecosystem",
+    "summary": "Automated market maker and decentralized exchange protocol launched on Ethereum and later expanded across multiple chains. HEI treats Balancer as one protocol-level DEX entity rather than separate records for each version or deployment.",
+    "official_url_original": "https://balancer.fi/",
+    "official_domain_original": "balancer.fi",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://balancer.fi/",
+    "confidence": "medium",
+    "last_verified_at": "2026-05-31",
+    "notes": "Added from verified-unadded rows hei_unadded_0175 through hei_unadded_0181 as one entity to avoid version/deployment duplication."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000665",
+      "exchange_id": "hei_ex_000357",
+      "event_type": "launched",
+      "event_date": "2020-03-31",
+      "title": "Balancer protocol launch treated as DEX start",
+      "description": "Balancer is recorded as an Ethereum ecosystem AMM and DEX protocol. Version and deployment rows are consolidated into one protocol-level HEI entity.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Launch date should be upgraded later if a stronger primary launch announcement is added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001454",
+      "exchange_id": "hei_ex_000357",
+      "event_id": "hei_ev_000665",
+      "source_type": "official_statement",
+      "title": "Balancer official website",
+      "url": "https://balancer.fi/",
+      "publisher": "Balancer",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://balancer.fi/",
+      "accessed_at": "2026-05-31",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify current Balancer identity."
+    },
+    {
+      "id": "hei_src_001455",
+      "exchange_id": "hei_ex_000357",
+      "event_id": "hei_ev_000665",
+      "source_type": "official_statement",
+      "title": "Balancer documentation",
+      "url": "https://docs.balancer.fi/",
+      "publisher": "Balancer",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.balancer.fi/",
+      "accessed_at": "2026-05-31",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official documentation used for protocol-level identity."
+    },
+    {
+      "id": "hei_src_001456",
+      "exchange_id": "hei_ex_000357",
+      "event_id": "hei_ev_000665",
+      "source_type": "database_reference",
+      "title": "CoinPaprika / DefiLlama references for Balancer variants",
+      "url": "https://api.coinpaprika.com/v1/exchanges",
+      "publisher": "CoinPaprika / DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
+      "accessed_at": "2026-05-31",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Backlog rows hei_unadded_0175-0181 contained Balancer deployment/version references."
+    }
+  ]
+}

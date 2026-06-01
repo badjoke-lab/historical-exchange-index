@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000358",
+    "slug": "bancor",
+    "canonical_name": "Bancor",
+    "aliases": ["Bancor Network", "Bancor V2", "Bancor V2.1", "Bancor V3", "bancor.network"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2017-06-12",
+    "death_date": null,
+    "country_or_origin": "Ethereum ecosystem",
+    "summary": "Early automated market maker and decentralized liquidity protocol. HEI treats Bancor as one protocol-level DEX entity rather than separate records for each version row.",
+    "official_url_original": "https://bancor.network/",
+    "official_domain_original": "bancor.network",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bancor.network/",
+    "confidence": "medium",
+    "last_verified_at": "2026-05-31",
+    "notes": "Added from verified-unadded rows hei_unadded_0182 through hei_unadded_0186 as one entity to avoid duplicate Bancor version records."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000666",
+      "exchange_id": "hei_ex_000358",
+      "event_type": "launched",
+      "event_date": "2017-06-12",
+      "title": "Bancor protocol launch treated as DEX start",
+      "description": "Bancor is recorded as an early Ethereum ecosystem AMM and decentralized liquidity protocol. Version rows are consolidated into one HEI entity.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Launch date uses the public Bancor token generation / protocol launch period and should be refined if a stronger primary source is added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001457",
+      "exchange_id": "hei_ex_000358",
+      "event_id": "hei_ev_000666",
+      "source_type": "official_statement",
+      "title": "Bancor official website",
+      "url": "https://bancor.network/",
+      "publisher": "Bancor",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bancor.network/",
+      "accessed_at": "2026-05-31",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify current Bancor identity."
+    },
+    {
+      "id": "hei_src_001458",
+      "exchange_id": "hei_ex_000358",
+      "event_id": "hei_ev_000666",
+      "source_type": "official_statement",
+      "title": "Bancor documentation",
+      "url": "https://docs.bancor.network/",
+      "publisher": "Bancor",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.bancor.network/",
+      "accessed_at": "2026-05-31",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official documentation used for protocol-level identity."
+    },
+    {
+      "id": "hei_src_001459",
+      "exchange_id": "hei_ex_000358",
+      "event_id": "hei_ev_000666",
+      "source_type": "database_reference",
+      "title": "CoinGecko / CoinPaprika / DefiLlama references for Bancor variants",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "publisher": "CoinGecko / CoinPaprika / DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "accessed_at": "2026-05-31",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Backlog rows hei_unadded_0182-0186 contained Bancor deployment/version references."
+    }
+  ]
+}
