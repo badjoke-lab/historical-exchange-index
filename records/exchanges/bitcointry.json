@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000385",
+    "slug": "bitcointry",
+    "canonical_name": "Bitcointry",
+    "aliases": ["Bitcointry Exchange", "bitcointry.com"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": null,
+    "summary": "Centralized crypto exchange candidate represented by CoinPaprika and CoinGecko source rows. HEI treats Bitcointry and Bitcointry Exchange rows as one entity.",
+    "official_url_original": "https://bitcointry.com/",
+    "official_domain_original": "bitcointry.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bitcointry.com/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-01",
+    "notes": "Added from verified-unadded rows hei_unadded_0277 and hei_unadded_0278 as one entity."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000693",
+      "exchange_id": "hei_ex_000385",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-01",
+      "title": "Bitcointry recorded as centralized exchange",
+      "description": "Bitcointry is recorded as a centralized exchange entity, with CoinPaprika and CoinGecko candidate rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Upgrade with a precise launch, licensing, or operating-history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001530",
+      "exchange_id": "hei_ex_000385",
+      "event_id": "hei_ev_000693",
+      "source_type": "official_statement",
+      "title": "Bitcointry official website",
+      "url": "https://bitcointry.com/",
+      "publisher": "Bitcointry",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bitcointry.com/",
+      "accessed_at": "2026-06-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify Bitcointry identity."
+    },
+    {
+      "id": "hei_src_001531",
+      "exchange_id": "hei_ex_000385",
+      "event_id": "hei_ev_000693",
+      "source_type": "database_reference",
+      "title": "CoinPaprika exchange reference for Bitcointry",
+      "url": "https://api.coinpaprika.com/v1/exchanges",
+      "publisher": "CoinPaprika",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0277."
+    },
+    {
+      "id": "hei_src_001532",
+      "exchange_id": "hei_ex_000385",
+      "event_id": "hei_ev_000693",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for Bitcointry Exchange",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0278."
+    }
+  ]
+}
