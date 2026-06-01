@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000360",
+    "slug": "alex",
+    "canonical_name": "ALEX",
+    "aliases": ["ALEX Lab", "ALEX Protocol", "ALEX DEX", "alexlab.co"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Stacks ecosystem",
+    "summary": "Stacks ecosystem DeFi and exchange protocol. HEI records ALEX as a protocol-level DEX entity and consolidates the CoinGecko and DefiLlama candidate rows into one record.",
+    "official_url_original": "https://alexlab.co/",
+    "official_domain_original": "alexlab.co",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://alexlab.co/",
+    "confidence": "medium",
+    "last_verified_at": "2026-05-31",
+    "notes": "Added from verified-unadded rows hei_unadded_0052 and hei_unadded_0053 as one entity. ALEX has event history beyond a thin database listing and should be improved later with stronger incident-specific sources."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000668",
+      "exchange_id": "hei_ex_000360",
+      "event_type": "exploit",
+      "event_date": "2024-05-14",
+      "title": "ALEX disclosed security incident / exploit context",
+      "description": "ALEX is included as an event-backed DEX/protocol record because the protocol has public security-incident history in addition to exchange database references.",
+      "confidence": "medium",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Incident details should be refined later with the strongest official postmortem or recovery-plan source available."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001463",
+      "exchange_id": "hei_ex_000360",
+      "event_id": "hei_ev_000668",
+      "source_type": "official_statement",
+      "title": "ALEX official website",
+      "url": "https://alexlab.co/",
+      "publisher": "ALEX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://alexlab.co/",
+      "accessed_at": "2026-05-31",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to preserve ALEX identity."
+    },
+    {
+      "id": "hei_src_001464",
+      "exchange_id": "hei_ex_000360",
+      "event_id": "hei_ev_000668",
+      "source_type": "news_article",
+      "title": "ALEX Lab exploit / recovery coverage",
+      "url": "https://www.coindesk.com/tech/2024/05/15/bitcoin-layer-2-alex-lab-loses-43m-in-exploit/",
+      "publisher": "CoinDesk",
+      "published_at": "2024-05-15",
+      "archived_url": "https://web.archive.org/web/*/https://www.coindesk.com/tech/2024/05/15/bitcoin-layer-2-alex-lab-loses-43m-in-exploit/",
+      "accessed_at": "2026-05-31",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Secondary source used to support the public exploit/incident event."
+    },
+    {
+      "id": "hei_src_001465",
+      "exchange_id": "hei_ex_000360",
+      "event_id": "hei_ev_000668",
+      "source_type": "database_reference",
+      "title": "CoinGecko / DefiLlama references for ALEX",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "publisher": "CoinGecko / DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "accessed_at": "2026-05-31",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Backlog rows hei_unadded_0052 and hei_unadded_0053 referred to the same ALEX candidate."
+    }
+  ]
+}
