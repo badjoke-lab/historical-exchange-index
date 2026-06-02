@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000389",
+    "slug": "bitflow",
+    "canonical_name": "Bitflow",
+    "aliases": ["Bitflow Finance", "bitflow.finance"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Stacks ecosystem",
+    "summary": "Stacks ecosystem decentralized exchange candidate represented by CoinGecko and DefiLlama source rows. HEI treats Bitflow rows as one protocol-level DEX entity.",
+    "official_url_original": "https://bitflow.finance/",
+    "official_domain_original": "bitflow.finance",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bitflow.finance/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-01",
+    "notes": "Added from verified-unadded rows hei_unadded_0296 and hei_unadded_0297 as one entity."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000697",
+      "exchange_id": "hei_ex_000389",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-01",
+      "title": "Bitflow recorded as Stacks ecosystem DEX",
+      "description": "Bitflow is recorded as a Stacks ecosystem DEX entity, with CoinGecko and DefiLlama candidate rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Upgrade with a precise launch or operating-history event if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001541",
+      "exchange_id": "hei_ex_000389",
+      "event_id": "hei_ev_000697",
+      "source_type": "official_statement",
+      "title": "Bitflow official website",
+      "url": "https://bitflow.finance/",
+      "publisher": "Bitflow",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bitflow.finance/",
+      "accessed_at": "2026-06-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify Bitflow identity."
+    },
+    {
+      "id": "hei_src_001542",
+      "exchange_id": "hei_ex_000389",
+      "event_id": "hei_ev_000697",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for Bitflow",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0296."
+    },
+    {
+      "id": "hei_src_001543",
+      "exchange_id": "hei_ex_000389",
+      "event_id": "hei_ev_000697",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX reference for Bitflow",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-06-01",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0297."
+    }
+  ]
+}
