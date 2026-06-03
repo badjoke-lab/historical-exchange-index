@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000398",
+    "slug": "bitzy",
+    "canonical_name": "Bitzy",
+    "aliases": ["bitzy.app"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": null,
+    "summary": "Exchange-like crypto trading candidate with CoinGecko source data and a domain reference. HEI records Bitzy as an active exchange seed record pending stronger operating-history evidence.",
+    "official_url_original": "https://bitzy.app/",
+    "official_domain_original": "bitzy.app",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://bitzy.app/",
+    "confidence": "low",
+    "last_verified_at": "2026-06-02",
+    "notes": "Added from verified-unadded row hei_unadded_0343. This is a seed record and should be improved later with stronger official, launch, licensing, or operating-history evidence."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000708",
+      "exchange_id": "hei_ex_000398",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-02",
+      "title": "Bitzy recorded as exchange-like candidate",
+      "description": "Bitzy is recorded as an exchange-like entity based on its CoinGecko exchange source row and domain reference.",
+      "confidence": "low",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch, licensing, or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001567",
+      "exchange_id": "hei_ex_000398",
+      "event_id": "hei_ev_000708",
+      "source_type": "official_statement",
+      "title": "Bitzy domain reference",
+      "url": "https://bitzy.app/",
+      "publisher": "Bitzy",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bitzy.app/",
+      "accessed_at": "2026-06-02",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Domain reference from the verified-unadded candidate row."
+    },
+    {
+      "id": "hei_src_001568",
+      "exchange_id": "hei_ex_000398",
+      "event_id": "hei_ev_000708",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for Bitzy",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
+      "accessed_at": "2026-06-02",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0343."
+    }
+  ]
+}
