@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000410",
+    "slug": "bulbaswap",
+    "canonical_name": "BulbaSwap",
+    "aliases": ["BulbaSwap V2", "BulbaSwap V3", "bulbaswap.io"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Morph ecosystem",
+    "summary": "Morph ecosystem DEX/protocol candidate represented by CoinGecko and DefiLlama rows. HEI treats BulbaSwap V2 and V3 rows as one protocol-level DEX entity for v0.",
+    "official_url_original": "https://bulbaswap.io/",
+    "official_domain_original": "bulbaswap.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bulbaswap.io/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-03",
+    "notes": "Added from verified-unadded rows hei_unadded_0416 through hei_unadded_0418 as one entity to avoid version duplication."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000720",
+      "exchange_id": "hei_ex_000410",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-03",
+      "title": "BulbaSwap recorded as Morph ecosystem DEX",
+      "description": "BulbaSwap is recorded as a Morph ecosystem DEX/protocol entity, with V2 and V3 candidate rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch, version, or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001601",
+      "exchange_id": "hei_ex_000410",
+      "event_id": "hei_ev_000720",
+      "source_type": "official_statement",
+      "title": "BulbaSwap official website",
+      "url": "https://bulbaswap.io/",
+      "publisher": "BulbaSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bulbaswap.io/",
+      "accessed_at": "2026-06-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify BulbaSwap identity."
+    },
+    {
+      "id": "hei_src_001602",
+      "exchange_id": "hei_ex_000410",
+      "event_id": "hei_ev_000720",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for BulbaSwap V2",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0416."
+    },
+    {
+      "id": "hei_src_001603",
+      "exchange_id": "hei_ex_000410",
+      "event_id": "hei_ev_000720",
+      "source_type": "database_reference",
+      "title": "DefiLlama references for BulbaSwap V2 and V3",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Backlog rows hei_unadded_0417 and hei_unadded_0418 referenced BulbaSwap V2 and V3."
+    }
+  ]
+}
