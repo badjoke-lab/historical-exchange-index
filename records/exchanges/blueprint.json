@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000406",
+    "slug": "blueprint",
+    "canonical_name": "Blueprint",
+    "aliases": ["blueprint.fi"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": null,
+    "summary": "DEX/exchange-like protocol candidate represented by CoinGecko source data and an official domain reference. HEI records Blueprint as an active protocol seed record pending stronger operating-history evidence.",
+    "official_url_original": "https://blueprint.fi/",
+    "official_domain_original": "blueprint.fi",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://blueprint.fi/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-03",
+    "notes": "Added from verified-unadded row hei_unadded_0378. This record should be improved later with stronger official, launch, chain, or operating-history evidence."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000716",
+      "exchange_id": "hei_ex_000406",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-03",
+      "title": "Blueprint recorded as protocol seed record",
+      "description": "Blueprint is recorded as a DEX/exchange-like protocol entity based on its CoinGecko exchange source row and official domain reference.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch, chain, or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001592",
+      "exchange_id": "hei_ex_000406",
+      "event_id": "hei_ev_000716",
+      "source_type": "official_statement",
+      "title": "Blueprint official website",
+      "url": "https://blueprint.fi/",
+      "publisher": "Blueprint",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://blueprint.fi/",
+      "accessed_at": "2026-06-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify Blueprint identity."
+    },
+    {
+      "id": "hei_src_001593",
+      "exchange_id": "hei_ex_000406",
+      "event_id": "hei_ev_000716",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for Blueprint",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0378."
+    }
+  ]
+}
