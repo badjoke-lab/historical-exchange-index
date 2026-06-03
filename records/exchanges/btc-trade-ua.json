@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000409",
+    "slug": "btc-trade-ua",
+    "canonical_name": "BTC Trade UA",
+    "aliases": ["BTC Trade UA", "btc-trade.com.ua"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Ukraine",
+    "summary": "Ukraine-based centralized crypto exchange candidate represented by CoinPaprika and CoinGecko source rows. HEI treats BTC Trade UA duplicate rows as one entity.",
+    "official_url_original": "https://btc-trade.com.ua/",
+    "official_domain_original": "btc-trade.com.ua",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://btc-trade.com.ua/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-03",
+    "notes": "Added from verified-unadded rows hei_unadded_0397 and hei_unadded_0398 as one entity."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000719",
+      "exchange_id": "hei_ex_000409",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-03",
+      "title": "BTC Trade UA recorded as centralized exchange",
+      "description": "BTC Trade UA is recorded as a centralized exchange entity, with CoinPaprika and CoinGecko candidate rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch, licensing, or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001598",
+      "exchange_id": "hei_ex_000409",
+      "event_id": "hei_ev_000719",
+      "source_type": "official_statement",
+      "title": "BTC Trade UA official website",
+      "url": "https://btc-trade.com.ua/",
+      "publisher": "BTC Trade UA",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://btc-trade.com.ua/",
+      "accessed_at": "2026-06-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify BTC Trade UA identity."
+    },
+    {
+      "id": "hei_src_001599",
+      "exchange_id": "hei_ex_000409",
+      "event_id": "hei_ev_000719",
+      "source_type": "database_reference",
+      "title": "CoinPaprika exchange reference for BTC Trade UA",
+      "url": "https://api.coinpaprika.com/v1/exchanges",
+      "publisher": "CoinPaprika",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0397."
+    },
+    {
+      "id": "hei_src_001600",
+      "exchange_id": "hei_ex_000409",
+      "event_id": "hei_ev_000719",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for BTC Trade UA",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0398."
+    }
+  ]
+}
