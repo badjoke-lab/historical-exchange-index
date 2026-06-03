@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000402",
+    "slug": "blazeswap-flare",
+    "canonical_name": "BlazeSwap (Flare)",
+    "aliases": ["BlazeSwap", "app.blazeswap.xyz"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Flare ecosystem",
+    "summary": "Flare ecosystem DEX/protocol candidate represented by a CoinGecko exchange row and official app domain. HEI records BlazeSwap (Flare) as a protocol-level DEX entity for v0.",
+    "official_url_original": "https://app.blazeswap.xyz/",
+    "official_domain_original": "app.blazeswap.xyz",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://app.blazeswap.xyz/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-02",
+    "notes": "Added from verified-unadded row hei_unadded_0357. Kept as BlazeSwap (Flare) because the source row is chain-specific."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000712",
+      "exchange_id": "hei_ex_000402",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-02",
+      "title": "BlazeSwap recorded as Flare ecosystem DEX",
+      "description": "BlazeSwap is recorded as a Flare ecosystem DEX/protocol entity based on its CoinGecko source row and official app domain.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001579",
+      "exchange_id": "hei_ex_000402",
+      "event_id": "hei_ev_000712",
+      "source_type": "official_statement",
+      "title": "BlazeSwap official app",
+      "url": "https://app.blazeswap.xyz/",
+      "publisher": "BlazeSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://app.blazeswap.xyz/",
+      "accessed_at": "2026-06-02",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official app domain used to verify BlazeSwap identity."
+    },
+    {
+      "id": "hei_src_001580",
+      "exchange_id": "hei_ex_000402",
+      "event_id": "hei_ev_000712",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for BlazeSwap (Flare)",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "accessed_at": "2026-06-02",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0357."
+    }
+  ]
+}
