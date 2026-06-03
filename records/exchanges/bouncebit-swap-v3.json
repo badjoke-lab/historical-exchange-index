@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000407",
+    "slug": "bouncebit-swap-v3",
+    "canonical_name": "BounceBit Swap V3",
+    "aliases": ["bitswap-v3-bouncebit", "app.bouncebit.io"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "BounceBit ecosystem",
+    "summary": "BounceBit ecosystem DEX candidate represented by a CoinGecko exchange row and official app domain. HEI records BounceBit Swap V3 as a chain-specific DEX entity for v0.",
+    "official_url_original": "https://app.bouncebit.io/",
+    "official_domain_original": "app.bouncebit.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://app.bouncebit.io/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-03",
+    "notes": "Added from verified-unadded row hei_unadded_0390. Kept as BounceBit Swap V3 because the source row is chain/version specific."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000717",
+      "exchange_id": "hei_ex_000407",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-03",
+      "title": "BounceBit Swap V3 recorded as ecosystem DEX",
+      "description": "BounceBit Swap V3 is recorded as a BounceBit ecosystem DEX entity based on its CoinGecko source row and official app domain.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch, version, or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001594",
+      "exchange_id": "hei_ex_000407",
+      "event_id": "hei_ev_000717",
+      "source_type": "official_statement",
+      "title": "BounceBit official app",
+      "url": "https://app.bouncebit.io/",
+      "publisher": "BounceBit",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://app.bouncebit.io/",
+      "accessed_at": "2026-06-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official app domain used to verify BounceBit Swap V3 identity."
+    },
+    {
+      "id": "hei_src_001595",
+      "exchange_id": "hei_ex_000407",
+      "event_id": "hei_ev_000717",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for BounceBit Swap V3",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0390."
+    }
+  ]
+}
