@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000415",
+    "slug": "byreal",
+    "canonical_name": "Byreal",
+    "aliases": ["byreal.io"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Solana ecosystem",
+    "summary": "DEX / exchange protocol candidate represented by CoinGecko and DefiLlama source rows. HEI treats Byreal source rows as one protocol-level entity for v0.",
+    "official_url_original": "https://byreal.io/",
+    "official_domain_original": "byreal.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://byreal.io/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-03",
+    "notes": "Added from verified-unadded rows hei_unadded_0439 and hei_unadded_0440 as one entity. This record should be improved later with stronger launch, chain, or operating-history evidence."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000725",
+      "exchange_id": "hei_ex_000415",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-03",
+      "title": "Byreal recorded as DEX candidate",
+      "description": "Byreal is recorded as a DEX / exchange protocol entity, with CoinGecko and DefiLlama candidate rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch, chain, or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001618",
+      "exchange_id": "hei_ex_000415",
+      "event_id": "hei_ev_000725",
+      "source_type": "official_statement",
+      "title": "Byreal official website",
+      "url": "https://byreal.io/",
+      "publisher": "Byreal",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://byreal.io/",
+      "accessed_at": "2026-06-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify Byreal identity."
+    },
+    {
+      "id": "hei_src_001619",
+      "exchange_id": "hei_ex_000415",
+      "event_id": "hei_ev_000725",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for Byreal",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0439."
+    },
+    {
+      "id": "hei_src_001620",
+      "exchange_id": "hei_ex_000415",
+      "event_id": "hei_ev_000725",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX reference for Byreal",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0440."
+    }
+  ]
+}
