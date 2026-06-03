@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000400",
+    "slug": "bladeswap",
+    "canonical_name": "BladeSwap",
+    "aliases": ["BladeSwap AMM", "BladeSwap CL", "bladeswap.xyz"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Blast ecosystem",
+    "summary": "Blast ecosystem DEX/protocol candidate represented by CoinGecko and DefiLlama rows. HEI treats BladeSwap, BladeSwap AMM, and BladeSwap CL rows as one protocol-level DEX entity for v0.",
+    "official_url_original": "https://bladeswap.xyz/",
+    "official_domain_original": "bladeswap.xyz",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bladeswap.xyz/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-02",
+    "notes": "Added from verified-unadded rows hei_unadded_0351 through hei_unadded_0353 as one entity to avoid AMM/CL duplication."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000710",
+      "exchange_id": "hei_ex_000400",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-02",
+      "title": "BladeSwap recorded as Blast ecosystem DEX",
+      "description": "BladeSwap is recorded as a Blast ecosystem DEX/protocol entity, with AMM and CL candidate rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001573",
+      "exchange_id": "hei_ex_000400",
+      "event_id": "hei_ev_000710",
+      "source_type": "official_statement",
+      "title": "BladeSwap official website",
+      "url": "https://bladeswap.xyz/",
+      "publisher": "BladeSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bladeswap.xyz/",
+      "accessed_at": "2026-06-02",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify BladeSwap identity."
+    },
+    {
+      "id": "hei_src_001574",
+      "exchange_id": "hei_ex_000400",
+      "event_id": "hei_ev_000710",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for BladeSwap",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
+      "accessed_at": "2026-06-02",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0351."
+    },
+    {
+      "id": "hei_src_001575",
+      "exchange_id": "hei_ex_000400",
+      "event_id": "hei_ev_000710",
+      "source_type": "database_reference",
+      "title": "DefiLlama references for BladeSwap AMM and CL",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-06-02",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Backlog rows hei_unadded_0352 and hei_unadded_0353 referenced BladeSwap AMM and CL."
+    }
+  ]
+}
