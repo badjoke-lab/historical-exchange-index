@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000401",
+    "slug": "blasterswap",
+    "canonical_name": "BlasterSwap",
+    "aliases": ["Blasterswap", "Blasterswap V2", "Blasterswap V3", "blasterswap.com"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Blast ecosystem",
+    "summary": "Blast ecosystem DEX/protocol candidate represented by CoinGecko and DefiLlama rows. HEI treats BlasterSwap, Blasterswap V2, and Blasterswap V3 rows as one protocol-level DEX entity for v0.",
+    "official_url_original": "https://blasterswap.com/",
+    "official_domain_original": "blasterswap.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://blasterswap.com/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-02",
+    "notes": "Added from verified-unadded rows hei_unadded_0354 through hei_unadded_0356 as one entity to avoid version duplication."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000711",
+      "exchange_id": "hei_ex_000401",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-02",
+      "title": "BlasterSwap recorded as Blast ecosystem DEX",
+      "description": "BlasterSwap is recorded as a Blast ecosystem DEX/protocol entity, with V2 and V3 candidate rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001576",
+      "exchange_id": "hei_ex_000401",
+      "event_id": "hei_ev_000711",
+      "source_type": "official_statement",
+      "title": "BlasterSwap official website",
+      "url": "https://blasterswap.com/",
+      "publisher": "BlasterSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://blasterswap.com/",
+      "accessed_at": "2026-06-02",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify BlasterSwap identity."
+    },
+    {
+      "id": "hei_src_001577",
+      "exchange_id": "hei_ex_000401",
+      "event_id": "hei_ev_000711",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for BlasterSwap",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "accessed_at": "2026-06-02",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0354."
+    },
+    {
+      "id": "hei_src_001578",
+      "exchange_id": "hei_ex_000401",
+      "event_id": "hei_ev_000711",
+      "source_type": "database_reference",
+      "title": "DefiLlama references for Blasterswap V2 and V3",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-06-02",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Backlog rows hei_unadded_0355 and hei_unadded_0356 referenced Blasterswap V2 and V3."
+    }
+  ]
+}
