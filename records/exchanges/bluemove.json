@@ -1,0 +1,100 @@
+{
+  "entity": {
+    "id": "hei_ex_000405",
+    "slug": "bluemove",
+    "canonical_name": "BlueMove",
+    "aliases": ["BlueMove DEX", "dex.bluemove.net"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Aptos / Sui ecosystem",
+    "summary": "Aptos and Sui ecosystem DEX candidate represented by CoinPaprika, CoinGecko, and DefiLlama rows. HEI treats BlueMove and BlueMove DEX rows as one protocol-level entity for v0.",
+    "official_url_original": "https://dex.bluemove.net/",
+    "official_domain_original": "dex.bluemove.net",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://dex.bluemove.net/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-03",
+    "notes": "Added from verified-unadded rows hei_unadded_0375 through hei_unadded_0377 as one entity to avoid duplicate BlueMove / BlueMove DEX records."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000715",
+      "exchange_id": "hei_ex_000405",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-03",
+      "title": "BlueMove recorded as Aptos / Sui ecosystem DEX",
+      "description": "BlueMove is recorded as an Aptos and Sui ecosystem DEX entity, with BlueMove and BlueMove DEX candidate rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 4,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch, chain migration, or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001588",
+      "exchange_id": "hei_ex_000405",
+      "event_id": "hei_ev_000715",
+      "source_type": "official_statement",
+      "title": "BlueMove DEX official website",
+      "url": "https://dex.bluemove.net/",
+      "publisher": "BlueMove",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://dex.bluemove.net/",
+      "accessed_at": "2026-06-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official DEX domain used to verify BlueMove identity."
+    },
+    {
+      "id": "hei_src_001589",
+      "exchange_id": "hei_ex_000405",
+      "event_id": "hei_ev_000715",
+      "source_type": "database_reference",
+      "title": "CoinPaprika exchange reference for BlueMove",
+      "url": "https://api.coinpaprika.com/v1/exchanges",
+      "publisher": "CoinPaprika",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0375."
+    },
+    {
+      "id": "hei_src_001590",
+      "exchange_id": "hei_ex_000405",
+      "event_id": "hei_ev_000715",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for BlueMove",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0376."
+    },
+    {
+      "id": "hei_src_001591",
+      "exchange_id": "hei_ex_000405",
+      "event_id": "hei_ev_000715",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX reference for BlueMove DEX",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0377."
+    }
+  ]
+}
