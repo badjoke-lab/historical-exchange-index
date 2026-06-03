@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000416",
+    "slug": "byte-exchange",
+    "canonical_name": "Byte Exchange",
+    "aliases": ["bexc.io"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": null,
+    "summary": "Centralized crypto exchange candidate represented by a CoinGecko source row and official domain reference. HEI records Byte Exchange as an active exchange seed record pending stronger launch and operating-history evidence.",
+    "official_url_original": "https://bexc.io/",
+    "official_domain_original": "bexc.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bexc.io/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-03",
+    "notes": "Added from verified-unadded row hei_unadded_0441. This record should be improved later with stronger launch, jurisdiction, or operating-history evidence."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000726",
+      "exchange_id": "hei_ex_000416",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-03",
+      "title": "Byte Exchange recorded as exchange candidate",
+      "description": "Byte Exchange is recorded as a centralized exchange candidate based on its CoinGecko source row and official domain reference.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch, jurisdiction, or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001621",
+      "exchange_id": "hei_ex_000416",
+      "event_id": "hei_ev_000726",
+      "source_type": "official_statement",
+      "title": "Byte Exchange official website",
+      "url": "https://bexc.io/",
+      "publisher": "Byte Exchange",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bexc.io/",
+      "accessed_at": "2026-06-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify Byte Exchange identity."
+    },
+    {
+      "id": "hei_src_001622",
+      "exchange_id": "hei_ex_000416",
+      "event_id": "hei_ev_000726",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for Byte Exchange",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0441."
+    }
+  ]
+}

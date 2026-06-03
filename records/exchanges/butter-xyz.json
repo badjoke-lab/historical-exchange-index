@@ -1,0 +1,100 @@
+{
+  "entity": {
+    "id": "hei_ex_000413",
+    "slug": "butter-xyz",
+    "canonical_name": "Butter.xyz",
+    "aliases": ["Butter", "butterxyz", "swap.butter.xyz"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Mantle ecosystem",
+    "summary": "DEX / exchange protocol candidate represented by CoinPaprika, CoinGecko, and DefiLlama source rows. HEI treats Butter.xyz rows as one protocol-level entity for v0.",
+    "official_url_original": "https://swap.butter.xyz/",
+    "official_domain_original": "swap.butter.xyz",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://swap.butter.xyz/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-03",
+    "notes": "Added from verified-unadded rows hei_unadded_0426 through hei_unadded_0428 as one entity. This record should be improved later with stronger launch, chain, or operating-history evidence."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000723",
+      "exchange_id": "hei_ex_000413",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-03",
+      "title": "Butter.xyz recorded as DEX candidate",
+      "description": "Butter.xyz is recorded as a DEX / exchange protocol entity, with CoinPaprika, CoinGecko, and DefiLlama candidate rows consolidated into one HEI record.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 4,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch, chain, or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001610",
+      "exchange_id": "hei_ex_000413",
+      "event_id": "hei_ev_000723",
+      "source_type": "official_statement",
+      "title": "Butter.xyz official swap website",
+      "url": "https://swap.butter.xyz/",
+      "publisher": "Butter.xyz",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://swap.butter.xyz/",
+      "accessed_at": "2026-06-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify Butter.xyz identity."
+    },
+    {
+      "id": "hei_src_001611",
+      "exchange_id": "hei_ex_000413",
+      "event_id": "hei_ev_000723",
+      "source_type": "database_reference",
+      "title": "CoinPaprika exchange reference for Butter.xyz",
+      "url": "https://api.coinpaprika.com/v1/exchanges",
+      "publisher": "CoinPaprika",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0426."
+    },
+    {
+      "id": "hei_src_001612",
+      "exchange_id": "hei_ex_000413",
+      "event_id": "hei_ev_000723",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for Butter.xyz",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0427."
+    },
+    {
+      "id": "hei_src_001613",
+      "exchange_id": "hei_ex_000413",
+      "event_id": "hei_ev_000723",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX reference for Butter.xyz",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0428."
+    }
+  ]
+}
