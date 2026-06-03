@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000408",
+    "slug": "bron-intents",
+    "canonical_name": "Bron Intents",
+    "aliases": ["Bron", "bron.org"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": null,
+    "summary": "DEX/exchange-like intents protocol candidate represented by CoinGecko source data and an official domain reference. HEI records Bron Intents as an active protocol seed record pending stronger operating-history evidence.",
+    "official_url_original": "https://bron.org/",
+    "official_domain_original": "bron.org",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bron.org/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-03",
+    "notes": "Added from verified-unadded row hei_unadded_0393. This record should be improved later with stronger launch, chain, or operating-history evidence."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000718",
+      "exchange_id": "hei_ex_000408",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-03",
+      "title": "Bron Intents recorded as protocol seed record",
+      "description": "Bron Intents is recorded as a DEX/exchange-like protocol entity based on its CoinGecko exchange source row and official domain reference.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001596",
+      "exchange_id": "hei_ex_000408",
+      "event_id": "hei_ev_000718",
+      "source_type": "official_statement",
+      "title": "Bron official website",
+      "url": "https://bron.org/",
+      "publisher": "Bron",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bron.org/",
+      "accessed_at": "2026-06-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official domain used to verify Bron Intents identity."
+    },
+    {
+      "id": "hei_src_001597",
+      "exchange_id": "hei_ex_000408",
+      "event_id": "hei_ev_000718",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for Bron Intents",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=2",
+      "accessed_at": "2026-06-03",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0393."
+    }
+  ]
+}
