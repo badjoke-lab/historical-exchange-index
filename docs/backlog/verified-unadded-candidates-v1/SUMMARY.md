@@ -1,6 +1,6 @@
 # Verified unadded candidate generation v1
 
-Generated: 2026-06-09T16:30:12.782Z
+Generated: 2026-06-10T01:28:27.070Z
 
 ## Counts
 
@@ -15,8 +15,8 @@ Generated: 2026-06-09T16:30:12.782Z
 ## Source counts
 
 - coinpaprika_exchanges: 1114
-- coingecko_exchanges: 978
-- defillama_dexs: 1164
+- coingecko_exchanges: 976
+- defillama_dexs: 1166
 - ccxt_supported_exchanges: 110
 
 ## Source errors
