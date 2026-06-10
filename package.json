@@ -13,9 +13,9 @@
     "monitor:smoke": "node scripts/monitoring/smoke-test.mjs",
     "publish:draft": "node scripts/publishing/build-publishing-drafts.mjs",
     "records:audit-overlaps": "node scripts/audit-record-entity-overlaps.mjs",
-    "records:validate": "node scripts/validate-record-bundles.mjs && node scripts/check-record-duplicates.mjs && node scripts/audit-record-entity-overlaps.mjs",
+    "records:validate": "node scripts/audit-record-entity-overlaps.mjs && node scripts/validate-record-bundles.mjs && node scripts/check-record-duplicates.mjs",
     "records:build": "node scripts/build-data-from-records.mjs",
-    "records:dedupe": "node scripts/check-record-duplicates.mjs && node scripts/audit-record-entity-overlaps.mjs",
+    "records:dedupe": "node scripts/audit-record-entity-overlaps.mjs && node scripts/check-record-duplicates.mjs",
     "backlog:dedupe": "node scripts/check-backlog-dedupe.mjs",
     "backlog:build-unadded": "node scripts/build-verified-unadded-candidates.mjs"
   },
