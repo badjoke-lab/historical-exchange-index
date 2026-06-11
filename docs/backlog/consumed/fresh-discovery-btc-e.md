@@ -1,3 +1,5 @@
+> Correction: duplicate entity `hei_ex_000424` was removed and its useful event/evidence material was migrated to canonical `hei_ex_000005`. This memo remains as backlog-processing history.
+
 # Fresh discovery: BTC-e
 
 Status: added
