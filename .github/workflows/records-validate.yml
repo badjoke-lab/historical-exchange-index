@@ -8,6 +8,7 @@ on:
       - 'records/exchanges/**'
       - 'scripts/validate-record-bundles.mjs'
       - 'scripts/check-record-duplicates.mjs'
+      - 'scripts/audit-record-entity-overlaps.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/records-validate.yml'
@@ -19,6 +20,7 @@ on:
       - 'records/exchanges/**'
       - 'scripts/validate-record-bundles.mjs'
       - 'scripts/check-record-duplicates.mjs'
+      - 'scripts/audit-record-entity-overlaps.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/records-validate.yml'
@@ -40,7 +42,10 @@ jobs:
         run: npm ci
 
       - name: Validate record bundles and duplicate identities
-        run: npm run records:validate 2>&1 | tee records-validation-output.txt
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run records:validate 2>&1 | tee records-validation-output.txt
 
       - name: Upload validation output
         if: always()

@@ -69,7 +69,10 @@
     "slug": "quadrigacx",
     "canonical_name": "QuadrigaCX",
     "aliases": [
-      "Quadriga"
+      "Quadriga",
+      "Quadriga Fintech Solutions",
+      "QuadrigaCX Exchange",
+      "quadrigacx.com"
     ],
     "type": "cex",
     "status": "dead",
@@ -77,33 +80,38 @@
     "launch_date": "2013-01-01",
     "death_date": "2019-02-05",
     "country_or_origin": "Canada",
-    "summary": "Canada-based centralized exchange that ceased operations in 2019 after an insolvency-related collapse.",
+    "summary": "Defunct Canadian centralized cryptocurrency exchange that entered creditor protection in February 2019 after founder Gerald Cotten's death and missing-customer-funds crisis, later moving into bankruptcy. HEI records QuadrigaCX as a dead event-backed exchange with insolvency and regulatory-review history.",
     "official_url_original": "https://www.quadrigacx.com/",
     "official_domain_original": "quadrigacx.com",
     "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://www.quadrigacx.com/",
     "confidence": "high",
-    "last_verified_at": "2026-04-05",
+    "last_verified_at": "2026-06-08",
     "notes": "Platform shut down 2019-01-28; CCAA protection granted 2019-02-05."
   },
   {
     "id": "hei_ex_000005",
     "slug": "btc-e",
     "canonical_name": "BTC-e",
-    "aliases": [],
+    "aliases": [
+      "BTCE",
+      "BTC-e.com",
+      "btc-e.com",
+      "WEX predecessor"
+    ],
     "type": "cex",
     "status": "dead",
     "death_reason": "regulation",
     "launch_date": "2011-01-01",
     "death_date": "2017-07-26",
-    "country_or_origin": "Global",
-    "summary": "Centralized exchange that ceased operations in 2017 after regulatory or enforcement action.",
+    "country_or_origin": "Russia / global",
+    "summary": "Defunct cryptocurrency exchange founded in 2011 and taken offline in July 2017 after U.S. law-enforcement actions and the arrest of Alexander Vinnik. HEI records BTC-e as a dead event-backed exchange due to the 2017 indictment, FinCEN penalty, domain/service disruption, and later guilty plea by Vinnik.",
     "official_url_original": "https://btc-e.com/",
     "official_domain_original": "btc-e.com",
     "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://btc-e.com/",
     "confidence": "high",
-    "last_verified_at": "2026-04-05",
+    "last_verified_at": "2026-06-07",
     "notes": "The stored record uses the 2017-07-26 FinCEN enforcement date as the operational end marker."
   },
   {
@@ -232,21 +240,25 @@
     "id": "hei_ex_000012",
     "slug": "coinbase-exchange",
     "canonical_name": "Coinbase Exchange",
-    "aliases": [],
+    "aliases": [
+      "Coinbase Global",
+      "Coinbase.com",
+      "coinbase.com"
+    ],
     "type": "cex",
     "status": "active",
     "death_reason": null,
     "launch_date": "2012-01-01",
     "death_date": null,
     "country_or_origin": "United States",
-    "summary": "United States-based centralized exchange launched in 2012 and still operating under the Coinbase Exchange brand.",
+    "summary": "Major U.S.-based centralized cryptocurrency exchange. HEI records Coinbase as an active exchange with event-backed history, including a 2023 SEC civil action and the 2025 dismissal of that action.",
     "official_url_original": "https://exchange.coinbase.com/",
     "official_domain_original": "exchange.coinbase.com",
     "official_url_status": "live_unverified",
     "archived_url": "https://web.archive.org/web/*/https://exchange.coinbase.com/",
     "confidence": "high",
     "notes": "",
-    "last_verified_at": "2026-04-07"
+    "last_verified_at": "2026-06-04"
   },
   {
     "id": "hei_ex_000013",
@@ -332,21 +344,26 @@
     "id": "hei_ex_000017",
     "slug": "bitfinex",
     "canonical_name": "Bitfinex",
-    "aliases": [],
+    "aliases": [
+      "Bitfinex Exchange",
+      "iFinex",
+      "iFinex Inc.",
+      "bitfinex.com"
+    ],
     "type": "cex",
     "status": "active",
     "death_reason": null,
     "launch_date": "2012-11-06",
     "death_date": null,
     "country_or_origin": "British Virgin Islands",
-    "summary": "British Virgin Islands-based centralized exchange launched in 2012 and still operating under the Bitfinex brand.",
+    "summary": "Major centralized cryptocurrency exchange founded in 2012 and operated by iFinex. HEI records Bitfinex as an active exchange with event-backed history, including a 2016 CFTC order, the 2016 Bitfinex hack, and the 2022 U.S. seizure of bitcoin connected to the hack.",
     "official_url_original": "https://www.bitfinex.com/",
     "official_domain_original": "bitfinex.com",
     "official_url_status": "live_unverified",
     "archived_url": "https://web.archive.org/web/*/https://www.bitfinex.com/",
     "confidence": "high",
     "notes": "Available evidence supports the recorded Bitfinex launch date; the date is retained from the best available official anniversary material.",
-    "last_verified_at": "2026-04-07"
+    "last_verified_at": "2026-06-08"
   },
   {
     "id": "hei_ex_000018",
@@ -1250,21 +1267,25 @@
     "id": "hei_ex_000062",
     "slug": "bitmex",
     "canonical_name": "BitMEX",
-    "aliases": [],
+    "aliases": [
+      "Bitcoin Mercantile Exchange",
+      "HDR Global Trading Limited",
+      "bitmex.com"
+    ],
     "type": "cex",
     "status": "active",
     "death_reason": null,
     "launch_date": "2014-01-01",
     "death_date": null,
     "country_or_origin": "Seychelles",
-    "summary": "Seychelles-based centralized exchange launched in 2014 and still operating under the BitMEX brand.",
+    "summary": "Cryptocurrency derivatives exchange founded in 2014. HEI records BitMEX as an active exchange with event-backed regulatory history, including U.S. enforcement actions, a 2021 CFTC/FinCEN settlement, founder guilty pleas, and a later company plea/fine.",
     "official_url_original": "https://www.bitmex.com/",
     "official_domain_original": "bitmex.com",
     "official_url_status": "live_unverified",
     "archived_url": "https://web.archive.org/web/*/https://www.bitmex.com/",
-    "confidence": "low",
+    "confidence": "high",
     "notes": "",
-    "last_verified_at": "2026-04-07"
+    "last_verified_at": "2026-06-07"
   },
   {
     "id": "hei_ex_000063",
@@ -1370,21 +1391,24 @@
     "id": "hei_ex_000068",
     "slug": "backpack-exchange",
     "canonical_name": "Backpack Exchange",
-    "aliases": [],
+    "aliases": [
+      "Backpack EU",
+      "backpack.exchange"
+    ],
     "type": "cex",
     "status": "active",
     "death_reason": null,
     "launch_date": "2024-01-01",
     "death_date": null,
     "country_or_origin": "United Arab Emirates",
-    "summary": "United Arab Emirates-based centralized exchange launched in 2024 and still operating under the Backpack Exchange brand.",
+    "summary": "Crypto exchange candidate from the CCXT-supported exchange list and official Backpack Exchange domain. HEI records it as an active centralized exchange seed because it has an official trading-domain identity beyond a single database row.",
     "official_url_original": "https://backpack.exchange/",
     "official_domain_original": "backpack.exchange",
     "official_url_status": "live_unverified",
     "archived_url": "https://web.archive.org/web/*/https://backpack.exchange/",
-    "confidence": "low",
+    "confidence": "medium",
     "notes": "",
-    "last_verified_at": "2026-04-07"
+    "last_verified_at": "2026-06-01"
   },
   {
     "id": "hei_ex_000069",
@@ -1471,7 +1495,9 @@
     "slug": "nobitex",
     "canonical_name": "Nobitex",
     "aliases": [
-      "Nobitex.ir"
+      "Nobitex.ir",
+      "Nobitex Exchange",
+      "nobitex.ir"
     ],
     "type": "cex",
     "status": "limited",
@@ -1484,9 +1510,9 @@
     "official_domain_original": "nobitex.ir",
     "official_url_status": "unknown",
     "archived_url": "https://web.archive.org/web/*/https://nobitex.ir/",
-    "confidence": "medium",
+    "confidence": "high",
     "notes": "Do not mark dead yet. Reuters and other sources report a major hack and offline website/app state, but current evidence does not prove permanent shutdown, liquidation, or service death. Keep as limited unless a later closure or durable recovery marker is confirmed.",
-    "last_verified_at": "2026-04-26",
+    "last_verified_at": "2026-06-07",
     "predecessor_id": null,
     "successor_id": null
   },
@@ -2316,47 +2342,55 @@
     "archived_url": "https://web.archive.org/web/*/https://cobinhood.com/",
     "confidence": "medium",
     "notes": "Reuters announced the platform in September 2017, while the live platform launch reference used here is 2017-12-18. Terminal handling uses the 2020-01-10 shutdown/audit notice. Death reason is kept as unknown because public reporting described a shutdown and balance-audit period, with bankruptcy and exit-scam rumors not treated here as a confirmed terminal cause.",
-    "last_verified_at": "2026-04-24"
+    "last_verified_at": "2026-05-22"
   },
   {
     "id": "hei_ex_000115",
     "slug": "altsbit",
     "canonical_name": "Altsbit",
-    "aliases": [],
+    "aliases": [
+      "Altsbit Exchange",
+      "Altsbit.com"
+    ],
     "type": "cex",
     "status": "dead",
     "death_reason": "hack",
     "launch_date": "2019-12-01",
     "death_date": "2020-05-08",
-    "country_or_origin": "Global",
-    "summary": "Centralized exchange that ceased operations in 2020 after a hack-related crisis.",
+    "country_or_origin": "Italy",
+    "summary": "Italy-linked centralized cryptocurrency exchange that announced it would shut down after a February 2020 hack and asset loss.",
     "official_url_original": "https://altsbit.com/",
     "official_domain_original": "altsbit.com",
     "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://altsbit.com/",
     "confidence": "medium",
     "notes": "Public coverage indicates the venue was only a few months old by February 2020. The operational end marker uses the published refund deadline in May 2020.",
-    "last_verified_at": "2026-04-07"
+    "last_verified_at": "2026-05-23"
   },
   {
     "id": "hei_ex_000116",
     "slug": "wex",
     "canonical_name": "WEX",
-    "aliases": [],
+    "aliases": [
+      "WEX.nz",
+      "WEX Exchange",
+      "wex.nz",
+      "World Exchange Services"
+    ],
     "type": "cex",
     "status": "dead",
     "death_reason": "regulation",
     "launch_date": "2017-09-15",
     "death_date": "2018-11-26",
-    "country_or_origin": "Global",
-    "summary": "Centralized exchange that ceased operations in 2018 after regulatory or enforcement action.",
+    "country_or_origin": "Global / BTC-e successor context",
+    "summary": "Cryptocurrency exchange launched after the BTC-e seizure and widely described as a successor platform for BTC-e users. WEX stopped functioning in late 2018 amid withdrawal failures, missing customer funds, and later law-enforcement actions involving former WEX leadership.",
     "official_url_original": "https://wex.nz/",
     "official_domain_original": "wex.nz",
     "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://wex.nz/",
-    "confidence": "low",
+    "confidence": "medium",
     "notes": "Launch uses the September 2017 rebrand/launch announcement. Death marker uses the late-November 2018 domain-loss point as an operational end marker; exact final shutdown timing remains contested.",
-    "last_verified_at": "2026-04-07"
+    "last_verified_at": "2026-05-28"
   },
   {
     "id": "hei_ex_000117",
@@ -2502,14 +2536,18 @@
     "id": "hei_ex_000124",
     "slug": "localbitcoins",
     "canonical_name": "LocalBitcoins",
-    "aliases": [],
+    "aliases": [
+      "LocalBitcoins.com",
+      "Local Bitcoins",
+      "localbitcoins.com"
+    ],
     "type": "cex",
     "status": "dead",
     "death_reason": "voluntary_shutdown",
-    "launch_date": null,
+    "launch_date": "2012-06-01",
     "death_date": "2023-02-16",
     "country_or_origin": "Finland",
-    "summary": "Finnish peer-to-peer bitcoin marketplace that halted trading in February 2023 after announcing closure during the crypto winter.",
+    "summary": "Finland-based peer-to-peer Bitcoin trading marketplace founded in 2012. LocalBitcoins announced a staged shutdown in February 2023, suspended new trading on 2023-02-16, and left only withdrawal access afterward.",
     "official_url_original": "https://localbitcoins.com/",
     "official_domain_original": "localbitcoins.com",
     "official_url_status": "live_verified",
@@ -2517,21 +2555,24 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-10",
+    "last_verified_at": "2026-05-28",
     "notes": "Original domain still carries an official closure notice; archive-first display remains appropriate for dead-side history."
   },
   {
     "id": "hei_ex_000125",
     "slug": "coinsetter",
     "canonical_name": "Coinsetter",
-    "aliases": [],
+    "aliases": [
+      "Coinsetter Inc.",
+      "Coinsetter Exchange"
+    ],
     "type": "cex",
     "status": "acquired",
     "death_reason": "acquisition",
     "launch_date": "2012-01-01",
     "death_date": "2016-01-26",
     "country_or_origin": "United States",
-    "summary": "New York bitcoin exchange founded in 2012 and fully absorbed into Kraken in January 2016.",
+    "summary": "U.S.-based bitcoin exchange and trading platform acquired by Kraken in January 2016 as part of Kraken's North American expansion alongside CAVIRTEX.",
     "official_url_original": "https://www.coinsetter.com/",
     "official_domain_original": "coinsetter.com",
     "official_url_status": "unknown",
@@ -2539,7 +2580,7 @@
     "predecessor_id": null,
     "successor_id": "hei_ex_000009",
     "confidence": "high",
-    "last_verified_at": "2026-04-10",
+    "last_verified_at": "2026-05-23",
     "notes": "Death date uses Kraken's customer-transfer date rather than the initial acquisition announcement date."
   },
   {
@@ -2594,15 +2635,17 @@
     "slug": "bitfront",
     "canonical_name": "BITFRONT",
     "aliases": [
-      "Bitfront"
+      "Bitfront",
+      "BITBOX",
+      "LVC USA Inc."
     ],
     "type": "cex",
     "status": "dead",
     "death_reason": "voluntary_shutdown",
-    "launch_date": null,
+    "launch_date": "2020-02-01",
     "death_date": "2023-03-31",
     "country_or_origin": "United States",
-    "summary": "LINE-backed exchange that announced closure in November 2022 and ended customer withdrawals by 2023-03-31.",
+    "summary": "LINE-backed global centralized cryptocurrency exchange operated by LVC USA Inc. It announced a phased voluntary shutdown in late 2022 and scheduled withdrawals to end on 2023-03-31.",
     "official_url_original": "https://www.bitfront.me/",
     "official_domain_original": "bitfront.me",
     "official_url_status": "unknown",
@@ -2610,7 +2653,7 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-10",
+    "last_verified_at": "2026-05-22",
     "notes": "Entity death date uses the end of withdrawals and service termination rather than the announcement date."
   },
   {
@@ -2642,23 +2685,25 @@
     "slug": "youbit",
     "canonical_name": "Youbit",
     "aliases": [
-      "Yapizon"
+      "Yapizon",
+      "Youbit Exchange",
+      "YaPiZone"
     ],
     "type": "cex",
     "status": "dead",
     "death_reason": "hack",
-    "launch_date": null,
+    "launch_date": "2013-01-01",
     "death_date": "2017-12-19",
     "country_or_origin": "South Korea",
-    "summary": "South Korean centralized exchange that halted trading and entered bankruptcy proceedings after a second 2017 hack.",
+    "summary": "South Korean cryptocurrency exchange formerly known as Yapizon that shut down and filed for bankruptcy after a second major hack in December 2017.",
     "official_url_original": "https://www.youbit.co.kr/",
     "official_domain_original": "youbit.co.kr",
     "official_url_status": "unknown",
     "archived_url": "https://web.archive.org/web/*/https://www.youbit.co.kr/",
     "predecessor_id": null,
     "successor_id": null,
-    "confidence": "medium",
-    "last_verified_at": "2026-04-11",
+    "confidence": "high",
+    "last_verified_at": "2026-05-23",
     "notes": "Alias handling preserves the earlier Yapizon identity without treating it as a separate HEI entity. The retained death marker follows same-day shutdown and bankruptcy reporting after the second 2017 hack."
   },
   {
@@ -2731,7 +2776,10 @@
     "id": "hei_ex_000134",
     "slug": "clevercoin",
     "canonical_name": "CleverCoin",
-    "aliases": [],
+    "aliases": [
+      "CleverCoin B.V.",
+      "CleverCoin Exchange"
+    ],
     "type": "cex",
     "status": "acquired",
     "death_reason": "acquisition",
@@ -2746,7 +2794,7 @@
     "predecessor_id": null,
     "successor_id": "hei_ex_000009",
     "confidence": "high",
-    "last_verified_at": "2026-04-11",
+    "last_verified_at": "2026-05-23",
     "notes": "Entity death_date uses the customer-transfer completion date after Kraken's 2016-06-28 acquisition announcement."
   },
   {
@@ -2850,7 +2898,9 @@
     "canonical_name": "The Rock Trading",
     "aliases": [
       "TRT",
-      "The Rock Trading S.r.l."
+      "The Rock Trading S.r.l.",
+      "TheRockTrading",
+      "Digital Rock Holding"
     ],
     "type": "cex",
     "status": "dead",
@@ -2866,7 +2916,7 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-12",
+    "last_verified_at": "2026-05-22",
     "notes": "Operational death marker uses the 2023-02-17 interruption of platform operations. Later court-supervised insolvency and judicial liquidation are documented separately in evidence."
   },
   {
@@ -3191,7 +3241,10 @@
     "id": "hei_ex_000154",
     "slug": "bitsane",
     "canonical_name": "Bitsane",
-    "aliases": [],
+    "aliases": [
+      "Bitsane Exchange",
+      "Bitsane.com"
+    ],
     "type": "cex",
     "status": "dead",
     "death_reason": "scam_rug",
@@ -3206,7 +3259,7 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-24",
+    "last_verified_at": "2026-05-23",
     "notes": "Terminal handling uses the 2019-06-17 disappearance marker. Public inactive / scam-style reporting followed on 2019-06-27 and is preserved in evidence. Death reason is mapped to scam_rug because public reporting and the exchange review describe classic exit-scam characteristics after blocked withdrawals and deletion of the website and social accounts."
   },
   {
@@ -3214,15 +3267,16 @@
     "slug": "bter",
     "canonical_name": "Bter",
     "aliases": [
-      "Bter.com"
+      "Bter.com",
+      "Bter Exchange"
     ],
     "type": "cex",
     "status": "rebranded",
     "death_reason": "rebrand",
-    "launch_date": null,
+    "launch_date": "2013-01-01",
     "death_date": "2017-12-31",
     "country_or_origin": "China",
-    "summary": "China-based exchange later transitioned from Bter.com to Gate.io during the 2017 China regulatory crackdown.",
+    "summary": "China-linked centralized cryptocurrency exchange that operated under the Bter brand before the Gate.io successor brand became the continuing exchange identity.",
     "official_url_original": "http://bter.com/",
     "official_domain_original": "bter.com",
     "official_url_status": "dead_domain",
@@ -3230,7 +3284,7 @@
     "predecessor_id": null,
     "successor_id": "hei_ex_000016",
     "confidence": "medium",
-    "last_verified_at": "2026-04-14",
+    "last_verified_at": "2026-05-23",
     "notes": "Treat as lineage-sensitive rebrand record to Gate.io. The 2015 hack is a major historical event but not the terminal state."
   },
   {
@@ -3414,15 +3468,18 @@
     "slug": "acx",
     "canonical_name": "ACX",
     "aliases": [
-      "ACX.io"
+      "ACX.io",
+      "ACX Exchange",
+      "Blockchain Global",
+      "Bitcoin Group"
     ],
     "type": "cex",
     "status": "dead",
     "death_reason": "unknown",
-    "launch_date": null,
+    "launch_date": "2016-01-01",
     "death_date": "2021-07-15",
     "country_or_origin": "Australia",
-    "summary": "Australian cryptocurrency exchange that was publicly described as inaccessible and dead by 2021-07-15.",
+    "summary": "Australian centralized cryptocurrency exchange platform operated by Blockchain Global. ACX ceased operations abruptly in late 2019, leaving customers unable to withdraw assets, and Blockchain Global later entered voluntary administration and liquidation.",
     "official_url_original": "https://acx.io/",
     "official_domain_original": "acx.io",
     "official_url_status": "dead_domain",
@@ -3430,7 +3487,7 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
-    "last_verified_at": "2026-04-15",
+    "last_verified_at": "2026-05-23",
     "notes": "Treat cause conservatively as unknown. Terminal marker uses the 2021-07-15 dead-side update."
   },
   {
@@ -4318,7 +4375,9 @@
     "id": "hei_ex_000204",
     "slug": "vebitcoin",
     "canonical_name": "Vebitcoin",
-    "aliases": [],
+    "aliases": [
+      "Vebitcoin.com"
+    ],
     "type": "cex",
     "status": "dead",
     "death_reason": "voluntary_shutdown",
@@ -4333,7 +4392,7 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-22",
+    "last_verified_at": "2026-05-22",
     "notes": "Terminal handling uses the 2021-04-26 public dead-side marker. Death reason is mapped to voluntary_shutdown because the platform published a cessation notice citing financial strain and stating that it had decided to cease activities. HEI keeps the closure-note date as the terminal marker rather than the later reporting and investigation timeline."
   },
   {
@@ -4386,7 +4445,9 @@
     "canonical_name": "BitMarket",
     "aliases": [
       "Bitmarket",
-      "Bitmarket.pl"
+      "Bitmarket.pl",
+      "BitMarket.pl",
+      "BitMarket.net"
     ],
     "type": "cex",
     "status": "dead",
@@ -4394,7 +4455,7 @@
     "launch_date": "2014-01-01",
     "death_date": "2019-07-08",
     "country_or_origin": "Poland",
-    "summary": "Poland-based cryptocurrency exchange founded in 2014 that ceased operations on 2019-07-08 after announcing a loss of liquidity.",
+    "summary": "Polish centralized cryptocurrency exchange that abruptly ceased operations in July 2019, citing loss of liquidity and inability to continue service.",
     "official_url_original": "https://www.bitmarket.pl/",
     "official_domain_original": "bitmarket.pl",
     "official_url_status": "dead_domain",
@@ -4402,7 +4463,7 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-24",
+    "last_verified_at": "2026-05-22",
     "notes": "Terminal handling uses the 2019-07-08 public closure marker. Death reason is mapped to insolvency because the platform notice and secondary reporting cite loss of liquidity. Public notices refer to Bitmarket.pl/net; HEI keeps bitmarket.pl as the canonical original-domain marker."
   },
   {
@@ -4879,12 +4940,16 @@
     "aliases": [
       "Balancer Protocol",
       "Balancer Labs",
-      "BAL"
+      "BAL",
+      "Balancer V1",
+      "Balancer V2",
+      "Balancer V3",
+      "balancer.fi"
     ],
     "type": "dex",
     "status": "limited",
     "death_reason": null,
-    "launch_date": null,
+    "launch_date": "2020-03-31",
     "death_date": null,
     "country_or_origin": "Ethereum ecosystem",
     "summary": "Decentralized exchange and automated-market-maker protocol. In March 2026, Balancer Labs, the corporate entity historically associated with the protocol, announced it would wind down after the November 2025 Balancer v2 exploit, while the protocol itself was expected to continue through DAO/Foundation/OpCo structures.",
@@ -4895,7 +4960,7 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
-    "last_verified_at": "2026-04-26",
+    "last_verified_at": "2026-05-31",
     "notes": "Do not mark dead. The public record supports Balancer Labs winding down and a major exploit history, but the protocol continuation path is explicitly described in the official forum post and secondary coverage. Treat this as limited / restructuring unless later evidence shows protocol-level shutdown."
   },
   {
@@ -5276,7 +5341,7 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-26",
+    "last_verified_at": "2026-05-22",
     "notes": "Terminal handling uses 2020-02-17 because public reporting states that FCoin had paused trading and withdrawals and disclosed that its asset reserve was short of liabilities by roughly 7,000 to 13,000 BTC. Death reason is mapped to insolvency. Later analysis raised questions about whether the shortfall was purely technical error or misconduct, but this record uses the publicly disclosed insolvency / withdrawal-impediment basis."
   },
   {
@@ -5437,7 +5502,8 @@
     "canonical_name": "Bitfloor",
     "aliases": [
       "BitFloor",
-      "Bit Floor"
+      "Bit Floor",
+      "Bitfloor Exchange"
     ],
     "type": "cex",
     "status": "dead",
@@ -5453,7 +5519,7 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-28",
+    "last_verified_at": "2026-05-23",
     "notes": "HEI models Bitfloor as dead / voluntary_shutdown because the terminal public marker was the founder's decision to halt operations and return funds after banking access was lost. The 2012 hack is recorded as a major incident but not as the final shutdown marker."
   },
   {
@@ -6132,7 +6198,8 @@
     "aliases": [
       "LiteBit.eu",
       "LiteBit Exchange",
-      "LiteBit Broker"
+      "LiteBit Broker",
+      "LiteBit BV"
     ],
     "type": "cex",
     "status": "acquired",
@@ -6148,7 +6215,7 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-05-02",
+    "last_verified_at": "2026-05-22",
     "notes": "HEI models LiteBit as acquired because Bitvavo acquired the LiteBit customer base after LiteBit decided to cease operations. This should not be read as a full corporate acquisition of every LiteBit asset; the record is specifically about the exchange/broker service ending and the customer-base migration to Bitvavo."
   },
   {
@@ -6206,7 +6273,7 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-05-02",
+    "last_verified_at": "2026-05-23",
     "notes": "HEI models BitTrade Australia as acquired because Kraken acquired the Australian crypto service provider on 2020-01-14. Later regulatory materials refer to Bit Trade Pty Ltd as the operator/provider of Kraken services in Australia, so this is not a dead exchange record; the terminal date marks the end of the independent Bit Trade exchange/service identity."
   },
   {
@@ -6437,7 +6504,7 @@
     "death_reason": "voluntary_shutdown",
     "launch_date": "2017-01-01",
     "death_date": "2024-11-07",
-    "country_or_origin": "Unknown",
+    "country_or_origin": "Global / privacy-focused P2P",
     "summary": "Peer-to-peer OTC cryptocurrency exchange platform associated with the LocalMonero team. AgoraDesk supported no-KYC P2P Bitcoin trading, while LocalMonero focused on Monero. In May 2024, the team announced an orderly wind-down after almost seven years of operation: new signups and ads were disabled immediately, new trades were disabled on 2024-05-14, and the website was to be taken down after 2024-11-07.",
     "official_url_original": "https://agoradesk.com/",
     "official_domain_original": "agoradesk.com",
@@ -6446,7 +6513,7 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-05-10",
+    "last_verified_at": "2026-05-27",
     "notes": "HEI uses voluntary_shutdown because the official AgoraDesk / LocalMonero wind-down notice describes an orderly closure due to internal and external factors, not insolvency, hack, acquisition, rebrand, or a specific regulatory enforcement action. AgoraDesk is treated as a centralized P2P exchange-style marketplace rather than a DEX."
   },
   {
