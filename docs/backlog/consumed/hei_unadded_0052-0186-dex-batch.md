@@ -1,3 +1,5 @@
+> Correction: duplicate entity `hei_ex_000357` was removed and its useful event/evidence material was migrated to canonical `hei_ex_000228`. This memo remains as backlog-processing history.
+
 # Consumed backlog rows: DEX/protocol batch
 
 Status: added
