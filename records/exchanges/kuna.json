@@ -44,7 +44,7 @@
       "confidence": "high",
       "impact_level": "high",
       "event_status_effect": "limited",
-      "source_count": 3,
+      "source_count": 2,
       "sort_order": 2,
       "notes": "Regulatory/legal trigger event preceding the final shutdown date."
     },
@@ -58,7 +58,7 @@
       "confidence": "high",
       "impact_level": "critical",
       "event_status_effect": "dead",
-      "source_count": 3,
+      "source_count": 2,
       "sort_order": 3,
       "notes": "Used as death_date because public closure reporting identifies this as the complete cessation date."
     }

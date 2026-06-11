@@ -1,3 +1,5 @@
+> Correction: duplicate entity `hei_ex_000427` was removed and its useful event/evidence material was migrated to canonical `hei_ex_000004`. This memo remains as backlog-processing history.
+
 # Fresh discovery: QuadrigaCX
 
 Status: added
