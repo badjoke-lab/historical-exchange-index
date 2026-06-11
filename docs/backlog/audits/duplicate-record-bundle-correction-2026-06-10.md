@@ -42,3 +42,4 @@ Confirmed duplicates were removed and useful event/evidence material was migrate
 
 - Canonical-to-bundle identity comparison now runs before other record validation.
 - The Records validation workflow now uses `set -o pipefail`, so failures cannot be hidden by output piping.
+- This correction PR must pass the new overlap gate before merge.
