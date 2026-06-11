@@ -1,3 +1,5 @@
+> Correction: duplicate entity `hei_ex_000426` was removed and its useful event/evidence material was migrated to canonical `hei_ex_000017`. This memo remains as backlog-processing history.
+
 # Fresh discovery: Bitfinex
 
 Status: added
