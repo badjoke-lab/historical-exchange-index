@@ -1,3 +1,5 @@
+> Correction: duplicate entity `hei_ex_000425` was removed and its useful event/evidence material was migrated to canonical `hei_ex_000062`. This memo remains as backlog-processing history.
+
 # Fresh discovery: BitMEX
 
 Status: added

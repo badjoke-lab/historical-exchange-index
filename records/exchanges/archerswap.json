@@ -30,7 +30,7 @@
       "confidence": "low",
       "impact_level": "low",
       "event_status_effect": "active",
-      "source_count": 2,
+      "source_count": 3,
       "sort_order": 1,
       "notes": "Upgrade with a precise launch or operating-history event if stronger sources are added."
     }
