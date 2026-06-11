@@ -5,6 +5,7 @@ const root = process.cwd()
 const entitiesPath = path.join(root, 'data', 'entities.json')
 const recordsDir = path.join(root, 'records', 'exchanges')
 
+// These are documented separate-entity decisions. Keep this list narrow.
 const allowedDuplicateEntityPairs = new Set([
   'hei_ex_000031|hei_ex_000397',
   'hei_ex_000285|hei_ex_000396',
