@@ -5,6 +5,17 @@ const root = process.cwd()
 const entitiesPath = path.join(root, 'data', 'entities.json')
 const recordsDir = path.join(root, 'records', 'exchanges')
 
+const allowedEntityOverlapPairs = new Set([
+  // Prior methodology decision: Bittrex and Bittrex Global are separate entities even though they share bittrex.com history.
+  'hei_ex_000031|hei_ex_000397',
+  // Generic shared BitTrade alias; BitTrade Australia and the later BitTrade record are retained separately pending a relationship decision.
+  'hei_ex_000285|hei_ex_000396',
+])
+
+function pairKey(left, right) {
+  return [left.entity.id, right.entity.id].sort().join('|')
+}
+
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
 }
@@ -106,6 +117,7 @@ function compare(left, right) {
 
 const records = loadRecords()
 const collisions = []
+const allowedCollisions = []
 
 for (let i = 0; i < records.length; i += 1) {
   for (let j = i + 1; j < records.length; j += 1) {
@@ -116,16 +128,24 @@ for (let i = 0; i < records.length; i += 1) {
 
     const reasons = compare(left, right)
     if (reasons.length === 0) continue
-    collisions.push({ left, right, reasons })
+
+    const collision = { left, right, reasons }
+    if (allowedEntityOverlapPairs.has(pairKey(left, right))) {
+      allowedCollisions.push(collision)
+      continue
+    }
+
+    collisions.push(collision)
   }
 }
 
 if (collisions.length === 0) {
-  console.log(`No entity overlaps detected across ${records.length} canonical and bundle records.`)
+  const allowedSuffix = allowedCollisions.length ? ` (${allowedCollisions.length} documented overlap pair(s) allowed).` : '.'
+  console.log(`No blocking entity overlaps detected across ${records.length} canonical and bundle records${allowedSuffix}`)
   process.exit(0)
 }
 
-console.error(`Detected ${collisions.length} entity overlap pair(s):`)
+console.error(`Detected ${collisions.length} blocking entity overlap pair(s):`)
 for (const collision of collisions) {
   const { left, right, reasons } = collision
   console.error('\n---')
