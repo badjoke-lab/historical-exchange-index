@@ -1,0 +1,43 @@
+name: Run duplicate bundle migration
+
+on:
+  push:
+    branches:
+      - audit-canonical-overlaps
+    paths:
+      - 'scripts/migrate-duplicate-record-bundles.mjs'
+      - '.github/workflows/run-duplicate-migration.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/audit-canonical-overlaps'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: audit-canonical-overlaps
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run migration
+        run: node scripts/migrate-duplicate-record-bundles.mjs
+
+      - name: Commit migration result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/entities.json data/events.json data/evidence.json records/exchanges docs/backlog .github/workflows/run-duplicate-migration.yml scripts/migrate-duplicate-record-bundles.mjs
+          if git diff --cached --quiet; then
+            echo "No migration changes"
+          else
+            git commit -m "Migrate duplicate record bundles to canonical entities"
+            git push origin HEAD:audit-canonical-overlaps
+          fi
