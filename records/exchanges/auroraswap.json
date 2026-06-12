@@ -37,7 +37,7 @@
   ],
   "evidence": [
     {
-      "id": "hei_src_001635",
+      "id": "hei_src_001811",
       "exchange_id": "hei_ex_000432",
       "event_id": "hei_ev_000732",
       "source_type": "official_statement",
@@ -52,7 +52,7 @@
       "notes": "Official swap domain used to verify AuroraSwap identity."
     },
     {
-      "id": "hei_src_001636",
+      "id": "hei_src_001812",
       "exchange_id": "hei_ex_000432",
       "event_id": "hei_ev_000732",
       "source_type": "database_reference",
@@ -67,7 +67,7 @@
       "notes": "Source used by verified-unadded backlog row hei_unadded_0109."
     },
     {
-      "id": "hei_src_001637",
+      "id": "hei_src_001813",
       "exchange_id": "hei_ex_000432",
       "event_id": "hei_ev_000732",
       "source_type": "database_reference",
