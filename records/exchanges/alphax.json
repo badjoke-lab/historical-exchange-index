@@ -37,7 +37,7 @@
   ],
   "evidence": [
     {
-      "id": "hei_src_001624",
+      "id": "hei_src_001800",
       "exchange_id": "hei_ex_000428",
       "event_id": "hei_ev_000728",
       "source_type": "official_statement",
@@ -52,7 +52,7 @@
       "notes": "Official domain used to verify AlphaX identity."
     },
     {
-      "id": "hei_src_001625",
+      "id": "hei_src_001801",
       "exchange_id": "hei_ex_000428",
       "event_id": "hei_ev_000728",
       "source_type": "database_reference",
