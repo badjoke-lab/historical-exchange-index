@@ -147,7 +147,7 @@ function getGitBranch() {
 function writeJson(relativePath, value) {
   const filePath = path.join(publicDir, relativePath)
   fs.mkdirSync(path.dirname(filePath), { recursive: true })
-  fs.writeFileSync(`${filePath}\n`, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
+  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
 }
 
 function writeText(relativePath, value) {
