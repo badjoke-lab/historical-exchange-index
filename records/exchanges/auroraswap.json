@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000417",
+    "slug": "auroraswap",
+    "canonical_name": "AuroraSwap",
+    "aliases": ["Aurora Swap", "swap.auroraswap.net"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": null,
+    "summary": "Aurora-focused DEX / exchange protocol candidate represented by CoinGecko and DefiLlama source rows with an official swap-domain reference. HEI records AuroraSwap as an active protocol seed record pending stronger launch, chain, and operating-history evidence.",
+    "official_url_original": "https://swap.auroraswap.net/",
+    "official_domain_original": "swap.auroraswap.net",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://swap.auroraswap.net/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-12",
+    "notes": "Added from verified-unadded rows hei_unadded_0109 and hei_unadded_0110 as one entity. This record should be improved later with stronger official, launch, chain, or operating-history evidence."
+  },
+  "events": [
+    {
+      "id": "hei_ev_000727",
+      "exchange_id": "hei_ex_000417",
+      "event_type": "listed_reference",
+      "event_date": "2026-06-12",
+      "title": "AuroraSwap recorded as DEX candidate",
+      "description": "AuroraSwap is recorded as a DEX / exchange protocol candidate based on CoinGecko and DefiLlama source rows and an official swap-domain reference.",
+      "confidence": "medium",
+      "impact_level": "low",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Upgrade with precise launch, chain, or operating-history evidence if stronger sources are added."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_001621",
+      "exchange_id": "hei_ex_000417",
+      "event_id": "hei_ev_000727",
+      "source_type": "official_statement",
+      "title": "AuroraSwap official swap website",
+      "url": "https://swap.auroraswap.net/",
+      "publisher": "AuroraSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://swap.auroraswap.net/",
+      "accessed_at": "2026-06-12",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official swap domain used to verify AuroraSwap identity."
+    },
+    {
+      "id": "hei_src_001622",
+      "exchange_id": "hei_ex_000417",
+      "event_id": "hei_ev_000727",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for AuroraSwap",
+      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=3",
+      "accessed_at": "2026-06-12",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0109."
+    },
+    {
+      "id": "hei_src_001623",
+      "exchange_id": "hei_ex_000417",
+      "event_id": "hei_ev_000727",
+      "source_type": "database_reference",
+      "title": "DefiLlama DEX reference for AuroraSwap",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
+      "accessed_at": "2026-06-12",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Source used by verified-unadded backlog row hei_unadded_0110."
+    }
+  ]
+}
