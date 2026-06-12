@@ -21,7 +21,7 @@
   },
   "events": [
     {
-      "id": "hei_ev_000730",
+      "id": "hei_ev_001002",
       "exchange_id": "hei_ex_000430",
       "event_type": "listed_reference",
       "event_date": "2026-06-12",
@@ -39,7 +39,7 @@
     {
       "id": "hei_src_001807",
       "exchange_id": "hei_ex_000430",
-      "event_id": "hei_ev_000730",
+      "event_id": "hei_ev_001002",
       "source_type": "official_statement",
       "title": "Astrovault official website",
       "url": "https://astrovault.io/",
@@ -54,7 +54,7 @@
     {
       "id": "hei_src_001808",
       "exchange_id": "hei_ex_000430",
-      "event_id": "hei_ev_000730",
+      "event_id": "hei_ev_001002",
       "source_type": "database_reference",
       "title": "CoinGecko exchange reference for Astrovault",
       "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
