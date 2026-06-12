@@ -1,6 +1,6 @@
 {
   "entity": {
-    "id": "hei_ex_000413",
+    "id": "hei_ex_000428",
     "slug": "alphax",
     "canonical_name": "AlphaX",
     "aliases": ["AlphaX Spot", "alphax.com"],
@@ -21,8 +21,8 @@
   },
   "events": [
     {
-      "id": "hei_ev_000723",
-      "exchange_id": "hei_ex_000413",
+      "id": "hei_ev_000728",
+      "exchange_id": "hei_ex_000428",
       "event_type": "listed_reference",
       "event_date": "2026-06-12",
       "title": "AlphaX recorded as exchange candidate",
@@ -37,9 +37,9 @@
   ],
   "evidence": [
     {
-      "id": "hei_src_001610",
-      "exchange_id": "hei_ex_000413",
-      "event_id": "hei_ev_000723",
+      "id": "hei_src_001624",
+      "exchange_id": "hei_ex_000428",
+      "event_id": "hei_ev_000728",
       "source_type": "official_statement",
       "title": "AlphaX official website",
       "url": "https://alphax.com/",
@@ -52,9 +52,9 @@
       "notes": "Official domain used to verify AlphaX identity."
     },
     {
-      "id": "hei_src_001611",
-      "exchange_id": "hei_ex_000413",
-      "event_id": "hei_ev_000723",
+      "id": "hei_src_001625",
+      "exchange_id": "hei_ex_000428",
+      "event_id": "hei_ev_000728",
       "source_type": "database_reference",
       "title": "CoinGecko exchange reference for AlphaX",
       "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
