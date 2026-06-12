@@ -1,21 +1,21 @@
 # Verified unadded candidate generation v1
 
-Generated: 2026-06-11T22:46:19.477Z
+Generated: 2026-06-12T06:48:16.594Z
 
 ## Counts
 
-- raw_candidates_collected: 3381
-- unique_candidates_after_source_dedupe: 2926
-- existing_filtered_out_by_repo_identity: 416
-- unadded_candidates_available: 2510
+- raw_candidates_collected: 3370
+- unique_candidates_after_source_dedupe: 2917
+- existing_filtered_out_by_repo_identity: 414
+- unadded_candidates_available: 2503
 - unadded_candidates_written: 1000
 - requested_target: 1000
 - target_met: yes
 
 ## Source counts
 
-- coinpaprika_exchanges: 1115
-- coingecko_exchanges: 988
+- coinpaprika_exchanges: 1119
+- coingecko_exchanges: 973
 - defillama_dexs: 1171
 - ccxt_supported_exchanges: 107
 
