@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "historical-exchange-index",
+  "title": "Historical Exchange Index",
+  "description": "Evidence-backed historical registry of crypto exchanges, active and gone.",
+  "canonical_origin": "https://hei.badjoke-lab.com",
+  "registry_family": "badjoke-lab-ledger-series",
+  "registry_type": "historical_crypto_exchange_registry",
+  "data_model": {
+    "primary_record": "exchange_entity",
+    "supporting_records": [
+      "exchange_event",
+      "exchange_evidence"
+    ]
+  },
+  "public_files": {
+    "version": "/version.json",
+    "manifest": "/data/manifest.json",
+    "llms": "/llms.txt",
+    "ai": "/ai.txt"
+  },
+  "main_routes": [
+    "/",
+    "/dead/",
+    "/active/",
+    "/exchange/{slug}/",
+    "/stats/",
+    "/methodology/",
+    "/about/",
+    "/donate/"
+  ],
+  "record_counts": {
+    "primary_records": 313,
+    "events": 573,
+    "evidence": 1284
+  },
+  "record_count_breakdown": {
+    "exchanges": 313
+  },
+  "data_safety": {
+    "canonical_only": true,
+    "includes_unreviewed_candidates": false,
+    "includes_internal_monitoring": false,
+    "includes_private_notes": false
+  },
+  "correction_links": {
+    "form": "https://docs.google.com/forms/d/e/1FAIpQLSf6NGsKIaGUzeGWUAyphOsv0XN3eSBebsASj_0g-qtZtNamWw/viewform",
+    "github": "https://github.com/badjoke-lab/historical-exchange-index/issues"
+  },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/badjoke-lab/historical-exchange-index"
+  },
+  "language": "en",
+  "locales": [
+    "en"
+  ],
+  "generated_at": "2026-06-12T00:00:00.000Z"
+}
