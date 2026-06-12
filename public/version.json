@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "historical-exchange-index",
+  "site_name": "Historical Exchange Index",
+  "registry_family": "badjoke-lab-ledger-series",
+  "registry_type": "historical_crypto_exchange_registry",
+  "canonical_origin": "https://hei.badjoke-lab.com",
+  "release_channel": "production",
+  "build": {
+    "commit": "b8d1ce884be76034c196d4dbf65e075db0969fc0",
+    "branch": "add-hei-machine-readable-layer",
+    "generated_at": "2026-06-12T00:00:00.000Z",
+    "verification_marker": "hei_machine_readable_layer_v1"
+  },
+  "data": {
+    "data_schema_version": "hei_entity_event_evidence_v1",
+    "generated_at": "2026-06-12T00:00:00.000Z",
+    "records_last_reviewed_at": null,
+    "record_counts": {
+      "primary_records": 313,
+      "events": 573,
+      "evidence": 1284
+    },
+    "record_count_breakdown": {
+      "exchanges": 313
+    }
+  },
+  "routes": {
+    "home": "/",
+    "dead": "/dead/",
+    "active": "/active/",
+    "exchange_detail": "/exchange/{slug}/",
+    "stats": "/stats/",
+    "methodology": "/methodology/",
+    "about": "/about/",
+    "donate": "/donate/"
+  }
+}
