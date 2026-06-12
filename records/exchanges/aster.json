@@ -1,6 +1,6 @@
 {
   "entity": {
-    "id": "hei_ex_000414",
+    "id": "hei_ex_000429",
     "slug": "aster",
     "canonical_name": "Aster",
     "aliases": ["Aster Spot", "Aster DEX", "asterdex.com"],
@@ -21,8 +21,8 @@
   },
   "events": [
     {
-      "id": "hei_ev_000724",
-      "exchange_id": "hei_ex_000414",
+      "id": "hei_ev_000729",
+      "exchange_id": "hei_ex_000429",
       "event_type": "listed_reference",
       "event_date": "2026-06-12",
       "title": "Aster recorded as DEX / exchange protocol candidate",
@@ -37,9 +37,9 @@
   ],
   "evidence": [
     {
-      "id": "hei_src_001612",
-      "exchange_id": "hei_ex_000414",
-      "event_id": "hei_ev_000724",
+      "id": "hei_src_001626",
+      "exchange_id": "hei_ex_000429",
+      "event_id": "hei_ev_000729",
       "source_type": "official_statement",
       "title": "Aster official website",
       "url": "https://asterdex.com/",
@@ -52,9 +52,9 @@
       "notes": "Official domain used to verify Aster identity."
     },
     {
-      "id": "hei_src_001613",
-      "exchange_id": "hei_ex_000414",
-      "event_id": "hei_ev_000724",
+      "id": "hei_src_001627",
+      "exchange_id": "hei_ex_000429",
+      "event_id": "hei_ev_000729",
       "source_type": "database_reference",
       "title": "CCXT exchange reference for Aster",
       "url": "https://raw.githubusercontent.com/ccxt/ccxt/master/js/ccxt.js",
@@ -67,9 +67,9 @@
       "notes": "Source used by verified-unadded backlog row hei_unadded_0090."
     },
     {
-      "id": "hei_src_001614",
-      "exchange_id": "hei_ex_000414",
-      "event_id": "hei_ev_000724",
+      "id": "hei_src_001628",
+      "exchange_id": "hei_ex_000429",
+      "event_id": "hei_ev_000729",
       "source_type": "database_reference",
       "title": "CoinGecko exchange reference for Aster",
       "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
@@ -82,9 +82,9 @@
       "notes": "Source used by verified-unadded backlog row hei_unadded_0091."
     },
     {
-      "id": "hei_src_001615",
-      "exchange_id": "hei_ex_000414",
-      "event_id": "hei_ev_000724",
+      "id": "hei_src_001629",
+      "exchange_id": "hei_ex_000429",
+      "event_id": "hei_ev_000729",
       "source_type": "database_reference",
       "title": "CoinPaprika exchange reference for Aster DEX",
       "url": "https://api.coinpaprika.com/v1/exchanges",
@@ -97,9 +97,9 @@
       "notes": "Source used by verified-unadded backlog row hei_unadded_0092."
     },
     {
-      "id": "hei_src_001616",
-      "exchange_id": "hei_ex_000414",
-      "event_id": "hei_ev_000724",
+      "id": "hei_src_001630",
+      "exchange_id": "hei_ex_000429",
+      "event_id": "hei_ev_000729",
       "source_type": "database_reference",
       "title": "DefiLlama DEX reference for Aster Spot",
       "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
