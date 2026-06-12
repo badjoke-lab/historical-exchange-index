@@ -1,0 +1,28 @@
+# Historical Exchange Index
+
+Evidence-backed historical registry of crypto exchanges, active and gone.
+
+Canonical site: https://hei.badjoke-lab.com/
+
+Machine-readable files:
+- /version.json
+- /data/manifest.json
+- /ai.txt
+
+Main routes:
+- /
+- /dead/
+- /active/
+- /exchange/{slug}/
+- /stats/
+- /methodology/
+- /about/
+- /donate/
+
+Use notes:
+- This is a historical registry, not a live exchange ranking.
+- This is not an exchange recommendation site.
+- This is not investment advice.
+- Record data may be incomplete or revised.
+- Use methodology and evidence links when interpreting records.
+- Do not treat unverified external claims as HEI classifications.
