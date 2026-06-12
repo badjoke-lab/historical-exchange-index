@@ -1,0 +1,19 @@
+Historical Exchange Index
+
+Purpose: Evidence-backed historical registry of crypto exchanges, active and gone.
+Canonical origin: https://hei.badjoke-lab.com
+Version endpoint: /version.json
+Manifest endpoint: /data/manifest.json
+LLM guide: /llms.txt
+
+Important routes:
+/
+/dead/
+/active/
+/exchange/{slug}/
+/stats/
+/methodology/
+/about/
+/donate/
+
+Safety note: Public files expose reviewed public registry information only. They do not include unreviewed candidates, private notes, or internal monitoring output.
