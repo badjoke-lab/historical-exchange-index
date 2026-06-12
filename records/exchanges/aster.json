@@ -21,7 +21,7 @@
   },
   "events": [
     {
-      "id": "hei_ev_000729",
+      "id": "hei_ev_001001",
       "exchange_id": "hei_ex_000429",
       "event_type": "listed_reference",
       "event_date": "2026-06-12",
@@ -39,7 +39,7 @@
     {
       "id": "hei_src_001802",
       "exchange_id": "hei_ex_000429",
-      "event_id": "hei_ev_000729",
+      "event_id": "hei_ev_001001",
       "source_type": "official_statement",
       "title": "Aster official website",
       "url": "https://asterdex.com/",
@@ -54,7 +54,7 @@
     {
       "id": "hei_src_001803",
       "exchange_id": "hei_ex_000429",
-      "event_id": "hei_ev_000729",
+      "event_id": "hei_ev_001001",
       "source_type": "database_reference",
       "title": "CCXT exchange reference for Aster",
       "url": "https://raw.githubusercontent.com/ccxt/ccxt/master/js/ccxt.js",
@@ -69,7 +69,7 @@
     {
       "id": "hei_src_001804",
       "exchange_id": "hei_ex_000429",
-      "event_id": "hei_ev_000729",
+      "event_id": "hei_ev_001001",
       "source_type": "database_reference",
       "title": "CoinGecko exchange reference for Aster",
       "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
@@ -84,7 +84,7 @@
     {
       "id": "hei_src_001805",
       "exchange_id": "hei_ex_000429",
-      "event_id": "hei_ev_000729",
+      "event_id": "hei_ev_001001",
       "source_type": "database_reference",
       "title": "CoinPaprika exchange reference for Aster DEX",
       "url": "https://api.coinpaprika.com/v1/exchanges",
@@ -99,7 +99,7 @@
     {
       "id": "hei_src_001806",
       "exchange_id": "hei_ex_000429",
-      "event_id": "hei_ev_000729",
+      "event_id": "hei_ev_001001",
       "source_type": "database_reference",
       "title": "DefiLlama DEX reference for Aster Spot",
       "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume",
