@@ -1,6 +1,6 @@
 {
   "entity": {
-    "id": "hei_ex_000415",
+    "id": "hei_ex_000430",
     "slug": "astrovault",
     "canonical_name": "Astrovault",
     "aliases": ["astrovault.io"],
@@ -21,8 +21,8 @@
   },
   "events": [
     {
-      "id": "hei_ev_000725",
-      "exchange_id": "hei_ex_000415",
+      "id": "hei_ev_000730",
+      "exchange_id": "hei_ex_000430",
       "event_type": "listed_reference",
       "event_date": "2026-06-12",
       "title": "Astrovault recorded as DEX candidate",
@@ -37,9 +37,9 @@
   ],
   "evidence": [
     {
-      "id": "hei_src_001617",
-      "exchange_id": "hei_ex_000415",
-      "event_id": "hei_ev_000725",
+      "id": "hei_src_001631",
+      "exchange_id": "hei_ex_000430",
+      "event_id": "hei_ev_000730",
       "source_type": "official_statement",
       "title": "Astrovault official website",
       "url": "https://astrovault.io/",
@@ -52,9 +52,9 @@
       "notes": "Official domain used to verify Astrovault identity."
     },
     {
-      "id": "hei_src_001618",
-      "exchange_id": "hei_ex_000415",
-      "event_id": "hei_ev_000725",
+      "id": "hei_src_001632",
+      "exchange_id": "hei_ex_000430",
+      "event_id": "hei_ev_000730",
       "source_type": "database_reference",
       "title": "CoinGecko exchange reference for Astrovault",
       "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=4",
