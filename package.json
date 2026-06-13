@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run machine:build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -17,7 +18,8 @@
     "records:build": "node scripts/build-data-from-records.mjs",
     "records:dedupe": "node scripts/audit-record-entity-overlaps.mjs && node scripts/check-record-duplicates.mjs",
     "backlog:dedupe": "node scripts/check-backlog-dedupe.mjs",
-    "backlog:build-unadded": "node scripts/build-verified-unadded-candidates.mjs"
+    "backlog:build-unadded": "node scripts/build-verified-unadded-candidates.mjs",
+    "machine:build": "node scripts/build-machine-readable-layer.mjs"
   },
   "dependencies": {
     "next": "^15.2.8",
