@@ -4,19 +4,19 @@ on:
   pull_request:
     paths:
       - 'scripts/build-verified-unadded-candidates.mjs'
-      - 'package.json'
       - '.github/workflows/build-unadded-candidates.yml'
   workflow_dispatch:
 
 jobs:
   build-unadded-candidates:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -29,26 +29,6 @@ jobs:
 
       - name: Build verified unadded candidates
         run: npm run backlog:build-unadded 2>&1 | tee verified-unadded-candidates-build.log
-
-      - name: Copy generated files into docs backlog
-        run: |
-          mkdir -p docs/backlog/verified-unadded-candidates-v1
-          cp tmp/verified-unadded-candidates/SUMMARY.md docs/backlog/verified-unadded-candidates-v1/SUMMARY.md
-          cp tmp/verified-unadded-candidates/unadded-candidates-verified-v1.csv docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.csv
-          cp tmp/verified-unadded-candidates/unadded-candidates-verified-v1.jsonl docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl
-
-      - name: Commit generated files to PR branch
-        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/backlog/verified-unadded-candidates-v1
-          if git diff --cached --quiet; then
-            echo "No generated file changes to commit."
-          else
-            git commit -m "Add generated verified unadded candidates v1"
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
-          fi
 
       - name: Upload verified unadded candidates
         if: always()
