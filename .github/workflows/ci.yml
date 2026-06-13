@@ -29,6 +29,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Check production smoke script syntax
+        run: node --check scripts/check-machine-readable-production.mjs
+
       - name: Build
         run: npm run build
 
