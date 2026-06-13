@@ -7,5 +7,10 @@ dist
 .env.*
 .next
 .next/
-
 out
+
+# Generated during npm run build
+public/version.json
+public/data/manifest.json
+public/llms.txt
+public/ai.txt
