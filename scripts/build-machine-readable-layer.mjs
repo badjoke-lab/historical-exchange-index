@@ -91,26 +91,31 @@ function stableStringify(value) {
 }
 
 function mergeRecords(canonicalRecords, acceptedBundles, field, label) {
-  const recordsById = new Map()
-
-  function addOrVerify(record, source) {
-    if (!record?.id) throw new Error(`${source}: ${label} record is missing id`)
-    const existing = recordsById.get(record.id)
-    if (!existing) {
-      recordsById.set(record.id, record)
-      return
-    }
-    if (stableStringify(existing) !== stableStringify(record)) {
-      throw new Error(`${source}: conflicting ${label} content for duplicate id: ${record.id}`)
-    }
+  const canonicalIds = new Set()
+  for (const record of canonicalRecords) {
+    if (!record?.id) throw new Error(`canonical data: ${label} record is missing id`)
+    if (canonicalIds.has(record.id)) throw new Error(`canonical data: duplicate ${label} id: ${record.id}`)
+    canonicalIds.add(record.id)
   }
 
-  for (const record of canonicalRecords) addOrVerify(record, 'canonical data')
+  const acceptedById = new Map()
   for (const { fileName, bundle } of acceptedBundles) {
-    for (const record of bundle[field]) addOrVerify(record, fileName)
+    for (const record of bundle[field]) {
+      if (!record?.id) throw new Error(`${fileName}: ${label} record is missing id`)
+      if (canonicalIds.has(record.id)) continue
+
+      const existing = acceptedById.get(record.id)
+      if (!existing) {
+        acceptedById.set(record.id, record)
+        continue
+      }
+      if (stableStringify(existing) !== stableStringify(record)) {
+        throw new Error(`${fileName}: conflicting ${label} content across accepted bundles for id: ${record.id}`)
+      }
+    }
   }
 
-  return [...recordsById.values()]
+  return [...canonicalRecords, ...acceptedById.values()]
 }
 
 function countBy(items, key) {
