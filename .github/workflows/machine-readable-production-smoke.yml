@@ -1,0 +1,37 @@
+name: Verify machine-readable production endpoints
+
+on:
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
+  schedule:
+    - cron: '23 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  verify-production:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      HEI_PUBLIC_ORIGIN: https://hei.badjoke-lab.com
+      EXPECTED_COMMIT: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || '' }}
+      SMOKE_MAX_ATTEMPTS: 12
+      SMOKE_RETRY_DELAY_MS: 30000
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Verify production machine-readable endpoints
+        run: node scripts/check-machine-readable-production.mjs
