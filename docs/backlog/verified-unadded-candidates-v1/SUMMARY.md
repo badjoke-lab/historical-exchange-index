@@ -1,13 +1,13 @@
 # Verified unadded candidate generation v1
 
-Generated: 2026-06-13T09:49:45.450Z
+Generated: 2026-06-13T10:57:52.138Z
 
 ## Counts
 
 - raw_candidates_collected: 3342
-- unique_candidates_after_source_dedupe: 2895
-- existing_filtered_out_by_repo_identity: 412
-- unadded_candidates_available: 2483
+- unique_candidates_after_source_dedupe: 2893
+- existing_filtered_out_by_repo_identity: 413
+- unadded_candidates_available: 2480
 - unadded_candidates_written: 1000
 - requested_target: 1000
 - target_met: yes
