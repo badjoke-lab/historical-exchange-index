@@ -3,23 +3,19 @@ import path from 'node:path'
 
 const root = process.cwd()
 const publicDir = path.join(root, 'public')
-const publicDataDir = path.join(publicDir, 'data')
 
-const PROJECT = {
-  schemaVersion: '1.0.0',
-  projectId: 'historical-exchange-index',
-  siteName: 'Historical Exchange Index',
-  title: 'Historical Exchange Index',
-  description: 'Evidence-backed historical registry of crypto exchanges, active and gone.',
-  registryFamily: 'badjoke-lab-ledger-series',
-  registryType: 'historical_crypto_exchange_registry',
-  canonicalOrigin: 'https://hei.badjoke-lab.com',
-  releaseChannel: 'production',
-  dataSchemaVersion: 'hei_entity_event_evidence_v1',
-  verificationMarker: 'hei_machine_readable_layer_v1',
+const project = {
+  schema_version: '1.0.0',
+  project_id: 'historical-exchange-index',
+  site_name: 'Historical Exchange Index',
+  registry_family: 'badjoke-lab-ledger-series',
+  registry_type: 'historical_crypto_exchange_registry',
+  canonical_origin: 'https://hei.badjoke-lab.com',
+  data_schema_version: 'hei_entity_event_evidence_v1',
+  verification_marker: 'hei_machine_readable_layer_v1',
 }
 
-const MAIN_ROUTES = [
+const mainRoutes = [
   '/',
   '/dead/',
   '/active/',
@@ -30,21 +26,9 @@ const MAIN_ROUTES = [
   '/donate/',
 ]
 
-const ROUTES = {
-  home: '/',
-  dead: '/dead/',
-  active: '/active/',
-  exchange_detail: '/exchange/{slug}/',
-  stats: '/stats/',
-  methodology: '/methodology/',
-  about: '/about/',
-  donate: '/donate/',
-}
-
-function readJson(relativePath, fallback) {
+function readJson(relativePath, fallback = []) {
   const filePath = path.join(root, relativePath)
-  if (!fs.existsSync(filePath)) return fallback
-  return JSON.parse(fs.readFileSync(filePath, 'utf8'))
+  return fs.existsSync(filePath) ? JSON.parse(fs.readFileSync(filePath, 'utf8')) : fallback
 }
 
 function normalizeIdentity(value) {
@@ -55,126 +39,86 @@ function normalizeIdentity(value) {
     .replace(/^https?:\/\//, '')
     .replace(/^www\./, '')
     .replace(/\/$/, '')
-
-  return normalized.length > 0 ? normalized : null
+  return normalized || null
 }
 
-function addIdentityKey(keys, value) {
-  const normalized = normalizeIdentity(value)
-  if (normalized) keys.add(normalized)
+function entityIdentityKeys(entity) {
+  const values = [
+    entity.id,
+    entity.slug,
+    entity.canonical_name,
+    entity.official_domain_original,
+    entity.official_url_original,
+    ...(entity.aliases ?? []),
+  ]
+  return new Set(values.map(normalizeIdentity).filter(Boolean))
 }
 
-function getEntityIdentityKeys(entity) {
-  const keys = new Set()
-  addIdentityKey(keys, entity.id)
-  addIdentityKey(keys, entity.slug)
-  addIdentityKey(keys, entity.canonical_name)
-  addIdentityKey(keys, entity.official_domain_original)
-  addIdentityKey(keys, entity.official_url_original)
-
-  for (const alias of entity.aliases ?? []) {
-    addIdentityKey(keys, alias)
-  }
-
-  return keys
-}
-
-function loadExchangeRecordBundles() {
+function loadAcceptedBundles(canonicalEntities) {
   const recordsDir = path.join(root, 'records', 'exchanges')
   if (!fs.existsSync(recordsDir)) return []
 
-  return fs
-    .readdirSync(recordsDir)
-    .filter((fileName) => fileName.endsWith('.json'))
-    .sort((a, b) => a.localeCompare(b))
-    .map((fileName) => ({
-      fileName,
-      bundle: readJson(path.join('records', 'exchanges', fileName), null),
-    }))
-    .filter(({ bundle }) => Boolean(bundle))
-}
+  const seenIdentities = new Set(
+    canonicalEntities.flatMap((entity) => [...entityIdentityKeys(entity)]),
+  )
+  const accepted = []
 
-function filterNewExchangeRecordBundles(bundleEntries, baseEntities) {
-  const seenIdentityKeys = new Set()
-
-  for (const entity of baseEntities) {
-    for (const key of getEntityIdentityKeys(entity)) {
-      seenIdentityKeys.add(key)
-    }
-  }
-
-  const acceptedEntries = []
-
-  for (const entry of bundleEntries) {
-    const { fileName, bundle } = entry
-    if (!bundle.entity || !Array.isArray(bundle.events) || !Array.isArray(bundle.evidence)) {
+  for (const fileName of fs.readdirSync(recordsDir).filter((name) => name.endsWith('.json')).sort()) {
+    const bundle = readJson(path.join('records', 'exchanges', fileName), null)
+    if (!bundle?.entity || !Array.isArray(bundle.events) || !Array.isArray(bundle.evidence)) {
       throw new Error(`${fileName}: expected { entity, events, evidence }`)
     }
 
-    const bundleKeys = getEntityIdentityKeys(bundle.entity)
-    const hasExistingIdentity = [...bundleKeys].some((key) => seenIdentityKeys.has(key))
+    const keys = entityIdentityKeys(bundle.entity)
+    if ([...keys].some((key) => seenIdentities.has(key))) continue
 
-    if (hasExistingIdentity) continue
-
-    acceptedEntries.push(entry)
-
-    for (const key of bundleKeys) {
-      seenIdentityKeys.add(key)
-    }
+    accepted.push({ fileName, bundle })
+    for (const key of keys) seenIdentities.add(key)
   }
 
-  return acceptedEntries
+  return accepted
 }
 
-function appendUniqueBundleRecords(canonicalRecords, acceptedEntries, field, label) {
-  const seenIds = new Set()
-
-  for (const record of canonicalRecords) {
-    if (!record?.id) throw new Error(`canonical ${label} record is missing id`)
-    if (seenIds.has(record.id)) throw new Error(`duplicate canonical ${label} id: ${record.id}`)
-    seenIds.add(record.id)
+function stableStringify(value) {
+  if (Array.isArray(value)) return `[${value.map(stableStringify).join(',')}]`
+  if (value && typeof value === 'object') {
+    return `{${Object.keys(value)
+      .sort()
+      .map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`)
+      .join(',')}}`
   }
+  return JSON.stringify(value)
+}
 
-  const combined = [...canonicalRecords]
+function mergeRecords(canonicalRecords, acceptedBundles, field, label) {
+  const recordsById = new Map()
 
-  for (const { fileName, bundle } of acceptedEntries) {
-    for (const record of bundle[field]) {
-      if (!record?.id) throw new Error(`${fileName}: ${label} record is missing id`)
-      if (seenIds.has(record.id)) {
-        throw new Error(`${fileName}: duplicate ${label} id across canonical data or accepted bundles: ${record.id}`)
-      }
-      seenIds.add(record.id)
-      combined.push(record)
+  function addOrVerify(record, source) {
+    if (!record?.id) throw new Error(`${source}: ${label} record is missing id`)
+    const existing = recordsById.get(record.id)
+    if (!existing) {
+      recordsById.set(record.id, record)
+      return
+    }
+    if (stableStringify(existing) !== stableStringify(record)) {
+      throw new Error(`${source}: conflicting ${label} content for duplicate id: ${record.id}`)
     }
   }
 
-  return combined
+  for (const record of canonicalRecords) addOrVerify(record, 'canonical data')
+  for (const { fileName, bundle } of acceptedBundles) {
+    for (const record of bundle[field]) addOrVerify(record, fileName)
+  }
+
+  return [...recordsById.values()]
 }
 
 function countBy(items, key) {
-  return items.reduce((acc, item) => {
+  return items.reduce((counts, item) => {
     const value = item[key] ?? 'unknown'
-    acc[value] = (acc[value] ?? 0) + 1
-    return acc
+    counts[value] = (counts[value] ?? 0) + 1
+    return counts
   }, {})
-}
-
-function getGitCommit() {
-  return (
-    process.env.CF_PAGES_COMMIT_SHA ||
-    process.env.VERCEL_GIT_COMMIT_SHA ||
-    process.env.GITHUB_SHA ||
-    'unknown'
-  )
-}
-
-function getGitBranch() {
-  return (
-    process.env.CF_PAGES_BRANCH ||
-    process.env.VERCEL_GIT_COMMIT_REF ||
-    process.env.GITHUB_REF_NAME ||
-    'main'
-  )
 }
 
 function latestReviewedAt(entities) {
@@ -182,8 +126,15 @@ function latestReviewedAt(entities) {
     .map((entity) => entity.last_verified_at)
     .filter((value) => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value))
     .sort()
-
   return dates.at(-1) ?? null
+}
+
+function deploymentCommit() {
+  return process.env.CF_PAGES_COMMIT_SHA || process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA || 'unknown'
+}
+
+function deploymentBranch() {
+  return process.env.CF_PAGES_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.GITHUB_REF_NAME || 'main'
 }
 
 function writeJson(relativePath, value) {
@@ -195,23 +146,20 @@ function writeJson(relativePath, value) {
 function writeText(relativePath, value) {
   const filePath = path.join(publicDir, relativePath)
   fs.mkdirSync(path.dirname(filePath), { recursive: true })
-  fs.writeFileSync(filePath, value.trimEnd() + '\n', 'utf8')
+  fs.writeFileSync(filePath, `${value.trimEnd()}\n`, 'utf8')
 }
 
-fs.mkdirSync(publicDataDir, { recursive: true })
+const canonicalEntities = readJson('data/entities.json')
+const canonicalEvents = readJson('data/events.json')
+const canonicalEvidence = readJson('data/evidence.json')
+const acceptedBundles = loadAcceptedBundles(canonicalEntities)
 
-const canonicalEntities = readJson('data/entities.json', [])
-const canonicalEvents = readJson('data/events.json', [])
-const canonicalEvidence = readJson('data/evidence.json', [])
-const acceptedEntries = filterNewExchangeRecordBundles(loadExchangeRecordBundles(), canonicalEntities)
-
-const entities = [...canonicalEntities, ...acceptedEntries.map(({ bundle }) => bundle.entity)]
-const events = appendUniqueBundleRecords(canonicalEvents, acceptedEntries, 'events', 'event')
-const evidence = appendUniqueBundleRecords(canonicalEvidence, acceptedEntries, 'evidence', 'evidence')
-
+const entities = [...canonicalEntities, ...acceptedBundles.map(({ bundle }) => bundle.entity)]
+const events = mergeRecords(canonicalEvents, acceptedBundles, 'events', 'event')
+const evidence = mergeRecords(canonicalEvidence, acceptedBundles, 'evidence', 'evidence')
+const generatedAt = new Date().toISOString()
 const deadSideStatuses = new Set(['dead', 'merged', 'acquired', 'rebranded'])
 const activeSideStatuses = new Set(['active', 'limited', 'inactive'])
-const buildGeneratedAt = new Date().toISOString()
 
 const recordCounts = {
   primary_records: entities.length,
@@ -221,8 +169,8 @@ const recordCounts = {
 
 const recordCountBreakdown = {
   exchanges: entities.length,
-  active_side: entities.filter((item) => activeSideStatuses.has(item.status)).length,
-  dead_side: entities.filter((item) => deadSideStatuses.has(item.status)).length,
+  active_side: entities.filter((entity) => activeSideStatuses.has(entity.status)).length,
+  dead_side: entities.filter((entity) => deadSideStatuses.has(entity.status)).length,
   status: countBy(entities, 'status'),
   type: countBy(entities, 'type'),
 }
@@ -234,38 +182,47 @@ const dataSafety = {
   includes_private_notes: false,
 }
 
-const version = {
-  schema_version: PROJECT.schemaVersion,
-  project_id: PROJECT.projectId,
-  site_name: PROJECT.siteName,
-  registry_family: PROJECT.registryFamily,
-  registry_type: PROJECT.registryType,
-  canonical_origin: PROJECT.canonicalOrigin,
-  release_channel: PROJECT.releaseChannel,
+writeJson('version.json', {
+  schema_version: project.schema_version,
+  project_id: project.project_id,
+  site_name: project.site_name,
+  registry_family: project.registry_family,
+  registry_type: project.registry_type,
+  canonical_origin: project.canonical_origin,
+  release_channel: 'production',
   build: {
-    commit: getGitCommit(),
-    branch: getGitBranch(),
-    generated_at: buildGeneratedAt,
-    verification_marker: PROJECT.verificationMarker,
+    commit: deploymentCommit(),
+    branch: deploymentBranch(),
+    generated_at: generatedAt,
+    verification_marker: project.verification_marker,
   },
   data: {
-    data_schema_version: PROJECT.dataSchemaVersion,
-    generated_at: buildGeneratedAt,
+    data_schema_version: project.data_schema_version,
+    generated_at: generatedAt,
     records_last_reviewed_at: latestReviewedAt(entities),
     record_counts: recordCounts,
     record_count_breakdown: recordCountBreakdown,
   },
-  routes: ROUTES,
-}
+  routes: {
+    home: '/',
+    dead: '/dead/',
+    active: '/active/',
+    exchange_detail: '/exchange/{slug}/',
+    stats: '/stats/',
+    methodology: '/methodology/',
+    about: '/about/',
+    donate: '/donate/',
+  },
+})
 
-const manifest = {
-  schema_version: PROJECT.schemaVersion,
-  project_id: PROJECT.projectId,
-  title: PROJECT.title,
-  description: PROJECT.description,
-  canonical_origin: PROJECT.canonicalOrigin,
-  registry_family: PROJECT.registryFamily,
-  registry_type: PROJECT.registryType,
+writeJson(path.join('data', 'manifest.json'), {
+  schema_version: project.schema_version,
+  project_id: project.project_id,
+  title: project.site_name,
+  description: 'Evidence-backed historical registry of crypto exchanges, active and gone.',
+  canonical_origin: project.canonical_origin,
+  registry_family: project.registry_family,
+  registry_type: project.registry_type,
   data_model: {
     primary_record: 'exchange_entity',
     supporting_records: ['exchange_event', 'exchange_evidence'],
@@ -276,7 +233,7 @@ const manifest = {
     llms: '/llms.txt',
     ai: '/ai.txt',
   },
-  main_routes: MAIN_ROUTES,
+  main_routes: mainRoutes,
   record_counts: recordCounts,
   record_count_breakdown: recordCountBreakdown,
   data_safety: dataSafety,
@@ -290,10 +247,10 @@ const manifest = {
   },
   language: 'en',
   locales: ['en'],
-  generated_at: buildGeneratedAt,
-}
+  generated_at: generatedAt,
+})
 
-const llms = `# Historical Exchange Index
+writeText('llms.txt', `# Historical Exchange Index
 
 Evidence-backed historical registry of crypto exchanges, active and gone.
 
@@ -305,14 +262,7 @@ Machine-readable files:
 - /ai.txt
 
 Main routes:
-- /
-- /dead/
-- /active/
-- /exchange/{slug}/
-- /stats/
-- /methodology/
-- /about/
-- /donate/
+${mainRoutes.map((route) => `- ${route}`).join('\n')}
 
 Use notes:
 - This is a historical registry, not a live exchange ranking.
@@ -321,9 +271,9 @@ Use notes:
 - Record data may be incomplete or revised.
 - Use methodology and evidence links when interpreting records.
 - Do not treat unverified external claims as HEI classifications.
-`
+`)
 
-const ai = `Historical Exchange Index
+writeText('ai.txt', `Historical Exchange Index
 
 Purpose: Evidence-backed historical registry of crypto exchanges, active and gone.
 Canonical origin: https://hei.badjoke-lab.com
@@ -332,21 +282,9 @@ Manifest endpoint: /data/manifest.json
 LLM guide: /llms.txt
 
 Important routes:
-/
-/dead/
-/active/
-/exchange/{slug}/
-/stats/
-/methodology/
-/about/
-/donate/
+${mainRoutes.join('\n')}
 
 Safety note: Public files expose reviewed public registry information only. They do not include unreviewed candidates, private notes, or internal monitoring output.
-`
-
-writeJson('version.json', version)
-writeJson(path.join('data', 'manifest.json'), manifest)
-writeText('llms.txt', llms)
-writeText('ai.txt', ai)
+`)
 
 console.log(`Built HEI machine-readable public layer: ${recordCounts.primary_records} primary records, ${recordCounts.events} events, ${recordCounts.evidence} evidence records.`)
