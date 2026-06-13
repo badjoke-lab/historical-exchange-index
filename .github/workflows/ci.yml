@@ -31,3 +31,6 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Validate machine-readable public layer
+        run: node scripts/validate-machine-readable-layer.mjs
