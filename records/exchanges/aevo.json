@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000519",
+    "slug": "aevo",
+    "canonical_name": "Aevo",
+    "aliases": ["Aevo Exchange", "Aevo Perps", "aevo.xyz"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2023-01-01",
+    "death_date": null,
+    "country_or_origin": "Ethereum ecosystem",
+    "summary": "Decentralized derivatives exchange built on a custom OP Stack Layer 2, combining off-chain order matching with on-chain settlement. Aevo supports perpetual futures, options and structured strategies and is operated by the team behind Ribbon Finance.",
+    "official_url_original": "https://www.aevo.xyz/",
+    "official_domain_original": "aevo.xyz",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.aevo.xyz/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-14",
+    "notes": "Launch date is year-level for the Aevo-branded exchange. Ribbon Finance history is treated as team/product lineage rather than a separate predecessor link until a dedicated lineage review is completed."
+  },
+  "events": [
+    {
+      "id": "hei_ev_002043",
+      "exchange_id": "hei_ex_000519",
+      "event_type": "launched",
+      "event_date": "2023-01-01",
+      "title": "Aevo launched as a decentralized derivatives exchange",
+      "description": "Aevo entered operation as a derivatives exchange offering options and perpetual futures with off-chain matching and on-chain settlement on its custom Ethereum Layer 2.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Year-level launch marker; no exact day is asserted."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_003102",
+      "exchange_id": "hei_ex_000519",
+      "event_id": "hei_ev_002043",
+      "source_type": "official_statement",
+      "title": "Aevo official website",
+      "url": "https://www.aevo.xyz/",
+      "publisher": "Aevo",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.aevo.xyz/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current official site describing active options, perpetuals and strategy products."
+    },
+    {
+      "id": "hei_src_003103",
+      "exchange_id": "hei_ex_000519",
+      "event_id": "hei_ev_002043",
+      "source_type": "official_statement",
+      "title": "Welcome to Aevo",
+      "url": "https://docs.aevo.xyz/",
+      "publisher": "Aevo",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.aevo.xyz/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official documentation defining Aevo as a decentralized derivatives exchange on a custom OP Stack Layer 2."
+    },
+    {
+      "id": "hei_src_003104",
+      "exchange_id": "hei_ex_000519",
+      "event_id": "hei_ev_002043",
+      "source_type": "database_reference",
+      "title": "Aevo protocol profile",
+      "url": "https://defillama.com/protocol/aevo",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://defillama.com/protocol/aevo",
+      "accessed_at": "2026-06-14",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Independent protocol-directory corroboration used for discovery and current-operation context."
+    }
+  ]
+}
