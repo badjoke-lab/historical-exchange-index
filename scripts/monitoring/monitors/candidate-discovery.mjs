@@ -83,12 +83,12 @@ export async function runCandidateDiscovery(context, { startedAt } = {}) {
     }));
   }
 
-  const candidates = rawItems
+  const discovered = rawItems
     .filter((item) => item && (item.canonical_name || item.name || item.title || item.slug))
     .map((item, index) => toCandidateRecord(item, entityIndex, context?.runId, index + 1));
 
-  const missingInHei = candidates.filter((candidate) => !candidate.duplicate_check.matched_existing_entity);
-  const matchedExisting = candidates.filter((candidate) => candidate.duplicate_check.matched_existing_entity);
+  const candidates = discovered.filter((candidate) => !candidate.duplicate_check.matched_existing_entity);
+  const matchedExisting = discovered.filter((candidate) => candidate.duplicate_check.matched_existing_entity);
   const aCandidates = candidates.filter((candidate) => candidate.candidate_class === 'A');
   const historicalCandidates = candidates.filter((candidate) => ['strong', 'medium'].includes(candidate.historical_dead_strength));
 
@@ -119,18 +119,24 @@ export async function runCandidateDiscovery(context, { startedAt } = {}) {
     }));
   }
 
-  if (candidates.length > 0) {
+  if (discovered.length > 0) {
     const runDate = runDateFromRunId(context?.runId);
     await writeJsonFile(`${WATCHLIST_AUTO_ROOT}/recent-candidates-${runDate}.json`, {
       watchlist_type: 'auto_candidate_discovery',
       created_at: new Date().toISOString(),
-      purpose: 'Auto-generated candidate discovery output. Not canonical. Requires review before staging/canonical append.',
+      purpose: 'Auto-generated candidates not matched to canonical HEI entities. Not canonical. Requires review before staging/canonical append.',
       source_summary: external.source_summary,
       candidates,
+      excluded_existing_entities: matchedExisting.map((candidate) => ({
+        canonical_name: candidate.canonical_name,
+        matched_id: candidate.duplicate_check.matched_id,
+        matched_slug: candidate.duplicate_check.matched_slug,
+        method: candidate.duplicate_check.method,
+      })),
       summary: {
-        total: candidates.length,
-        missing_in_hei: missingInHei.length,
-        matched_existing: matchedExisting.length,
+        discovered_total: discovered.length,
+        review_candidates: candidates.length,
+        matched_existing_excluded: matchedExisting.length,
         historical_dead_or_continuity: historicalCandidates.length,
         A: candidates.filter((candidate) => candidate.candidate_class === 'A').length,
         B: candidates.filter((candidate) => candidate.candidate_class === 'B').length,
@@ -149,9 +155,9 @@ export async function runCandidateDiscovery(context, { startedAt } = {}) {
     extra: {
       discovery_summary: {
         raw_items: rawItems.length,
-        candidates: candidates.length,
-        missing_in_hei: missingInHei.length,
-        matched_existing: matchedExisting.length,
+        discovered_total: discovered.length,
+        review_candidates: candidates.length,
+        matched_existing_excluded: matchedExisting.length,
         historical_dead_or_continuity: historicalCandidates.length,
         source_summary: external.source_summary,
       },
