@@ -1,0 +1,15 @@
+{
+  "resolution_type": "watchlist_candidates_canonicalized",
+  "created_at": "2026-06-14",
+  "purpose": "Replace the earlier manual-review outcome with the final canonical outcome for Serum.",
+  "promoted_to_canonical": [
+    {
+      "canonical_name": "Serum",
+      "resolution": "promoted_to_canonical",
+      "entity_id": "hei_ex_000505",
+      "notes": "Manual research completed. Added as a dead Serum DEX record through merged PR #351, covering the 2020 launch, the 2022 FTX-triggered security failure, and the OpenBook replacement fork."
+    }
+  ],
+  "canonical_data_changed": false,
+  "operator_notes": "This file updates watchlist bookkeeping only. Serum canonical data was added in PR #351."
+}
