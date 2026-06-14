@@ -15,6 +15,21 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
 }
 
+function stableStringify(value) {
+  if (Array.isArray(value)) {
+    return `[${value.map((item) => stableStringify(item)).join(',')}]`
+  }
+
+  if (value && typeof value === 'object') {
+    return `{${Object.keys(value)
+      .sort()
+      .map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`)
+      .join(',')}}`
+  }
+
+  return JSON.stringify(value)
+}
+
 function normalizeIdentity(value) {
   if (!value || typeof value !== 'string') return null
   let normalized = value.trim().toLowerCase()
@@ -50,6 +65,7 @@ function makeRecord(source, entity, filePath = null) {
   return {
     source,
     filePath,
+    entity,
     id: entity.id,
     slug: entity.slug,
     canonical_name: entity.canonical_name,
@@ -79,9 +95,16 @@ function loadBundleRecords() {
 }
 
 const baseRecords = readJson(entitiesPath).map((entity) => makeRecord('data/entities.json', entity))
+const canonicalById = new Map(baseRecords.map((record) => [record.id, record]))
 const bundleRecords = loadBundleRecords()
 const allRecords = [...baseRecords, ...bundleRecords]
 const byKey = new Map()
+
+function isExactCanonicalMirror(record) {
+  if (record.source !== 'records/exchanges' || !record.id) return false
+  const canonical = canonicalById.get(record.id)
+  return Boolean(canonical && stableStringify(canonical.entity) === stableStringify(record.entity))
+}
 
 for (const record of allRecords) {
   for (const key of record.keys) {
@@ -95,30 +118,40 @@ for (const record of allRecords) {
 const duplicateGroups = []
 const allowedGroups = []
 const seenGroups = new Set()
+let exactMirrorRecords = 0
 
 for (const [identity, records] of byKey) {
-  const uniqueRecordIds = [...new Set(records.map((record) => `${record.source}:${record.filePath || record.id}`))]
+  const logicalRecords = records.filter((record) => {
+    if (!isExactCanonicalMirror(record)) return true
+    exactMirrorRecords += 1
+    return false
+  })
+
+  const uniqueRecordIds = [...new Set(logicalRecords.map((record) => `${record.source}:${record.filePath || record.id}`))]
   if (uniqueRecordIds.length < 2) continue
 
-  const hasBundle = records.some((record) => record.source === 'records/exchanges')
+  const hasBundle = logicalRecords.some((record) => record.source === 'records/exchanges')
   if (!hasBundle) continue
 
   const groupKey = uniqueRecordIds.sort().join('|')
   if (seenGroups.has(groupKey)) continue
   seenGroups.add(groupKey)
 
-  const pairKey = recordPairKey(records)
+  const pairKey = recordPairKey(logicalRecords)
   if (pairKey && allowedDuplicateEntityPairs.has(pairKey)) {
-    allowedGroups.push({ identity, records })
+    allowedGroups.push({ identity, records: logicalRecords })
     continue
   }
 
-  duplicateGroups.push({ identity, records })
+  duplicateGroups.push({ identity, records: logicalRecords })
 }
 
 if (duplicateGroups.length === 0) {
-  const allowedSuffix = allowedGroups.length ? ` (${allowedGroups.length} documented duplicate group(s) allowed).` : '.'
-  console.log(`No record identity duplicates detected${allowedSuffix}`)
+  const notes = []
+  if (exactMirrorRecords) notes.push(`${exactMirrorRecords} exact canonical mirror identity occurrence(s) ignored`)
+  if (allowedGroups.length) notes.push(`${allowedGroups.length} documented duplicate group(s) allowed`)
+  const suffix = notes.length ? ` (${notes.join('; ')}).` : '.'
+  console.log(`No record identity duplicates detected${suffix}`)
 } else {
   console.error(`Detected ${duplicateGroups.length} record identity duplicate group(s):`)
 
