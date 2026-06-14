@@ -1,0 +1,162 @@
+{
+  "watchlist_type": "auto_news_event_candidates",
+  "created_at": "2026-06-14T10:11:14.146Z",
+  "purpose": "Tightly filtered auto-generated news/regulatory/event candidate output. Not canonical. Requires review before staging/canonical append.",
+  "news_summary": {
+    "enabled": true,
+    "queries": 20,
+    "items": 1367
+  },
+  "regulatory_summary": {
+    "enabled": true,
+    "authorities_configured": 7,
+    "query_templates": 5,
+    "queries": 25,
+    "items": 1930,
+    "raw_candidates": 3
+  },
+  "filtering_summary": {
+    "raw_candidates": 105,
+    "retained_candidates": 3,
+    "dropped_candidates": 102,
+    "resolved_candidate_names": 15
+  },
+  "candidates": [
+    {
+      "candidate_id": "news_20260614_019",
+      "canonical_name": "Bittrex",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "regulation",
+      "record_shape": "new_entity",
+      "headline": "Seattle crypto exchange Bittrex closing US operations - The Business Journals",
+      "hei_relevance": "Likely HEI-relevant historical dead/continuity candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMipAFBVV95cUxPT19zeTNybEtkVmZDQ1dQNVNRcThaaFNKWHRIdHQ1MVR6VUpaZXRoWDNZeDk2UlcxUVhYRnhranhXb2VNTmpOT2o3bGhPMEdzc2tYbW92OGNNNXgwNVdGX24yWGpLZzltakpDU2pmbjhtMjJTaGt2Q2RQdUJiT2wtV2ZNLUU3YnlBSnRGUnZzVzUwaUlibnlEVEpycTVrcDg5REJfOA?oc=5",
+        "https://news.google.com/rss/articles/CBMi-wFBVV95cUxQS1ZmMURqOUZiWHhPX2tuZTJTb0xGRFlJbklsbVMwWHZ2Qkx0akRYSzYtaHN2czdySFJVajgzY0JZLVpjRmNMYVcyT21KM241ZUhMUDBtY21uaWMtZ3FZSDNZNmJQbnR4TkpXeFVpSGYwbW8xOW1rdXc1ZWdtWlYtVEtlWHpYNk9uNE4zekpOdlVZcy1idzNrWGtUR2hQNlAyU3I2RkJKbnA0cDJVM0J5WlVsU0pSSzhEdnFjZDZJMmNyeS15VWl4bzBGUHk1bzY2eTBoUGFNelJtYXV2ZTFoa1VsdGJTU05YUUVuTzhTekJHRkkxRnVtZW1wcw?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "The Business Journals, Association of Certified Financial Crime Specialists",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective",
+        "regulatory_action"
+      ],
+      "news_event_categories": [
+        "shutdown",
+        "regulatory"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 6,
+      "historical_dead_strength": "strong",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "regulatory_language",
+        "multiple_source_urls"
+      ]
+    },
+    {
+      "candidate_id": "news_20260614_030",
+      "canonical_name": "Trading",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "Coinbase (COIN) Adds DEX Trading to U.S. App in Push Toward Becoming an ‘Everything App’ - CoinDesk",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMivwFBVV95cUxPRVQweTV0c3QwVV9MVmRjZHR2ZWZFV3R1X0tSZkNOQWJwWWlDbERDbTBKWTBvVU1fN05EXzFUcGUzUzBwWVVBLURkYk5CX3VYWmszbWMxb0wtdGQ5WDBNMm9YaVg2V2NCYlBwMWNrUGl1SDRZTWR2T3J1ei1mWGtmQ1pOSUNZSzE1S3FrZ0FsRVpEU0Y2WnZBZUdvV1dCd2pwMXUwdEd4b1R4MTVvWDhfRU83bGtjS00tdkppUEhzdw?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "CoinDesk",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "shutdown"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 4,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "high_quality_source"
+      ]
+    },
+    {
+      "candidate_id": "news_20260614_037",
+      "canonical_name": "Aevo",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "Crypto Derivatives DEX Aevo's Token Jumps 10% as Binance Labs Discloses Investment - CoinDesk",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOZi1PdnZWWURQU01UVjBIdE9NRHRRUk5wOFQzSk5IdlBZcW5xZGlIUVhTc2NWX3htMzh5TjRRbGtmYlFaMHN5TmdUV1VOTzQ1ZXM4MDhsZ1R5eWswYWJ0R0FaWlFnRmUwVS1DSDdscllGbmtCcS14aGRMTEpGRGZtZE1RcVRwMkJwdUxxaThxWDRUZTRJS3QxUDBfM3FCc3RIRVZoYlZjZ2lXVk10Qm1CUVpDM0FCc2Q3bDZVRW1qc2NzQQ?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "CoinDesk",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "shutdown"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 4,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "high_quality_source"
+      ]
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "missing_in_hei": 3,
+    "matched_existing": 0,
+    "regulatory_candidates": 0,
+    "A": 3,
+    "B": 0,
+    "C": 0
+  }
+}

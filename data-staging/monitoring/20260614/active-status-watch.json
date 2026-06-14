@@ -1,0 +1,455 @@
+{
+  "monitor": "active-status-watch",
+  "status": "ok",
+  "started_at": "2026-06-14T10:11:14.146Z",
+  "finished_at": "2026-06-14T10:11:27.806Z",
+  "findings": [],
+  "candidates": [],
+  "errors": [],
+  "summary": {
+    "findings_count": 0,
+    "visible_findings_count": 0,
+    "candidate_count": 0,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "active_status_summary": {
+    "enabled": true,
+    "active_side_entities_with_urls": 133,
+    "checked": 25,
+    "findings": 0,
+    "access_control_noise": 3,
+    "healthy_redirects": 6,
+    "inactive_dns_noise": 2
+  },
+  "official_site_checks": [
+    {
+      "entity_id": "hei_ex_000253",
+      "slug": "796-exchange",
+      "canonical_name": "796 Exchange",
+      "status": "inactive",
+      "official_url": "https://796.com/",
+      "check": {
+        "input_url": "https://796.com/",
+        "normalized_url": "https://796.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://796.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000096",
+      "slug": "aibit",
+      "canonical_name": "Aibit",
+      "status": "active",
+      "official_url": "https://www.aibit.com/",
+      "check": {
+        "input_url": "https://www.aibit.com/",
+        "normalized_url": "https://www.aibit.com/",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://www.aibit.com/",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000274",
+      "slug": "altilly",
+      "canonical_name": "Altilly",
+      "status": "inactive",
+      "official_url": "https://www.altilly.com/",
+      "check": {
+        "input_url": "https://www.altilly.com/",
+        "normalized_url": "https://www.altilly.com/",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://altilly.com/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000066",
+      "slug": "ascendex",
+      "canonical_name": "AscendEX",
+      "status": "active",
+      "official_url": "https://ascendex.com/",
+      "check": {
+        "input_url": "https://ascendex.com/",
+        "normalized_url": "https://ascendex.com/",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://ascendex.com/en",
+        "content_type": "text/html;charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000068",
+      "slug": "backpack-exchange",
+      "canonical_name": "Backpack Exchange",
+      "status": "active",
+      "official_url": "https://backpack.exchange/",
+      "check": {
+        "input_url": "https://backpack.exchange/",
+        "normalized_url": "https://backpack.exchange/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://backpack.exchange/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000228",
+      "slug": "balancer",
+      "canonical_name": "Balancer",
+      "status": "limited",
+      "official_url": "https://balancer.fi/",
+      "check": {
+        "input_url": "https://balancer.fi/",
+        "normalized_url": "https://balancer.fi/",
+        "status": "http_error",
+        "http_status": 429,
+        "final_url": "https://balancer.fi/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000094",
+      "slug": "biconomy-exchange",
+      "canonical_name": "Biconomy Exchange",
+      "status": "active",
+      "official_url": "https://www.biconomy.com/",
+      "check": {
+        "input_url": "https://www.biconomy.com/",
+        "normalized_url": "https://www.biconomy.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.biconomy.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000227",
+      "slug": "bigone",
+      "canonical_name": "BigONE",
+      "status": "active",
+      "official_url": "https://big.one/",
+      "check": {
+        "input_url": "https://big.one/",
+        "normalized_url": "https://big.one/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://big.one/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000003",
+      "slug": "binance",
+      "canonical_name": "Binance",
+      "status": "active",
+      "official_url": "https://www.binance.com/",
+      "check": {
+        "input_url": "https://www.binance.com/",
+        "normalized_url": "https://www.binance.com/",
+        "status": "ok",
+        "http_status": 202,
+        "final_url": "https://www.binance.com/",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000101",
+      "slug": "bingx",
+      "canonical_name": "BingX",
+      "status": "active",
+      "official_url": "https://bingx.com/",
+      "check": {
+        "input_url": "https://bingx.com/",
+        "normalized_url": "https://bingx.com/",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://bingx.com/en",
+        "content_type": "text/html;charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000172",
+      "slug": "bisq",
+      "canonical_name": "Bisq",
+      "status": "active",
+      "official_url": "https://bisq.network/",
+      "check": {
+        "input_url": "https://bisq.network/",
+        "normalized_url": "https://bisq.network/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://bisq.network/",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000060",
+      "slug": "bit2me",
+      "canonical_name": "Bit2Me",
+      "status": "active",
+      "official_url": "https://bit2me.com/",
+      "check": {
+        "input_url": "https://bit2me.com/",
+        "normalized_url": "https://bit2me.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://bit2me.com/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000029",
+      "slug": "bitbank",
+      "canonical_name": "Bitbank",
+      "status": "active",
+      "official_url": "https://bitbank.cc/",
+      "check": {
+        "input_url": "https://bitbank.cc/",
+        "normalized_url": "https://bitbank.cc/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://bitbank.cc/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000263",
+      "slug": "bitcoin-central",
+      "canonical_name": "Bitcoin-Central",
+      "status": "inactive",
+      "official_url": "https://bitcoin-central.net/",
+      "check": {
+        "input_url": "https://bitcoin-central.net/",
+        "normalized_url": "https://bitcoin-central.net/",
+        "status": "dns_failure",
+        "http_status": null,
+        "final_url": null,
+        "content_type": null,
+        "error": "fetch failed"
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000074",
+      "slug": "bitexen",
+      "canonical_name": "Bitexen",
+      "status": "active",
+      "official_url": "https://www.bitexen.com/",
+      "check": {
+        "input_url": "https://www.bitexen.com/",
+        "normalized_url": "https://www.bitexen.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.bitexen.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000017",
+      "slug": "bitfinex",
+      "canonical_name": "Bitfinex",
+      "status": "active",
+      "official_url": "https://www.bitfinex.com/",
+      "check": {
+        "input_url": "https://www.bitfinex.com/",
+        "normalized_url": "https://www.bitfinex.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.bitfinex.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000022",
+      "slug": "bitflyer",
+      "canonical_name": "bitFlyer",
+      "status": "active",
+      "official_url": "https://bitflyer.com/",
+      "check": {
+        "input_url": "https://bitflyer.com/",
+        "normalized_url": "https://bitflyer.com/",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://bitflyer.com/en-us/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000288",
+      "slug": "bitforex",
+      "canonical_name": "BitForex",
+      "status": "limited",
+      "official_url": "https://www.bitforex.com/",
+      "check": {
+        "input_url": "https://www.bitforex.com/",
+        "normalized_url": "https://www.bitforex.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.bitforex.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000028",
+      "slug": "bitget",
+      "canonical_name": "Bitget",
+      "status": "active",
+      "official_url": "https://www.bitget.com/",
+      "check": {
+        "input_url": "https://www.bitget.com/",
+        "normalized_url": "https://www.bitget.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.bitget.com/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000021",
+      "slug": "bithumb",
+      "canonical_name": "Bithumb",
+      "status": "active",
+      "official_url": "https://www.bithumb.com/",
+      "check": {
+        "input_url": "https://www.bithumb.com/",
+        "normalized_url": "https://www.bithumb.com/",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://www.bithumb.com/react/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000254",
+      "slug": "bitkonan",
+      "canonical_name": "BitKonan",
+      "status": "inactive",
+      "official_url": "https://www.bitkonan.com/",
+      "check": {
+        "input_url": "https://www.bitkonan.com/",
+        "normalized_url": "https://www.bitkonan.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.bitkonan.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000037",
+      "slug": "bitkub",
+      "canonical_name": "Bitkub",
+      "status": "active",
+      "official_url": "https://www.bitkub.com/",
+      "check": {
+        "input_url": "https://www.bitkub.com/",
+        "normalized_url": "https://www.bitkub.com/",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://www.bitkub.com/",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000062",
+      "slug": "bitmex",
+      "canonical_name": "BitMEX",
+      "status": "active",
+      "official_url": "https://www.bitmex.com/",
+      "check": {
+        "input_url": "https://www.bitmex.com/",
+        "normalized_url": "https://www.bitmex.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.bitmex.com/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000059",
+      "slug": "bitopro",
+      "canonical_name": "BitoPro",
+      "status": "active",
+      "official_url": "https://www.bitopro.com/",
+      "check": {
+        "input_url": "https://www.bitopro.com/",
+        "normalized_url": "https://www.bitopro.com/",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://www.bitopro.com/ns/home",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000259",
+      "slug": "bitparking",
+      "canonical_name": "Bitparking",
+      "status": "inactive",
+      "official_url": "https://exchange.bitparking.com/",
+      "check": {
+        "input_url": "https://exchange.bitparking.com/",
+        "normalized_url": "https://exchange.bitparking.com/",
+        "status": "dns_failure",
+        "http_status": null,
+        "final_url": null,
+        "content_type": null,
+        "error": "fetch failed"
+      },
+      "finding_created": false
+    }
+  ]
+}
