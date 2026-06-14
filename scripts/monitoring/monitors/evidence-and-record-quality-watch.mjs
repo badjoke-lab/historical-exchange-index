@@ -68,6 +68,32 @@ function addDuplicateFindings(findings, monitor, label, values) {
   }
 }
 
+function addGroupedEnumFindings(findings, monitor, { items, field, allowedValues, category, action }) {
+  const grouped = new Map();
+  for (const item of items) {
+    const value = item?.[field];
+    if (!value || allowedValues.includes(value)) continue;
+    const ids = grouped.get(value) || [];
+    ids.push(item.id || 'unknown');
+    grouped.set(value, ids);
+  }
+
+  for (const [value, ids] of grouped.entries()) {
+    const samples = ids.slice(0, 12).join(', ');
+    const suffix = ids.length > 12 ? `, and ${ids.length - 12} more` : '';
+    addFinding(findings, {
+      monitor,
+      severity: 'high',
+      category,
+      title: `Legacy ${field} value requires migration: ${value}`,
+      summary: `${ids.length} record(s): ${samples}${suffix}`,
+      recommended_action: action,
+      confidence: 'high',
+      dedupe_key: `${monitor}:${category}:${value}`,
+    });
+  }
+}
+
 function groupCount(items, keyName) {
   const map = new Map();
   for (const item of items) {
@@ -97,6 +123,13 @@ export async function runEvidenceAndRecordQualityWatch(context, { startedAt } = 
   addDuplicateFindings(findings, monitor, 'entity_slug', findDuplicates(entities, (entity) => entity.slug));
   addDuplicateFindings(findings, monitor, 'event_id', findDuplicates(events, (event) => event.id));
   addDuplicateFindings(findings, monitor, 'evidence_id', findDuplicates(evidence, (source) => source.id));
+
+  addGroupedEnumFindings(findings, monitor, { items: events, field: 'event_type', allowedValues: EVENT_TYPE_VALUES, category: 'legacy_event_type_values', action: 'plan_event_enum_migration_batch' });
+  addGroupedEnumFindings(findings, monitor, { items: events, field: 'impact_level', allowedValues: IMPACT_LEVEL_VALUES, category: 'legacy_impact_level_values', action: 'plan_event_enum_migration_batch' });
+  addGroupedEnumFindings(findings, monitor, { items: events, field: 'event_status_effect', allowedValues: EVENT_STATUS_EFFECT_VALUES, category: 'legacy_event_status_effect_values', action: 'plan_event_enum_migration_batch' });
+  addGroupedEnumFindings(findings, monitor, { items: evidence, field: 'source_type', allowedValues: SOURCE_TYPE_VALUES, category: 'legacy_source_type_values', action: 'plan_evidence_enum_migration_batch' });
+  addGroupedEnumFindings(findings, monitor, { items: evidence, field: 'reliability', allowedValues: RELIABILITY_VALUES, category: 'legacy_reliability_values', action: 'plan_evidence_enum_migration_batch' });
+  addGroupedEnumFindings(findings, monitor, { items: evidence, field: 'claim_scope', allowedValues: CLAIM_SCOPE_VALUES, category: 'legacy_claim_scope_values', action: 'plan_evidence_enum_migration_batch' });
 
   for (const entity of entities) {
     const entityLabel = entity.canonical_name || entity.slug || entity.id;
@@ -173,15 +206,6 @@ export async function runEvidenceAndRecordQualityWatch(context, { startedAt } = 
     if (!entityIds.has(event.exchange_id)) {
       addFinding(findings, { monitor, severity: 'critical', category: 'event_missing_entity_reference', title: `Event references missing entity: ${event.id}`, summary: `exchange_id=${event.exchange_id}`, recommended_action: 'fix_canonical_data_before_more_batches', confidence: 'high', dedupe_key: `${monitor}:event_missing_entity:${event.id}` });
     }
-    if (!EVENT_TYPE_VALUES.includes(event.event_type)) {
-      addFinding(findings, { monitor, severity: 'high', category: 'invalid_event_type', title: `Invalid event_type on ${event.id}`, summary: `event_type=${event.event_type}`, recommended_action: 'fix_event_enum', confidence: 'high', dedupe_key: `${monitor}:invalid_event_type:${event.id}` });
-    }
-    if (event.impact_level && !IMPACT_LEVEL_VALUES.includes(event.impact_level)) {
-      addFinding(findings, { monitor, severity: 'high', category: 'invalid_impact_level', title: `Invalid impact_level on ${event.id}`, summary: `impact_level=${event.impact_level}`, recommended_action: 'fix_event_enum', confidence: 'high', dedupe_key: `${monitor}:invalid_impact:${event.id}` });
-    }
-    if (event.event_status_effect && !EVENT_STATUS_EFFECT_VALUES.includes(event.event_status_effect)) {
-      addFinding(findings, { monitor, severity: 'high', category: 'invalid_event_status_effect', title: `Invalid event_status_effect on ${event.id}`, summary: `event_status_effect=${event.event_status_effect}`, recommended_action: 'fix_event_enum', confidence: 'high', dedupe_key: `${monitor}:invalid_event_status_effect:${event.id}` });
-    }
     if (!isDateLike(event.event_date) || !isDateLike(event.start_date) || !isDateLike(event.end_date)) {
       addFinding(findings, { monitor, severity: 'medium', category: 'bad_event_date_format', title: `Bad date format on ${event.id}`, summary: 'Expected YYYY, YYYY-MM, YYYY-MM-DD, null, or empty.', recommended_action: 'fix_date_format', confidence: 'medium', dedupe_key: `${monitor}:bad_event_date:${event.id}` });
     }
@@ -200,15 +224,6 @@ export async function runEvidenceAndRecordQualityWatch(context, { startedAt } = 
     }
     if (source.event_id && !eventIds.has(source.event_id)) {
       addFinding(findings, { monitor, severity: 'critical', category: 'evidence_missing_event_reference', title: `Evidence references missing event: ${source.id}`, summary: `event_id=${source.event_id}`, recommended_action: 'fix_canonical_data_before_more_batches', confidence: 'high', dedupe_key: `${monitor}:evidence_missing_event:${source.id}` });
-    }
-    if (source.source_type && !SOURCE_TYPE_VALUES.includes(source.source_type)) {
-      addFinding(findings, { monitor, severity: 'high', category: 'invalid_source_type', title: `Invalid source_type on ${source.id}`, summary: `source_type=${source.source_type}`, recommended_action: 'fix_evidence_enum', confidence: 'high', dedupe_key: `${monitor}:invalid_source_type:${source.id}` });
-    }
-    if (source.reliability && !RELIABILITY_VALUES.includes(source.reliability)) {
-      addFinding(findings, { monitor, severity: 'high', category: 'invalid_reliability', title: `Invalid reliability on ${source.id}`, summary: `reliability=${source.reliability}`, recommended_action: 'fix_evidence_enum', confidence: 'high', dedupe_key: `${monitor}:invalid_reliability:${source.id}` });
-    }
-    if (source.claim_scope && !CLAIM_SCOPE_VALUES.includes(source.claim_scope)) {
-      addFinding(findings, { monitor, severity: 'high', category: 'invalid_claim_scope', title: `Invalid claim_scope on ${source.id}`, summary: `claim_scope=${source.claim_scope}`, recommended_action: 'fix_evidence_enum', confidence: 'high', dedupe_key: `${monitor}:invalid_claim_scope:${source.id}` });
     }
     if (!isDateLike(source.published_at) || !isDateLike(source.accessed_at)) {
       addFinding(findings, { monitor, severity: 'medium', category: 'bad_evidence_date_format', title: `Bad evidence date format on ${source.id}`, summary: 'Expected YYYY, YYYY-MM, YYYY-MM-DD, null, or empty.', recommended_action: 'fix_date_format', confidence: 'medium', dedupe_key: `${monitor}:bad_evidence_date:${source.id}` });
