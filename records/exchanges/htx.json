@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000019",
+    "slug": "htx",
+    "canonical_name": "HTX",
+    "aliases": [],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2013-01-01",
+    "death_date": null,
+    "country_or_origin": "Seychelles",
+    "summary": "Seychelles-based centralized exchange launched in 2013 and still operating under the HTX brand.",
+    "official_url_original": "https://www.htx.com/",
+    "official_domain_original": "htx.com",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://www.htx.com/",
+    "confidence": "high",
+    "notes": "",
+    "last_verified_at": "2026-04-07"
+  },
+  "events": [
+    {
+      "id": "hei_ev_002054",
+      "exchange_id": "hei_ex_000019",
+      "event_type": "launched",
+      "event_date": "2013-09-01",
+      "title": "Huobi exchange entered operation",
+      "description": "The exchange now known as HTX entered operation under the Huobi brand in September 2013.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Month-level launch marker; the later HTX rebrand remains part of the same continuing entity."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_003124",
+      "exchange_id": "hei_ex_000019",
+      "event_id": "hei_ev_002054",
+      "source_type": "official_statement",
+      "title": "About HTX",
+      "url": "https://www.htx.com/about/",
+      "publisher": "HTX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.htx.com/about/",
+      "accessed_at": "2026-06-15",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Official company history stating that the exchange was founded in 2013 and debuted spot trading in September."
+    },
+    {
+      "id": "hei_src_003125",
+      "exchange_id": "hei_ex_000019",
+      "event_id": "hei_ev_002054",
+      "source_type": "archive_capture",
+      "title": "Huobi archived official domain",
+      "url": "https://web.archive.org/web/*/https://www.huobi.com/",
+      "publisher": "Internet Archive",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.huobi.com/",
+      "accessed_at": "2026-06-15",
+      "reliability": "medium",
+      "claim_scope": "url_history",
+      "notes": "Archive index retained to corroborate the historical Huobi identity preceding HTX."
+    }
+  ]
+}
