@@ -20,6 +20,21 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
 }
 
+function stableStringify(value) {
+  if (Array.isArray(value)) {
+    return `[${value.map((item) => stableStringify(item)).join(',')}]`
+  }
+
+  if (value && typeof value === 'object') {
+    return `{${Object.keys(value)
+      .sort()
+      .map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`)
+      .join(',')}}`
+  }
+
+  return JSON.stringify(value)
+}
+
 function normalizeText(value) {
   if (!value || typeof value !== 'string') return null
   const normalized = value
@@ -95,6 +110,14 @@ function loadRecords() {
   return records
 }
 
+function isExactCanonicalMirrorPair(left, right) {
+  const canonical = left.source === 'data/entities.json' ? left : right.source === 'data/entities.json' ? right : null
+  const bundle = left.source === 'records/exchanges' ? left : right.source === 'records/exchanges' ? right : null
+
+  if (!canonical || !bundle || !canonical.entity.id || canonical.entity.id !== bundle.entity.id) return false
+  return stableStringify(canonical.entity) === stableStringify(bundle.entity)
+}
+
 function intersections(left, right) {
   return [...left].filter((value) => right.has(value))
 }
@@ -118,6 +141,7 @@ function compare(left, right) {
 const records = loadRecords()
 const collisions = []
 const allowedCollisions = []
+let exactMirrorPairs = 0
 
 for (let i = 0; i < records.length; i += 1) {
   for (let j = i + 1; j < records.length; j += 1) {
@@ -125,6 +149,11 @@ for (let i = 0; i < records.length; i += 1) {
     const right = records[j]
 
     if (left.source !== 'records/exchanges' && right.source !== 'records/exchanges') continue
+
+    if (isExactCanonicalMirrorPair(left, right)) {
+      exactMirrorPairs += 1
+      continue
+    }
 
     const reasons = compare(left, right)
     if (reasons.length === 0) continue
@@ -140,8 +169,11 @@ for (let i = 0; i < records.length; i += 1) {
 }
 
 if (collisions.length === 0) {
-  const allowedSuffix = allowedCollisions.length ? ` (${allowedCollisions.length} documented overlap pair(s) allowed).` : '.'
-  console.log(`No blocking entity overlaps detected across ${records.length} canonical and bundle records${allowedSuffix}`)
+  const notes = []
+  if (exactMirrorPairs) notes.push(`${exactMirrorPairs} exact canonical mirror pair(s) allowed for repair bundles`)
+  if (allowedCollisions.length) notes.push(`${allowedCollisions.length} documented overlap pair(s) allowed`)
+  const suffix = notes.length ? ` (${notes.join('; ')}).` : '.'
+  console.log(`No blocking entity overlaps detected across ${records.length} canonical and bundle records${suffix}`)
   process.exit(0)
 }
 
