@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000027",
+    "slug": "lbank",
+    "canonical_name": "LBank",
+    "aliases": [],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2015-01-01",
+    "death_date": null,
+    "country_or_origin": "British Virgin Islands",
+    "summary": "British Virgin Islands-based centralized exchange launched in 2015 and still operating under the LBank brand.",
+    "official_url_original": "https://www.lbank.com/",
+    "official_domain_original": "lbank.com",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://www.lbank.com/",
+    "confidence": "high",
+    "notes": "",
+    "last_verified_at": "2026-04-07"
+  },
+  "events": [
+    {
+      "id": "hei_ev_002058",
+      "exchange_id": "hei_ex_000027",
+      "event_type": "launched",
+      "event_date": "2015-01-01",
+      "title": "LBank began operating",
+      "description": "LBank began operating as a centralized cryptocurrency exchange in 2015.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Year-level launch marker based on official company history."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_003132",
+      "exchange_id": "hei_ex_000027",
+      "event_id": "hei_ev_002058",
+      "source_type": "official_statement",
+      "title": "About LBank",
+      "url": "https://www.lbank.com/aboutus",
+      "publisher": "LBank",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.lbank.com/aboutus",
+      "accessed_at": "2026-06-15",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Official company page identifying 2015 as the exchange’s founding year."
+    },
+    {
+      "id": "hei_src_003133",
+      "exchange_id": "hei_ex_000027",
+      "event_id": "hei_ev_002058",
+      "source_type": "official_statement",
+      "title": "LBank official exchange",
+      "url": "https://www.lbank.com/",
+      "publisher": "LBank",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.lbank.com/",
+      "accessed_at": "2026-06-15",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current official exchange interface corroborating continuing operation."
+    }
+  ]
+}
