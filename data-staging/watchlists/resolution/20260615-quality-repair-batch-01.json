@@ -1,0 +1,14 @@
+{
+  "created_at": "2026-06-15",
+  "purpose": "Resolve repeated entity_without_events findings through exact canonical mirror bundles.",
+  "status": "submitted_for_review",
+  "entities": [
+    {"id": "hei_ex_000010", "name": "Bitstamp", "resolution": "repair_bundle_added"},
+    {"id": "hei_ex_000014", "name": "KuCoin", "resolution": "repair_bundle_added"},
+    {"id": "hei_ex_000015", "name": "MEXC", "resolution": "repair_bundle_added"},
+    {"id": "hei_ex_000016", "name": "Gate.io", "resolution": "repair_bundle_added"},
+    {"id": "hei_ex_000019", "name": "HTX", "resolution": "repair_bundle_added"},
+    {"id": "hei_ex_000022", "name": "bitFlyer", "resolution": "repair_bundle_added"}
+  ],
+  "notes": "Entity objects remain exact canonical mirrors. New events and evidence are supplied through record bundles."
+}
