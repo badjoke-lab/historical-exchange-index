@@ -1,0 +1,21 @@
+{
+  "resolution_type": "watchlist_candidates_canonicalized",
+  "created_at": "2026-06-14",
+  "purpose": "Replace earlier manual-review outcomes with final canonical outcomes for Zedxion and Txbit.",
+  "promoted_to_canonical": [
+    {
+      "canonical_name": "Zedxion",
+      "resolution": "promoted_to_canonical",
+      "entity_id": "hei_ex_000504",
+      "notes": "Manual research completed. Added as a limited-status canonical record through merged PR #349, covering the 2026 OFAC designation and UK corporate dissolution while preserving the operational-status caveat."
+    },
+    {
+      "canonical_name": "Txbit",
+      "resolution": "already_canonical",
+      "entity_id": "hei_ex_000312",
+      "notes": "Manual research found that Txbit already existed in canonical data. Proposed duplicate PR #348 was blocked by Records validation and closed without merge."
+    }
+  ],
+  "canonical_data_changed": false,
+  "operator_notes": "This file updates watchlist bookkeeping only. Zedxion canonical data was added in PR #349; Txbit canonical data was already present. Serum remains under manual review."
+}
