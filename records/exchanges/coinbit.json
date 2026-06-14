@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "id": "hei_ex_000509",
+    "slug": "coinbit",
+    "canonical_name": "Coinbit",
+    "aliases": ["CoinBit", "Coinbit Exchange", "coinbit.co.kr"],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2018-04-30",
+    "death_date": "2023-12-29",
+    "country_or_origin": "South Korea",
+    "summary": "South Korean centralized cryptocurrency exchange formally launched on 2018-04-30. Coinbit announced a wind-down in November 2023 and ended trading and withdrawal support on 2023-12-29.",
+    "official_url_original": "https://www.coinbit.co.kr/",
+    "official_domain_original": "coinbit.co.kr",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.coinbit.co.kr/",
+    "confidence": "high",
+    "last_verified_at": "2026-06-14",
+    "notes": "The closure notice described a planned change in business direction."
+  },
+  "events": [
+    {"id":"hei_ev_002027","exchange_id":"hei_ex_000509","event_type":"launched","event_date":"2018-04-30","title":"Coinbit formally launched","description":"The Coinbit exchange opened for public trading.","confidence":"high","impact_level":"medium","event_status_effect":"active","source_count":2,"sort_order":1,"notes":""},
+    {"id":"hei_ev_002028","exchange_id":"hei_ex_000509","event_type":"shutdown_announced","event_date":"2023-11-16","title":"Coinbit announced termination of exchange services","description":"Coinbit announced staged termination of registrations, deposits, trading, and withdrawals.","confidence":"high","impact_level":"high","event_status_effect":"limited","source_count":2,"sort_order":2,"notes":""},
+    {"id":"hei_ev_002029","exchange_id":"hei_ex_000509","event_type":"shutdown_effective","event_date":"2023-12-29","title":"Coinbit ended trading and withdrawal support","description":"Coinbit reached its terminal exchange state when trading and withdrawal support ended.","confidence":"high","impact_level":"critical","event_status_effect":"dead","source_count":2,"sort_order":3,"notes":""}
+  ],
+  "evidence": [
+    {"id":"hei_src_003062","exchange_id":"hei_ex_000509","event_id":"hei_ev_002027","source_type":"news_article","title":"CoinBit to begin formal service on April 30","url":"https://www.etnews.com/20180429000051","publisher":"Electronic Times","published_at":"2018-04-29","archived_url":"https://web.archive.org/web/*/https://www.etnews.com/20180429000051","accessed_at":"2026-06-14","reliability":"high","claim_scope":"launch_date","notes":"Contemporaneous launch report."},
+    {"id":"hei_src_003063","exchange_id":"hei_ex_000509","event_id":"hei_ev_002027","source_type":"news_article","title":"Coinbit cryptocurrency exchange starts formal service","url":"https://www.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=01111926619181040","publisher":"Edaily","published_at":"2018-04-29","archived_url":"https://web.archive.org/web/*/https://www.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=01111926619181040","accessed_at":"2026-06-14","reliability":"high","claim_scope":"event","notes":"Independent launch confirmation."},
+    {"id":"hei_src_003064","exchange_id":"hei_ex_000509","event_id":"hei_ev_002028","source_type":"news_article","title":"Coinbit exchange to end services","url":"https://bloomingbit.io/feed/news/58077","publisher":"Bloomingbit","published_at":"2023-11-17","archived_url":"https://web.archive.org/web/*/https://bloomingbit.io/feed/news/58077","accessed_at":"2026-06-14","reliability":"high","claim_scope":"event","notes":"Preserves the operator announcement."},
+    {"id":"hei_src_003065","exchange_id":"hei_ex_000509","event_id":"hei_ev_002028","source_type":"news_article","title":"Coinbit coin-market exchange service termination","url":"https://dealsite.co.kr/articles/113305/032082","publisher":"DealSite","published_at":"2023-11-17","archived_url":"https://web.archive.org/web/*/https://dealsite.co.kr/articles/113305/032082","accessed_at":"2026-06-14","reliability":"high","claim_scope":"event","notes":"Independent wind-down report."},
+    {"id":"hei_src_003066","exchange_id":"hei_ex_000509","event_id":"hei_ev_002029","source_type":"official_statement","title":"Coinbit termination schedule preserved in Upbit notice","url":"https://www.coincarp.com/exchange/announcement/3871/","publisher":"Upbit notice preserved by CoinCarp","published_at":null,"archived_url":"https://web.archive.org/web/*/https://www.coincarp.com/exchange/announcement/3871/","accessed_at":"2026-06-14","reliability":"high","claim_scope":"death_date","notes":"Lists the 2023-12-29 terminal schedule."},
+    {"id":"hei_src_003067","exchange_id":"hei_ex_000509","event_id":"hei_ev_002029","source_type":"official_statement","title":"Coinone removes Coinbit after service termination","url":"https://coinone.co.kr/info/notice/2538","publisher":"Coinone","published_at":"2023-11-22","archived_url":"https://web.archive.org/web/*/https://coinone.co.kr/info/notice/2538","accessed_at":"2026-06-14","reliability":"high","claim_scope":"status","notes":"Independent exchange notice confirming service termination."}
+  ]
+}

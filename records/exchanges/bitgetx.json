@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "id": "hei_ex_000507",
+    "slug": "bitgetx",
+    "canonical_name": "BitgetX",
+    "aliases": ["BitgetX HK", "BitgetX.hk", "BXA HK Limited"],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2023-04-24",
+    "death_date": "2023-12-13",
+    "country_or_origin": "Hong Kong",
+    "summary": "Hong Kong spot and peer-to-peer exchange launched by Bitget for local users on 2023-04-24. BitgetX stopped trading after deciding not to pursue a Hong Kong virtual-asset trading-platform licence and ceased operations on 2023-12-13.",
+    "official_url_original": "https://www.bitgetx.hk/",
+    "official_domain_original": "bitgetx.hk",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitgetx.hk/",
+    "confidence": "high",
+    "last_verified_at": "2026-06-14",
+    "notes": "The live site now serves closure and residual account information. Modeled separately from global Bitget."
+  },
+  "events": [
+    {"id":"hei_ev_002021","exchange_id":"hei_ex_000507","event_type":"launched","event_date":"2023-04-24","title":"BitgetX launched for Hong Kong users","description":"Bitget introduced BitgetX for local spot and peer-to-peer trading.","confidence":"high","impact_level":"medium","event_status_effect":"active","source_count":2,"sort_order":1,"notes":""},
+    {"id":"hei_ev_002022","exchange_id":"hei_ex_000507","event_type":"shutdown_announced","event_date":"2023-11-13","title":"BitgetX withdrew from the Hong Kong market","description":"BitgetX said it would not pursue a Hong Kong VATP licence and set a closure date.","confidence":"high","impact_level":"high","event_status_effect":"limited","source_count":2,"sort_order":2,"notes":""},
+    {"id":"hei_ev_002023","exchange_id":"hei_ex_000507","event_type":"shutdown_effective","event_date":"2023-12-13","title":"BitgetX ceased exchange operations","description":"Trading services ended while residual account functions remained.","confidence":"high","impact_level":"critical","event_status_effect":"dead","source_count":2,"sort_order":3,"notes":""}
+  ],
+  "evidence": [
+    {"id":"hei_src_003050","exchange_id":"hei_ex_000507","event_id":"hei_ev_002021","source_type":"official_statement","title":"Launch of BitgetX HK and FAQ","url":"https://www.bitget.com/support/articles/12560603782171","publisher":"Bitget","published_at":"2023-04-24","archived_url":"https://web.archive.org/web/*/https://www.bitget.com/support/articles/12560603782171","accessed_at":"2026-06-14","reliability":"high","claim_scope":"launch_date","notes":"Primary launch notice."},
+    {"id":"hei_src_003051","exchange_id":"hei_ex_000507","event_id":"hei_ev_002021","source_type":"news_article","title":"Bitget launches BitgetX HK for Hong Kong users","url":"https://tokeninsight.com/zh/news/bitget-launches-bitgetx-hk-for-hong-kong-users-bitget.com-stops-operations-in-hong-kong","publisher":"TokenInsight","published_at":"2023-04-24","archived_url":"https://web.archive.org/web/*/https://tokeninsight.com/zh/news/bitget-launches-bitgetx-hk-for-hong-kong-users-bitget.com-stops-operations-in-hong-kong","accessed_at":"2026-06-14","reliability":"medium","claim_scope":"event","notes":"Independent launch report."},
+    {"id":"hei_src_003052","exchange_id":"hei_ex_000507","event_id":"hei_ev_002022","source_type":"official_statement","title":"BitgetX closure and asset withdrawal notice","url":"https://www.bitgetx.hk/","publisher":"BitgetX","published_at":"2023-11-13","archived_url":"https://web.archive.org/web/*/https://www.bitgetx.hk/","accessed_at":"2026-06-14","reliability":"high","claim_scope":"death_reason","notes":"Primary closure page."},
+    {"id":"hei_src_003053","exchange_id":"hei_ex_000507","event_id":"hei_ev_002022","source_type":"news_article","title":"Bitget's Hong Kong unit halts operations","url":"https://www.coindesk.com/business/2023/11/13/bitgets-hong-kong-unit-halts-operations-wont-apply-for-crypto-license","publisher":"CoinDesk","published_at":"2023-11-13","archived_url":"https://web.archive.org/web/*/https://www.coindesk.com/business/2023/11/13/bitgets-hong-kong-unit-halts-operations-wont-apply-for-crypto-license","accessed_at":"2026-06-14","reliability":"high","claim_scope":"event","notes":"Independent closure report."},
+    {"id":"hei_src_003054","exchange_id":"hei_ex_000507","event_id":"hei_ev_002023","source_type":"official_statement","title":"BitgetX post-closure terms of use","url":"https://www.bitgetx.hk/en/footer/termsus","publisher":"BitgetX","published_at":"2023-12-14","archived_url":"https://web.archive.org/web/*/https://www.bitgetx.hk/en/footer/termsus","accessed_at":"2026-06-14","reliability":"high","claim_scope":"death_date","notes":"Primary post-closure terms."},
+    {"id":"hei_src_003055","exchange_id":"hei_ex_000507","event_id":"hei_ev_002023","source_type":"news_article","title":"Bitget drops plans to seek crypto licence in Hong Kong","url":"https://cointelegraph.com/news/bitget-drops-crypto-license-hong-kong","publisher":"Cointelegraph","published_at":"2023-11-13","archived_url":"https://web.archive.org/web/*/https://cointelegraph.com/news/bitget-drops-crypto-license-hong-kong","accessed_at":"2026-06-14","reliability":"high","claim_scope":"status","notes":"Independent closure confirmation."}
+  ]
+}
