@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000518",
+    "slug": "jupiter",
+    "canonical_name": "Jupiter",
+    "aliases": ["Jupiter Exchange", "Jupiter Perpetuals", "Jupiter Perpetual Exchange", "jup.ag"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2021-10-01",
+    "death_date": null,
+    "country_or_origin": "Solana ecosystem",
+    "summary": "Solana-based decentralized trading platform that began as a liquidity-routing swap aggregator and expanded into an exchange product suite including perpetual futures. HEI models Jupiter as one entity rather than splitting its swap, limit-order, DCA, and perpetual products into separate exchanges.",
+    "official_url_original": "https://jup.ag/",
+    "official_domain_original": "jup.ag",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://jup.ag/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-14",
+    "notes": "Launch date is month-level and represents the public Jupiter exchange/aggregator era. Product modules and versions are not separate HEI entities."
+  },
+  "events": [
+    {
+      "id": "hei_ev_002042",
+      "exchange_id": "hei_ex_000518",
+      "event_type": "launched",
+      "event_date": "2021-10-01",
+      "title": "Jupiter launched as a Solana liquidity-routing exchange",
+      "description": "Jupiter entered public operation as a Solana swap-routing and liquidity-aggregation venue and later expanded into a broader decentralized trading platform.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Month-level launch marker; no exact day is asserted."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_003099",
+      "exchange_id": "hei_ex_000518",
+      "event_id": "hei_ev_002042",
+      "source_type": "official_statement",
+      "title": "Jupiter official trading application",
+      "url": "https://jup.ag/",
+      "publisher": "Jupiter",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://jup.ag/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current official application confirming active exchange operation."
+    },
+    {
+      "id": "hei_src_003100",
+      "exchange_id": "hei_ex_000518",
+      "event_id": "hei_ev_002042",
+      "source_type": "official_statement",
+      "title": "Jupiter Support Center",
+      "url": "https://support.jup.ag/",
+      "publisher": "Jupiter",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://support.jup.ag/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official support documentation covering Jupiter swap and perpetual exchange products."
+    },
+    {
+      "id": "hei_src_003101",
+      "exchange_id": "hei_ex_000518",
+      "event_id": "hei_ev_002042",
+      "source_type": "database_reference",
+      "title": "Jupiter protocol profile",
+      "url": "https://defillama.com/protocol/jupiter",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://defillama.com/protocol/jupiter",
+      "accessed_at": "2026-06-14",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Independent protocol-directory corroboration used for discovery and active-status context."
+    }
+  ]
+}
