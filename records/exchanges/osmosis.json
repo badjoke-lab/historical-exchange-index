@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000514",
+    "slug": "osmosis",
+    "canonical_name": "Osmosis",
+    "aliases": ["Osmosis DEX", "Osmosis Zone"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2021-06-19",
+    "death_date": null,
+    "country_or_origin": "Cosmos ecosystem",
+    "summary": "App-chain decentralized exchange and cross-chain liquidity hub in the Cosmos ecosystem. Osmosis remains operational through its official trading interface, documentation, governance, and open-source chain software.",
+    "official_url_original": "https://osmosis.zone/",
+    "official_domain_original": "osmosis.zone",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://osmosis.zone/",
+    "confidence": "high",
+    "last_verified_at": "2026-06-14",
+    "notes": "HEI models Osmosis as one exchange entity rather than splitting its chain, pools, and interfaces."
+  },
+  "events": [
+    {
+      "id": "hei_ev_002036",
+      "exchange_id": "hei_ex_000514",
+      "event_type": "launched",
+      "event_date": "2021-06-19",
+      "title": "Osmosis mainnet launched",
+      "description": "Osmosis launched its app-chain decentralized exchange and liquidity network in the Cosmos ecosystem.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Mainnet launch marker."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_003083",
+      "exchange_id": "hei_ex_000514",
+      "event_id": "hei_ev_002036",
+      "source_type": "official_statement",
+      "title": "Osmosis official exchange",
+      "url": "https://osmosis.zone/",
+      "publisher": "Osmosis",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://osmosis.zone/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Confirms current exchange operation."
+    },
+    {
+      "id": "hei_src_003084",
+      "exchange_id": "hei_ex_000514",
+      "event_id": "hei_ev_002036",
+      "source_type": "official_statement",
+      "title": "Osmosis documentation",
+      "url": "https://docs.osmosis.zone/",
+      "publisher": "Osmosis",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.osmosis.zone/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official documentation describes Osmosis as a cross-chain DEX and liquidity hub."
+    },
+    {
+      "id": "hei_src_003085",
+      "exchange_id": "hei_ex_000514",
+      "event_id": "hei_ev_002036",
+      "source_type": "official_statement",
+      "title": "Osmosis chain repository",
+      "url": "https://github.com/osmosis-labs/osmosis",
+      "publisher": "Osmosis Labs",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://github.com/osmosis-labs/osmosis",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Official repository preserves launch-era and continuing chain history."
+    }
+  ]
+}

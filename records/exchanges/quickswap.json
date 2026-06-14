@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000512",
+    "slug": "quickswap",
+    "canonical_name": "QuickSwap",
+    "aliases": ["QuickSwap DEX", "Quickswap"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2021-10-01",
+    "death_date": null,
+    "country_or_origin": "Polygon and EVM ecosystem",
+    "summary": "Decentralized exchange protocol launched for the Polygon ecosystem and later expanded across EVM networks. QuickSwap remains operational through its official exchange interface, documentation, and open-source repositories.",
+    "official_url_original": "https://quickswap.exchange/",
+    "official_domain_original": "quickswap.exchange",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://quickswap.exchange/",
+    "confidence": "high",
+    "last_verified_at": "2026-06-14",
+    "notes": "The official documentation describes an October 2021 launch. HEI keeps versions and chain deployments under one entity."
+  },
+  "events": [
+    {
+      "id": "hei_ev_002034",
+      "exchange_id": "hei_ex_000512",
+      "event_type": "launched",
+      "event_date": "2021-10-01",
+      "title": "QuickSwap launched",
+      "description": "QuickSwap launched as a decentralized exchange for the Polygon ecosystem.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Month-level launch date from official documentation."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_003077",
+      "exchange_id": "hei_ex_000512",
+      "event_id": "hei_ev_002034",
+      "source_type": "official_statement",
+      "title": "QuickSwap official exchange",
+      "url": "https://quickswap.exchange/",
+      "publisher": "QuickSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://quickswap.exchange/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Confirms current exchange operation."
+    },
+    {
+      "id": "hei_src_003078",
+      "exchange_id": "hei_ex_000512",
+      "event_id": "hei_ev_002034",
+      "source_type": "official_statement",
+      "title": "QuickSwap documentation",
+      "url": "https://docs.quickswap.exchange/",
+      "publisher": "QuickSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.quickswap.exchange/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Official documentation identifies QuickSwap as a DEX and records its launch period."
+    },
+    {
+      "id": "hei_src_003079",
+      "exchange_id": "hei_ex_000512",
+      "event_id": "hei_ev_002034",
+      "source_type": "official_statement",
+      "title": "QuickSwap open-source repositories",
+      "url": "https://github.com/QuickSwap",
+      "publisher": "QuickSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://github.com/QuickSwap",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official code organization supports protocol identity."
+    }
+  ]
+}

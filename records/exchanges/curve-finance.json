@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000511",
+    "slug": "curve-finance",
+    "canonical_name": "Curve Finance",
+    "aliases": ["Curve", "Curve DEX", "curve.fi"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2020-01-01",
+    "death_date": null,
+    "country_or_origin": "Ethereum ecosystem",
+    "summary": "Decentralized exchange protocol focused on stable-value and correlated-asset liquidity. Curve remains operational through its official application, documentation, governance, and open-source contract ecosystem.",
+    "official_url_original": "https://curve.finance/",
+    "official_domain_original": "curve.finance",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://curve.finance/",
+    "confidence": "high",
+    "last_verified_at": "2026-06-14",
+    "notes": "The launch date is an approximate month-level marker. HEI models Curve as one entity rather than splitting pools, chains, or contract generations."
+  },
+  "events": [
+    {
+      "id": "hei_ev_002033",
+      "exchange_id": "hei_ex_000511",
+      "event_type": "launched",
+      "event_date": "2020-01-01",
+      "title": "Curve entered public operation",
+      "description": "Curve began operating as an Ethereum-based decentralized exchange for stable-value and correlated assets.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Approximate month-level launch marker."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_003074",
+      "exchange_id": "hei_ex_000511",
+      "event_id": "hei_ev_002033",
+      "source_type": "official_statement",
+      "title": "Curve official application",
+      "url": "https://curve.finance/",
+      "publisher": "Curve",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://curve.finance/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Confirms the official trading interface remains available."
+    },
+    {
+      "id": "hei_src_003075",
+      "exchange_id": "hei_ex_000511",
+      "event_id": "hei_ev_002033",
+      "source_type": "official_statement",
+      "title": "Curve Knowledge Hub",
+      "url": "https://docs.curve.finance/",
+      "publisher": "Curve",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.curve.finance/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official documentation identifies Curve as a decentralized exchange."
+    },
+    {
+      "id": "hei_src_003076",
+      "exchange_id": "hei_ex_000511",
+      "event_id": "hei_ev_002033",
+      "source_type": "official_statement",
+      "title": "Curve open-source repositories",
+      "url": "https://github.com/curvefi",
+      "publisher": "Curve Finance",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://github.com/curvefi",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Official code organization supports protocol identity and continuity."
+    }
+  ]
+}
