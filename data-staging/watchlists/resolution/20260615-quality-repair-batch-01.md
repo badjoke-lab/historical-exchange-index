@@ -1,6 +1,6 @@
 # HEI quality repair batch 01
 
-This batch resolves repeated `entity_without_events` findings for six existing canonical entities through exact canonical mirror bundles.
+This batch adds event and evidence coverage for ten existing HEI entities.
 
 - Bitstamp (`hei_ex_000010`)
 - KuCoin (`hei_ex_000014`)
@@ -8,5 +8,9 @@ This batch resolves repeated `entity_without_events` findings for six existing c
 - Gate.io (`hei_ex_000016`)
 - HTX (`hei_ex_000019`)
 - bitFlyer (`hei_ex_000022`)
+- Coincheck (`hei_ex_000023`)
+- Bullish (`hei_ex_000026`)
+- LBank (`hei_ex_000027`)
+- Bitget (`hei_ex_000028`)
 
-The entity objects are unchanged. Only event and evidence coverage is added.
+Canonical entity fields are unchanged.
