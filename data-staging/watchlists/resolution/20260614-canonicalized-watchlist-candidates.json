@@ -1,0 +1,30 @@
+{
+  "resolution_type": "watchlist_candidates_canonicalized",
+  "created_at": "2026-06-14",
+  "source_monitoring_run": "data-staging/monitoring/20260608/monitoring-health-watch.json",
+  "purpose": "Record watchlist candidates that now appear in canonical entities so monitoring-health-watch no longer treats them as unresolved watchlist items.",
+  "promoted_to_canonical": [
+    {
+      "canonical_name": "HashKey Exchange",
+      "resolution": "promoted_to_canonical",
+      "notes": "Detected by monitoring-health-watch as present in canonical entities. This resolution records the watchlist candidate as handled."
+    },
+    {
+      "canonical_name": "Drift Trade",
+      "resolution": "promoted_to_canonical",
+      "notes": "Detected by monitoring-health-watch as present in canonical entities. This resolution records the watchlist candidate as handled."
+    },
+    {
+      "canonical_name": "Polynomial Trade",
+      "resolution": "promoted_to_canonical",
+      "notes": "Detected by monitoring-health-watch as present in canonical entities. This resolution records the watchlist candidate as handled."
+    },
+    {
+      "canonical_name": "Tapp",
+      "resolution": "promoted_to_canonical",
+      "notes": "The watchlist candidate named Tapp was researched and promoted as the canonical Tapp Exchange record hei_ex_000503 through merged PR #346. The watchlist name is retained here so normalized-name resolution matches the original candidate."
+    }
+  ],
+  "canonical_data_changed": false,
+  "operator_notes": "This is a staging/watchlist bookkeeping change only. It does not modify data/entities.json, data/events.json, data/evidence.json, or the Tapp Exchange record bundle."
+}
