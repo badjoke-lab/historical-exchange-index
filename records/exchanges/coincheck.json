@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000023",
+    "slug": "coincheck",
+    "canonical_name": "Coincheck",
+    "aliases": [],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2014-08-01",
+    "death_date": null,
+    "country_or_origin": "Japan",
+    "summary": "Japan-based centralized exchange launched in 2014 and still operating under the Coincheck brand.",
+    "official_url_original": "https://coincheck.com/",
+    "official_domain_original": "coincheck.com",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://coincheck.com/",
+    "confidence": "high",
+    "notes": "",
+    "last_verified_at": "2026-04-07"
+  },
+  "events": [
+    {
+      "id": "hei_ev_002056",
+      "exchange_id": "hei_ex_000023",
+      "event_type": "launched",
+      "event_date": "2014-08-01",
+      "title": "Coincheck service began",
+      "description": "Coincheck began providing its cryptocurrency exchange service in August 2014.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Month-level launch marker based on Coincheck’s official corporate history."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_003128",
+      "exchange_id": "hei_ex_000023",
+      "event_id": "hei_ev_002056",
+      "source_type": "official_statement",
+      "title": "Coincheck corporate history announcement",
+      "url": "https://corporate.coincheck.com/press/7d4fzIPr",
+      "publisher": "Coincheck",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://corporate.coincheck.com/press/7d4fzIPr",
+      "accessed_at": "2026-06-15",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Official corporate source stating that the service began in August 2014."
+    },
+    {
+      "id": "hei_src_003129",
+      "exchange_id": "hei_ex_000023",
+      "event_id": "hei_ev_002056",
+      "source_type": "official_blog",
+      "title": "About Coincheck",
+      "url": "https://coincheck.com/ja/article/208",
+      "publisher": "Coincheck",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coincheck.com/ja/article/208",
+      "accessed_at": "2026-06-15",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official service article corroborating Coincheck’s exchange identity and history."
+    }
+  ]
+}
