@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "id": "hei_ex_000508",
+    "slug": "hkvaex",
+    "canonical_name": "HKVAEX",
+    "aliases": ["HKVAEX Exchange", "BX Services Limited", "hkvaex.hk"],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2023-02-01",
+    "death_date": "2024-05-01",
+    "country_or_origin": "Hong Kong",
+    "summary": "Hong Kong virtual-asset trading platform operated by BX Services Limited. HKVAEX launched in February 2023, withdrew its Hong Kong VATP licence application on 2024-03-28, and completed a phased shutdown on 2024-05-01.",
+    "official_url_original": "https://www.hkvaex.hk/",
+    "official_domain_original": "hkvaex.hk",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.hkvaex.hk/",
+    "confidence": "high",
+    "last_verified_at": "2026-06-14",
+    "notes": "The February launch date is month-level. HEI does not assert disputed ownership claims."
+  },
+  "events": [
+    {"id":"hei_ev_002024","exchange_id":"hei_ex_000508","event_type":"launched","event_date":"2023-02-01","title":"HKVAEX launched its Hong Kong trading platform","description":"BX Services Limited launched HKVAEX in February 2023.","confidence":"medium","impact_level":"medium","event_status_effect":"active","source_count":2,"sort_order":1,"notes":"Month-level launch precision."},
+    {"id":"hei_ev_002025","exchange_id":"hei_ex_000508","event_type":"regulatory_action","event_date":"2024-03-28","title":"HKVAEX withdrew its VATP licence application","description":"The Hong Kong SFC removed HKVAEX from the applicant list after withdrawal.","confidence":"high","impact_level":"high","event_status_effect":"limited","source_count":2,"sort_order":2,"notes":""},
+    {"id":"hei_ev_002026","exchange_id":"hei_ex_000508","event_type":"shutdown_effective","event_date":"2024-05-01","title":"HKVAEX completed its phased shutdown","description":"Trading and deposits ended during April and the website closed on 2024-05-01.","confidence":"high","impact_level":"critical","event_status_effect":"dead","source_count":2,"sort_order":3,"notes":""}
+  ],
+  "evidence": [
+    {"id":"hei_src_003056","exchange_id":"hei_ex_000508","event_id":"hei_ev_002024","source_type":"news_article","title":"HKVAEX applies for a Hong Kong platform licence","url":"https://www.hk01.com/%E8%B2%A1%E7%B6%93%E5%BF%AB%E8%A8%8A/954815/hkvaex%E5%9C%A8%E6%B8%AF%E7%94%B3%E8%AB%8B%E8%99%9B%E6%93%AC%E8%B3%87%E7%94%A2%E5%B9%B3%E5%8F%B0%E7%89%8C%E7%85%A7-%E5%85%AC%E5%8F%B8%E5%BC%B7%E8%AA%BF%E7%82%BA%E7%8D%A8%E7%AB%8B%E8%99%9B%E6%93%AC%E8%B3%87%E7%94%A2%E5%B9%B3%E5%8F%B0","publisher":"HK01","published_at":"2023-10-25","archived_url":"https://web.archive.org/web/*/https://www.hk01.com/%E8%B2%A1%E7%B6%93%E5%BF%AB%E8%A8%8A/954815/hkvaex%E5%9C%A8%E6%B8%AF%E7%94%B3%E8%AB%8B%E8%99%9B%E6%93%AC%E8%B3%87%E7%94%A2%E5%B9%B3%E5%8F%B0%E7%89%8C%E7%85%A7-%E5%85%AC%E5%8F%B8%E5%BC%B7%E8%AA%BF%E7%82%BA%E7%8D%A8%E7%AB%8B%E8%99%9B%E6%93%AC%E8%B3%87%E7%94%A2%E5%B9%B3%E5%8F%B0","accessed_at":"2026-06-14","reliability":"high","claim_scope":"launch_date","notes":"Reports formation and February 2023 launch."},
+    {"id":"hei_src_003057","exchange_id":"hei_ex_000508","event_id":"hei_ev_002024","source_type":"news_article","title":"HKVAEX launch history","url":"https://www.scmp.com/tech/blockchain/article/3257595/binance-hong-kong-affiliate-hkvaex-shuts-down-operations-after-withdrawing-crypto-licence","publisher":"South China Morning Post","published_at":"2024-04-02","archived_url":"https://web.archive.org/web/*/https://www.scmp.com/tech/blockchain/article/3257595/binance-hong-kong-affiliate-hkvaex-shuts-down-operations-after-withdrawing-crypto-licence","accessed_at":"2026-06-14","reliability":"high","claim_scope":"launch_date","notes":"Retrospective launch source."},
+    {"id":"hei_src_003058","exchange_id":"hei_ex_000508","event_id":"hei_ev_002025","source_type":"regulatory_notice","title":"List of virtual asset trading platform applicants","url":"https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms","publisher":"Hong Kong Securities and Futures Commission","published_at":null,"archived_url":"https://web.archive.org/web/*/https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms","accessed_at":"2026-06-14","reliability":"high","claim_scope":"event","notes":"Official applicant list and withdrawal record."},
+    {"id":"hei_src_003059","exchange_id":"hei_ex_000508","event_id":"hei_ev_002025","source_type":"news_article","title":"HKVAEX licence application withdrawn","url":"https://www.hk01.com/%E7%B6%B2%E7%A7%913.0/1005605/hkvaex-%E6%8F%90%E4%BA%A4%E7%9A%84%E9%A6%99%E6%B8%AF%E8%99%9B%E6%93%AC%E8%B3%87%E7%94%A2%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0%E7%89%8C%E7%85%A7%E7%94%B3%E8%AB%8B%E5%B7%B2%E8%A2%AB%E6%92%A4%E5%9B%9E","publisher":"HK01","published_at":"2024-03-29","archived_url":"https://web.archive.org/web/*/https://www.hk01.com/%E7%B6%B2%E7%A7%913.0/1005605/hkvaex-%E6%8F%90%E4%BA%A4%E7%9A%84%E9%A6%99%E6%B8%AF%E8%99%9B%E6%93%AC%E8%B3%87%E7%94%A2%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0%E7%89%8C%E7%85%A7%E7%94%B3%E8%AB%8B%E5%B7%B2%E8%A2%AB%E6%92%A4%E5%9B%9E","accessed_at":"2026-06-14","reliability":"high","claim_scope":"event","notes":"Confirms withdrawal date."},
+    {"id":"hei_src_003060","exchange_id":"hei_ex_000508","event_id":"hei_ev_002026","source_type":"news_article","title":"HKVAEX begins phased closure","url":"https://www.chaincatcher.com/en/article/2119054","publisher":"ChainCatcher","published_at":"2024-03-31","archived_url":"https://web.archive.org/web/*/https://www.chaincatcher.com/en/article/2119054","accessed_at":"2026-06-14","reliability":"medium","claim_scope":"death_date","notes":"Preserves closure schedule."},
+    {"id":"hei_src_003061","exchange_id":"hei_ex_000508","event_id":"hei_ev_002026","source_type":"news_article","title":"HKVAEX shuts down after licence withdrawal","url":"https://www.scmp.com/tech/blockchain/article/3257595/binance-hong-kong-affiliate-hkvaex-shuts-down-operations-after-withdrawing-crypto-licence","publisher":"South China Morning Post","published_at":"2024-04-02","archived_url":"https://web.archive.org/web/*/https://www.scmp.com/tech/blockchain/article/3257595/binance-hong-kong-affiliate-hkvaex-shuts-down-operations-after-withdrawing-crypto-licence","accessed_at":"2026-06-14","reliability":"high","claim_scope":"status","notes":"Independent closure report."}
+  ]
+}
