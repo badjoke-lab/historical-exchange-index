@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000515",
+    "slug": "gtrade",
+    "canonical_name": "gTrade",
+    "aliases": ["Gains Network", "gTrade by Gains Network", "Gains.trade"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2021-01-01",
+    "death_date": null,
+    "country_or_origin": "Multichain EVM ecosystem",
+    "summary": "Decentralized leveraged-trading and perpetuals exchange developed by Gains Network. gTrade has operated since 2021 and remains available through its official trading interface, documentation, and open-source repositories.",
+    "official_url_original": "https://gains.trade/",
+    "official_domain_original": "gains.trade",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://gains.trade/",
+    "confidence": "high",
+    "last_verified_at": "2026-06-14",
+    "notes": "The launch date is a year-level marker based on official materials stating operation since 2021. HEI records the exchange product as gTrade and retains Gains Network as an alias."
+  },
+  "events": [
+    {
+      "id": "hei_ev_002037",
+      "exchange_id": "hei_ex_000515",
+      "event_type": "launched",
+      "event_date": "2021-01-01",
+      "title": "gTrade entered operation",
+      "description": "Gains Network began operating gTrade as a decentralized leveraged-trading and perpetuals exchange.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Year-level launch marker."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_003086",
+      "exchange_id": "hei_ex_000515",
+      "event_id": "hei_ev_002037",
+      "source_type": "official_statement",
+      "title": "gTrade official exchange",
+      "url": "https://gains.trade/",
+      "publisher": "Gains Network",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://gains.trade/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Confirms current exchange operation and states that gTrade has operated since 2021."
+    },
+    {
+      "id": "hei_src_003087",
+      "exchange_id": "hei_ex_000515",
+      "event_id": "hei_ev_002037",
+      "source_type": "official_statement",
+      "title": "Gains Network documentation",
+      "url": "https://docs.gains.trade/",
+      "publisher": "Gains Network",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.gains.trade/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official documentation describes gTrade products and operation."
+    },
+    {
+      "id": "hei_src_003088",
+      "exchange_id": "hei_ex_000515",
+      "event_id": "hei_ev_002037",
+      "source_type": "official_statement",
+      "title": "Gains Network open-source repositories",
+      "url": "https://github.com/GainsNetwork",
+      "publisher": "Gains Network",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://github.com/GainsNetwork",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Official code organization supports project identity and continuity."
+    }
+  ]
+}
