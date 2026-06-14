@@ -8,7 +8,11 @@
     {"id": "hei_ex_000015", "name": "MEXC", "resolution": "repair_bundle_added"},
     {"id": "hei_ex_000016", "name": "Gate.io", "resolution": "repair_bundle_added"},
     {"id": "hei_ex_000019", "name": "HTX", "resolution": "repair_bundle_added"},
-    {"id": "hei_ex_000022", "name": "bitFlyer", "resolution": "repair_bundle_added"}
+    {"id": "hei_ex_000022", "name": "bitFlyer", "resolution": "repair_bundle_added"},
+    {"id": "hei_ex_000023", "name": "Coincheck", "resolution": "repair_bundle_added"},
+    {"id": "hei_ex_000026", "name": "Bullish", "resolution": "repair_bundle_added"},
+    {"id": "hei_ex_000027", "name": "LBank", "resolution": "repair_bundle_added"},
+    {"id": "hei_ex_000028", "name": "Bitget", "resolution": "repair_bundle_added"}
   ],
   "notes": "Entity objects remain exact canonical mirrors. New events and evidence are supplied through record bundles."
 }
