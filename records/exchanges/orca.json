@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "id": "hei_ex_000513",
+    "slug": "orca",
+    "canonical_name": "Orca",
+    "aliases": ["Orca DEX", "Orca.so"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2021-02-01",
+    "death_date": null,
+    "country_or_origin": "Solana ecosystem",
+    "summary": "Solana-based decentralized exchange protocol centered on automated market-making and concentrated-liquidity pools. Orca remains operational through its official application, developer documentation, and open-source repositories.",
+    "official_url_original": "https://www.orca.so/",
+    "official_domain_original": "orca.so",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.orca.so/",
+    "confidence": "high",
+    "last_verified_at": "2026-06-14",
+    "notes": "The launch date is an approximate month-level marker. HEI treats Orca as one entity and does not split individual pools or program generations."
+  },
+  "events": [
+    {
+      "id": "hei_ev_002035",
+      "exchange_id": "hei_ex_000513",
+      "event_type": "launched",
+      "event_date": "2021-02-01",
+      "title": "Orca entered public operation",
+      "description": "Orca began operating as a decentralized exchange on Solana.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Approximate month-level launch marker."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_003080",
+      "exchange_id": "hei_ex_000513",
+      "event_id": "hei_ev_002035",
+      "source_type": "official_statement",
+      "title": "Orca official application",
+      "url": "https://www.orca.so/",
+      "publisher": "Orca",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.orca.so/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Confirms current exchange operation."
+    },
+    {
+      "id": "hei_src_003081",
+      "exchange_id": "hei_ex_000513",
+      "event_id": "hei_ev_002035",
+      "source_type": "official_statement",
+      "title": "Orca developer documentation",
+      "url": "https://docs.orca.so/",
+      "publisher": "Orca",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.orca.so/",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official documentation identifies Orca as a Solana decentralized exchange."
+    },
+    {
+      "id": "hei_src_003082",
+      "exchange_id": "hei_ex_000513",
+      "event_id": "hei_ev_002035",
+      "source_type": "official_statement",
+      "title": "Orca open-source repositories",
+      "url": "https://github.com/orca-so",
+      "publisher": "Orca",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://github.com/orca-so",
+      "accessed_at": "2026-06-14",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Official code organization supports protocol identity and continuity."
+    }
+  ]
+}
