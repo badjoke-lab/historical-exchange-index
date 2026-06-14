@@ -1,0 +1,70 @@
+{
+  "entity": {
+    "id": "hei_ex_000009",
+    "slug": "kraken",
+    "canonical_name": "Kraken",
+    "aliases": [],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2011-07-28",
+    "death_date": null,
+    "country_or_origin": "United States",
+    "summary": "United States-based centralized exchange launched in 2011 and still operating under the Kraken brand.",
+    "official_url_original": "https://www.kraken.com/",
+    "official_domain_original": "kraken.com",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://www.kraken.com/",
+    "confidence": "high",
+    "notes": "Launch date updated from Kraken’s official founding post dated 2011-07-28.",
+    "last_verified_at": "2026-04-07"
+  },
+  "events": [
+    {
+      "id": "hei_ev_002046",
+      "exchange_id": "hei_ex_000009",
+      "event_type": "launched",
+      "event_date": "2011-07-28",
+      "title": "Kraken was founded",
+      "description": "Kraken traces its founding to 2011-07-28, when the exchange project began under the Kraken name.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "The event uses Kraken’s official founding date already stored in the canonical entity."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_003110",
+      "exchange_id": "hei_ex_000009",
+      "event_id": "hei_ev_002046",
+      "source_type": "official_blog",
+      "title": "Kraken is Born",
+      "url": "https://blog.kraken.com/news/kraken-is-born",
+      "publisher": "Kraken",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-is-born",
+      "accessed_at": "2026-06-15",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Primary project history source identifying 2011-07-28 as Kraken’s founding date."
+    },
+    {
+      "id": "hei_src_003111",
+      "exchange_id": "hei_ex_000009",
+      "event_id": "hei_ev_002046",
+      "source_type": "official_blog",
+      "title": "13 Years Ago: The Kraken Emerged",
+      "url": "https://blog.kraken.com/news/13-years-ago-the-kraken-emerged",
+      "publisher": "Kraken",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/13-years-ago-the-kraken-emerged",
+      "accessed_at": "2026-06-15",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Official retrospective corroborating Kraken’s 2011 origin and continuing exchange identity."
+    }
+  ]
+}
