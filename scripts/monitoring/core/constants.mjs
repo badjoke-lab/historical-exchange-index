@@ -82,7 +82,7 @@ export const EVENT_TYPE_VALUES = [
   'other',
 ];
 export const IMPACT_LEVEL_VALUES = ['low', 'medium', 'high', 'critical'];
-export const EVENT_STATUS_EFFECT_VALUES = ['none', 'active', 'limited', 'inactive', 'dead'];
+export const EVENT_STATUS_EFFECT_VALUES = ['none', ...STATUS_VALUES];
 
 export const SOURCE_TYPE_VALUES = [
   'official_statement',
