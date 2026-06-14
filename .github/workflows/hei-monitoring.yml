@@ -64,7 +64,7 @@ concurrency:
 jobs:
   monitoring:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -86,17 +86,17 @@ jobs:
       - name: Run monitoring
         id: monitor
         env:
-          INPUT_ENABLE_EXTERNAL_LISTS: ${{ github.event.inputs.enable_external_lists || 'false' }}
-          INPUT_ENABLE_NEWS_RSS: ${{ github.event.inputs.enable_news_rss || 'false' }}
-          INPUT_ENABLE_DOMAIN_CHECKS: ${{ github.event.inputs.enable_domain_checks || 'false' }}
-          INPUT_ENABLE_EVIDENCE_URL_CHECKS: ${{ github.event.inputs.enable_evidence_url_checks || 'false' }}
-          INPUT_ENABLE_REGULATORY_WATCH: ${{ github.event.inputs.enable_regulatory_watch || 'false' }}
-          INPUT_ENABLE_SITE_SEO_CHECKS: ${{ github.event.inputs.enable_site_seo_checks || 'false' }}
-          INPUT_SITE_URL: ${{ github.event.inputs.site_url || 'https://hei.badjoke-lab.com' }}
-          INPUT_NEWS_QUERY_LIMIT: ${{ github.event.inputs.news_query_limit || '20' }}
-          INPUT_REGULATORY_QUERY_LIMIT: ${{ github.event.inputs.regulatory_query_limit || '25' }}
-          INPUT_DOMAIN_CHECK_LIMIT: ${{ github.event.inputs.domain_check_limit || '50' }}
-          INPUT_EVIDENCE_URL_CHECK_LIMIT: ${{ github.event.inputs.evidence_url_check_limit || '50' }}
+          MANUAL_ENABLE_EXTERNAL_LISTS: ${{ github.event.inputs.enable_external_lists || 'false' }}
+          MANUAL_ENABLE_NEWS_RSS: ${{ github.event.inputs.enable_news_rss || 'false' }}
+          MANUAL_ENABLE_DOMAIN_CHECKS: ${{ github.event.inputs.enable_domain_checks || 'false' }}
+          MANUAL_ENABLE_EVIDENCE_URL_CHECKS: ${{ github.event.inputs.enable_evidence_url_checks || 'false' }}
+          MANUAL_ENABLE_REGULATORY_WATCH: ${{ github.event.inputs.enable_regulatory_watch || 'false' }}
+          MANUAL_ENABLE_SITE_SEO_CHECKS: ${{ github.event.inputs.enable_site_seo_checks || 'false' }}
+          MANUAL_SITE_URL: ${{ github.event.inputs.site_url || 'https://hei.badjoke-lab.com' }}
+          MANUAL_NEWS_QUERY_LIMIT: ${{ github.event.inputs.news_query_limit || '20' }}
+          MANUAL_REGULATORY_QUERY_LIMIT: ${{ github.event.inputs.regulatory_query_limit || '25' }}
+          MANUAL_DOMAIN_CHECK_LIMIT: ${{ github.event.inputs.domain_check_limit || '50' }}
+          MANUAL_EVIDENCE_URL_CHECK_LIMIT: ${{ github.event.inputs.evidence_url_check_limit || '50' }}
         run: |
           bool_to_flag() {
             if [ "$1" = "true" ]; then
@@ -105,6 +105,42 @@ jobs:
               echo "0"
             fi
           }
+
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            RUN_MODE="scheduled-external"
+            INPUT_ENABLE_EXTERNAL_LISTS="true"
+            INPUT_ENABLE_NEWS_RSS="true"
+            INPUT_ENABLE_DOMAIN_CHECKS="true"
+            INPUT_ENABLE_EVIDENCE_URL_CHECKS="true"
+            INPUT_ENABLE_REGULATORY_WATCH="true"
+            INPUT_ENABLE_SITE_SEO_CHECKS="true"
+            INPUT_SITE_URL="https://hei.badjoke-lab.com"
+            INPUT_NEWS_QUERY_LIMIT="20"
+            INPUT_REGULATORY_QUERY_LIMIT="25"
+            INPUT_DOMAIN_CHECK_LIMIT="25"
+            INPUT_EVIDENCE_URL_CHECK_LIMIT="25"
+          else
+            RUN_MODE="manual"
+            INPUT_ENABLE_EXTERNAL_LISTS="$MANUAL_ENABLE_EXTERNAL_LISTS"
+            INPUT_ENABLE_NEWS_RSS="$MANUAL_ENABLE_NEWS_RSS"
+            INPUT_ENABLE_DOMAIN_CHECKS="$MANUAL_ENABLE_DOMAIN_CHECKS"
+            INPUT_ENABLE_EVIDENCE_URL_CHECKS="$MANUAL_ENABLE_EVIDENCE_URL_CHECKS"
+            INPUT_ENABLE_REGULATORY_WATCH="$MANUAL_ENABLE_REGULATORY_WATCH"
+            INPUT_ENABLE_SITE_SEO_CHECKS="$MANUAL_ENABLE_SITE_SEO_CHECKS"
+            INPUT_SITE_URL="$MANUAL_SITE_URL"
+            INPUT_NEWS_QUERY_LIMIT="$MANUAL_NEWS_QUERY_LIMIT"
+            INPUT_REGULATORY_QUERY_LIMIT="$MANUAL_REGULATORY_QUERY_LIMIT"
+            INPUT_DOMAIN_CHECK_LIMIT="$MANUAL_DOMAIN_CHECK_LIMIT"
+            INPUT_EVIDENCE_URL_CHECK_LIMIT="$MANUAL_EVIDENCE_URL_CHECK_LIMIT"
+          fi
+
+          echo "Monitoring run mode: $RUN_MODE"
+          echo "Remote lists: $INPUT_ENABLE_EXTERNAL_LISTS"
+          echo "News RSS: $INPUT_ENABLE_NEWS_RSS (limit $INPUT_NEWS_QUERY_LIMIT)"
+          echo "Regulatory watch: $INPUT_ENABLE_REGULATORY_WATCH (limit $INPUT_REGULATORY_QUERY_LIMIT)"
+          echo "Domain checks: $INPUT_ENABLE_DOMAIN_CHECKS (limit $INPUT_DOMAIN_CHECK_LIMIT)"
+          echo "Evidence URL checks: $INPUT_ENABLE_EVIDENCE_URL_CHECKS (limit $INPUT_EVIDENCE_URL_CHECK_LIMIT)"
+          echo "Site/SEO checks: $INPUT_ENABLE_SITE_SEO_CHECKS"
 
           export HEI_MONITORING_ENABLE_REMOTE_LISTS="$(bool_to_flag "$INPUT_ENABLE_EXTERNAL_LISTS")"
           export HEI_MONITORING_ENABLE_NEWS_RSS="$(bool_to_flag "$INPUT_ENABLE_NEWS_RSS")"
