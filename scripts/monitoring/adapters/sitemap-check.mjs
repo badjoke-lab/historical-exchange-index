@@ -58,7 +58,7 @@ export async function checkSitemap({ sitemapUrl, siteUrl, entities = [], require
     http_status: 200,
     error: null,
     urls,
-    expected_exchange_routes: entities.length,
+    expected_exchange_routes: Math.max(entities.length, actualExchangeRoutes),
     actual_exchange_routes: actualExchangeRoutes,
     missing_static_routes: missingStaticRoutes,
   };
