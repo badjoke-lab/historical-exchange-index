@@ -1,0 +1,107 @@
+{
+  "monitor": "news-and-event-watch",
+  "status": "ok",
+  "started_at": "2026-06-15T08:48:49.916Z",
+  "finished_at": "2026-06-15T08:49:05.021Z",
+  "findings": [
+    {
+      "finding_id": "finding_1781513345020_izryuk",
+      "monitor": "news-and-event-watch",
+      "severity": "medium",
+      "category": "news_event_actionable_candidate",
+      "title": "News/event candidate: ZKX",
+      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "affected_entity": null,
+      "recommended_action": "review_and_stage_public_quality_record",
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4wR3BqQnBteDFnNEtDc3d0akhaQ0lBMDB1d2hOQ0JWLU9DRXpBc09scEpVcmkyYnRTZGpza0UxbHVLRHd4czNJeHBqeTU5ZGtTa05UcVhpSHQ3NDEydXltT05YVQ?oc=5"
+      ],
+      "confidence": "low",
+      "dedupe_key": "news-and-event-watch:actionable_candidate:news_event:zkx",
+      "first_seen_at": "2026-06-15T08:49:51.577Z",
+      "last_seen_at": "2026-06-15T08:49:51.577Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "news_20260615_021",
+      "canonical_name": "ZKX",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "Decentralized exchange ZKX ceases operations: blaming the market maker, a well-planned \"scam\"? - Binance",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4wR3BqQnBteDFnNEtDc3d0akhaQ0lBMDB1d2hOQ0JWLU9DRXpBc09scEpVcmkyYnRTZGpza0UxbHVLRHd4czNJeHBqeTU5ZGtTa05UcVhpSHQ3NDEydXltT05YVQ?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "Binance",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "shutdown"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 5,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "scam_or_exit_language"
+      ]
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "findings_count": 1,
+    "visible_findings_count": 1,
+    "candidate_count": 1,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0
+  },
+  "news_summary": {
+    "enabled": true,
+    "queries": 20,
+    "items": 1314,
+    "candidates": 1
+  },
+  "regulatory_summary": {
+    "enabled": true,
+    "authorities_configured": 7,
+    "query_templates": 5,
+    "queries": 25,
+    "items": 1888,
+    "candidates": 0
+  },
+  "combined_summary": {
+    "items": 3202,
+    "raw_candidates": 99,
+    "candidates": 1,
+    "dropped_candidates": 98,
+    "resolved_candidate_names": 17,
+    "missing_in_hei": 1,
+    "matched_existing": 0
+  }
+}

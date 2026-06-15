@@ -1,0 +1,76 @@
+{
+  "watchlist_type": "auto_news_event_candidates",
+  "created_at": "2026-06-15T08:49:05.021Z",
+  "purpose": "Tightly filtered auto-generated news/regulatory/event candidate output. Not canonical. Requires review before staging/canonical append.",
+  "news_summary": {
+    "enabled": true,
+    "queries": 20,
+    "items": 1314
+  },
+  "regulatory_summary": {
+    "enabled": true,
+    "authorities_configured": 7,
+    "query_templates": 5,
+    "queries": 25,
+    "items": 1888,
+    "raw_candidates": 3
+  },
+  "filtering_summary": {
+    "raw_candidates": 99,
+    "retained_candidates": 1,
+    "dropped_candidates": 98,
+    "resolved_candidate_names": 17
+  },
+  "candidates": [
+    {
+      "candidate_id": "news_20260615_021",
+      "canonical_name": "ZKX",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "Decentralized exchange ZKX ceases operations: blaming the market maker, a well-planned \"scam\"? - Binance",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4wR3BqQnBteDFnNEtDc3d0akhaQ0lBMDB1d2hOQ0JWLU9DRXpBc09scEpVcmkyYnRTZGpza0UxbHVLRHd4czNJeHBqeTU5ZGtTa05UcVhpSHQ3NDEydXltT05YVQ?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "Binance",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "shutdown"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 5,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "scam_or_exit_language"
+      ]
+    }
+  ],
+  "summary": {
+    "total": 1,
+    "missing_in_hei": 1,
+    "matched_existing": 0,
+    "regulatory_candidates": 0,
+    "A": 1,
+    "B": 0,
+    "C": 0
+  }
+}
