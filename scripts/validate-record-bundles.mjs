@@ -172,5 +172,14 @@ for (const filePath of files) {
   checked += 1;
 }
 
-applyReviewedEntityCorrections(canonicalEntities, entries);
+const correctedEntities = applyReviewedEntityCorrections(canonicalEntities, entries);
+const correctedById = new Map(correctedEntities.map((entity) => [entity.id, entity]));
+for (const { fileName, bundle } of entries) {
+  if (!bundle.entity_correction) continue;
+  const corrected = correctedById.get(bundle.entity.id);
+  if (!corrected || stableStringify(corrected) !== stableStringify(bundle.entity)) {
+    fail(`${fileName}: correction bundle entity must exactly match the corrected canonical entity`);
+  }
+}
+
 console.log(`record bundle validation passed: ${checked} bundle(s)`);
