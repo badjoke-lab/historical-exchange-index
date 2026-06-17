@@ -60,17 +60,26 @@ function stableStringify(value) {
 }
 
 function mergeRecords(canonicalRecords, bundles, field, label) {
-  const canonicalIds = new Set()
+  const canonicalById = new Map()
   for (const record of canonicalRecords) {
-    if (!record?.id || canonicalIds.has(record.id)) throw new Error(`invalid canonical ${label} id: ${record?.id}`)
-    canonicalIds.add(record.id)
+    if (!record?.id) throw new Error(`canonical data: ${label} record is missing id`)
+    if (canonicalById.has(record.id)) throw new Error(`canonical data: duplicate ${label} id: ${record.id}`)
+    canonicalById.set(record.id, record)
   }
 
   const additions = new Map()
   for (const { fileName, bundle } of bundles) {
     for (const record of bundle[field]) {
       if (!record?.id) throw new Error(`${fileName}: ${label} record is missing id`)
-      if (canonicalIds.has(record.id)) continue
+
+      const canonicalRecord = canonicalById.get(record.id)
+      if (canonicalRecord) {
+        if (stableStringify(canonicalRecord) !== stableStringify(record)) {
+          throw new Error(`${fileName}: conflicting ${label} content with canonical record for id: ${record.id}`)
+        }
+        continue
+      }
+
       const existing = additions.get(record.id)
       if (existing && stableStringify(existing) !== stableStringify(record)) {
         throw new Error(`${fileName}: conflicting ${label} id: ${record.id}`)
@@ -144,7 +153,11 @@ const commit = process.env.CF_PAGES_COMMIT_SHA || process.env.VERCEL_GIT_COMMIT_
 const branch = process.env.CF_PAGES_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.GITHUB_REF_NAME || 'main'
 
 writeJson('version.json', {
-  ...project,
+  schema_version: project.schema_version,
+  project_id: project.project_id,
+  site_name: project.site_name,
+  registry_family: project.registry_family,
+  registry_type: project.registry_type,
   canonical_origin: canonicalOrigin,
   release_channel: 'production',
   build: { commit, branch, generated_at: generatedAt, verification_marker: project.verification_marker },
