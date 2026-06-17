@@ -22,6 +22,8 @@ const OUTPUT_FILES = [
   'next-month-plan.md',
 ]
 
+const REGISTRY_SNAPSHOT_BASIS = 'current_reviewed_registry_at_generation_time'
+
 function parseArgs(argv) {
   const args = { month: null }
   for (let index = 2; index < argv.length; index += 1) {
@@ -92,6 +94,36 @@ async function loadMonitoringManifests(directory, monthInfo, warnings) {
   return manifests
 }
 
+function applyRegistrySnapshotSemantics(registryReview, canonicalData, generatedAt) {
+  const snapshotTime = Date.parse(generatedAt)
+  if (!Number.isFinite(snapshotTime)) {
+    throw new Error(`Invalid monthly review generation timestamp: ${generatedAt}`)
+  }
+
+  const staleBefore = new Date(snapshotTime)
+  staleBefore.setUTCFullYear(staleBefore.getUTCFullYear() - 1)
+  const staleRecords = (canonicalData.entities || []).filter((entity) => {
+    const timestamp = Date.parse(entity.last_verified_at)
+    return Number.isFinite(timestamp) && timestamp < staleBefore.getTime()
+  }).length
+
+  registryReview.metrics = {
+    ...registryReview.metrics,
+    review_period: {
+      start: registryReview.monthInfo.start_iso,
+      end: registryReview.monthInfo.end_iso,
+    },
+    snapshot_basis: REGISTRY_SNAPSHOT_BASIS,
+    generated_as_of: generatedAt,
+    quality: {
+      ...registryReview.metrics.quality,
+      last_verified_older_than_one_year: staleRecords,
+    },
+  }
+
+  return registryReview
+}
+
 function buildNextMonthPlan(registryReview, watchlistBacklog) {
   const priorities = []
   const add = (action, count) => {
@@ -118,6 +150,9 @@ function buildSummary(month, registryReview, watchlistBacklog, nextMonthPlan, wa
     `# HEI Monthly Review - ${month}`,
     '',
     '## Registry snapshot',
+    `- Review period: ${metrics.review_period.start} to ${metrics.review_period.end}`,
+    `- Registry snapshot generated: ${metrics.generated_as_of}`,
+    `- Snapshot basis: ${metrics.snapshot_basis}`,
     `- Entities: ${metrics.counts.entities}`,
     `- Events: ${metrics.counts.events}`,
     `- Evidence: ${metrics.counts.evidence}`,
@@ -192,14 +227,14 @@ export function buildMonthlyReviewArtifacts({
   generatedAt = new Date().toISOString(),
 }) {
   parseReviewMonth(month)
-  const registryReview = buildMonthlyRegistryReview({
+  const registryReview = applyRegistrySnapshotSemantics(buildMonthlyRegistryReview({
     month,
     canonicalData,
     monitoringManifests,
     previousMetrics,
     publicVersion,
     publicManifest,
-  })
+  }), canonicalData, generatedAt)
   const watchlistBacklog = buildWatchlistBacklog(
     watchlists,
     resolutionDocuments,
@@ -211,7 +246,12 @@ export function buildMonthlyReviewArtifacts({
     'manifest.json': {
       schema_version: 1,
       review_month: month,
+      review_period: registryReview.metrics.review_period,
       generated_at: generatedAt,
+      registry_snapshot: {
+        basis: REGISTRY_SNAPSHOT_BASIS,
+        generated_at: generatedAt,
+      },
       canonical_data_changed: false,
       output_files: OUTPUT_FILES,
       source_counts: {

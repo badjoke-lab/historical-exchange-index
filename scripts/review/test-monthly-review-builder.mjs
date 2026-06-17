@@ -102,6 +102,7 @@ export function runMonthlyReviewBuilderRegression() {
     },
   }
 
+  const generatedAt = '2026-06-01T04:00:00.000Z'
   const publicCounts = { primary_records: 2, events: 2, evidence: 2 }
   const artifacts = buildMonthlyReviewArtifacts({
     month: '2026-05',
@@ -112,7 +113,7 @@ export function runMonthlyReviewBuilderRegression() {
     previousMetrics,
     publicVersion: { data: { record_counts: publicCounts } },
     publicManifest: { record_counts: publicCounts },
-    generatedAt: '2026-06-01T04:00:00.000Z',
+    generatedAt,
   })
 
   assert.deepEqual(Object.keys(artifacts), [
@@ -127,7 +128,19 @@ export function runMonthlyReviewBuilderRegression() {
     'next-month-plan.md',
   ])
   assert.equal(artifacts['manifest.json'].review_month, '2026-05')
+  assert.deepEqual(artifacts['manifest.json'].review_period, {
+    start: '2026-05-01T00:00:00.000Z',
+    end: '2026-05-31T23:59:59.999Z',
+  })
+  assert.deepEqual(artifacts['manifest.json'].registry_snapshot, {
+    basis: 'current_reviewed_registry_at_generation_time',
+    generated_at: generatedAt,
+  })
   assert.equal(artifacts['manifest.json'].canonical_data_changed, false)
+  assert.equal(artifacts['metrics.json'].generated_as_of, generatedAt)
+  assert.equal(artifacts['metrics.json'].snapshot_basis, 'current_reviewed_registry_at_generation_time')
+  assert.deepEqual(artifacts['metrics.json'].review_period, artifacts['manifest.json'].review_period)
+  assert.notEqual(artifacts['metrics.json'].generated_as_of, artifacts['metrics.json'].review_period.end)
   assert.equal(artifacts['metrics.json'].counts.entities, 2)
   assert.equal(artifacts['monitoring-health.json'].observed_unique_runs, 1)
   assert.equal(artifacts['watchlist-backlog.json'].aging.b_90_plus, 1)
@@ -135,6 +148,8 @@ export function runMonthlyReviewBuilderRegression() {
   assert.equal(artifacts['quality-delta.json'].counts.entities, 1)
   assert.equal(artifacts['consistency-check.json'].status, 'pass')
   assert.equal(artifacts['event-snapshot.json'].total, 1)
+  assert.match(artifacts['summary.md'], /Registry snapshot generated: 2026-06-01T04:00:00.000Z/)
+  assert.match(artifacts['summary.md'], /Snapshot basis: current_reviewed_registry_at_generation_time/)
   assert.match(artifacts['summary.md'], /## Watchlist backlog/)
   assert.match(artifacts['summary.md'], /## Next-month priorities/)
   assert.match(artifacts['next-month-plan.md'], /Reclassify B candidates open for 90\+ days/)
