@@ -1,8 +1,8 @@
-import { spawnSync } from 'node:child_process';
 import { MONITOR_NAMES } from './core/constants.mjs';
 import { monitorRegistryNames, MONITOR_REGISTRY } from './core/monitor-registry.mjs';
 import { loadCanonicalData } from './core/load-canonical-data.mjs';
 import { createMonitorResult, runMonitorSafely } from './core/finding-utils.mjs';
+import { runReviewedBundleAggregationRegression } from '../test-reviewed-bundle-aggregation.mjs';
 
 function assert(condition, message) {
   if (!condition) {
@@ -31,18 +31,6 @@ function validateMonitorResult(result, expectedName) {
   assert(Number.isInteger(result.summary.errors_count), `${expectedName} summary.errors_count must be integer`);
 }
 
-function runBundleAggregationRegression() {
-  const result = spawnSync(process.execPath, ['scripts/test-reviewed-bundle-aggregation.mjs'], {
-    cwd: process.cwd(),
-    encoding: 'utf8',
-  });
-
-  assert(
-    result.status === 0,
-    `reviewed bundle aggregation regression failed\nstdout:\n${result.stdout}\nstderr:\n${result.stderr}`,
-  );
-}
-
 async function main() {
   assertSameSet(MONITOR_NAMES, monitorRegistryNames(), 'MONITOR_NAMES and MONITOR_REGISTRY are out of sync');
 
@@ -69,7 +57,7 @@ async function main() {
   });
   validateMonitorResult(synthetic, 'smoke-synthetic');
 
-  runBundleAggregationRegression();
+  runReviewedBundleAggregationRegression();
   console.log('HEI monitoring smoke test passed.');
 }
 
