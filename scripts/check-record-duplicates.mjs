@@ -1,11 +1,11 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
 
 const root = process.cwd()
 const entitiesPath = path.join(root, 'data', 'entities.json')
 const recordsDir = path.join(root, 'records', 'exchanges')
 
-// These are documented separate-entity decisions. Keep this list narrow.
 const allowedDuplicateEntityPairs = new Set([
   'hei_ex_000031|hei_ex_000397',
   'hei_ex_000285|hei_ex_000396',
@@ -16,17 +16,13 @@ function readJson(filePath) {
 }
 
 function stableStringify(value) {
-  if (Array.isArray(value)) {
-    return `[${value.map((item) => stableStringify(item)).join(',')}]`
-  }
-
+  if (Array.isArray(value)) return `[${value.map((item) => stableStringify(item)).join(',')}]`
   if (value && typeof value === 'object') {
     return `{${Object.keys(value)
       .sort()
       .map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`)
       .join(',')}}`
   }
-
   return JSON.stringify(value)
 }
 
@@ -37,7 +33,6 @@ function normalizeIdentity(value) {
   if (normalized.startsWith('http://')) normalized = normalized.slice(7)
   if (normalized.startsWith('www.')) normalized = normalized.slice(4)
   if (normalized.endsWith('/')) normalized = normalized.slice(0, -1)
-
   return normalized.length > 0 ? normalized : null
 }
 
@@ -53,18 +48,15 @@ function entityKeys(entity) {
   addKey(keys, 'canonical_name', entity.canonical_name)
   addKey(keys, 'official_domain_original', entity.official_domain_original)
   addKey(keys, 'official_url_original', entity.official_url_original)
-
-  for (const alias of entity.aliases || []) {
-    addKey(keys, 'alias', alias)
-  }
-
+  for (const alias of entity.aliases || []) addKey(keys, 'alias', alias)
   return keys
 }
 
-function makeRecord(source, entity, filePath = null) {
+function makeRecord(source, entity, filePath = null, bundle = null) {
   return {
     source,
     filePath,
+    bundle,
     entity,
     id: entity.id,
     slug: entity.slug,
@@ -80,30 +72,38 @@ function recordPairKey(records) {
   return ids.length === 2 ? ids.join('|') : null
 }
 
-function loadBundleRecords() {
+function loadBundleEntries() {
   if (!fs.existsSync(recordsDir)) return []
-
-  return fs
-    .readdirSync(recordsDir)
+  return fs.readdirSync(recordsDir)
     .filter((fileName) => fileName.endsWith('.json'))
     .sort((a, b) => a.localeCompare(b))
     .map((fileName) => {
       const filePath = path.join(recordsDir, fileName)
-      const bundle = readJson(filePath)
-      return makeRecord('records/exchanges', bundle.entity, path.relative(root, filePath))
+      return { fileName, filePath, bundle: readJson(filePath) }
     })
 }
 
-const baseRecords = readJson(entitiesPath).map((entity) => makeRecord('data/entities.json', entity))
+const canonicalEntities = readJson(entitiesPath)
+const bundleEntries = loadBundleEntries()
+const correctedCanonicalEntities = applyReviewedEntityCorrections(canonicalEntities, bundleEntries)
+const originalCanonicalById = new Map(canonicalEntities.map((entity) => [entity.id, entity]))
+const correctedCanonicalById = new Map(correctedCanonicalEntities.map((entity) => [entity.id, entity]))
+const baseRecords = canonicalEntities.map((entity) => makeRecord('data/entities.json', entity))
 const canonicalById = new Map(baseRecords.map((record) => [record.id, record]))
-const bundleRecords = loadBundleRecords()
+const bundleRecords = bundleEntries.map(({ filePath, bundle }) =>
+  makeRecord('records/exchanges', bundle.entity, path.relative(root, filePath), bundle),
+)
 const allRecords = [...baseRecords, ...bundleRecords]
 const byKey = new Map()
 
-function isExactCanonicalMirror(record) {
+function isReviewedCanonicalMirror(record) {
   if (record.source !== 'records/exchanges' || !record.id) return false
   const canonical = canonicalById.get(record.id)
-  return Boolean(canonical && stableStringify(canonical.entity) === stableStringify(record.entity))
+  if (!canonical) return false
+  const reference = record.bundle?.entity_correction
+    ? correctedCanonicalById.get(record.id)
+    : originalCanonicalById.get(record.id)
+  return Boolean(reference && stableStringify(reference) === stableStringify(record.entity))
 }
 
 for (const record of allRecords) {
@@ -118,20 +118,18 @@ for (const record of allRecords) {
 const duplicateGroups = []
 const allowedGroups = []
 const seenGroups = new Set()
-let exactMirrorRecords = 0
+let mirrorIdentityOccurrences = 0
 
 for (const [identity, records] of byKey) {
   const logicalRecords = records.filter((record) => {
-    if (!isExactCanonicalMirror(record)) return true
-    exactMirrorRecords += 1
+    if (!isReviewedCanonicalMirror(record)) return true
+    mirrorIdentityOccurrences += 1
     return false
   })
 
   const uniqueRecordIds = [...new Set(logicalRecords.map((record) => `${record.source}:${record.filePath || record.id}`))]
   if (uniqueRecordIds.length < 2) continue
-
-  const hasBundle = logicalRecords.some((record) => record.source === 'records/exchanges')
-  if (!hasBundle) continue
+  if (!logicalRecords.some((record) => record.source === 'records/exchanges')) continue
 
   const groupKey = uniqueRecordIds.sort().join('|')
   if (seenGroups.has(groupKey)) continue
@@ -142,27 +140,22 @@ for (const [identity, records] of byKey) {
     allowedGroups.push({ identity, records: logicalRecords })
     continue
   }
-
   duplicateGroups.push({ identity, records: logicalRecords })
 }
 
 if (duplicateGroups.length === 0) {
   const notes = []
-  if (exactMirrorRecords) notes.push(`${exactMirrorRecords} exact canonical mirror identity occurrence(s) ignored`)
+  if (mirrorIdentityOccurrences) notes.push(`${mirrorIdentityOccurrences} reviewed mirror identity occurrence(s) ignored`)
   if (allowedGroups.length) notes.push(`${allowedGroups.length} documented duplicate group(s) allowed`)
   const suffix = notes.length ? ` (${notes.join('; ')}).` : '.'
   console.log(`No record identity duplicates detected${suffix}`)
 } else {
   console.error(`Detected ${duplicateGroups.length} record identity duplicate group(s):`)
-
   for (const group of duplicateGroups) {
     console.error(`\n- key: ${group.identity}`)
     for (const record of group.records) {
-      console.error(
-        `  - ${record.source}${record.filePath ? `/${record.filePath}` : ''} :: ${record.id} :: ${record.slug} :: ${record.canonical_name}`,
-      )
+      console.error(`  - ${record.source}${record.filePath ? `/${record.filePath}` : ''} :: ${record.id} :: ${record.slug} :: ${record.canonical_name}`)
     }
   }
-
   process.exitCode = 1
 }
