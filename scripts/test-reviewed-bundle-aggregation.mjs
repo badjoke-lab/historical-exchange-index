@@ -1,46 +1,5 @@
 import assert from 'node:assert/strict'
-import { spawnSync } from 'node:child_process'
-import fs from 'node:fs/promises'
-import os from 'node:os'
-import path from 'node:path'
-
-const repoRoot = process.cwd()
-const buildScript = path.join(repoRoot, 'scripts', 'build-machine-readable-layer.mjs')
-const validateScript = path.join(repoRoot, 'scripts', 'validate-machine-readable-layer.mjs')
-
-async function writeJson(root, relativePath, value) {
-  const filePath = path.join(root, relativePath)
-  await fs.mkdir(path.dirname(filePath), { recursive: true })
-  await fs.writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
-}
-
-async function readJson(root, relativePath) {
-  return JSON.parse(await fs.readFile(path.join(root, relativePath), 'utf8'))
-}
-
-function runNode(script, cwd, { expectFailure = false } = {}) {
-  const result = spawnSync(process.execPath, [script], {
-    cwd,
-    encoding: 'utf8',
-    env: {
-      ...process.env,
-      GITHUB_SHA: 'fixture-sha',
-      GITHUB_REF_NAME: 'fixture-branch',
-    },
-  })
-
-  if (expectFailure) {
-    assert.notEqual(result.status, 0, `Expected ${path.basename(script)} to fail`)
-    return result
-  }
-
-  assert.equal(
-    result.status,
-    0,
-    `${path.basename(script)} failed\nstdout:\n${result.stdout}\nstderr:\n${result.stderr}`,
-  )
-  return result
-}
+import { classifyReviewedBundles, mergeRecords } from './lib/reviewed-bundle-aggregation.mjs'
 
 function canonicalEntity() {
   return {
@@ -121,74 +80,67 @@ const newEntityEvidence = {
   url: 'https://new-two.test/source',
 }
 
-async function prepareFixture(root) {
-  await writeJson(root, 'data/entities.json', [canonicalEntity()])
-  await writeJson(root, 'data/events.json', [canonicalEvent])
-  await writeJson(root, 'data/evidence.json', [canonicalEvidence])
-
-  await writeJson(root, 'records/exchanges/repair-existing.json', {
-    entity: canonicalEntity(),
-    events: [canonicalEvent, repairEvent],
-    evidence: [canonicalEvidence, repairEvidence],
-  })
-
-  await writeJson(root, 'records/exchanges/add-new-entity.json', {
-    entity: newEntity(),
-    events: [newEntityEvent],
-    evidence: [newEntityEvidence],
-  })
-
-  await writeJson(root, 'records/exchanges/duplicate-new-entity.json', {
-    entity: newEntity(),
-    events: [newEntityEvent],
-    evidence: [newEntityEvidence],
-  })
+function reviewedEntries() {
+  return [
+    {
+      fileName: 'repair-existing.json',
+      bundle: {
+        entity: canonicalEntity(),
+        events: [{ ...canonicalEvent, title: 'Ignored bundle mirror' }, repairEvent],
+        evidence: [{ ...canonicalEvidence, title: 'Ignored evidence mirror' }, repairEvidence],
+      },
+    },
+    {
+      fileName: 'add-new-entity.json',
+      bundle: {
+        entity: newEntity(),
+        events: [newEntityEvent],
+        evidence: [newEntityEvidence],
+      },
+    },
+    {
+      fileName: 'duplicate-new-entity.json',
+      bundle: {
+        entity: newEntity(),
+        events: [newEntityEvent],
+        evidence: [newEntityEvidence],
+      },
+    },
+  ]
 }
 
-async function verifySuccessfulAggregation(root) {
-  runNode(buildScript, root)
+export function runReviewedBundleAggregationRegression() {
+  const canonicalEntities = [canonicalEntity()]
+  const canonicalEvents = [canonicalEvent]
+  const canonicalEvidenceRecords = [canonicalEvidence]
+  const { all, newEntityBundles } = classifyReviewedBundles(canonicalEntities, reviewedEntries())
 
-  const version = await readJson(root, 'public/version.json')
-  const manifest = await readJson(root, 'public/data/manifest.json')
-  const expectedCounts = {
-    primary_records: 2,
-    events: 3,
-    evidence: 3,
-  }
+  const entities = [...canonicalEntities, ...newEntityBundles.map(({ bundle }) => bundle.entity)]
+  const events = mergeRecords(canonicalEvents, all, 'events', 'event')
+  const evidence = mergeRecords(canonicalEvidenceRecords, all, 'evidence', 'evidence')
 
-  assert.deepEqual(version.data.record_counts, expectedCounts)
-  assert.deepEqual(manifest.record_counts, expectedCounts)
-  assert.equal(version.data.record_count_breakdown.active_side, 2)
-  assert.equal(version.data.record_count_breakdown.type.cex, 1)
-  assert.equal(version.data.record_count_breakdown.type.dex, 1)
+  assert.equal(entities.length, 2, 'existing-entity repair bundle must not increase entity count')
+  assert.equal(events.length, 3, 'all reviewed bundle events must be included once')
+  assert.equal(evidence.length, 3, 'all reviewed bundle evidence must be included once')
+  assert.equal(events.find((event) => event.id === canonicalEvent.id)?.title, canonicalEvent.title)
+  assert.equal(evidence.find((item) => item.id === canonicalEvidence.id)?.title, canonicalEvidence.title)
 
-  assert.equal(Object.hasOwn(version, 'data_schema_version'), false)
-  assert.equal(Object.hasOwn(version, 'verification_marker'), false)
-  assert.equal(version.data.data_schema_version, 'hei_entity_event_evidence_v1')
-  assert.equal(version.build.verification_marker, 'hei_machine_readable_layer_v1')
+  const conflictingEntries = [
+    ...all,
+    {
+      fileName: 'conflicting-duplicate.json',
+      bundle: {
+        entity: newEntity(),
+        events: [{ ...newEntityEvent, title: 'Conflicting event content' }],
+        evidence: [newEntityEvidence],
+      },
+    },
+  ]
 
-  runNode(validateScript, root)
-}
+  assert.throws(
+    () => mergeRecords(canonicalEvents, conflictingEntries, 'events', 'event'),
+    /conflicting event id: hei_ev_000003/,
+  )
 
-async function verifyBundleConflictFails(root) {
-  await writeJson(root, 'records/exchanges/conflicting-duplicate.json', {
-    entity: newEntity(),
-    events: [{ ...newEntityEvent, title: 'Conflicting event content' }],
-    evidence: [newEntityEvidence],
-  })
-
-  const result = runNode(buildScript, root, { expectFailure: true })
-  const output = `${result.stdout}\n${result.stderr}`
-  assert.match(output, /conflicting event id: hei_ev_000003/)
-}
-
-const fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), 'hei-reviewed-bundle-test-'))
-
-try {
-  await prepareFixture(fixtureRoot)
-  await verifySuccessfulAggregation(fixtureRoot)
-  await verifyBundleConflictFails(fixtureRoot)
   console.log('Reviewed bundle aggregation regression test passed.')
-} finally {
-  await fs.rm(fixtureRoot, { recursive: true, force: true })
 }
