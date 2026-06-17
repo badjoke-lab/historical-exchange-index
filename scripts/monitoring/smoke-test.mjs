@@ -7,6 +7,7 @@ import { buildRegistryMetrics, parseReviewMonth } from '../review/monthly-regist
 import { runMonthlyWatchlistBacklogRegression } from '../review/test-monthly-watchlist-core.mjs';
 import { runMonthlyReviewBuilderRegression } from '../review/test-monthly-review-builder.mjs';
 import { runMonthlyReviewIntegrationRegression } from '../review/test-monthly-review-integration.mjs';
+import { runMonthlyReviewWorkflowRegression } from '../review/test-monthly-review-workflow.mjs';
 
 function assert(condition, message) {
   if (!condition) {
@@ -65,6 +66,7 @@ async function main() {
   runMonthlyWatchlistBacklogRegression();
   runMonthlyReviewBuilderRegression();
   await runMonthlyReviewIntegrationRegression();
+  runMonthlyReviewWorkflowRegression();
 
   const reviewMonth = parseReviewMonth('2026-05');
   const monthlyMetrics = buildRegistryMetrics(canonicalData, reviewMonth);
