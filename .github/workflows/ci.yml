@@ -35,6 +35,9 @@ jobs:
       - name: Check production smoke script syntax
         run: node --check scripts/check-machine-readable-production.mjs
 
+      - name: Test reviewed bundle aggregation
+        run: node scripts/test-reviewed-bundle-aggregation.mjs
+
       - name: Build
         run: npm run build
 
