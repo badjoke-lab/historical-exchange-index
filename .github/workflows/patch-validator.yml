@@ -1,0 +1,38 @@
+name: Patch validator
+
+on:
+  push:
+    branches: [work-387e]
+    paths: [.github/workflows/patch-validator.yml]
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: work-387e
+      - name: Patch validator
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/validate-machine-readable-layer.mjs')
+          s = p.read_text()
+          a = "import { loadReviewedBundles, mergeRecords, stableStringify } from './lib/reviewed-bundle-aggregation.mjs'\n"
+          s = s.replace(a, a + "import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'\n", 1)
+          a = "const { all: reviewedBundles, newEntityBundles } = loadReviewedBundles(root, canonicalEntities)\nconst entities = [...canonicalEntities, ...newEntityBundles.map(({ bundle }) => bundle.entity)]\n"
+          b = "const { all: reviewedBundles, newEntityBundles } = loadReviewedBundles(root, canonicalEntities)\nconst correctedCanonicalEntities = applyReviewedEntityCorrections(canonicalEntities, reviewedBundles)\nconst entities = [...correctedCanonicalEntities, ...newEntityBundles.map(({ bundle }) => bundle.entity)]\n"
+          if a not in s:
+              raise SystemExit('validator source mismatch')
+          p.write_text(s.replace(a, b, 1))
+          PY
+      - uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: Align machine validator with entity corrections
+          branch: work-387e
