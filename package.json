@@ -12,6 +12,7 @@
     "monitor:dry": "HEI_MONITORING_MODE=manual node scripts/monitoring/run.mjs",
     "monitor:promote-candidate": "node scripts/monitoring/promote-candidate-to-staging.mjs",
     "monitor:smoke": "node scripts/monitoring/smoke-test.mjs",
+    "review:monthly": "node scripts/review/build-monthly-review.mjs",
     "publish:draft": "node scripts/publishing/build-publishing-drafts.mjs",
     "records:audit-overlaps": "node scripts/audit-record-entity-overlaps.mjs",
     "records:validate": "node scripts/audit-record-entity-overlaps.mjs && node scripts/validate-record-bundles.mjs && node scripts/check-record-duplicates.mjs",
