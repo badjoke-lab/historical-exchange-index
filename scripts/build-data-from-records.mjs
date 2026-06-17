@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs';
 
 const ROOT = process.cwd();
 const RECORD_DIR = path.join(ROOT, 'records', 'exchanges');
@@ -63,6 +64,13 @@ const evidencePath = path.join(DATA_DIR, 'evidence.json');
 const entities = readJson(entityPath);
 const events = readJson(eventPath);
 const evidence = readJson(evidencePath);
+const recordEntries = listRecordFiles().map((filePath) => ({
+  fileName: path.basename(filePath),
+  filePath,
+  bundle: readJson(filePath),
+}));
+const correctedEntities = applyReviewedEntityCorrections(entities, recordEntries);
+const correctedEntityById = new Map(correctedEntities.map((entity) => [entity.id, entity]));
 
 const entityById = new Map(entities.map((entity) => [entity.id, entity]));
 const eventById = new Map(events.map((event) => [event.id, event]));
@@ -72,17 +80,23 @@ let bundleCount = 0;
 let addedEntities = 0;
 let addedEvents = 0;
 let addedEvidence = 0;
+let correctionBundles = 0;
 let unchangedEntries = 0;
 
-for (const filePath of listRecordFiles()) {
-  const bundle = readJson(filePath);
+for (const { filePath, bundle } of recordEntries) {
   bundleCount += 1;
 
   if (!bundle.entity || !Array.isArray(bundle.events) || !Array.isArray(bundle.evidence)) {
     throw new Error(`${filePath}: expected { entity, events, evidence }`);
   }
 
-  if (addOrVerify(entityById, bundle.entity, filePath, 'entity') === 'added') {
+  if (bundle.entity_correction) {
+    const corrected = correctedEntityById.get(bundle.entity.id);
+    if (!corrected || stableStringify(corrected) !== stableStringify(bundle.entity)) {
+      throw new Error(`${filePath}: correction bundle entity does not match guarded correction result`);
+    }
+    correctionBundles += 1;
+  } else if (addOrVerify(entityById, bundle.entity, filePath, 'entity') === 'added') {
     addedEntities += 1;
   } else {
     unchangedEntries += 1;
@@ -114,7 +128,7 @@ writeJson(eventPath, nextEvents);
 writeJson(evidencePath, nextEvidence);
 
 console.log(`built data from ${bundleCount} record bundle(s)`);
-console.log(`entities: ${entities.length} -> ${nextEntities.length} (+${addedEntities})`);
+console.log(`entities: ${entities.length} -> ${nextEntities.length} (+${addedEntities}; ${correctionBundles} correction bundle(s) retained)`);
 console.log(`events: ${events.length} -> ${nextEvents.length} (+${addedEvents})`);
 console.log(`evidence: ${evidence.length} -> ${nextEvidence.length} (+${addedEvidence})`);
 console.log(`unchanged existing bundle entries: ${unchangedEntries}`);
