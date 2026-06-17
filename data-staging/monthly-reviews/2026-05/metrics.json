@@ -1,0 +1,42 @@
+{
+  "month": "2026-05",
+  "generated_as_of": "2026-05-31T23:59:59.999Z",
+  "counts": {
+    "entities": 412,
+    "events": 686,
+    "evidence": 1592,
+    "active_side": 223,
+    "dead_side": 189
+  },
+  "status": {
+    "dead": 162,
+    "active": 195,
+    "limited": 10,
+    "inactive": 18,
+    "acquired": 12,
+    "rebranded": 15
+  },
+  "type": {
+    "cex": 321,
+    "dex": 86,
+    "hybrid": 5
+  },
+  "quality": {
+    "entities_without_events": 65,
+    "entities_without_evidence": 3,
+    "entities_with_one_evidence": 63,
+    "dead_side_with_fewer_than_two_evidence": 4,
+    "dead_side_missing_archive": 0,
+    "url_status_unknown_or_missing": 68,
+    "origin_missing": 21,
+    "launch_date_missing": 96,
+    "dead_side_death_date_missing": 1,
+    "low_confidence": 85,
+    "last_verified_older_than_one_year": 0
+  },
+  "coverage": {
+    "dead_side_archive_percent": 100,
+    "high_confidence_percent": 35.68,
+    "origin_known_percent": 94.9
+  }
+}

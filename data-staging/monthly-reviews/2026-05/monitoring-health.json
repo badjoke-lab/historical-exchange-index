@@ -1,0 +1,101 @@
+{
+  "month": "2026-05",
+  "expected_scheduled_runs": 4,
+  "observed_unique_runs": 5,
+  "successful_runs": 5,
+  "degraded_runs": 0,
+  "possible_missing_scheduled_runs": 0,
+  "total_findings": 2677,
+  "total_watch_items": 76,
+  "total_errors": 0,
+  "monitors": {
+    "candidate-discovery": {
+      "runs": 5,
+      "ok": 5,
+      "degraded": 0,
+      "findings": 4,
+      "watch_items": 75,
+      "errors": 0
+    },
+    "news-and-event-watch": {
+      "runs": 5,
+      "ok": 5,
+      "degraded": 0,
+      "findings": 5,
+      "watch_items": 1,
+      "errors": 0
+    },
+    "active-status-watch": {
+      "runs": 5,
+      "ok": 5,
+      "degraded": 0,
+      "findings": 5,
+      "watch_items": 0,
+      "errors": 0
+    },
+    "evidence-and-record-quality-watch": {
+      "runs": 5,
+      "ok": 5,
+      "degraded": 0,
+      "findings": 2633,
+      "watch_items": 0,
+      "errors": 0
+    },
+    "evidence-health-watch": {
+      "runs": 5,
+      "ok": 5,
+      "degraded": 0,
+      "findings": 5,
+      "watch_items": 0,
+      "errors": 0
+    },
+    "site-and-seo-watch": {
+      "runs": 5,
+      "ok": 5,
+      "degraded": 0,
+      "findings": 5,
+      "watch_items": 0,
+      "errors": 0
+    },
+    "monitoring-health-watch": {
+      "runs": 5,
+      "ok": 5,
+      "degraded": 0,
+      "findings": 20,
+      "watch_items": 0,
+      "errors": 0
+    }
+  },
+  "runs": [
+    {
+      "run_id": "20260502-110657",
+      "started_at": "2026-05-02T11:06:57.027Z",
+      "finished_at": "2026-05-02T11:07:12.682Z",
+      "mode": "scheduled"
+    },
+    {
+      "run_id": "20260504-055519",
+      "started_at": "2026-05-04T05:55:19.500Z",
+      "finished_at": "2026-05-04T05:55:19.535Z",
+      "mode": "scheduled"
+    },
+    {
+      "run_id": "20260511-062901",
+      "started_at": "2026-05-11T06:29:01.710Z",
+      "finished_at": "2026-05-11T06:29:01.760Z",
+      "mode": "scheduled"
+    },
+    {
+      "run_id": "20260518-064520",
+      "started_at": "2026-05-18T06:45:20.023Z",
+      "finished_at": "2026-05-18T06:45:20.078Z",
+      "mode": "scheduled"
+    },
+    {
+      "run_id": "20260525-070333",
+      "started_at": "2026-05-25T07:03:33.747Z",
+      "finished_at": "2026-05-25T07:03:33.801Z",
+      "mode": "scheduled"
+    }
+  ]
+}

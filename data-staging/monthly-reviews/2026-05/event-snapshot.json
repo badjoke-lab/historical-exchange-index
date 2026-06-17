@@ -1,0 +1,118 @@
+{
+  "month": "2026-05",
+  "basis": "event_date_or_start_date",
+  "total": 15,
+  "by_event_type": {
+    "shutdown_announced": 1,
+    "regulatory_action": 1,
+    "listed_reference": 12,
+    "shutdown_effective": 1
+  },
+  "events": [
+    {
+      "id": "hei_ev_002010",
+      "exchange_id": "hei_ex_000503",
+      "event_type": "shutdown_announced",
+      "event_date": "2026-05-01",
+      "title": "Tapp Exchange announced a phased protocol shutdown"
+    },
+    {
+      "id": "hei_ev_002014",
+      "exchange_id": "hei_ex_000504",
+      "event_type": "regulatory_action",
+      "event_date": "2026-05-12",
+      "title": "Companies House dissolved Zedxion Exchange Ltd"
+    },
+    {
+      "id": "hei_ev_000653",
+      "exchange_id": "hei_ex_000345",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-29",
+      "title": "10KSwap present in exchange and DEX data sources"
+    },
+    {
+      "id": "hei_ev_000655",
+      "exchange_id": "hei_ex_000347",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-29",
+      "title": "Acala Swap present in DEX source data"
+    },
+    {
+      "id": "hei_ev_000656",
+      "exchange_id": "hei_ex_000348",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-29",
+      "title": "Aerodrome present in DEX source data"
+    },
+    {
+      "id": "hei_ev_000657",
+      "exchange_id": "hei_ex_000349",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-29",
+      "title": "1DEX present in exchange and DEX source data"
+    },
+    {
+      "id": "hei_ev_000654",
+      "exchange_id": "hei_ex_000346",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-29",
+      "title": "0x Protocol present in DEX aggregation source data"
+    },
+    {
+      "id": "hei_ev_000660",
+      "exchange_id": "hei_ex_000352",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-30",
+      "title": "Aftermath Finance present in exchange and DEX source data"
+    },
+    {
+      "id": "hei_ev_000661",
+      "exchange_id": "hei_ex_000353",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-30",
+      "title": "Agni Finance present in exchange source data"
+    },
+    {
+      "id": "hei_ev_000658",
+      "exchange_id": "hei_ex_000350",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-30",
+      "title": "9inch present in exchange source data"
+    },
+    {
+      "id": "hei_ev_000659",
+      "exchange_id": "hei_ex_000351",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-30",
+      "title": "9mm present in exchange and DEX source data"
+    },
+    {
+      "id": "hei_ev_000662",
+      "exchange_id": "hei_ex_000354",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-31",
+      "title": "AirSwap present in exchange source data"
+    },
+    {
+      "id": "hei_ev_000663",
+      "exchange_id": "hei_ex_000355",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-31",
+      "title": "Aivora Exchange present in exchange source data"
+    },
+    {
+      "id": "hei_ev_000664",
+      "exchange_id": "hei_ex_000356",
+      "event_type": "listed_reference",
+      "event_date": "2026-05-31",
+      "title": "Alcor Exchange present in exchange source data"
+    },
+    {
+      "id": "hei_ev_002011",
+      "exchange_id": "hei_ex_000503",
+      "event_type": "shutdown_effective",
+      "event_date": "2026-05-31",
+      "title": "Tapp Exchange reached its frontend shutdown date"
+    }
+  ]
+}
