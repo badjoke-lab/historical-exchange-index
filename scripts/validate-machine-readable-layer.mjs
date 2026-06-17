@@ -50,27 +50,31 @@ function entityIdentityKeys(entity) {
   )
 }
 
-function loadAcceptedBundles(canonicalEntities) {
+function loadReviewedBundles(canonicalEntities) {
   const recordsDir = path.join(root, 'records', 'exchanges')
-  if (!fs.existsSync(recordsDir)) return []
+  if (!fs.existsSync(recordsDir)) return { all: [], newEntityBundles: [] }
 
   const seenIdentities = new Set(
     canonicalEntities.flatMap((entity) => [...entityIdentityKeys(entity)]),
   )
-  const accepted = []
+  const all = []
+  const newEntityBundles = []
 
   for (const fileName of fs.readdirSync(recordsDir).filter((name) => name.endsWith('.json')).sort()) {
     const bundle = JSON.parse(fs.readFileSync(path.join(recordsDir, fileName), 'utf8'))
     assert(bundle.entity && Array.isArray(bundle.events) && Array.isArray(bundle.evidence), `${fileName} is not a valid record bundle`)
 
+    const entry = { fileName, bundle }
+    all.push(entry)
+
     const keys = entityIdentityKeys(bundle.entity)
     if ([...keys].some((key) => seenIdentities.has(key))) continue
 
-    accepted.push({ fileName, bundle })
+    newEntityBundles.push(entry)
     for (const key of keys) seenIdentities.add(key)
   }
 
-  return accepted
+  return { all, newEntityBundles }
 }
 
 function stableStringify(value) {
@@ -84,7 +88,7 @@ function stableStringify(value) {
   return JSON.stringify(value)
 }
 
-function mergeRecords(canonicalRecords, acceptedBundles, field, label) {
+function mergeRecords(canonicalRecords, bundles, field, label) {
   const canonicalIds = new Set()
   for (const record of canonicalRecords) {
     assert(record?.id, `canonical ${label} record is missing id`)
@@ -93,7 +97,7 @@ function mergeRecords(canonicalRecords, acceptedBundles, field, label) {
   }
 
   const acceptedById = new Map()
-  for (const { fileName, bundle } of acceptedBundles) {
+  for (const { fileName, bundle } of bundles) {
     for (const record of bundle[field]) {
       assert(record?.id, `${fileName} contains ${label} without id`)
       if (canonicalIds.has(record.id)) continue
@@ -106,7 +110,7 @@ function mergeRecords(canonicalRecords, acceptedBundles, field, label) {
 
       assert(
         stableStringify(existing) === stableStringify(record),
-        `${fileName} conflicts with another accepted bundle for ${label} id ${record.id}`,
+        `${fileName} conflicts with another reviewed bundle for ${label} id ${record.id}`,
       )
     }
   }
@@ -142,10 +146,10 @@ const ai = readText('public/ai.txt')
 const canonicalEntities = readJson('data/entities.json')
 const canonicalEvents = readJson('data/events.json')
 const canonicalEvidence = readJson('data/evidence.json')
-const acceptedBundles = loadAcceptedBundles(canonicalEntities)
-const entities = [...canonicalEntities, ...acceptedBundles.map(({ bundle }) => bundle.entity)]
-const events = mergeRecords(canonicalEvents, acceptedBundles, 'events', 'event')
-const evidence = mergeRecords(canonicalEvidence, acceptedBundles, 'evidence', 'evidence')
+const { all: reviewedBundles, newEntityBundles } = loadReviewedBundles(canonicalEntities)
+const entities = [...canonicalEntities, ...newEntityBundles.map(({ bundle }) => bundle.entity)]
+const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event')
+const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence')
 
 const deadSideStatuses = new Set(['dead', 'merged', 'acquired', 'rebranded'])
 const activeSideStatuses = new Set(['active', 'limited', 'inactive'])
