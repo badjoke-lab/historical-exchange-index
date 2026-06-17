@@ -49,6 +49,9 @@ export interface EntityRecord {
   official_domain_original: string | null
   official_url_status: UrlStatus
   archived_url: string | null
+  predecessor_id?: string | null
+  successor_id?: string | null
+  parent_id?: string | null
   confidence: Confidence
   last_verified_at: string
   notes: string

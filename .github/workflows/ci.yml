@@ -29,6 +29,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Validate reviewed record bundles
+        run: npm run records:validate
+
       - name: Smoke test monitoring modules
         run: npm run monitor:smoke
 

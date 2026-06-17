@@ -3,9 +3,11 @@ import path from 'node:path'
 import type { EntityRecord } from '../types/entity'
 import type { EventRecord } from '../types/event'
 import type { EvidenceRecord } from '../types/evidence'
+import type { EntityCorrection } from './entity-corrections'
 
 export interface ExchangeRecordBundle {
   entity: EntityRecord
+  entity_correction?: EntityCorrection
   events: EventRecord[]
   evidence: EvidenceRecord[]
 }

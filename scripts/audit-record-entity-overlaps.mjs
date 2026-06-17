@@ -1,14 +1,13 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
 
 const root = process.cwd()
 const entitiesPath = path.join(root, 'data', 'entities.json')
 const recordsDir = path.join(root, 'records', 'exchanges')
 
 const allowedEntityOverlapPairs = new Set([
-  // Prior methodology decision: Bittrex and Bittrex Global are separate entities even though they share bittrex.com history.
   'hei_ex_000031|hei_ex_000397',
-  // Generic shared BitTrade alias; BitTrade Australia and the later BitTrade record are retained separately pending a relationship decision.
   'hei_ex_000285|hei_ex_000396',
 ])
 
@@ -21,17 +20,13 @@ function readJson(filePath) {
 }
 
 function stableStringify(value) {
-  if (Array.isArray(value)) {
-    return `[${value.map((item) => stableStringify(item)).join(',')}]`
-  }
-
+  if (Array.isArray(value)) return `[${value.map((item) => stableStringify(item)).join(',')}]`
   if (value && typeof value === 'object') {
     return `{${Object.keys(value)
       .sort()
       .map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`)
       .join(',')}}`
   }
-
   return JSON.stringify(value)
 }
 
@@ -82,40 +77,55 @@ function identitySet(entity) {
   }
 }
 
-function loadRecords() {
-  const records = []
-  for (const entity of readJson(entitiesPath)) {
-    records.push({
-      source: 'data/entities.json',
-      file: null,
-      entity,
-      identity: identitySet(entity),
-    })
-  }
-
-  if (fs.existsSync(recordsDir)) {
-    for (const fileName of fs.readdirSync(recordsDir).filter((name) => name.endsWith('.json')).sort()) {
+function loadBundleEntries() {
+  if (!fs.existsSync(recordsDir)) return []
+  return fs.readdirSync(recordsDir)
+    .filter((name) => name.endsWith('.json'))
+    .sort()
+    .map((fileName) => {
       const filePath = path.join(recordsDir, fileName)
-      const bundle = readJson(filePath)
-      if (!bundle.entity) continue
-      records.push({
-        source: 'records/exchanges',
-        file: path.relative(root, filePath),
-        entity: bundle.entity,
-        identity: identitySet(bundle.entity),
-      })
-    }
+      return { fileName, bundle: readJson(filePath), filePath }
+    })
+}
+
+const canonicalEntities = readJson(entitiesPath)
+const bundleEntries = loadBundleEntries()
+const correctedCanonicalEntities = applyReviewedEntityCorrections(canonicalEntities, bundleEntries)
+const originalCanonicalById = new Map(canonicalEntities.map((entity) => [entity.id, entity]))
+const correctedCanonicalById = new Map(correctedCanonicalEntities.map((entity) => [entity.id, entity]))
+
+function loadRecords() {
+  const records = canonicalEntities.map((entity) => ({
+    source: 'data/entities.json',
+    file: null,
+    entity,
+    bundle: null,
+    identity: identitySet(entity),
+  }))
+
+  for (const entry of bundleEntries) {
+    if (!entry.bundle.entity) continue
+    records.push({
+      source: 'records/exchanges',
+      file: path.relative(root, entry.filePath),
+      entity: entry.bundle.entity,
+      bundle: entry.bundle,
+      identity: identitySet(entry.bundle.entity),
+    })
   }
 
   return records
 }
 
-function isExactCanonicalMirrorPair(left, right) {
+function isAllowedCanonicalMirrorPair(left, right) {
   const canonical = left.source === 'data/entities.json' ? left : right.source === 'data/entities.json' ? right : null
-  const bundle = left.source === 'records/exchanges' ? left : right.source === 'records/exchanges' ? right : null
+  const bundleRecord = left.source === 'records/exchanges' ? left : right.source === 'records/exchanges' ? right : null
+  if (!canonical || !bundleRecord || !canonical.entity.id || canonical.entity.id !== bundleRecord.entity.id) return false
 
-  if (!canonical || !bundle || !canonical.entity.id || canonical.entity.id !== bundle.entity.id) return false
-  return stableStringify(canonical.entity) === stableStringify(bundle.entity)
+  const reference = bundleRecord.bundle?.entity_correction
+    ? correctedCanonicalById.get(bundleRecord.entity.id)
+    : originalCanonicalById.get(bundleRecord.entity.id)
+  return Boolean(reference && stableStringify(reference) === stableStringify(bundleRecord.entity))
 }
 
 function intersections(left, right) {
@@ -124,53 +134,43 @@ function intersections(left, right) {
 
 function compare(left, right) {
   const reasons = []
-
   if (left.identity.id && left.identity.id === right.identity.id) reasons.push(`id:${left.identity.id}`)
   if (left.identity.slug && left.identity.slug === right.identity.slug) reasons.push(`slug:${left.identity.slug}`)
-
-  for (const value of intersections(left.identity.names, right.identity.names)) {
-    reasons.push(`name-or-alias:${value}`)
-  }
-  for (const value of intersections(left.identity.domains, right.identity.domains)) {
-    reasons.push(`domain:${value}`)
-  }
-
+  for (const value of intersections(left.identity.names, right.identity.names)) reasons.push(`name-or-alias:${value}`)
+  for (const value of intersections(left.identity.domains, right.identity.domains)) reasons.push(`domain:${value}`)
   return [...new Set(reasons)]
 }
 
 const records = loadRecords()
 const collisions = []
 const allowedCollisions = []
-let exactMirrorPairs = 0
+let allowedMirrorPairs = 0
 
 for (let i = 0; i < records.length; i += 1) {
   for (let j = i + 1; j < records.length; j += 1) {
     const left = records[i]
     const right = records[j]
-
     if (left.source !== 'records/exchanges' && right.source !== 'records/exchanges') continue
 
-    if (isExactCanonicalMirrorPair(left, right)) {
-      exactMirrorPairs += 1
+    if (isAllowedCanonicalMirrorPair(left, right)) {
+      allowedMirrorPairs += 1
       continue
     }
 
     const reasons = compare(left, right)
     if (reasons.length === 0) continue
-
     const collision = { left, right, reasons }
     if (allowedEntityOverlapPairs.has(pairKey(left, right))) {
       allowedCollisions.push(collision)
       continue
     }
-
     collisions.push(collision)
   }
 }
 
 if (collisions.length === 0) {
   const notes = []
-  if (exactMirrorPairs) notes.push(`${exactMirrorPairs} exact canonical mirror pair(s) allowed for repair bundles`)
+  if (allowedMirrorPairs) notes.push(`${allowedMirrorPairs} reviewed canonical mirror pair(s) allowed`)
   if (allowedCollisions.length) notes.push(`${allowedCollisions.length} documented overlap pair(s) allowed`)
   const suffix = notes.length ? ` (${notes.join('; ')}).` : '.'
   console.log(`No blocking entity overlaps detected across ${records.length} canonical and bundle records${suffix}`)
@@ -182,12 +182,8 @@ for (const collision of collisions) {
   const { left, right, reasons } = collision
   console.error('\n---')
   console.error(`reasons: ${reasons.join(', ')}`)
-  console.error(
-    `left: ${left.source}${left.file ? `/${left.file}` : ''} :: ${left.entity.id} :: ${left.entity.slug} :: ${left.entity.canonical_name}`,
-  )
-  console.error(
-    `right: ${right.source}${right.file ? `/${right.file}` : ''} :: ${right.entity.id} :: ${right.entity.slug} :: ${right.entity.canonical_name}`,
-  )
+  console.error(`left: ${left.source}${left.file ? `/${left.file}` : ''} :: ${left.entity.id} :: ${left.entity.slug} :: ${left.entity.canonical_name}`)
+  console.error(`right: ${right.source}${right.file ? `/${right.file}` : ''} :: ${right.entity.id} :: ${right.entity.slug} :: ${right.entity.canonical_name}`)
 }
 
 process.exit(1)

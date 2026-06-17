@@ -1,8 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { stableStringify } from './lib/reviewed-bundle-aggregation.mjs';
+import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs';
 
 const ROOT = process.cwd();
 const RECORD_DIR = path.join(ROOT, 'records', 'exchanges');
+const ENTITY_PATH = path.join(ROOT, 'data', 'entities.json');
 
 const REQUIRED_ENTITY_FIELDS = [
   'id',
@@ -104,11 +107,15 @@ function listRecordFiles() {
 }
 
 const files = listRecordFiles();
+const canonicalEntities = readJson(ENTITY_PATH);
+const entries = [];
 const allIds = new Set();
 let checked = 0;
 
 for (const filePath of files) {
   const bundle = readJson(filePath);
+  const fileName = path.basename(filePath);
+  entries.push({ fileName, bundle });
   requireObject(bundle, filePath);
   requireObject(bundle.entity, `${filePath}.entity`);
   requireArray(bundle.events, `${filePath}.events`);
@@ -121,6 +128,17 @@ for (const filePath of files) {
   const expectedFileName = `${entity.slug}.json`;
   if (path.basename(filePath) !== expectedFileName) {
     fail(`${filePath}: filename must match entity.slug (${expectedFileName})`);
+  }
+
+  if (bundle.entity_correction !== undefined) {
+    requireObject(bundle.entity_correction, `${filePath}.entity_correction`);
+    requireObject(bundle.entity_correction.expected, `${filePath}.entity_correction.expected`);
+    requireObject(bundle.entity_correction.changes, `${filePath}.entity_correction.changes`);
+    for (const [field, value] of Object.entries(bundle.entity_correction.changes)) {
+      if (stableStringify(entity[field]) !== stableStringify(value)) {
+        fail(`${filePath}: bundle.entity.${field} must match entity_correction.changes.${field}`);
+      }
+    }
   }
 
   for (const id of [entity.id, ...events.map((event) => event.id), ...evidence.map((source) => source.id)]) {
@@ -152,6 +170,16 @@ for (const filePath of files) {
   });
 
   checked += 1;
+}
+
+const correctedEntities = applyReviewedEntityCorrections(canonicalEntities, entries);
+const correctedById = new Map(correctedEntities.map((entity) => [entity.id, entity]));
+for (const { fileName, bundle } of entries) {
+  if (!bundle.entity_correction) continue;
+  const corrected = correctedById.get(bundle.entity.id);
+  if (!corrected || stableStringify(corrected) !== stableStringify(bundle.entity)) {
+    fail(`${fileName}: correction bundle entity must exactly match the corrected canonical entity`);
+  }
 }
 
 console.log(`record bundle validation passed: ${checked} bundle(s)`);

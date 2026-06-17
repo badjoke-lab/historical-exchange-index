@@ -1,5 +1,7 @@
 import path from 'node:path';
 import { listJsonFiles, readJsonFile } from './fs-utils.mjs';
+import { classifyReviewedBundles, mergeRecords } from '../../lib/reviewed-bundle-aggregation.mjs';
+import { applyReviewedEntityCorrections } from '../../lib/entity-corrections.mjs';
 
 const ENTITIES_PATH = 'data/entities.json';
 const EVENTS_PATH = 'data/events.json';
@@ -11,64 +13,17 @@ function normalizeArray(value, filePath) {
   throw new Error(`${filePath} must contain a JSON array`);
 }
 
-function normalizeIdentity(value) {
-  if (!value) return null;
-  const normalized = String(value)
-    .trim()
-    .toLowerCase()
-    .replace(/^https?:\/\//, '')
-    .replace(/^www\./, '')
-    .replace(/\/$/, '');
-  return normalized || null;
-}
-
-function entityIdentityKeys(entity) {
-  return new Set([
-    entity?.id,
-    entity?.slug,
-    entity?.canonical_name,
-    entity?.official_domain_original,
-    entity?.official_url_original,
-    ...(entity?.aliases || []),
-  ].map(normalizeIdentity).filter(Boolean));
-}
-
-async function loadExchangeRecordBundles() {
+async function loadExchangeRecordEntries() {
   const files = await listJsonFiles(RECORDS_PATH);
-  const bundles = [];
+  const entries = [];
   for (const filePath of files) {
     const bundle = await readJsonFile(filePath, null);
     if (!bundle?.entity || !Array.isArray(bundle.events) || !Array.isArray(bundle.evidence)) {
       throw new Error(`${filePath}: expected { entity, events, evidence }`);
     }
-    bundles.push(bundle);
+    entries.push({ fileName: filePath, bundle });
   }
-  return bundles;
-}
-
-function mergeNewEntities(baseEntities, bundles) {
-  const seen = new Set(baseEntities.flatMap((entity) => [...entityIdentityKeys(entity)]));
-  const added = [];
-  for (const bundle of bundles) {
-    const keys = entityIdentityKeys(bundle.entity);
-    if ([...keys].some((key) => seen.has(key))) continue;
-    added.push(bundle.entity);
-    for (const key of keys) seen.add(key);
-  }
-  return [...baseEntities, ...added];
-}
-
-function mergeBundleRecords(baseRecords, bundles, field) {
-  const seen = new Set(baseRecords.map((record) => record.id));
-  const added = [];
-  for (const bundle of bundles) {
-    for (const record of bundle[field]) {
-      if (seen.has(record.id)) continue;
-      seen.add(record.id);
-      added.push(record);
-    }
-  }
-  return [...baseRecords, ...added];
+  return entries;
 }
 
 export async function loadEntities() {
@@ -84,17 +39,19 @@ export async function loadEvidence() {
 }
 
 export async function loadCanonicalData() {
-  const [baseEntities, baseEvents, baseEvidence, bundles] = await Promise.all([
+  const [baseEntities, baseEvents, baseEvidence, entries] = await Promise.all([
     loadEntities(),
     loadEvents(),
     loadEvidence(),
-    loadExchangeRecordBundles(),
+    loadExchangeRecordEntries(),
   ]);
+  const { all, newEntityBundles } = classifyReviewedBundles(baseEntities, entries);
+  const correctedEntities = applyReviewedEntityCorrections(baseEntities, all);
 
   return {
-    entities: mergeNewEntities(baseEntities, bundles),
-    events: mergeBundleRecords(baseEvents, bundles, 'events'),
-    evidence: mergeBundleRecords(baseEvidence, bundles, 'evidence'),
+    entities: [...correctedEntities, ...newEntityBundles.map(({ bundle }) => bundle.entity)],
+    events: mergeRecords(baseEvents, all, 'events', 'event'),
+    evidence: mergeRecords(baseEvidence, all, 'evidence', 'evidence'),
     paths: {
       entities: ENTITIES_PATH,
       events: EVENTS_PATH,
