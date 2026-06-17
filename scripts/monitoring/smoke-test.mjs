@@ -3,6 +3,7 @@ import { monitorRegistryNames, MONITOR_REGISTRY } from './core/monitor-registry.
 import { loadCanonicalData } from './core/load-canonical-data.mjs';
 import { createMonitorResult, runMonitorSafely } from './core/finding-utils.mjs';
 import { runReviewedBundleAggregationRegression } from '../test-reviewed-bundle-aggregation.mjs';
+import { buildRegistryMetrics, parseReviewMonth } from '../review/monthly-metrics-core.mjs';
 
 function assert(condition, message) {
   if (!condition) {
@@ -58,6 +59,14 @@ async function main() {
   validateMonitorResult(synthetic, 'smoke-synthetic');
 
   runReviewedBundleAggregationRegression();
+
+  const reviewMonth = parseReviewMonth('2026-05');
+  const monthlyMetrics = buildRegistryMetrics(canonicalData, reviewMonth);
+  assert(reviewMonth.previous_month === '2026-04', 'monthly review previous month is incorrect');
+  assert(monthlyMetrics.counts.entities === canonicalData.entities.length, 'monthly entity count mismatch');
+  assert(monthlyMetrics.counts.events === canonicalData.events.length, 'monthly event count mismatch');
+  assert(monthlyMetrics.counts.evidence === canonicalData.evidence.length, 'monthly evidence count mismatch');
+
   console.log('HEI monitoring smoke test passed.');
 }
 
