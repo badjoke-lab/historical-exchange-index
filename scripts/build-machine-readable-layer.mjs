@@ -60,25 +60,18 @@ function stableStringify(value) {
 }
 
 function mergeRecords(canonicalRecords, bundles, field, label) {
-  const canonicalById = new Map()
+  const canonicalIds = new Set()
   for (const record of canonicalRecords) {
     if (!record?.id) throw new Error(`canonical data: ${label} record is missing id`)
-    if (canonicalById.has(record.id)) throw new Error(`canonical data: duplicate ${label} id: ${record.id}`)
-    canonicalById.set(record.id, record)
+    if (canonicalIds.has(record.id)) throw new Error(`canonical data: duplicate ${label} id: ${record.id}`)
+    canonicalIds.add(record.id)
   }
 
   const additions = new Map()
   for (const { fileName, bundle } of bundles) {
     for (const record of bundle[field]) {
       if (!record?.id) throw new Error(`${fileName}: ${label} record is missing id`)
-
-      const canonicalRecord = canonicalById.get(record.id)
-      if (canonicalRecord) {
-        if (stableStringify(canonicalRecord) !== stableStringify(record)) {
-          throw new Error(`${fileName}: conflicting ${label} content with canonical record for id: ${record.id}`)
-        }
-        continue
-      }
+      if (canonicalIds.has(record.id)) continue
 
       const existing = additions.get(record.id)
       if (existing && stableStringify(existing) !== stableStringify(record)) {
