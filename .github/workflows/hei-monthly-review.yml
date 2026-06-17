@@ -1,0 +1,151 @@
+name: HEI Monthly Review
+
+on:
+  schedule:
+    - cron: "0 4 1 * *"
+  workflow_dispatch:
+    inputs:
+      review_month:
+        description: "Review month in YYYY-MM; blank uses the previous UTC month"
+        type: string
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+  pull-requests: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+concurrency:
+  group: hei-monthly-review
+  cancel-in-progress: false
+
+jobs:
+  monthly-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Determine review month
+        id: month
+        env:
+          MANUAL_REVIEW_MONTH: ${{ github.event.inputs.review_month || '' }}
+        run: |
+          if [ -n "$MANUAL_REVIEW_MONTH" ]; then
+            REVIEW_MONTH="$MANUAL_REVIEW_MONTH"
+          else
+            REVIEW_MONTH="$(date -u -d 'last month' +%Y-%m)"
+          fi
+
+          if ! printf '%s' "$REVIEW_MONTH" | grep -Eq '^[0-9]{4}-(0[1-9]|1[0-2])$'; then
+            echo "Invalid review month: $REVIEW_MONTH"
+            exit 1
+          fi
+
+          echo "review_month=$REVIEW_MONTH" >> "$GITHUB_OUTPUT"
+          echo "Review month: $REVIEW_MONTH"
+
+      - name: Smoke test review modules
+        run: npm run monitor:smoke
+
+      - name: Import unmerged weekly monitoring PR outputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REVIEW_MONTH: ${{ steps.month.outputs.review_month }}
+        run: |
+          IMPORT_ROOT="data-staging/monthly-review-input/$REVIEW_MONTH"
+          rm -rf "$IMPORT_ROOT"
+          mkdir -p "$IMPORT_ROOT"
+
+          gh pr list --state all --limit 200 --json number,title,mergedAt > /tmp/monitoring-prs.json
+          jq -r --arg prefix "Auto monitoring report: $REVIEW_MONTH-" '
+            [.[] | select(.title | startswith($prefix))]
+            | group_by(.title)
+            | map(select((any(.[]; .mergedAt != null)) | not) | sort_by(.number) | last)
+            | .[].number
+          ' /tmp/monitoring-prs.json > /tmp/monthly-monitoring-pr-numbers.txt
+
+          while IFS= read -r PR_NUMBER; do
+            [ -n "$PR_NUMBER" ] || continue
+            REF="refs/remotes/origin/monthly-pr-$PR_NUMBER"
+            echo "Importing monitoring PR #$PR_NUMBER"
+            git fetch --no-tags origin "pull/$PR_NUMBER/head:$REF"
+            gh pr view "$PR_NUMBER" --json files --jq '.files[].path' > "/tmp/pr-$PR_NUMBER-files.txt"
+
+            while IFS= read -r FILE_PATH; do
+              case "$FILE_PATH" in
+                /*|*..*)
+                  echo "Invalid monitoring path: $FILE_PATH"
+                  exit 1
+                  ;;
+                data-staging/monitoring/*|data-staging/watchlists/auto/*|data-staging/watchlists/resolution/*)
+                  if git cat-file -e "$REF:$FILE_PATH" 2>/dev/null; then
+                    TARGET="$IMPORT_ROOT/${FILE_PATH#data-staging/}"
+                    mkdir -p "$(dirname "$TARGET")"
+                    git show "$REF:$FILE_PATH" > "$TARGET"
+                  else
+                    echo "Skipping deleted monitoring file: $FILE_PATH"
+                  fi
+                  ;;
+                *)
+                  echo "Ignoring non-monitoring PR file: $FILE_PATH"
+                  ;;
+              esac
+            done < "/tmp/pr-$PR_NUMBER-files.txt"
+          done < /tmp/monthly-monitoring-pr-numbers.txt
+
+      - name: Build current machine-readable counts
+        run: npm run machine:build
+
+      - name: Build monthly review
+        env:
+          REVIEW_MONTH: ${{ steps.month.outputs.review_month }}
+        run: node scripts/review/build-monthly-review.mjs --month "$REVIEW_MONTH"
+
+      - name: Validate monthly review
+        env:
+          REVIEW_MONTH: ${{ steps.month.outputs.review_month }}
+        run: node scripts/review/validate-monthly-review.mjs --month "$REVIEW_MONTH"
+
+      - name: Remove temporary imported inputs
+        env:
+          REVIEW_MONTH: ${{ steps.month.outputs.review_month }}
+        run: rm -rf "data-staging/monthly-review-input/$REVIEW_MONTH"
+
+      - name: Guard canonical data files
+        run: |
+          if git status --porcelain -- data/entities.json data/events.json data/evidence.json | grep .; then
+            echo "Monthly review must not modify canonical data files."
+            exit 1
+          fi
+
+      - name: Publish summary
+        env:
+          REVIEW_MONTH: ${{ steps.month.outputs.review_month }}
+        run: cat "data-staging/monthly-reviews/$REVIEW_MONTH/summary.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload monthly review artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: hei-monthly-review-${{ steps.month.outputs.review_month }}
+          path: data-staging/monthly-reviews/${{ steps.month.outputs.review_month }}
+          if-no-files-found: error
+          retention-days: 30
