@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { loadReviewedBundles, mergeRecords, stableStringify } from './lib/reviewed-bundle-aggregation.mjs'
 
 const root = process.cwd()
 const publicDir = path.join(root, 'public')
@@ -22,100 +23,6 @@ function readText(relativePath) {
   const filePath = path.join(root, relativePath)
   assert(fs.existsSync(filePath), `missing ${relativePath}`)
   return fs.readFileSync(filePath, 'utf8')
-}
-
-function normalizeIdentity(value) {
-  if (!value) return null
-  const normalized = String(value)
-    .trim()
-    .toLowerCase()
-    .replace(/^https?:\/\//, '')
-    .replace(/^www\./, '')
-    .replace(/\/$/, '')
-  return normalized || null
-}
-
-function entityIdentityKeys(entity) {
-  return new Set(
-    [
-      entity.id,
-      entity.slug,
-      entity.canonical_name,
-      entity.official_domain_original,
-      entity.official_url_original,
-      ...(entity.aliases ?? []),
-    ]
-      .map(normalizeIdentity)
-      .filter(Boolean),
-  )
-}
-
-function loadReviewedBundles(canonicalEntities) {
-  const recordsDir = path.join(root, 'records', 'exchanges')
-  if (!fs.existsSync(recordsDir)) return { all: [], newEntityBundles: [] }
-
-  const seenIdentities = new Set(
-    canonicalEntities.flatMap((entity) => [...entityIdentityKeys(entity)]),
-  )
-  const all = []
-  const newEntityBundles = []
-
-  for (const fileName of fs.readdirSync(recordsDir).filter((name) => name.endsWith('.json')).sort()) {
-    const bundle = JSON.parse(fs.readFileSync(path.join(recordsDir, fileName), 'utf8'))
-    assert(bundle.entity && Array.isArray(bundle.events) && Array.isArray(bundle.evidence), `${fileName} is not a valid record bundle`)
-
-    const entry = { fileName, bundle }
-    all.push(entry)
-
-    const keys = entityIdentityKeys(bundle.entity)
-    if ([...keys].some((key) => seenIdentities.has(key))) continue
-
-    newEntityBundles.push(entry)
-    for (const key of keys) seenIdentities.add(key)
-  }
-
-  return { all, newEntityBundles }
-}
-
-function stableStringify(value) {
-  if (Array.isArray(value)) return `[${value.map(stableStringify).join(',')}]`
-  if (value && typeof value === 'object') {
-    return `{${Object.keys(value)
-      .sort()
-      .map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`)
-      .join(',')}}`
-  }
-  return JSON.stringify(value)
-}
-
-function mergeRecords(canonicalRecords, bundles, field, label) {
-  const canonicalIds = new Set()
-  for (const record of canonicalRecords) {
-    assert(record?.id, `canonical ${label} record is missing id`)
-    assert(!canonicalIds.has(record.id), `duplicate canonical ${label} id ${record.id}`)
-    canonicalIds.add(record.id)
-  }
-
-  const acceptedById = new Map()
-  for (const { fileName, bundle } of bundles) {
-    for (const record of bundle[field]) {
-      assert(record?.id, `${fileName} contains ${label} without id`)
-      if (canonicalIds.has(record.id)) continue
-
-      const existing = acceptedById.get(record.id)
-      if (!existing) {
-        acceptedById.set(record.id, record)
-        continue
-      }
-
-      assert(
-        stableStringify(existing) === stableStringify(record),
-        `${fileName} conflicts with another reviewed bundle for ${label} id ${record.id}`,
-      )
-    }
-  }
-
-  return [...canonicalRecords, ...acceptedById.values()]
 }
 
 function countBy(items, key) {
@@ -146,7 +53,7 @@ const ai = readText('public/ai.txt')
 const canonicalEntities = readJson('data/entities.json')
 const canonicalEvents = readJson('data/events.json')
 const canonicalEvidence = readJson('data/evidence.json')
-const { all: reviewedBundles, newEntityBundles } = loadReviewedBundles(canonicalEntities)
+const { all: reviewedBundles, newEntityBundles } = loadReviewedBundles(root, canonicalEntities)
 const entities = [...canonicalEntities, ...newEntityBundles.map(({ bundle }) => bundle.entity)]
 const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event')
 const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence')
@@ -176,6 +83,8 @@ assert(version.project_id === 'historical-exchange-index', 'version project_id i
 assert(version.registry_family === 'badjoke-lab-ledger-series', 'version registry_family is incorrect')
 assert(version.registry_type === 'historical_crypto_exchange_registry', 'version registry_type is incorrect')
 assert(version.canonical_origin === 'https://hei.badjoke-lab.com', 'version canonical_origin is incorrect')
+assert(!Object.hasOwn(version, 'data_schema_version'), 'data_schema_version must not be a top-level version field')
+assert(!Object.hasOwn(version, 'verification_marker'), 'verification_marker must not be a top-level version field')
 assert(version.build?.verification_marker === 'hei_machine_readable_layer_v1', 'verification marker is incorrect')
 assert(version.build?.commit === expectedCommit(), 'build commit does not match deployment environment')
 assert(version.build?.branch === expectedBranch(), 'build branch does not match deployment environment')
