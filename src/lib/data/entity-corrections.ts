@@ -10,6 +10,9 @@ export type CorrectableEntityField =
   | 'summary'
   | 'official_url_status'
   | 'archived_url'
+  | 'predecessor_id'
+  | 'successor_id'
+  | 'parent_id'
   | 'confidence'
   | 'last_verified_at'
   | 'notes'
@@ -35,6 +38,9 @@ const allowedFields = new Set<CorrectableEntityField>([
   'summary',
   'official_url_status',
   'archived_url',
+  'predecessor_id',
+  'successor_id',
+  'parent_id',
   'confidence',
   'last_verified_at',
   'notes',
