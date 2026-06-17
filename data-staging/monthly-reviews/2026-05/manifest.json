@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "review_month": "2026-05",
+  "review_period": {
+    "start": "2026-05-01T00:00:00.000Z",
+    "end": "2026-05-31T23:59:59.999Z"
+  },
+  "generated_at": "2026-06-17T19:59:22.706Z",
+  "registry_snapshot": {
+    "basis": "current_reviewed_registry_at_generation_time",
+    "generated_at": "2026-06-17T19:59:22.706Z"
+  },
+  "canonical_data_changed": false,
+  "output_files": [
+    "manifest.json",
+    "summary.md",
+    "metrics.json",
+    "monitoring-health.json",
+    "watchlist-backlog.json",
+    "quality-delta.json",
+    "consistency-check.json",
+    "event-snapshot.json",
+    "next-month-plan.md"
+  ],
+  "source_counts": {
+    "monitoring_manifests": 5,
+    "watchlists": 4,
+    "resolution_documents": 7
+  },
+  "warnings": []
+}

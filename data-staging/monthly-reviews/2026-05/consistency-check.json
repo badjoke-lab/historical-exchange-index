@@ -1,0 +1,28 @@
+{
+  "expected": {
+    "primary_records": 412,
+    "events": 686,
+    "evidence": 1592
+  },
+  "sources": {
+    "version": {
+      "available": true,
+      "counts": {
+        "primary_records": 412,
+        "events": 686,
+        "evidence": 1592
+      },
+      "matches_expected": true
+    },
+    "manifest": {
+      "available": true,
+      "counts": {
+        "primary_records": 412,
+        "events": 686,
+        "evidence": 1592
+      },
+      "matches_expected": true
+    }
+  },
+  "status": "pass"
+}
