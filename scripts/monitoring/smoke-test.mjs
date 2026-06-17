@@ -2,6 +2,7 @@ import { MONITOR_NAMES } from './core/constants.mjs';
 import { monitorRegistryNames, MONITOR_REGISTRY } from './core/monitor-registry.mjs';
 import { loadCanonicalData } from './core/load-canonical-data.mjs';
 import { createMonitorResult, runMonitorSafely } from './core/finding-utils.mjs';
+import { runReviewedBundleAggregationRegression } from '../test-reviewed-bundle-aggregation.mjs';
 
 function assert(condition, message) {
   if (!condition) {
@@ -56,6 +57,7 @@ async function main() {
   });
   validateMonitorResult(synthetic, 'smoke-synthetic');
 
+  runReviewedBundleAggregationRegression();
   console.log('HEI monitoring smoke test passed.');
 }
 
