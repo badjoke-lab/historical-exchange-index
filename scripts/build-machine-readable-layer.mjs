@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { loadReviewedBundles, mergeRecords } from './lib/reviewed-bundle-aggregation.mjs'
 
 const root = process.cwd()
 const publicDir = path.join(root, 'public')
@@ -9,78 +10,6 @@ const mainRoutes = ['/', '/dead/', '/active/', '/exchange/{slug}/', '/stats/', '
 function readJson(relativePath, fallback = []) {
   const filePath = path.join(root, relativePath)
   return fs.existsSync(filePath) ? JSON.parse(fs.readFileSync(filePath, 'utf8')) : fallback
-}
-
-function normalizeIdentity(value) {
-  if (!value) return null
-  return String(value).trim().toLowerCase().replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '') || null
-}
-
-function entityIdentityKeys(entity) {
-  return new Set([
-    entity.id,
-    entity.slug,
-    entity.canonical_name,
-    entity.official_domain_original,
-    entity.official_url_original,
-    ...(entity.aliases ?? []),
-  ].map(normalizeIdentity).filter(Boolean))
-}
-
-function loadReviewedBundles(canonicalEntities) {
-  const recordsDir = path.join(root, 'records', 'exchanges')
-  if (!fs.existsSync(recordsDir)) return { all: [], newEntityBundles: [] }
-
-  const seen = new Set(canonicalEntities.flatMap((entity) => [...entityIdentityKeys(entity)]))
-  const all = []
-  const newEntityBundles = []
-
-  for (const fileName of fs.readdirSync(recordsDir).filter((name) => name.endsWith('.json')).sort()) {
-    const bundle = readJson(path.join('records', 'exchanges', fileName), null)
-    if (!bundle?.entity || !Array.isArray(bundle.events) || !Array.isArray(bundle.evidence)) {
-      throw new Error(`${fileName}: expected { entity, events, evidence }`)
-    }
-    const entry = { fileName, bundle }
-    all.push(entry)
-    const keys = entityIdentityKeys(bundle.entity)
-    if ([...keys].some((key) => seen.has(key))) continue
-    newEntityBundles.push(entry)
-    for (const key of keys) seen.add(key)
-  }
-
-  return { all, newEntityBundles }
-}
-
-function stableStringify(value) {
-  if (Array.isArray(value)) return `[${value.map(stableStringify).join(',')}]`
-  if (value && typeof value === 'object') {
-    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`).join(',')}}`
-  }
-  return JSON.stringify(value)
-}
-
-function mergeRecords(canonicalRecords, bundles, field, label) {
-  const canonicalIds = new Set()
-  for (const record of canonicalRecords) {
-    if (!record?.id) throw new Error(`canonical data: ${label} record is missing id`)
-    if (canonicalIds.has(record.id)) throw new Error(`canonical data: duplicate ${label} id: ${record.id}`)
-    canonicalIds.add(record.id)
-  }
-
-  const additions = new Map()
-  for (const { fileName, bundle } of bundles) {
-    for (const record of bundle[field]) {
-      if (!record?.id) throw new Error(`${fileName}: ${label} record is missing id`)
-      if (canonicalIds.has(record.id)) continue
-
-      const existing = additions.get(record.id)
-      if (existing && stableStringify(existing) !== stableStringify(record)) {
-        throw new Error(`${fileName}: conflicting ${label} id: ${record.id}`)
-      }
-      additions.set(record.id, record)
-    }
-  }
-  return [...canonicalRecords, ...additions.values()]
 }
 
 function countBy(items, key) {
@@ -112,7 +41,7 @@ function writeText(relativePath, value) {
 const canonicalEntities = readJson('data/entities.json')
 const canonicalEvents = readJson('data/events.json')
 const canonicalEvidence = readJson('data/evidence.json')
-const { all: reviewedBundles, newEntityBundles } = loadReviewedBundles(canonicalEntities)
+const { all: reviewedBundles, newEntityBundles } = loadReviewedBundles(root, canonicalEntities)
 const entities = [...canonicalEntities, ...newEntityBundles.map(({ bundle }) => bundle.entity)]
 const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event')
 const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence')
