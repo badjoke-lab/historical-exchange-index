@@ -23,3 +23,4 @@ replaceOnce(
 )
 
 fs.writeFileSync(file, text)
+console.log('Roadmap checkpoint updated for PR #396.')
