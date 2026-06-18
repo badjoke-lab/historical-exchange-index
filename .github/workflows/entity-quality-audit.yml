@@ -1,0 +1,28 @@
+name: Entity quality audit
+
+on:
+  push:
+    branches: [work-392]
+    paths:
+      - .github/workflows/entity-quality-audit.yml
+      - scripts/audit-entity-quality.mjs
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: work-392
+      - name: Audit entity quality
+        run: node scripts/audit-entity-quality.mjs
+      - uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: Record entity quality audit
+          branch: work-392
