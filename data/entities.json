@@ -3367,13 +3367,13 @@
     "summary": "Advanced trading surface under Coinbase that was replaced by Coinbase Advanced, with customer history access ending after December 2023.",
     "official_url_original": "https://pro.coinbase.com/",
     "official_domain_original": "pro.coinbase.com",
-    "official_url_status": "redirected_or_retired",
+    "official_url_status": "redirected",
     "archived_url": "https://web.archive.org/web/*/https://pro.coinbase.com/",
     "predecessor_id": null,
     "successor_id": "hei_ex_000012",
     "confidence": "high",
-    "last_verified_at": "2026-04-15",
-    "notes": "Lineage-sensitive product transition. After balance migration, customers could no longer deposit, withdraw, or trade on Coinbase Pro, and transaction history remained accessible only until the end of 2023."
+    "last_verified_at": "2026-06-18",
+    "notes": "Lineage-sensitive product transition. After balance migration, customers could no longer deposit, withdraw, or trade on Coinbase Pro, and transaction history remained accessible only until the end of 2023. URL audit 2026-06-18: The original Coinbase Pro URL now redirects to Coinbase Advanced Trade."
   },
   {
     "id": "hei_ex_000160",
@@ -5815,13 +5815,13 @@
     "summary": "Non-custodial peer-to-peer cryptocurrency marketplace launched in 2017 as LocalEthereum and rebranded to LocalCryptos in 2019 when it added Bitcoin support. LocalCryptos announced a voluntary wind-down in October 2022 and disabled new trade creation after 2022-11-18, while keeping its non-custodial wallet interface available.",
     "official_url_original": "https://localcryptos.com/",
     "official_domain_original": "localcryptos.com",
-    "official_url_status": "partial",
+    "official_url_status": "repurposed",
     "archived_url": "https://web.archive.org/web/*/https://localcryptos.com/",
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-29",
-    "notes": "HEI models LocalCryptos as a dead P2P / DEX-like marketplace because new trade creation was disabled after 2022-11-18. The website and wallet interface may remain available, so official_url_status is partial rather than offline."
+    "last_verified_at": "2026-06-18",
+    "notes": "HEI models LocalCryptos as a dead P2P / DEX-like marketplace because new trade creation was disabled after 2022-11-18. The website and wallet interface may remain available, so official_url_status is partial rather than offline. URL audit 2026-06-18: The original domain is retained for non-trading wallet or publication functions rather than an active exchange marketplace."
   },
   {
     "id": "hei_ex_000269",
@@ -5947,13 +5947,13 @@
     "summary": "Small centralized altcoin exchange launched in 2014. CoinGather abruptly went offline in November 2017 after user withdrawal complaints, and the domain was later seized by the FBI / DOJ in relation to forfeiture proceedings over cryptocurrency wallets accessible through the exchange.",
     "official_url_original": "https://www.coingather.com/",
     "official_domain_original": "coingather.com",
-    "official_url_status": "offline",
+    "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://www.coingather.com/",
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-29",
-    "notes": "HEI uses scam_rug as the death_reason because contemporary reporting described CoinGather as abruptly disappearing after withdrawal problems and later reporting / DOJ material tied the exchange to seized assets. This should be read as suspected / reported exit-scam context, not as a final criminal adjudication in this record."
+    "last_verified_at": "2026-06-18",
+    "notes": "HEI uses scam_rug as the death_reason because contemporary reporting described CoinGather as abruptly disappearing after withdrawal problems and later reporting / DOJ material tied the exchange to seized assets. This should be read as suspected / reported exit-scam context, not as a final criminal adjudication in this record. URL audit 2026-06-18: The original domain did not return a usable exchange service during the bounded URL audit; archived access is preferred."
   },
   {
     "id": "hei_ex_000274",
@@ -5998,13 +5998,13 @@
     "summary": "Early European Bitcoin exchange / order-matching market announced in April 2011. After degraded service, the operator disclosed in December 2012 that customer funds had been used for speculation and nearly 20,000 BTC had been lost; by March 2013, investor communications stated that BitMarket.eu operations would be closed down.",
     "official_url_original": "https://bitmarket.eu/",
     "official_domain_original": "bitmarket.eu",
-    "official_url_status": "offline",
+    "official_url_status": "repurposed",
     "archived_url": "https://web.archive.org/web/*/https://bitmarket.eu/",
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-29",
-    "notes": "HEI treats BitMarket.eu separately from BitMarket.pl. The death_reason is insolvency because contemporary records describe customer funds being lost through operator speculation and old balances being frozen. The 2013-03-19 date is used as the terminal operations-closed marker from investor communications."
+    "last_verified_at": "2026-06-18",
+    "notes": "HEI treats BitMarket.eu separately from BitMarket.pl. The death_reason is insolvency because contemporary records describe customer funds being lost through operator speculation and old balances being frozen. The 2013-03-19 date is used as the terminal operations-closed marker from investor communications. URL audit 2026-06-18: The original domain now serves a Bitcoin magazine rather than the former exchange."
   },
   {
     "id": "hei_ex_000276",
@@ -6050,13 +6050,13 @@
     "summary": "Centralized cryptocurrency exchange originally known as Stocks.exchange and later presented as STEX. Market-data references describe STEX as previously Stocks.exchange and launched around 2017. Current tracker pages show no available markets / no operational trading data or mark the exchange as no longer operational, so HEI models the record as inactive rather than dead.",
     "official_url_original": "https://stocks.exchange/",
     "official_domain_original": "stocks.exchange",
-    "official_url_status": "offline",
+    "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://stocks.exchange/",
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
-    "last_verified_at": "2026-04-29",
-    "notes": "HEI treats Stocks.exchange and STEX as the same historical exchange record because multiple tracker references describe STEX as previously Stocks.exchange. The record is inactive rather than dead because the evidence set supports no active market data / no longer operational status, but does not establish a clean official terminal shutdown date."
+    "last_verified_at": "2026-06-18",
+    "notes": "HEI treats Stocks.exchange and STEX as the same historical exchange record because multiple tracker references describe STEX as previously Stocks.exchange. The record is inactive rather than dead because the evidence set supports no active market data / no longer operational status, but does not establish a clean official terminal shutdown date. URL audit 2026-06-18: The original domain did not return a usable exchange service during the bounded URL audit; archived access is preferred."
   },
   {
     "id": "hei_ex_000278",
@@ -6075,13 +6075,13 @@
     "summary": "Argentina-based centralized cryptocurrency exchange founded around 2015. SouthXchange later announced that it was concluding all operational activities; tracker references preserve that deposits and trading were deactivated and users were told to withdraw remaining funds before 2024-01-31.",
     "official_url_original": "https://www.southxchange.com/",
     "official_domain_original": "southxchange.com",
-    "official_url_status": "partial",
+    "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://www.southxchange.com/",
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-04-29",
-    "notes": "HEI uses voluntary_shutdown because current tracker references preserve SouthXchange's own wind-down message: operational activities are concluding, deposits and trading are deactivated, and users were instructed to withdraw funds before 2024-01-31. The site may remain reachable for notice / withdrawal context, so official_url_status is partial rather than offline."
+    "last_verified_at": "2026-06-18",
+    "notes": "HEI uses voluntary_shutdown because current tracker references preserve SouthXchange's own wind-down message: operational activities are concluding, deposits and trading are deactivated, and users were instructed to withdraw funds before 2024-01-31. The site may remain reachable for notice / withdrawal context, so official_url_status is partial rather than offline. URL audit 2026-06-18: The wind-down period has ended and the original domain did not return a usable service during the bounded URL audit."
   },
   {
     "id": "hei_ex_000279",
@@ -6104,13 +6104,13 @@
     "summary": "China-linked centralized cryptocurrency exchange founded around 2013. AEX faced a liquidity crisis and withdrawal restrictions in mid-2022, then announced on 2022-07-17 that all platform services would be suspended in order to cooperate with a Guangxi police investigation.",
     "official_url_original": "https://www.aex.com/",
     "official_domain_original": "aex.com",
-    "official_url_status": "partial",
+    "official_url_status": "repurposed",
     "archived_url": "https://web.archive.org/web/*/https://www.aex.com/",
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-05-01",
-    "notes": "HEI uses regulation as the primary death_reason because the terminal service suspension was announced as cooperation with a Guangxi police investigation. The record also notes the preceding liquidity crisis and withdrawal restrictions in June-July 2022."
+    "last_verified_at": "2026-06-18",
+    "notes": "HEI uses regulation as the primary death_reason because the terminal service suspension was announced as cooperation with a Guangxi police investigation. The record also notes the preceding liquidity crisis and withdrawal restrictions in June-July 2022. URL audit 2026-06-18: The original domain now serves A-Trust creditor and AUSD recovery information rather than the former exchange."
   },
   {
     "id": "hei_ex_000280",
@@ -6710,13 +6710,13 @@
     "summary": "Dutch cryptocurrency broker and exchange-style service operated by Coin Meester B.V., previously known as Bitcoin Meester and Bitladon. Kraken announced an agreement to acquire BCM in October 2023 and later announced completion of the acquisition in September 2024. BCM subsequently directed users toward Kraken, and BCM communications described the acquisition as completed on 2025-01-07. HEI treats the independent BCM Exchange entity as acquired rather than simply dead because the service was absorbed into Kraken.",
     "official_url_original": "https://www.bcmtoday.com/",
     "official_domain_original": "bcmtoday.com",
-    "official_url_status": "redirect_or_acquired",
+    "official_url_status": "repurposed",
     "archived_url": "https://web.archive.org/web/*/https://www.bcmtoday.com/",
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-05-11",
-    "notes": "HEI uses status acquired and death_reason acquisition because Kraken completed the BCM acquisition and BCM users were directed toward Kraken. successor_id remains null because Kraken is not currently linked as a successor entity in this record."
+    "last_verified_at": "2026-06-18",
+    "notes": "HEI uses status acquired and death_reason acquisition because Kraken completed the BCM acquisition and BCM users were directed toward Kraken. successor_id remains null because Kraken is not currently linked as a successor entity in this record. URL audit 2026-06-18: The original domain now serves a post-acquisition migration page directing former BCM users to Kraken."
   },
   {
     "id": "hei_ex_000302",
@@ -6737,13 +6737,13 @@
     "summary": "Singapore-based cryptocurrency exchange operated by LINE before the launch of BITFRONT. BITBOX launched around mid-2018 as LINE's global crypto-to-crypto exchange. In February 2020, LINE closed or replaced the Singapore BITBOX service and rolled out BITFRONT, a U.S.-based global platform. HEI treats Bitbox as rebranded with BITFRONT as successor.",
     "official_url_original": "https://www.bitbox.me/",
     "official_domain_original": "bitbox.me",
-    "official_url_status": "rebranded",
+    "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://www.bitbox.me/",
     "predecessor_id": null,
     "successor_id": "hei_ex_000128",
     "confidence": "high",
-    "last_verified_at": "2026-05-11",
-    "notes": "HEI uses status rebranded and death_reason rebrand because Cryptowisser lists Bitbox in the Exchange Graveyard with reason Rebranding, and public exchange profiles describe BITFRONT as previously known as BITBOX. successor_id points to the existing BITFRONT record."
+    "last_verified_at": "2026-06-18",
+    "notes": "HEI uses status rebranded and death_reason rebrand because Cryptowisser lists Bitbox in the Exchange Graveyard with reason Rebranding, and public exchange profiles describe BITFRONT as previously known as BITBOX. successor_id points to the existing BITFRONT record. URL audit 2026-06-18: The original BITBOX domain did not return a usable service during the bounded URL audit; the successor relationship remains recorded separately."
   },
   {
     "id": "hei_ex_000303",
@@ -6849,13 +6849,13 @@
     "summary": "Instant cryptocurrency exchange service originally operated as AlfaCashier / ALFAcashier. Alfacash's own history describes the service as founded in May 2012 as an electronic currency exchange service and later supporting Bitcoin and other cryptocurrencies. In 2020, ALFAcashier rebranded to Alfacash / alfa.cash; Cryptowisser's Exchange Graveyard lists AlfaCashier with a 2020-11-25 rebranding marker. HEI treats the AlfaCashier identity as rebranded rather than simply dead.",
     "official_url_original": "https://www.alfacashier.com/",
     "official_domain_original": "alfacashier.com",
-    "official_url_status": "rebranded",
+    "official_url_status": "redirected",
     "archived_url": "https://web.archive.org/web/*/https://www.alfacashier.com/",
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-05-12",
-    "notes": "HEI uses status rebranded and death_reason rebrand because Alfacash states that ALFAcashier rebranded to alfa.cash in 2020, and Cryptowisser Exchange Graveyard lists AlfaCashier with a 2020-11-25 Rebranding marker. successor_id remains null because Alfacash is not yet a canonical HEI entity."
+    "last_verified_at": "2026-06-18",
+    "notes": "HEI uses status rebranded and death_reason rebrand because Alfacash states that ALFAcashier rebranded to alfa.cash in 2020, and Cryptowisser Exchange Graveyard lists AlfaCashier with a 2020-11-25 Rebranding marker. successor_id remains null because Alfacash is not yet a canonical HEI entity. URL audit 2026-06-18: The original ALFAcashier URL redirects to the successor alfa.cash service."
   },
   {
     "id": "hei_ex_000307",
@@ -6930,13 +6930,13 @@
     "summary": "Cryptocurrency social trading and derivatives platform that operated under the Bingbon brand before becoming BingX. BingX official support materials describe the platform's development since 2018 and announced a new brand identity in November 2021. Cryptowisser states that Bingbon rebranded into BingX, and BingX profiles describe the current exchange as born from a rebranding of Bingbon. HEI treats the Bingbon identity as rebranded, with the existing BingX record as successor.",
     "official_url_original": "https://www.bingbon.com/",
     "official_domain_original": "bingbon.com",
-    "official_url_status": "rebranded",
+    "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://www.bingbon.com/",
     "predecessor_id": null,
     "successor_id": "hei_ex_000101",
     "confidence": "high",
-    "last_verified_at": "2026-05-12",
-    "notes": "HEI uses status rebranded and death_reason rebrand because BingX official materials announced the new brand identity in November 2021 and Cryptowisser states that Bingbon rebranded into BingX. successor_id points to the existing BingX record."
+    "last_verified_at": "2026-06-18",
+    "notes": "HEI uses status rebranded and death_reason rebrand because BingX official materials announced the new brand identity in November 2021 and Cryptowisser states that Bingbon rebranded into BingX. successor_id points to the existing BingX record. URL audit 2026-06-18: The original Bingbon domain did not return a usable service during the bounded URL audit; the BingX successor relationship remains recorded separately."
   },
   {
     "id": "hei_ex_000310",
@@ -6957,13 +6957,13 @@
     "summary": "Cross-chain DEX and bridge protocol originally known as Anyswap. Multichain's official rebrand announcement states that Anyswap was founded in July 2020, was originally positioned as a cross-chain DEX, removed the DEX function in early 2021, and officially rebranded as Multichain on 2021-12-16. CoinDesk and later Multichain materials also describe Multichain as formerly Anyswap. HEI treats the Anyswap identity as rebranded rather than simply dead.",
     "official_url_original": "https://anyswap.exchange/",
     "official_domain_original": "anyswap.exchange",
-    "official_url_status": "rebranded",
+    "official_url_status": "live_unverified",
     "archived_url": "https://web.archive.org/web/*/https://anyswap.exchange/",
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-05-12",
-    "notes": "HEI uses status rebranded and death_reason rebrand because Multichain's official announcement says Anyswap shall be known as Multichain from 2021-12-16. successor_id remains null because Multichain is not yet a canonical HEI entity. country_or_origin follows the Singapore dateline in official Multichain PR materials and should be treated as source-context based."
+    "last_verified_at": "2026-06-18",
+    "notes": "HEI uses status rebranded and death_reason rebrand because Multichain's official announcement says Anyswap shall be known as Multichain from 2021-12-16. successor_id remains null because Multichain is not yet a canonical HEI entity. country_or_origin follows the Singapore dateline in official Multichain PR materials and should be treated as source-context based. URL audit 2026-06-18: The original Anyswap domain still responds but the bounded audit could not verify a current maintained exchange surface."
   },
   {
     "id": "hei_ex_000311",
@@ -7036,12 +7036,12 @@
     "summary": "Cryptocurrency exchange that halted withdrawals in June 2022 during a liquidity dispute involving a large counterparty. CoinFLEX later became linked to the Open Exchange / OPNX transition, with OPNX positioned as a new venue connected to CoinFLEX leadership and creditor recovery plans. HEI treats CoinFLEX as a rebranded / superseded exchange identity with OPNX as the successor record, while retaining the 2022 withdrawal halt as the critical failure event.",
     "official_url_original": "https://coinflex.com/",
     "official_domain_original": "coinflex.com",
-    "official_url_status": "dead_or_redirected",
+    "official_url_status": "repurposed",
     "archived_url": "https://web.archive.org/web/*/https://coinflex.com/",
     "predecessor_id": null,
     "successor_id": "hei_ex_000129",
     "confidence": "medium",
-    "last_verified_at": "2026-05-16",
-    "notes": "CoinFLEX is added as a predecessor / superseded identity linked to existing OPNX record. Confidence is medium because public reporting supports the continuity, but the transition is not a simple clean exchange-name rebrand."
+    "last_verified_at": "2026-06-18",
+    "notes": "CoinFLEX is added as a predecessor / superseded identity linked to existing OPNX record. Confidence is medium because public reporting supports the continuity, but the transition is not a simple clean exchange-name rebrand. URL audit 2026-06-18: The original CoinFLEX domain now serves creditor recovery and court-information content rather than the former exchange."
   }
 ]
