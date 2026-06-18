@@ -4,6 +4,8 @@ import path from 'node:path'
 const root = process.cwd()
 const events = JSON.parse(fs.readFileSync(path.join(root, 'data', 'events.json'), 'utf8'))
 const evidence = JSON.parse(fs.readFileSync(path.join(root, 'data', 'evidence.json'), 'utf8'))
+const scope = process.argv.find((value) => value.startsWith('--scope='))?.split('=')[1] ?? 'all'
+const strict = process.argv.includes('--strict')
 
 const allowed = {
   event_type: new Set([
@@ -44,17 +46,22 @@ function summarize(items, field, idField = 'id') {
 }
 
 const report = {
-  generated_at: new Date().toISOString(),
   event_type: summarize(events, 'event_type'),
   source_type: summarize(evidence, 'source_type'),
   claim_scope: summarize(evidence, 'claim_scope'),
 }
-
-for (const field of Object.keys(report).filter((key) => key !== 'generated_at')) {
-  const invalid = report[field].filter((entry) => !entry.allowed)
-  console.log(`\n${field}: ${invalid.reduce((sum, entry) => sum + entry.count, 0)} invalid record(s)`)
-  console.log(JSON.stringify(invalid, null, 2))
+const fields = scope === 'all' ? Object.keys(report) : [scope]
+if (fields.some((field) => !Object.hasOwn(report, field))) {
+  throw new Error(`Unknown enum audit scope: ${scope}`)
 }
 
-console.log('\nFULL_ENUM_AUDIT')
-console.log(JSON.stringify(report, null, 2))
+let invalidTotal = 0
+for (const field of fields) {
+  const invalid = report[field].filter((entry) => !entry.allowed)
+  const count = invalid.reduce((sum, entry) => sum + entry.count, 0)
+  invalidTotal += count
+  console.log(`${field}: ${count} invalid record(s)`)
+  if (invalid.length > 0) console.log(JSON.stringify(invalid, null, 2))
+}
+
+if (strict && invalidTotal > 0) process.exit(1)
