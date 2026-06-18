@@ -1,0 +1,28 @@
+name: Cleanup PR 388
+
+on:
+  push:
+    branches: [work-387e]
+    paths: [.github/workflows/cleanup-pr388.yml]
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: work-387e
+      - name: Remove temporary files
+        run: |
+          rm -f data-staging/.ci-trigger-388
+          rm -f .github/workflows/cleanup-pr388.yml
+      - uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: Clean temporary PR files
+          branch: work-387e
