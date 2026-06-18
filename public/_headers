@@ -1,15 +1,22 @@
 /version.json
   Content-Type: application/json; charset=utf-8
-  Cache-Control: public, max-age=300, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
 
-/data/manifest.json
+/data/*
   Content-Type: application/json; charset=utf-8
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
 
 /llms.txt
   Content-Type: text/plain; charset=utf-8
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
 
 /ai.txt
   Content-Type: text/plain; charset=utf-8
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
