@@ -1,0 +1,24 @@
+name: Legacy enum audit
+
+on:
+  push:
+    branches: [work-389]
+    paths:
+      - .github/workflows/legacy-enum-audit.yml
+      - scripts/audit-legacy-enums.mjs
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: work-389
+      - name: Audit legacy enum values
+        run: node scripts/audit-legacy-enums.mjs
