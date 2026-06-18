@@ -21,5 +21,7 @@ jobs:
         with:
           node-version: 20
 
-      - name: Audit deployed HEI public state
-        run: node scripts/audit-post394-production.mjs
+      - name: Run one-attempt diagnostic audit
+        run: |
+          sed -i 's/const maxAttempts = 18/const maxAttempts = 1/' scripts/audit-post394-production.mjs
+          node scripts/audit-post394-production.mjs
