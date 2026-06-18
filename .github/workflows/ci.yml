@@ -32,6 +32,9 @@ jobs:
       - name: Validate reviewed record bundles
         run: npm run records:validate
 
+      - name: Validate canonical event types
+        run: npm run data:check-event-types
+
       - name: Smoke test monitoring modules
         run: npm run monitor:smoke
 
