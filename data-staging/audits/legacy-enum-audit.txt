@@ -411,7 +411,7 @@ claim_scope: 26 invalid record(s)
 
 FULL_ENUM_AUDIT
 {
-  "generated_at": "2026-06-18T01:50:03.886Z",
+  "generated_at": "2026-06-18T01:56:23.376Z",
   "event_type": [
     {
       "value": "acquired",
