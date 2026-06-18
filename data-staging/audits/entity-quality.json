@@ -1,0 +1,221 @@
+{
+  "generated_at": "2026-06-18T02:34:56.216Z",
+  "totals": {
+    "entities": 306
+  },
+  "invalid_official_url_status": [
+    {
+      "id": "hei_ex_000159",
+      "slug": "coinbase-pro",
+      "value": "redirected_or_retired"
+    },
+    {
+      "id": "hei_ex_000268",
+      "slug": "localcryptos",
+      "value": "partial"
+    },
+    {
+      "id": "hei_ex_000273",
+      "slug": "coingather",
+      "value": "offline"
+    },
+    {
+      "id": "hei_ex_000275",
+      "slug": "bitmarket-eu",
+      "value": "offline"
+    },
+    {
+      "id": "hei_ex_000277",
+      "slug": "stocks-exchange",
+      "value": "offline"
+    },
+    {
+      "id": "hei_ex_000278",
+      "slug": "southxchange",
+      "value": "partial"
+    },
+    {
+      "id": "hei_ex_000279",
+      "slug": "aex",
+      "value": "partial"
+    },
+    {
+      "id": "hei_ex_000301",
+      "slug": "bcm-exchange",
+      "value": "redirect_or_acquired"
+    },
+    {
+      "id": "hei_ex_000302",
+      "slug": "bitbox",
+      "value": "rebranded"
+    },
+    {
+      "id": "hei_ex_000306",
+      "slug": "alfacashier",
+      "value": "rebranded"
+    },
+    {
+      "id": "hei_ex_000309",
+      "slug": "bingbon",
+      "value": "rebranded"
+    },
+    {
+      "id": "hei_ex_000310",
+      "slug": "anyswap",
+      "value": "rebranded"
+    },
+    {
+      "id": "hei_ex_000313",
+      "slug": "coinflex",
+      "value": "dead_or_redirected"
+    }
+  ],
+  "provisional_text": [],
+  "missing_origin": [
+    {
+      "id": "hei_ex_000129",
+      "slug": "opnx",
+      "status": "dead"
+    },
+    {
+      "id": "hei_ex_000152",
+      "slug": "cryptobridge",
+      "status": "dead"
+    }
+  ],
+  "missing_archive": [],
+  "dead_side_missing_archive": [],
+  "missing_original_domain": [],
+  "lineage_candidates_without_links": [
+    {
+      "id": "hei_ex_000127",
+      "slug": "bitbay",
+      "status": "rebranded",
+      "canonical_name": "BitBay",
+      "notes": "Future successor handling should avoid double-counting Zonda and zondacrypto as separate entities without lineage review."
+    },
+    {
+      "id": "hei_ex_000133",
+      "slug": "coinfloor",
+      "status": "acquired",
+      "canonical_name": "Coinfloor",
+      "notes": "Official successor-side support materials state that CoinCorner acquired Coinfloor in October 2021 and migrated or closed legacy accounts."
+    },
+    {
+      "id": "hei_ex_000213",
+      "slug": "justcoin",
+      "status": "acquired",
+      "canonical_name": "Justcoin",
+      "notes": "Terminal handling uses 2014-11-24 as the acquired / revived-under-new-management marker. The original operating halt on 2014-10-28 is preserved as a separate shutdown_announced / service-suspended event. Death reason is acquisition because ANX acquired the Justcoin domain and brand rights and revived the service under new management."
+    },
+    {
+      "id": "hei_ex_000217",
+      "slug": "coinmkt",
+      "status": "acquired",
+      "canonical_name": "CoinMKT",
+      "notes": "Terminal handling uses the 2015-01-27 ANX acquisition announcement as the acquired marker for the original independent CoinMKT identity. Public reporting stated that CoinMKT would continue to operate under the ANX umbrella using ANX technology. The original domain is not treated as an active continuation of the original exchange identity."
+    },
+    {
+      "id": "hei_ex_000248",
+      "slug": "cryptaldash",
+      "status": "rebranded",
+      "canonical_name": "CryptalDash",
+      "notes": "Terminal handling uses 2020-12-28 because Cryptowisser's inactive update states that CryptalDash was no longer active under the CryptalDash name and had rebranded into DLTify. Status is modeled as rebranded rather than dead because the public record describes a name/platform transition. Country/origin uses Ukraine from secondary exchange-review coverage."
+    },
+    {
+      "id": "hei_ex_000251",
+      "slug": "atomic-trade",
+      "status": "acquired",
+      "canonical_name": "Atomic Trade",
+      "notes": "Terminal handling uses 2015-02-23 because public acquisition / partnership coverage states that Atomic-Trade.com became known as Banx.io as of that date and that Banx.io bought out Atomic-Trade.com. Successor_id remains null unless / until a canonical Banx.io exchange record is added. URL status is repurposed because current references no longer establish the original Atomic Trade exchange as independently operating."
+    },
+    {
+      "id": "hei_ex_000260",
+      "slug": "btcchina",
+      "status": "rebranded",
+      "canonical_name": "BTCChina",
+      "notes": "HEI models this as the historical BTCChina brand record. The 2015-09-15 rebrand to BTCC is used as the terminal brand marker. Later BTCC trading restrictions and ownership changes should be handled separately if a BTCC successor record is modeled."
+    },
+    {
+      "id": "hei_ex_000271",
+      "slug": "chbtc",
+      "status": "rebranded",
+      "canonical_name": "CHBTC",
+      "notes": "HEI models CHBTC as rebranded rather than dead because multiple profile sources describe the China-market trading stop followed by a name change / overseas transition to ZB.com. The death_date is stored as 2017-12-31 as an end-of-year brand-transition marker, while the 2017-09-30 China-market trading stop is recorded as a separate regulatory event."
+    },
+    {
+      "id": "hei_ex_000283",
+      "slug": "litebit",
+      "status": "acquired",
+      "canonical_name": "LiteBit",
+      "notes": "HEI models LiteBit as acquired because Bitvavo acquired the LiteBit customer base after LiteBit decided to cease operations. This should not be read as a full corporate acquisition of every LiteBit asset; the record is specifically about the exchange/broker service ending and the customer-base migration to Bitvavo."
+    },
+    {
+      "id": "hei_ex_000284",
+      "slug": "crypto-facilities",
+      "status": "acquired",
+      "canonical_name": "Crypto Facilities",
+      "notes": "HEI models Crypto Facilities as acquired because Kraken acquired the company in February 2019. This is not a dead exchange record: later Kraken materials describe Crypto Facilities as a Kraken subsidiary and FCA-authorised trading venue. The terminal date here marks the independent exchange/platform identity being acquired, not corporate dissolution."
+    },
+    {
+      "id": "hei_ex_000285",
+      "slug": "bittrade-australia",
+      "status": "acquired",
+      "canonical_name": "BitTrade Australia",
+      "notes": "HEI models BitTrade Australia as acquired because Kraken acquired the Australian crypto service provider on 2020-01-14. Later regulatory materials refer to Bit Trade Pty Ltd as the operator/provider of Kraken services in Australia, so this is not a dead exchange record; the terminal date marks the end of the independent Bit Trade exchange/service identity."
+    },
+    {
+      "id": "hei_ex_000287",
+      "slug": "qryptos",
+      "status": "rebranded",
+      "canonical_name": "Qryptos",
+      "notes": "HEI uses rebranded because QRYPTOS was not an insolvency or hack shutdown; it was merged/relaunched into Liquid together with QUOINEX. A future Liquid/Liquid by Quoine entity can be linked as successor_id once present in the canonical dataset."
+    },
+    {
+      "id": "hei_ex_000295",
+      "slug": "barterdex",
+      "status": "rebranded",
+      "canonical_name": "BarterDEX",
+      "notes": "HEI uses rebranded / rebrand because Komodo materials describe BarterDEX as the previous DEX and AtomicDEX as the third-generation successor, with BarterDEX officially retired and Komodo focusing development on AtomicDEX. AtomicDEX is not linked by successor_id because it is not yet a canonical HEI entity."
+    },
+    {
+      "id": "hei_ex_000299",
+      "slug": "baybit-io",
+      "status": "rebranded",
+      "canonical_name": "BayBit.io",
+      "notes": "HEI uses status rebranded and death_reason rebrand because Cryptowisser says BayBit.io changed name to Vero Exchange around 2020-11-01 and lists BayBit.io in the Exchange Graveyard with reason Rebranding. successor_id remains null because Vero Exchange is not yet a canonical HEI entity."
+    },
+    {
+      "id": "hei_ex_000301",
+      "slug": "bcm-exchange",
+      "status": "acquired",
+      "canonical_name": "BCM Exchange",
+      "notes": "HEI uses status acquired and death_reason acquisition because Kraken completed the BCM acquisition and BCM users were directed toward Kraken. successor_id remains null because Kraken is not currently linked as a successor entity in this record."
+    },
+    {
+      "id": "hei_ex_000306",
+      "slug": "alfacashier",
+      "status": "rebranded",
+      "canonical_name": "AlfaCashier",
+      "notes": "HEI uses status rebranded and death_reason rebrand because Alfacash states that ALFAcashier rebranded to alfa.cash in 2020, and Cryptowisser Exchange Graveyard lists AlfaCashier with a 2020-11-25 Rebranding marker. successor_id remains null because Alfacash is not yet a canonical HEI entity."
+    },
+    {
+      "id": "hei_ex_000310",
+      "slug": "anyswap",
+      "status": "rebranded",
+      "canonical_name": "Anyswap",
+      "notes": "HEI uses status rebranded and death_reason rebrand because Multichain's official announcement says Anyswap shall be known as Multichain from 2021-12-16. successor_id remains null because Multichain is not yet a canonical HEI entity. country_or_origin follows the Singapore dateline in official Multichain PR materials and should be treated as source-context based."
+    }
+  ],
+  "url_consistency": [],
+  "counts": {
+    "invalid_official_url_status": 13,
+    "provisional_text": 0,
+    "missing_origin": 2,
+    "missing_archive": 0,
+    "dead_side_missing_archive": 0,
+    "missing_original_domain": 0,
+    "lineage_candidates_without_links": 17,
+    "url_consistency": 0
+  }
+}
