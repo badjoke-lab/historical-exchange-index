@@ -22,7 +22,9 @@ jobs:
           ref: work-393
       - name: Generate audit report
         run: node scripts/audit-official-url-status.mjs --report=data-staging/audits/invalid-official-url-status.json
+      - name: Update roadmap checkpoint
+        run: node scripts/update-roadmap-a1.mjs
       - uses: stefanzweifel/git-auto-commit-action@v6
         with:
-          commit_message: Record official URL status audit
+          commit_message: Record A1 validation and checkpoint
           branch: work-393
