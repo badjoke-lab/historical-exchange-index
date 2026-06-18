@@ -114,8 +114,8 @@ This section must be updated in every implementation PR.
 
 ```text
 Baseline date: 2026-06-18
-Last confirmed main SHA: 23c0ea46c05df2e2ef607effe157e6ce04569c04
-Last merged implementation PR: #391 Normalize legacy evidence claim scopes
+Last confirmed main SHA before A1: 8882d248ac06f69876ddd03ae784bd9be813169c
+Last merged implementation PR: #392 Add HEI v1 execution roadmap
 ```
 
 ### 3.2 Reviewed public counts
@@ -147,19 +147,22 @@ Maximum evidence ID:  hei_src_003183
 - monthly read-only review workflow
 - first monthly review backfill for 2026-05
 - machine-readable public layer and validation
+- repository-resident HEI v1 execution roadmap
+- A1 official URL status normalization and strict CI validation
 
 ### 3.5 Active work item
 
 ```text
-Roadmap checkpoint: R0
-State: roadmap file being placed in the repository
-Implementation work after roadmap: A1 official_url_status normalization
-Active implementation branch after this PR: none assumed; create from current main
+Roadmap checkpoint: A1
+State: official_url_status normalization completed in PR #393
+Count effect: no entity, event, or evidence count change
+Validation: 13 invalid values reduced to 0; strict CI gate added
+Next implementation item: A2 country_or_origin completion
 ```
 
 ### 3.6 Next action
 
-Create the A1 branch from the then-current `main`, rerun the entity-quality audit, and normalize all invalid `official_url_status` values with record-specific decisions.
+Start A2 from the then-current `main`, re-audit missing `country_or_origin` values, and resolve OPNX and CryptoBridge without unsupported country guesses.
 
 ---
 
@@ -206,7 +209,7 @@ Completion gate:
 - CI is green
 - the next item is explicitly A1
 
-Status: **IN PROGRESS**
+Status: **COMPLETE**
 
 ---
 
@@ -258,7 +261,7 @@ no historical URL deleted merely because it is dead
 strict validation enabled in CI
 ```
 
-Status: **NEXT**
+Status: **COMPLETE**
 
 ## A2. Fill missing `country_or_origin`
 
@@ -281,7 +284,7 @@ missing country_or_origin = 0
 no unsupported country assignment
 ```
 
-Status: pending
+Status: **NEXT**
 
 ## A3-A4. Review lineage candidates
 
