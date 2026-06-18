@@ -19,7 +19,8 @@
     "records:dedupe": "node scripts/audit-record-entity-overlaps.mjs && node scripts/check-record-duplicates.mjs",
     "backlog:dedupe": "node scripts/check-backlog-dedupe.mjs",
     "backlog:build-unadded": "node scripts/build-verified-unadded-candidates.mjs",
-    "machine:build": "node scripts/build-machine-readable-layer.mjs"
+    "machine:build": "node scripts/build-machine-readable-layer.mjs",
+    "data:check-event-types": "node scripts/audit-legacy-enums.mjs --scope=event_type --strict"
   },
   "dependencies": {
     "next": "^15.2.8",
