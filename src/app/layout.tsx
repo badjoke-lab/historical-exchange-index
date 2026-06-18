@@ -37,10 +37,13 @@ const websiteJsonLd = {
   description: SITE_DESCRIPTION,
   inLanguage: 'en',
   subjectOf: [
+    `${SITE_URL}/version.json`,
     `${SITE_URL}/data/manifest.json`,
     `${SITE_URL}/data/entities.json`,
     `${SITE_URL}/data/events.json`,
     `${SITE_URL}/data/evidence.json`,
+    `${SITE_URL}/llms.txt`,
+    `${SITE_URL}/ai.txt`,
   ],
 }
 
@@ -87,11 +90,6 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <head>
-        <link rel="alternate" type="application/json" href="/data/manifest.json" title="HEI data manifest" />
-        <link rel="alternate" type="text/plain" href="/llms.txt" title="HEI LLM guide" />
-        <link rel="alternate" type="text/plain" href="/ai.txt" title="HEI AI guide" />
-      </head>
       <body>
         <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
         <script
