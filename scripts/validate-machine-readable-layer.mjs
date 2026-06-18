@@ -4,7 +4,6 @@ import { loadReviewedBundles, mergeRecords, stableStringify } from './lib/review
 import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
 
 const root = process.cwd()
-const publicDir = path.join(root, 'public')
 
 function fail(message) {
   throw new Error(`machine-readable validation failed: ${message}`)
