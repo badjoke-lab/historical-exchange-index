@@ -772,7 +772,7 @@
   {
     "id": "hei_ev_000168",
     "exchange_id": "hei_ex_000146",
-    "event_type": "acquisition",
+    "event_type": "acquired",
     "event_date": "2011-08-11",
     "title": "Mt. Gox acquired Bitomat",
     "description": "After Bitomat lost wallet data and customer balances, Mt. Gox acquired the service and migrated users in August 2011.",
@@ -968,7 +968,7 @@
   {
     "id": "hei_ev_000182",
     "exchange_id": "hei_ex_000155",
-    "event_type": "rebrand",
+    "event_type": "rebranded",
     "event_date": "2017-12-31",
     "title": "Bter users migrated to Gate.io",
     "description": "Gate.io announced support for BTER users to move funds to gate.io, reflecting the completed brand transition.",
@@ -1066,7 +1066,7 @@
   {
     "id": "hei_ev_000189",
     "exchange_id": "hei_ex_000159",
-    "event_type": "rebrand_announced",
+    "event_type": "rebranded",
     "event_date": "2022-06-01",
     "title": "Coinbase announced the transition away from Coinbase Pro",
     "description": "Coinbase announced it would replace Coinbase Pro with Coinbase Advanced on Coinbase.",
@@ -1080,7 +1080,7 @@
   {
     "id": "hei_ev_000190",
     "exchange_id": "hei_ex_000159",
-    "event_type": "rebrand",
+    "event_type": "rebranded",
     "event_date": "2023-12-31",
     "title": "Coinbase Pro discontinued",
     "description": "Coinbase documentation states Coinbase Pro was discontinued in December 2023 and replaced by Coinbase Advanced.",
@@ -1122,7 +1122,7 @@
   {
     "id": "hei_ev_000193",
     "exchange_id": "hei_ex_000161",
-    "event_type": "relocation",
+    "event_type": "other",
     "event_date": "2020-05-25",
     "title": "Bleutrade announced move to Portugal",
     "description": "Bleutrade announced a move to Portugal and closure of its Malta office.",
@@ -2172,7 +2172,7 @@
   {
     "id": "hei_ev_000270",
     "exchange_id": "hei_ex_000192",
-    "event_type": "service_suspended",
+    "event_type": "service_outage",
     "event_date": "2024-09-18",
     "title": "Bololex Exchange website became inaccessible",
     "description": "Public exchange-status coverage stated that the Bololex Exchange website could not be accessed on 2024-09-18 and that there had been no preceding notice of maintenance, migration, or recovery plans.",
@@ -2200,7 +2200,7 @@
   {
     "id": "hei_ev_000272",
     "exchange_id": "hei_ex_000193",
-    "event_type": "service_suspended",
+    "event_type": "trading_halted",
     "event_date": "2023-01-18",
     "title": "Bitzlato was required to shut down after founder arrest",
     "description": "Public reporting stated that the arrest of Bitzlato's founder and concurrent enforcement action resulted in the platform being required to shut down.",
@@ -2228,7 +2228,7 @@
   {
     "id": "hei_ev_000274",
     "exchange_id": "hei_ex_000194",
-    "event_type": "service_suspended",
+    "event_type": "service_outage",
     "event_date": "2022-12-02",
     "title": "BQT platform showed no sign of active operations",
     "description": "Public exchange-status coverage stated that the BQT website was up but the exchange could not be accessed and the firm's last visible social activity had been earlier in 2022.",
@@ -2340,7 +2340,7 @@
   {
     "id": "hei_ev_000282",
     "exchange_id": "hei_ex_000198",
-    "event_type": "service_suspended",
+    "event_type": "service_outage",
     "event_date": "2022-02-01",
     "title": "CoinBene website became inaccessible",
     "description": "Public exchange-status coverage stated that CoinBene's website could not be reached on 2022-02-01 and that there had been no preceding messages about maintenance, migration, or any replacement site.",
@@ -2424,7 +2424,7 @@
   {
     "id": "hei_ev_000288",
     "exchange_id": "hei_ex_000201",
-    "event_type": "service_suspended",
+    "event_type": "service_outage",
     "event_date": "2021-07-15",
     "title": "CoinEgg website became inaccessible",
     "description": "Public exchange-status coverage stated that CoinEgg's website could not be reached on 2021-07-15 and that there had been no preceding messages on system maintenance, replacement sites, or similar continuity plans.",
@@ -2452,7 +2452,7 @@
   {
     "id": "hei_ev_000290",
     "exchange_id": "hei_ex_000202",
-    "event_type": "service_suspended",
+    "event_type": "service_outage",
     "event_date": "2021-03-11",
     "title": "UniDAX website became inaccessible",
     "description": "Public exchange-status coverage stated that UniDAX could not be accessed on 2021-03-11 and that there was no accompanying information on system maintenance or similar continuity messaging.",
@@ -2480,7 +2480,7 @@
   {
     "id": "hei_ev_000292",
     "exchange_id": "hei_ex_000203",
-    "event_type": "service_suspended",
+    "event_type": "service_outage",
     "event_date": "2021-04-10",
     "title": "Rfinex website became inaccessible",
     "description": "Public exchange-status coverage stated that Rfinex could not be accessed on 2021-04-10 and that there was no information on system maintenance or anything similar.",
@@ -2984,7 +2984,7 @@
   {
     "id": "hei_ev_000328",
     "exchange_id": "hei_ex_000218",
-    "event_type": "service_suspended",
+    "event_type": "trading_halted",
     "event_date": "2013-11-27",
     "title": "McxNOW suspended trading after support overload",
     "description": "McxNOW announced that it would suspend trading for several months because user growth and support requirements had overwhelmed the service, with users told to withdraw funds before the temporary closure.",
@@ -3026,7 +3026,7 @@
   {
     "id": "hei_ev_000331",
     "exchange_id": "hei_ex_000219",
-    "event_type": "service_suspended",
+    "event_type": "trading_halted",
     "event_date": "2019-02-01",
     "title": "CoinPulse suspended trading and deposits",
     "description": "CoinPulse's official notice set 2019-02-01 as the date when all trading and deposits would be suspended while withdrawals remained open.",
@@ -5116,7 +5116,7 @@
   {
     "id": "hei_ev_000480",
     "exchange_id": "hei_ex_000275",
-    "event_type": "insolvency",
+    "event_type": "insolvency_declared",
     "event_date": "2012-12-21",
     "title": "BitMarket.eu disclosed major customer-fund loss",
     "description": "The operator disclosed that customer funds had been used for speculation and that nearly 20,000 BTC of customer funds had been lost.",
@@ -5256,7 +5256,7 @@
   {
     "id": "hei_ev_000490",
     "exchange_id": "hei_ex_000279",
-    "event_type": "withdrawals_halted",
+    "event_type": "withdrawal_suspended",
     "event_date": "2022-07-14",
     "title": "AEX closed withdrawal function amid liquidity pressure",
     "description": "AEX reportedly closed the withdrawal function because short-term liquidity problems had not been resolved and the platform could not meet withdrawal demand in the short term.",
@@ -5606,7 +5606,7 @@
   {
     "id": "hei_ev_000515",
     "exchange_id": "hei_ex_000288",
-    "event_type": "withdrawals_halted",
+    "event_type": "withdrawal_suspended",
     "event_date": "2024-02-23",
     "title": "BitForex halted withdrawals and became inaccessible",
     "description": "BitForex users were unable to withdraw or access the platform after large hot-wallet outflows and a period of no communication from the exchange.",
@@ -5662,7 +5662,7 @@
   {
     "id": "hei_ev_000519",
     "exchange_id": "hei_ex_000289",
-    "event_type": "withdrawals_halted",
+    "event_type": "withdrawal_suspended",
     "event_date": "2023-05-29",
     "title": "BKEX suspended withdrawals amid police investigation",
     "description": "BKEX suspended withdrawals after stating that some platform user funds were involved in money laundering and that it was cooperating with police to collect evidence.",
@@ -5690,7 +5690,7 @@
   {
     "id": "hei_ev_000521",
     "exchange_id": "hei_ex_000290",
-    "event_type": "withdrawals_halted",
+    "event_type": "withdrawal_suspended",
     "event_date": "2022-08-02",
     "title": "ZB.com suspended deposits and withdrawals",
     "description": "ZB.com announced that deposit and withdrawal services were suspended, citing temporary maintenance / core-application failure; market trackers continued to display this suspension notice.",
@@ -6432,7 +6432,7 @@
   {
     "id": "hei_ev_000574",
     "exchange_id": "hei_ex_000313",
-    "event_type": "withdrawals_halted",
+    "event_type": "withdrawal_suspended",
     "event_date": "2022-06-23",
     "title": "CoinFLEX halted withdrawals",
     "description": "CoinFLEX suspended customer withdrawals during a liquidity dispute involving a large counterparty later identified by CoinFLEX leadership as Roger Ver.",
@@ -6460,7 +6460,7 @@
   {
     "id": "hei_ev_000576",
     "exchange_id": "hei_ex_000004",
-    "event_type": "insolvency_or_bankruptcy",
+    "event_type": "insolvency_declared",
     "event_date": "2019-02-05",
     "title": "QuadrigaCX received creditor protection after founder death and missing-funds crisis",
     "description": "QuadrigaCX sought and received creditor protection in Nova Scotia after founder Gerald Cotten's death and the reported inability to access large amounts of customer cryptocurrency.",
@@ -6474,7 +6474,7 @@
   {
     "id": "hei_ev_000577",
     "exchange_id": "hei_ex_000004",
-    "event_type": "insolvency_or_bankruptcy",
+    "event_type": "bankruptcy_filed",
     "event_date": "2019-04-08",
     "title": "QuadrigaCX moved into bankruptcy proceedings",
     "description": "QuadrigaCX moved from creditor-protection proceedings into bankruptcy proceedings in April 2019 after recovery and restructuring prospects became remote.",
@@ -6488,7 +6488,7 @@
   {
     "id": "hei_ev_000578",
     "exchange_id": "hei_ex_000004",
-    "event_type": "regulatory_review",
+    "event_type": "regulatory_action",
     "event_date": "2020-06-11",
     "title": "OSC staff review concluded Quadriga operated as a fraud",
     "description": "The Ontario Securities Commission staff review concluded that Quadriga's collapse resulted from fraud by Gerald Cotten and described the case as an old-fashioned fraud wrapped in modern technology.",
@@ -6502,7 +6502,7 @@
   {
     "id": "hei_ev_000579",
     "exchange_id": "hei_ex_000005",
-    "event_type": "shutdown_or_seizure",
+    "event_type": "shutdown_effective",
     "event_date": "2017-07-25",
     "title": "BTC-e service went offline during law-enforcement action",
     "description": "BTC-e went offline around the July 2017 law-enforcement action. Public reference material and reporting describe the 2017 outage/seizure period as the end of the original BTC-e service.",
@@ -6516,7 +6516,7 @@
   {
     "id": "hei_ev_000580",
     "exchange_id": "hei_ex_000005",
-    "event_type": "regulatory_resolution",
+    "event_type": "regulatory_action",
     "event_date": "2024-05-03",
     "title": "Alexander Vinnik pleaded guilty to money-laundering conspiracy",
     "description": "The U.S. Department of Justice announced in May 2024 that Alexander Vinnik pleaded guilty to conspiracy to commit money laundering in connection with BTC-e's operation.",
@@ -6544,7 +6544,7 @@
   {
     "id": "hei_ev_000582",
     "exchange_id": "hei_ex_000012",
-    "event_type": "regulatory_resolution",
+    "event_type": "regulatory_action",
     "event_date": "2025-02-27",
     "title": "SEC filed to dismiss civil action against Coinbase",
     "description": "The SEC filed to dismiss its civil enforcement action against Coinbase in February 2025, ending the lawsuit that began in 2023.",
@@ -6572,7 +6572,7 @@
   {
     "id": "hei_ev_000584",
     "exchange_id": "hei_ex_000017",
-    "event_type": "security_breach",
+    "event_type": "hack",
     "event_date": "2016-08-02",
     "title": "Bitfinex suffered major bitcoin theft",
     "description": "Bitfinex suffered a major security breach in August 2016. Public reporting and DOJ materials describe roughly 119,754 bitcoin stolen from the exchange.",
@@ -6586,7 +6586,7 @@
   {
     "id": "hei_ev_000585",
     "exchange_id": "hei_ex_000017",
-    "event_type": "recovery_or_settlement",
+    "event_type": "other",
     "event_date": "2022-02-08",
     "title": "U.S. authorities seized bitcoin connected to the 2016 Bitfinex hack",
     "description": "The U.S. Department of Justice announced arrests and the seizure of more than $3.6 billion in bitcoin connected to the 2016 Bitfinex hack, calling it the department's largest financial seizure at the time.",
@@ -6614,7 +6614,7 @@
   {
     "id": "hei_ev_000587",
     "exchange_id": "hei_ex_000062",
-    "event_type": "regulatory_resolution",
+    "event_type": "regulatory_action",
     "event_date": "2022-02-24",
     "title": "BitMEX founders pleaded guilty to Bank Secrecy Act violations",
     "description": "The U.S. Attorney's Office for the Southern District of New York announced that Arthur Hayes and Benjamin Delo pleaded guilty to violating the Bank Secrecy Act by willfully failing to establish, implement, and maintain an AML program at BitMEX.",
@@ -6628,7 +6628,7 @@
   {
     "id": "hei_ev_000588",
     "exchange_id": "hei_ex_000062",
-    "event_type": "regulatory_resolution",
+    "event_type": "regulatory_action",
     "event_date": "2025-01-15",
     "title": "BitMEX fined after company guilty plea",
     "description": "Reuters and WSJ reported that BitMEX was fined $100 million by a U.S. judge after the company pleaded guilty to a Bank Secrecy Act-related charge over anti-money-laundering failures.",
@@ -6642,7 +6642,7 @@
   {
     "id": "hei_ev_000589",
     "exchange_id": "hei_ex_000073",
-    "event_type": "security_breach",
+    "event_type": "hack",
     "event_date": "2025-06-18",
     "title": "Nobitex suffered major security breach",
     "description": "Nobitex suffered a major security incident in June 2025. Public reporting and blockchain analysis described more than $90 million in crypto assets being transferred to inaccessible addresses in an apparently politically motivated attack.",
@@ -6698,7 +6698,7 @@
   {
     "id": "hei_ev_000593",
     "exchange_id": "hei_ex_000115",
-    "event_type": "security_incident",
+    "event_type": "hack",
     "event_date": "2020-02-06",
     "title": "Altsbit reported a major hack",
     "description": "Altsbit reported that a February 2020 hack caused significant cryptocurrency losses across multiple assets.",
@@ -6740,7 +6740,7 @@
   {
     "id": "hei_ev_000596",
     "exchange_id": "hei_ex_000116",
-    "event_type": "withdrawals_halted",
+    "event_type": "withdrawal_suspended",
     "event_date": "2018-11-01",
     "title": "WEX stopped operating with customer funds unresolved",
     "description": "Public references describe WEX as ceasing work in late 2018 without returning customer assets, with later reporting and legal action referring to missing funds from WEX accounts.",
@@ -6852,7 +6852,7 @@
   {
     "id": "hei_ev_000604",
     "exchange_id": "hei_ex_000130",
-    "event_type": "security_incident",
+    "event_type": "hack",
     "event_date": "2017-04-22",
     "title": "Yapizon hack before rebrand",
     "description": "The exchange, then known as Yapizon, suffered a hack in 2017 before later rebranding to Youbit.",
@@ -6866,7 +6866,7 @@
   {
     "id": "hei_ev_000605",
     "exchange_id": "hei_ex_000130",
-    "event_type": "bankruptcy",
+    "event_type": "bankruptcy_filed",
     "event_date": "2017-12-19",
     "title": "Closed and filed for bankruptcy after second hack",
     "description": "Youbit announced it would close and file for bankruptcy after a second cyberattack caused another major asset loss.",
@@ -6992,7 +6992,7 @@
   {
     "id": "hei_ev_000614",
     "exchange_id": "hei_ex_000155",
-    "event_type": "security_incident",
+    "event_type": "hack",
     "event_date": "2015-02-15",
     "title": "Bter reported major BTC theft",
     "description": "Bter reported a major Bitcoin theft in February 2015, one of several incidents in the early exchange-security era.",
@@ -7048,7 +7048,7 @@
   {
     "id": "hei_ev_000618",
     "exchange_id": "hei_ex_000164",
-    "event_type": "legal_action",
+    "event_type": "insolvency_declared",
     "event_date": "2021-10-01",
     "title": "Blockchain Global entered administration and liquidation process",
     "description": "Blockchain Global later entered voluntary administration, with liquidators and regulators examining debts, creditor claims, and conduct of former directors.",
@@ -7174,7 +7174,7 @@
   {
     "id": "hei_ev_000627",
     "exchange_id": "hei_ex_000294",
-    "event_type": "shutdown_completed",
+    "event_type": "shutdown_effective",
     "event_date": "2024-11-07",
     "title": "LocalMonero final shutdown date reached",
     "description": "The official shutdown schedule set November 7, 2024 as the final website shutdown date after earlier trade and withdrawal deadlines.",
