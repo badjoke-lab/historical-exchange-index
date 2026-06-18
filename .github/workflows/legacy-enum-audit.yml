@@ -8,7 +8,7 @@ on:
       - scripts/audit-legacy-enums.mjs
 
 permissions:
-  contents: read
+  contents: write
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -21,4 +21,10 @@ jobs:
         with:
           ref: work-389
       - name: Audit legacy enum values
-        run: node scripts/audit-legacy-enums.mjs
+        run: |
+          mkdir -p data-staging/audits
+          node scripts/audit-legacy-enums.mjs | tee data-staging/audits/legacy-enum-audit.txt
+      - uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: Record legacy enum audit output
+          branch: work-389
