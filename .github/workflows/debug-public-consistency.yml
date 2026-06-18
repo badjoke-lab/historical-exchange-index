@@ -6,7 +6,6 @@ on:
 
 permissions:
   contents: read
-  pull-requests: write
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -21,21 +20,5 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci --silent >/dev/null
-      - run: npm run build --silent >/dev/null
-      - name: Capture machine validator
-        continue-on-error: true
-        run: npm run machine:validate --silent > machine-validation.log 2>&1
-      - name: Capture public output validator
-        continue-on-error: true
-        run: npm run public:validate --silent > public-output-validation.log 2>&1
-      - name: Post diagnostics
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: |
-          printf '## Public consistency diagnostics\n\n### Machine validator\n```text\n' > diagnostics.md
-          cat machine-validation.log >> diagnostics.md
-          printf '\n```\n\n### Public output validator\n```text\n' >> diagnostics.md
-          cat public-output-validation.log >> diagnostics.md
-          printf '\n```\n' >> diagnostics.md
-          gh pr comment "$PR_NUMBER" --body-file diagnostics.md
+      - name: Lint diagnostic
+        run: npm run lint --silent
