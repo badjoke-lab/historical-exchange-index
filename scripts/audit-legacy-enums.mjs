@@ -2,12 +2,17 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const root = process.cwd()
+const entities = JSON.parse(fs.readFileSync(path.join(root, 'data', 'entities.json'), 'utf8'))
 const events = JSON.parse(fs.readFileSync(path.join(root, 'data', 'events.json'), 'utf8'))
 const evidence = JSON.parse(fs.readFileSync(path.join(root, 'data', 'evidence.json'), 'utf8'))
 const scope = process.argv.find((value) => value.startsWith('--scope='))?.split('=')[1] ?? 'all'
 const strict = process.argv.includes('--strict')
 
 const allowed = {
+  official_url_status: new Set([
+    'live_verified', 'live_unverified', 'dead_domain', 'redirected',
+    'repurposed', 'unsafe', 'unknown',
+  ]),
   event_type: new Set([
     'launched', 'rebranded', 'acquired', 'merged', 'hack', 'exploit',
     'withdrawal_suspended', 'deposit_suspended', 'trading_halted',
@@ -46,6 +51,7 @@ function summarize(items, field, idField = 'id') {
 }
 
 const report = {
+  official_url_status: summarize(entities, 'official_url_status'),
   event_type: summarize(events, 'event_type'),
   source_type: summarize(evidence, 'source_type'),
   claim_scope: summarize(evidence, 'claim_scope'),

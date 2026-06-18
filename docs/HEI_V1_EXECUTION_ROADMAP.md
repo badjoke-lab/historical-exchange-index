@@ -113,9 +113,9 @@ This section must be updated in every implementation PR.
 ### 3.1 Last confirmed baseline
 
 ```text
-Baseline date: 2026-06-18
-Last confirmed main SHA: 23c0ea46c05df2e2ef607effe157e6ce04569c04
-Last merged implementation PR: #391 Normalize legacy evidence claim scopes
+Baseline date: 2026-06-19
+Last confirmed main SHA: cb3d80e4b5751537b7589d140821262a740bb491
+Last merged implementation PR: #393 Unify public HTML and machine-readable registry state
 ```
 
 ### 3.2 Reviewed public counts
@@ -147,19 +147,20 @@ Maximum evidence ID:  hei_src_003183
 - monthly read-only review workflow
 - first monthly review backfill for 2026-05
 - machine-readable public layer and validation
+- public HTML / JSON / metadata count unification and production-output consistency checks
 
 ### 3.5 Active work item
 
 ```text
-Roadmap checkpoint: R0
-State: roadmap file being placed in the repository
-Implementation work after roadmap: A1 official_url_status normalization
-Active implementation branch after this PR: none assumed; create from current main
+Roadmap checkpoint: A1 complete / A2 next
+State: A1 implementation completed in PR #394
+Next implementation item: A2 fill missing country_or_origin
+Interrupt fix baseline: PR #393 / cb3d80e4b5751537b7589d140821262a740bb491
 ```
 
 ### 3.6 Next action
 
-Create the A1 branch from the then-current `main`, rerun the entity-quality audit, and normalize all invalid `official_url_status` values with record-specific decisions.
+Begin A2 country-of-origin completion from the post-PR #394 main branch, preserving the fixed official URL status enum and strict CI gate.
 
 ---
 
@@ -206,7 +207,7 @@ Completion gate:
 - CI is green
 - the next item is explicitly A1
 
-Status: **IN PROGRESS**
+Status: **COMPLETED**
 
 ---
 
@@ -258,7 +259,7 @@ no historical URL deleted merely because it is dead
 strict validation enabled in CI
 ```
 
-Status: **NEXT**
+Status: **COMPLETED**
 
 ## A2. Fill missing `country_or_origin`
 
