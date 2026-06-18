@@ -6,6 +6,7 @@ on:
     paths:
       - .github/workflows/legacy-enum-audit.yml
       - scripts/audit-legacy-enums.mjs
+      - scripts/export-invalid-enum-records.mjs
 
 permissions:
   contents: write
@@ -24,7 +25,8 @@ jobs:
         run: |
           mkdir -p data-staging/audits
           node scripts/audit-legacy-enums.mjs | tee data-staging/audits/legacy-enum-audit.txt
+          node scripts/export-invalid-enum-records.mjs
       - uses: stefanzweifel/git-auto-commit-action@v6
         with:
-          commit_message: Record legacy enum audit output
+          commit_message: Record detailed legacy enum audit
           branch: work-389
