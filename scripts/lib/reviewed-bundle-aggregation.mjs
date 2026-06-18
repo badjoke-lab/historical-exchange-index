@@ -46,6 +46,37 @@ export function classifyReviewedBundles(canonicalEntities, entries) {
   return { all, newEntityBundles }
 }
 
+export function buildBundleEntityIdMap(canonicalEntities, entries) {
+  const identityOwner = new Map()
+  const sourceToCanonical = new Map(canonicalEntities.map((entity) => [entity.id, entity.id]))
+
+  for (const entity of canonicalEntities) {
+    for (const key of entityIdentityKeys(entity)) {
+      if (!identityOwner.has(key)) identityOwner.set(key, entity.id)
+    }
+  }
+
+  for (const { fileName, bundle } of entries) {
+    if (!bundle?.entity?.id) throw new Error(`${fileName}: bundle entity is missing id`)
+    const keys = [...entityIdentityKeys(bundle.entity)]
+    const matches = [...new Set(keys.map((key) => identityOwner.get(key)).filter(Boolean))]
+    if (matches.length > 1) {
+      throw new Error(`${fileName}: bundle entity matches multiple canonical entities: ${matches.join(', ')}`)
+    }
+
+    const canonicalId = matches[0] ?? bundle.entity.id
+    sourceToCanonical.set(bundle.entity.id, canonicalId)
+
+    if (matches.length === 0) {
+      for (const key of keys) {
+        if (!identityOwner.has(key)) identityOwner.set(key, canonicalId)
+      }
+    }
+  }
+
+  return sourceToCanonical
+}
+
 export function loadReviewedBundles(root, canonicalEntities) {
   const recordsDir = path.join(root, 'records', 'exchanges')
   if (!fs.existsSync(recordsDir)) return { all: [], newEntityBundles: [] }
