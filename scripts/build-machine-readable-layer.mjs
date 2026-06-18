@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { loadReviewedBundles, mergeRecords } from './lib/reviewed-bundle-aggregation.mjs'
+import { buildBundleEntityIdMap, loadReviewedBundles, mergeRecords } from './lib/reviewed-bundle-aggregation.mjs'
 import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
 
 const root = process.cwd()
@@ -45,6 +45,7 @@ const canonicalEvidence = readJson('data/evidence.json')
 const { all: reviewedBundles, newEntityBundles } = loadReviewedBundles(root, canonicalEntities)
 const correctedCanonicalEntities = applyReviewedEntityCorrections(canonicalEntities, reviewedBundles)
 const entities = [...correctedCanonicalEntities, ...newEntityBundles.map(({ bundle }) => bundle.entity)]
+const bundleEntityIdMap = buildBundleEntityIdMap(correctedCanonicalEntities, reviewedBundles)
 const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event')
 const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence')
 const generatedAt = new Date().toISOString()
@@ -52,8 +53,9 @@ const recordsLastReviewedAt = latestReviewedAt(entities)
 const activeSide = new Set(['active', 'limited', 'inactive'])
 const deadSide = new Set(['dead', 'merged', 'acquired', 'rebranded'])
 const entityById = new Map(entities.map((entity) => [entity.id, entity]))
+const canonicalExchangeId = (exchangeId) => bundleEntityIdMap.get(exchangeId) ?? exchangeId
 const canonicalPageUrl = (exchangeId) => {
-  const entity = entityById.get(exchangeId)
+  const entity = entityById.get(canonicalExchangeId(exchangeId))
   return entity ? `${canonicalOrigin}/exchange/${entity.slug}/` : null
 }
 const publicEntities = entities.map((entity) => ({
@@ -61,18 +63,26 @@ const publicEntities = entities.map((entity) => ({
   record_type: 'exchange_entity',
   canonical_page_url: `${canonicalOrigin}/exchange/${entity.slug}/`,
 }))
-const publicEvents = events.map((event) => ({
-  ...event,
-  record_type: 'exchange_event',
-  exchange_slug: entityById.get(event.exchange_id)?.slug ?? null,
-  canonical_page_url: canonicalPageUrl(event.exchange_id),
-}))
-const publicEvidence = evidence.map((item) => ({
-  ...item,
-  record_type: 'exchange_evidence',
-  exchange_slug: entityById.get(item.exchange_id)?.slug ?? null,
-  canonical_page_url: canonicalPageUrl(item.exchange_id),
-}))
+const publicEvents = events.map((event) => {
+  const exchangeId = canonicalExchangeId(event.exchange_id)
+  return {
+    ...event,
+    exchange_id: exchangeId,
+    record_type: 'exchange_event',
+    exchange_slug: entityById.get(exchangeId)?.slug ?? null,
+    canonical_page_url: canonicalPageUrl(exchangeId),
+  }
+})
+const publicEvidence = evidence.map((item) => {
+  const exchangeId = canonicalExchangeId(item.exchange_id)
+  return {
+    ...item,
+    exchange_id: exchangeId,
+    record_type: 'exchange_evidence',
+    exchange_slug: entityById.get(exchangeId)?.slug ?? null,
+    canonical_page_url: canonicalPageUrl(exchangeId),
+  }
+})
 const recordCounts = { primary_records: entities.length, events: events.length, evidence: evidence.length }
 const recordCountBreakdown = {
   exchanges: entities.length,
@@ -143,8 +153,8 @@ writeJson(path.join('data', 'manifest.json'), {
   registry_type: project.registry_type,
   canonical_source_of_truth: {
     entities: 'data/entities.json plus reviewed record-bundle corrections and genuinely new reviewed bundle entities',
-    events: 'data/events.json plus reviewed bundle events deduplicated by ID',
-    evidence: 'data/evidence.json plus reviewed bundle evidence deduplicated by ID',
+    events: 'data/events.json plus reviewed bundle events deduplicated by ID and normalized to canonical entity IDs',
+    evidence: 'data/evidence.json plus reviewed bundle evidence deduplicated by ID and normalized to canonical entity IDs',
   },
   data_model: { primary_record: 'exchange_entity', supporting_records: ['exchange_event', 'exchange_evidence'] },
   public_files: publicFiles,
@@ -207,6 +217,7 @@ Use notes:
 - Treat /version.json and /data/manifest.json as the current deployment and count authority.
 - Use /data/entities.json, /data/events.json, and /data/evidence.json for reviewed public records.
 - Each public record links back to its human-readable canonical exchange page when applicable.
+- Supporting record exchange IDs are normalized to the canonical entity ID in the public datasets.
 - This is a historical registry, not a live exchange ranking.
 - This is not an exchange recommendation site or investment advice.
 - Public data is canonical-only and excludes unreviewed candidates, internal monitoring, and private notes.
