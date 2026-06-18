@@ -1,0 +1,30 @@
+name: URL audit
+
+on:
+  push:
+    branches: [work-393]
+    paths:
+      - .github/workflows/audit-url-probe.yml
+      - scripts/probe-official-urls.mjs
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: work-393
+      - name: Generate reports
+        run: |
+          node scripts/audit-official-url-status.mjs --report=data-staging/audits/invalid-official-url-status.json
+          node scripts/probe-official-urls.mjs
+      - uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: Record URL audit results
+          branch: work-393
