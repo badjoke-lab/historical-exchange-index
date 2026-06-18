@@ -145,30 +145,23 @@ export function stableStringify(value) {
 }
 
 export function mergeRecords(canonicalRecords, bundles, field, label, entityIdMap = new Map()) {
-  const canonicalById = new Map()
+  const canonicalIds = new Set()
   for (const record of canonicalRecords) {
     if (!record?.id) throw new Error(`canonical data: ${label} record is missing id`)
-    if (canonicalById.has(record.id)) throw new Error(`canonical data: duplicate ${label} id: ${record.id}`)
-    canonicalById.set(record.id, record)
+    if (canonicalIds.has(record.id)) throw new Error(`canonical data: duplicate ${label} id: ${record.id}`)
+    canonicalIds.add(record.id)
   }
 
   const additions = new Map()
   for (const { fileName, bundle } of bundles) {
     for (const sourceRecord of bundle[field]) {
       if (!sourceRecord?.id) throw new Error(`${fileName}: ${label} record is missing id`)
+      if (canonicalIds.has(sourceRecord.id)) continue
+
       const exchangeId = entityIdMap.get(sourceRecord.exchange_id) ?? sourceRecord.exchange_id
       const record = exchangeId === sourceRecord.exchange_id
         ? sourceRecord
         : { ...sourceRecord, exchange_id: exchangeId }
-
-      const canonicalRecord = canonicalById.get(record.id)
-      if (canonicalRecord) {
-        if (stableStringify(canonicalRecord) !== stableStringify(record)) {
-          throw new Error(`${fileName}: conflicting canonical ${label} id after entity mapping: ${record.id}`)
-        }
-        continue
-      }
-
       const existing = additions.get(record.id)
       if (existing && stableStringify(existing) !== stableStringify(record)) {
         throw new Error(`${fileName}: conflicting ${label} id: ${record.id}`)
