@@ -1,9 +1,9 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { loadReviewedBundles, mergeRecords, stableStringify } from './lib/reviewed-bundle-aggregation.mjs'
+import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
 
 const root = process.cwd()
-const publicDir = path.join(root, 'public')
 
 function fail(message) {
   throw new Error(`machine-readable validation failed: ${message}`)
@@ -54,7 +54,8 @@ const canonicalEntities = readJson('data/entities.json')
 const canonicalEvents = readJson('data/events.json')
 const canonicalEvidence = readJson('data/evidence.json')
 const { all: reviewedBundles, newEntityBundles } = loadReviewedBundles(root, canonicalEntities)
-const entities = [...canonicalEntities, ...newEntityBundles.map(({ bundle }) => bundle.entity)]
+const correctedCanonicalEntities = applyReviewedEntityCorrections(canonicalEntities, reviewedBundles)
+const entities = [...correctedCanonicalEntities, ...newEntityBundles.map(({ bundle }) => bundle.entity)]
 const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event')
 const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence')
 
