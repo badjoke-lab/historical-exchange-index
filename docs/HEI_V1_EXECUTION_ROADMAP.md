@@ -114,8 +114,8 @@ This section must be updated in every implementation PR.
 
 ```text
 Baseline date: 2026-06-19
-Last confirmed main SHA: cb3d80e4b5751537b7589d140821262a740bb491
-Last merged implementation PR: #393 Unify public HTML and machine-readable registry state
+Last confirmed main SHA: 40353a503c64d4f24af449d989b6cbd70192cb03
+Last merged implementation PR: #394 Normalize canonical official URL statuses
 ```
 
 ### 3.2 Reviewed public counts
@@ -152,15 +152,15 @@ Maximum evidence ID:  hei_src_003183
 ### 3.5 Active work item
 
 ```text
-Roadmap checkpoint: A1 complete / A2 next
-State: A1 implementation completed in PR #394
-Next implementation item: A2 fill missing country_or_origin
-Interrupt fix baseline: PR #393 / cb3d80e4b5751537b7589d140821262a740bb491
+Roadmap checkpoint: deployment output repair
+State: explicit build contract in PR #396
+Paused next implementation item: A2 fill missing country_or_origin
+Baseline: PR #394 / 40353a503c64d4f24af449d989b6cbd70192cb03
 ```
 
 ### 3.6 Next action
 
-Begin A2 country-of-origin completion from the post-PR #394 main branch, preserving the fixed official URL status enum and strict CI gate.
+Complete PR #396, verify preview and public machine-readable endpoints, record the audit, then resume A2 country-of-origin completion.
 
 ---
 
