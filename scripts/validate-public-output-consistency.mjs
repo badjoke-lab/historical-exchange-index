@@ -1,0 +1,205 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import { loadReviewedBundles, mergeRecords } from './lib/reviewed-bundle-aggregation.mjs'
+import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
+
+const root = process.cwd()
+const outDir = path.join(root, 'out')
+const origin = 'https://hei.badjoke-lab.com'
+
+function fail(message) {
+  throw new Error(`public output validation failed: ${message}`)
+}
+
+function assert(condition, message) {
+  if (!condition) fail(message)
+}
+
+function readJson(relativePath) {
+  const filePath = path.join(root, relativePath)
+  assert(fs.existsSync(filePath), `missing ${relativePath}`)
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'))
+}
+
+function readOut(relativePath) {
+  const filePath = path.join(outDir, relativePath)
+  assert(fs.existsSync(filePath), `missing out/${relativePath}`)
+  return fs.readFileSync(filePath, 'utf8')
+}
+
+function stripHtml(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function assertTextCount(html, label, count, route) {
+  const text = stripHtml(html)
+  assert(text.includes(`${label} ${count}`), `${route} does not expose ${label} ${count} in static HTML`)
+}
+
+function assertCanonical(html, expected, route) {
+  const escaped = expected.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  assert(new RegExp(`<link[^>]+rel=["']canonical["'][^>]+href=["']${escaped}["']`, 'i').test(html)
+    || new RegExp(`<link[^>]+href=["']${escaped}["'][^>]+rel=["']canonical["']`, 'i').test(html), `${route} canonical link is missing or incorrect`)
+}
+
+function assertDiscovery(html, route) {
+  assert(html.includes('/data/manifest.json'), `${route} is missing JSON discovery link`)
+  assert(html.includes('/llms.txt'), `${route} is missing text discovery link`)
+}
+
+function walk(dir) {
+  if (!fs.existsSync(dir)) return []
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const fullPath = path.join(dir, entry.name)
+    return entry.isDirectory() ? walk(fullPath) : [fullPath]
+  })
+}
+
+const canonicalEntities = readJson('data/entities.json')
+const canonicalEvents = readJson('data/events.json')
+const canonicalEvidence = readJson('data/evidence.json')
+const { all: reviewedBundles, newEntityBundles } = loadReviewedBundles(root, canonicalEntities)
+const entities = [
+  ...applyReviewedEntityCorrections(canonicalEntities, reviewedBundles),
+  ...newEntityBundles.map(({ bundle }) => bundle.entity),
+]
+const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event')
+const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence')
+const deadSideStatuses = new Set(['dead', 'merged', 'acquired', 'rebranded'])
+const activeSideStatuses = new Set(['active', 'limited', 'inactive'])
+const expected = {
+  total: entities.length,
+  deadSide: entities.filter((entity) => deadSideStatuses.has(entity.status)).length,
+  activeSide: entities.filter((entity) => activeSideStatuses.has(entity.status)).length,
+  events: events.length,
+  evidence: evidence.length,
+}
+
+assert(expected.deadSide + expected.activeSide === expected.total, 'active/dead-side counts do not cover all reviewed entities')
+
+const home = readOut('index.html')
+const dead = readOut(path.join('dead', 'index.html'))
+const active = readOut(path.join('active', 'index.html'))
+const stats = readOut(path.join('stats', 'index.html'))
+const firstEntity = entities[0]
+const detail = readOut(path.join('exchange', firstEntity.slug, 'index.html'))
+
+assertTextCount(home, 'Total records', expected.total, '/')
+assertTextCount(home, 'Dead-side', expected.deadSide, '/')
+assertTextCount(home, 'Active-side', expected.activeSide, '/')
+assertTextCount(dead, 'Dead-side total:', expected.deadSide, '/dead/')
+assertTextCount(active, 'Active-side total:', expected.activeSide, '/active/')
+assertTextCount(stats, 'Total entities', expected.total, '/stats/')
+assertTextCount(stats, 'Dead-side', expected.deadSide, '/stats/')
+assertTextCount(stats, 'Active-side', expected.activeSide, '/stats/')
+assertTextCount(stats, 'Total events', expected.events, '/stats/')
+assertTextCount(stats, 'Total evidence', expected.evidence, '/stats/')
+
+for (const [route, html, canonical] of [
+  ['/', home, `${origin}/`],
+  ['/dead/', dead, `${origin}/dead/`],
+  ['/active/', active, `${origin}/active/`],
+  ['/stats/', stats, `${origin}/stats/`],
+  [`/exchange/${firstEntity.slug}/`, detail, `${origin}/exchange/${firstEntity.slug}/`],
+]) {
+  assertCanonical(html, canonical, route)
+  assertDiscovery(html, route)
+  assert(!/\b386\b/.test(stripHtml(html)), `${route} contains obsolete count 386`)
+}
+
+assert(home.includes('"@type":"Dataset"') || home.includes('&quot;@type&quot;:&quot;Dataset&quot;'), 'home Dataset JSON-LD is missing')
+assert(dead.includes('"numberOfItems":189') || dead.includes(`"numberOfItems":${expected.deadSide}`), 'dead CollectionPage JSON-LD count is missing')
+assert(active.includes('"numberOfItems":223') || active.includes(`"numberOfItems":${expected.activeSide}`), 'active CollectionPage JSON-LD count is missing')
+assert(detail.includes('application/ld+json'), 'detail JSON-LD is missing')
+
+const version = JSON.parse(readOut('version.json'))
+const manifest = JSON.parse(readOut(path.join('data', 'manifest.json')))
+const publicEntities = JSON.parse(readOut(path.join('data', 'entities.json')))
+const publicEvents = JSON.parse(readOut(path.join('data', 'events.json')))
+const publicEvidence = JSON.parse(readOut(path.join('data', 'evidence.json')))
+const llms = readOut('llms.txt')
+const ai = readOut('ai.txt')
+
+assert(version.data.record_counts.primary_records === expected.total, 'version entity count mismatch')
+assert(version.data.record_counts.events === expected.events, 'version event count mismatch')
+assert(version.data.record_counts.evidence === expected.evidence, 'version evidence count mismatch')
+assert(version.data.record_count_breakdown.dead_side === expected.deadSide, 'version dead-side mismatch')
+assert(version.data.record_count_breakdown.active_side === expected.activeSide, 'version active-side mismatch')
+assert(manifest.record_counts.primary_records === expected.total, 'manifest entity count mismatch')
+assert(manifest.record_count_breakdown.dead_side === expected.deadSide, 'manifest dead-side mismatch')
+assert(manifest.record_count_breakdown.active_side === expected.activeSide, 'manifest active-side mismatch')
+assert(manifest.data_safety.canonical_only === true, 'manifest canonical_only must be true')
+assert(manifest.data_safety.includes_unreviewed_candidates === false, 'manifest must exclude unreviewed candidates')
+
+for (const [name, collection, count] of [
+  ['entities', publicEntities, expected.total],
+  ['events', publicEvents, expected.events],
+  ['evidence', publicEvidence, expected.evidence],
+]) {
+  assert(collection.canonical_only === true, `${name} canonical_only must be true`)
+  assert(collection.record_count === count, `${name} record_count mismatch`)
+  assert(collection.records.length === count, `${name} records length mismatch`)
+  assert(collection.generated_at === version.build.generated_at, `${name} generated_at mismatch`)
+  assert(collection.records.every((record) => typeof record.canonical_page_url === 'string' && record.canonical_page_url.startsWith(`${origin}/exchange/`)), `${name} canonical_page_url is missing`)
+  const serialized = JSON.stringify(collection)
+  assert(!serialized.includes('candidate_class'), `${name} contains staging candidate fields`)
+  assert(!serialized.includes('data-staging'), `${name} contains internal staging paths`)
+}
+
+assert(publicEntities.records.every((record) => record.last_verified_at && record.confidence), 'entity identification fields are incomplete')
+assert(publicEvents.records.every((record) => record.confidence), 'event confidence is incomplete')
+assert(publicEvidence.records.every((record) => record.reliability), 'evidence reliability is incomplete')
+
+for (const endpoint of ['/version.json', '/data/manifest.json', '/data/entities.json', '/data/events.json', '/data/evidence.json', '/llms.txt', '/ai.txt']) {
+  assert(Object.values(manifest.public_files).includes(endpoint), `manifest public_files is missing ${endpoint}`)
+  assert(llms.includes(endpoint), `llms.txt is missing ${endpoint}`)
+  assert(ai.includes(endpoint) || endpoint === '/ai.txt', `ai.txt is missing ${endpoint}`)
+}
+
+for (const [label, count] of [
+  ['Total records', expected.total],
+  ['Dead-side', expected.deadSide],
+  ['Active-side', expected.activeSide],
+  ['Events', expected.events],
+  ['Evidence', expected.evidence],
+]) {
+  assert(llms.includes(`${label}: ${count}`), `llms.txt is missing ${label}: ${count}`)
+  assert(ai.includes(`${label}: ${count}`), `ai.txt is missing ${label}: ${count}`)
+}
+
+const sitemap = readOut('sitemap.xml')
+const sitemapLocations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1])
+assert(sitemapLocations.length === entities.length + 7, `sitemap URL count mismatch: ${sitemapLocations.length}`)
+for (const entity of entities) {
+  assert(sitemapLocations.includes(`${origin}/exchange/${entity.slug}/`), `sitemap missing ${entity.slug}`)
+}
+assert(!sitemap.includes('/all/'), 'sitemap includes obsolete /all/ route')
+assert(!sitemap.includes('/registry/'), 'sitemap includes obsolete /registry/ route')
+assert(!sitemap.includes('/exchanges/'), 'sitemap includes obsolete /exchanges/ route')
+
+const robots = readOut('robots.txt')
+assert(robots.includes(`${origin}/sitemap.xml`), 'robots.txt sitemap is incorrect')
+const redirects = readOut('_redirects')
+for (const obsolete of ['/index.html', '/all', '/registry', '/exchanges']) {
+  assert(redirects.includes(`${obsolete} / 301`), `_redirects is missing ${obsolete}`)
+}
+
+const textFiles = walk(outDir).filter((filePath) => {
+  const extension = path.extname(filePath)
+  return ['.html', '.json', '.txt', '.xml'].includes(extension)
+})
+const staleFiles = textFiles.filter((filePath) => /\b386\b/.test(fs.readFileSync(filePath, 'utf8')))
+assert(staleFiles.length === 0, `obsolete count 386 found in ${staleFiles.map((filePath) => path.relative(root, filePath)).join(', ')}`)
+
+for (const obsoleteDir of ['all', 'registry', 'exchanges']) {
+  assert(!fs.existsSync(path.join(outDir, obsoleteDir, 'index.html')), `obsolete route output still exists: /${obsoleteDir}/`)
+}
+
+console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence.`)
