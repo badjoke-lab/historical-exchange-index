@@ -41,6 +41,9 @@ jobs:
       - name: Validate canonical evidence claim scopes
         run: npm run data:check-claim-scopes
 
+      - name: Validate entity URL enum
+        run: npm run data:check-url-status
+
       - name: Smoke test monitoring modules
         run: npm run monitor:smoke
 
