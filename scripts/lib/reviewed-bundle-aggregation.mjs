@@ -22,37 +22,17 @@ export function entityIdentityKeys(entity) {
   ].map(normalizeIdentity).filter(Boolean))
 }
 
-export function classifyReviewedBundles(canonicalEntities, entries) {
-  const seenIdentities = new Set(
-    canonicalEntities.flatMap((entity) => [...entityIdentityKeys(entity)]),
-  )
-  const all = []
-  const newEntityBundles = []
-
-  for (const entry of entries) {
-    const { fileName, bundle } = entry
-    if (!bundle?.entity || !Array.isArray(bundle.events) || !Array.isArray(bundle.evidence)) {
-      throw new Error(`${fileName}: expected { entity, events, evidence }`)
-    }
-
-    all.push(entry)
-    const keys = entityIdentityKeys(bundle.entity)
-    if ([...keys].some((key) => seenIdentities.has(key))) continue
-
-    newEntityBundles.push(entry)
-    for (const key of keys) seenIdentities.add(key)
-  }
-
-  return { all, newEntityBundles }
-}
-
 export function buildBundleEntityIdMap(canonicalEntities, entries) {
   const identityOwner = new Map()
   const sourceToCanonical = new Map(canonicalEntities.map((entity) => [entity.id, entity.id]))
 
   for (const entity of canonicalEntities) {
     for (const key of entityIdentityKeys(entity)) {
-      if (!identityOwner.has(key)) identityOwner.set(key, entity.id)
+      const existing = identityOwner.get(key)
+      if (existing && existing !== entity.id) {
+        throw new Error(`canonical identity collision: ${key} belongs to ${existing} and ${entity.id}`)
+      }
+      identityOwner.set(key, entity.id)
     }
   }
 
@@ -61,25 +41,45 @@ export function buildBundleEntityIdMap(canonicalEntities, entries) {
     const keys = [...entityIdentityKeys(bundle.entity)]
     const matches = [...new Set(keys.map((key) => identityOwner.get(key)).filter(Boolean))]
     if (matches.length > 1) {
-      throw new Error(`${fileName}: bundle entity matches multiple canonical entities: ${matches.join(', ')}`)
+      throw new Error(`${fileName}: bundle entity matches multiple reviewed entities: ${matches.join(', ')}`)
     }
 
     const canonicalId = matches[0] ?? bundle.entity.id
     sourceToCanonical.set(bundle.entity.id, canonicalId)
 
     if (matches.length === 0) {
-      for (const key of keys) {
-        if (!identityOwner.has(key)) identityOwner.set(key, canonicalId)
-      }
+      for (const key of keys) identityOwner.set(key, canonicalId)
     }
   }
 
   return sourceToCanonical
 }
 
+export function classifyReviewedBundles(canonicalEntities, entries) {
+  const entityIdMap = buildBundleEntityIdMap(canonicalEntities, entries)
+  const all = []
+  const newEntityBundles = []
+  const acceptedIds = new Set(canonicalEntities.map((entity) => entity.id))
+
+  for (const entry of entries) {
+    const { fileName, bundle } = entry
+    if (!bundle?.entity || !Array.isArray(bundle.events) || !Array.isArray(bundle.evidence)) {
+      throw new Error(`${fileName}: expected { entity, events, evidence }`)
+    }
+
+    all.push(entry)
+    const resolvedId = entityIdMap.get(bundle.entity.id)
+    if (resolvedId !== bundle.entity.id || acceptedIds.has(bundle.entity.id)) continue
+    newEntityBundles.push(entry)
+    acceptedIds.add(bundle.entity.id)
+  }
+
+  return { all, newEntityBundles, entityIdMap }
+}
+
 export function loadReviewedBundles(root, canonicalEntities) {
   const recordsDir = path.join(root, 'records', 'exchanges')
-  if (!fs.existsSync(recordsDir)) return { all: [], newEntityBundles: [] }
+  if (!fs.existsSync(recordsDir)) return { all: [], newEntityBundles: [], entityIdMap: new Map() }
 
   const entries = fs.readdirSync(recordsDir)
     .filter((name) => name.endsWith('.json'))
@@ -103,19 +103,30 @@ export function stableStringify(value) {
   return JSON.stringify(value)
 }
 
-export function mergeRecords(canonicalRecords, bundles, field, label) {
-  const canonicalIds = new Set()
+export function mergeRecords(canonicalRecords, bundles, field, label, entityIdMap = new Map()) {
+  const canonicalById = new Map()
   for (const record of canonicalRecords) {
     if (!record?.id) throw new Error(`canonical data: ${label} record is missing id`)
-    if (canonicalIds.has(record.id)) throw new Error(`canonical data: duplicate ${label} id: ${record.id}`)
-    canonicalIds.add(record.id)
+    if (canonicalById.has(record.id)) throw new Error(`canonical data: duplicate ${label} id: ${record.id}`)
+    canonicalById.set(record.id, record)
   }
 
   const additions = new Map()
   for (const { fileName, bundle } of bundles) {
-    for (const record of bundle[field]) {
-      if (!record?.id) throw new Error(`${fileName}: ${label} record is missing id`)
-      if (canonicalIds.has(record.id)) continue
+    for (const sourceRecord of bundle[field]) {
+      if (!sourceRecord?.id) throw new Error(`${fileName}: ${label} record is missing id`)
+      const exchangeId = entityIdMap.get(sourceRecord.exchange_id) ?? sourceRecord.exchange_id
+      const record = exchangeId === sourceRecord.exchange_id
+        ? sourceRecord
+        : { ...sourceRecord, exchange_id: exchangeId }
+
+      const canonicalRecord = canonicalById.get(record.id)
+      if (canonicalRecord) {
+        if (stableStringify(canonicalRecord) !== stableStringify(record)) {
+          throw new Error(`${fileName}: conflicting canonical ${label} id after entity mapping: ${record.id}`)
+        }
+        continue
+      }
 
       const existing = additions.get(record.id)
       if (existing && stableStringify(existing) !== stableStringify(record)) {
