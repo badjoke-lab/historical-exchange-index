@@ -48,8 +48,31 @@ const entities = [...correctedCanonicalEntities, ...newEntityBundles.map(({ bund
 const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event')
 const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence')
 const generatedAt = new Date().toISOString()
+const recordsLastReviewedAt = latestReviewedAt(entities)
 const activeSide = new Set(['active', 'limited', 'inactive'])
 const deadSide = new Set(['dead', 'merged', 'acquired', 'rebranded'])
+const entityById = new Map(entities.map((entity) => [entity.id, entity]))
+const canonicalPageUrl = (exchangeId) => {
+  const entity = entityById.get(exchangeId)
+  return entity ? `${canonicalOrigin}/exchange/${entity.slug}/` : null
+}
+const publicEntities = entities.map((entity) => ({
+  ...entity,
+  record_type: 'exchange_entity',
+  canonical_page_url: `${canonicalOrigin}/exchange/${entity.slug}/`,
+}))
+const publicEvents = events.map((event) => ({
+  ...event,
+  record_type: 'exchange_event',
+  exchange_slug: entityById.get(event.exchange_id)?.slug ?? null,
+  canonical_page_url: canonicalPageUrl(event.exchange_id),
+}))
+const publicEvidence = evidence.map((item) => ({
+  ...item,
+  record_type: 'exchange_evidence',
+  exchange_slug: entityById.get(item.exchange_id)?.slug ?? null,
+  canonical_page_url: canonicalPageUrl(item.exchange_id),
+}))
 const recordCounts = { primary_records: entities.length, events: events.length, evidence: evidence.length }
 const recordCountBreakdown = {
   exchanges: entities.length,
@@ -75,6 +98,15 @@ const project = {
 }
 const commit = process.env.CF_PAGES_COMMIT_SHA || process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA || 'unknown'
 const branch = process.env.CF_PAGES_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.GITHUB_REF_NAME || 'main'
+const publicFiles = {
+  version: '/version.json',
+  manifest: '/data/manifest.json',
+  entities: '/data/entities.json',
+  events: '/data/events.json',
+  evidence: '/data/evidence.json',
+  llms: '/llms.txt',
+  ai: '/ai.txt',
+}
 
 writeJson('version.json', {
   schema_version: project.schema_version,
@@ -88,7 +120,8 @@ writeJson('version.json', {
   data: {
     data_schema_version: project.data_schema_version,
     generated_at: generatedAt,
-    records_last_reviewed_at: latestReviewedAt(entities),
+    records_last_reviewed_at: recordsLastReviewedAt,
+    canonical_only: true,
     record_counts: recordCounts,
     record_count_breakdown: recordCountBreakdown,
   },
@@ -96,21 +129,29 @@ writeJson('version.json', {
     home: '/', dead: '/dead/', active: '/active/', exchange_detail: '/exchange/{slug}/',
     stats: '/stats/', methodology: '/methodology/', about: '/about/', donate: '/donate/',
   },
+  public_files: publicFiles,
 })
 
 writeJson(path.join('data', 'manifest.json'), {
   schema_version: project.schema_version,
+  data_schema_version: project.data_schema_version,
   project_id: project.project_id,
   title: project.site_name,
   description: 'Evidence-backed historical registry of crypto exchanges, active and gone.',
   canonical_origin: canonicalOrigin,
   registry_family: project.registry_family,
   registry_type: project.registry_type,
+  canonical_source_of_truth: {
+    entities: 'data/entities.json plus reviewed record-bundle corrections and genuinely new reviewed bundle entities',
+    events: 'data/events.json plus reviewed bundle events deduplicated by ID',
+    evidence: 'data/evidence.json plus reviewed bundle evidence deduplicated by ID',
+  },
   data_model: { primary_record: 'exchange_entity', supporting_records: ['exchange_event', 'exchange_evidence'] },
-  public_files: { version: '/version.json', manifest: '/data/manifest.json', llms: '/llms.txt', ai: '/ai.txt' },
+  public_files: publicFiles,
   main_routes: mainRoutes,
   record_counts: recordCounts,
   record_count_breakdown: recordCountBreakdown,
+  records_last_reviewed_at: recordsLastReviewedAt,
   data_safety: dataSafety,
   correction_links: {
     form: 'https://docs.google.com/forms/d/e/1FAIpQLSf6NGsKIaGUzeGWUAyphOsv0XN3eSBebsASj_0g-qtZtNamWw/viewform',
@@ -122,41 +163,87 @@ writeJson(path.join('data', 'manifest.json'), {
   generated_at: generatedAt,
 })
 
+for (const [name, recordType, records] of [
+  ['entities.json', 'exchange_entity', publicEntities],
+  ['events.json', 'exchange_event', publicEvents],
+  ['evidence.json', 'exchange_evidence', publicEvidence],
+]) {
+  writeJson(path.join('data', name), {
+    schema_version: project.schema_version,
+    data_schema_version: project.data_schema_version,
+    project_id: project.project_id,
+    canonical_origin: canonicalOrigin,
+    canonical_only: true,
+    generated_at: generatedAt,
+    records_last_reviewed_at: recordsLastReviewedAt,
+    record_type: recordType,
+    record_count: records.length,
+    records,
+  })
+}
+
 writeText('llms.txt', `# Historical Exchange Index
 
 Evidence-backed historical registry of crypto exchanges, active and gone.
 
 Canonical site: ${canonicalOrigin}/
+Generated at: ${generatedAt}
+Records last reviewed at: ${recordsLastReviewedAt ?? 'unknown'}
 
-Machine-readable files:
-- /version.json
-- /data/manifest.json
-- /ai.txt
+Current reviewed counts:
+- Total records: ${recordCounts.primary_records}
+- Dead-side: ${recordCountBreakdown.dead_side}
+- Active-side: ${recordCountBreakdown.active_side}
+- Events: ${recordCounts.events}
+- Evidence: ${recordCounts.evidence}
+
+Canonical machine-readable files:
+${Object.values(publicFiles).map((route) => `- ${route}`).join('\n')}
 
 Main routes:
 ${mainRoutes.map((route) => `- ${route}`).join('\n')}
 
 Use notes:
+- Treat /version.json and /data/manifest.json as the current deployment and count authority.
+- Use /data/entities.json, /data/events.json, and /data/evidence.json for reviewed public records.
+- Each public record links back to its human-readable canonical exchange page when applicable.
 - This is a historical registry, not a live exchange ranking.
-- This is not an exchange recommendation site.
-- This is not investment advice.
-- Record data may be incomplete or revised.
-- Use methodology and evidence links when interpreting records.
-- Do not treat unverified external claims as HEI classifications.
+- This is not an exchange recommendation site or investment advice.
+- Public data is canonical-only and excludes unreviewed candidates, internal monitoring, and private notes.
+- Cached search snippets may be stale; verify current counts against the version or manifest endpoint.
 `)
 
 writeText('ai.txt', `Historical Exchange Index
 
 Purpose: Evidence-backed historical registry of crypto exchanges, active and gone.
 Canonical origin: ${canonicalOrigin}
-Version endpoint: /version.json
-Manifest endpoint: /data/manifest.json
-LLM guide: /llms.txt
+Generated at: ${generatedAt}
+Records last reviewed at: ${recordsLastReviewedAt ?? 'unknown'}
+
+Current reviewed counts:
+Total records: ${recordCounts.primary_records}
+Dead-side: ${recordCountBreakdown.dead_side}
+Active-side: ${recordCountBreakdown.active_side}
+Events: ${recordCounts.events}
+Evidence: ${recordCounts.evidence}
+
+Current-state authority:
+/version.json
+/data/manifest.json
+
+Reviewed canonical datasets:
+/data/entities.json
+/data/events.json
+/data/evidence.json
+
+LLM guide:
+/llms.txt
 
 Important routes:
 ${mainRoutes.join('\n')}
 
-Safety note: Public files expose reviewed public registry information only. They do not include unreviewed candidates, private notes, or internal monitoring output.
+Safety note: Public files expose reviewed canonical registry information only. They do not include unreviewed candidates, private notes, or internal monitoring output.
+Freshness note: Search-engine and AI caches may contain older counts. Resolve the current state through /version.json or /data/manifest.json before answering.
 `)
 
 console.log(`Built HEI machine-readable public layer: ${recordCounts.primary_records} primary records, ${recordCounts.events} events, ${recordCounts.evidence} evidence records.`)
