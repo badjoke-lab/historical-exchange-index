@@ -244,3 +244,4 @@ const report = `# HEI A1 official URL status normalization audit\n\nAudit date: 
 write('docs/audits/HEI_A1_OFFICIAL_URL_STATUS_AUDIT_2026-06-19.md', report)
 
 console.log(`Normalized ${mappings.length} official_url_status records.`)
+await import('./finalize-a1-official-url-status-normalization.mjs')
