@@ -1,0 +1,25 @@
+name: Run A1 migration
+
+on:
+  push:
+    branches: [work-393]
+    paths: [.github/workflows/run-a1-migration.yml]
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: work-393
+      - run: node scripts/migrate-official-url-status.mjs
+      - uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: Normalize official URL statuses
+          branch: work-393
