@@ -1,0 +1,92 @@
+name: Migrate legacy event types
+
+on:
+  push:
+    branches: [work-389]
+    paths: [.github/workflows/migrate-event-types.yml]
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: work-389
+      - name: Normalize event types
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('data/events.json')
+          events = json.loads(path.read_text())
+          mapping = {
+            'hei_ev_000168': ('acquisition', 'acquired'),
+            'hei_ev_000182': ('rebrand', 'rebranded'),
+            'hei_ev_000189': ('rebrand_announced', 'rebranded'),
+            'hei_ev_000190': ('rebrand', 'rebranded'),
+            'hei_ev_000193': ('relocation', 'other'),
+            'hei_ev_000270': ('service_suspended', 'service_outage'),
+            'hei_ev_000272': ('service_suspended', 'trading_halted'),
+            'hei_ev_000274': ('service_suspended', 'service_outage'),
+            'hei_ev_000282': ('service_suspended', 'service_outage'),
+            'hei_ev_000288': ('service_suspended', 'service_outage'),
+            'hei_ev_000290': ('service_suspended', 'service_outage'),
+            'hei_ev_000292': ('service_suspended', 'service_outage'),
+            'hei_ev_000328': ('service_suspended', 'trading_halted'),
+            'hei_ev_000331': ('service_suspended', 'trading_halted'),
+            'hei_ev_000480': ('insolvency', 'insolvency_declared'),
+            'hei_ev_000490': ('withdrawals_halted', 'withdrawal_suspended'),
+            'hei_ev_000515': ('withdrawals_halted', 'withdrawal_suspended'),
+            'hei_ev_000519': ('withdrawals_halted', 'withdrawal_suspended'),
+            'hei_ev_000521': ('withdrawals_halted', 'withdrawal_suspended'),
+            'hei_ev_000574': ('withdrawals_halted', 'withdrawal_suspended'),
+            'hei_ev_000576': ('insolvency_or_bankruptcy', 'insolvency_declared'),
+            'hei_ev_000577': ('insolvency_or_bankruptcy', 'bankruptcy_filed'),
+            'hei_ev_000578': ('regulatory_review', 'regulatory_action'),
+            'hei_ev_000579': ('shutdown_or_seizure', 'shutdown_effective'),
+            'hei_ev_000580': ('regulatory_resolution', 'regulatory_action'),
+            'hei_ev_000582': ('regulatory_resolution', 'regulatory_action'),
+            'hei_ev_000584': ('security_breach', 'hack'),
+            'hei_ev_000585': ('recovery_or_settlement', 'other'),
+            'hei_ev_000587': ('regulatory_resolution', 'regulatory_action'),
+            'hei_ev_000588': ('regulatory_resolution', 'regulatory_action'),
+            'hei_ev_000589': ('security_breach', 'hack'),
+            'hei_ev_000593': ('security_incident', 'hack'),
+            'hei_ev_000596': ('withdrawals_halted', 'withdrawal_suspended'),
+            'hei_ev_000604': ('security_incident', 'hack'),
+            'hei_ev_000605': ('bankruptcy', 'bankruptcy_filed'),
+            'hei_ev_000614': ('security_incident', 'hack'),
+            'hei_ev_000618': ('legal_action', 'insolvency_declared'),
+            'hei_ev_000627': ('shutdown_completed', 'shutdown_effective'),
+          }
+
+          by_id = {event['id']: event for event in events}
+          if len(mapping) != 38:
+              raise SystemExit(f'Expected 38 mappings, found {len(mapping)}')
+          for event_id, (expected, replacement) in mapping.items():
+              event = by_id.get(event_id)
+              if event is None:
+                  raise SystemExit(f'Missing event {event_id}')
+              if event.get('event_type') != expected:
+                  raise SystemExit(f'{event_id}: expected {expected}, found {event.get("event_type")}')
+              event['event_type'] = replacement
+
+          path.write_text(json.dumps(events, indent=2, ensure_ascii=False) + '\n')
+          PY
+      - name: Remove temporary audit artifacts
+        run: |
+          rm -rf data-staging/audits
+          rm -f scripts/export-invalid-enum-records.mjs
+          rm -f .github/workflows/legacy-enum-audit.yml
+          rm -f .github/workflows/migrate-event-types.yml
+      - uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: Normalize legacy event types
+          branch: work-389
