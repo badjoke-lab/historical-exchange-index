@@ -62,8 +62,9 @@ Normalize the 13 legacy `official_url_status` values to the fixed seven-value en
 
 ## Completion checks
 
-- invalid `official_url_status`: expected 0
+- invalid `official_url_status`: observed 0
 - canonical entity count: unchanged
 - historical original URLs: preserved
 - archive references: preserved
 - strict CI command: `npm run data:check-official-url-statuses`
+- reviewed public counts remain 412 entities / 687 events / 1594 evidence

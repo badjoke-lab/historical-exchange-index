@@ -152,15 +152,15 @@ Maximum evidence ID:  hei_src_003183
 ### 3.5 Active work item
 
 ```text
-Roadmap checkpoint: A1
-State: official_url_status normalization in progress
-Active implementation branch: fix/a1-official-url-status-normalization-20260619
-Interrupt fix already merged: PR #393 / cb3d80e4b5751537b7589d140821262a740bb491
+Roadmap checkpoint: A1 complete / A2 next
+State: A1 implementation completed in PR #394
+Next implementation item: A2 fill missing country_or_origin
+Interrupt fix baseline: PR #393 / cb3d80e4b5751537b7589d140821262a740bb491
 ```
 
 ### 3.6 Next action
 
-Complete A1 validation, merge the normalization PR, verify invalid `official_url_status` count remains zero, then begin A2 country-of-origin completion.
+Begin A2 country-of-origin completion from the post-PR #394 main branch, preserving the fixed official URL status enum and strict CI gate.
 
 ---
 
@@ -259,7 +259,7 @@ no historical URL deleted merely because it is dead
 strict validation enabled in CI
 ```
 
-Status: **IN PROGRESS**
+Status: **COMPLETED**
 
 ## A2. Fill missing `country_or_origin`
 

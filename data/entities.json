@@ -5821,7 +5821,7 @@
     "successor_id": null,
     "confidence": "high",
     "last_verified_at": "2026-06-19",
-    "notes": "HEI models LocalCryptos as a dead P2P / DEX-like marketplace because new trade creation was disabled after 2022-11-18. The website and wallet interface may remain available, so official_url_status is partial rather than offline."
+    "notes": "HEI models LocalCryptos as a dead P2P / DEX-like marketplace because new trade creation was disabled after 2022-11-18. The original domain remains reachable under the LocalCryptos identity, so official_url_status is live_verified even though new trade creation is disabled."
   },
   {
     "id": "hei_ex_000269",
@@ -6081,7 +6081,7 @@
     "successor_id": null,
     "confidence": "high",
     "last_verified_at": "2026-06-19",
-    "notes": "HEI uses voluntary_shutdown because current tracker references preserve SouthXchange's own wind-down message: operational activities are concluding, deposits and trading are deactivated, and users were instructed to withdraw funds before 2024-01-31. The site may remain reachable for notice / withdrawal context, so official_url_status is partial rather than offline."
+    "notes": "HEI uses voluntary_shutdown because current tracker references preserve SouthXchange's own wind-down message: operational activities are concluding, deposits and trading are deactivated, and users were instructed to withdraw funds before 2024-01-31. The original domain may remain reachable for notice or withdrawal context; current first-party behavior could not be fully verified, so official_url_status is live_unverified."
   },
   {
     "id": "hei_ex_000279",
