@@ -3,7 +3,7 @@ import fs from 'node:fs'
 const origins = [
   'https://hei.badjoke-lab.com',
   'https://historical-exchange-index.pages.dev',
-  'https://audit-post394-check.historical-exchange-index.pages.dev',
+  'https://fix-production-build-contract-20260619.historical-exchange-index.pages.dev',
 ]
 const paths = [
   '/', '/dead/', '/active/', '/stats/', '/version.json', '/data/manifest.json',
