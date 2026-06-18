@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - run: npm ci --silent
-      - run: npm run build --silent
+      - run: npm ci --silent >/dev/null
+      - run: npm run build --silent >/dev/null
       - name: Validate machine layer
         run: npm run machine:validate --silent
       - name: Validate built public output
