@@ -47,8 +47,11 @@ jobs:
       - name: Check production smoke script syntax
         run: node --check scripts/check-machine-readable-production.mjs
 
-      - name: Build
+      - name: Build static production output
         run: npm run build
 
       - name: Validate machine-readable public layer
-        run: node scripts/validate-machine-readable-layer.mjs
+        run: npm run machine:validate
+
+      - name: Validate built HTML and JSON count consistency
+        run: npm run public:validate
