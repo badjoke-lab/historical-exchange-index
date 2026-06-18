@@ -9,8 +9,11 @@ dist
 .next/
 out
 
-# Generated during npm run build
+# Generated during the Next production build
 public/version.json
 public/data/manifest.json
+public/data/entities.json
+public/data/events.json
+public/data/evidence.json
 public/llms.txt
 public/ai.txt
