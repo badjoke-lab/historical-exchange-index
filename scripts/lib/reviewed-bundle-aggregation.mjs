@@ -22,34 +22,54 @@ export function entityIdentityKeys(entity) {
   ].map(normalizeIdentity).filter(Boolean))
 }
 
+function strongIdentityKeys(entity) {
+  return new Set([
+    entity.id,
+    entity.slug,
+    entity.canonical_name,
+    entity.official_domain_original,
+    entity.official_url_original,
+  ].map(normalizeIdentity).filter(Boolean))
+}
+
+function addOwner(index, key, entityId) {
+  const owners = index.get(key) ?? new Set()
+  owners.add(entityId)
+  index.set(key, owners)
+}
+
+function findOwners(index, keys) {
+  const owners = new Set()
+  for (const key of keys) {
+    for (const entityId of index.get(key) ?? []) owners.add(entityId)
+  }
+  return owners
+}
+
 export function buildBundleEntityIdMap(canonicalEntities, entries) {
-  const identityOwner = new Map()
+  const strongIndex = new Map()
+  const allIndex = new Map()
   const sourceToCanonical = new Map(canonicalEntities.map((entity) => [entity.id, entity.id]))
 
-  for (const entity of canonicalEntities) {
-    for (const key of entityIdentityKeys(entity)) {
-      const existing = identityOwner.get(key)
-      if (existing && existing !== entity.id) {
-        throw new Error(`canonical identity collision: ${key} belongs to ${existing} and ${entity.id}`)
-      }
-      identityOwner.set(key, entity.id)
-    }
+  const register = (entity) => {
+    for (const key of strongIdentityKeys(entity)) addOwner(strongIndex, key, entity.id)
+    for (const key of entityIdentityKeys(entity)) addOwner(allIndex, key, entity.id)
   }
+  for (const entity of canonicalEntities) register(entity)
 
   for (const { fileName, bundle } of entries) {
     if (!bundle?.entity?.id) throw new Error(`${fileName}: bundle entity is missing id`)
-    const keys = [...entityIdentityKeys(bundle.entity)]
-    const matches = [...new Set(keys.map((key) => identityOwner.get(key)).filter(Boolean))]
-    if (matches.length > 1) {
-      throw new Error(`${fileName}: bundle entity matches multiple reviewed entities: ${matches.join(', ')}`)
+
+    const strongMatches = findOwners(strongIndex, strongIdentityKeys(bundle.entity))
+    const allMatches = findOwners(allIndex, entityIdentityKeys(bundle.entity))
+    const matches = strongMatches.size > 0 ? strongMatches : allMatches
+    if (matches.size > 1) {
+      throw new Error(`${fileName}: bundle entity matches multiple reviewed entities: ${[...matches].join(', ')}`)
     }
 
-    const canonicalId = matches[0] ?? bundle.entity.id
+    const canonicalId = matches.size === 1 ? [...matches][0] : bundle.entity.id
     sourceToCanonical.set(bundle.entity.id, canonicalId)
-
-    if (matches.length === 0) {
-      for (const key of keys) identityOwner.set(key, canonicalId)
-    }
+    if (matches.size === 0) register(bundle.entity)
   }
 
   return sourceToCanonical
