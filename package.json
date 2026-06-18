@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/build-machine-readable-layer.mjs && next build && node scripts/validate-machine-readable-layer.mjs && node scripts/validate-public-output-consistency.mjs",
+    "build": "next build && node scripts/validate-machine-readable-layer.mjs && node scripts/validate-public-output-consistency.mjs",
     "start": "next start",
     "lint": "next lint",
     "monitor": "node scripts/monitoring/run.mjs",
