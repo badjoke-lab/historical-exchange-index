@@ -1,0 +1,13 @@
+file:///home/runner/work/historical-exchange-index/historical-exchange-index/scripts/validate-machine-readable-layer.mjs:10
+  throw new Error(`machine-readable validation failed: ${message}`)
+        ^
+
+Error: machine-readable validation failed: events canonical_page_url is incomplete
+    at fail (file:///home/runner/work/historical-exchange-index/historical-exchange-index/scripts/validate-machine-readable-layer.mjs:10:9)
+    at assert (file:///home/runner/work/historical-exchange-index/historical-exchange-index/scripts/validate-machine-readable-layer.mjs:14:19)
+    at file:///home/runner/work/historical-exchange-index/historical-exchange-index/scripts/validate-machine-readable-layer.mjs:147:3
+    at ModuleJob.run (node:internal/modules/esm/module_job:325:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:606:24)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+
+Node.js v20.20.2
