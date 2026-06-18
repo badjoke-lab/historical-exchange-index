@@ -6,6 +6,9 @@ on:
     paths:
       - .github/workflows/public-count-consistency-audit.yml
       - scripts/audit-public-count-consistency.mjs
+      - scripts/validate-machine-readable-layer.mjs
+      - scripts/validate-public-output-consistency.mjs
+      - scripts/build-machine-readable-layer.mjs
   workflow_dispatch:
 
 permissions:
@@ -25,11 +28,18 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - run: npm ci
-      - run: npm run build
-      - name: Audit build and production
-        run: node scripts/audit-public-count-consistency.mjs
+      - run: npm ci --silent >/dev/null
+      - run: npm run build --silent >/dev/null
+      - name: Capture machine validator
+        continue-on-error: true
+        run: npm run machine:validate --silent > docs/audits/latest-machine-validation.log 2>&1
+      - name: Capture public output validator
+        continue-on-error: true
+        run: npm run public:validate --silent > docs/audits/latest-public-output-validation.log 2>&1
+      - name: Refresh production audit
+        continue-on-error: true
+        run: node scripts/audit-public-count-consistency.mjs > docs/audits/latest-production-audit.log 2>&1
       - uses: stefanzweifel/git-auto-commit-action@v6
         with:
-          commit_message: Record HEI public count audit
+          commit_message: Record HEI public consistency diagnostics
           branch: audit-count-consistency-20260618
