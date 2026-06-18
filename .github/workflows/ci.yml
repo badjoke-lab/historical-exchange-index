@@ -38,6 +38,9 @@ jobs:
       - name: Validate canonical evidence source types
         run: npm run data:check-source-types
 
+      - name: Validate canonical evidence claim scopes
+        run: npm run data:check-claim-scopes
+
       - name: Smoke test monitoring modules
         run: npm run monitor:smoke
 
