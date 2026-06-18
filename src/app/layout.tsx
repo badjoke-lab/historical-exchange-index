@@ -87,6 +87,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
+      <head>
+        <link rel="alternate" type="application/json" href="/data/manifest.json" title="HEI data manifest" />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="HEI LLM guide" />
+        <link rel="alternate" type="text/plain" href="/ai.txt" title="HEI AI guide" />
+      </head>
       <body>
         <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
         <script
