@@ -1,0 +1,35 @@
+name: Public count consistency audit
+
+on:
+  push:
+    branches: [audit-count-consistency-20260618]
+    paths:
+      - .github/workflows/public-count-consistency-audit.yml
+      - scripts/audit-public-count-consistency.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: audit-count-consistency-20260618
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Audit build and production
+        run: node scripts/audit-public-count-consistency.mjs
+      - uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: Record HEI public count audit
+          branch: audit-count-consistency-20260618
