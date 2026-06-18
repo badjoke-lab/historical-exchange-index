@@ -50,14 +50,14 @@ The first deployment-relevant code change in this interval was PR #393 adding a 
 
 The production build contract is now explicit:
 
-1. generate the machine-readable files
-2. run the Next.js static export
-3. validate the generated machine-readable layer
-4. validate the built HTML and JSON count consistency
+1. a direct Next.js build invokes the machine-readable generator through the exported Next configuration function
+2. Next.js performs the static export
+3. `npm run build` validates the generated machine-readable layer
+4. `npm run build` validates the built HTML and JSON count consistency
 
-`next.config.ts` is returned to a pure configuration module with no file-generation side effects.
+Cloudflare Pages may invoke the static-export preset as `npx next build` rather than `npm run build`. The generator is therefore attached to the direct Next build path itself, while the npm build command adds the post-export validation gates used by GitHub Actions.
 
-The same `npm run build` entry point is used by GitHub CI and Cloudflare Pages, so a deploy cannot succeed without producing and validating the public machine-readable files.
+The generator is executed as an isolated Node process once per configuration process. This avoids the previous module-import side effect while ensuring that both Cloudflare's direct Next build and GitHub's npm build produce the same public files.
 
 ## Completion gate
 
