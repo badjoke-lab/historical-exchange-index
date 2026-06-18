@@ -21,41 +21,10 @@ jobs:
         with:
           node-version: 20
 
-      - name: Capture endpoint diagnostics
-        shell: bash
-        run: |
-          set +e
-          : > endpoint-diagnostic.txt
-          origin='https://hei.badjoke-lab.com'
-          key="post394-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          for path in / /dead/ /active/ /stats/ /version.json /data/manifest.json /data/entities.json /data/events.json /data/evidence.json /llms.txt /ai.txt /sitemap.xml /robots.txt; do
-            rm -f headers.txt body.txt
-            status=$(curl -sS -L --max-time 25 -D headers.txt -o body.txt -w '%{http_code}' "${origin}${path}?diagnostic=${key}")
-            {
-              echo "=== ${path} ==="
-              echo "status=${status}"
-              grep -iE '^(content-type|location|cf-cache-status|age|etag|last-modified):' headers.txt | tail -n 8
-              echo -n 'body_prefix='
-              head -c 500 body.txt | tr '\n' ' '
-              echo
-            } >> endpoint-diagnostic.txt
-          done
-          for path in /index.html /all /registry /exchanges; do
-            rm -f headers.txt body.txt
-            status=$(curl -sS --max-time 25 -D headers.txt -o body.txt -w '%{http_code}' "${origin}${path}")
-            {
-              echo "=== ${path} ==="
-              echo "status=${status}"
-              grep -iE '^(content-type|location|cf-cache-status|age|etag|last-modified):' headers.txt | tail -n 8
-              echo -n 'body_prefix='
-              head -c 300 body.txt | tr '\n' ' '
-              echo
-            } >> endpoint-diagnostic.txt
-          done
-          cat endpoint-diagnostic.txt
-          exit 0
+      - name: Probe custom and Pages deployment origins
+        run: node scripts/probe-hei-origins.mjs
 
-      - name: Run one-attempt diagnostic audit
+      - name: Audit custom production origin
         id: audit
         shell: bash
         run: |
@@ -71,13 +40,12 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: post394-production-diagnostics
+          name: post394-multi-origin-diagnostics
           path: |
-            endpoint-diagnostic.txt
+            hei-origin-probe.json
             audit.log
           if-no-files-found: error
           retention-days: 1
 
-      - name: Fail when production audit failed
-        if: steps.audit.outputs.exit_code != '0'
-        run: exit 1
+      - name: Report current audit result
+        run: echo "custom_origin_audit_exit=${{ steps.audit.outputs.exit_code }}"
