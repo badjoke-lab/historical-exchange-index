@@ -1,0 +1,10 @@
+/index.html / 301
+/all / 301
+/all/ / 301
+/all/* / 301
+/registry / 301
+/registry/ / 301
+/registry/* / 301
+/exchanges / 301
+/exchanges/ / 301
+/exchanges/* / 301

@@ -1,0 +1,72 @@
+# HEI public count consistency audit
+
+Generated: 2026-06-18T15:34:01.708Z
+
+## Expected reviewed registry
+
+- Total records: **412**
+- Dead-side: **189**
+- Active-side: **223**
+- Events: **687**
+- Evidence: **1594**
+
+## Check result
+
+- PASS — `expected_matches_requested_baseline`
+- PASS — `build_home_counts_match`
+- FAIL — `build_dead_count_matches`
+- FAIL — `build_active_count_matches`
+- PASS — `build_version_counts_match`
+- PASS — `build_manifest_counts_match`
+- PASS — `build_manifest_breakdown_matches`
+- PASS — `build_has_no_386`
+- PASS — `production_home_counts_match`
+- FAIL — `production_dead_count_matches`
+- FAIL — `production_active_count_matches`
+- FAIL — `production_version_counts_match`
+- FAIL — `production_manifest_counts_match`
+- FAIL — `production_manifest_breakdown_matches`
+- PASS — `production_has_no_386`
+
+## Production URLs
+
+| Route | HTTP | Final URL | CF cache | Extracted counts | Contains 386 |
+|---|---:|---|---|---|---|
+| `/` | 200 | https://hei.badjoke-lab.com/ | DYNAMIC | {"Total records":412,"Dead-side":189,"Active-side":223} | no |
+| `/dead/` | 200 | https://hei.badjoke-lab.com/dead/ | DYNAMIC | {"Dead-side total":null} | no |
+| `/active/` | 200 | https://hei.badjoke-lab.com/active/ | DYNAMIC | {"Active-side total":null} | no |
+| `/stats/` | 200 | https://hei.badjoke-lab.com/stats/ | DYNAMIC | {"Total entities":412,"Dead-side":189,"Active-side":223,"Total events":687,"Total evidence":1594} | no |
+| `/exchange/mt-gox/` | 200 | https://hei.badjoke-lab.com/exchange/mt-gox/ | DYNAMIC | {} | no |
+| `/version.json` | 404 | https://hei.badjoke-lab.com/version.json | DYNAMIC | — | no |
+| `/data/manifest.json` | 404 | https://hei.badjoke-lab.com/data/manifest.json | DYNAMIC | — | no |
+| `/data/entities.json` | 404 | https://hei.badjoke-lab.com/data/entities.json | DYNAMIC | — | no |
+| `/data/events.json` | 404 | https://hei.badjoke-lab.com/data/events.json | DYNAMIC | — | no |
+| `/data/evidence.json` | 404 | https://hei.badjoke-lab.com/data/evidence.json | DYNAMIC | — | no |
+| `/llms.txt` | 404 | https://hei.badjoke-lab.com/llms.txt | DYNAMIC | — | no |
+| `/ai.txt` | 404 | https://hei.badjoke-lab.com/ai.txt | DYNAMIC | — | no |
+| `/sitemap.xml` | 200 | https://hei.badjoke-lab.com/sitemap.xml | DYNAMIC | — | no |
+| `/robots.txt` | 200 | https://hei.badjoke-lab.com/robots.txt | REVALIDATED | — | no |
+| `/index.html` | 200 | https://hei.badjoke-lab.com/ | DYNAMIC | {} | no |
+| `/all/` | 404 | https://hei.badjoke-lab.com/all/ | DYNAMIC | {} | no |
+| `/registry/` | 404 | https://hei.badjoke-lab.com/registry/ | DYNAMIC | {} | no |
+| `/exchanges/` | 404 | https://hei.badjoke-lab.com/exchanges/ | DYNAMIC | {} | no |
+
+## Build files containing literal 386
+
+- None
+
+## Failures requiring remediation
+
+- `build_dead_count_matches`
+- `build_active_count_matches`
+- `production_dead_count_matches`
+- `production_active_count_matches`
+- `production_version_counts_match`
+- `production_manifest_counts_match`
+- `production_manifest_breakdown_matches`
+
+## Source of truth
+
+- Entities: data/entities.json plus reviewed record-bundle entity corrections and genuinely new bundle entities
+- Events: data/events.json plus all reviewed bundle events, deduplicated by ID
+- Evidence: data/evidence.json plus all reviewed bundle evidence, deduplicated by ID

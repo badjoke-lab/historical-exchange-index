@@ -33,6 +33,7 @@ async function fetchEndpoint(path, expectedContentType, cacheKey) {
     headers: {
       accept: expectedContentType,
       'user-agent': 'HEI production smoke checker',
+      'cache-control': 'no-cache',
     },
     redirect: 'follow',
     signal: AbortSignal.timeout(20000),
@@ -50,15 +51,21 @@ function assertPositiveInteger(value, label) {
 
 async function verifyProduction() {
   const cacheKey = expectedCommit || Date.now().toString()
-  const [versionText, manifestText, llms, ai] = await Promise.all([
+  const [versionText, manifestText, entitiesText, eventsText, evidenceText, llms, ai] = await Promise.all([
     fetchEndpoint('/version.json', 'application/json', cacheKey),
     fetchEndpoint('/data/manifest.json', 'application/json', cacheKey),
+    fetchEndpoint('/data/entities.json', 'application/json', cacheKey),
+    fetchEndpoint('/data/events.json', 'application/json', cacheKey),
+    fetchEndpoint('/data/evidence.json', 'application/json', cacheKey),
     fetchEndpoint('/llms.txt', 'text/plain', cacheKey),
     fetchEndpoint('/ai.txt', 'text/plain', cacheKey),
   ])
 
   const version = JSON.parse(versionText)
   const manifest = JSON.parse(manifestText)
+  const entities = JSON.parse(entitiesText)
+  const events = JSON.parse(eventsText)
+  const evidence = JSON.parse(evidenceText)
 
   assert(version.schema_version === '1.0.0', 'version schema_version is incorrect')
   assert(version.project_id === 'historical-exchange-index', 'version project_id is incorrect')
@@ -97,15 +104,35 @@ async function verifyProduction() {
   deepEqual(manifest.public_files, {
     version: '/version.json',
     manifest: '/data/manifest.json',
+    entities: '/data/entities.json',
+    events: '/data/events.json',
+    evidence: '/data/evidence.json',
     llms: '/llms.txt',
     ai: '/ai.txt',
   }, 'production public file map is incorrect')
+
+  for (const [label, collection, expectedCount] of [
+    ['entities', entities, counts.primary_records],
+    ['events', events, counts.events],
+    ['evidence', evidence, counts.evidence],
+  ]) {
+    assert(collection.canonical_only === true, `${label} canonical_only is incorrect`)
+    assert(collection.generated_at === version.build.generated_at, `${label} generated_at differs from version`)
+    assert(collection.record_count === expectedCount, `${label} record_count differs from version`)
+    assert(collection.records.length === expectedCount, `${label} record length differs from version`)
+    assert(collection.records.every((record) => typeof record.canonical_page_url === 'string'), `${label} canonical page links are incomplete`)
+  }
 
   const requiredRoutes = ['/', '/dead/', '/active/', '/exchange/{slug}/', '/stats/', '/methodology/', '/about/', '/donate/']
   for (const route of requiredRoutes) {
     assert(manifest.main_routes?.includes(route), `manifest is missing route ${route}`)
     assert(llms.includes(route), `llms.txt is missing route ${route}`)
     assert(ai.includes(route), `ai.txt is missing route ${route}`)
+  }
+
+  for (const endpoint of Object.values(manifest.public_files)) {
+    assert(llms.includes(endpoint), `llms.txt is missing endpoint ${endpoint}`)
+    assert(ai.includes(endpoint) || endpoint === '/ai.txt', `ai.txt is missing endpoint ${endpoint}`)
   }
 
   assert(llms.includes(`${origin}/`), 'llms.txt is missing canonical site')

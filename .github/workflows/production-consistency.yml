@@ -1,0 +1,27 @@
+name: Production consistency
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  verify-production:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verify deployed version, manifest and AI discovery files
+        env:
+          EXPECTED_COMMIT: ${{ github.sha }}
+          SMOKE_MAX_ATTEMPTS: 20
+          SMOKE_RETRY_DELAY_MS: 30000
+        run: node scripts/check-machine-readable-production.mjs

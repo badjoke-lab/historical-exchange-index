@@ -36,6 +36,15 @@ const websiteJsonLd = {
   url: SITE_URL,
   description: SITE_DESCRIPTION,
   inLanguage: 'en',
+  subjectOf: [
+    `${SITE_URL}/version.json`,
+    `${SITE_URL}/data/manifest.json`,
+    `${SITE_URL}/data/entities.json`,
+    `${SITE_URL}/data/events.json`,
+    `${SITE_URL}/data/evidence.json`,
+    `${SITE_URL}/llms.txt`,
+    `${SITE_URL}/ai.txt`,
+  ],
 }
 
 export const metadata: Metadata = {
@@ -48,6 +57,10 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   alternates: {
     canonical: '/',
+    types: {
+      'application/json': '/data/manifest.json',
+      'text/plain': '/llms.txt',
+    },
   },
   openGraph: {
     type: 'website',

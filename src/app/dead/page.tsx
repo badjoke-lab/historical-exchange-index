@@ -2,21 +2,12 @@ import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import DeadExplorerClient from '../../components/registry/dead-explorer-client'
 import { loadEntities } from '../../lib/data/load-entities'
-import { CONTACT_HREF } from '../../lib/site-constants'
+import { CONTACT_HREF, SITE_NAME, SITE_URL } from '../../lib/site-constants'
 
 const DEAD_SIDE = new Set<string>(['dead', 'merged', 'acquired', 'rebranded'])
 
-export const metadata: Metadata = {
-  title: 'Dead exchanges',
-  description:
-    'Browse the dead-side registry of crypto exchanges, including dead, merged, acquired, and rebranded records with archive-aware handling.',
-  alternates: {
-    canonical: '/dead',
-  },
-}
-
-export default function DeadPage() {
-  const entities = loadEntities()
+function loadDeadEntities() {
+  return loadEntities()
     .filter((item) => DEAD_SIDE.has(item.status))
     .sort((a, b) => {
       const aDate = a.death_date ?? ''
@@ -24,7 +15,35 @@ export default function DeadPage() {
       if (aDate !== bDate) return aDate < bDate ? 1 : -1
       return a.canonical_name.localeCompare(b.canonical_name)
     })
+}
 
+export function generateMetadata(): Metadata {
+  const total = loadDeadEntities().length
+  const description = `Browse ${total} dead-side crypto exchange records, including dead, merged, acquired, and rebranded exchanges with archive-aware handling.`
+
+  return {
+    title: 'Dead exchanges',
+    description,
+    alternates: { canonical: '/dead' },
+    openGraph: {
+      type: 'website',
+      url: `${SITE_URL}/dead/`,
+      title: `Dead exchanges | ${SITE_NAME}`,
+      description,
+      siteName: SITE_NAME,
+      images: ['/opengraph-image'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `Dead exchanges | ${SITE_NAME}`,
+      description,
+      images: ['/twitter-image'],
+    },
+  }
+}
+
+export default function DeadPage() {
+  const entities = loadDeadEntities()
   const summary = {
     total: entities.length,
     dead: entities.filter((item) => item.status === 'dead').length,
@@ -35,9 +54,23 @@ export default function DeadPage() {
       ? Math.round((entities.filter((item) => item.archived_url).length / entities.length) * 100)
       : 0,
   }
+  const collectionJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${SITE_URL}/dead/`,
+    url: `${SITE_URL}/dead/`,
+    name: 'Dead-side exchange registry',
+    description: `Collection of ${summary.total} dead-side crypto exchange records.`,
+    numberOfItems: summary.total,
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
+  }
 
   return (
     <main className="longform">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
       <section className="panel longform-panel">
         <div className="detail-header">
           <div>
@@ -46,6 +79,9 @@ export default function DeadPage() {
             <p className="muted" style={{ lineHeight: 1.7, margin: 0, maxWidth: '64ch' }}>
               Closed, absorbed, rebranded, or otherwise gone exchanges. This page emphasizes death reason,
               archive access, and dense graveyard browsing.
+            </p>
+            <p style={{ margin: '12px 0 0', fontWeight: 700 }}>
+              Dead-side total: {summary.total}
             </p>
           </div>
 
