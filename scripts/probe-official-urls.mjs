@@ -6,40 +6,55 @@ const reportPath = path.join(root, 'data-staging', 'audits', 'invalid-official-u
 const source = JSON.parse(fs.readFileSync(reportPath, 'utf8'))
 const probes = []
 
-for (const entity of source.invalid) {
+async function request(url, method) {
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), 15000)
   try {
-    const response = await fetch(entity.official_url_original, {
-      method: 'HEAD',
+    return await fetch(url, {
+      method,
       redirect: 'follow',
       signal: controller.signal,
-      headers: { 'user-agent': 'HEI-URL-Audit/1.0' },
-    })
-    probes.push({
-      id: entity.id,
-      slug: entity.slug,
-      original_url: entity.official_url_original,
-      ok: response.ok,
-      status: response.status,
-      final_url: response.url,
-      redirected: response.redirected,
-      error: null,
-    })
-  } catch (error) {
-    probes.push({
-      id: entity.id,
-      slug: entity.slug,
-      original_url: entity.official_url_original,
-      ok: false,
-      status: null,
-      final_url: null,
-      redirected: false,
-      error: error instanceof Error ? error.message : String(error),
+      headers: {
+        'user-agent': 'Mozilla/5.0 HEI-URL-Audit/1.0',
+        accept: 'text/html,application/xhtml+xml',
+      },
     })
   } finally {
     clearTimeout(timer)
   }
+}
+
+for (const entity of source.invalid) {
+  let response = null
+  let method = 'HEAD'
+  let error = null
+
+  try {
+    response = await request(entity.official_url_original, 'HEAD')
+    if ([403, 405, 501].includes(response.status)) {
+      method = 'GET'
+      response = await request(entity.official_url_original, 'GET')
+    }
+  } catch (headError) {
+    try {
+      method = 'GET'
+      response = await request(entity.official_url_original, 'GET')
+    } catch (getError) {
+      error = getError instanceof Error ? getError.message : String(getError)
+    }
+  }
+
+  probes.push({
+    id: entity.id,
+    slug: entity.slug,
+    original_url: entity.official_url_original,
+    method,
+    ok: response?.ok ?? false,
+    status: response?.status ?? null,
+    final_url: response?.url ?? null,
+    redirected: response?.redirected ?? false,
+    error,
+  })
 }
 
 const outputPath = path.join(root, 'data-staging', 'audits', 'official-url-http-probes.json')
