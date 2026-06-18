@@ -22,7 +22,8 @@
     "machine:build": "node scripts/build-machine-readable-layer.mjs",
     "data:check-event-types": "node scripts/audit-legacy-enums.mjs --scope=event_type --strict",
     "data:check-source-types": "node scripts/audit-legacy-enums.mjs --scope=source_type --strict",
-    "data:check-claim-scopes": "node scripts/audit-legacy-enums.mjs --scope=claim_scope --strict"
+    "data:check-claim-scopes": "node scripts/audit-legacy-enums.mjs --scope=claim_scope --strict",
+    "data:check-url-status": "node scripts/audit-official-url-status.mjs --strict"
   },
   "dependencies": {
     "next": "^15.2.8",
