@@ -1,16 +1,11 @@
 name: Debug public consistency
 
 on:
-  push:
-    branches: [audit-count-consistency-20260618]
-    paths:
-      - .github/workflows/debug-public-consistency.yml
-      - scripts/validate-machine-readable-layer.mjs
-      - scripts/validate-public-output-consistency.mjs
-      - scripts/build-machine-readable-layer.mjs
+  pull_request:
+    branches: [main]
 
 permissions:
-  contents: write
+  contents: read
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -20,25 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-        with:
-          ref: audit-count-consistency-20260618
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-      - run: npm ci
-      - run: npm run build
-      - name: Capture validators
-        run: |
-          mkdir -p docs/audits
-          {
-            echo '# machine validator'
-            npm run machine:validate
-            echo
-            echo '# public output validator'
-            npm run public:validate
-          } > docs/audits/latest-public-consistency-validation.log 2>&1 || true
-      - uses: stefanzweifel/git-auto-commit-action@v6
-        with:
-          commit_message: Record public consistency validation output
-          branch: audit-count-consistency-20260618
+      - run: npm ci --silent
+      - run: npm run build --silent
+      - name: Validate machine layer
+        run: npm run machine:validate --silent
+      - name: Validate built public output
+        run: npm run public:validate --silent
