@@ -64,6 +64,48 @@ export function loadExchangeRecordBundles(): ExchangeRecordBundle[] {
     .map((fileName) => readJsonFile<ExchangeRecordBundle>(path.join(recordsDir, fileName)))
 }
 
+export function buildBundleEntityIdMap(
+  bundles: ExchangeRecordBundle[],
+  baseEntities: EntityRecord[],
+): Map<string, string> {
+  const identityOwner = new Map<string, string>()
+  const sourceToCanonical = new Map<string, string>(
+    baseEntities.map((entity) => [entity.id, entity.id]),
+  )
+
+  for (const entity of baseEntities) {
+    for (const key of getEntityIdentityKeys(entity)) {
+      if (!identityOwner.has(key)) identityOwner.set(key, entity.id)
+    }
+  }
+
+  for (const bundle of bundles) {
+    const keys = [...getEntityIdentityKeys(bundle.entity)]
+    const matches = [...new Set(
+      keys
+        .map((key) => identityOwner.get(key))
+        .filter((value): value is string => Boolean(value)),
+    )]
+
+    if (matches.length > 1) {
+      throw new Error(
+        `${bundle.entity.slug}: bundle entity matches multiple canonical entities: ${matches.join(', ')}`,
+      )
+    }
+
+    const canonicalId = matches[0] ?? bundle.entity.id
+    sourceToCanonical.set(bundle.entity.id, canonicalId)
+
+    if (matches.length === 0) {
+      for (const key of keys) {
+        if (!identityOwner.has(key)) identityOwner.set(key, canonicalId)
+      }
+    }
+  }
+
+  return sourceToCanonical
+}
+
 export function filterNewExchangeRecordBundles(
   bundles: ExchangeRecordBundle[],
   baseEntities: EntityRecord[],
