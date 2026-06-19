@@ -12,6 +12,7 @@ Its focus is on exchange identity, operating status, major lifecycle events, arc
 - **Contact / Corrections**: https://docs.google.com/forms/d/e/1FAIpQLSf6NGsKIaGUzeGWUAyphOsv0XN3eSBebsASj_0g-qtZtNamWw/viewform
 - **Donate**: https://hei.badjoke-lab.com/donate/
 - **GitHub**: https://github.com/badjoke-lab/historical-exchange-index
+- **Deployment policy**: [docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md](docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md)
 
 ## What HEI does
 
@@ -127,6 +128,12 @@ HEI aims to feel like a modern archival registry for crypto exchange history:
 - history-first
 
 The project favors durable records over hype, noise, or growth-style presentation.
+
+## Maintainer operations
+
+Repository contributors and AI agents must read `AGENTS.md` and the Cloudflare deployment policy before changing build, workflow, routing, deployment, or public-output behavior.
+
+The operating rule is to keep GitHub development and CI fast while reducing unnecessary Cloudflare Pages builds. Preview deployments are exceptional, production verification begins only after `/version.json` matches the expected commit, and deployment delay must not be mistaken for a code defect.
 
 ## Status
 
