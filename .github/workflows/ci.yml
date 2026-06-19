@@ -29,6 +29,12 @@ jobs:
       - name: Validate repository operations policy
         run: npm run policy:check
 
+      - name: Check Cloudflare configuration tool syntax
+        run: node --check scripts/configure-cloudflare-pages-project.mjs
+
+      - name: Print desired Cloudflare Pages state
+        run: npm run cloudflare:config:print
+
       - name: Lint
         run: npm run lint
 

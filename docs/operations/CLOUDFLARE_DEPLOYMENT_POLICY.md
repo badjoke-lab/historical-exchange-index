@@ -20,8 +20,21 @@ Preserve development speed while reducing unnecessary Cloudflare Pages builds on
 9. Do not create temporary audit PRs that trigger Cloudflare builds unless preview deployment is explicitly required.
 10. Any change to deployment-sensitive files must review this policy in the same PR.
 
+## Machine-readable project policy
+
+The desired Cloudflare Pages project state is stored in:
+
+```text
+config/cloudflare-pages-project.json
+```
+
+The JSON file, not a copied dashboard screenshot or old conversation, is the machine-readable authority for branch controls and build watch paths. Changes to it require review under this policy.
+
 ## Deployment-sensitive files
 
+- `config/cloudflare-pages-project.json`
+- `scripts/configure-cloudflare-pages-project.mjs`
+- `.github/workflows/configure-cloudflare-pages.yml`
 - `next.config.ts`
 - `package.json`
 - `package-lock.json`
@@ -34,32 +47,45 @@ Preserve development speed while reducing unnecessary Cloudflare Pages builds on
 
 ## Immediate Cloudflare configuration
 
+- Project: `historical-exchange-index`
 - Production branch: `main`
 - Production deployments: enabled
-- Preview deployments: disabled by default
-- Optional preview branch pattern: `preview/*`
+- Preview deployments: disabled
 - Build watch paths: include public-output paths and exclude docs, staging, monitoring reports, and internal audits
+- Pull request deployment comments: disabled while automatic previews are disabled
 
-Recommended deploy-relevant paths:
+The exact include and exclude arrays are defined in `config/cloudflare-pages-project.json`.
 
-- `src/**`
-- `public/**`
-- `data/**`
-- `records/**`
-- `scripts/build-*/**`
-- `scripts/validate-*/**`
-- `package.json`
-- `package-lock.json`
-- `next.config.ts`
-- `tsconfig.json`
+Cloudflare wildcard `*` matches nested path separators, so repository configuration uses patterns such as `src/*` and `docs/*`.
 
-Recommended non-deploy paths:
+## Applying and checking the configuration
 
-- `docs/**`
-- `data-staging/**`
-- `review/**`
-- internal backlog files
-- monitoring reports
+Repository commands:
+
+```bash
+npm run cloudflare:config:print
+npm run cloudflare:config:plan
+npm run cloudflare:config:apply
+```
+
+- `print` shows the desired state without credentials.
+- `plan` reads the current Pages project and reports whether it differs.
+- `apply` reads the current project, preserves GitHub source identity fields, patches only the governed settings, then reads the project again and verifies the result.
+
+The manual GitHub Actions workflow is:
+
+```text
+Configure Cloudflare Pages
+```
+
+Required GitHub repository secrets:
+
+```text
+CLOUDFLARE_ACCOUNT_ID
+CLOUDFLARE_API_TOKEN
+```
+
+The token must be a scoped Cloudflare API token with Cloudflare Pages Edit / Pages Write access for the relevant account. Do not use the Global API key.
 
 ## Preview decision
 
@@ -81,6 +107,8 @@ Preview is normally unnecessary for:
 - backlog cleanup
 - internal audit output
 - enum normalization already covered by CI
+
+A necessary preview must be requested deliberately by changing the project policy or by a separately reviewed controlled deployment mechanism. Do not silently restore previews for all branches.
 
 ## Production verification
 
@@ -113,14 +141,17 @@ For the wider ledger series, a shared deployment queue should eventually seriali
 - diagnosing stale production as a code defect before checking deployed commit identity
 - merging deployment-sensitive changes without successful GitHub CI
 - bypassing canonical data review because deployment is delayed
+- storing Cloudflare API credentials in repository files or workflow logs
+- using a Global API key when a scoped Pages token is sufficient
 - increasing Cloudflare plan cost before reducing unnecessary builds
 
 ## PR checklist
 
 - [ ] This policy was reviewed.
+- [ ] The machine-readable project policy still matches the intended deployment behavior.
 - [ ] GitHub CI passed.
 - [ ] Preview necessity was explicitly decided.
-- [ ] The PR does not create unnecessary Cloudflare builds.
+- [ ] The PR does not create unnecessary Cloudflare preview builds.
 - [ ] A production verification plan exists.
 - [ ] Temporary deployment or audit files are removed.
 
