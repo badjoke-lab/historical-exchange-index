@@ -36,7 +36,7 @@ jobs:
         run: npm run cloudflare:config:print
 
       - name: Audit canonical country or origin coverage
-        run: npm run data:audit-country-or-origin
+        run: npm run data:check-country-or-origin
 
       - name: Lint
         run: npm run lint
