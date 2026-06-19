@@ -75,6 +75,8 @@ if (fs.existsSync(CLOUDFLARE_CONFIG_PATH)) {
   try {
     const config = JSON.parse(fs.readFileSync(CLOUDFLARE_CONFIG_PATH, 'utf8'))
     const source = config.source_config ?? {}
+    const includes = source.path_includes ?? []
+    const excludes = source.path_excludes ?? []
 
     if (config.schema_version !== '1.0.0') {
       failures.push('Cloudflare project policy schema_version must be 1.0.0.')
@@ -91,11 +93,36 @@ if (fs.existsSync(CLOUDFLARE_CONFIG_PATH)) {
     if (source.preview_deployment_setting !== 'none') {
       failures.push('Automatic preview deployments must be disabled.')
     }
-    if (!Array.isArray(source.path_includes) || source.path_includes.length === 0) {
+    if (!Array.isArray(includes) || includes.length === 0) {
       failures.push('Cloudflare path_includes must be a non-empty array.')
     }
-    if (!Array.isArray(source.path_excludes) || !source.path_excludes.includes('docs/*')) {
-      failures.push('Cloudflare path_excludes must exclude docs/*.')
+    if (includes.includes('*') || includes.includes('scripts/*')) {
+      failures.push('Cloudflare path_includes must not broadly include the whole repository or all scripts.')
+    }
+
+    const requiredIncludes = [
+      'src/*',
+      'public/*',
+      'data/*',
+      'records/*',
+      'scripts/build-machine-readable-layer.mjs',
+      'scripts/lib/*',
+      'package.json',
+      'package-lock.json',
+      'next.config.ts',
+      'tsconfig.json',
+    ]
+    for (const path of requiredIncludes) {
+      if (!includes.includes(path)) failures.push(`Cloudflare path_includes is missing ${path}.`)
+    }
+
+    const requiredExcludes = ['docs/*', '.github/*', 'AGENTS.md', 'README.md']
+    if (!Array.isArray(excludes)) {
+      failures.push('Cloudflare path_excludes must be an array.')
+    } else {
+      for (const path of requiredExcludes) {
+        if (!excludes.includes(path)) failures.push(`Cloudflare path_excludes is missing ${path}.`)
+      }
     }
   } catch (error) {
     failures.push(`Cloudflare project policy is invalid JSON: ${error.message}`)
