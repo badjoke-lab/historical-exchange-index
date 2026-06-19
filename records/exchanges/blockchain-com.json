@@ -9,15 +9,15 @@
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
-    "country_or_origin": null,
-    "summary": "Crypto wallet and exchange/trading platform represented by CoinGecko and CCXT source rows. HEI treats Blockchain.com and blockchaincom rows as one exchange entity for v0, while leaving Blockchain.io as a separate unconsumed candidate.",
+    "country_or_origin": "United Kingdom",
+    "summary": "United Kingdom-origin crypto wallet and exchange platform founded in York, with its global headquarters in London.",
     "official_url_original": "https://www.blockchain.com/",
     "official_domain_original": "blockchain.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.blockchain.com/",
-    "confidence": "medium",
-    "last_verified_at": "2026-06-03",
-    "notes": "Added from verified-unadded rows hei_unadded_0364 and hei_unadded_0366 as one entity. Blockchain.io / hei_unadded_0365 is not consumed here."
+    "confidence": "high",
+    "last_verified_at": "2026-06-19",
+    "notes": "Official company material states that Blockchain.com began in York and now has its global headquarters in London. Blockchain.io remains a separate unconsumed candidate."
   },
   "events": [
     {
@@ -26,13 +26,13 @@
       "event_type": "listed_reference",
       "event_date": "2026-06-03",
       "title": "Blockchain.com recorded as exchange entity",
-      "description": "Blockchain.com is recorded as an exchange/trading-platform entity, with Blockchain.com and blockchaincom candidate rows consolidated into one HEI record.",
-      "confidence": "medium",
+      "description": "Blockchain.com is recorded as a United Kingdom-origin exchange platform, with Blockchain.com and blockchaincom candidate rows consolidated into one HEI record.",
+      "confidence": "high",
       "impact_level": "low",
       "event_status_effect": "active",
       "source_count": 3,
       "sort_order": 1,
-      "notes": "Upgrade with precise exchange launch, licensing, or operating-history evidence if stronger sources are added."
+      "notes": "Official company history supports the York origin and London headquarters."
     }
   ],
   "evidence": [
@@ -41,15 +41,15 @@
       "exchange_id": "hei_ex_000403",
       "event_id": "hei_ev_000713",
       "source_type": "official_statement",
-      "title": "Blockchain.com official website",
-      "url": "https://www.blockchain.com/",
+      "title": "Blockchain.com British company history",
+      "url": "https://www.blockchain.com/blog/posts/blockchaincom-goes-big-local-and-unapologetically-british",
       "publisher": "Blockchain.com",
-      "published_at": null,
-      "archived_url": "https://web.archive.org/web/*/https://www.blockchain.com/",
-      "accessed_at": "2026-06-03",
+      "published_at": "2026-04-15",
+      "archived_url": "https://web.archive.org/web/*/https://www.blockchain.com/blog/posts/blockchaincom-goes-big-local-and-unapologetically-british",
+      "accessed_at": "2026-06-19",
       "reliability": "high",
       "claim_scope": "entity",
-      "notes": "Official domain used to verify Blockchain.com identity."
+      "notes": "Official company post says Blockchain.com was founded in York and has its global headquarters in London."
     },
     {
       "id": "hei_src_001582",
