@@ -88,6 +88,15 @@ Total review queue:              25
 Invalid non-string values:        0
 ```
 
+All required PR checks passed:
+
+- CI
+- Records validation
+- Backlog dedupe
+- static production build
+- machine-readable validation
+- built HTML and JSON count consistency
+
 Remaining true missing values are:
 
 - OPNX
@@ -115,6 +124,10 @@ The remaining queue must be processed in evidence-quality batches.
 2. Active low-confidence seed records where `Global`, an ecosystem label, or `Unknown` may be more accurate than a country.
 3. Historical dead-side records requiring archived or secondary historical evidence.
 4. Convert the audit to a strict structural gate once true missing values reach zero.
+
+## Merge state
+
+PR #399 is intentionally left unmerged while Cloudflare project access is unavailable. The branch is fully validated and should not be merged until the repository-owned Cloudflare Pages policy has been applied or a safe merge window is explicitly confirmed.
 
 ## Rules
 
