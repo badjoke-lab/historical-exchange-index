@@ -27,6 +27,8 @@
     "public:validate": "node scripts/validate-public-output-consistency.mjs",
     "public:audit": "node scripts/audit-public-count-consistency.mjs",
     "production:check": "node scripts/check-machine-readable-production.mjs",
+    "data:audit-country-or-origin": "node scripts/audit-country-or-origin.mjs",
+    "data:check-country-or-origin": "node scripts/audit-country-or-origin.mjs --strict",
     "data:check-event-types": "node scripts/audit-legacy-enums.mjs --scope=event_type --strict",
     "data:check-source-types": "node scripts/audit-legacy-enums.mjs --scope=source_type --strict",
     "data:check-claim-scopes": "node scripts/audit-legacy-enums.mjs --scope=claim_scope --strict",
