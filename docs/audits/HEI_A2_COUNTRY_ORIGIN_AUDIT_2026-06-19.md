@@ -78,7 +78,7 @@ The first batch resolves five entries with direct official support.
 
 ## Verified post-batch state
 
-The CI artifact generated from PR #399 confirmed:
+The final CI artifact generated from PR #399 confirmed:
 
 ```text
 Projected public entities:      412
@@ -88,7 +88,7 @@ Total review queue:              25
 Invalid non-string values:        0
 ```
 
-All required PR checks passed:
+All required PR checks passed on commit `7c335a8634450899430f04bfca462647b2ba3dfb`:
 
 - CI
 - Records validation
