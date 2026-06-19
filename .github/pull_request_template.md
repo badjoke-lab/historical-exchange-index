@@ -27,6 +27,7 @@ Not required / explain the Cloudflare-specific behavior being verified
 ## Required policy review
 
 - [ ] I reviewed `docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md`.
+- [ ] I reviewed `config/cloudflare-pages-project.json` when deployment controls or build watch paths changed.
 - [ ] This PR does not create unnecessary Cloudflare preview builds.
 - [ ] Deployment-sensitive files are identified and justified.
 - [ ] Temporary diagnostic files and workflows are removed.
@@ -34,6 +35,7 @@ Not required / explain the Cloudflare-specific behavior being verified
 ## Validation
 
 - [ ] GitHub CI passed.
+- [ ] `npm run policy:check` passed.
 - [ ] Record validation passed when canonical records changed.
 - [ ] Machine-readable validation passed when public output changed.
 - [ ] HTML/JSON consistency validation passed when public output changed.
