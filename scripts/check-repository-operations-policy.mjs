@@ -55,16 +55,17 @@ if (fs.existsSync('README.md')) {
 
 if (fs.existsSync(POLICY_PATH)) {
   const policy = fs.readFileSync(POLICY_PATH, 'utf8')
+  const normalizedPolicy = policy.toLowerCase()
   const requiredPolicyStatements = [
-    'Preview deployments are disabled by default',
-    'Compare `/version.json` with the expected Git commit',
-    '[CF-Pages-Skip]',
-    'GitHub Actions validates every commit',
-    CLOUDFLARE_CONFIG_PATH,
+    'preview deployments are disabled by default',
+    'compare `/version.json` with the expected git commit',
+    '[cf-pages-skip]',
+    'github actions validates every commit',
+    CLOUDFLARE_CONFIG_PATH.toLowerCase(),
   ]
 
   for (const statement of requiredPolicyStatements) {
-    if (!policy.includes(statement)) {
+    if (!normalizedPolicy.includes(statement)) {
       failures.push(`Deployment policy is missing required statement: ${statement}`)
     }
   }
