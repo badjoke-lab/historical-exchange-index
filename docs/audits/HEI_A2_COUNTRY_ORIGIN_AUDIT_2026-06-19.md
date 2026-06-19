@@ -76,7 +76,9 @@ The first batch resolves five entries with direct official support.
 | Blockchain.com | `United Kingdom` | Official company history states that it began in York and has its global headquarters in London. |
 | BYDFi | `Seychelles` | Official legal and privacy material identifies BYDFi Fintech LTD as registered in Seychelles. |
 
-## Expected post-batch state
+## Verified post-batch state
+
+The CI artifact generated from PR #399 confirmed:
 
 ```text
 Projected public entities:      412
@@ -85,6 +87,25 @@ Explicit Unknown values:          9
 Total review queue:              25
 Invalid non-string values:        0
 ```
+
+Remaining true missing values are:
+
+- OPNX
+- CryptoBridge
+- Aivora Exchange
+- Bitbaby
+- Bitcointry
+- BitDelta
+- Bitexlive
+- BitKan
+- BitMart
+- BitStorage
+- Bitzy
+- Blueprint
+- Bron Intents
+- BTCC
+- Bulla Exchange
+- Byte Exchange
 
 ## Remaining work
 
