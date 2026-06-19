@@ -6,6 +6,8 @@ const root = process.cwd()
 const entitiesPath = path.join(root, 'data/entities.json')
 const strict = process.argv.includes('--strict')
 const jsonOutput = process.argv.includes('--json')
+const outputArg = process.argv.find((arg) => arg.startsWith('--output='))
+const outputPath = outputArg ? path.resolve(root, outputArg.slice('--output='.length)) : null
 
 if (!fs.existsSync(entitiesPath)) {
   console.error('Missing data/entities.json')
@@ -50,6 +52,7 @@ const statusCounts = missing.reduce((counts, entity) => {
 }, {})
 
 const result = {
+  generated_at: new Date().toISOString(),
   entities: entities.length,
   missing_country_or_origin: missing.length,
   invalid_type: invalidType.length,
@@ -58,8 +61,16 @@ const result = {
   invalid_type_records: invalidType,
 }
 
+const serialized = `${JSON.stringify(result, null, 2)}\n`
+
+if (outputPath) {
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true })
+  fs.writeFileSync(outputPath, serialized, 'utf8')
+  console.log(`Wrote country_or_origin audit to ${path.relative(root, outputPath)}`)
+}
+
 if (jsonOutput) {
-  console.log(JSON.stringify(result, null, 2))
+  console.log(serialized.trimEnd())
 } else {
   console.log(`Entities: ${result.entities}`)
   console.log(`Missing country_or_origin: ${result.missing_country_or_origin}`)
