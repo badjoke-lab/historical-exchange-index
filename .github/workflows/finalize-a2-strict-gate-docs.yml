@@ -1,0 +1,38 @@
+name: Finalize A2 strict gate docs
+
+on:
+  push:
+    branches:
+      - a2-country-origin-strict-gate
+    paths:
+      - .github/workflows/finalize-a2-strict-gate-docs.yml
+
+permissions:
+  contents: write
+
+jobs:
+  finalize-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: a2-country-origin-strict-gate
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Finalize A2 documentation
+        run: node scripts/finalize-a2-strict-gate-docs.mjs
+
+      - name: Commit finalized docs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --exit-code && exit 1 || true
+          git commit -m "[CF-Pages-Skip] Complete A2 and advance roadmap to A3"
+          git push origin HEAD:a2-country-origin-strict-gate
