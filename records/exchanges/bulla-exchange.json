@@ -9,15 +9,15 @@
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
-    "country_or_origin": null,
-    "summary": "DEX / exchange protocol candidate represented by CoinGecko and DefiLlama source rows. HEI treats Bulla and Bulla Exchange rows as one protocol-level entity for v0.",
+    "country_or_origin": "Berachain ecosystem",
+    "summary": "Berachain-native decentralized exchange based on Algebra Integral and designed as a liquidity marketplace for the Berachain network.",
     "official_url_original": "https://bulla.exchange/",
     "official_domain_original": "bulla.exchange",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://bulla.exchange/",
-    "confidence": "medium",
-    "last_verified_at": "2026-06-03",
-    "notes": "Added from verified-unadded rows hei_unadded_0419 and hei_unadded_0420 as one entity. This record should be improved later with stronger launch, chain, or operating-history evidence."
+    "confidence": "high",
+    "last_verified_at": "2026-06-19",
+    "notes": "Added from verified-unadded rows hei_unadded_0419 and hei_unadded_0420 as one entity. Official documentation explicitly describes Bulla as a DEX built for Berachain, so HEI uses an ecosystem origin rather than inventing a legal-country assignment."
   },
   "events": [
     {
@@ -25,14 +25,14 @@
       "exchange_id": "hei_ex_000412",
       "event_type": "listed_reference",
       "event_date": "2026-06-03",
-      "title": "Bulla Exchange recorded as DEX candidate",
-      "description": "Bulla Exchange is recorded as a DEX / exchange protocol entity, with Bulla and Bulla Exchange candidate rows consolidated into one HEI record.",
-      "confidence": "medium",
+      "title": "Bulla Exchange recorded as Berachain DEX",
+      "description": "Bulla Exchange is recorded as a Berachain-native DEX and liquidity marketplace, with Bulla and Bulla Exchange candidate rows consolidated into one protocol-level HEI entity.",
+      "confidence": "high",
       "impact_level": "low",
       "event_status_effect": "active",
-      "source_count": 3,
+      "source_count": 4,
       "sort_order": 1,
-      "notes": "Upgrade with precise launch, chain, or operating-history evidence if stronger sources are added."
+      "notes": "Upgrade with a precise launch or major operating-history event if stronger dated sources are added."
     }
   ],
   "evidence": [
@@ -80,6 +80,21 @@
       "reliability": "medium",
       "claim_scope": "entity",
       "notes": "Source used by verified-unadded backlog row hei_unadded_0420."
+    },
+    {
+      "id": "hei_src_003189",
+      "exchange_id": "hei_ex_000412",
+      "event_id": "hei_ev_000722",
+      "source_type": "official_statement",
+      "title": "Introduction to Bulla",
+      "url": "https://docs.bulla.exchange/bulla-exchange",
+      "publisher": "Bulla Exchange",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.bulla.exchange/bulla-exchange",
+      "accessed_at": "2026-06-19",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official documentation explicitly states that Bulla is a DEX built for the Berachain network and aims to become a core part of the BERA ecosystem."
     }
   ]
 }
