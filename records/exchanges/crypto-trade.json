@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "id": "hei_ex_000246",
+    "slug": "crypto-trade",
+    "canonical_name": "Crypto-Trade",
+    "aliases": ["CryptoTrade", "Crypto-Trade.net"],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2013-01-01",
+    "death_date": "2015-01-29",
+    "country_or_origin": "Unknown",
+    "summary": "Early cryptocurrency exchange that announced permanent shutdown in January 2015 because low volume and weak user growth left it unable to cover operating costs.",
+    "official_url_original": "https://crypto-trade.net/",
+    "official_domain_original": "crypto-trade.net",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://crypto-trade.net/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-06-20",
+    "notes": "Terminal handling uses 2015-01-29 because the quoted shutdown notice said the site would go offline on 2015-01-29 at 06:00 UTC. Death reason is mapped to voluntary_shutdown because the exchange announced a planned permanent shutdown citing low volume, weak userbase, and inability to cover operating costs. The 2026-06-20 explicit-origin review retained Unknown: the original project announcement, shutdown material, archived pages, and historical exchange references do not identify a legal entity, headquarters, founding jurisdiction, or ecosystem origin. Later unrelated services using similar names or domains are excluded."
+  },
+  "entity_correction": {
+    "entity_id": "hei_ex_000246",
+    "expected": {
+      "last_verified_at": "2026-04-25",
+      "notes": "Terminal handling uses 2015-01-29 because the quoted shutdown notice said the site would go offline on 2015-01-29 at 06:00 UTC. Death reason is mapped to voluntary_shutdown because the exchange announced a planned permanent shutdown citing low volume, weak userbase, and inability to cover operating costs. Country/origin remains Unknown because the current evidence set does not establish an operating jurisdiction."
+    },
+    "changes": {
+      "last_verified_at": "2026-06-20",
+      "notes": "Terminal handling uses 2015-01-29 because the quoted shutdown notice said the site would go offline on 2015-01-29 at 06:00 UTC. Death reason is mapped to voluntary_shutdown because the exchange announced a planned permanent shutdown citing low volume, weak userbase, and inability to cover operating costs. The 2026-06-20 explicit-origin review retained Unknown: the original project announcement, shutdown material, archived pages, and historical exchange references do not identify a legal entity, headquarters, founding jurisdiction, or ecosystem origin. Later unrelated services using similar names or domains are excluded."
+    }
+  },
+  "events": [],
+  "evidence": []
+}
