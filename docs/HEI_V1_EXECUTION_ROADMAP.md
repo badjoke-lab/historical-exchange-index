@@ -4,6 +4,7 @@ Status: active execution source of truth
 Project: Historical Exchange Index (HEI)  
 Repository: `badjoke-lab/historical-exchange-index`  
 Created: 2026-06-18  
+Rebased to repository state: 2026-06-20  
 Target: HEI v1.0 completion and transition to recurring registry operations
 
 ---
@@ -12,17 +13,15 @@ Target: HEI v1.0 completion and transition to recurring registry operations
 
 This file is the recovery and execution source of truth for the remaining HEI v1 work.
 
-It must answer five questions at any time:
+It must answer:
 
-1. What has already been completed?
-2. What is the current main commit?
-3. What is the current active work item?
-4. What must be done next?
-5. What conditions define HEI v1.0 completion?
+1. what is complete;
+2. what main commit is authoritative;
+3. what work item is active;
+4. what must happen next;
+5. what defines HEI v1.0 completion.
 
-Every implementation pull request after this roadmap is merged must update the **Current checkpoint** section in this file before merge.
-
-Do not rely on chat history, local notes, old branch names, or remembered counts when this file and the repository can be inspected directly.
+Repository state is authoritative when this checkpoint and GitHub disagree. Every implementation pull request must update the current checkpoint before merge.
 
 ---
 
@@ -30,9 +29,7 @@ Do not rely on chat history, local notes, old branch names, or remembered counts
 
 ### 2.1 Canonical safety
 
-Automated monitoring may create findings, reports, watchlists, artifacts, and monitoring pull requests.
-
-It must not directly modify:
+Automated monitoring may create findings, reports, watchlists, artifacts, and monitoring pull requests. It must not directly modify:
 
 ```text
 data/entities.json
@@ -44,78 +41,77 @@ Canonical changes require a reviewed normal pull request.
 
 ### 2.2 Count semantics
 
-Do not confuse array length with the largest numeric ID.
-
-Public reviewed counts are calculated as follows:
+Reviewed public counts are not maximum IDs.
 
 ```text
 entities
 = canonical entities
 + reviewed bundle entities representing genuinely new identities
 
- events
+events
 = canonical events
 + all reviewed bundle events
 
- evidence
+evidence
 = canonical evidence
 + all reviewed bundle evidence
 ```
 
 Duplicate IDs with identical content count once. Duplicate IDs with different content are errors.
 
-The largest IDs are sequence markers only. They are not record counts.
-
 ### 2.3 Record quality
 
-Do not add thin records only to reach a numerical target.
+Do not add thin records only to reach a numerical target. A normal new public record should have:
 
-A normal new public record should have:
+- a clear HEI-relevant identity;
+- at least one meaningful event;
+- normally two or more evidence records;
+- source-backed status and date decisions;
+- duplicate, alias, slug, and domain checks;
+- conservative confidence and end-state classification.
 
-- a clear HEI-relevant entity identity
-- at least one meaningful event
-- normally two or more evidence records
-- source-backed status and date decisions
-- duplicate, alias, slug, and domain checks
-- conservative confidence and end-state classification
+### 2.4 Origin discipline
 
-### 2.4 URL safety
+`country_or_origin` may represent legal domicile, operating origin, founding origin, or ecosystem origin. Notes and evidence must explain which basis is used.
 
-Original official URLs remain historical fields even if they are no longer safe or active.
+Do not infer a country from a domain suffix, language, user geography, or unsupported secondary summaries. Use `Unknown`, `Global`, or an ecosystem label when that is more accurate.
 
-For dead-side records, archived access is preferred. `unsafe`, `repurposed`, and `dead_domain` URLs must not be treated as ordinary live actions.
+### 2.5 URL safety
 
-### 2.5 Merge discipline
+Original official URLs remain historical fields even if no longer safe or active. Dead-side records should prefer archived access. `unsafe`, `repurposed`, and `dead_domain` URLs must not be treated as ordinary live actions.
+
+### 2.6 Merge discipline
 
 Before each merge:
 
-- inspect the current main branch
-- inspect the complete pull-request diff
-- confirm the expected head SHA
-- confirm CI and record validation
-- confirm canonical count effects
-- update this roadmap checkpoint
+- inspect current `main`;
+- inspect the complete PR diff;
+- confirm the expected head SHA;
+- confirm CI and record validation;
+- confirm count effects;
+- update this checkpoint.
 
-After each merge, report:
+After each merge record:
 
-- merged PR and merge SHA
-- full schedule status
-- current checkpoint
-- exact effect of the merge
-- next work item
+- merged PR and merge SHA;
+- reviewed counts;
+- maximum IDs;
+- exact effect;
+- known remaining issue;
+- next work item.
 
 ---
 
 ## 3. Current checkpoint
 
-This section must be updated in every implementation PR.
-
 ### 3.1 Last confirmed baseline
 
 ```text
-Baseline date: 2026-06-19
-Last confirmed main SHA: cb3d80e4b5751537b7589d140821262a740bb491
-Last merged implementation PR: #393 Unify public HTML and machine-readable registry state
+Checkpoint date: 2026-06-20
+Last confirmed main SHA: 89c3a072a0d0953e91ef14c355c26ac38cbcab7b
+Last merged implementation PR: #400 Resolve A2 country origin gaps — Batch 2
+Production verification workflow: 27858696613
+Production verification result: success
 ```
 
 ### 3.2 Reviewed public counts
@@ -123,51 +119,80 @@ Last merged implementation PR: #393 Unify public HTML and machine-readable regis
 ```text
 Entities:  412
 Events:    687
-Evidence:  1594
+Evidence: 1600
 ```
-
-These are reviewed public-layer counts, not maximum IDs.
 
 ### 3.3 Maximum observed IDs
 
 ```text
 Maximum entity ID:    hei_ex_000525
 Maximum event ID:     hei_ev_002079
-Maximum evidence ID:  hei_src_003183
+Maximum evidence ID:  hei_src_003189
 ```
 
-### 3.4 Completed immediately before this roadmap
+### 3.4 Completed execution items
 
-- guarded reviewed entity-correction mechanism
-- Coinone launch-date correction and launch evidence
-- legacy `event_type` normalization and CI gate
-- legacy `source_type` normalization and CI gate
-- legacy `claim_scope` normalization and CI gate
-- weekly monitoring implementation
-- monthly read-only review workflow
-- first monthly review backfill for 2026-05
-- machine-readable public layer and validation
-- public HTML / JSON / metadata count unification and production-output consistency checks
+- guarded reviewed entity-correction mechanism;
+- Coinone launch-date correction and launch evidence;
+- legacy `event_type`, `source_type`, and `claim_scope` normalization with strict gates;
+- weekly monitoring implementation;
+- monthly read-only review workflow and 2026-05 backfill;
+- machine-readable public layer and validation;
+- public HTML / JSON / metadata count unification;
+- A1 official URL status normalization in PR #394;
+- reproducible Cloudflare Pages deployment controls in PR #397;
+- Cloudflare policy applied: production from `main`, preview deployments disabled;
+- A2 country/origin Batch 1 in PR #399;
+- A2 country/origin Batch 2 in PR #400;
+- production endpoint, commit, count, safety-flag, and route verification for main `89c3a072a0d0953e91ef14c355c26ac38cbcab7b`.
 
 ### 3.5 Active work item
 
 ```text
-Roadmap checkpoint: A1 complete / A2 next
-State: A1 implementation completed in PR #394
-Next implementation item: A2 fill missing country_or_origin
-Interrupt fix baseline: PR #393 / cb3d80e4b5751537b7589d140821262a740bb491
+Current phase: Phase A — Structural entity-quality debt
+Current item: A2 — Fill missing country_or_origin
+A2 progress: 10 of 21 true-missing values resolved
+True missing values remaining: 11
+Explicit Unknown values awaiting separate review: 9
+Next implementation item: A2 Batch 3
 ```
+
+Remaining true-missing records:
+
+- OPNX
+- CryptoBridge
+- Aivora Exchange
+- Bitbaby
+- Bitcointry
+- Bitexlive
+- BitStorage
+- Bitzy
+- Blueprint
+- Bron Intents
+- Byte Exchange
+
+Explicit `Unknown` review queue:
+
+- Coin-Swap
+- AllCrypt
+- McxNOW
+- Crypto-Trade
+- CoinedUp
+- AidosMarket
+- 55 Global Markets
+- BCC Exchange (BitConnect Coin)
+- Txbit
 
 ### 3.6 Next action
 
-Begin A2 country-of-origin completion from the post-PR #394 main branch, preserving the fixed official URL status enum and strict CI gate.
+Begin A2 Batch 3 from current `main`. Research active low-confidence seed records with official or archived sources. Distinguish legal domicile, operating origin, founding origin, and ecosystem origin. Do not force a country assignment.
 
 ---
 
 ## 4. Overall execution order
 
 ```text
-R0. Place and merge this roadmap
+R0. Roadmap placement and recovery protocol
 A. Structural entity-quality debt
 B. Monitoring and count regression guarantees
 C. Grow reviewed public registry to 550 entities
@@ -177,35 +202,28 @@ F. Publish English/Japanese bilingual layer
 G. Final integration audit and HEI v1.0 baseline
 ```
 
-Estimated remaining effort after R0:
+Estimated remaining effort from the 2026-06-20 checkpoint:
 
 ```text
-Implementation PRs: approximately 30-38
-Working days: approximately 37-52
-Calendar estimate: approximately 8-11 weeks
+Implementation PRs: approximately 39-48
+Working days: approximately 46-64
+Calendar estimate: approximately 10-14 weeks
 ```
 
-The schedule is dependency-based. Dates may move, but phase order and completion gates must not be skipped without documenting the reason here.
+The largest uncertainty is Phase C. HEI must grow from 412 to at least 550 reviewed entities without accepting thin count-filler records.
 
 ---
 
 # Phase R0 — Roadmap placement
 
-## R0.1 Add this source-of-truth document
-
-Work:
-
-- add `docs/HEI_V1_EXECUTION_ROADMAP.md`
-- record the last confirmed main SHA
-- separate reviewed counts from maximum IDs
-- define the merge-reporting and recovery protocol
-- define all remaining phases and completion gates
+## R0.1 Source-of-truth roadmap
 
 Completion gate:
 
-- file exists on `main`
-- CI is green
-- the next item is explicitly A1
+- roadmap exists on `main`;
+- count semantics are explicit;
+- recovery procedure exists;
+- active item is explicit.
 
 Status: **COMPLETED**
 
@@ -213,118 +231,91 @@ Status: **COMPLETED**
 
 # Phase A — Structural entity-quality debt
 
-Estimated duration: 4-6 working days  
-Estimated PRs: 4-6
+Estimated remaining duration: 6-10 working days  
+Estimated remaining PRs: 7-9
 
-## A1. Normalize invalid `official_url_status` values
-
-Known audit baseline: 13 invalid values.
-
-Previously identified records include:
-
-- Coinbase Pro
-- LocalCryptos
-- CoinGather
-- BitMarket.eu
-- Stocks.exchange
-- SouthXchange
-- AEX
-- BCM Exchange
-- BITBOX
-- AlfaCashier
-- Bingbon
-- Anyswap
-- CoinFLEX
-
-Method:
-
-1. Rerun the audit from current main.
-2. Inspect each entity, original URL, redirect target, archive, status, and notes.
-3. Map each record to the fixed enum:
-   - `live_verified`
-   - `live_unverified`
-   - `dead_domain`
-   - `redirected`
-   - `repurposed`
-   - `unsafe`
-   - `unknown`
-4. Add a strict CI check for future invalid values.
-5. Preserve original URLs and archive references.
+## A1. Normalize invalid `official_url_status`
 
 Completion gate:
 
 ```text
 invalid official_url_status = 0
-no historical URL deleted merely because it is dead
-strict validation enabled in CI
+historical URLs preserved
+strict validation enabled
 ```
 
-Status: **COMPLETED**
+Status: **COMPLETED in PR #394**
 
 ## A2. Fill missing `country_or_origin`
 
-Known baseline candidates:
-
-- OPNX
-- CryptoBridge
-
 Method:
 
-- use official corporate or project material where possible
-- distinguish legal domicile, operating origin, and ecosystem origin
-- do not guess a country when `Global`, an ecosystem label, or `Unknown` is more accurate
-- attach evidence or explicit notes supporting the decision
+- use official corporate, legal, project, or archived material where possible;
+- distinguish legal domicile, operating origin, founding origin, and ecosystem origin;
+- use `Unknown`, `Global`, or an ecosystem label when evidence does not support a country;
+- attach evidence or explicit notes for every decision.
+
+Execution batches:
+
+1. Batch 1 — five high-confidence records: completed in PR #399.
+2. Batch 2 — five official legal/company/ecosystem decisions: completed in PR #400.
+3. Batch 3 — active low-confidence seed records.
+4. Batch 4 — remaining active seeds and protocol-origin records.
+5. Batch 5 — historical canonical records OPNX and CryptoBridge.
+6. Explicit `Unknown` review — nine records.
+7. Final strict-gate PR.
 
 Completion gate:
 
 ```text
-missing country_or_origin = 0
-no unsupported country assignment
+true missing country_or_origin = 0
+unsupported country assignments = 0
+remaining Unknown values explicitly reviewed and documented
+strict structural gate enabled
 ```
 
-Status: pending
+Status: **IN PROGRESS — 11 true-missing values remain**
 
-## A3-A4. Review lineage candidates
+## A3. Audit lineage candidates
 
-Classify each candidate as:
+Classify every acquisition, merger, rebrand, migration, predecessor, and successor candidate as:
 
 ```text
 link_now
-  a clear canonical counterpart exists
-
 document_only
-  the relationship is supported but the counterpart is not yet canonical
-
 unresolved
-  acquisition, rebrand, or identity continuity remains ambiguous
 ```
 
-Do not create thin successor entities only to fill a lineage field.
-
-Completion gate:
-
-- no broken lineage IDs
-- all applied links are bidirectionally or explicitly documented where appropriate
-- unresolved cases remain in a review report, not forced into canonical links
+Do not create thin successor entities only to fill lineage fields.
 
 Status: pending
 
-## A5. Make the entity-quality audit permanent
+## A4. Apply safe lineage links
 
-Checks:
+Completion gate:
 
-- invalid URL status
-- provisional or placeholder text
-- missing origin
-- missing archive
-- missing original domain
-- URL-field consistency
-- suspicious or incomplete lineage
+- no broken lineage IDs;
+- applied links are bidirectional or explicitly documented;
+- unresolved cases remain in a review report rather than being forced into canonical links.
+
+Status: pending
+
+## A5. Permanent entity-quality audit
+
+Audit:
+
+- invalid URL status;
+- provisional or placeholder text;
+- missing origin;
+- missing archive;
+- missing original domain;
+- URL-field consistency;
+- suspicious or incomplete lineage.
 
 Completion gate:
 
 ```text
-critical structural entity-quality findings = 0
+critical structural findings = 0
 reusable audit command exists
 CI or scheduled quality gate exists
 ```
@@ -335,116 +326,106 @@ Status: pending
 
 # Phase B — Monitoring and count regression guarantees
 
-Estimated duration: 3-4 working days  
+Estimated duration: 4-6 working days  
 Estimated PRs: 3-4
 
-## B1. Run the full monitoring system after structural cleanup
+## B1. Full monitoring run after structural cleanup
 
-Run all six monitor groups:
+Run all six groups:
 
-- candidate discovery
-- news and event watch
-- active status watch
-- evidence and record quality watch
-- site and SEO watch
-- monitoring health watch
-
-Verify that completed enum and entity-quality fixes no longer reappear.
+- candidate discovery;
+- news and event watch;
+- active status watch;
+- evidence and record quality watch;
+- site and SEO watch;
+- monitoring health watch.
 
 Completion gate:
 
 ```text
 critical monitoring errors = 0
 canonical guard passes
-fixed issues are not rediscovered as unresolved debt
+fixed structural issues are not rediscovered as unresolved debt
 ```
 
 Status: pending
 
-## B2. Reorganize A/B/C watchlists and resolutions
+## B2. Reorganize watchlists and resolutions
 
 Candidate classes:
 
-- A: strong add or update candidate
-- B: needs research or stronger evidence
-- C: out of scope, duplicate, or not an HEI exchange record
+- A — strong add or update candidate;
+- B — needs research or stronger evidence;
+- C — out of scope, duplicate, or not an HEI exchange record.
 
 Resolution states:
 
-- promoted
-- held
-- out_of_scope
-- duplicate
-- already_canonical
-- needs_research
+- promoted;
+- held;
+- out_of_scope;
+- duplicate;
+- already_canonical;
+- needs_research.
 
 Completion gate:
 
-- processed candidates do not repeatedly return as new
-- aged A candidates are visible
-- C and duplicate resolutions are retained
+- processed candidates do not repeatedly return as new;
+- aged A candidates are visible;
+- duplicate and C resolutions are retained.
 
 Status: pending
 
-## B3. Add count-semantics regression tests
+## B3. Count-semantics regression tests
 
 Test consistency across:
 
-- canonical JSON
-- reviewed record bundles
-- public page loaders
-- monitoring aggregate
-- machine-readable output
-- sitemap generation
+- canonical JSON;
+- reviewed record bundles;
+- public page loaders;
+- monitoring aggregate;
+- machine-readable output;
+- sitemap generation.
 
 Completion gate:
 
 ```text
-public reviewed counts = monitoring reviewed counts = machine-readable counts
+public reviewed counts = monitoring counts = machine-readable counts
 existing-entity repair bundles do not increase entity count
-all reviewed bundle events and evidence are included
+all reviewed events and evidence are included
 conflicting duplicate IDs fail validation
 ```
 
 Status: pending
 
-## B4. Run production smoke checks
+## B4. Production smoke checks
 
-Check:
+Verified surfaces include:
 
-- `/`
-- `/dead/`
-- `/active/`
-- representative `/exchange/[slug]/` routes
-- `/stats/`
-- `/methodology/`
-- `/about/`
-- `/version.json`
-- `/data/manifest.json`
-- `/llms.txt`
-- `/ai.txt`
-- `/sitemap.xml`
+- public root and registry routes;
+- representative exchange routes;
+- methodology and about;
+- `/version.json`;
+- `/data/manifest.json`;
+- `/llms.txt`;
+- `/ai.txt`;
+- sitemap and route discovery.
 
-Completion gate:
+Verification completed on 2026-06-20 against production commit `89c3a072a0d0953e91ef14c355c26ac38cbcab7b`.
 
-- public site is available
-- expected machine-readable endpoints are available
-- counts and route discovery agree
-
-Status: pending
+Status: **COMPLETED**
 
 ---
 
 # Phase C — Grow the reviewed registry to 550 entities
 
-Estimated duration: 8-12 working days  
-Estimated PRs: 6-8
+Starting reviewed count: 412  
+Required net additions: at least 138  
+Estimated duration: 15-25 working days  
+Estimated PRs: 14-19
 
-The starting reviewed entity count must be regenerated before this phase begins. Do not calculate required additions from the maximum entity ID.
+## C1. Candidate scans
 
-## C1. Scan a 30-50 candidate block
-
-Classify every candidate:
+Scan 30-50 candidates per block and classify:
 
 ```text
 add_now
@@ -453,41 +434,32 @@ pending_thin
 out_of_scope_or_duplicate
 ```
 
-Completion gate:
-
-- classification memo exists
-- duplicates and scope exclusions are explicit
-- only `add_now` enters record PRs
+Only `add_now` enters record PRs.
 
 Status: pending
 
 ## C2-C3. Repair thin active CEX records
 
-Before adding only new names, improve existing active records that lack meaningful launch and current-status support.
+Before count growth, improve existing active records lacking:
 
-Target per record:
-
-- clear entity identity
-- launch event
-- launch evidence
-- current active-status evidence
-- official domain and origin
-- normally two or more evidence records
+- clear identity;
+- launch event and launch evidence;
+- current active-status evidence;
+- official domain and origin;
+- normal evidence depth.
 
 Status: pending
 
 ## C4-C5. Add DEX, perp DEX, and hybrid batches
 
-Batch size:
-
-- begin with about five public-quality entities per PR
-- increase only after validation and review remain stable
-
 Rules:
 
-- model entity-level identity, not chain deployment rows
-- do not classify a protocol as dead only because one frontend is gone
-- use `inactive` when permanent end-state evidence is weak
+- model entity-level identity rather than deployment rows;
+- begin with small public-quality batches;
+- do not call a protocol dead only because one frontend disappeared;
+- use `inactive` when permanent end-state evidence is weak.
+
+Expected contribution: approximately 55-70 entities.
 
 Status: pending
 
@@ -495,12 +467,14 @@ Status: pending
 
 Prioritize:
 
-- official shutdown records
-- bankruptcy or liquidation
-- regulatory termination
-- hack followed by permanent shutdown
-- acquisition, merger, or clear rebrand
-- preserved archive evidence
+- official shutdown;
+- bankruptcy or liquidation;
+- regulatory termination;
+- hack followed by permanent shutdown;
+- acquisition, merger, or clear rebrand;
+- preserved archive evidence.
+
+Expected contribution: approximately 70-85 entities.
 
 Status: pending
 
@@ -508,21 +482,20 @@ Status: pending
 
 Review:
 
-- exact reviewed entity count
-- event and evidence totals
-- duplicate IDs, slugs, names, aliases, and domains
-- active-side and dead-side balance
-- CEX, DEX, and hybrid balance
-- archive coverage
-- high-confidence share
-- origin-known share
-- evidence depth
+- exact reviewed counts;
+- duplicate IDs, slugs, names, aliases, and domains;
+- active/dead balance;
+- CEX/DEX/hybrid balance;
+- archive coverage;
+- high-confidence share;
+- origin-known share;
+- evidence depth.
 
 Completion gate:
 
 ```text
 reviewed public entities >= 550
-all added entities are public quality
+all additions meet public quality
 no thin count-filler batch accepted
 all CI and record validations green
 ```
@@ -538,64 +511,46 @@ Estimated PRs: 4-5
 
 ## D1. HEI Registry Update / Changelog
 
-Generate from merged canonical changes only:
+Generate only from merged reviewed changes:
 
-- newly added entities
-- corrected entities
-- new events
-- new evidence
-- archive and URL improvements
-- lineage improvements
-
-Do not include unmerged staging candidates.
+- new entities;
+- corrected entities;
+- new events;
+- new evidence;
+- archive and URL improvements;
+- lineage improvements.
 
 Status: pending
 
 ## D2. Exchange Incident Timeline
 
-Display canonical reviewed events only, including:
-
-- hack and exploit
-- withdrawal suspension
-- trading halt
-- regulatory action
-- shutdown announcement and effective shutdown
-- bankruptcy filing
-- acquisition, merger, and rebrand
+Display reviewed events for hacks, withdrawal suspensions, trading halts, regulatory actions, shutdowns, bankruptcy, acquisition, merger, and rebrand.
 
 Status: pending
 
 ## D3. Evidence Health Report
 
-Publish safe aggregate information:
+Publish safe aggregates:
 
-- evidence total
-- archived-evidence coverage
-- records with low evidence depth
-- source-type and reliability distributions
-- repaired source count
+- evidence total;
+- archived-evidence coverage;
+- low evidence-depth counts;
+- source-type and reliability distributions;
+- repaired source count.
 
-Do not publish raw internal danger lists or monitoring-system error details.
+Do not expose raw internal danger lists.
 
 Status: pending
 
 ## D4. Monthly Exchange Failure Snapshot
 
-Aggregate reviewed canonical changes by month:
-
-- shutdown
-- hack or exploit
-- withdrawal suspension
-- regulatory action
-- bankruptcy
-- acquisition
-- rebrand
+Aggregate reviewed monthly changes for shutdown, exploit, suspension, regulatory action, bankruptcy, acquisition, and rebrand.
 
 Status: pending
 
 ## D5. RSS and JSON update feeds
 
-Feed only reviewed canonical updates and public reports.
+Feed reviewed canonical updates and public reports only.
 
 Status: pending
 
@@ -604,9 +559,9 @@ Status: pending
 # Phase E — Stats, internal linking, and SEO
 
 Estimated duration: 7-10 working days  
-Estimated PRs: 6-7
+Estimated PRs: 5-7
 
-## E1. Complete the stats generator and schemas
+## E1. Stats generator and schemas
 
 Generate:
 
@@ -615,79 +570,63 @@ public/data/stats.json
 public/data/stats-history.json
 ```
 
-Statistics must be derived from entity, event, and evidence records. Do not add aggregate-only fields to canonical records.
+Statistics must be derived from entity, event, and evidence records.
 
 Status: pending
 
-## E2. Complete Stats Tier 1
+## E2. Stats Tier 1
 
-Top indicators:
-
-- total entities
-- dead-side total
-- active-side total
-- total events
-- total evidence
-- archive coverage
-- high-confidence share
-- origin-known share
+- total entities;
+- dead-side total;
+- active-side total;
+- events;
+- evidence;
+- archive coverage;
+- high-confidence share;
+- origin-known share.
 
 Status: pending
 
-## E3. Complete Stats Tier 2
+## E3. Stats Tier 2
 
-Include:
-
-- active launch-year distribution
-- dead-side death-year distribution
-- evidence depth
-- unknown-field rates
-- verification recency
-- country and origin summaries
+- launch-year and death-year distributions;
+- evidence depth;
+- unknown-field rates;
+- verification recency;
+- country and origin summaries.
 
 Status: pending
 
-## E4. Complete Stats Tier 3
+## E4. Stats Tier 3
 
-Include:
-
-- event internals
-- evidence internals
-- relationship coverage
-- record completeness
-- country/origin by status
-- country/origin by type
+- event internals;
+- evidence internals;
+- relationship coverage;
+- record completeness;
+- origin by status and type.
 
 Status: pending
 
-## E5. Add history snapshots
+## E5. History snapshots
 
 Show trend charts only after at least two comparable snapshots exist.
 
 Status: pending
 
-## E6. Improve search and internal links
+## E6. Search and internal links
 
-Primary search identity fields remain:
-
-- canonical name
-- aliases
-- original official domain
-
-Add links among stats, timeline, changelog, detail records, methodology, and related entities.
+Search identity fields remain canonical name, aliases, and original official domain. Link Stats, Timeline, Changelog, details, Methodology, and related entities.
 
 Status: pending
 
-## E7. Complete SEO and structured discovery
+## E7. SEO and structured discovery
 
-Include:
-
-- canonical metadata
-- Open Graph metadata
-- JSON-LD where appropriate
-- sitemap validation
-- machine-readable discovery links
-- internal-link validation
+- canonical metadata;
+- Open Graph metadata;
+- JSON-LD where appropriate;
+- sitemap validation;
+- machine-readable discovery links;
+- internal-link validation.
 
 Status: pending
 
@@ -695,78 +634,54 @@ Status: pending
 
 # Phase F — English/Japanese bilingual publication
 
-Estimated duration: 6-8 working days  
+Estimated duration: 6-9 working days  
 Estimated PRs: 5-6
 
-English remains at root. Japanese uses `/ja/`.
+English remains at root. Japanese uses `/ja/`. Canonical data stays single-source; translation is an overlay and must not translate IDs, slugs, enum values, URLs, publishers, or canonical evidence titles.
 
-Canonical data remains single-source. Translation is an overlay and must not translate IDs, slugs, enum values, URLs, publishers, or evidence source titles in canonical data.
+## F1. i18n foundations
 
-## F1. Add i18n foundations
-
-- locale configuration
-- common dictionary loader
-- enum-label dictionaries
-- page-copy dictionaries
-- fallback rules
-- localized record-copy overlay utility
+Locale configuration, dictionaries, fallback rules, and localized copy overlays.
 
 Status: pending
 
-## F2. Add Japanese common UI
+## F2. Japanese common UI
 
-Translate:
-
-- header and navigation
-- footer
-- filters
-- buttons
-- status and reason labels
-- event and evidence labels
-- disclaimers
+Header, footer, filters, buttons, labels, and disclaimers.
 
 Status: pending
 
-## F3. Publish Japanese About and Methodology
+## F3. Japanese About and Methodology
 
-These are the first complete Japanese long-form pages because definitions, limitations, and correction guidance are trust-critical.
-
-Status: pending
-
-## F4. Publish Japanese registry routes
-
-- `/ja/`
-- `/ja/dead/`
-- `/ja/active/`
-- `/ja/exchange/[slug]/`
+Definitions, limitations, and correction guidance first.
 
 Status: pending
 
-## F5. Publish Japanese Stats
-
-Reuse the same numerical data. Translate only presentation labels and explanations.
-
-Status: pending
-
-## F6. Add i18n validation and SEO
-
-- `lang`
-- `hreflang`
-- locale canonical URLs
-- `og:locale`
-- localized sitemap entries
-- missing-dictionary-key validation
-- broken-locale-route validation
-
-Completion gate:
+## F4. Japanese registry routes
 
 ```text
-English root routes pass
-Japanese primary routes pass
-canonical record data remains single-source
-fallback behavior passes
-locale SEO metadata is consistent
+/ja/
+/ja/dead/
+/ja/active/
+/ja/exchange/[slug]/
 ```
+
+Status: pending
+
+## F5. Japanese Stats
+
+Reuse identical numerical data and translate presentation only.
+
+Status: pending
+
+## F6. Locale validation and SEO
+
+- `lang` and `hreflang`;
+- locale canonical URLs;
+- `og:locale`;
+- localized sitemap entries;
+- dictionary-key validation;
+- locale-route validation.
 
 Status: pending
 
@@ -774,81 +689,36 @@ Status: pending
 
 # Phase G — Final integration audit and HEI v1.0
 
-Estimated duration: 4-5 working days  
+Estimated duration: 4-6 working days  
 Estimated PRs: 4-5
 
 ## G1. Accessibility and interaction audit
 
-- keyboard navigation
-- focus states
-- filter controls
-- table semantics
-- screen-reader labels
-- contrast
-- mobile overflow and compact rows
+Keyboard navigation, focus, controls, semantics, screen-reader labels, contrast, and mobile overflow.
 
 Status: pending
 
 ## G2. Final URL-safety audit
 
-Verify detail-page behavior for:
-
-- unsafe
-- repurposed
-- dead domain
-- redirected
-- live but unverified
+Verify unsafe, repurposed, dead, redirected, and live-unverified behavior.
 
 Status: pending
 
 ## G3. Production integration test
 
-Test:
-
-- all public route groups
-- all exchange detail routes
-- stats
-- timeline
-- changelog
-- public reports
-- machine-readable files
-- sitemap and robots
-- locale routes
-- 404 behavior
-- Cloudflare production build
-- weekly monitoring
-- monthly review
+Test all routes, public reports, machine-readable files, sitemap, robots, locales, 404 behavior, Cloudflare production, weekly monitoring, and monthly review.
 
 Status: pending
 
-## G4. Write the operations runbook
+## G4. Operations runbook
 
-Document:
-
-- adding new records
-- correcting existing entities
-- event and evidence updates
-- monitoring-PR processing
-- watchlist resolution
-- stats snapshots
-- translation updates
-- incident response
-- rollback
-- roadmap checkpoint updates
+Document record addition, corrections, event/evidence updates, monitoring review, watchlist resolution, stats snapshots, translation updates, incident response, rollback, and checkpoint updates.
 
 Status: pending
 
 ## G5. Record the v1.0 baseline
 
-Record:
-
-- release SHA
-- reviewed record counts
-- maximum IDs
-- coverage values
-- known limitations
-- deferred work
-- next recurring growth target
+Record release SHA, counts, maximum IDs, coverage values, known limitations, deferred work, and the next growth target.
 
 HEI v1.0 completion gate:
 
@@ -876,26 +746,28 @@ Status: pending
 
 ---
 
-## 5. Weekly schedule view
+## 5. Revised weekly schedule
 
 | Week | Main work | Required result |
 |---|---|---|
-| 1 | URL status, origin, lineage, entity-quality gate | Structural entity debt closed |
-| 2 | Full monitoring, watchlist cleanup, count regressions | Counts and monitoring semantics locked |
-| 3 | Active repairs and DEX/perp batches | First growth batches merged |
-| 4 | Historical batches and milestone review | 550 reviewed entities |
-| 5 | Changelog, incident timeline, evidence health, monthly snapshot | Public-value surfaces available |
-| 6 | Stats generator and Tier 1 | Core stats available |
-| 7 | Stats Tier 2/3, search, links, SEO | Analysis and discovery layer complete |
-| 8 | i18n foundation and Japanese long-form | Bilingual foundation complete |
-| 9 | Japanese registry, stats, and locale SEO | Bilingual primary routes complete |
-| 10 | Integration audit, runbook, release baseline | HEI v1.0 complete |
+| 1 | A2 Batch 3-5 and true-missing closure | true missing origin reaches zero |
+| 2 | Unknown review, lineage, permanent entity gate | Phase A complete |
+| 3 | monitoring, watchlists, count regression | Phase B complete |
+| 4 | candidate scans and thin CEX repair | growth queue fixed |
+| 5 | DEX, perp DEX, hybrid batches | approximately 460-480 entities |
+| 6 | DEX and historical batches | approximately 500-520 entities |
+| 7 | historical batches and milestone audit | at least 550 entities |
+| 8 | Changelog, Timeline, Evidence Health | public-value surfaces available |
+| 9 | Monthly Snapshot, feeds, Stats generator | Phase D complete, Stats base ready |
+| 10 | Stats tiers and history | analysis layer complete |
+| 11 | search, links, SEO, i18n foundation | English discovery layer complete |
+| 12 | Japanese primary routes and Stats | bilingual primary layer complete |
+| 13 | accessibility, URL safety, integration | release candidate |
+| 14 | runbook and release baseline | HEI v1.0 complete |
 
 ---
 
-## 6. Pull-request checkpoint update template
-
-Every implementation PR must update Section 3 using this format:
+## 6. Pull-request checkpoint template
 
 ```text
 Checkpoint date:
@@ -910,45 +782,32 @@ Known remaining issue:
 Next item:
 ```
 
-A PR that changes canonical counts must update both:
-
-- reviewed public counts
-- maximum observed IDs
-
-A PR that does not change counts must explicitly say so.
+A PR changing counts must update both reviewed counts and maximum IDs. A PR not changing counts must say so explicitly.
 
 ---
 
 ## 7. Recovery procedure
 
-When resuming after an interruption:
-
 1. Read this file from `main`.
-2. Confirm the actual current main SHA on GitHub.
-3. Compare it with the checkpoint SHA in Section 3.
-4. Inspect open pull requests and branches related to the current item.
+2. Confirm actual current main SHA.
+3. Compare it with Section 3.
+4. Inspect open PRs and relevant branches.
 5. Regenerate reviewed counts; never infer them from maximum IDs.
-6. Run the relevant validation commands.
+6. Run relevant validation commands.
 7. Resume the first item whose completion gate is not satisfied.
-8. Update this file in the same pull request before merge.
-
-If the file checkpoint is stale, the repository state is authoritative. Correct the checkpoint before continuing implementation.
+8. Update this file in the same implementation PR.
 
 ---
 
 ## 8. Deferred beyond v1.0
 
-The following are not required for HEI v1.0:
-
-- D1 migration
-- deployment-level DEX modeling
-- chain-specific deployment pages
-- public comments
-- live price, TVL, volume, or order-book data
-- rankings or recommendation scores
-- automatic canonical publication without review
-
-These require a separate specification and roadmap revision.
+- D1 migration;
+- deployment-level DEX modeling;
+- chain-specific deployment pages;
+- public comments;
+- live price, TVL, volume, or order-book data;
+- rankings or recommendation scores;
+- automatic canonical publication without review.
 
 ---
 
@@ -956,28 +815,28 @@ These require a separate specification and roadmap revision.
 
 ### Weekly
 
-- automated monitoring
-- A/B/C candidate review
-- URL and evidence health review
-- monitoring PR only when meaningful findings exist
+- automated monitoring;
+- A/B/C candidate review;
+- URL and evidence health review;
+- monitoring PR only for meaningful findings.
 
 ### Monthly
 
-- reviewed growth batch
-- Monthly Exchange Failure Snapshot
-- Registry Update
-- stats snapshot
-- stale-record repair
-- roadmap checkpoint refresh
+- reviewed growth batch;
+- Monthly Exchange Failure Snapshot;
+- Registry Update;
+- stats snapshot;
+- stale-record repair;
+- checkpoint refresh.
 
 ### Quarterly
 
-- coverage review
-- archive review
-- low-confidence review
-- lineage review
-- active/dead reclassification review
-- search and SEO review
+- coverage review;
+- archive review;
+- low-confidence review;
+- lineage review;
+- active/dead reclassification review;
+- search and SEO review.
 
 Longer-term reviewed entity targets:
 
