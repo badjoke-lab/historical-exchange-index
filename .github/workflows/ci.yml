@@ -35,6 +35,16 @@ jobs:
       - name: Print desired Cloudflare Pages state
         run: npm run cloudflare:config:print
 
+      - name: Export country or origin audit
+        run: node scripts/audit-country-or-origin.mjs --output=audit-output/country-origin.json
+
+      - name: Upload country or origin audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: country-origin-audit
+          path: audit-output/country-origin.json
+          retention-days: 7
+
       - name: Lint
         run: npm run lint
 

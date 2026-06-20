@@ -9,15 +9,15 @@
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
-    "country_or_origin": null,
-    "summary": "Centralized exchange / brokerage candidate from CoinPaprika exchange data. HEI records Bequant as a low-confidence active CEX seed until stronger operating-history or shutdown evidence is added.",
-    "official_url_original": null,
-    "official_domain_original": null,
-    "official_url_status": "unknown",
-    "archived_url": null,
-    "confidence": "low",
-    "last_verified_at": "2026-06-01",
-    "notes": "Added from verified-unadded row hei_unadded_0223. Official domain was not confirmed in this pass, so this record should be improved with stronger source evidence later."
+    "country_or_origin": "Malta",
+    "summary": "Malta-based centralized digital-asset exchange and institutional trading platform within the BEQUANT group.",
+    "official_url_original": "https://bequant.io/",
+    "official_domain_original": "bequant.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bequant.io/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-19",
+    "notes": "Added from verified-unadded row hei_unadded_0223. Official BEQUANT group materials identify Malta-incorporated holding and operating companies and a Malta headquarters; related group companies also exist in England and Seychelles."
   },
   "events": [
     {
@@ -26,13 +26,13 @@
       "event_type": "listed_reference",
       "event_date": "2026-06-01",
       "title": "Bequant present in exchange source data",
-      "description": "Bequant appeared in the verified-unadded candidate pool through CoinPaprika exchange data and is recorded as a low-confidence exchange seed.",
-      "confidence": "low",
+      "description": "Bequant appeared in the verified-unadded candidate pool through CoinPaprika exchange data and is retained as a Malta-based centralized exchange and institutional trading-platform entity.",
+      "confidence": "medium",
       "impact_level": "low",
       "event_status_effect": "active",
-      "source_count": 1,
+      "source_count": 2,
       "sort_order": 1,
-      "notes": "Upgrade with official domain, launch, operating, or closure evidence if stronger sources are added."
+      "notes": "Official group materials now support the Malta origin classification and official domain. Add a precise launch or operating milestone if stronger dated evidence is found."
     }
   ],
   "evidence": [
@@ -50,6 +50,21 @@
       "reliability": "medium",
       "claim_scope": "entity",
       "notes": "Source used by verified-unadded backlog row hei_unadded_0223."
+    },
+    {
+      "id": "hei_src_003184",
+      "exchange_id": "hei_ex_000376",
+      "event_id": "hei_ev_000684",
+      "source_type": "official_statement",
+      "title": "BEQUANT group overview and Malta headquarters",
+      "url": "https://bequant.io/about-us",
+      "publisher": "BEQUANT",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bequant.io/about-us",
+      "accessed_at": "2026-06-19",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official group overview lists BEQUANT Holding Limited and BEQUANT Pro Limited as incorporated in Malta and identifies Malta group headquarters, supporting the Malta origin classification."
     }
   ]
 }

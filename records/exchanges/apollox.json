@@ -9,15 +9,15 @@
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
-    "country_or_origin": null,
-    "summary": "Crypto derivatives and DEX-associated trading platform. HEI treats ApolloX and ApolloX DEX candidate rows as one hybrid exchange/protocol entity unless later research proves that separate v0 records are required.",
+    "country_or_origin": "BNB Chain ecosystem",
+    "summary": "BNB Chain-rooted hybrid crypto derivatives platform that combines CEX-like and decentralized trading products and now operates across multiple chains.",
     "official_url_original": "https://www.apollox.com/",
     "official_domain_original": "apollox.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.apollox.com/",
     "confidence": "medium",
-    "last_verified_at": "2026-06-01",
-    "notes": "Added from verified-unadded rows hei_unadded_0099 and hei_unadded_0100 as one entity."
+    "last_verified_at": "2026-06-19",
+    "notes": "Added from verified-unadded rows hei_unadded_0099 and hei_unadded_0100 as one entity. Country assignment is intentionally avoided: official ApolloX materials identify a multichain protocol with BNB Chain support, so HEI records an ecosystem origin rather than an unsupported legal domicile."
   },
   "events": [
     {
@@ -26,13 +26,13 @@
       "event_type": "launched",
       "event_date": null,
       "title": "ApolloX recorded as hybrid exchange/protocol entity",
-      "description": "ApolloX is recorded as one HEI entity consolidating ApolloX and ApolloX DEX candidate rows, reflecting its exchange and DEX-associated trading identity.",
+      "description": "ApolloX is recorded as one BNB Chain-rooted hybrid exchange/protocol entity consolidating ApolloX and ApolloX DEX candidate rows while reflecting its later multichain trading identity.",
       "confidence": "medium",
       "impact_level": "medium",
       "event_status_effect": "active",
       "source_count": 3,
       "sort_order": 1,
-      "notes": "Replace with a precise launch, incident, or migration event if stronger sources are added."
+      "notes": "Replace with a precise launch, incident, or migration event if stronger dated sources are added."
     }
   ],
   "evidence": [
@@ -41,15 +41,15 @@
       "exchange_id": "hei_ex_000363",
       "event_id": "hei_ev_000671",
       "source_type": "official_statement",
-      "title": "ApolloX official website",
-      "url": "https://www.apollox.com/",
+      "title": "ApolloX official multichain exchange website",
+      "url": "https://www.apollox.finance/",
       "publisher": "ApolloX",
       "published_at": null,
-      "archived_url": "https://web.archive.org/web/*/https://www.apollox.com/",
-      "accessed_at": "2026-06-01",
+      "archived_url": "https://web.archive.org/web/*/https://www.apollox.finance/",
+      "accessed_at": "2026-06-19",
       "reliability": "high",
       "claim_scope": "entity",
-      "notes": "Official domain used to preserve ApolloX identity."
+      "notes": "Official ApolloX page identifies BNB Chain in its supported-network and token ecosystem while describing the platform as multichain. This supports the BNB Chain ecosystem origin label without asserting a legal country domicile."
     },
     {
       "id": "hei_src_001473",
