@@ -9,15 +9,15 @@
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
-    "country_or_origin": null,
-    "summary": "Centralized crypto exchange candidate represented by CoinPaprika and CoinGecko source rows. HEI treats BitStorage duplicate rows as one entity.",
+    "country_or_origin": "Unknown",
+    "summary": "Centralized crypto exchange whose official site confirms active trading services but does not disclose a verifiable legal domicile or operating origin.",
     "official_url_original": "https://bitstorage.finance/",
     "official_domain_original": "bitstorage.finance",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://bitstorage.finance/",
     "confidence": "medium",
-    "last_verified_at": "2026-06-02",
-    "notes": "Added from verified-unadded rows hei_unadded_0329 and hei_unadded_0330 as one entity. This record should be improved later with stronger launch, licensing, or operating-history evidence."
+    "last_verified_at": "2026-06-20",
+    "notes": "Added from verified-unadded rows hei_unadded_0329 and hei_unadded_0330 as one entity. HEI reviewed the official exchange and team surfaces but could not verify a legal entity, headquarters, founding jurisdiction, or ecosystem origin. Unknown is an intentional reviewed classification, not a structural missing value."
   },
   "events": [
     {
@@ -26,13 +26,13 @@
       "event_type": "listed_reference",
       "event_date": "2026-06-02",
       "title": "BitStorage recorded as centralized exchange",
-      "description": "BitStorage is recorded as a centralized exchange entity, with CoinPaprika and CoinGecko candidate rows consolidated into one HEI record.",
+      "description": "BitStorage is recorded as an active centralized exchange, with CoinPaprika and CoinGecko candidate rows consolidated into one HEI record; its legal and operating origin remains explicitly Unknown after official-site review.",
       "confidence": "medium",
       "impact_level": "low",
       "event_status_effect": "active",
       "source_count": 3,
       "sort_order": 1,
-      "notes": "Upgrade with a precise launch, licensing, or operating-history event if stronger sources are added."
+      "notes": "Upgrade the origin only if a verifiable company, licensing, or headquarters source becomes available."
     }
   ],
   "evidence": [
@@ -49,7 +49,7 @@
       "accessed_at": "2026-06-02",
       "reliability": "high",
       "claim_scope": "entity",
-      "notes": "Official domain used to verify BitStorage identity."
+      "notes": "Official domain verifies the BitStorage identity and active exchange interface. Its public exchange and team surfaces did not provide a verifiable origin during the 2026-06-20 review."
     },
     {
       "id": "hei_src_001555",
