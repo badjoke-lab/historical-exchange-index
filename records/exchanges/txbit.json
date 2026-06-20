@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "id": "hei_ex_000312",
+    "slug": "txbit",
+    "canonical_name": "Txbit",
+    "aliases": ["Txbit Exchange", "Txbit.io", "txbit.io"],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2019-01-01",
+    "death_date": "2023-09-14",
+    "country_or_origin": "Unknown",
+    "summary": "Cryptocurrency exchange operating under the txbit.io domain. Txbit announced in August 2023 that it would shut down, with services scheduled to end on 2023-09-14. Exchange-tracker references later show the market as inactive or unavailable. HEI treats Txbit as a dead exchange with voluntary_shutdown as the death_reason because the terminal marker is the operator-announced shutdown rather than a hack, acquisition, rebrand, insolvency filing, or regulatory enforcement action.",
+    "official_url_original": "https://txbit.io/",
+    "official_domain_original": "txbit.io",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://txbit.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-06-20",
+    "notes": "Launch date is approximate/year-level and should be refined if stronger launch evidence is later added. Death date follows Txbit's announced 2023-09-14 shutdown schedule. The 2026-06-20 origin review retained Unknown because public profiles variously describe Dutch identity, Curaçao registration, Seychelles jurisdiction, or an unspecified Txbit Holdings Limited, while the available official shutdown and market sources do not establish an attributable operating entity and jurisdiction."
+  },
+  "entity_correction": {
+    "entity_id": "hei_ex_000312",
+    "expected": {
+      "last_verified_at": "2026-05-16",
+      "notes": "Launch date is approximate/year-level and should be refined if stronger launch evidence is later added. Death date follows Txbit's announced 2023-09-14 shutdown schedule."
+    },
+    "changes": {
+      "last_verified_at": "2026-06-20",
+      "notes": "Launch date is approximate/year-level and should be refined if stronger launch evidence is later added. Death date follows Txbit's announced 2023-09-14 shutdown schedule. The 2026-06-20 origin review retained Unknown because public profiles variously describe Dutch identity, Curaçao registration, Seychelles jurisdiction, or an unspecified Txbit Holdings Limited, while the available official shutdown and market sources do not establish an attributable operating entity and jurisdiction."
+    }
+  },
+  "events": [],
+  "evidence": []
+}
