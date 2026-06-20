@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "id": "hei_ex_000250",
+    "slug": "coinedup",
+    "canonical_name": "CoinedUp",
+    "aliases": ["Coined Up", "CoinedUp.com"],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2014-01-01",
+    "death_date": null,
+    "country_or_origin": "Unknown",
+    "summary": "Early altcoin-focused centralized exchange using coinedup.com, with public use visible in early 2014 and later exchange-data listings marking it inactive or untracked.",
+    "official_url_original": "https://coinedup.com/",
+    "official_domain_original": "coinedup.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://coinedup.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-06-20",
+    "notes": "HEI keeps the record inactive because available references do not establish a definitive terminal date. The 2026-06-20 origin review retained Unknown because project and developer posts identify the service but do not identify a legal entity, headquarters, founding jurisdiction, or ecosystem origin."
+  },
+  "entity_correction": {
+    "entity_id": "hei_ex_000250",
+    "expected": {
+      "last_verified_at": "2026-04-26",
+      "notes": "HEI does not force a dead classification because the current evidence set has inactive / untracked database references and community discussion of apparent wind-down, but no strong official shutdown notice or definitive terminal date. Status is therefore modeled as inactive rather than dead."
+    },
+    "changes": {
+      "last_verified_at": "2026-06-20",
+      "notes": "HEI keeps the record inactive because available references do not establish a definitive terminal date. The 2026-06-20 origin review retained Unknown because project and developer posts identify the service but do not identify a legal entity, headquarters, founding jurisdiction, or ecosystem origin."
+    }
+  },
+  "events": [],
+  "evidence": []
+}
