@@ -79,7 +79,7 @@ Evidence changes:
 
 ## Verified post-Batch 3 state
 
-GitHub CI runs `27862047738` and `27862103304`, plus the country-origin audit artifact, confirmed:
+GitHub CI runs `27862047738`, `27862103304`, and `27862159122`, plus the country-origin audit artifact, confirmed:
 
 ```text
 Projected public entities:      412
