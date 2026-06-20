@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "id": "hei_ex_000212",
+    "slug": "coin-swap",
+    "canonical_name": "Coin-Swap",
+    "aliases": ["Coin-Swap.net", "CoinSwap"],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2014-02-25",
+    "death_date": "2015-03-22",
+    "country_or_origin": "Unknown",
+    "summary": "Early altcoin-focused cryptocurrency exchange active by February 2014 that announced a permanent shutdown for 2015-03-22 and instructed users to withdraw all funds before that date.",
+    "official_url_original": "https://coin-swap.net/",
+    "official_domain_original": "coin-swap.net",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://coin-swap.net/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-06-20",
+    "notes": "Terminal handling uses 2015-03-22 because contemporaneous forum evidence quotes Coin-Swap.net's permanent-closure notice with that final date. Death reason is mapped to voluntary_shutdown because the exchange announced a planned closure and told users to withdraw funds. Launch date uses a conservative first-public-active marker from Bitcointalk rather than a formal launch announcement. The 2026-06-20 explicit-origin review retained Unknown: available project, closure, directory, archive, and domain-history material does not establish a legal entity, headquarters, founding jurisdiction, or ecosystem origin. Hosting location and privacy-proxy registration data are not treated as operator origin."
+  },
+  "entity_correction": {
+    "entity_id": "hei_ex_000212",
+    "expected": {
+      "last_verified_at": "2026-04-24",
+      "notes": "Terminal handling uses 2015-03-22 because contemporaneous forum evidence quotes Coin-Swap.net's permanent-closure notice with that final date. Death reason is mapped to voluntary_shutdown because the exchange announced a planned closure and told users to withdraw funds. Launch date uses a conservative first-public-active marker from Bitcointalk rather than a formal launch announcement. Country/origin remains Unknown because the current evidence set does not establish an operating jurisdiction."
+    },
+    "changes": {
+      "last_verified_at": "2026-06-20",
+      "notes": "Terminal handling uses 2015-03-22 because contemporaneous forum evidence quotes Coin-Swap.net's permanent-closure notice with that final date. Death reason is mapped to voluntary_shutdown because the exchange announced a planned closure and told users to withdraw funds. Launch date uses a conservative first-public-active marker from Bitcointalk rather than a formal launch announcement. The 2026-06-20 explicit-origin review retained Unknown: available project, closure, directory, archive, and domain-history material does not establish a legal entity, headquarters, founding jurisdiction, or ecosystem origin. Hosting location and privacy-proxy registration data are not treated as operator origin."
+    }
+  },
+  "events": [],
+  "evidence": []
+}
