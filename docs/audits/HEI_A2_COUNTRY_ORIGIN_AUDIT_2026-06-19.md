@@ -79,9 +79,9 @@ Evidence changes:
 - preserve existing official-domain evidence for Bitcointry, Bitbaby, and BitStorage
 - record the reason for each reviewed `Unknown` in entity and evidence notes
 
-## Expected post-Batch 3 state
+## Verified post-Batch 3 state
 
-GitHub CI must confirm:
+GitHub CI run `27862047738` and its `country-origin-audit` artifact confirmed:
 
 ```text
 Projected public entities:      412
