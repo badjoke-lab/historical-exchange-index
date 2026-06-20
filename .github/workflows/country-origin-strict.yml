@@ -1,0 +1,42 @@
+name: Country origin strict gate
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  strict-country-origin:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Self-test strict gate failure modes
+        run: node scripts/check-country-or-origin-strict.mjs --self-test
+
+      - name: Validate projected public country or origin state
+        run: node scripts/check-country-or-origin-strict.mjs --output=audit-output/country-origin-strict.json
+
+      - name: Upload strict country or origin report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: country-origin-strict-report
+          path: audit-output/country-origin-strict.json
+          if-no-files-found: warn
+          retention-days: 7
