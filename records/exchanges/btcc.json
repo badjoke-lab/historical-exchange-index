@@ -9,15 +9,15 @@
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
-    "country_or_origin": null,
-    "summary": "Centralized crypto exchange candidate represented by CoinPaprika and CoinGecko source rows. HEI treats active and inactive source signals as one BTCC entity and keeps the final status active pending stronger historical segmentation evidence.",
+    "country_or_origin": "United Kingdom",
+    "summary": "Long-running centralized crypto exchange founded in 2011 and currently described by its official site as headquartered in the United Kingdom.",
     "official_url_original": "https://www.btcc.com/",
     "official_domain_original": "btcc.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.btcc.com/",
     "confidence": "medium",
-    "last_verified_at": "2026-06-03",
-    "notes": "Added from verified-unadded rows hei_unadded_0403 and hei_unadded_0404 as one entity. CoinPaprika marked one source row inactive while CoinGecko has an active-domain row; status is kept active until a stronger shutdown/rebrand split is researched."
+    "last_verified_at": "2026-06-19",
+    "notes": "Added from verified-unadded rows hei_unadded_0403 and hei_unadded_0404 as one entity. HEI uses the current operating-headquarters description published on BTCC's official site. This does not erase the brand's historical Chinese roots or imply that all current regional legal providers are UK-incorporated; official materials also identify Poland, Lithuania, and Cayman Islands entities for particular services."
   },
   "events": [
     {
@@ -26,13 +26,13 @@
       "event_type": "listed_reference",
       "event_date": "2026-06-03",
       "title": "BTCC recorded as centralized exchange",
-      "description": "BTCC is recorded as a centralized exchange entity, with CoinPaprika and CoinGecko candidate rows consolidated into one HEI record.",
+      "description": "BTCC is recorded as a long-running centralized exchange founded in 2011, with CoinPaprika and CoinGecko candidate rows consolidated into one active entity and current UK headquarters supported by official-site material.",
       "confidence": "medium",
       "impact_level": "low",
       "event_status_effect": "active",
-      "source_count": 3,
+      "source_count": 4,
       "sort_order": 1,
-      "notes": "Upgrade with precise launch, rebrand, shutdown, licensing, or operating-history evidence if stronger sources are added."
+      "notes": "Upgrade with a precise launch, rebrand, shutdown, licensing, or operating-history event if stronger sources are added."
     }
   ],
   "evidence": [
@@ -80,6 +80,21 @@
       "reliability": "medium",
       "claim_scope": "entity",
       "notes": "Source used by verified-unadded backlog row hei_unadded_0404."
+    },
+    {
+      "id": "hei_src_003187",
+      "exchange_id": "hei_ex_000410",
+      "event_id": "hei_ev_000720",
+      "source_type": "official_statement",
+      "title": "BTCC official company profile",
+      "url": "https://www.btcc.com/en-US/markets/buy/Shanghai%20Inu",
+      "publisher": "BTCC",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.btcc.com/en-US/markets/buy/Shanghai%20Inu",
+      "accessed_at": "2026-06-19",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "BTCC's standardized official-site company profile states that the exchange was founded in 2011 and is headquartered in the UK. HEI uses this only for the current operating-origin field."
     }
   ]
 }
