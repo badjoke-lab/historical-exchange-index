@@ -9,15 +9,15 @@
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
-    "country_or_origin": null,
-    "summary": "DEX/exchange-like protocol candidate represented by CoinGecko source data and an official domain reference. HEI records Blueprint as an active protocol seed record pending stronger operating-history evidence.",
+    "country_or_origin": "Ethereum ecosystem",
+    "summary": "Ethereum-ecosystem ve(3,3) decentralized exchange designed for the Ethereum mainnet environment.",
     "official_url_original": "https://blueprint.fi/",
     "official_domain_original": "blueprint.fi",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://blueprint.fi/",
     "confidence": "medium",
-    "last_verified_at": "2026-06-03",
-    "notes": "Added from verified-unadded row hei_unadded_0378. This record should be improved later with stronger official, launch, chain, or operating-history evidence."
+    "last_verified_at": "2026-06-20",
+    "notes": "Added from verified-unadded row hei_unadded_0378. Blueprint's official project publication describes it as a ve(3,3) DEX on the Ethereum blockchain and repeatedly frames the design around Ethereum mainnet. HEI therefore uses an Ethereum ecosystem origin rather than an unsupported legal-country assignment."
   },
   "events": [
     {
@@ -25,14 +25,14 @@
       "exchange_id": "hei_ex_000406",
       "event_type": "listed_reference",
       "event_date": "2026-06-03",
-      "title": "Blueprint recorded as protocol seed record",
-      "description": "Blueprint is recorded as a DEX/exchange-like protocol entity based on its CoinGecko exchange source row and official domain reference.",
+      "title": "Blueprint recorded as Ethereum ecosystem DEX",
+      "description": "Blueprint is recorded as an Ethereum-ecosystem ve(3,3) decentralized exchange based on its official domain, official project publication, and CoinGecko source row.",
       "confidence": "medium",
       "impact_level": "low",
       "event_status_effect": "active",
-      "source_count": 2,
+      "source_count": 3,
       "sort_order": 1,
-      "notes": "Upgrade with precise launch, chain, or operating-history evidence if stronger sources are added."
+      "notes": "Upgrade with a precise deployment or launch event if stronger official dated material is added."
     }
   ],
   "evidence": [
@@ -65,6 +65,21 @@
       "reliability": "medium",
       "claim_scope": "entity",
       "notes": "Source used by verified-unadded backlog row hei_unadded_0378."
+    },
+    {
+      "id": "hei_src_003193",
+      "exchange_id": "hei_ex_000406",
+      "event_id": "hei_ev_000716",
+      "source_type": "official_blog",
+      "title": "Blueprint — a highly optimized and user-friendly ve(3,3) DEX on the Ethereum blockchain",
+      "url": "https://medium.com/@blueprintfi/blueprint-a-highly-optimized-and-user-friendly-ve-3-3-dex-on-the-ethereum-blockchain-4e653ab916bd",
+      "publisher": "Blueprint.fi",
+      "published_at": "2023-11-10",
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/@blueprintfi/blueprint-a-highly-optimized-and-user-friendly-ve-3-3-dex-on-the-ethereum-blockchain-4e653ab916bd",
+      "accessed_at": "2026-06-20",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official project publication identifying Blueprint as an Ethereum-blockchain DEX designed for Ethereum mainnet."
     }
   ]
 }
