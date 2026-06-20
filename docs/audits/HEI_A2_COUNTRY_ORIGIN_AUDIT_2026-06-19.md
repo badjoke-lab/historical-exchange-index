@@ -31,15 +31,6 @@ Invalid non-string values:        0
 | Blockchain.com | `United Kingdom` |
 | BYDFi | `Seychelles` |
 
-Verified state after Batch 1:
-
-```text
-Projected public entities:      412
-True missing values:             16
-Explicit Unknown values:          9
-Total review queue:              25
-```
-
 ## Batch 2 — PR #400
 
 | Entity | Decision |
@@ -50,36 +41,17 @@ Total review queue:              25
 | BitDelta | `Romania` |
 | Bulla Exchange | `Berachain ecosystem` |
 
-Verified state after Batch 2:
+## Batch 3 — PR #402
 
-```text
-Projected public entities:      412
-True missing values:             11
-Explicit Unknown values:          9
-Total review queue:              20
-Projected public evidence:     1600
-```
+| Entity | Decision |
+| --- | --- |
+| Aivora Exchange | `British Virgin Islands` |
+| Bitbaby | `Unknown` |
+| Bitcointry | `Global` |
+| Bitexlive | `Kazakhstan` |
+| BitStorage | `Unknown` |
 
-## Batch 3 decisions
-
-| Entity | Decision | Evidence basis |
-| --- | --- | --- |
-| Aivora Exchange | `British Virgin Islands` | Official About Us material states that AIVORA was established in 2024 in the British Virgin Islands; later subsidiaries are documented separately. |
-| Bitbaby | `Unknown` | Official exchange, company, legal, policy, and contact surfaces do not disclose a verifiable legal entity, headquarters, founding jurisdiction, or ecosystem origin. |
-| Bitcointry | `Global` | The official platform describes itself as a global cryptocurrency exchange; no narrower legal domicile was verified. |
-| Bitexlive | `Kazakhstan` | Official ecosystem material describes BitexLive as founded in 2017 and headquartered in Uralsk, Kazakhstan. |
-| BitStorage | `Unknown` | Official exchange and team surfaces do not disclose a verifiable legal or operating origin. |
-
-Evidence changes:
-
-- add `hei_src_003190` for the official AIVORA About Us profile
-- add `hei_src_003191` for the official BitexLive ecosystem profile
-- preserve existing official-domain evidence for Bitcointry, Bitbaby, and BitStorage
-- record the reason for each reviewed `Unknown` in entity and evidence notes
-
-## Verified post-Batch 3 state
-
-GitHub CI runs `27862047738`, `27862103304`, `27862159122`, and `27862207149`, plus the country-origin audit artifact, confirmed:
+Verified state after Batch 3:
 
 ```text
 Projected public entities:      412
@@ -90,16 +62,41 @@ Invalid non-string values:        0
 Projected public evidence:     1602
 ```
 
+## Batch 4 decisions
+
+| Entity | Decision | Evidence basis |
+| --- | --- | --- |
+| Bitzy | `Bitcoin ecosystem` | Current official material describes an EVM-compatible DEX settled on the Bitcoin network. The original `bitzy.app` domain redirects to `bitzy.info`. |
+| Blueprint | `Ethereum ecosystem` | Official project publication identifies Blueprint as a ve(3,3) DEX on the Ethereum blockchain and designed for Ethereum mainnet. |
+| Bron Intents | `Cross-chain ecosystem` | Official developer documentation defines Bron Intents as an open cross-chain swap protocol using independent solvers and on-chain settlement. |
+| Byte Exchange | `Turkey` | Official About Us material identifies Bytedex Teknoloji A.Ş. as the owner and provides an İzmir, Türkiye address and registration details. |
+
+Evidence changes:
+
+- add `hei_src_003192` for the current Bitzy Bitcoin DEX page
+- add `hei_src_003193` for Blueprint's official Ethereum DEX publication
+- add `hei_src_003194` for Bron Intents official developer documentation
+- add `hei_src_003195` for Byte Exchange's official company profile
+
+## Expected post-Batch 4 state
+
+GitHub CI must confirm:
+
+```text
+Projected public entities:      412
+True missing values:              2
+Explicit Unknown values:         11
+Total review queue:              13
+Invalid non-string values:        0
+Projected public evidence:     1606
+```
+
 Remaining true missing values:
 
 - OPNX
 - CryptoBridge
-- Bitzy
-- Blueprint
-- Bron Intents
-- Byte Exchange
 
-Explicit `Unknown` review queue after Batch 3:
+Explicit `Unknown` review queue remains:
 
 - Coin-Swap
 - AllCrypt
@@ -115,10 +112,9 @@ Explicit `Unknown` review queue after Batch 3:
 
 ## Remaining work
 
-1. Process Bitzy, Blueprint, Bron Intents, and Byte Exchange as Batch 4.
-2. Process historical canonical records OPNX and CryptoBridge as Batch 5.
-3. Review all explicit `Unknown` values separately from structural missing values.
-4. Enable the strict structural gate once true missing values reach zero.
+1. Process historical canonical records OPNX and CryptoBridge as Batch 5.
+2. Review all explicit `Unknown` values separately from structural missing values.
+3. Enable the strict structural gate once true missing values reach zero.
 
 ## Rules
 
