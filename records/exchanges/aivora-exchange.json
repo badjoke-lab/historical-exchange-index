@@ -9,15 +9,15 @@
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
-    "country_or_origin": null,
-    "summary": "Centralized exchange candidate identified in the HEI verified-unadded backlog from CoinGecko source data and currently treated as an active exchange record.",
+    "country_or_origin": "British Virgin Islands",
+    "summary": "British Virgin Islands-established centralized exchange offering crypto, forex, and stock-CFD trading with AI-assisted features.",
     "official_url_original": "https://www.aivora.com/",
     "official_domain_original": "aivora.com",
     "official_url_status": "live_unverified",
     "archived_url": "https://web.archive.org/web/*/https://www.aivora.com/",
-    "confidence": "low",
-    "last_verified_at": "2026-05-31",
-    "notes": "Added from verified-unadded backlog row hei_unadded_0046. Evidence is limited to CoinGecko and the official domain, so this record should be improved later if stronger historical or operational sources are found."
+    "confidence": "medium",
+    "last_verified_at": "2026-06-20",
+    "notes": "Added from verified-unadded backlog row hei_unadded_0046. AIVORA's official About Us page states that the platform was established in 2024 in the British Virgin Islands and later set up subsidiaries in Dubai, Malaysia, and Singapore. HEI uses the founding jurisdiction rather than the later subsidiary locations."
   },
   "events": [
     {
@@ -26,13 +26,13 @@
       "event_type": "listed_reference",
       "event_date": "2026-05-31",
       "title": "Aivora Exchange present in exchange source data",
-      "description": "Aivora Exchange appeared in the verified-unadded candidate generator from CoinGecko source data as an exchange-like candidate not found in current HEI records.",
-      "confidence": "low",
+      "description": "Aivora Exchange is recorded as an active centralized exchange, with its British Virgin Islands establishment supported by the platform's official company profile.",
+      "confidence": "medium",
       "impact_level": "low",
       "event_status_effect": "active",
-      "source_count": 2,
+      "source_count": 3,
       "sort_order": 1,
-      "notes": "Database-reference event. Replace with a proper launch or history event if stronger sources are added."
+      "notes": "Upgrade with a precise launch-date event if stronger dated material becomes available."
     }
   ],
   "evidence": [
@@ -65,6 +65,21 @@
       "reliability": "medium",
       "claim_scope": "entity",
       "notes": "Source used by verified-unadded backlog row hei_unadded_0046 with source id aivora-exchange."
+    },
+    {
+      "id": "hei_src_003190",
+      "exchange_id": "hei_ex_000355",
+      "event_id": "hei_ev_000663",
+      "source_type": "official_statement",
+      "title": "AIVORA About Us",
+      "url": "https://www.aivora.com/en-us/cms/about",
+      "publisher": "AIVORA",
+      "published_at": "2024-10-19",
+      "archived_url": "https://web.archive.org/web/*/https://www.aivora.com/en-us/cms/about",
+      "accessed_at": "2026-06-20",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "The official company profile states that AIVORA was established in 2024 in the British Virgin Islands and identifies later subsidiaries in Dubai, Malaysia, and Singapore."
     }
   ]
 }

@@ -9,15 +9,15 @@
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
-    "country_or_origin": null,
-    "summary": "Centralized crypto exchange candidate represented by CoinPaprika and CoinGecko source rows. HEI treats Bitexlive duplicate rows as one entity.",
+    "country_or_origin": "Kazakhstan",
+    "summary": "Centralized crypto exchange founded in 2017 and described by current official ecosystem material as headquartered in Uralsk, Kazakhstan.",
     "official_url_original": "https://bitexlive.com/",
     "official_domain_original": "bitexlive.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://bitexlive.com/",
     "confidence": "medium",
-    "last_verified_at": "2026-06-01",
-    "notes": "Added from verified-unadded rows hei_unadded_0290 and hei_unadded_0291 as one entity."
+    "last_verified_at": "2026-06-20",
+    "notes": "Added from verified-unadded rows hei_unadded_0290 and hei_unadded_0291 as one entity. BitexLive's official tokenomics and ecosystem page states that the exchange was founded in 2017 and is headquartered in Uralsk, Kazakhstan."
   },
   "events": [
     {
@@ -26,13 +26,13 @@
       "event_type": "listed_reference",
       "event_date": "2026-06-01",
       "title": "Bitexlive recorded as centralized exchange",
-      "description": "Bitexlive is recorded as a centralized exchange entity, with CoinPaprika and CoinGecko candidate rows consolidated into one HEI record.",
+      "description": "Bitexlive is recorded as a Kazakhstan-headquartered centralized exchange, with CoinPaprika and CoinGecko candidate rows consolidated into one HEI record.",
       "confidence": "medium",
       "impact_level": "low",
       "event_status_effect": "active",
-      "source_count": 3,
+      "source_count": 4,
       "sort_order": 1,
-      "notes": "Upgrade with a precise launch, licensing, or operating-history event if stronger sources are added."
+      "notes": "Upgrade with a precise launch-date or legal-provider event if stronger sources are added."
     }
   ],
   "evidence": [
@@ -80,6 +80,21 @@
       "reliability": "medium",
       "claim_scope": "entity",
       "notes": "Source used by verified-unadded backlog row hei_unadded_0291."
+    },
+    {
+      "id": "hei_src_003191",
+      "exchange_id": "hei_ex_000388",
+      "event_id": "hei_ev_000696",
+      "source_type": "official_statement",
+      "title": "BitexLive tokenomics and ecosystem profile",
+      "url": "https://dotc.bitexlive.com/tokenomics",
+      "publisher": "BitexLive",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://dotc.bitexlive.com/tokenomics",
+      "accessed_at": "2026-06-20",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "The official ecosystem page describes BitexLive as founded in 2017 and headquartered in Uralsk, Kazakhstan."
     }
   ]
 }
