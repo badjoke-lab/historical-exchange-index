@@ -108,15 +108,15 @@ After each merge record:
 
 ```text
 Checkpoint date: 2026-06-20
-Last confirmed main SHA: 2a78aadbd54c62b662defb884283a0bb1b4be75e
-Last merged implementation PR: #404 Resolve A2 country origin gaps — Batch 5
+Last confirmed main SHA: cdcace0f9946f8a86f7b06ab1467670ee1e08171
+Last merged implementation PR: #405 Review explicit Unknown origins — U1
 Production verification workflow: 27858696613
 Production verification result: success for earlier production baseline; current A2 work is GitHub-only
 ```
 
 ### 3.2 Reviewed public counts
 
-Confirmed on current `main` and unchanged by U1:
+Confirmed on current `main` and unchanged by U2:
 
 ```text
 Entities:  412
@@ -144,13 +144,9 @@ Maximum evidence ID:  hei_src_003197
 - A1 official URL status normalization in PR #394;
 - reproducible Cloudflare Pages deployment controls in PR #397;
 - Cloudflare policy applied: production from `main`, preview deployments disabled;
-- A2 country/origin Batch 1 in PR #399;
-- A2 country/origin Batch 2 in PR #400;
-- roadmap checkpoint recovery and revised schedule in PR #401;
-- A2 country/origin Batch 3 in PR #402;
-- A2 country/origin Batch 4 in PR #403;
-- A2 country/origin Batch 5 in PR #404;
+- A2 country/origin Batches 1-5 in PRs #399, #400, #402, #403, and #404;
 - structural `country_or_origin` omissions reduced to zero;
+- explicit Unknown origin review U1 in PR #405;
 - production endpoint, commit, count, safety-flag, and route verification.
 
 ### 3.5 Active work item
@@ -158,34 +154,26 @@ Maximum evidence ID:  hei_src_003197
 ```text
 Current phase: Phase A — Structural entity-quality debt
 Current item: A2 — Explicit Unknown origin review
-Current implementation: U1 — five older canonical records
+Current implementation: U2 — remaining six records
 True missing values: 0
 Explicit Unknown values: 11
-Expected reviewed Unknown values after merge: 5
-Expected pending Unknown values after merge: 6
-Next implementation item: U2 — remaining six explicit Unknown records
+Expected reviewed Unknown values after merge: 11
+Expected pending Unknown values after merge: 0
+Next implementation item: A2 strict origin gate
 ```
 
-U1 decisions awaiting CI and merge:
+U2 decisions awaiting CI and merge:
 
-- Coin-Swap → retain `Unknown`
-- AllCrypt → retain `Unknown`
-- McxNOW → retain `Unknown`
-- Crypto-Trade → retain `Unknown`
-- CoinedUp → retain `Unknown`
-
-U2 queue:
-
-- AidosMarket
-- 55 Global Markets
-- BCC Exchange (BitConnect Coin)
-- Txbit
-- Bitbaby
-- BitStorage
+- AidosMarket → retain `Unknown`
+- 55 Global Markets → retain `Unknown`
+- BCC Exchange (BitConnect Coin) → retain `Unknown`
+- Txbit → retain `Unknown`
+- Bitbaby → retain `Unknown`
+- BitStorage → retain `Unknown`
 
 ### 3.6 Next action
 
-Validate and merge U1. Then research and document the six U2 records. After all eleven explicit `Unknown` values have a reviewed disposition, add the strict origin gate and advance to A3 lineage review.
+Validate and merge U2. Then add a strict gate that rejects missing or null origins and requires the projected public explicit-Unknown set to match the reviewed allowlist exactly. After the gate passes, mark A2 complete and advance to A3 lineage review.
 
 ---
 
@@ -262,8 +250,8 @@ Execution batches:
 3. Batch 3 — five active low-confidence seed records: completed in PR #402.
 4. Batch 4 — four active protocol and exchange records: completed in PR #403.
 5. Batch 5 — OPNX and CryptoBridge guarded corrections: completed in PR #404.
-6. Explicit `Unknown` U1 — five older canonical records: implementation complete, CI pending.
-7. Explicit `Unknown` U2 — six remaining records.
+6. Explicit `Unknown` U1 — five older canonical records: completed in PR #405.
+7. Explicit `Unknown` U2 — six remaining records: implementation complete, CI pending.
 8. Final strict-gate PR.
 
 Completion gate:
@@ -275,7 +263,7 @@ remaining Unknown values explicitly reviewed and documented
 strict structural gate enabled
 ```
 
-Status: **IN PROGRESS — structural missing values are zero; 5 of 11 explicit Unknown values reviewed after U1**
+Status: **IN PROGRESS — origin research complete after U2; strict gate remains**
 
 ## A3. Audit lineage candidates
 
