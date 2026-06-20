@@ -51,36 +51,16 @@ Invalid non-string values:        0
 | Bitexlive | `Kazakhstan` |
 | BitStorage | `Unknown` |
 
-Verified state after Batch 3:
+## Batch 4 — PR #403
 
-```text
-Projected public entities:      412
-True missing values:              6
-Explicit Unknown values:         11
-Total review queue:              17
-Invalid non-string values:        0
-Projected public evidence:     1602
-```
+| Entity | Decision |
+| --- | --- |
+| Bitzy | `Bitcoin ecosystem` |
+| Blueprint | `Ethereum ecosystem` |
+| Bron Intents | `Cross-chain ecosystem` |
+| Byte Exchange | `Turkey` |
 
-## Batch 4 decisions
-
-| Entity | Decision | Evidence basis |
-| --- | --- | --- |
-| Bitzy | `Bitcoin ecosystem` | Current official material describes an EVM-compatible DEX settled on the Bitcoin network. The original `bitzy.app` domain redirects to `bitzy.info`. |
-| Blueprint | `Ethereum ecosystem` | Official project publication identifies Blueprint as a ve(3,3) DEX on the Ethereum blockchain and designed for Ethereum mainnet. |
-| Bron Intents | `Cross-chain ecosystem` | Official developer documentation defines Bron Intents as an open cross-chain swap protocol using independent solvers and on-chain settlement. |
-| Byte Exchange | `Turkey` | Official About Us material identifies Bytedex Teknoloji A.Ş. as the owner and provides an İzmir, Türkiye address and registration details. |
-
-Evidence changes:
-
-- add `hei_src_003192` for the current Bitzy Bitcoin DEX page
-- add `hei_src_003193` for Blueprint's official Ethereum DEX publication
-- add `hei_src_003194` for Bron Intents official developer documentation
-- add `hei_src_003195` for Byte Exchange's official company profile
-
-## Expected post-Batch 4 state
-
-GitHub CI must confirm:
+Verified state after Batch 4:
 
 ```text
 Projected public entities:      412
@@ -91,12 +71,38 @@ Invalid non-string values:        0
 Projected public evidence:     1606
 ```
 
-Remaining true missing values:
+## Batch 5 decisions
 
-- OPNX
-- CryptoBridge
+Batch 5 resolves the final two structural omissions through guarded corrections to existing canonical entities.
 
-Explicit `Unknown` review queue remains:
+| Entity | Decision | Evidence basis |
+| --- | --- | --- |
+| OPNX | `Seychelles` | Contemporary reporting identifies OPNX as incorporated in Seychelles while maintaining a Hong Kong office. The separate CoinFLEX continuity dispute remains a lineage issue for A3-A4. |
+| CryptoBridge | `BitShares ecosystem` | The project's launch announcement describes CryptoBridge as a gateway providing access to the BitShares decentralized trading platform. No reliable legal-country assignment was established. |
+
+Implementation:
+
+- add guarded correction bundle `records/exchanges/opnx.json`
+- add guarded correction bundle `records/exchanges/cryptobridge.json`
+- add `hei_src_003196` for OPNX corporate-origin reporting
+- add `hei_src_003197` for the CryptoBridge gateway launch announcement
+- do not create successor or predecessor links in A2
+
+## Expected post-Batch 5 state
+
+GitHub CI must confirm:
+
+```text
+Projected public entities:      412
+True missing values:              0
+Explicit Unknown values:         11
+Total review queue:              11
+Invalid non-string values:        0
+Projected public events:        687
+Projected public evidence:     1608
+```
+
+Explicit `Unknown` review queue:
 
 - Coin-Swap
 - AllCrypt
@@ -110,11 +116,12 @@ Explicit `Unknown` review queue remains:
 - Bitbaby
 - BitStorage
 
-## Remaining work
+## Remaining A2 work
 
-1. Process historical canonical records OPNX and CryptoBridge as Batch 5.
-2. Review all explicit `Unknown` values separately from structural missing values.
-3. Enable the strict structural gate once true missing values reach zero.
+1. Review all eleven explicit `Unknown` values.
+2. Keep `Unknown` where research cannot support a narrower classification.
+3. Enable the strict structural gate after the reviewed-Unknown report is complete.
+4. Advance the roadmap to A3 lineage review.
 
 ## Rules
 
@@ -122,4 +129,4 @@ Explicit `Unknown` review queue remains:
 - Distinguish founding origin, operating headquarters, legal domicile, and ecosystem origin.
 - Use `Unknown` when evidence cannot support a more specific classification.
 - Use `Global` only when the project explicitly describes global scope and a narrower origin is not verified.
-- Preserve notes explaining ambiguous or multi-jurisdiction cases.
+- Preserve notes explaining ambiguous, multi-jurisdiction, or disputed-lineage cases.

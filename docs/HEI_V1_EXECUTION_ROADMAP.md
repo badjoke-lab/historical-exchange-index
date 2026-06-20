@@ -108,10 +108,10 @@ After each merge record:
 
 ```text
 Checkpoint date: 2026-06-20
-Last confirmed main SHA: 4c40ec70ac264e143a4c4bfccc5739da52319887
-Last merged implementation PR: #402 Resolve A2 country origin gaps — Batch 3
+Last confirmed main SHA: 76884f918035ff5ceef0c129e64b00ae7459e479
+Last merged implementation PR: #403 Resolve A2 country origin gaps — Batch 4
 Production verification workflow: 27858696613
-Production verification result: success for earlier data baseline; post-Batch 4 verification required after merge
+Production verification result: success for earlier data baseline; post-Batch 5 verification required after merge
 ```
 
 ### 3.2 Reviewed public counts
@@ -121,25 +121,25 @@ Confirmed on current `main`:
 ```text
 Entities:  412
 Events:    687
-Evidence: 1602
+Evidence: 1606
 ```
 
-Expected after the current Batch 4 PR:
+Expected after the current Batch 5 PR:
 
 ```text
 Entities:  412
 Events:    687
-Evidence: 1606
+Evidence: 1608
 ```
 
 ### 3.3 Maximum observed IDs
 
-Expected after the current Batch 4 PR:
+Expected after the current Batch 5 PR:
 
 ```text
 Maximum entity ID:    hei_ex_000525
 Maximum event ID:     hei_ev_002079
-Maximum evidence ID:  hei_src_003195
+Maximum evidence ID:  hei_src_003197
 ```
 
 ### 3.4 Completed execution items
@@ -158,6 +158,7 @@ Maximum evidence ID:  hei_src_003195
 - A2 country/origin Batch 2 in PR #400;
 - roadmap checkpoint recovery and revised schedule in PR #401;
 - A2 country/origin Batch 3 in PR #402;
+- A2 country/origin Batch 4 in PR #403;
 - production endpoint, commit, count, safety-flag, and route verification.
 
 ### 3.5 Active work item
@@ -165,24 +166,17 @@ Maximum evidence ID:  hei_src_003195
 ```text
 Current phase: Phase A — Structural entity-quality debt
 Current item: A2 — Fill missing country_or_origin
-Current implementation: Batch 4 — four active protocol and exchange records
-Expected A2 progress after merge: 19 of 21 true-missing values resolved
-Expected true missing values remaining: 2
-Expected explicit Unknown values awaiting separate review: 11
-Next implementation item: A2 Batch 5 — OPNX and CryptoBridge
+Current implementation: Batch 5 — OPNX and CryptoBridge guarded corrections
+Expected A2 progress after merge: 21 of 21 true-missing values resolved
+Expected true missing values remaining: 0
+Expected explicit Unknown values awaiting review: 11
+Next implementation item: explicit Unknown origin review
 ```
 
-Batch 4 decisions awaiting CI and merge:
+Batch 5 decisions awaiting CI and merge:
 
-- Bitzy → `Bitcoin ecosystem`
-- Blueprint → `Ethereum ecosystem`
-- Bron Intents → `Cross-chain ecosystem`
-- Byte Exchange → `Turkey`
-
-Expected remaining true-missing records:
-
-- OPNX
-- CryptoBridge
+- OPNX → `Seychelles`
+- CryptoBridge → `BitShares ecosystem`
 
 Expected explicit `Unknown` review queue:
 
@@ -200,7 +194,7 @@ Expected explicit `Unknown` review queue:
 
 ### 3.6 Next action
 
-Validate and merge A2 Batch 4. Then process historical canonical records OPNX and CryptoBridge as Batch 5. After true missing values reach zero, review the explicit `Unknown` queue and enable the strict structural gate.
+Validate and merge A2 Batch 5. Then review all eleven explicit `Unknown` values, retain `Unknown` where evidence remains insufficient, enable the strict structural gate, and advance to A3 lineage review.
 
 ---
 
@@ -275,8 +269,8 @@ Execution batches:
 1. Batch 1 — five high-confidence records: completed in PR #399.
 2. Batch 2 — five official legal/company/ecosystem decisions: completed in PR #400.
 3. Batch 3 — five active low-confidence seed records: completed in PR #402.
-4. Batch 4 — four active protocol and exchange records: implementation complete, CI pending.
-5. Batch 5 — historical canonical records OPNX and CryptoBridge.
+4. Batch 4 — four active protocol and exchange records: completed in PR #403.
+5. Batch 5 — OPNX and CryptoBridge guarded corrections: implementation complete, CI pending.
 6. Explicit `Unknown` review — eleven records.
 7. Final strict-gate PR.
 
@@ -289,7 +283,7 @@ remaining Unknown values explicitly reviewed and documented
 strict structural gate enabled
 ```
 
-Status: **IN PROGRESS — 2 true-missing values expected after Batch 4**
+Status: **IN PROGRESS — 0 true-missing values expected after Batch 5; Unknown review remains**
 
 ## A3. Audit lineage candidates
 
