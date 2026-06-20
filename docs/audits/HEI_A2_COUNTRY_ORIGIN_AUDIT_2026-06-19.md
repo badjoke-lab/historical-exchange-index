@@ -66,8 +66,6 @@ Invalid non-string values:        0
 
 ## Batch 1 decisions
 
-The first batch resolves five entries with direct official support.
-
 | Entity | Decision | Basis |
 | --- | --- | --- |
 | ApolloX | `BNB Chain ecosystem` | Official ApolloX material describes BNB Chain support and a multichain protocol; no unsupported legal country is asserted. |
@@ -76,9 +74,9 @@ The first batch resolves five entries with direct official support.
 | Blockchain.com | `United Kingdom` | Official company history states that it began in York and has its global headquarters in London. |
 | BYDFi | `Seychelles` | Official legal and privacy material identifies BYDFi Fintech LTD as registered in Seychelles. |
 
-## Verified post-batch state
+## Verified post-Batch 1 state
 
-The final CI artifact generated from PR #399 confirmed:
+PR #399 was validated and merged as commit `bd665468f6159a8e2aaeb1a71f738dbfc5210102` after the repository-owned Cloudflare Pages policy was successfully applied.
 
 ```text
 Projected public entities:      412
@@ -88,7 +86,7 @@ Total review queue:              25
 Invalid non-string values:        0
 ```
 
-All required PR checks passed on commit `7c335a8634450899430f04bfca462647b2ba3dfb`:
+Required checks passed before merge:
 
 - CI
 - Records validation
@@ -97,6 +95,33 @@ All required PR checks passed on commit `7c335a8634450899430f04bfca462647b2ba3df
 - machine-readable validation
 - built HTML and JSON count consistency
 
+## Batch 2 decisions
+
+The second batch resolves five additional active records with official legal, company-history, or protocol documentation.
+
+| Entity | Decision | Basis |
+| --- | --- | --- |
+| BitMart | `Marshall Islands` | BitMart's official user agreement identifies GBM Global Inc. as BitMart and gives its registration number and Marshall Islands address. Cayman governing law is not treated as the entity origin. |
+| BitKan | `China` | BitKan's official site confirms its 2012 history, and an official-domain company explainer identifies Beijing, China as its headquarters. This is treated as historical operating origin rather than current legal domicile. |
+| BTCC | `United Kingdom` | BTCC's standardized official-site company profile describes the exchange as headquartered in the UK. Notes preserve its historical Chinese roots and multi-jurisdiction legal-provider structure. |
+| BitDelta | `Romania` | BitDelta's official general terms identify Lionheart Limited S.R.L as the platform company and state that it is incorporated under Romanian law. |
+| Bulla Exchange | `Berachain ecosystem` | Official Bulla documentation explicitly describes the protocol as a DEX built for Berachain. No unsupported legal-country assignment is made. |
+
+Each record receives one additional evidence item, and the linked event `source_count` is updated.
+
+## Expected post-Batch 2 state
+
+The main-target CI audit must confirm:
+
+```text
+Projected public entities:      412
+True missing values:             11
+Explicit Unknown values:          9
+Total review queue:              20
+Invalid non-string values:        0
+Projected public evidence:     1600
+```
+
 Remaining true missing values are:
 
 - OPNX
@@ -104,30 +129,23 @@ Remaining true missing values are:
 - Aivora Exchange
 - Bitbaby
 - Bitcointry
-- BitDelta
 - Bitexlive
-- BitKan
-- BitMart
 - BitStorage
 - Bitzy
 - Blueprint
 - Bron Intents
-- BTCC
-- Bulla Exchange
 - Byte Exchange
 
 ## Remaining work
 
-The remaining queue must be processed in evidence-quality batches.
-
-1. High-confidence active entities with official corporate, legal, or protocol documentation.
-2. Active low-confidence seed records where `Global`, an ecosystem label, or `Unknown` may be more accurate than a country.
-3. Historical dead-side records requiring archived or secondary historical evidence.
+1. Process active low-confidence seed records where `Global`, an ecosystem label, or `Unknown` may be more accurate than a country.
+2. Process historical dead-side records requiring archived or secondary historical evidence.
+3. Review the nine existing explicit `Unknown` values separately from structural missing values.
 4. Convert the audit to a strict structural gate once true missing values reach zero.
 
 ## Merge state
 
-PR #399 is intentionally left unmerged while Cloudflare project access is unavailable. The branch is fully validated and should not be merged until the repository-owned Cloudflare Pages policy has been applied or a safe merge window is explicitly confirmed.
+PR #399 is merged. PR #400 now targets `main`. Because PR #399 was squash-merged, the Batch 2 branch was rebuilt directly from the merged main commit so its final diff contains only this audit document and the five Batch 2 record changes.
 
 ## Rules
 
