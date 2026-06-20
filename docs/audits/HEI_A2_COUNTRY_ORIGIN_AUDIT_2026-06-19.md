@@ -2,12 +2,12 @@
 
 ## Scope
 
-This audit covers the projected public entity layer rather than only `data/entities.json`.
-
-Projected public entities are composed of:
+This audit covers the projected public entity layer:
 
 - canonical entities after reviewed corrections
-- new entities from reviewed exchange bundles
+- genuinely new entities from reviewed exchange bundles
+
+`Unknown` is an explicit reviewed classification, not a structural missing value.
 
 ## Baseline
 
@@ -21,16 +21,87 @@ Total review queue:              30
 Invalid non-string values:        0
 ```
 
-`Unknown` is not treated as a structural missing value. It is an explicit provisional classification that remains in the research queue until stronger evidence is available.
+## Batch 1 — PR #399
 
-## Initial queue
+| Entity | Decision |
+| --- | --- |
+| ApolloX | `BNB Chain ecosystem` |
+| Bequant | `Malta` |
+| bitcastle | `Saint Vincent and the Grenadines` |
+| Blockchain.com | `United Kingdom` |
+| BYDFi | `Seychelles` |
 
-### Canonical true-missing values
+Verified state after Batch 1:
+
+```text
+Projected public entities:      412
+True missing values:             16
+Explicit Unknown values:          9
+Total review queue:              25
+```
+
+## Batch 2 — PR #400
+
+| Entity | Decision |
+| --- | --- |
+| BitMart | `Marshall Islands` |
+| BitKan | `China` |
+| BTCC | `United Kingdom` |
+| BitDelta | `Romania` |
+| Bulla Exchange | `Berachain ecosystem` |
+
+Verified state after Batch 2:
+
+```text
+Projected public entities:      412
+True missing values:             11
+Explicit Unknown values:          9
+Total review queue:              20
+Projected public evidence:     1600
+```
+
+## Batch 3 decisions
+
+Batch 3 processes five active low-confidence seed records. It deliberately distinguishes a concrete jurisdiction, global operating scope, and reviewed `Unknown` classifications.
+
+| Entity | Decision | Evidence basis |
+| --- | --- | --- |
+| Aivora Exchange | `British Virgin Islands` | Official About Us material states that AIVORA was established in 2024 in the British Virgin Islands; later subsidiaries are documented separately. |
+| Bitbaby | `Unknown` | Official exchange, company, legal, policy, and contact surfaces do not disclose a verifiable legal entity, headquarters, founding jurisdiction, or ecosystem origin. |
+| Bitcointry | `Global` | The official platform describes itself as a global cryptocurrency exchange; no narrower legal domicile was verified. |
+| Bitexlive | `Kazakhstan` | Official ecosystem material describes BitexLive as founded in 2017 and headquartered in Uralsk, Kazakhstan. |
+| BitStorage | `Unknown` | Official exchange and team surfaces do not disclose a verifiable legal or operating origin. |
+
+Evidence changes:
+
+- add `hei_src_003190` for the official AIVORA About Us profile
+- add `hei_src_003191` for the official BitexLive ecosystem profile
+- preserve existing official-domain evidence for Bitcointry, Bitbaby, and BitStorage
+- record the reason for each reviewed `Unknown` in entity and evidence notes
+
+## Expected post-Batch 3 state
+
+GitHub CI must confirm:
+
+```text
+Projected public entities:      412
+True missing values:              6
+Explicit Unknown values:         11
+Total review queue:              17
+Invalid non-string values:        0
+Projected public evidence:     1602
+```
+
+Remaining true missing values:
 
 - OPNX
 - CryptoBridge
+- Bitzy
+- Blueprint
+- Bron Intents
+- Byte Exchange
 
-### Canonical explicit Unknown values
+Explicit `Unknown` review queue after Batch 3:
 
 - Coin-Swap
 - AllCrypt
@@ -41,127 +112,20 @@ Invalid non-string values:        0
 - 55 Global Markets
 - BCC Exchange (BitConnect Coin)
 - Txbit
-
-### Reviewed-bundle true-missing values
-
-- Aivora Exchange
-- ApolloX
-- Bequant
 - Bitbaby
-- bitcastle
-- Bitcointry
-- BitDelta
-- Bitexlive
-- BitKan
-- BitMart
 - BitStorage
-- Bitzy
-- Blockchain.com
-- Blueprint
-- Bron Intents
-- BTCC
-- Bulla Exchange
-- BYDFi
-- Byte Exchange
-
-## Batch 1 decisions
-
-| Entity | Decision | Basis |
-| --- | --- | --- |
-| ApolloX | `BNB Chain ecosystem` | Official ApolloX material describes BNB Chain support and a multichain protocol; no unsupported legal country is asserted. |
-| Bequant | `Malta` | Official BEQUANT group material identifies Malta-incorporated group companies and Malta headquarters. |
-| bitcastle | `Saint Vincent and the Grenadines` | Official terms identify bitcastle LLC as registered in Kingstown, Saint Vincent and the Grenadines. |
-| Blockchain.com | `United Kingdom` | Official company history states that it began in York and has its global headquarters in London. |
-| BYDFi | `Seychelles` | Official legal and privacy material identifies BYDFi Fintech LTD as registered in Seychelles. |
-
-## Verified post-Batch 1 state
-
-PR #399 was validated and merged as commit `bd665468f6159a8e2aaeb1a71f738dbfc5210102` after the repository-owned Cloudflare Pages policy was successfully applied.
-
-```text
-Projected public entities:      412
-True missing values:             16
-Explicit Unknown values:          9
-Total review queue:              25
-Invalid non-string values:        0
-```
-
-Required checks passed before merge:
-
-- CI
-- Records validation
-- Backlog dedupe
-- static production build
-- machine-readable validation
-- built HTML and JSON count consistency
-
-## Batch 2 decisions
-
-The second batch resolves five additional active records with official legal, company-history, or protocol documentation.
-
-| Entity | Decision | Basis |
-| --- | --- | --- |
-| BitMart | `Marshall Islands` | BitMart's official user agreement identifies GBM Global Inc. as BitMart and gives its registration number and Marshall Islands address. Cayman governing law is not treated as the entity origin. |
-| BitKan | `China` | BitKan's official site confirms its 2012 history, and an official-domain company explainer identifies Beijing, China as its headquarters. This is treated as historical operating origin rather than current legal domicile. |
-| BTCC | `United Kingdom` | BTCC's standardized official-site company profile describes the exchange as headquartered in the UK. Notes preserve its historical Chinese roots and multi-jurisdiction legal-provider structure. |
-| BitDelta | `Romania` | BitDelta's official general terms identify Lionheart Limited S.R.L as the platform company and state that it is incorporated under Romanian law. |
-| Bulla Exchange | `Berachain ecosystem` | Official Bulla documentation explicitly describes the protocol as a DEX built for Berachain. No unsupported legal-country assignment is made. |
-
-Each record receives one additional evidence item, and the linked event `source_count` is updated.
-
-## Verified post-Batch 2 state
-
-The main-target CI audit generated on 2026-06-20 confirmed:
-
-```text
-Projected public entities:      412
-True missing values:             11
-Explicit Unknown values:          9
-Total review queue:              20
-Invalid non-string values:        0
-Projected public evidence:     1600
-```
-
-Required checks passed on commit `628f9f042b96adeddbc02ab29aeb4b1d85930ca0` before this audit confirmation was recorded:
-
-- CI
-- Records validation
-- lint
-- reviewed bundle validation
-- canonical enum validation
-- static production build
-- machine-readable validation
-- built HTML and JSON count consistency
-
-Remaining true missing values are:
-
-- OPNX
-- CryptoBridge
-- Aivora Exchange
-- Bitbaby
-- Bitcointry
-- Bitexlive
-- BitStorage
-- Bitzy
-- Blueprint
-- Bron Intents
-- Byte Exchange
 
 ## Remaining work
 
-1. Process active low-confidence seed records where `Global`, an ecosystem label, or `Unknown` may be more accurate than a country.
-2. Process historical dead-side records requiring archived or secondary historical evidence.
-3. Review the nine existing explicit `Unknown` values separately from structural missing values.
-4. Convert the audit to a strict structural gate once true missing values reach zero.
-
-## Merge state
-
-PR #399 is merged. PR #400 targets `main`. Because PR #399 was squash-merged, the Batch 2 branch was rebuilt directly from the merged main commit so its final diff contains only this audit document and the five Batch 2 record changes.
+1. Process Bitzy, Blueprint, Bron Intents, and Byte Exchange as Batch 4.
+2. Process historical canonical records OPNX and CryptoBridge as Batch 5.
+3. Review all explicit `Unknown` values separately from structural missing values.
+4. Enable the strict structural gate once true missing values reach zero.
 
 ## Rules
 
 - Do not infer a country from a domain suffix, language, or user geography.
 - Distinguish founding origin, operating headquarters, legal domicile, and ecosystem origin.
 - Use `Unknown` when evidence cannot support a more specific classification.
-- Preserve notes explaining ambiguous multi-jurisdiction cases.
-- Do not merge unreviewed candidates directly into canonical public data.
+- Use `Global` only when the project explicitly describes global scope and a narrower origin is not verified.
+- Preserve notes explaining ambiguous or multi-jurisdiction cases.
