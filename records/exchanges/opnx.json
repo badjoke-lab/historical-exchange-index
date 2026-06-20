@@ -1,0 +1,55 @@
+{
+  "entity": {
+    "id": "hei_ex_000129",
+    "slug": "opnx",
+    "canonical_name": "OPNX",
+    "aliases": ["Open Exchange"],
+    "type": "hybrid",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2023-03-08",
+    "death_date": "2024-02-14",
+    "country_or_origin": "Seychelles",
+    "summary": "Claims-and-derivatives trading platform launched from the CoinFLEX rebrand and shut down in February 2024.",
+    "official_url_original": "https://opnx.com/",
+    "official_domain_original": "opnx.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://opnx.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-06-20",
+    "notes": "HEI records Seychelles as OPNX's corporate incorporation origin. Contemporary reporting also identified a Hong Kong office and later disputes over the extent of continuity with CoinFLEX, so this field does not resolve the separate lineage question. Shutdown date is supported by strong reporting; predecessor and successor links remain pending A3-A4 review."
+  },
+  "entity_correction": {
+    "entity_id": "hei_ex_000129",
+    "expected": {
+      "country_or_origin": null,
+      "last_verified_at": "2026-04-10",
+      "notes": "Shutdown date is supported by strong reporting, but this retained batch does not include a direct official closure notice; future predecessor and successor review should decide whether CoinFLEX and OPNX remain separate HEI entities or linked lineage records."
+    },
+    "changes": {
+      "country_or_origin": "Seychelles",
+      "last_verified_at": "2026-06-20",
+      "notes": "HEI records Seychelles as OPNX's corporate incorporation origin. Contemporary reporting also identified a Hong Kong office and later disputes over the extent of continuity with CoinFLEX, so this field does not resolve the separate lineage question. Shutdown date is supported by strong reporting; predecessor and successor links remain pending A3-A4 review."
+    }
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_003196",
+      "exchange_id": "hei_ex_000129",
+      "event_id": null,
+      "source_type": "news_article",
+      "title": "Hobbled Crypto Exchange's Creditors Are Suing Its CEO and Want to Claw Back Money From 'Bitcoin Jesus'",
+      "url": "https://www.coindesk.com/business/2023/10/25/hobbled-crypto-exchanges-creditors-are-suing-its-ceo-and-want-to-claw-back-money-from-bitcoin-jesus",
+      "publisher": "CoinDesk",
+      "published_at": "2023-10-25",
+      "archived_url": "https://web.archive.org/web/*/https://www.coindesk.com/business/2023/10/25/hobbled-crypto-exchanges-creditors-are-suing-its-ceo-and-want-to-claw-back-money-from-bitcoin-jesus",
+      "accessed_at": "2026-06-20",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "The report identifies OPNX as incorporated in Seychelles while maintaining an office in Hong Kong. HEI uses the incorporation jurisdiction for country_or_origin and preserves the separate continuity dispute in notes."
+    }
+  ]
+}
