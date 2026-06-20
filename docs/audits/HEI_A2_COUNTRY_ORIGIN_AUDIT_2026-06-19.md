@@ -62,8 +62,6 @@ Projected public evidence:     1600
 
 ## Batch 3 decisions
 
-Batch 3 processes five active low-confidence seed records. It deliberately distinguishes a concrete jurisdiction, global operating scope, and reviewed `Unknown` classifications.
-
 | Entity | Decision | Evidence basis |
 | --- | --- | --- |
 | Aivora Exchange | `British Virgin Islands` | Official About Us material states that AIVORA was established in 2024 in the British Virgin Islands; later subsidiaries are documented separately. |
@@ -81,7 +79,7 @@ Evidence changes:
 
 ## Verified post-Batch 3 state
 
-GitHub CI run `27862047738` and its `country-origin-audit` artifact confirmed:
+GitHub CI runs `27862047738` and `27862103304`, plus the country-origin audit artifact, confirmed:
 
 ```text
 Projected public entities:      412
