@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "id": "hei_ex_000218",
+    "slug": "mcxnow",
+    "canonical_name": "McxNOW",
+    "aliases": ["mcxNOW"],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": "2013-01-01",
+    "death_date": "2014-11-15",
+    "country_or_origin": "Unknown",
+    "summary": "Early cryptocurrency exchange offering bitcoin and altcoin trading that suspended trading in 2013 and later entered a 2014 maintenance period after which unwithdrawn coins were to be destroyed.",
+    "official_url_original": "https://mcxnow.com/",
+    "official_domain_original": "mcxnow.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://mcxnow.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-06-20",
+    "notes": "Terminal handling uses the 2014-11-15 maintenance / withdrawal-deadline marker from public exchange references. Death reason is kept as unknown because the current evidence shows operator-announced suspension / maintenance but does not establish a clean permanent-closure cause such as insolvency, hack, enforcement, or acquisition. The 2026-06-20 explicit-origin review retained Unknown. Historical community posts and registration references point toward Australia or New South Wales, but they are not sufficiently primary, stable, or attributable to the operating entity to support a country assignment."
+  },
+  "entity_correction": {
+    "entity_id": "hei_ex_000218",
+    "expected": {
+      "last_verified_at": "2026-04-25",
+      "notes": "Terminal handling uses the 2014-11-15 maintenance / withdrawal-deadline marker from public exchange references. Death reason is kept as unknown because the current evidence shows operator-announced suspension / maintenance but does not establish a clean permanent-closure cause such as insolvency, hack, enforcement, or acquisition. Country/origin remains Unknown because the current evidence set does not establish an operating jurisdiction."
+    },
+    "changes": {
+      "last_verified_at": "2026-06-20",
+      "notes": "Terminal handling uses the 2014-11-15 maintenance / withdrawal-deadline marker from public exchange references. Death reason is kept as unknown because the current evidence shows operator-announced suspension / maintenance but does not establish a clean permanent-closure cause such as insolvency, hack, enforcement, or acquisition. The 2026-06-20 explicit-origin review retained Unknown. Historical community posts and registration references point toward Australia or New South Wales, but they are not sufficiently primary, stable, or attributable to the operating entity to support a country assignment."
+    }
+  },
+  "events": [],
+  "evidence": []
+}
