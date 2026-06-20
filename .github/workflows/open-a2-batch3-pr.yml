@@ -1,0 +1,28 @@
+name: Open A2 Batch 3 PR
+
+on:
+  push:
+    branches:
+      - a2-country-origin-batch-3
+    paths:
+      - .github/workflows/open-a2-batch3-pr.yml
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  open-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create \
+            --repo badjoke-lab/historical-exchange-index \
+            --base main \
+            --head a2-country-origin-batch-3 \
+            --title "Resolve A2 country origin gaps — Batch 3" \
+            --body "Third reviewed A2 origin batch for Aivora Exchange, Bitbaby, Bitcointry, Bitexlive, and BitStorage. Expected state: 412 entities, 687 events, 1602 evidence, 6 true missing origins, and 11 explicit Unknown values. Includes the A2 audit and roadmap checkpoint updates. Preview deployment remains disabled." \
+          || gh pr view --repo badjoke-lab/historical-exchange-index a2-country-origin-batch-3
