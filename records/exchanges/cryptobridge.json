@@ -1,0 +1,55 @@
+{
+  "entity": {
+    "id": "hei_ex_000152",
+    "slug": "cryptobridge",
+    "canonical_name": "CryptoBridge",
+    "aliases": ["CryptoBridge DEX"],
+    "type": "dex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2017-01-01",
+    "death_date": "2019-12-15",
+    "country_or_origin": "BitShares ecosystem",
+    "summary": "BitShares-based decentralized exchange that announced closure in December 2019, citing market conditions and increasing regulation pressure.",
+    "official_url_original": "https://cryptobridge.org/",
+    "official_domain_original": "cryptobridge.org",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://cryptobridge.org/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-06-20",
+    "notes": "HEI records BitShares ecosystem as CryptoBridge's technical origin because the project launched as a gateway providing access to the BitShares decentralized trading platform. No reliable legal-country assignment was established. The shutdown notice set deposit closure for 2019-12-03 and termination of services and servers after 2019-12-15."
+  },
+  "entity_correction": {
+    "entity_id": "hei_ex_000152",
+    "expected": {
+      "country_or_origin": null,
+      "last_verified_at": "2026-04-14",
+      "notes": "Shutdown notice said deposits would close on 2019-12-03 and all services and servers would terminate after 2019-12-15."
+    },
+    "changes": {
+      "country_or_origin": "BitShares ecosystem",
+      "last_verified_at": "2026-06-20",
+      "notes": "HEI records BitShares ecosystem as CryptoBridge's technical origin because the project launched as a gateway providing access to the BitShares decentralized trading platform. No reliable legal-country assignment was established. The shutdown notice set deposit closure for 2019-12-03 and termination of services and servers after 2019-12-15."
+    }
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_003197",
+      "exchange_id": "hei_ex_000152",
+      "event_id": null,
+      "source_type": "community_reference",
+      "title": "CryptoBridge ANN — Gateway to BitShares",
+      "url": "https://bitcointalk.org/index.php?topic=2015949",
+      "publisher": "CryptoBridge",
+      "published_at": "2017-07-12",
+      "archived_url": "https://web.archive.org/web/*/https://bitcointalk.org/index.php?topic=2015949",
+      "accessed_at": "2026-06-20",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "The project's launch announcement describes CryptoBridge as a gateway providing access to the BitShares blockchain and decentralized trading platform."
+    }
+  ]
+}
