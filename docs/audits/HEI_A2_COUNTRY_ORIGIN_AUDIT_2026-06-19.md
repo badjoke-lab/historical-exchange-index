@@ -109,9 +109,9 @@ The second batch resolves five additional active records with official legal, co
 
 Each record receives one additional evidence item, and the linked event `source_count` is updated.
 
-## Expected post-Batch 2 state
+## Verified post-Batch 2 state
 
-The main-target CI audit must confirm:
+The main-target CI audit generated on 2026-06-20 confirmed:
 
 ```text
 Projected public entities:      412
@@ -121,6 +121,17 @@ Total review queue:              20
 Invalid non-string values:        0
 Projected public evidence:     1600
 ```
+
+Required checks passed on commit `628f9f042b96adeddbc02ab29aeb4b1d85930ca0` before this audit confirmation was recorded:
+
+- CI
+- Records validation
+- lint
+- reviewed bundle validation
+- canonical enum validation
+- static production build
+- machine-readable validation
+- built HTML and JSON count consistency
 
 Remaining true missing values are:
 
@@ -145,7 +156,7 @@ Remaining true missing values are:
 
 ## Merge state
 
-PR #399 is merged. PR #400 now targets `main`. Because PR #399 was squash-merged, the Batch 2 branch was rebuilt directly from the merged main commit so its final diff contains only this audit document and the five Batch 2 record changes.
+PR #399 is merged. PR #400 targets `main`. Because PR #399 was squash-merged, the Batch 2 branch was rebuilt directly from the merged main commit so its final diff contains only this audit document and the five Batch 2 record changes.
 
 ## Rules
 
