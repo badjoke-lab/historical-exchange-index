@@ -9,15 +9,15 @@
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
-    "country_or_origin": null,
-    "summary": "Intent-based exchange / DEX candidate represented by a CoinGecko exchange row and official domain reference. HEI records Bron Intents as an active protocol seed record pending stronger launch and operating-history evidence.",
+    "country_or_origin": "Cross-chain ecosystem",
+    "summary": "Open cross-chain intent protocol connecting users with independent solvers for peer-to-peer on-chain swaps across multiple blockchains.",
     "official_url_original": "https://bron.org/",
     "official_domain_original": "bron.org",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://bron.org/",
-    "confidence": "medium",
-    "last_verified_at": "2026-06-03",
-    "notes": "Added from verified-unadded row hei_unadded_0393. This record should be improved later with stronger official, launch, chain, or operating-history evidence."
+    "confidence": "high",
+    "last_verified_at": "2026-06-20",
+    "notes": "Added from verified-unadded row hei_unadded_0393. Official developer documentation describes Bron Intents as an open protocol for swaps across blockchains and explicitly states that Bron is not a trading venue, broker, counterparty, or controller of user funds. HEI uses a cross-chain ecosystem origin rather than a legal-country assignment."
   },
   "events": [
     {
@@ -25,14 +25,14 @@
       "exchange_id": "hei_ex_000408",
       "event_type": "listed_reference",
       "event_date": "2026-06-03",
-      "title": "Bron Intents recorded as exchange protocol candidate",
-      "description": "Bron Intents is recorded as an exchange / DEX protocol candidate based on its CoinGecko source row and official domain reference.",
-      "confidence": "medium",
+      "title": "Bron Intents recorded as cross-chain swap protocol",
+      "description": "Bron Intents is recorded as an open cross-chain intent protocol for peer-to-peer on-chain swaps executed through independent solvers and verified settlement.",
+      "confidence": "high",
       "impact_level": "low",
       "event_status_effect": "active",
-      "source_count": 2,
+      "source_count": 3,
       "sort_order": 1,
-      "notes": "Upgrade with precise launch, chain, or operating-history evidence if stronger sources are added."
+      "notes": "The record models the protocol-level swap system rather than treating Bron as a custodial exchange or counterparty."
     }
   ],
   "evidence": [
@@ -49,7 +49,7 @@
       "accessed_at": "2026-06-03",
       "reliability": "high",
       "claim_scope": "entity",
-      "notes": "Official domain used to verify Bron Intents identity."
+      "notes": "Official domain used to verify Bron identity and its cross-chain swap feature."
     },
     {
       "id": "hei_src_001597",
@@ -65,6 +65,21 @@
       "reliability": "medium",
       "claim_scope": "entity",
       "notes": "Source used by verified-unadded backlog row hei_unadded_0393."
+    },
+    {
+      "id": "hei_src_003194",
+      "exchange_id": "hei_ex_000408",
+      "event_id": "hei_ev_000718",
+      "source_type": "official_statement",
+      "title": "Bron Intents — open protocol for cross-chain swaps",
+      "url": "https://developer.bron.org/intents/about",
+      "publisher": "Bron",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://developer.bron.org/intents/about",
+      "accessed_at": "2026-06-20",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official developer documentation defines Bron Intents as an open cross-chain swap protocol using independent solvers and on-chain settlement, and states that Bron is not the trading counterparty."
     }
   ]
 }

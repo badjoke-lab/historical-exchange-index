@@ -3,21 +3,21 @@
     "id": "hei_ex_000398",
     "slug": "bitzy",
     "canonical_name": "Bitzy",
-    "aliases": ["bitzy.app"],
-    "type": "cex",
+    "aliases": ["bitzy.app", "bitzy.info"],
+    "type": "dex",
     "status": "active",
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
-    "country_or_origin": null,
-    "summary": "Exchange-like crypto trading candidate with CoinGecko source data and a domain reference. HEI records Bitzy as an active exchange seed record pending stronger operating-history evidence.",
+    "country_or_origin": "Bitcoin ecosystem",
+    "summary": "Bitcoin-ecosystem decentralized exchange presenting itself as an EVM-compatible DEX settled on the Bitcoin network.",
     "official_url_original": "https://bitzy.app/",
     "official_domain_original": "bitzy.app",
-    "official_url_status": "live_unverified",
+    "official_url_status": "redirected",
     "archived_url": "https://web.archive.org/web/*/https://bitzy.app/",
-    "confidence": "low",
-    "last_verified_at": "2026-06-02",
-    "notes": "Added from verified-unadded row hei_unadded_0343. This is a seed record and should be improved later with stronger official, launch, licensing, or operating-history evidence."
+    "confidence": "medium",
+    "last_verified_at": "2026-06-20",
+    "notes": "Added from verified-unadded row hei_unadded_0343. The original bitzy.app domain redirects to bitzy.info. The current official page describes Bitzy as an EVM-compatible exchange on Bitcoin and states that swaps are decentralized and settled on Bitcoin, so HEI records a Bitcoin ecosystem origin rather than a legal country."
   },
   "events": [
     {
@@ -25,14 +25,14 @@
       "exchange_id": "hei_ex_000398",
       "event_type": "listed_reference",
       "event_date": "2026-06-02",
-      "title": "Bitzy recorded as exchange-like candidate",
-      "description": "Bitzy is recorded as an exchange-like entity based on its CoinGecko exchange source row and domain reference.",
-      "confidence": "low",
+      "title": "Bitzy recorded as Bitcoin ecosystem DEX",
+      "description": "Bitzy is recorded as a Bitcoin-ecosystem decentralized exchange based on its CoinGecko source row and current official description of an EVM-compatible exchange settled on Bitcoin.",
+      "confidence": "medium",
       "impact_level": "low",
       "event_status_effect": "active",
-      "source_count": 2,
+      "source_count": 3,
       "sort_order": 1,
-      "notes": "Upgrade with precise launch, licensing, or operating-history evidence if stronger sources are added."
+      "notes": "Upgrade with a precise mainnet launch event when stronger dated official material is available."
     }
   ],
   "evidence": [
@@ -41,15 +41,15 @@
       "exchange_id": "hei_ex_000398",
       "event_id": "hei_ev_000708",
       "source_type": "official_statement",
-      "title": "Bitzy domain reference",
+      "title": "Bitzy original domain reference",
       "url": "https://bitzy.app/",
       "publisher": "Bitzy",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://bitzy.app/",
       "accessed_at": "2026-06-02",
       "reliability": "medium",
-      "claim_scope": "entity",
-      "notes": "Domain reference from the verified-unadded candidate row."
+      "claim_scope": "url_history",
+      "notes": "Original official domain. It redirected to bitzy.info during the 2026-06-20 review."
     },
     {
       "id": "hei_src_001568",
@@ -65,6 +65,21 @@
       "reliability": "medium",
       "claim_scope": "entity",
       "notes": "Source used by verified-unadded backlog row hei_unadded_0343."
+    },
+    {
+      "id": "hei_src_003192",
+      "exchange_id": "hei_ex_000398",
+      "event_id": "hei_ev_000708",
+      "source_type": "official_statement",
+      "title": "Bitzy official Bitcoin DEX page",
+      "url": "https://bitzy.info/",
+      "publisher": "Bitzy",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bitzy.info/",
+      "accessed_at": "2026-06-20",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "The official page describes Bitzy as an EVM-compatible exchange on Bitcoin and says swaps are decentralized and settled on the Bitcoin network."
     }
   ]
 }
