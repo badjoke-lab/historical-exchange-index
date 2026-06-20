@@ -1,0 +1,35 @@
+name: Lineage inventory audit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  lineage-inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Self-test lineage classification
+        run: node scripts/audit-lineage-candidates.mjs --self-test
+      - name: Build projected public lineage inventory
+        run: node scripts/audit-lineage-candidates.mjs --output-json=audit-output/lineage-inventory.json --output-md=audit-output/lineage-inventory.md
+      - name: Upload lineage inventory
+        uses: actions/upload-artifact@v4
+        with:
+          name: lineage-inventory
+          path: audit-output/lineage-inventory.*
+          if-no-files-found: error
+          retention-days: 14

@@ -29,6 +29,8 @@
     "production:check": "node scripts/check-machine-readable-production.mjs",
     "data:audit-country-or-origin": "node scripts/audit-country-or-origin.mjs",
     "data:check-country-or-origin": "node scripts/audit-country-or-origin.mjs --strict",
+    "data:audit-lineage": "node scripts/audit-lineage-candidates.mjs",
+    "data:test-lineage-audit": "node scripts/audit-lineage-candidates.mjs --self-test",
     "data:check-event-types": "node scripts/audit-legacy-enums.mjs --scope=event_type --strict",
     "data:check-source-types": "node scripts/audit-legacy-enums.mjs --scope=source_type --strict",
     "data:check-claim-scopes": "node scripts/audit-legacy-enums.mjs --scope=claim_scope --strict",
