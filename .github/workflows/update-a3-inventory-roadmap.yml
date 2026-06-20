@@ -1,0 +1,31 @@
+name: Update A3 inventory roadmap
+
+on:
+  push:
+    branches:
+      - a3-lineage-inventory
+    paths:
+      - .github/workflows/update-a3-inventory-roadmap.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-roadmap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: a3-lineage-inventory
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Update roadmap
+        run: node scripts/update-a3-inventory-roadmap.mjs
+      - name: Commit updated roadmap
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: a3-lineage-inventory
+          commit_message: "[CF-Pages-Skip] Advance roadmap to A3 L1 review"
