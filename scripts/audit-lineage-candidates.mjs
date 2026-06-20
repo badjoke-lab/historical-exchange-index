@@ -84,7 +84,7 @@ function relationshipAudit(entities) {
   return { edges, missing, self, asymmetric }
 }
 
-function classify(entity, events, signals, byId) {
+function classify(entity, events, byId) {
   if (present(entity.predecessor_id) || present(entity.successor_id)) return 'linked_existing'
   const terminal = lineageStatuses.has(entity.status) || lineageReasons.has(entity.death_reason)
   const attributable = events.filter((event) => present(event.counterparty_exchange_id) && byId.has(event.counterparty_exchange_id))
@@ -96,8 +96,7 @@ function classify(entity, events, signals, byId) {
   }
   if (events.some((event) => event.event_type === 'acquired') && !terminal) return 'document_only'
   if (events.some((event) => event.event_type === 'token_migration') && !terminal) return 'document_only'
-  if (terminal || events.length > 0 || signals.length > 0) return 'unresolved'
-  return null
+  return 'unresolved'
 }
 
 export function buildInventory(entities, events) {
@@ -112,6 +111,7 @@ export function buildInventory(entities, events) {
   const relationships = relationshipAudit(entities)
   const invalidCounterparties = []
   const candidates = []
+  const textWatchlist = []
 
   for (const entity of entities) {
     const allEvents = byEntity.get(entity.id) ?? []
@@ -129,10 +129,21 @@ export function buildInventory(entities, events) {
         })
       }
     }
-    const classification = classify(entity, relevantEvents, signals, byId)
-    if (!classification) continue
+
+    const structured =
+      present(entity.predecessor_id)
+      || present(entity.successor_id)
+      || lineageStatuses.has(entity.status)
+      || lineageReasons.has(entity.death_reason)
+      || relevantEvents.length > 0
+
+    if (!structured) {
+      if (signals.length > 0) textWatchlist.push({ entity: summarizeEntity(entity), text_signals: signals })
+      continue
+    }
+
     candidates.push({
-      classification,
+      classification: classify(entity, relevantEvents, byId),
       entity: summarizeEntity(entity),
       lineage_events: relevantEvents.map(summarizeEvent),
       text_signals: signals,
@@ -140,6 +151,12 @@ export function buildInventory(entities, events) {
   }
 
   const count = (kind) => candidates.filter((item) => item.classification === kind).length
+  const candidateCounts = {
+    linked_existing: count('linked_existing'),
+    link_now: count('link_now'),
+    document_only: count('document_only'),
+    unresolved: count('unresolved'),
+  }
   return {
     generated_at: new Date().toISOString(),
     projected_public_entities: entities.length,
@@ -152,18 +169,16 @@ export function buildInventory(entities, events) {
     self_relationships: relationships.self.length,
     asymmetric_relationships: relationships.asymmetric.length,
     invalid_event_counterparty_targets: invalidCounterparties.length,
-    candidate_counts: {
-      linked_existing: count('linked_existing'),
-      link_now: count('link_now'),
-      document_only: count('document_only'),
-      unresolved: count('unresolved'),
-    },
+    candidate_counts: candidateCounts,
+    structured_review_queue_total: Object.values(candidateCounts).reduce((sum, value) => sum + value, 0),
+    text_watchlist_total: textWatchlist.length,
     relationship_edges: relationships.edges,
     missing_target_records: relationships.missing,
     self_reference_records: relationships.self,
     asymmetric_records: relationships.asymmetric,
     invalid_counterparty_records: invalidCounterparties,
     candidates,
+    text_watchlist: textWatchlist,
   }
 }
 
@@ -186,6 +201,8 @@ function renderMarkdown(report) {
     `link_now:                           ${report.candidate_counts.link_now}`,
     `document_only:                      ${report.candidate_counts.document_only}`,
     `unresolved:                         ${report.candidate_counts.unresolved}`,
+    `Structured review queue:            ${report.structured_review_queue_total}`,
+    `Text-only watchlist:                ${report.text_watchlist_total}`,
     '```', '',
   ]
   for (const kind of ['linked_existing', 'link_now', 'document_only', 'unresolved']) {
@@ -199,6 +216,10 @@ function renderMarkdown(report) {
     if (items.length === 0) lines.push('None.')
     lines.push('')
   }
+  lines.push(`## Text-only watchlist (${report.text_watchlist_total})`, '')
+  for (const item of report.text_watchlist) lines.push(`- ${item.entity.id} — ${item.entity.canonical_name} — ${item.text_signals.join(', ')}`)
+  if (report.text_watchlist_total === 0) lines.push('None.')
+  lines.push('')
   for (const [title, records] of [
     ['Missing targets', report.missing_target_records],
     ['Self references', report.self_reference_records],
@@ -218,6 +239,7 @@ function selfTest() {
     { id: 'hei_ex_000004', canonical_name: 'Merged', status: 'merged', death_reason: 'merger' },
     { id: 'hei_ex_000005', canonical_name: 'Target', status: 'active' },
     { id: 'hei_ex_000006', canonical_name: 'Unknown Target', status: 'rebranded', death_reason: 'rebrand' },
+    { id: 'hei_ex_000007', canonical_name: 'Text Only', status: 'active', notes: 'Historical lineage mention.' },
   ]
   const events = [
     { id: 'hei_ev_000001', exchange_id: 'hei_ex_000003', event_type: 'acquired', event_status_effect: 'active' },
@@ -229,6 +251,7 @@ function selfTest() {
     if (report.candidate_counts[key] !== value) throw new Error(`self-test ${key}: expected ${value}`)
   }
   if (report.asymmetric_relationships !== 0) throw new Error('self-test expected symmetric links')
+  if (report.text_watchlist_total !== 1) throw new Error('self-test expected one text-only watch item')
   console.log('lineage inventory self-test passed')
 }
 
