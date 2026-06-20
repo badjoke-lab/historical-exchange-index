@@ -1,0 +1,38 @@
+name: Update A2 U2 roadmap
+
+on:
+  push:
+    branches:
+      - a2-explicit-unknown-review-u2
+    paths:
+      - .github/workflows/update-a2-u2-roadmap.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-roadmap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: a2-explicit-unknown-review-u2
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Update roadmap and remove temporary updater
+        run: node scripts/update-a2-u2-roadmap.mjs
+
+      - name: Commit roadmap update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --exit-code && exit 1 || true
+          git commit -m "[CF-Pages-Skip] Advance roadmap checkpoint to explicit Unknown U2"
+          git push origin HEAD:a2-explicit-unknown-review-u2
