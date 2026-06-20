@@ -38,7 +38,7 @@ Pending explicit Unknown review:  11
 
 U1 used guarded corrections to update only `last_verified_at` and `notes`. Counts were unchanged.
 
-## U2 decisions
+## U2 decisions — PR #406
 
 | Entity | ID | Decision | Review result |
 | --- | --- | --- | --- |
@@ -55,22 +55,36 @@ U1 used guarded corrections to update only `last_verified_at` and `notes`. Count
 - Bitbaby and BitStorage already contain the reviewed-Unknown rationale from A2 Batch 3, so U2 does not create duplicate corrections for them.
 - No new entity, event, or evidence count is created.
 
-## Expected completed-review state
+## Verified completed-review state
 
-GitHub CI must confirm:
+GitHub CI run `27865450962` and strict-gate run `27865450969` confirmed:
 
 ```text
 Projected public entities:       412
 Projected public events:         687
 Projected public evidence:      1608
 True missing origin values:        0
+Invalid origin types:               0
 Explicit Unknown values:          11
+Reviewed allowlist values:        11
 Reviewed explicit Unknown values: 11
 Pending explicit Unknown review:   0
-Invalid origin types:               0
+Noncanonical Unknown tokens:        0
+Stale allowlist entries:            0
+Allowlist metadata mismatches:      0
+Allowlist validation errors:        0
+Strict gate passes:              true
 ```
 
 ## Reviewed explicit-Unknown allowlist
+
+The machine-readable source of truth is:
+
+```text
+config/reviewed-unknown-origins.json
+```
+
+It contains exactly:
 
 ```text
 hei_ex_000212  Coin-Swap
@@ -86,12 +100,34 @@ hei_ex_000382  Bitbaby
 hei_ex_000394  BitStorage
 ```
 
-## Completion gate
+## Strict gate — PR #407
 
-The research and documentation portion of A2 is complete when U2 merges. The remaining A2 implementation item is the strict gate:
+The permanent gate consists of:
 
-1. reject missing or null `country_or_origin`;
-2. reject invalid origin types;
-3. allow explicit `Unknown` only for IDs in the reviewed allowlist;
-4. fail when the allowlist and projected public `Unknown` set diverge;
-5. advance the roadmap to A3 after the gate passes.
+- `scripts/check-country-or-origin-strict.mjs`
+- `config/reviewed-unknown-origins.json`
+- `.github/workflows/country-origin-strict.yml`
+- retained artifact `country-origin-strict-report`
+
+The checker runs against the projected public entity layer after guarded corrections and reviewed bundles are applied. It fails when:
+
+1. `country_or_origin` is missing, null, empty, or an invalid type;
+2. an Unknown-like token is not the canonical value `Unknown`;
+3. a projected public Unknown entity is absent from the reviewed allowlist;
+4. an allowlisted entity is missing or no longer has `Unknown`;
+5. allowlist slug or canonical-name metadata drifts;
+6. the allowlist is malformed or contains duplicate IDs or slugs.
+
+The workflow also executes negative self-tests for missing values, unreviewed Unknown values, stale entries, noncanonical tokens, and metadata mismatch.
+
+## A2 result
+
+A2 is complete:
+
+- structural missing values are zero;
+- all eleven explicit Unknown values have documented dispositions;
+- the actual Unknown set and reviewed allowlist match exactly;
+- future unreviewed or missing origin values fail CI;
+- no unsupported country assignment was introduced.
+
+The next roadmap item is A3 lineage-candidate audit.

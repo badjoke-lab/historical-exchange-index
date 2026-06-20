@@ -108,15 +108,16 @@ After each merge record:
 
 ```text
 Checkpoint date: 2026-06-20
-Last confirmed main SHA: cdcace0f9946f8a86f7b06ab1467670ee1e08171
-Last merged implementation PR: #405 Review explicit Unknown origins — U1
+Last confirmed main SHA: 7c898aab0d5b6ef74f67696775e65d7cdeba8181
+Last merged implementation PR: #406 Review explicit Unknown origins — U2
+Current implementation PR: #407 Enforce strict country origin gate
 Production verification workflow: 27858696613
-Production verification result: success for earlier production baseline; current A2 work is GitHub-only
+Production verification result: success for earlier production baseline; Phase A work remains GitHub-only
 ```
 
 ### 3.2 Reviewed public counts
 
-Confirmed on current `main` and unchanged by U2:
+Confirmed unchanged by the A2 strict gate:
 
 ```text
 Entities:  412
@@ -145,35 +146,34 @@ Maximum evidence ID:  hei_src_003197
 - reproducible Cloudflare Pages deployment controls in PR #397;
 - Cloudflare policy applied: production from `main`, preview deployments disabled;
 - A2 country/origin Batches 1-5 in PRs #399, #400, #402, #403, and #404;
-- structural `country_or_origin` omissions reduced to zero;
-- explicit Unknown origin review U1 in PR #405;
+- explicit Unknown reviews U1 and U2 in PRs #405 and #406;
+- structural origin omissions reduced to zero;
+- reviewed Unknown allowlist fixed at eleven entities;
+- A2 strict country/origin checker and CI gate verified in PR #407;
 - production endpoint, commit, count, safety-flag, and route verification.
 
 ### 3.5 Active work item
 
 ```text
 Current phase: Phase A — Structural entity-quality debt
-Current item: A2 — Explicit Unknown origin review
-Current implementation: U2 — remaining six records
-True missing values: 0
-Explicit Unknown values: 11
-Expected reviewed Unknown values after merge: 11
-Expected pending Unknown values after merge: 0
-Next implementation item: A2 strict origin gate
+Current item: A3 — Audit lineage candidates
+A2 status: complete
+True missing country_or_origin: 0
+Reviewed explicit Unknown: 11
+Pending origin review: 0
+Strict origin gate: passing
+Next implementation item: lineage candidate inventory and classification
 ```
 
-U2 decisions awaiting CI and merge:
+A3 must classify acquisition, merger, rebrand, migration, predecessor, and successor candidates as:
 
-- AidosMarket → retain `Unknown`
-- 55 Global Markets → retain `Unknown`
-- BCC Exchange (BitConnect Coin) → retain `Unknown`
-- Txbit → retain `Unknown`
-- Bitbaby → retain `Unknown`
-- BitStorage → retain `Unknown`
+- `link_now`
+- `document_only`
+- `unresolved`
 
 ### 3.6 Next action
 
-Validate and merge U2. Then add a strict gate that rejects missing or null origins and requires the projected public explicit-Unknown set to match the reviewed allowlist exactly. After the gate passes, mark A2 complete and advance to A3 lineage review.
+Generate a projected-public lineage inventory from existing relationship fields, lifecycle statuses, and acquisition / merger / rebrand / migration events. Identify asymmetric, missing-target, and evidence-thin candidates. Do not create thin successor entities merely to fill relationship fields.
 
 ---
 
@@ -251,8 +251,8 @@ Execution batches:
 4. Batch 4 — four active protocol and exchange records: completed in PR #403.
 5. Batch 5 — OPNX and CryptoBridge guarded corrections: completed in PR #404.
 6. Explicit `Unknown` U1 — five older canonical records: completed in PR #405.
-7. Explicit `Unknown` U2 — six remaining records: implementation complete, CI pending.
-8. Final strict-gate PR.
+7. Explicit `Unknown` U2 — six remaining records: completed in PR #406.
+8. Final strict-gate PR: completed in PR #407.
 
 Completion gate:
 
@@ -263,7 +263,7 @@ remaining Unknown values explicitly reviewed and documented
 strict structural gate enabled
 ```
 
-Status: **IN PROGRESS — origin research complete after U2; strict gate remains**
+Status: **COMPLETED in PR #407**
 
 ## A3. Audit lineage candidates
 
@@ -277,7 +277,7 @@ unresolved
 
 Do not create thin successor entities only to fill lineage fields.
 
-Status: pending
+Status: **IN PROGRESS — inventory and classification are next**
 
 ## A4. Apply safe lineage links
 
