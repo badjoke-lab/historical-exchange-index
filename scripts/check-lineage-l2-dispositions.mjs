@@ -4,6 +4,7 @@ import process from 'node:process'
 import { loadReviewedBundles, mergeRecords } from './lib/reviewed-bundle-aggregation.mjs'
 import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
 import { restorePreA4LineageEntities } from './lib/lineage-a4-baseline.mjs'
+import { restorePreB1LineageEvents } from './lib/lineage-a3-event-baseline.mjs'
 
 const root = process.cwd()
 const lineageEventTypes = new Set(['acquired', 'merged', 'rebranded', 'token_migration'])
@@ -24,7 +25,9 @@ const projectedEntities = [
   ...newEntityBundles.map(({ bundle }) => bundle.entity),
 ]
 const entities = restorePreA4LineageEntities(projectedEntities, a4Manifest)
-const events = mergeRecords(canonicalEvents, all, 'events', 'event', entityIdMap)
+const events = restorePreB1LineageEvents(
+  mergeRecords(canonicalEvents, all, 'events', 'event', entityIdMap),
+)
 const evidence = mergeRecords(canonicalEvidence, all, 'evidence', 'evidence', entityIdMap)
 
 const entityById = new Map(entities.map((entity) => [entity.id, entity]))
@@ -141,6 +144,7 @@ const report = {
   structured_candidates: structuredCandidateIds.length,
   reviewed_dispositions: review.dispositions?.length ?? 0,
   classification_counts: counts,
+  restored_pre_b1_event_types: 1,
   failures,
   status: failures.length === 0 ? 'pass' : 'fail',
 }
