@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "applied_at": "2026-06-21",
+  "source_review_prs": [
+    409,
+    410,
+    411
+  ],
+  "scope": "reviewed_a4_canonical_lineage_field_changes",
+  "baseline_projected_entities": 413,
+  "change_count": 14,
+  "entity_count": 14,
+  "changes": [
+    {
+      "entity_id": "hei_ex_000016",
+      "entity_name": "Gate.io",
+      "field": "predecessor_id",
+      "expected_before": {
+        "__hei_missing__": true
+      },
+      "applied_value": "hei_ex_000155",
+      "source_refs": [
+        "L1:hei_ex_000155:add_reciprocal"
+      ]
+    },
+    {
+      "entity_id": "hei_ex_000101",
+      "entity_name": "BingX",
+      "field": "predecessor_id",
+      "expected_before": {
+        "__hei_missing__": true
+      },
+      "applied_value": "hei_ex_000309",
+      "source_refs": [
+        "L1:hei_ex_000309:add_reciprocal"
+      ]
+    },
+    {
+      "entity_id": "hei_ex_000127",
+      "entity_name": "BitBay",
+      "field": "successor_id",
+      "expected_before": null,
+      "applied_value": "hei_ex_000216",
+      "source_refs": [
+        "L2:hei_ex_000127:reciprocal_pair",
+        "L2:hei_ex_000216:reciprocal"
+      ]
+    },
+    {
+      "entity_id": "hei_ex_000128",
+      "entity_name": "BITFRONT",
+      "field": "predecessor_id",
+      "expected_before": null,
+      "applied_value": "hei_ex_000302",
+      "source_refs": [
+        "L1:hei_ex_000302:add_reciprocal"
+      ]
+    },
+    {
+      "entity_id": "hei_ex_000159",
+      "entity_name": "Coinbase Pro",
+      "field": "successor_id",
+      "expected_before": "hei_ex_000012",
+      "applied_value": null,
+      "source_refs": [
+        "L1:hei_ex_000159:remove_to_event_only"
+      ]
+    },
+    {
+      "entity_id": "hei_ex_000216",
+      "entity_name": "zondacrypto",
+      "field": "predecessor_id",
+      "expected_before": null,
+      "applied_value": "hei_ex_000127",
+      "source_refs": [
+        "L2:hei_ex_000127:reciprocal",
+        "L2:hei_ex_000216:reciprocal_pair"
+      ]
+    },
+    {
+      "entity_id": "hei_ex_000260",
+      "entity_name": "BTCChina",
+      "field": "successor_id",
+      "expected_before": null,
+      "applied_value": "hei_ex_000410",
+      "source_refs": [
+        "L2:hei_ex_000260:reciprocal_pair"
+      ]
+    },
+    {
+      "entity_id": "hei_ex_000271",
+      "entity_name": "CHBTC",
+      "field": "successor_id",
+      "expected_before": null,
+      "applied_value": "hei_ex_000290",
+      "source_refs": [
+        "L2:hei_ex_000271:reciprocal_pair"
+      ]
+    },
+    {
+      "entity_id": "hei_ex_000283",
+      "entity_name": "LiteBit",
+      "field": "successor_id",
+      "expected_before": null,
+      "applied_value": "hei_ex_000046",
+      "source_refs": [
+        "L2:hei_ex_000283:one_way_documented"
+      ]
+    },
+    {
+      "entity_id": "hei_ex_000285",
+      "entity_name": "BitTrade Australia",
+      "field": "successor_id",
+      "expected_before": null,
+      "applied_value": "hei_ex_000009",
+      "source_refs": [
+        "L2:hei_ex_000285:one_way_documented"
+      ]
+    },
+    {
+      "entity_id": "hei_ex_000290",
+      "entity_name": "ZB.com",
+      "field": "predecessor_id",
+      "expected_before": null,
+      "applied_value": "hei_ex_000271",
+      "source_refs": [
+        "L2:hei_ex_000271:reciprocal"
+      ]
+    },
+    {
+      "entity_id": "hei_ex_000301",
+      "entity_name": "BCM Exchange",
+      "field": "successor_id",
+      "expected_before": null,
+      "applied_value": "hei_ex_000009",
+      "source_refs": [
+        "L2:hei_ex_000301:one_way_documented"
+      ]
+    },
+    {
+      "entity_id": "hei_ex_000313",
+      "entity_name": "CoinFLEX",
+      "field": "successor_id",
+      "expected_before": "hei_ex_000129",
+      "applied_value": null,
+      "source_refs": [
+        "L1:hei_ex_000313:remove_to_event_only"
+      ]
+    },
+    {
+      "entity_id": "hei_ex_000410",
+      "entity_name": "BTCC",
+      "field": "predecessor_id",
+      "expected_before": {
+        "__hei_missing__": true
+      },
+      "applied_value": "hei_ex_000260",
+      "source_refs": [
+        "L2:hei_ex_000260:reciprocal"
+      ]
+    }
+  ]
+}

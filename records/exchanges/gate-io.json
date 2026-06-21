@@ -17,7 +17,8 @@
     "archived_url": "https://web.archive.org/web/*/https://www.gate.io/",
     "confidence": "high",
     "notes": "",
-    "last_verified_at": "2026-04-07"
+    "last_verified_at": "2026-04-07",
+    "predecessor_id": "hei_ex_000155"
   },
   "events": [
     {
@@ -66,5 +67,16 @@
       "claim_scope": "event",
       "notes": "Official anniversary material corroborating the exchange’s long-running identity."
     }
-  ]
+  ],
+  "entity_correction": {
+    "entity_id": "hei_ex_000016",
+    "expected": {
+      "predecessor_id": {
+        "__hei_missing__": true
+      }
+    },
+    "changes": {
+      "predecessor_id": "hei_ex_000155"
+    }
+  }
 }

@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "id": "hei_ex_000127",
+    "slug": "bitbay",
+    "canonical_name": "BitBay",
+    "aliases": [],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": null,
+    "death_date": "2021-11-08",
+    "country_or_origin": "Poland",
+    "summary": "European exchange brand that rebranded from BitBay to Zonda on 2021-11-08.",
+    "official_url_original": "https://bitbay.net/",
+    "official_domain_original": "bitbay.net",
+    "official_url_status": "redirected",
+    "archived_url": "https://web.archive.org/web/*/https://bitbay.net/",
+    "predecessor_id": null,
+    "successor_id": "hei_ex_000216",
+    "confidence": "high",
+    "last_verified_at": "2026-04-10",
+    "notes": "Future successor handling should avoid double-counting Zonda and zondacrypto as separate entities without lineage review."
+  },
+  "events": [],
+  "evidence": [],
+  "entity_correction": {
+    "entity_id": "hei_ex_000127",
+    "expected": {
+      "successor_id": null
+    },
+    "changes": {
+      "successor_id": "hei_ex_000216"
+    }
+  }
+}

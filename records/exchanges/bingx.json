@@ -1,0 +1,36 @@
+{
+  "entity": {
+    "id": "hei_ex_000101",
+    "slug": "bingx",
+    "canonical_name": "BingX",
+    "aliases": [],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2018-01-01",
+    "death_date": null,
+    "country_or_origin": "Singapore",
+    "summary": "Singapore-based centralized exchange launched in 2018 and still operating under the BingX brand.",
+    "official_url_original": "https://bingx.com/",
+    "official_domain_original": "bingx.com",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://bingx.com/",
+    "confidence": "low",
+    "notes": "",
+    "last_verified_at": "2026-04-07",
+    "predecessor_id": "hei_ex_000309"
+  },
+  "events": [],
+  "evidence": [],
+  "entity_correction": {
+    "entity_id": "hei_ex_000101",
+    "expected": {
+      "predecessor_id": {
+        "__hei_missing__": true
+      }
+    },
+    "changes": {
+      "predecessor_id": "hei_ex_000309"
+    }
+  }
+}
