@@ -8,6 +8,7 @@ on:
       - .github/workflows/b1-enum-migration.yml
       - scripts/migrate-reviewed-bundle-enums-b1.mjs
       - scripts/patch-l2-pre-b1-baseline.mjs
+      - scripts/patch-b1-permanent-workflows.mjs
   workflow_dispatch:
 
 permissions:
@@ -30,15 +31,17 @@ jobs:
         run: node scripts/migrate-reviewed-bundle-enums-b1.mjs
       - name: Freeze L2 pre-B1 baseline
         run: node scripts/patch-l2-pre-b1-baseline.mjs
+      - name: Finalize permanent workflows
+        run: node scripts/patch-b1-permanent-workflows.mjs
       - name: Commit B1 cleanup
         run: |
-          if git diff --quiet -- records/exchanges scripts/check-lineage-l2-dispositions.mjs; then
+          if git diff --quiet -- records/exchanges scripts/check-lineage-l2-dispositions.mjs .github/workflows/ci.yml .github/workflows/hei-monitoring.yml; then
             echo "B1 cleanup is already applied."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add records/exchanges scripts/check-lineage-l2-dispositions.mjs
-          git commit -m "Complete B1 projected data cleanup"
+          git add records/exchanges scripts/check-lineage-l2-dispositions.mjs .github/workflows/ci.yml .github/workflows/hei-monitoring.yml
+          git commit -m "Finalize B1 monitoring gates"
           git pull --rebase origin b1-full-monitoring-run
           git push origin HEAD:b1-full-monitoring-run
