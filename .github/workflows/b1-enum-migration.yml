@@ -1,4 +1,4 @@
-name: Apply B1 reviewed bundle enum migration
+name: Apply B1 reviewed bundle cleanup
 
 on:
   push:
@@ -7,6 +7,7 @@ on:
     paths:
       - .github/workflows/b1-enum-migration.yml
       - scripts/migrate-reviewed-bundle-enums-b1.mjs
+      - scripts/patch-l2-pre-b1-baseline.mjs
   pull_request:
     branches:
       - main
@@ -30,9 +31,11 @@ jobs:
           node-version: 20
       - name: Apply reviewed bundle enum migration
         run: node scripts/migrate-reviewed-bundle-enums-b1.mjs
-      - name: Commit normalized bundles
+      - name: Freeze L2 pre-B1 baseline
+        run: node scripts/patch-l2-pre-b1-baseline.mjs
+      - name: Commit B1 cleanup
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Normalize reviewed bundle enum values
-          file_pattern: records/exchanges/*.json
+          commit_message: Complete B1 projected data cleanup
+          file_pattern: records/exchanges/*.json scripts/check-lineage-l2-dispositions.mjs
           branch: b1-full-monitoring-run
