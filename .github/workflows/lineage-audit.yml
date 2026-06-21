@@ -33,11 +33,17 @@ jobs:
       - name: Validate A3 closure
         run: node scripts/check-lineage-a3-closure.mjs --inventory=audit-output/lineage-inventory.json --output=audit-output/lineage-a3-closure.json
       - name: Validate A4 application
+        id: a4
+        continue-on-error: true
         run: node scripts/check-lineage-a4-application.mjs --output=audit-output/lineage-a4-application.json
       - name: Upload lineage audit artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: lineage-inventory
           path: audit-output/lineage-*
           if-no-files-found: error
           retention-days: 14
+      - name: Fail when A4 validation failed
+        if: steps.a4.outcome == 'failure'
+        run: exit 1
