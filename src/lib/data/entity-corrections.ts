@@ -17,9 +17,13 @@ export type CorrectableEntityField =
   | 'last_verified_at'
   | 'notes'
 
+type MissingFieldExpectation = {
+  __hei_missing__: true
+}
+
 export interface EntityCorrection {
   entity_id: string
-  expected: Partial<Pick<EntityRecord, CorrectableEntityField>>
+  expected: Partial<Record<CorrectableEntityField, EntityRecord[CorrectableEntityField] | MissingFieldExpectation>>
   changes: Partial<Pick<EntityRecord, CorrectableEntityField>>
 }
 
@@ -45,6 +49,16 @@ const allowedFields = new Set<CorrectableEntityField>([
   'last_verified_at',
   'notes',
 ])
+
+function isObject(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
+}
+
+function isMissingFieldExpectation(value: unknown): value is MissingFieldExpectation {
+  return isObject(value)
+    && value.__hei_missing__ === true
+    && Object.keys(value).length === 1
+}
 
 function stable(value: unknown): string {
   if (Array.isArray(value)) return `[${value.map(stable).join(',')}]`
@@ -87,13 +101,24 @@ export function applyReviewedEntityCorrections(
       if (!allowedFields.has(field)) throw new Error(`entity_correction field is not allowed: ${field}`)
       const key = `${correction.entity_id}:${field}`
       if (correctedFields.has(key)) throw new Error(`entity field already corrected: ${key}`)
-      if (stable(current[field]) !== stable(correction.expected[field])) {
+
+      const expected = correction.expected[field]
+      const change = correction.changes[field]
+      if (isMissingFieldExpectation(change)) {
+        throw new Error(`entity_correction changes may not use the missing-field marker for ${key}`)
+      }
+      if (isMissingFieldExpectation(expected)) {
+        if (Object.prototype.hasOwnProperty.call(current, field)) {
+          throw new Error(`stale entity_correction expected missing field for ${key}`)
+        }
+      } else if (stable(current[field]) !== stable(expected)) {
         throw new Error(`stale entity_correction expected value for ${key}`)
       }
-      if (stable(correction.expected[field]) === stable(correction.changes[field])) {
+      if (!isMissingFieldExpectation(expected) && stable(expected) === stable(change)) {
         throw new Error(`entity_correction does not change ${key}`)
       }
-      Object.assign(next, { [field]: correction.changes[field] })
+
+      Object.assign(next, { [field]: change })
       correctedFields.add(key)
     }
     result[index] = next
