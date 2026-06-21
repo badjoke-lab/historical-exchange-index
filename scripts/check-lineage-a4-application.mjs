@@ -66,6 +66,7 @@ for (const item of l2.dispositions ?? []) {
 if (manifest.version !== 1) fail('manifest version must be 1')
 if (manifest.scope !== 'reviewed_a4_canonical_lineage_field_changes') fail('unexpected manifest scope')
 if (!Array.isArray(manifest.changes)) fail('manifest changes must be an array')
+if (manifest.baseline_projected_entities !== 412) fail(`manifest baseline_projected_entities must be 412, got ${manifest.baseline_projected_entities}`)
 if (manifest.change_count !== 14) fail(`manifest change_count must be 14, got ${manifest.change_count}`)
 if (manifest.entity_count !== 14) fail(`manifest entity_count must be 14, got ${manifest.entity_count}`)
 if (expectedChanges.size !== 14) fail(`derived A4 change count must be 14, got ${expectedChanges.size}`)
