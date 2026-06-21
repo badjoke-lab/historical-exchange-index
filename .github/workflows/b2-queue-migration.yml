@@ -1,0 +1,29 @@
+name: B2 queue migration
+
+on:
+  push:
+    branches:
+      - b2-watchlist-resolutions
+    paths:
+      - .github/workflows/b2-queue-migration.yml
+      - scripts/migrate-b2-reviewed-queues.mjs
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: b2-watchlist-resolutions
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/migrate-b2-reviewed-queues.mjs
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Migrate reviewed queues into resolution index
+          file_pattern: data-staging/watchlists/resolution/index.json
+          branch: b2-watchlist-resolutions
