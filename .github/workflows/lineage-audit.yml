@@ -26,10 +26,12 @@ jobs:
         run: node scripts/audit-lineage-candidates.mjs --self-test
       - name: Build projected public lineage inventory
         run: node scripts/audit-lineage-candidates.mjs --output-json=audit-output/lineage-inventory.json --output-md=audit-output/lineage-inventory.md
-      - name: Upload lineage inventory
+      - name: Validate reviewed L1 dispositions
+        run: node scripts/check-lineage-l1-dispositions.mjs --output=audit-output/lineage-l1-dispositions.json
+      - name: Upload lineage audit artifacts
         uses: actions/upload-artifact@v4
         with:
           name: lineage-inventory
-          path: audit-output/lineage-inventory.*
+          path: audit-output/lineage-*
           if-no-files-found: error
           retention-days: 14
