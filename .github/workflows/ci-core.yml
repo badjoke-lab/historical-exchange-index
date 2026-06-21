@@ -38,6 +38,7 @@ jobs:
       - run: npm run data:check-claim-scopes
       - run: npm run data:check-projected-enums
       - run: npm run monitor:smoke
+      - run: npm run monitor:test-completion
       - run: node --check scripts/check-machine-readable-production.mjs
       - run: npm run build
       - run: npm run machine:validate
