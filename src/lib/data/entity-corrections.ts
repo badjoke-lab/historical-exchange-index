@@ -107,15 +107,19 @@ export function applyReviewedEntityCorrections(
       if (isMissingFieldExpectation(change)) {
         throw new Error(`entity_correction changes may not use the missing-field marker for ${key}`)
       }
-      if (isMissingFieldExpectation(expected)) {
-        if (Object.prototype.hasOwnProperty.call(current, field)) {
-          throw new Error(`stale entity_correction expected missing field for ${key}`)
-        }
-      } else if (stable(current[field]) !== stable(expected)) {
-        throw new Error(`stale entity_correction expected value for ${key}`)
-      }
       if (!isMissingFieldExpectation(expected) && stable(expected) === stable(change)) {
         throw new Error(`entity_correction does not change ${key}`)
+      }
+
+      const currentHasField = Object.prototype.hasOwnProperty.call(current, field)
+      const alreadyApplied = currentHasField && stable(current[field]) === stable(change)
+
+      if (isMissingFieldExpectation(expected)) {
+        if (currentHasField && !alreadyApplied) {
+          throw new Error(`stale entity_correction expected missing field for ${key}`)
+        }
+      } else if (stable(current[field]) !== stable(expected) && !alreadyApplied) {
+        throw new Error(`stale entity_correction expected value for ${key}`)
       }
 
       Object.assign(next, { [field]: change })
