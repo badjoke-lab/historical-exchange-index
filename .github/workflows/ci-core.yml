@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run policy:check
+      - run: node --check scripts/configure-cloudflare-pages-project.mjs
+      - run: npm run cloudflare:config:print
+      - name: Export country or origin audit
+        run: node scripts/audit-country-or-origin.mjs --output=audit-output/country-origin.json
+      - name: Upload country or origin audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: country-origin-audit
+          path: audit-output/country-origin.json
+          retention-days: 7
+      - run: npm run lint
+      - run: npm run records:validate
+      - run: npm run data:check-event-types
+      - run: npm run data:check-official-url-statuses
+      - run: npm run data:check-source-types
+      - run: npm run data:check-claim-scopes
+      - run: npm run data:check-projected-enums
+      - run: npm run monitor:smoke
+      - run: node --check scripts/check-machine-readable-production.mjs
+      - run: npm run build
+      - run: npm run machine:validate
+      - run: npm run public:validate
