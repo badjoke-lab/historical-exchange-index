@@ -1,32 +1,10 @@
-name: Trigger A4 roadmap checkpoint
+name: Retired A4 roadmap checkpoint trigger
 
 on:
-  push:
-    branches:
-      - a4-apply-lineage
-    paths:
-      - .github/workflows/a4-roadmap-update-trigger.yml
-
-permissions:
-  contents: write
+  workflow_dispatch:
 
 jobs:
-  update-roadmap:
+  retired:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v4
-        with:
-          ref: a4-apply-lineage
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Update roadmap
-        run: node scripts/update-roadmap-a4.mjs
-      - name: Commit roadmap
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: Update roadmap after A4 lineage implementation
-          file_pattern: docs/HEI_V1_EXECUTION_ROADMAP.md
-          branch: a4-apply-lineage
+      - run: echo "This one-time workflow is retired."
