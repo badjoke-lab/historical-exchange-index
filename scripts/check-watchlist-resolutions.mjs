@@ -4,7 +4,7 @@ import process from 'node:process'
 import { loadCanonicalData } from './monitoring/core/load-canonical-data.mjs'
 import { loadResolutionFiles, loadWatchlists } from './monitoring/core/load-watchlists.mjs'
 import { candidateKeyFromName } from './monitoring/core/candidate-identity.mjs'
-import { TERMINAL_RESOLUTION_STATES, validateResolutionIndex } from './monitoring/core/resolution-store.mjs'
+import { OPEN_RESOLUTION_STATES, TERMINAL_RESOLUTION_STATES, validateResolutionIndex } from './monitoring/core/resolution-store.mjs'
 
 const root = process.cwd()
 const outputArg = process.argv.find((arg) => arg.startsWith('--output='))
@@ -78,10 +78,32 @@ const duplicatedWatchlistKeys = watchlists.candidates
   .filter((key, index, values) => values.indexOf(key) !== index)
 if (duplicatedWatchlistKeys.length > 0) failures.push(`aggregated watchlist keys are not unique: ${duplicatedWatchlistKeys.join(', ')}`)
 
-const terminalWatchlistCandidates = watchlists.candidates.filter((candidate) => {
+const lifecycleCounts = {
+  terminal: 0,
+  open: 0,
+  unresolved: 0,
+  aged_a: 0,
+  review_due: 0,
+}
+const classCounts = { A: 0, B: 0, C: 0, unknown: 0 }
+
+for (const candidate of watchlists.candidates) {
+  const cls = ['A', 'B', 'C'].includes(candidate.candidate_class) ? candidate.candidate_class : 'unknown'
+  classCounts[cls] += 1
   const resolution = resolutions.match(candidate.raw || { canonical_name: candidate.name })
-  return Boolean(resolution && TERMINAL_RESOLUTION_STATES.has(resolution.state))
-})
+  if (resolution && TERMINAL_RESOLUTION_STATES.has(resolution.state)) lifecycleCounts.terminal += 1
+  else if (resolution && OPEN_RESOLUTION_STATES.has(resolution.state)) lifecycleCounts.open += 1
+  else lifecycleCounts.unresolved += 1
+
+  const age = Date.now() - Date.parse(candidate.first_seen_at || '')
+  if (cls === 'A' && Number.isFinite(age) && age >= 60 * 86400000 && !(resolution && TERMINAL_RESOLUTION_STATES.has(resolution.state))) {
+    lifecycleCounts.aged_a += 1
+  }
+  if (resolution && OPEN_RESOLUTION_STATES.has(resolution.state)) {
+    const due = Date.parse(resolution.next_review_after || '')
+    if (!Number.isFinite(due) || due <= Date.now()) lifecycleCounts.review_due += 1
+  }
+}
 
 const report = {
   generated_at: new Date().toISOString(),
@@ -93,7 +115,8 @@ const report = {
   raw_watchlist_candidates: watchlists.rawCandidateCount,
   unique_watchlist_candidates: watchlists.candidates.length,
   repeated_watchlist_occurrences_collapsed: watchlists.rawCandidateCount - watchlists.candidates.length,
-  terminal_candidates_in_history: terminalWatchlistCandidates.length,
+  watchlist_class_counts: classCounts,
+  lifecycle_counts: lifecycleCounts,
   projected_entities: canonical.entities.length,
   failures,
   status: failures.length === 0 ? 'pass' : 'fail',
@@ -110,6 +133,8 @@ console.log(`Resolution states: ${JSON.stringify(report.resolution_state_counts)
 console.log(`Raw watchlist candidates: ${report.raw_watchlist_candidates}`)
 console.log(`Unique watchlist candidates: ${report.unique_watchlist_candidates}`)
 console.log(`Repeated occurrences collapsed: ${report.repeated_watchlist_occurrences_collapsed}`)
+console.log(`Watchlist classes: ${JSON.stringify(report.watchlist_class_counts)}`)
+console.log(`Lifecycle counts: ${JSON.stringify(report.lifecycle_counts)}`)
 console.log(`Historical resolution coverage errors: ${report.historical_resolution_coverage_errors}`)
 if (failures.length > 0) {
   for (const failure of failures) console.error(`- ${failure}`)
