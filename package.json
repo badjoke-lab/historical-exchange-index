@@ -33,6 +33,7 @@
     "data:test-lineage-audit": "node scripts/audit-lineage-candidates.mjs --self-test",
     "data:check-lineage-l1": "node scripts/check-lineage-l1-dispositions.mjs",
     "data:check-lineage-l2": "node scripts/check-lineage-l2-dispositions.mjs",
+    "data:check-lineage-a3": "node scripts/check-lineage-a3-closure.mjs",
     "data:check-event-types": "node scripts/audit-legacy-enums.mjs --scope=event_type --strict",
     "data:check-source-types": "node scripts/audit-legacy-enums.mjs --scope=source_type --strict",
     "data:check-claim-scopes": "node scripts/audit-legacy-enums.mjs --scope=claim_scope --strict",
