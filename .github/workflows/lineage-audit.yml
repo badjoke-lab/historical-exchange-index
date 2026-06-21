@@ -1,19 +1,20 @@
 name: Lineage inventory audit
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
   workflow_dispatch:
 
 jobs:
-  a4-build-diagnostic:
+  lineage-inventory:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          show-progress: false
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -21,19 +22,22 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Capture production build
-        id: build
-        continue-on-error: true
-        run: |
-          mkdir -p audit-output
-          npm run build > audit-output/a4-build.log 2>&1
-      - name: Upload production build log
+      - name: Self-test lineage classification
+        run: node scripts/audit-lineage-candidates.mjs --self-test
+      - name: Build projected public lineage inventory
+        run: node scripts/audit-lineage-candidates.mjs --output-json=audit-output/lineage-inventory.json --output-md=audit-output/lineage-inventory.md
+      - name: Validate reviewed L1 dispositions
+        run: node scripts/check-lineage-l1-dispositions.mjs --output=audit-output/lineage-l1-dispositions.json
+      - name: Validate reviewed L2 dispositions
+        run: node scripts/check-lineage-l2-dispositions.mjs --output=audit-output/lineage-l2-dispositions.json
+      - name: Validate A3 closure
+        run: node scripts/check-lineage-a3-closure.mjs --inventory=audit-output/lineage-inventory.json --output=audit-output/lineage-a3-closure.json
+      - name: Validate A4 application
+        run: node scripts/check-lineage-a4-application.mjs --output=audit-output/lineage-a4-application.json
+      - name: Upload lineage audit artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: a4-build-log
-          path: audit-output/a4-build.log
+          name: lineage-inventory
+          path: audit-output/lineage-*
           if-no-files-found: error
-          retention-days: 7
-      - name: Fail when build failed
-        if: steps.build.outcome == 'failure'
-        run: exit 1
+          retention-days: 14
