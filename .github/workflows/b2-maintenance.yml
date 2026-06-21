@@ -27,5 +27,5 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Complete B2 monitor integration
-          file_pattern: scripts/monitoring/monitors/news-and-event-watch.mjs .github/workflows/ci-core.yml
+          file_pattern: scripts/monitoring/monitors/news-and-event-watch.mjs .github/workflows/ci-core.yml .github/workflows/hei-monitoring-v2.yml
           branch: b2-watchlist-resolutions
