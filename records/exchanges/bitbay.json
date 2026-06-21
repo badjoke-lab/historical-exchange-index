@@ -19,16 +19,18 @@
     "successor_id": "hei_ex_000216",
     "confidence": "high",
     "last_verified_at": "2026-04-10",
-    "notes": "Future successor handling should avoid double-counting Zonda and zondacrypto as separate entities without lineage review."
+    "notes": "HEI models BitBay as the historical predecessor brand of zondacrypto. The reviewed reciprocal lineage link preserves the separate historical brand record while preventing the transition from being treated as two unrelated exchange identities."
   },
   "events": [],
   "evidence": [],
   "entity_correction": {
     "entity_id": "hei_ex_000127",
     "expected": {
+      "notes": "Future successor handling should avoid double-counting Zonda and zondacrypto as separate entities without lineage review.",
       "successor_id": null
     },
     "changes": {
+      "notes": "HEI models BitBay as the historical predecessor brand of zondacrypto. The reviewed reciprocal lineage link preserves the separate historical brand record while preventing the transition from being treated as two unrelated exchange identities.",
       "successor_id": "hei_ex_000216"
     }
   }
