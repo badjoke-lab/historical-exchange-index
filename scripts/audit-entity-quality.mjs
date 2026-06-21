@@ -4,7 +4,11 @@ import process from 'node:process'
 import { loadReviewedBundles } from './lib/reviewed-bundle-aggregation.mjs'
 import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
 import {
+  TYPE_VALUES,
+  STATUS_VALUES,
+  DEATH_REASON_VALUES,
   DEAD_SIDE_STATUSES,
+  ACTIVE_SIDE_STATUSES,
   OFFICIAL_URL_STATUS_VALUES,
 } from './monitoring/core/constants.mjs'
 
@@ -25,6 +29,11 @@ function stableHost(value) {
   } catch {
     return null
   }
+}
+
+function domainsCompatible(left, right) {
+  if (!left || !right) return false
+  return left === right || left.endsWith(`.${right}`) || right.endsWith(`.${left}`)
 }
 
 function isHttpUrl(value) {
@@ -79,6 +88,40 @@ export function auditEntityQuality(entities, { reviewedOneWayKeys = new Set() } 
   for (const entity of entities) {
     const label = entity.canonical_name || entity.slug || entity.id || 'unknown entity'
 
+    if (!TYPE_VALUES.includes(entity.type)) {
+      add(findings, 'critical', 'invalid_entity_type', entity, `${label} has an invalid entity type.`, {
+        value: entity.type ?? null,
+      })
+    }
+
+    if (!STATUS_VALUES.includes(entity.status)) {
+      add(findings, 'critical', 'invalid_entity_status', entity, `${label} has an invalid entity status.`, {
+        value: entity.status ?? null,
+      })
+    }
+
+    if (entity.death_reason !== null && entity.death_reason !== undefined && !DEATH_REASON_VALUES.includes(entity.death_reason)) {
+      add(findings, 'critical', 'invalid_death_reason', entity, `${label} has an invalid death_reason.`, {
+        value: entity.death_reason,
+      })
+    }
+
+    if (DEAD_SIDE_STATUSES.includes(entity.status) && !entity.death_reason) {
+      add(findings, 'high', 'dead_side_missing_death_reason', entity, `${label} is dead-side but has no death_reason.`)
+    }
+
+    if (ACTIVE_SIDE_STATUSES.includes(entity.status) && entity.death_reason) {
+      add(findings, 'high', 'active_side_has_death_reason', entity, `${label} is active-side but has a death_reason.`, {
+        value: entity.death_reason,
+      })
+    }
+
+    if (!['high', 'medium', 'low'].includes(entity.confidence)) {
+      add(findings, 'high', 'invalid_entity_confidence', entity, `${label} has an invalid or missing confidence.`, {
+        value: entity.confidence ?? null,
+      })
+    }
+
     if (!OFFICIAL_URL_STATUS_VALUES.includes(entity.official_url_status)) {
       add(findings, 'critical', 'invalid_official_url_status', entity, `${label} has invalid or missing official_url_status.`, {
         value: entity.official_url_status ?? null,
@@ -105,7 +148,7 @@ export function auditEntityQuality(entities, { reviewedOneWayKeys = new Set() } 
     } else if (!domainHost) {
       add(findings, 'high', 'invalid_original_domain', entity, `${label} has an invalid original official domain.`, { value: originalDomain })
     }
-    if (hasText(originalUrl) && hasText(originalDomain) && urlHost && domainHost && urlHost !== domainHost) {
+    if (hasText(originalUrl) && hasText(originalDomain) && urlHost && domainHost && !domainsCompatible(urlHost, domainHost)) {
       add(findings, 'high', 'original_url_domain_mismatch', entity, `${label} original URL host and domain do not match.`, {
         original_url_host: urlHost,
         original_domain: domainHost,
@@ -243,14 +286,14 @@ function runSelfTest() {
       official_domain_original: 'target.example', archived_url: null, summary: 'Active exchange.', notes: '',
     },
     {
-      id: 'ex-broken', slug: 'broken', canonical_name: 'Broken', status: 'active',
+      id: 'ex-broken', slug: 'broken', canonical_name: 'Broken', type: 'invalid_type', status: 'invalid_status', death_reason: 'invalid_reason', confidence: 'invalid_confidence',
       country_or_origin: null, official_url_status: 'invalid_value', official_url_original: null,
       official_domain_original: null, archived_url: null, successor_id: 'missing', summary: 'TODO verify.', notes: '',
     },
   ]
   const report = auditEntityQuality(entities, { reviewedOneWayKeys })
   const criticalCategories = new Set(report.findings.filter((item) => item.severity === 'critical').map((item) => item.category))
-  for (const category of ['invalid_official_url_status', 'missing_country_or_origin', 'missing_lineage_target']) {
+  for (const category of ['invalid_entity_type', 'invalid_entity_status', 'invalid_death_reason', 'invalid_official_url_status', 'missing_country_or_origin', 'missing_lineage_target']) {
     if (!criticalCategories.has(category)) throw new Error(`Self-test failed to detect ${category}`)
   }
   if (report.findings.some((item) => item.category === 'unreviewed_nonreciprocal_lineage' && item.entity_id === 'ex-one-way')) {

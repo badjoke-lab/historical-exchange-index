@@ -3,7 +3,11 @@
     "id": "hei_ex_000500",
     "slug": "line-bitmax",
     "canonical_name": "LINE BITMAX",
-    "aliases": ["BITMAX", "LINE Bitmax", "bitmax.me"],
+    "aliases": [
+      "BITMAX",
+      "LINE Bitmax",
+      "bitmax.me"
+    ],
     "type": "cex",
     "status": "dead",
     "death_reason": "voluntary_shutdown",
@@ -13,7 +17,7 @@
     "summary": "Japan-focused crypto asset exchange service operated within the LINE group. LVC launched BITMAX on 2019-09-17 as a registered Japanese crypto-asset exchange accessible through the LINE app. LINE Xenesis later announced that LINE BITMAX would end on 2026-06-01 and that the company would discontinue its crypto-asset exchange business. The service site and help center now state that the service ended on that date.",
     "official_url_original": "https://www.bitmax.me/",
     "official_domain_original": "bitmax.me",
-    "official_url_status": "shutdown_notice",
+    "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.bitmax.me/",
     "confidence": "high",
     "last_verified_at": "2026-06-13",
