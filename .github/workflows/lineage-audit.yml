@@ -1,45 +1,43 @@
 name: Lineage inventory audit
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
-    types:
-      - opened
-      - synchronize
-
-permissions:
-  contents: write
+  workflow_dispatch:
 
 jobs:
-  apply-reviewed-a4:
-    if: github.head_ref == 'a4-apply-lineage'
+  lineage-inventory:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout A4 branch
+      - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          ref: a4-apply-lineage
-          fetch-depth: 1
-          show-progress: false
-      - name: Apply reviewed A4 changes
-        run: |
-          if [ -f config/lineage-a4-application.json ]; then
-            echo "A4 application already exists; skipping regeneration."
-          else
-            node scripts/apply-reviewed-lineage-a4.mjs
-          fi
-      - name: Validate record bundles
-        continue-on-error: true
-        run: npm run records:validate
-      - name: Commit reviewed application
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add -A
-          if git diff --cached --quiet; then
-            echo "No generated changes to commit."
-            exit 0
-          fi
-          git commit -m "Apply reviewed A4 lineage actions"
-          git push origin HEAD:a4-apply-lineage
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Self-test lineage classification
+        run: node scripts/audit-lineage-candidates.mjs --self-test
+      - name: Build projected public lineage inventory
+        run: node scripts/audit-lineage-candidates.mjs --output-json=audit-output/lineage-inventory.json --output-md=audit-output/lineage-inventory.md
+      - name: Validate reviewed L1 dispositions
+        run: node scripts/check-lineage-l1-dispositions.mjs --output=audit-output/lineage-l1-dispositions.json
+      - name: Validate reviewed L2 dispositions
+        run: node scripts/check-lineage-l2-dispositions.mjs --output=audit-output/lineage-l2-dispositions.json
+      - name: Validate A3 closure
+        run: node scripts/check-lineage-a3-closure.mjs --inventory=audit-output/lineage-inventory.json --output=audit-output/lineage-a3-closure.json
+      - name: Validate A4 application
+        run: node scripts/check-lineage-a4-application.mjs --output=audit-output/lineage-a4-application.json
+      - name: Upload lineage audit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: lineage-inventory
+          path: audit-output/lineage-*
+          if-no-files-found: error
+          retention-days: 14
