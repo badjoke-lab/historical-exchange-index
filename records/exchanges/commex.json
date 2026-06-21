@@ -13,11 +13,11 @@
     "summary": "Cryptocurrency exchange launched in 2023 after Binance announced the sale of its Russian business to CommEX. CommEX later announced a staged shutdown beginning on 2024-03-25, with full website access scheduled to close on 2024-05-10.",
     "official_url_original": "https://www.commex.com/",
     "official_domain_original": "commex.com",
-    "official_url_status": "dead_or_redirected",
+    "official_url_status": "unknown",
     "archived_url": "https://web.archive.org/web/*/https://www.commex.com/",
     "confidence": "high",
     "last_verified_at": "2026-05-28",
-    "notes": "HEI treats CommEX as a separate exchange entity from Binance because it operated under a distinct CommEX brand and domain after Binance announced the sale of its Russian business. death_reason is voluntary_shutdown because available reporting describes a staged operator-announced closure rather than a hack, insolvency, or enforcement shutdown."
+    "notes": "HEI treats CommEX as a separate exchange entity from Binance because it operated under a distinct CommEX brand and domain after Binance announced the sale of its Russian business. death_reason is voluntary_shutdown because available reporting describes a staged operator-announced closure rather than a hack, insolvency, or enforcement shutdown. The original domain's current redirect or dead-domain state is not asserted without a fresh URL verification, so official_url_status remains unknown."
   },
   "events": [
     {
