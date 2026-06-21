@@ -71,8 +71,6 @@ for (const name of files) {
   changedFiles += 1
 }
 
-if (changedFiles === 0) throw new Error('No reviewed bundle files changed')
-
 for (const name of files) {
   const file = path.join(recordsDir, name)
   const bundle = JSON.parse(fs.readFileSync(file, 'utf8'))
@@ -91,3 +89,4 @@ console.log(`Event type changes: ${eventTypeChanges}`)
 console.log(`Event status-effect changes: ${eventStatusEffectChanges}`)
 console.log(`Evidence source-type changes: ${sourceTypeChanges}`)
 console.log(`Evidence claim-scope changes: ${claimScopeChanges}`)
+if (changedFiles === 0) console.log('Reviewed bundle enum migration is already complete.')
