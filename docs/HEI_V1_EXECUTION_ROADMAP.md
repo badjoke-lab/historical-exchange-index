@@ -108,16 +108,16 @@ After each merge record:
 
 ```text
 Checkpoint date: 2026-06-21
-Last confirmed main SHA: c187dab1f2c4ba441892de9247ae17ad2babf308
-Last merged implementation PR: #409 Review existing lineage relationships — L1
-Current implementation PR: #410 Review structured lineage candidates — L2
+Last confirmed main SHA: d162cbf0b445aec3dcb7beb08cd78f302c844045
+Last merged implementation PR: #410 Review structured lineage candidates — L2
+Current implementation PR: #411 Close A3 lineage audit — L3
 Production verification workflow: 27858696613
 Production verification result: success for earlier production baseline; Phase A work remains GitHub-only
 ```
 
 ### 3.2 Reviewed public counts
 
-Confirmed unchanged by the A3-L2 read-only review:
+Confirmed unchanged by the complete A3 read-only audit:
 
 ```text
 Entities:  412
@@ -151,13 +151,14 @@ Maximum evidence ID:  hei_src_003197
 - A3 projected-public lineage inventory verified in PR #408;
 - A3-L1 review of all eleven existing relationship edges in PR #409;
 - A3-L2 review of all twenty-five structured event/state candidates in PR #410;
+- A3-L3 consolidated closure gate and completion report in PR #411;
 - production endpoint, commit, count, safety-flag, and route verification.
 
 ### 3.5 Active work item
 
 ```text
 Current phase: Phase A — Structural entity-quality debt
-Current item: A3 — Audit lineage candidates
+Completed item: A3 — Audit lineage candidates
 Inventory implementation: PR #408
 L1 existing-edge review: PR #409
 L2 structured candidate review: PR #410
@@ -172,14 +173,15 @@ L2 dispositions: 25
   unresolved: 10
 Total structured dispositions: 36 / 36
 Text-only watchlist: 52
-Next implementation item: L3 consolidated closure gate and A3 completion report
+Current item: A4 — Apply safe lineage links
+Next implementation item: apply reviewed A4 canonical-field changes with post-application validation
 ```
 
 No canonical relationship field has been changed during A3. The reviewed actions remain queued for A4.
 
 ### 3.6 Next action
 
-Create the A3-L3 closure gate. It must prove that the eleven L1 edges and twenty-five L2 candidates form a complete thirty-six-item reviewed set, preserve the fifty-two text-only signals as a secondary watchlist, publish one consolidated closure report, and advance the roadmap to A4.
+Create the A4 implementation PR. Apply only reviewed reciprocal, one-way, and removal actions; verify zero broken IDs and zero unintended relationships; and leave document-only and unresolved cases unchanged.
 
 ---
 
@@ -288,7 +290,7 @@ Execution batches:
 1. Inventory tooling and verified projected-public report: implemented in PR #408.
 2. L1 — review eleven existing relationship records: completed in PR #409.
 3. L2 — review twenty-five structured event/state candidates: completed in PR #410.
-4. L3 — consolidate reviewed dispositions and close A3.
+4. L3 — consolidate reviewed dispositions and close A3: completed in PR #411.
 
 Verified inventory:
 
@@ -300,7 +302,7 @@ self relationships = 0
 non-reciprocal relationships = 9
 ```
 
-Status: **IN PROGRESS — inventory, L1, and L2 verified; L3 closure is next**
+Status: **COMPLETED in PR #411 — 36 / 36 structured candidates reviewed**
 
 ## A4. Apply safe lineage links
 
@@ -310,7 +312,7 @@ Completion gate:
 - applied links are bidirectional or explicitly documented;
 - unresolved cases remain in a review report rather than being forced into canonical links.
 
-Status: pending
+Status: **NEXT — reviewed A4 change queue is ready**
 
 ## A5. Permanent entity-quality audit
 
