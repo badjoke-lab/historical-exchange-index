@@ -22,16 +22,18 @@
     "successor_id": "hei_ex_000410",
     "confidence": "high",
     "last_verified_at": "2026-04-29",
-    "notes": "HEI models this as the historical BTCChina brand record. The 2015-09-15 rebrand to BTCC is used as the terminal brand marker. Later BTCC trading restrictions and ownership changes should be handled separately if a BTCC successor record is modeled."
+    "notes": "HEI models this as the historical BTCChina brand record and links it reciprocally to the existing BTCC record. The 2015-09-15 rebrand is used as the terminal BTCChina brand marker; later BTCC trading restrictions and ownership changes remain part of the BTCC record."
   },
   "events": [],
   "evidence": [],
   "entity_correction": {
     "entity_id": "hei_ex_000260",
     "expected": {
+      "notes": "HEI models this as the historical BTCChina brand record. The 2015-09-15 rebrand to BTCC is used as the terminal brand marker. Later BTCC trading restrictions and ownership changes should be handled separately if a BTCC successor record is modeled.",
       "successor_id": null
     },
     "changes": {
+      "notes": "HEI models this as the historical BTCChina brand record and links it reciprocally to the existing BTCC record. The 2015-09-15 rebrand is used as the terminal BTCChina brand marker; later BTCC trading restrictions and ownership changes remain part of the BTCC record.",
       "successor_id": "hei_ex_000410"
     }
   }
