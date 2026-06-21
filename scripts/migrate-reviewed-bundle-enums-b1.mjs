@@ -4,92 +4,90 @@ import path from 'node:path'
 const root = process.cwd()
 const recordsDir = path.join(root, 'records', 'exchanges')
 
-const simpleReplacements = [
-  ['"event_type": "listed_reference"', '"event_type": "other"'],
-  ['"event_type": "rebrand"', '"event_type": "rebranded"'],
-  ['"event_type": "legal_proceeding"', '"event_type": "bankruptcy_filed"'],
-  ['"event_type": "recovery_or_settlement"', '"event_type": "other"'],
-  ['"event_type": "acquisition_announced"', '"event_type": "other"'],
-  ['"event_type": "launch_or_public_operation"', '"event_type": "launched"'],
-  ['"event_status_effect": "inactive_or_unchanged"', '"event_status_effect": "none"'],
-  ['"source_type": "archived_website"', '"source_type": "archive_capture"'],
-  ['"source_type": "regulator_statement"', '"source_type": "regulatory_notice"'],
-  ['"source_type": "secondary_report"', '"source_type": "news_article"'],
-  ['"source_type": "news_report"', '"source_type": "news_article"'],
-  ['"source_type": "regulatory_statement"', '"source_type": "regulatory_notice"'],
-  ['"claim_scope": "background"', '"claim_scope": "entity"'],
-]
+const eventTypeMap = new Map([
+  ['listed_reference', 'other'],
+  ['rebrand', 'rebranded'],
+  ['legal_proceeding', 'bankruptcy_filed'],
+  ['security_breach', 'other'],
+  ['recovery_or_settlement', 'other'],
+  ['acquisition_announced', 'other'],
+  ['launch_or_public_operation', 'launched'],
+])
 
-const special = [
-  {
-    id: 'hei_ev_000729',
-    before: '"event_type": "security_breach"',
-    after: '"event_type": "hack"',
-  },
-  {
-    id: 'hei_ev_000734',
-    before: '"event_type": "security_breach"',
-    after: '"event_type": "exploit"',
-  },
-  {
-    id: 'hei_src_001643',
-    before: '"source_type": "legal_document"',
-    after: '"source_type": "official_statement"',
-  },
-  {
-    id: 'hei_src_001651',
-    before: '"source_type": "legal_document"',
-    after: '"source_type": "regulatory_notice"',
-  },
-]
-
-function countOccurrences(text, needle) {
-  return text.split(needle).length - 1
-}
+const sourceTypeMap = new Map([
+  ['archived_website', 'archive_capture'],
+  ['regulator_statement', 'regulatory_notice'],
+  ['secondary_report', 'news_article'],
+  ['news_report', 'news_article'],
+  ['regulatory_statement', 'regulatory_notice'],
+  ['legal_document', 'court_document'],
+])
 
 const files = fs.readdirSync(recordsDir)
   .filter((name) => name.endsWith('.json'))
   .sort()
 
-const contents = new Map(files.map((name) => {
-  const file = path.join(recordsDir, name)
-  return [file, fs.readFileSync(file, 'utf8')]
-}))
-
-const replacementCounts = new Map()
-for (const [before, after] of simpleReplacements) {
-  let count = 0
-  for (const [file, text] of contents) {
-    const occurrences = countOccurrences(text, before)
-    if (occurrences === 0) continue
-    count += occurrences
-    contents.set(file, text.split(before).join(after))
-  }
-  if (count === 0) throw new Error(`No source occurrences found for ${before}`)
-  replacementCounts.set(before, count)
-}
-
-for (const item of special) {
-  let changed = 0
-  for (const [file, text] of contents) {
-    if (!text.includes(`"id": "${item.id}"`)) continue
-    const occurrences = countOccurrences(text, item.before)
-    if (occurrences === 0) continue
-    contents.set(file, text.replace(item.before, item.after))
-    changed += 1
-  }
-  if (changed === 0) throw new Error(`${item.id}: no matching legacy value found`)
-  replacementCounts.set(item.id, changed)
-}
-
 let changedFiles = 0
-for (const [file, text] of contents) {
-  const before = fs.readFileSync(file, 'utf8')
-  if (before === text) continue
-  fs.writeFileSync(file, text, 'utf8')
+let eventTypeChanges = 0
+let eventStatusEffectChanges = 0
+let sourceTypeChanges = 0
+let claimScopeChanges = 0
+
+for (const name of files) {
+  const file = path.join(recordsDir, name)
+  const bundle = JSON.parse(fs.readFileSync(file, 'utf8'))
+  let changed = false
+
+  for (const event of bundle.events ?? []) {
+    const nextType = eventTypeMap.get(event.event_type)
+    if (nextType && nextType !== event.event_type) {
+      event.event_type = nextType
+      eventTypeChanges += 1
+      changed = true
+    }
+    if (event.event_status_effect === 'inactive_or_unchanged') {
+      event.event_status_effect = 'none'
+      eventStatusEffectChanges += 1
+      changed = true
+    }
+  }
+
+  for (const record of bundle.evidence ?? []) {
+    const nextType = sourceTypeMap.get(record.source_type)
+    if (nextType && nextType !== record.source_type) {
+      record.source_type = nextType
+      sourceTypeChanges += 1
+      changed = true
+    }
+    if (record.claim_scope === 'background') {
+      record.claim_scope = 'entity'
+      claimScopeChanges += 1
+      changed = true
+    }
+  }
+
+  if (!changed) continue
+  fs.writeFileSync(file, `${JSON.stringify(bundle, null, 2)}\n`, 'utf8')
   changedFiles += 1
 }
 
 if (changedFiles === 0) throw new Error('No reviewed bundle files changed')
+
+for (const name of files) {
+  const file = path.join(recordsDir, name)
+  const bundle = JSON.parse(fs.readFileSync(file, 'utf8'))
+  for (const event of bundle.events ?? []) {
+    if (eventTypeMap.has(event.event_type)) throw new Error(`${name}: legacy event_type remains on ${event.id}`)
+    if (event.event_status_effect === 'inactive_or_unchanged') throw new Error(`${name}: legacy event_status_effect remains on ${event.id}`)
+  }
+  for (const record of bundle.evidence ?? []) {
+    if (sourceTypeMap.has(record.source_type)) throw new Error(`${name}: legacy source_type remains on ${record.id}`)
+    if (record.claim_scope === 'background') throw new Error(`${name}: legacy claim_scope remains on ${record.id}`)
+  }
+}
+
 console.log(`Normalized reviewed bundle enums in ${changedFiles} file(s).`)
-for (const [key, count] of replacementCounts) console.log(`${key}: ${count}`)
+console.log(`Event type changes: ${eventTypeChanges}`)
+console.log(`Event status-effect changes: ${eventStatusEffectChanges}`)
+console.log(`Evidence source-type changes: ${sourceTypeChanges}`)
+console.log(`Evidence claim-scope changes: ${claimScopeChanges}`)
