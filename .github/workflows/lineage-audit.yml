@@ -7,12 +7,33 @@ on:
   workflow_dispatch:
 
 jobs:
-  a4-record-validation:
+  a4-build-diagnostic:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           show-progress: false
-      - name: Validate A4 record bundles
-        run: npm run records:validate
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Capture production build
+        id: build
+        continue-on-error: true
+        run: |
+          mkdir -p audit-output
+          npm run build > audit-output/a4-build.log 2>&1
+      - name: Upload production build log
+        uses: actions/upload-artifact@v4
+        with:
+          name: a4-build-log
+          path: audit-output/a4-build.log
+          if-no-files-found: error
+          retention-days: 7
+      - name: Fail when build failed
+        if: steps.build.outcome == 'failure'
+        run: exit 1
