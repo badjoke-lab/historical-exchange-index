@@ -66,6 +66,37 @@ jobs:
       - name: Smoke test monitoring modules
         run: npm run monitor:smoke
 
+      - name: Run B1 full monitoring validation
+        if: github.head_ref == 'b1-full-monitoring-run'
+        env:
+          HEI_MONITORING_MODE: b1-full-validation
+          HEI_MONITORING_RUN_ID: 20260622-b1-full
+          HEI_MONITORING_ENABLE_REMOTE_LISTS: "1"
+          HEI_MONITORING_ENABLE_NEWS_RSS: "1"
+          HEI_MONITORING_ENABLE_DOMAIN_CHECKS: "1"
+          HEI_MONITORING_ENABLE_EVIDENCE_URL_CHECKS: "1"
+          HEI_MONITORING_ENABLE_REGULATORY_WATCH: "1"
+          HEI_MONITORING_ENABLE_SITE_SEO_CHECKS: "1"
+          HEI_MONITORING_SITE_URL: https://hei.badjoke-lab.com
+          HEI_MONITORING_NEWS_QUERY_LIMIT: "20"
+          HEI_MONITORING_REGULATORY_QUERY_LIMIT: "25"
+          HEI_MONITORING_DOMAIN_CHECK_LIMIT: "25"
+          HEI_MONITORING_EVIDENCE_URL_CHECK_LIMIT: "25"
+        run: npm run monitor
+
+      - name: Guard canonical files after B1 monitoring
+        if: github.head_ref == 'b1-full-monitoring-run'
+        run: git diff --exit-code -- data/entities.json data/events.json data/evidence.json
+
+      - name: Upload B1 monitoring reports
+        if: always() && github.head_ref == 'b1-full-monitoring-run'
+        uses: actions/upload-artifact@v4
+        with:
+          name: b1-full-monitoring-output
+          path: data-staging
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Check production smoke script syntax
         run: node --check scripts/check-machine-readable-production.mjs
 
