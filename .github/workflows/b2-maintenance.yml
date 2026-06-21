@@ -7,6 +7,7 @@ on:
     paths:
       - .github/workflows/b2-maintenance.yml
       - scripts/patch-news-watch-b2.mjs
+      - scripts/b2-maintenance-step.mjs
 
 permissions:
   contents: write
@@ -22,8 +23,9 @@ jobs:
         with:
           node-version: 20
       - run: node scripts/patch-news-watch-b2.mjs
+      - run: node scripts/b2-maintenance-step.mjs
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Update B2 news candidate lifecycle
-          file_pattern: scripts/monitoring/monitors/news-and-event-watch.mjs
+          commit_message: Complete B2 monitor integration
+          file_pattern: scripts/monitoring/monitors/news-and-event-watch.mjs .github/workflows/ci-core.yml
           branch: b2-watchlist-resolutions
