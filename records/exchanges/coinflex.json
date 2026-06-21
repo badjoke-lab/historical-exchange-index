@@ -14,7 +14,7 @@
     "launch_date": "2019-01-01",
     "death_date": "2023-02-15",
     "country_or_origin": "Seychelles",
-    "summary": "Cryptocurrency exchange that halted withdrawals in June 2022 during a liquidity dispute involving a large counterparty. CoinFLEX later became linked to the Open Exchange / OPNX transition, with OPNX positioned as a new venue connected to CoinFLEX leadership and creditor recovery plans. HEI treats CoinFLEX as a rebranded / superseded exchange identity with OPNX as the successor record, while retaining the 2022 withdrawal halt as the critical failure event.",
+    "summary": "Cryptocurrency exchange that halted withdrawals in June 2022 during a liquidity dispute involving a large counterparty. CoinFLEX later became linked to the Open Exchange / OPNX transition through shared leadership and creditor-recovery plans, but the relationship is not a clean one-to-one exchange rebrand suitable for a canonical successor field.",
     "official_url_original": "https://coinflex.com/",
     "official_domain_original": "coinflex.com",
     "official_url_status": "repurposed",
@@ -23,17 +23,21 @@
     "successor_id": null,
     "confidence": "medium",
     "last_verified_at": "2026-06-19",
-    "notes": "CoinFLEX is added as a predecessor / superseded identity linked to existing OPNX record. Confidence is medium because public reporting supports the continuity, but the transition is not a simple clean exchange-name rebrand."
+    "notes": "HEI preserves the CoinFLEX–OPNX continuity in events and narrative history rather than forcing a canonical successor link. Public reporting supports operational and leadership continuity, but the transition was not a simple clean exchange-name rebrand."
   },
   "events": [],
   "evidence": [],
   "entity_correction": {
     "entity_id": "hei_ex_000313",
     "expected": {
-      "successor_id": "hei_ex_000129"
+      "notes": "CoinFLEX is added as a predecessor / superseded identity linked to existing OPNX record. Confidence is medium because public reporting supports the continuity, but the transition is not a simple clean exchange-name rebrand.",
+      "successor_id": "hei_ex_000129",
+      "summary": "Cryptocurrency exchange that halted withdrawals in June 2022 during a liquidity dispute involving a large counterparty. CoinFLEX later became linked to the Open Exchange / OPNX transition, with OPNX positioned as a new venue connected to CoinFLEX leadership and creditor recovery plans. HEI treats CoinFLEX as a rebranded / superseded exchange identity with OPNX as the successor record, while retaining the 2022 withdrawal halt as the critical failure event."
     },
     "changes": {
-      "successor_id": null
+      "notes": "HEI preserves the CoinFLEX–OPNX continuity in events and narrative history rather than forcing a canonical successor link. Public reporting supports operational and leadership continuity, but the transition was not a simple clean exchange-name rebrand.",
+      "successor_id": null,
+      "summary": "Cryptocurrency exchange that halted withdrawals in June 2022 during a liquidity dispute involving a large counterparty. CoinFLEX later became linked to the Open Exchange / OPNX transition through shared leadership and creditor-recovery plans, but the relationship is not a clean one-to-one exchange rebrand suitable for a canonical successor field."
     }
   }
 }
