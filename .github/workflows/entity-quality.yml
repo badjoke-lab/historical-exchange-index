@@ -1,0 +1,41 @@
+name: Permanent entity quality audit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  entity-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Self-test entity quality audit
+        run: npm run data:test-entity-quality
+      - name: Run strict entity quality audit
+        id: audit
+        continue-on-error: true
+        run: npm run data:check-entity-quality -- --output-json=audit-output/entity-quality.json --output-md=audit-output/entity-quality.md
+      - name: Upload entity quality report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: entity-quality-audit
+          path: audit-output/entity-quality.*
+          if-no-files-found: error
+          retention-days: 14
+      - name: Fail when critical entity findings exist
+        if: steps.audit.outcome == 'failure'
+        run: exit 1
