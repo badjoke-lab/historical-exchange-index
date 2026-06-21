@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000717",
       "exchange_id": "hei_ex_000407",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-03",
       "title": "BounceBit Swap V3 recorded as ecosystem DEX",
       "description": "BounceBit Swap V3 is recorded as a BounceBit ecosystem DEX entity based on its CoinGecko source row and official app domain.",

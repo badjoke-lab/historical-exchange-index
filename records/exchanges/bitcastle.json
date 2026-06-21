@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000692",
       "exchange_id": "hei_ex_000384",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "bitcastle recorded as centralized exchange",
       "description": "bitcastle is recorded as a centralized exchange operated by a Saint Vincent and the Grenadines-registered company.",

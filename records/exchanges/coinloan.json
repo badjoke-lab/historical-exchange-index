@@ -62,7 +62,7 @@
       "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/currencies/coinloan/",
       "accessed_at": "2026-05-22",
       "reliability": "medium",
-      "claim_scope": "background",
+      "claim_scope": "entity",
       "notes": "Used for founding year and exchange-service context."
     },
     {

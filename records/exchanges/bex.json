@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000685",
       "exchange_id": "hei_ex_000377",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "BEX recorded as Berachain ecosystem DEX",
       "description": "BEX is recorded as a Berachain ecosystem DEX candidate with CoinGecko and DefiLlama rows consolidated into one HEI record.",

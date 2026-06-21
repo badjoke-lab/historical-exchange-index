@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000682",
       "exchange_id": "hei_ex_000374",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "Baryon Network recorded as DEX candidate",
       "description": "Baryon Network is recorded as a DEX/protocol entity, with CoinGecko and DefiLlama candidate rows consolidated into one HEI record.",

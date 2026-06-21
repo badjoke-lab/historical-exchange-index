@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000691",
       "exchange_id": "hei_ex_000383",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "Bitbns recorded as centralized exchange",
       "description": "Bitbns is recorded as a centralized exchange entity, with CoinPaprika and CoinGecko candidate rows consolidated into one HEI record.",

@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000718",
       "exchange_id": "hei_ex_000408",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-03",
       "title": "Bron Intents recorded as cross-chain swap protocol",
       "description": "Bron Intents is recorded as an open cross-chain intent protocol for peer-to-peer on-chain swaps executed through independent solvers and verified settlement.",

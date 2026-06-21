@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000681",
       "exchange_id": "hei_ex_000373",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "ArcherSwap recorded as DEX candidate",
       "description": "ArcherSwap is recorded as a DEX entity, with duplicate ArcherSwap / Archerswap candidate rows consolidated into one HEI record.",

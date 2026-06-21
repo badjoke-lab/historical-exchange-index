@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000699",
       "exchange_id": "hei_ex_000391",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "BitKan recorded as centralized exchange",
       "description": "BitKan is recorded as a China-origin crypto broker and exchange platform based on its official domain, 2012 operating history, and CoinGecko exchange source row.",

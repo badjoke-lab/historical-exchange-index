@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000683",
       "exchange_id": "hei_ex_000375",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "BeeZee DEX recorded as DEX candidate",
       "description": "BeeZee DEX is recorded as a DEX candidate based on its official DEX domain and CoinGecko exchange source row.",

@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000658",
       "exchange_id": "hei_ex_000350",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-05-30",
       "title": "9inch present in exchange source data",
       "description": "9inch appeared in the verified-unadded candidate generator from CoinPaprika and CoinGecko source data as an exchange-like DEX candidate not found in current HEI records.",

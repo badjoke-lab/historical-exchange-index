@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000709",
       "exchange_id": "hei_ex_000399",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-02",
       "title": "Blackhole recorded as Avalanche ecosystem DEX",
       "description": "Blackhole is recorded as an Avalanche ecosystem DEX/protocol entity, with AMM, CLMM, and V3 candidate rows consolidated into one HEI record.",

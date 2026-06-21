@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000704",
       "exchange_id": "hei_ex_000396",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-02",
       "title": "BitTrade recorded as centralized exchange",
       "description": "BitTrade is recorded as a Japan-based centralized exchange entity, with bittrade and Huobi Japan candidate rows consolidated into one HEI record.",

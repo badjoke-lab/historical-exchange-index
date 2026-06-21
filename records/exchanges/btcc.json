@@ -27,7 +27,7 @@
     {
       "id": "hei_ev_000720",
       "exchange_id": "hei_ex_000410",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-03",
       "title": "BTCC recorded as centralized exchange",
       "description": "BTCC is recorded as a long-running centralized exchange founded in 2011, with CoinPaprika and CoinGecko candidate rows consolidated into one active entity and current UK headquarters supported by official-site material.",

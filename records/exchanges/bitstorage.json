@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000702",
       "exchange_id": "hei_ex_000394",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-02",
       "title": "BitStorage recorded as centralized exchange",
       "description": "BitStorage is recorded as an active centralized exchange, with CoinPaprika and CoinGecko candidate rows consolidated into one HEI record; its legal and operating origin remains explicitly Unknown after official-site review.",

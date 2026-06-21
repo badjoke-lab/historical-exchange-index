@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000698",
       "exchange_id": "hei_ex_000390",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "BitGenie recorded as Merlin ecosystem DEX",
       "description": "BitGenie is recorded as a Merlin ecosystem DEX/AMM entity, with CoinGecko and DefiLlama candidate rows consolidated into one HEI record.",

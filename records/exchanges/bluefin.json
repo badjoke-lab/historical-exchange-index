@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000714",
       "exchange_id": "hei_ex_000404",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-03",
       "title": "Bluefin recorded as Sui ecosystem trading protocol",
       "description": "Bluefin is recorded as a Sui ecosystem trading protocol / DEX entity, with Bluefin and Bluefin Spot candidate rows consolidated into one HEI record.",

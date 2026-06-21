@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000687",
       "exchange_id": "hei_ex_000379",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "Biswap recorded as BNB Chain ecosystem DEX",
       "description": "Biswap is recorded as a BNB Chain ecosystem AMM/DEX entity, with Biswap and Biswap V2 rows consolidated into one HEI record.",

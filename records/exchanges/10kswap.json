@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000653",
       "exchange_id": "hei_ex_000345",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-05-29",
       "title": "10KSwap present in exchange and DEX data sources",
       "description": "10KSwap appeared in the verified-unadded candidate generator from CoinGecko and DefiLlama source data as a Starknet DEX/exchange-like candidate not found in current HEI records.",
