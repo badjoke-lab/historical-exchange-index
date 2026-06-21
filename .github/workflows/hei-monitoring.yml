@@ -3,6 +3,9 @@ name: HEI Monitoring
 on:
   schedule:
     - cron: "0 3 * * 1"
+  push:
+    branches:
+      - b1-full-monitoring-run
   workflow_dispatch:
     inputs:
       enable_external_lists:
@@ -106,7 +109,7 @@ jobs:
             fi
           }
 
-          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ] || [ "$GITHUB_REF_NAME" = "b1-full-monitoring-run" ]; then
             RUN_MODE="scheduled-external"
             INPUT_ENABLE_EXTERNAL_LISTS="true"
             INPUT_ENABLE_NEWS_RSS="true"
@@ -142,6 +145,7 @@ jobs:
           echo "Evidence URL checks: $INPUT_ENABLE_EVIDENCE_URL_CHECKS (limit $INPUT_EVIDENCE_URL_CHECK_LIMIT)"
           echo "Site/SEO checks: $INPUT_ENABLE_SITE_SEO_CHECKS"
 
+          export HEI_MONITORING_MODE="$RUN_MODE"
           export HEI_MONITORING_ENABLE_REMOTE_LISTS="$(bool_to_flag "$INPUT_ENABLE_EXTERNAL_LISTS")"
           export HEI_MONITORING_ENABLE_NEWS_RSS="$(bool_to_flag "$INPUT_ENABLE_NEWS_RSS")"
           export HEI_MONITORING_ENABLE_DOMAIN_CHECKS="$(bool_to_flag "$INPUT_ENABLE_DOMAIN_CHECKS")"
@@ -163,6 +167,18 @@ jobs:
             exit 1
           fi
 
+      - name: Upload monitoring validation output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hei-monitoring-output
+          path: |
+            data-staging/monitoring
+            data-staging/watchlists/auto
+            data-staging/watchlists/resolution
+          if-no-files-found: warn
+          retention-days: 14
+
       - name: Check monitoring changes
         id: changes
         run: |
@@ -182,7 +198,7 @@ jobs:
           fi
 
       - name: Create monitoring pull request
-        if: steps.changes.outputs.changed == 'true'
+        if: steps.changes.outputs.changed == 'true' && github.event_name != 'push'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
