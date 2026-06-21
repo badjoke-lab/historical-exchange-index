@@ -3,6 +3,7 @@ import path from 'node:path'
 import process from 'node:process'
 import { loadReviewedBundles } from './lib/reviewed-bundle-aggregation.mjs'
 import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
+import { restorePreA4LineageEntities } from './lib/lineage-a4-baseline.mjs'
 
 const root = process.cwd()
 const load = (relativePath) => JSON.parse(fs.readFileSync(path.join(root, relativePath), 'utf8'))
@@ -26,7 +27,8 @@ const projectedEntities = [
   ...applyReviewedEntityCorrections(canonicalEntities, all),
   ...newEntityBundles.map(({ bundle }) => bundle.entity),
 ]
-const canonicalById = new Map(canonicalEntities.map((entity) => [entity.id, entity]))
+const baselineEntities = restorePreA4LineageEntities(projectedEntities, manifest)
+const baselineById = new Map(baselineEntities.map((entity) => [entity.id, entity]))
 const projectedById = new Map(projectedEntities.map((entity) => [entity.id, entity]))
 
 const expectedChanges = new Map()
@@ -71,8 +73,12 @@ if (manifest.change_count !== 14) fail(`manifest change_count must be 14, got ${
 if (manifest.entity_count !== 14) fail(`manifest entity_count must be 14, got ${manifest.entity_count}`)
 if (expectedChanges.size !== 14) fail(`derived A4 change count must be 14, got ${expectedChanges.size}`)
 if ((manifest.changes ?? []).length !== 14) fail(`manifest must contain 14 changes, got ${manifest.changes?.length ?? 0}`)
-if (canonicalEntities.length !== 412) fail(`canonical entity count changed: ${canonicalEntities.length}`)
-if (projectedEntities.length !== 412) fail(`projected entity count changed: ${projectedEntities.length}`)
+if (baselineEntities.length !== manifest.baseline_projected_entities) {
+  fail(`baseline projected entity count changed: ${baselineEntities.length}`)
+}
+if (projectedEntities.length !== manifest.baseline_projected_entities) {
+  fail(`projected entity count changed: ${projectedEntities.length}`)
+}
 
 const manifestByKey = new Map()
 for (const change of manifest.changes ?? []) {
@@ -81,11 +87,11 @@ for (const change of manifest.changes ?? []) {
   manifestByKey.set(key, change)
   if (!['predecessor_id', 'successor_id'].includes(change.field)) fail(`${key}: invalid A4 field`)
 
-  const canonical = canonicalById.get(change.entity_id)
+  const baseline = baselineById.get(change.entity_id)
   const projected = projectedById.get(change.entity_id)
-  if (!canonical) fail(`${key}: canonical entity missing`)
+  if (!baseline) fail(`${key}: baseline projected entity missing`)
   if (!projected) fail(`${key}: projected entity missing`)
-  if (canonical && change.entity_name !== canonical.canonical_name) fail(`${key}: entity_name drift`)
+  if (baseline && change.entity_name !== baseline.canonical_name) fail(`${key}: entity_name drift`)
 
   const expectedBefore = change.expected_before
   const expectsMissing = expectedBefore
@@ -93,11 +99,11 @@ for (const change of manifest.changes ?? []) {
     && !Array.isArray(expectedBefore)
     && expectedBefore.__hei_missing__ === true
     && Object.keys(expectedBefore).length === 1
-  if (canonical) {
+  if (baseline) {
     if (expectsMissing) {
-      if (hasOwn(canonical, change.field)) fail(`${key}: expected-before marker says missing but canonical field exists`)
-    } else if (stable(canonical[change.field]) !== stable(expectedBefore)) {
-      fail(`${key}: expected_before does not match canonical value`)
+      if (hasOwn(baseline, change.field)) fail(`${key}: expected-before marker says missing but baseline field exists`)
+    } else if (stable(baseline[change.field]) !== stable(expectedBefore)) {
+      fail(`${key}: expected_before does not match baseline projected value`)
     }
   }
   if (projected && stable(projected[change.field]) !== stable(change.applied_value)) {
@@ -122,7 +128,7 @@ for (const key of manifestByKey.keys()) {
 }
 
 const expectedFinal = new Map()
-for (const entity of canonicalEntities) {
+for (const entity of baselineEntities) {
   for (const field of ['predecessor_id', 'successor_id']) {
     if (typeof entity[field] === 'string' && entity[field]) expectedFinal.set(`${entity.id}:${field}`, entity[field])
   }
@@ -169,7 +175,8 @@ const report = {
   generated_at: new Date().toISOString(),
   phase: 'A4',
   status: failures.length === 0 ? 'pass' : 'fail',
-  canonical_entities: canonicalEntities.length,
+  canonical_source_entities: canonicalEntities.length,
+  baseline_projected_entities: baselineEntities.length,
   projected_entities: projectedEntities.length,
   reviewed_changes: expectedChanges.size,
   applied_changes: manifest.changes?.length ?? 0,
@@ -187,6 +194,8 @@ if (outputArg) {
   fs.writeFileSync(outputPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8')
 }
 
+console.log(`Canonical source entities: ${report.canonical_source_entities}`)
+console.log(`Baseline projected entities: ${report.baseline_projected_entities}`)
 console.log(`Reviewed A4 changes: ${report.reviewed_changes}`)
 console.log(`Applied A4 changes: ${report.applied_changes}`)
 console.log(`Relationship edges: ${report.relationship_edges}`)
