@@ -24,8 +24,8 @@ jobs:
         run: npm ci
       - name: Self-test lineage classification
         run: node scripts/audit-lineage-candidates.mjs --self-test
-      - name: Build projected public lineage inventory
-        run: node scripts/audit-lineage-candidates.mjs --output-json=audit-output/lineage-inventory.json --output-md=audit-output/lineage-inventory.md
+      - name: Build frozen A3 lineage baseline
+        run: node scripts/build-lineage-a3-baseline.mjs --output-json=audit-output/lineage-inventory.json --output-md=audit-output/lineage-inventory.md
       - name: Validate reviewed L1 dispositions
         run: node scripts/check-lineage-l1-dispositions.mjs --output=audit-output/lineage-l1-dispositions.json
       - name: Validate reviewed L2 dispositions
