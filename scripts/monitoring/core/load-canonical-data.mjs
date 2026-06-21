@@ -45,13 +45,13 @@ export async function loadCanonicalData() {
     loadEvidence(),
     loadExchangeRecordEntries(),
   ]);
-  const { all, newEntityBundles } = classifyReviewedBundles(baseEntities, entries);
+  const { all, newEntityBundles, entityIdMap } = classifyReviewedBundles(baseEntities, entries);
   const correctedEntities = applyReviewedEntityCorrections(baseEntities, all);
 
   return {
     entities: [...correctedEntities, ...newEntityBundles.map(({ bundle }) => bundle.entity)],
-    events: mergeRecords(baseEvents, all, 'events', 'event'),
-    evidence: mergeRecords(baseEvidence, all, 'evidence', 'evidence'),
+    events: mergeRecords(baseEvents, all, 'events', 'event', entityIdMap),
+    evidence: mergeRecords(baseEvidence, all, 'evidence', 'evidence', entityIdMap),
     paths: {
       entities: ENTITIES_PATH,
       events: EVENTS_PATH,
