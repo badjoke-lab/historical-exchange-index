@@ -4,7 +4,8 @@ import { createFinding, createMonitorResult } from '../core/finding-utils.mjs';
 import { slugifyName, uniqueStrings } from '../core/normalize.mjs';
 import { buildEntityIndex, duplicateCheckForCandidate } from '../core/dedupe.mjs';
 import { classifyCandidate } from '../core/classify.mjs';
-import { loadResolutionFiles, normalizeName } from '../core/load-watchlists.mjs';
+import { candidateKeyFor } from '../core/candidate-identity.mjs';
+import { loadResolutionFiles, loadWatchlists, normalizeName } from '../core/load-watchlists.mjs';
 import { NEWS_WATCH_ENABLED, getNewsQueries } from '../sources/news-queries.mjs';
 import { REGULATORY_WATCH_ENABLED, getRegulatoryQueries, getRegulatorySourceSummary } from '../sources/regulatory-sources.mjs';
 import { fetchGoogleNewsRss } from '../adapters/rss-google-news.mjs';
@@ -149,11 +150,13 @@ function toCandidateRecord(rawItem, index, runId, ordinal) {
     signals: uniqueStrings(rawItem.signals || []),
   };
 
+  const candidateKey = candidateKeyFor(base);
   const duplicateCheck = duplicateCheckForCandidate(base, index);
   const classification = classifyCandidate(base, duplicateCheck);
 
   return {
-    candidate_id: base.candidate_id,
+    candidate_id: candidateKey,
+    candidate_key: candidateKey,
     canonical_name: base.canonical_name,
     aliases: base.aliases,
     candidate_class: classification.candidate_class,
@@ -223,7 +226,7 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
   const entities = context?.canonicalData?.entities || [];
   const entityIndex = buildEntityIndex(entities);
   const regulatorySourceSummary = getRegulatorySourceSummary();
-  const resolutions = await loadResolutionFiles();
+  const [resolutions, history] = await Promise.all([loadResolutionFiles(), loadWatchlists()]);
 
   if (!NEWS_WATCH_ENABLED && !REGULATORY_WATCH_ENABLED) {
     findings.push(createFinding({
@@ -268,7 +271,20 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
   const allItems = [...newsItems, ...regulatoryItems];
 
   const rawCandidates = groupNewsItemsIntoCandidates(allItems);
-  const allCandidates = rawCandidates.map((candidate, index) => toCandidateRecord(candidate, entityIndex, context?.runId, index + 1));
+  const allCandidates = rawCandidates
+    .map((candidate, index) => toCandidateRecord(candidate, entityIndex, context?.runId, index + 1))
+    .map((candidate) => {
+      const historical = history.byKey.get(candidate.candidate_key) || null;
+      const resolution = resolutions.match(candidate);
+      return {
+        ...candidate,
+        first_seen_at: resolution?.first_seen_at || historical?.first_seen_at || new Date().toISOString(),
+        last_seen_at: new Date().toISOString(),
+        seen_count: (historical?.occurrence_count || 0) + 1,
+        is_new_candidate: !historical && !resolution,
+        resolution_state: resolution?.state || null,
+      };
+    });
   const candidates = allCandidates.filter((candidate) => isActionableNewsCandidate(candidate, resolutions) || isActionableRegulatoryCandidate(candidate, resolutions));
   const aCandidates = candidates.filter((candidate) => candidate.candidate_class === 'A');
   const regulatoryCandidates = candidates.filter((candidate) => candidate.source_category === 'regulatory_source');
@@ -304,14 +320,14 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
   for (const candidate of aCandidates) {
     findings.push(createFinding({
       monitor,
-      severity: 'medium',
-      category: candidate.source_category === 'regulatory_source' ? 'regulatory_actionable_candidate' : 'news_event_actionable_candidate',
-      title: `${candidate.source_category === 'regulatory_source' ? 'Regulatory' : 'News/event'} candidate: ${candidate.canonical_name}`,
+      severity: candidate.is_new_candidate ? 'medium' : 'low',
+      category: candidate.is_new_candidate ? (candidate.source_category === 'regulatory_source' ? 'regulatory_actionable_candidate_new' : 'news_event_actionable_candidate_new') : 'news_event_candidate_recurring',
+      title: `${candidate.is_new_candidate ? 'New' : 'Recurring'} ${candidate.source_category === 'regulatory_source' ? 'regulatory' : 'news/event'} candidate: ${candidate.canonical_name}`,
       summary: candidate.hei_relevance,
       recommended_action: candidate.next_action,
       source_urls: candidate.source_urls,
       confidence: candidate.source_quality === 'high' ? 'medium' : 'low',
-      dedupe_key: `${monitor}:actionable_candidate:${candidate.source_category}:${candidate.canonical_name.toLowerCase()}`,
+      dedupe_key: `${monitor}:actionable_candidate:${candidate.candidate_key}`,
     }));
   }
 
@@ -335,6 +351,8 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
       filtering_summary: {
         raw_candidates: allCandidates.length,
         retained_candidates: candidates.length,
+        new_candidates: candidates.filter((candidate) => candidate.is_new_candidate).length,
+        recurring_candidates: candidates.filter((candidate) => !candidate.is_new_candidate).length,
         dropped_candidates: allCandidates.length - candidates.length,
         resolved_candidate_names: resolutions.resolvedNames.size,
       },
