@@ -1,11 +1,9 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
 
 const root = process.cwd()
 const recordDir = path.join(root, 'records', 'exchanges')
-const scriptPath = path.join(root, 'scripts', 'apply-reviewed-lineage-a4.mjs')
-const temporaryWorkflowPath = path.join(root, '.github', 'workflows', 'a4-apply-lineage.yml')
-const lineageWorkflowPath = path.join(root, '.github', 'workflows', 'lineage-audit.yml')
 const manifestPath = path.join(root, 'config', 'lineage-a4-application.json')
 const missingMarker = { __hei_missing__: true }
 
@@ -21,21 +19,31 @@ function stable(value) {
 
 const canonicalEntities = readJson(path.join(root, 'data', 'entities.json'))
 const canonicalById = new Map(canonicalEntities.map((entity) => [entity.id, entity]))
+const canonicalIds = new Set(canonicalById.keys())
 const l1 = readJson(path.join(root, 'config', 'lineage-l1-dispositions.json'))
 const l2 = readJson(path.join(root, 'config', 'lineage-l2-dispositions.json'))
 
+const bundleEntries = []
 const bundleById = new Map()
 for (const fileName of fs.readdirSync(recordDir).filter((name) => name.endsWith('.json')).sort()) {
   const filePath = path.join(recordDir, fileName)
   const bundle = readJson(filePath)
   if (bundleById.has(bundle.entity.id)) throw new Error(`duplicate record bundle entity: ${bundle.entity.id}`)
-  bundleById.set(bundle.entity.id, { fileName, filePath, bundle })
+  const entry = { fileName, filePath, bundle }
+  bundleEntries.push(entry)
+  bundleById.set(bundle.entity.id, entry)
 }
+
+const projectedBaseline = [
+  ...applyReviewedEntityCorrections(canonicalEntities, bundleEntries),
+  ...bundleEntries.filter(({ bundle }) => !canonicalIds.has(bundle.entity.id)).map(({ bundle }) => bundle.entity),
+]
+const baselineById = new Map(projectedBaseline.map((entity) => [entity.id, entity]))
 
 const planned = new Map()
 function addChange(entityId, field, appliedValue, source) {
-  const canonical = canonicalById.get(entityId)
-  if (!canonical) throw new Error(`canonical entity not found: ${entityId}`)
+  const baseline = baselineById.get(entityId)
+  if (!baseline) throw new Error(`projected public entity not found: ${entityId}`)
   const key = `${entityId}:${field}`
   const existing = planned.get(key)
   if (existing) {
@@ -43,13 +51,13 @@ function addChange(entityId, field, appliedValue, source) {
     existing.source_refs.push(source)
     return
   }
-  const expectedBefore = hasOwn(canonical, field) ? canonical[field] : missingMarker
-  if (hasOwn(canonical, field) && stable(canonical[field]) === stable(appliedValue)) {
-    throw new Error(`A4 action is already canonical: ${key}`)
+  const expectedBefore = hasOwn(baseline, field) ? baseline[field] : missingMarker
+  if (hasOwn(baseline, field) && stable(baseline[field]) === stable(appliedValue)) {
+    throw new Error(`A4 action is already projected: ${key}`)
   }
   planned.set(key, {
     entity_id: entityId,
-    entity_name: canonical.canonical_name,
+    entity_name: baseline.canonical_name,
     field,
     expected_before: expectedBefore,
     applied_value: appliedValue,
@@ -86,17 +94,20 @@ for (const change of planned.values()) {
 
 const changedFiles = []
 for (const [entityId, changes] of [...changesByEntity.entries()].sort()) {
-  const canonical = canonicalById.get(entityId)
+  const baseline = baselineById.get(entityId)
+  const isCanonical = canonicalIds.has(entityId)
   let entry = bundleById.get(entityId)
+
   if (!entry) {
-    const fileName = `${canonical.slug}.json`
+    if (!isCanonical) throw new Error(`projected-only entity lacks its source bundle: ${entityId}`)
+    const fileName = `${baseline.slug}.json`
     const filePath = path.join(recordDir, fileName)
     if (fs.existsSync(filePath)) throw new Error(`record path already exists for ${entityId}: ${fileName}`)
     entry = {
       fileName,
       filePath,
       bundle: {
-        entity: { ...canonical },
+        entity: { ...baseline },
         events: [],
         evidence: [],
       },
@@ -106,22 +117,29 @@ for (const [entityId, changes] of [...changesByEntity.entries()].sort()) {
 
   const { fileName, filePath, bundle } = entry
   if (bundle.entity.id !== entityId) throw new Error(`${fileName}: bundle entity mismatch`)
-  const correction = bundle.entity_correction ?? { entity_id: entityId, expected: {}, changes: {} }
-  if (correction.entity_id !== entityId) throw new Error(`${fileName}: correction entity mismatch`)
 
-  for (const change of changes.sort((a, b) => a.field.localeCompare(b.field))) {
-    if (hasOwn(correction.changes, change.field)) {
-      if (stable(correction.changes[change.field]) !== stable(change.applied_value)) {
-        throw new Error(`${fileName}: existing correction conflicts for ${change.field}`)
+  if (isCanonical) {
+    const canonical = canonicalById.get(entityId)
+    const correction = bundle.entity_correction ?? { entity_id: entityId, expected: {}, changes: {} }
+    if (correction.entity_id !== entityId) throw new Error(`${fileName}: correction entity mismatch`)
+
+    for (const change of changes.sort((a, b) => a.field.localeCompare(b.field))) {
+      if (hasOwn(correction.changes, change.field)) {
+        if (stable(correction.changes[change.field]) !== stable(change.applied_value)) {
+          throw new Error(`${fileName}: existing correction conflicts for ${change.field}`)
+        }
+      } else {
+        correction.expected[change.field] = hasOwn(canonical, change.field) ? canonical[change.field] : missingMarker
+        correction.changes[change.field] = change.applied_value
       }
-    } else {
-      correction.expected[change.field] = change.expected_before
-      correction.changes[change.field] = change.applied_value
+      bundle.entity[change.field] = change.applied_value
     }
-    bundle.entity[change.field] = change.applied_value
+    bundle.entity_correction = correction
+  } else {
+    if (bundle.entity_correction) throw new Error(`${fileName}: projected-only entity must not use entity_correction`)
+    for (const change of changes) bundle.entity[change.field] = change.applied_value
   }
 
-  bundle.entity_correction = correction
   fs.writeFileSync(filePath, `${JSON.stringify(bundle, null, 2)}\n`, 'utf8')
   changedFiles.push(fileName)
 }
@@ -131,6 +149,7 @@ const manifest = {
   applied_at: '2026-06-21',
   source_review_prs: [409, 410, 411],
   scope: 'reviewed_a4_canonical_lineage_field_changes',
+  baseline_projected_entities: projectedBaseline.length,
   change_count: planned.size,
   entity_count: changesByEntity.size,
   changes: [...planned.values()].sort((a, b) =>
@@ -138,50 +157,6 @@ const manifest = {
   ),
 }
 fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8')
-
-const finalWorkflow = `name: Lineage inventory audit
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
-
-jobs:
-  lineage-inventory:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - name: Install dependencies
-        run: npm ci
-      - name: Self-test lineage classification
-        run: node scripts/audit-lineage-candidates.mjs --self-test
-      - name: Build projected public lineage inventory
-        run: node scripts/audit-lineage-candidates.mjs --output-json=audit-output/lineage-inventory.json --output-md=audit-output/lineage-inventory.md
-      - name: Validate A4 lineage application
-        run: node scripts/check-lineage-a4-application.mjs --output=audit-output/lineage-a4-application.json
-      - name: Upload lineage audit artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: lineage-inventory
-          path: audit-output/lineage-*
-          if-no-files-found: error
-          retention-days: 14
-`
-fs.writeFileSync(lineageWorkflowPath, finalWorkflow, 'utf8')
-
-for (const temporaryPath of [scriptPath, temporaryWorkflowPath]) {
-  if (fs.existsSync(temporaryPath)) fs.rmSync(temporaryPath)
-}
 
 console.log(`Applied ${manifest.change_count} lineage field changes across ${manifest.entity_count} entities.`)
 console.log(changedFiles.join('\n'))
