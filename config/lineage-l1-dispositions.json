@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "reviewed_at": "2026-06-21",
+  "source_inventory_pr": 408,
+  "scope": "existing_predecessor_successor_edges",
+  "dispositions": [
+    {
+      "entity_id": "hei_ex_000125",
+      "entity_name": "Coinsetter",
+      "field": "successor_id",
+      "target_id": "hei_ex_000009",
+      "target_name": "Kraken",
+      "disposition": "keep_one_way_documented",
+      "continuity_status": "acquired_and_customer_accounts_transferred",
+      "rationale": "Kraken acquired Coinsetter and transferred its customers. The one-way edge is retained because Kraken has multiple acquired predecessors and the singular predecessor_id field cannot represent all of them safely.",
+      "event_ids": ["hei_ev_000147"],
+      "evidence_ids": ["hei_src_000378", "hei_src_001337", "hei_src_001338", "hei_src_001339"]
+    },
+    {
+      "entity_id": "hei_ex_000126",
+      "entity_name": "Cavirtex",
+      "field": "successor_id",
+      "target_id": "hei_ex_000009",
+      "target_name": "Kraken",
+      "disposition": "keep_one_way_documented",
+      "continuity_status": "acquired_and_customer_accounts_transferred",
+      "rationale": "Kraken acquired CAVIRTEX and transferred customer accounts. A reciprocal predecessor_id on Kraken would discard the other acquired lineages.",
+      "event_ids": ["hei_ev_000148"],
+      "evidence_ids": ["hei_src_000380", "hei_src_000381"]
+    },
+    {
+      "entity_id": "hei_ex_000134",
+      "entity_name": "CleverCoin",
+      "field": "successor_id",
+      "target_id": "hei_ex_000009",
+      "target_name": "Kraken",
+      "disposition": "keep_one_way_documented",
+      "continuity_status": "acquired_and_customer_accounts_transferred",
+      "rationale": "Kraken acquired CleverCoin and transferred customer accounts. The one-way edge preserves the acquired-brand endpoint without forcing a single reciprocal predecessor on Kraken.",
+      "event_ids": ["hei_ev_000156", "hei_ev_000607"],
+      "evidence_ids": ["hei_src_000399", "hei_src_001350", "hei_src_001351"]
+    },
+    {
+      "entity_id": "hei_ex_000146",
+      "entity_name": "Bitomat",
+      "field": "successor_id",
+      "target_id": "hei_ex_000001",
+      "target_name": "Mt. Gox",
+      "disposition": "keep_one_way_documented",
+      "continuity_status": "acquired_and_users_migrated",
+      "rationale": "Mt. Gox acquired Bitomat and migrated its users. The relationship is valid from Bitomat to Mt. Gox, but a reciprocal predecessor field on Mt. Gox would overstate a single lineage origin.",
+      "event_ids": ["hei_ev_000168"],
+      "evidence_ids": ["hei_src_000437", "hei_src_000438"]
+    },
+    {
+      "entity_id": "hei_ex_000155",
+      "entity_name": "Bter",
+      "field": "successor_id",
+      "target_id": "hei_ex_000016",
+      "target_name": "Gate.io",
+      "disposition": "add_reciprocal",
+      "continuity_status": "brand_identity_continued",
+      "rationale": "The Bter exchange lineage continued under Gate.io and Bter users were migrated to Gate.io. This is a one-to-one brand succession suitable for reciprocal predecessor/successor fields.",
+      "event_ids": ["hei_ev_000615", "hei_ev_000182"],
+      "evidence_ids": ["hei_src_000470", "hei_src_000471", "hei_src_001365", "hei_src_001366"]
+    },
+    {
+      "entity_id": "hei_ex_000159",
+      "entity_name": "Coinbase Pro",
+      "field": "successor_id",
+      "target_id": "hei_ex_000012",
+      "target_name": "Coinbase Exchange",
+      "disposition": "remove_to_event_only",
+      "continuity_status": "same_company_product_transition",
+      "rationale": "Coinbase Pro was replaced by Coinbase Advanced inside the broader Coinbase service. Coinbase Exchange is an umbrella exchange record rather than the direct successor identity, so the transition should remain in events and notes without a canonical successor_id.",
+      "event_ids": ["hei_ev_000189", "hei_ev_000190"],
+      "evidence_ids": ["hei_src_000483", "hei_src_000484"]
+    },
+    {
+      "entity_id": "hei_ex_000208",
+      "entity_name": "OpenLedger DEX",
+      "field": "predecessor_id",
+      "target_id": "hei_ex_000211",
+      "target_name": "CCEDK",
+      "disposition": "keep_bidirectional",
+      "continuity_status": "reviewed_relaunch_transition",
+      "rationale": "CCEDK ceased its original trading-engine role and relaunched into an OpenLedger-centered structure. The existing reciprocal pair accurately records the reviewed transition.",
+      "event_ids": ["hei_ev_000310", "hei_ev_000311"],
+      "evidence_ids": ["hei_src_000692", "hei_src_000693"]
+    },
+    {
+      "entity_id": "hei_ex_000211",
+      "entity_name": "CCEDK",
+      "field": "successor_id",
+      "target_id": "hei_ex_000208",
+      "target_name": "OpenLedger DEX",
+      "disposition": "keep_bidirectional",
+      "continuity_status": "reviewed_relaunch_transition",
+      "rationale": "The CCEDK exchange role transitioned into the OpenLedger-centered structure, and both sides already form a valid reciprocal pair.",
+      "event_ids": ["hei_ev_000310", "hei_ev_000311"],
+      "evidence_ids": ["hei_src_000692", "hei_src_000693"]
+    },
+    {
+      "entity_id": "hei_ex_000302",
+      "entity_name": "Bitbox",
+      "field": "successor_id",
+      "target_id": "hei_ex_000128",
+      "target_name": "BITFRONT",
+      "disposition": "add_reciprocal",
+      "continuity_status": "replacement_platform_and_brand_succession",
+      "rationale": "LINE closed or replaced BITBOX and launched BITFRONT as the succeeding global platform. This is a reviewed one-to-one succession suitable for reciprocal fields.",
+      "event_ids": ["hei_ev_000549"],
+      "evidence_ids": ["hei_src_001196", "hei_src_001197", "hei_src_001198", "hei_src_001199"]
+    },
+    {
+      "entity_id": "hei_ex_000309",
+      "entity_name": "Bingbon",
+      "field": "successor_id",
+      "target_id": "hei_ex_000101",
+      "target_name": "BingX",
+      "disposition": "add_reciprocal",
+      "continuity_status": "official_brand_rebrand",
+      "rationale": "Official BingX materials state that Bingbon rebranded to BingX. The one-to-one brand continuity supports reciprocal predecessor/successor fields.",
+      "event_ids": ["hei_ev_000564"],
+      "evidence_ids": ["hei_src_001251", "hei_src_001252", "hei_src_001253", "hei_src_001254", "hei_src_001255"]
+    },
+    {
+      "entity_id": "hei_ex_000313",
+      "entity_name": "CoinFLEX",
+      "field": "successor_id",
+      "target_id": "hei_ex_000129",
+      "target_name": "OPNX",
+      "disposition": "remove_to_event_only",
+      "continuity_status": "disputed_or_non_simple_continuity",
+      "rationale": "OPNX was connected to CoinFLEX leadership and creditor plans, but the transition was not a clean exchange-name rebrand and later evidence disputes the extent of continuity. The relationship remains historical narrative rather than a forced canonical successor link.",
+      "event_ids": ["hei_ev_000575"],
+      "evidence_ids": ["hei_src_001284", "hei_src_000387", "hei_src_003196"]
+    }
+  ]
+}
