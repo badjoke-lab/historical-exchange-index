@@ -4,13 +4,20 @@ import path from 'node:path'
 const root = process.cwd()
 const recordDir = path.join(root, 'records', 'exchanges')
 const scriptPath = path.join(root, 'scripts', 'apply-reviewed-lineage-a4.mjs')
-const workflowPath = path.join(root, '.github', 'workflows', 'a4-apply-lineage.yml')
+const temporaryWorkflowPath = path.join(root, '.github', 'workflows', 'a4-apply-lineage.yml')
+const lineageWorkflowPath = path.join(root, '.github', 'workflows', 'lineage-audit.yml')
 const manifestPath = path.join(root, 'config', 'lineage-a4-application.json')
 const missingMarker = { __hei_missing__: true }
 
 const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8'))
-const stable = (value) => JSON.stringify(value, Object.keys(value ?? {}).sort())
 const hasOwn = (object, field) => Object.prototype.hasOwnProperty.call(object, field)
+function stable(value) {
+  if (Array.isArray(value)) return `[${value.map(stable).join(',')}]`
+  if (value && typeof value === 'object') {
+    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stable(value[key])}`).join(',')}}`
+  }
+  return JSON.stringify(value)
+}
 
 const canonicalEntities = readJson(path.join(root, 'data', 'entities.json'))
 const canonicalById = new Map(canonicalEntities.map((entity) => [entity.id, entity]))
@@ -29,13 +36,10 @@ const planned = new Map()
 function addChange(entityId, field, appliedValue, source) {
   const canonical = canonicalById.get(entityId)
   if (!canonical) throw new Error(`canonical entity not found: ${entityId}`)
-  if (!bundleById.has(entityId)) throw new Error(`record bundle not found: ${entityId}`)
   const key = `${entityId}:${field}`
   const existing = planned.get(key)
   if (existing) {
-    if (stable(existing.applied_value) !== stable(appliedValue)) {
-      throw new Error(`conflicting A4 values for ${key}`)
-    }
+    if (stable(existing.applied_value) !== stable(appliedValue)) throw new Error(`conflicting A4 values for ${key}`)
     existing.source_refs.push(source)
     return
   }
@@ -82,12 +86,27 @@ for (const change of planned.values()) {
 
 const changedFiles = []
 for (const [entityId, changes] of [...changesByEntity.entries()].sort()) {
-  const { fileName, filePath, bundle } = bundleById.get(entityId)
-  const correction = bundle.entity_correction ?? {
-    entity_id: entityId,
-    expected: {},
-    changes: {},
+  const canonical = canonicalById.get(entityId)
+  let entry = bundleById.get(entityId)
+  if (!entry) {
+    const fileName = `${canonical.slug}.json`
+    const filePath = path.join(recordDir, fileName)
+    if (fs.existsSync(filePath)) throw new Error(`record path already exists for ${entityId}: ${fileName}`)
+    entry = {
+      fileName,
+      filePath,
+      bundle: {
+        entity: { ...canonical },
+        events: [],
+        evidence: [],
+      },
+    }
+    bundleById.set(entityId, entry)
   }
+
+  const { fileName, filePath, bundle } = entry
+  if (bundle.entity.id !== entityId) throw new Error(`${fileName}: bundle entity mismatch`)
+  const correction = bundle.entity_correction ?? { entity_id: entityId, expected: {}, changes: {} }
   if (correction.entity_id !== entityId) throw new Error(`${fileName}: correction entity mismatch`)
 
   for (const change of changes.sort((a, b) => a.field.localeCompare(b.field))) {
@@ -120,7 +139,47 @@ const manifest = {
 }
 fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8')
 
-for (const temporaryPath of [scriptPath, workflowPath]) {
+const finalWorkflow = `name: Lineage inventory audit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  lineage-inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Self-test lineage classification
+        run: node scripts/audit-lineage-candidates.mjs --self-test
+      - name: Build projected public lineage inventory
+        run: node scripts/audit-lineage-candidates.mjs --output-json=audit-output/lineage-inventory.json --output-md=audit-output/lineage-inventory.md
+      - name: Validate A4 lineage application
+        run: node scripts/check-lineage-a4-application.mjs --output=audit-output/lineage-a4-application.json
+      - name: Upload lineage audit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: lineage-inventory
+          path: audit-output/lineage-*
+          if-no-files-found: error
+          retention-days: 14
+`
+fs.writeFileSync(lineageWorkflowPath, finalWorkflow, 'utf8')
+
+for (const temporaryPath of [scriptPath, temporaryWorkflowPath]) {
   if (fs.existsSync(temporaryPath)) fs.rmSync(temporaryPath)
 }
 
