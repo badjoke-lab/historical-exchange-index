@@ -1,14 +1,9 @@
 name: Apply B1 reviewed bundle cleanup
 
 on:
-  push:
+  pull_request:
     branches:
-      - b1-full-monitoring-run
-    paths:
-      - .github/workflows/b1-enum-migration.yml
-      - scripts/migrate-reviewed-bundle-enums-b1.mjs
-      - scripts/patch-l2-pre-b1-baseline.mjs
-      - scripts/patch-b1-permanent-workflows.mjs
+      - main
   workflow_dispatch:
 
 permissions:
@@ -16,13 +11,13 @@ permissions:
 
 jobs:
   migrate:
+    if: github.head_ref == 'b1-full-monitoring-run' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
         with:
           ref: b1-full-monitoring-run
-          fetch-depth: 0
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -33,15 +28,9 @@ jobs:
         run: node scripts/patch-l2-pre-b1-baseline.mjs
       - name: Finalize permanent workflows
         run: node scripts/patch-b1-permanent-workflows.mjs
-      - name: Commit B1 cleanup
-        run: |
-          if git diff --quiet -- records/exchanges scripts/check-lineage-l2-dispositions.mjs .github/workflows/ci.yml .github/workflows/hei-monitoring.yml; then
-            echo "B1 cleanup is already applied."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add records/exchanges scripts/check-lineage-l2-dispositions.mjs .github/workflows/ci.yml .github/workflows/hei-monitoring.yml
-          git commit -m "Finalize B1 monitoring gates"
-          git pull --rebase origin b1-full-monitoring-run
-          git push origin HEAD:b1-full-monitoring-run
+      - name: Commit finalized B1 files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Finalize B1 monitoring gates
+          file_pattern: .github/workflows/ci.yml .github/workflows/hei-monitoring.yml scripts/check-lineage-l2-dispositions.mjs records/exchanges/*.json
+          branch: b1-full-monitoring-run
