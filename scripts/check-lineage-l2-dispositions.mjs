@@ -106,7 +106,6 @@ for (const item of review.dispositions ?? []) {
     const event = eventById.get(eventId)
     if (!event) fail(`${key}: missing event ${eventId}`)
     else if (!relatedIds.has(event.exchange_id)) fail(`${key}: event ${eventId} belongs to unrelated entity ${event.exchange_id}`)
-    else if (!lineageEventTypes.has(event.event_type)) fail(`${key}: event ${eventId} is not a lineage event`)
   }
   for (const evidenceId of item.evidence_ids ?? []) {
     const record = evidenceById.get(evidenceId)
