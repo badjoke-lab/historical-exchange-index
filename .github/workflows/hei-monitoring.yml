@@ -6,6 +6,9 @@ on:
   push:
     branches:
       - b1-full-monitoring-run
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       enable_external_lists:
@@ -109,7 +112,7 @@ jobs:
             fi
           }
 
-          if [ "$GITHUB_EVENT_NAME" = "schedule" ] || [ "$GITHUB_REF_NAME" = "b1-full-monitoring-run" ]; then
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ] || [ "$GITHUB_REF_NAME" = "b1-full-monitoring-run" ] || [ "$GITHUB_HEAD_REF" = "b1-full-monitoring-run" ]; then
             RUN_MODE="scheduled-external"
             INPUT_ENABLE_EXTERNAL_LISTS="true"
             INPUT_ENABLE_NEWS_RSS="true"
@@ -198,7 +201,7 @@ jobs:
           fi
 
       - name: Create monitoring pull request
-        if: steps.changes.outputs.changed == 'true' && github.event_name != 'push'
+        if: steps.changes.outputs.changed == 'true' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
