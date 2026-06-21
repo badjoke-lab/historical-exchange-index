@@ -20,14 +20,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: a4-apply-lineage
-          fetch-depth: 0
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - name: Install dependencies
-        run: npm ci
+          fetch-depth: 1
+          show-progress: false
       - name: Apply reviewed A4 changes
         run: node scripts/apply-reviewed-lineage-a4.mjs
       - name: Validate record bundles
