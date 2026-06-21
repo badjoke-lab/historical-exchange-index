@@ -1,0 +1,34 @@
+name: Apply one-time A5 audit fixes
+
+on:
+  push:
+    branches:
+      - a5-entity-quality-audit
+    paths:
+      - .github/workflows/a5-apply-fixes.yml
+      - scripts/apply-a5-audit-fixes.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: a5-entity-quality-audit
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Apply fixes
+        run: node scripts/apply-a5-audit-fixes.mjs
+      - name: Commit fixes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Normalize projected entity quality findings
+          file_pattern: records/exchanges/etherdelta.json records/exchanges/line-bitmax.json records/exchanges/fairdesk.json scripts/audit-entity-quality.mjs
+          branch: a5-entity-quality-audit
