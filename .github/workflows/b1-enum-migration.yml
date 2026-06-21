@@ -8,9 +8,6 @@ on:
       - .github/workflows/b1-enum-migration.yml
       - scripts/migrate-reviewed-bundle-enums-b1.mjs
       - scripts/patch-l2-pre-b1-baseline.mjs
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
@@ -18,13 +15,13 @@ permissions:
 
 jobs:
   migrate:
-    if: github.event_name != 'pull_request' || github.head_ref == 'b1-full-monitoring-run'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
         with:
           ref: b1-full-monitoring-run
+          fetch-depth: 0
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -34,8 +31,14 @@ jobs:
       - name: Freeze L2 pre-B1 baseline
         run: node scripts/patch-l2-pre-b1-baseline.mjs
       - name: Commit B1 cleanup
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: Complete B1 projected data cleanup
-          file_pattern: records/exchanges/*.json scripts/check-lineage-l2-dispositions.mjs
-          branch: b1-full-monitoring-run
+        run: |
+          if git diff --quiet -- records/exchanges scripts/check-lineage-l2-dispositions.mjs; then
+            echo "B1 cleanup is already applied."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add records/exchanges scripts/check-lineage-l2-dispositions.mjs
+          git commit -m "Complete B1 projected data cleanup"
+          git pull --rebase origin b1-full-monitoring-run
+          git push origin HEAD:b1-full-monitoring-run
