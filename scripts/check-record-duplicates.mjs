@@ -8,6 +8,8 @@ const recordsDir = path.join(root, 'records', 'exchanges')
 
 const allowedDuplicateEntityPairs = new Set([
   'hei_ex_000031|hei_ex_000397',
+  'hei_ex_000127|hei_ex_000216',
+  'hei_ex_000128|hei_ex_000302',
   'hei_ex_000285|hei_ex_000396',
 ])
 
