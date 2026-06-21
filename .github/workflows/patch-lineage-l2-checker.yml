@@ -1,0 +1,27 @@
+name: Patch A3 L2 checker
+
+on:
+  push:
+    branches:
+      - a3-l2-review
+    paths:
+      - .github/workflows/patch-lineage-l2-checker.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: a3-l2-review
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/patch-lineage-l2-checker.mjs
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: a3-l2-review
+          commit_message: "[CF-Pages-Skip] Allow supporting lifecycle events in L2 review"
