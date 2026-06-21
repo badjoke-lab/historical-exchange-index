@@ -3,21 +3,24 @@
     "id": "hei_ex_000421",
     "slug": "etherdelta",
     "canonical_name": "EtherDelta",
-    "aliases": ["Ether Delta", "etherdelta.com"],
+    "aliases": [
+      "Ether Delta",
+      "etherdelta.com"
+    ],
     "type": "dex",
     "status": "inactive",
-    "death_reason": "inactive_or_superseded",
+    "death_reason": null,
     "launch_date": "2016",
     "death_date": null,
     "country_or_origin": "Ethereum ecosystem",
     "summary": "Early Ethereum-based decentralized token exchange. HEI records EtherDelta as an inactive historical DEX with event-backed regulatory history, including the SEC's 2018 action involving its founder.",
     "official_url_original": "https://etherdelta.com/",
     "official_domain_original": "etherdelta.com",
-    "official_url_status": "inactive_or_unverified",
+    "official_url_status": "unknown",
     "archived_url": "https://web.archive.org/web/*/https://etherdelta.com/",
     "confidence": "high",
     "last_verified_at": "2026-06-05",
-    "notes": "Added from verified-unadded row hei_unadded_0843 after event-backed review. EtherDelta is treated as one historical DEX entity, not as a generic active database row. Status is inactive_or_unverified because the original venue is no longer treated as a current active exchange in this registry context."
+    "notes": "Added from verified-unadded row hei_unadded_0843 after event-backed review. EtherDelta is treated as one historical DEX entity, not as a generic active database row. The entity status is inactive because the original venue is not treated as a current active exchange in this registry context. The present state of the original domain is not freshly verified, so official_url_status remains unknown."
   },
   "events": [
     {

@@ -3,7 +3,10 @@
     "id": "hei_ex_000501",
     "slug": "fairdesk",
     "canonical_name": "Fairdesk",
-    "aliases": ["Fairdesk Cryptocurrency Exchange", "Fairdesk crypto exchange"],
+    "aliases": [
+      "Fairdesk Cryptocurrency Exchange",
+      "Fairdesk crypto exchange"
+    ],
     "type": "cex",
     "status": "dead",
     "death_reason": "voluntary_shutdown",
@@ -13,11 +16,11 @@
     "summary": "Singapore-based centralized cryptocurrency exchange offering spot and futures trading. Fairdesk stated that it launched in 2021 and announced in October 2024 that changing market conditions and regulatory changes had led it to permanently close. Trading positions were scheduled to close on 2024-10-17, withdrawals remained available during the wind-down, and final platform closure was set for 2024-11-30.",
     "official_url_original": "https://www.fairdesk.com/",
     "official_domain_original": "fairdesk.com",
-    "official_url_status": "dead_or_redirected",
+    "official_url_status": "unknown",
     "archived_url": "https://web.archive.org/web/*/https://www.fairdesk.com/",
     "confidence": "high",
     "last_verified_at": "2026-06-13",
-    "notes": "Launch date is year-level and stored as 2021-01-01 for schema consistency. death_reason is voluntary_shutdown because the operator announced an orderly permanent closure; regulatory change was one stated factor rather than a documented enforcement order."
+    "notes": "Launch date is year-level and stored as 2021-01-01 for schema consistency. death_reason is voluntary_shutdown because the operator announced an orderly permanent closure; regulatory change was one stated factor rather than a documented enforcement order. The current redirect or dead-domain state of the original domain is not asserted without a fresh URL verification, so official_url_status remains unknown."
   },
   "events": [
     {
