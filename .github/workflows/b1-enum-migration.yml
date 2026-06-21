@@ -7,6 +7,9 @@ on:
     paths:
       - .github/workflows/b1-enum-migration.yml
       - scripts/migrate-reviewed-bundle-enums-b1.mjs
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -14,6 +17,7 @@ permissions:
 
 jobs:
   migrate:
+    if: github.event_name != 'pull_request' || github.head_ref == 'b1-full-monitoring-run'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
