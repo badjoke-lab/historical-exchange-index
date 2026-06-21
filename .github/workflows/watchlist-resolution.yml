@@ -1,0 +1,30 @@
+name: Watchlist resolution gate
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "30 2 * * 1"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run watchlists:test
+      - run: npm run watchlists:check -- --output=audit-output/watchlist-resolutions.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: watchlist-resolution-audit
+          path: audit-output/watchlist-resolutions.json
+          retention-days: 14
