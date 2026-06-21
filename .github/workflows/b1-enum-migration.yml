@@ -1,0 +1,34 @@
+name: Apply B1 reviewed bundle enum migration
+
+on:
+  push:
+    branches:
+      - b1-full-monitoring-run
+    paths:
+      - .github/workflows/b1-enum-migration.yml
+      - scripts/migrate-reviewed-bundle-enums-b1.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: b1-full-monitoring-run
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Apply reviewed bundle enum migration
+        run: node scripts/migrate-reviewed-bundle-enums-b1.mjs
+      - name: Commit normalized bundles
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Normalize reviewed bundle enum values
+          file_pattern: records/exchanges/*.json
+          branch: b1-full-monitoring-run
