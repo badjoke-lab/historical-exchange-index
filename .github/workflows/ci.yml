@@ -84,6 +84,10 @@ jobs:
           HEI_MONITORING_EVIDENCE_URL_CHECK_LIMIT: "25"
         run: npm run monitor
 
+      - name: Export B1 projected enum debt
+        if: github.head_ref == 'b1-full-monitoring-run'
+        run: node scripts/export-b1-projected-enum-debt.mjs
+
       - name: Guard canonical files after B1 monitoring
         if: github.head_ref == 'b1-full-monitoring-run'
         run: git diff --exit-code -- data/entities.json data/events.json data/evidence.json
@@ -93,7 +97,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: b1-full-monitoring-output
-          path: data-staging
+          path: |
+            data-staging
+            audit-output/b1-projected-enum-debt.json
           if-no-files-found: error
           retention-days: 14
 
