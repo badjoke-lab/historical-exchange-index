@@ -28,16 +28,18 @@
     "successor_id": "hei_ex_000009",
     "confidence": "high",
     "last_verified_at": "2026-06-19",
-    "notes": "HEI uses status acquired and death_reason acquisition because Kraken completed the BCM acquisition and BCM users were directed toward Kraken. successor_id remains null because Kraken is not currently linked as a successor entity in this record."
+    "notes": "HEI uses status acquired and death_reason acquisition because Kraken completed the BCM acquisition and BCM users were directed toward Kraken. successor_id links BCM Exchange to Kraken as a reviewed one-way acquisition endpoint; Kraken's singular predecessor_id is not changed because it cannot safely represent every acquired service."
   },
   "events": [],
   "evidence": [],
   "entity_correction": {
     "entity_id": "hei_ex_000301",
     "expected": {
+      "notes": "HEI uses status acquired and death_reason acquisition because Kraken completed the BCM acquisition and BCM users were directed toward Kraken. successor_id remains null because Kraken is not currently linked as a successor entity in this record.",
       "successor_id": null
     },
     "changes": {
+      "notes": "HEI uses status acquired and death_reason acquisition because Kraken completed the BCM acquisition and BCM users were directed toward Kraken. successor_id links BCM Exchange to Kraken as a reviewed one-way acquisition endpoint; Kraken's singular predecessor_id is not changed because it cannot safely represent every acquired service.",
       "successor_id": "hei_ex_000009"
     }
   }
