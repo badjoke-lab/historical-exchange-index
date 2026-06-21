@@ -28,6 +28,8 @@ jobs:
         run: node scripts/audit-lineage-candidates.mjs --output-json=audit-output/lineage-inventory.json --output-md=audit-output/lineage-inventory.md
       - name: Validate reviewed L1 dispositions
         run: node scripts/check-lineage-l1-dispositions.mjs --output=audit-output/lineage-l1-dispositions.json
+      - name: Validate reviewed L2 dispositions
+        run: node scripts/check-lineage-l2-dispositions.mjs --output=audit-output/lineage-l2-dispositions.json
       - name: Upload lineage audit artifacts
         uses: actions/upload-artifact@v4
         with:
