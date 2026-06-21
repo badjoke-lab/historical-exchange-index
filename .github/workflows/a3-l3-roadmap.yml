@@ -1,0 +1,21 @@
+name: A3 roadmap update
+on:
+  push:
+    branches: [a3-l3-closure]
+    paths: [.github/workflows/a3-l3-roadmap.yml]
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: a3-l3-closure
+      - run: node scripts/update-a3-l3-roadmap.mjs
+      - run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add docs/HEI_V1_EXECUTION_ROADMAP.md scripts/update-a3-l3-roadmap.mjs .github/workflows/a3-l3-roadmap.yml
+          git commit -m "[CF-Pages-Skip] Advance roadmap to A4"
+          git push origin HEAD:a3-l3-closure
