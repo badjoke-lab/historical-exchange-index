@@ -1,0 +1,256 @@
+{
+  "version": 1,
+  "reviewed_at": "2026-06-21",
+  "source_inventory_pr": 408,
+  "scope": "structured_lineage_candidates_without_existing_edges",
+  "dispositions": [
+    {
+      "entity_id": "hei_ex_000033",
+      "entity_name": "Poloniex",
+      "classification": "document_only",
+      "rationale": "Circle acquired Poloniex and later spun it out, but the Poloniex exchange identity continued rather than becoming a distinct successor entity.",
+      "event_ids": ["hei_ev_000021", "hei_ev_000145"],
+      "evidence_ids": ["hei_src_000041", "hei_src_000042", "hei_src_000183"]
+    },
+    {
+      "entity_id": "hei_ex_000127",
+      "entity_name": "BitBay",
+      "classification": "link_now",
+      "relation_field": "successor_id",
+      "target_id": "hei_ex_000216",
+      "target_name": "zondacrypto",
+      "link_mode": "reciprocal_pair",
+      "rationale": "BitBay changed its operating brand through Zonda to zondacrypto, establishing direct one-to-one identity continuity.",
+      "event_ids": ["hei_ev_000149"],
+      "evidence_ids": ["hei_src_000382", "hei_src_000383", "hei_src_000384"]
+    },
+    {
+      "entity_id": "hei_ex_000133",
+      "entity_name": "Coinfloor",
+      "classification": "unresolved",
+      "named_target": "CoinCorner",
+      "unresolved_reason": "named_successor_not_canonical",
+      "rationale": "CoinCorner acquired Coinfloor's customer base, but CoinCorner is not currently a canonical HEI entity and no thin successor record will be created only to fill lineage fields.",
+      "event_ids": ["hei_ev_000155"],
+      "evidence_ids": ["hei_src_000396", "hei_src_000397", "hei_src_000398"]
+    },
+    {
+      "entity_id": "hei_ex_000195",
+      "entity_name": "Bgogo",
+      "classification": "unresolved",
+      "named_target": "Gogoswap",
+      "unresolved_reason": "named_successor_not_canonical",
+      "rationale": "The record describes a transition from Bgogo to Gogoswap, but Gogoswap is not a canonical HEI entity and the available lineage remains insufficient for a forced link.",
+      "event_ids": ["hei_ev_000276", "hei_ev_000277"],
+      "evidence_ids": ["hei_src_000624", "hei_src_000625"]
+    },
+    {
+      "entity_id": "hei_ex_000199",
+      "entity_name": "Bitholic",
+      "classification": "unresolved",
+      "named_target": "Bithumb Singapore",
+      "unresolved_reason": "regional_successor_not_canonical",
+      "rationale": "Bitholic was rebranded as Bithumb Singapore, but the regional successor is not a canonical HEI entity and should not be conflated with the general Bithumb record.",
+      "event_ids": ["hei_ev_000284", "hei_ev_000285"],
+      "evidence_ids": ["hei_src_000640", "hei_src_000641"]
+    },
+    {
+      "entity_id": "hei_ex_000213",
+      "entity_name": "Justcoin",
+      "classification": "document_only",
+      "rationale": "ANX acquired the Justcoin brand and domain and revived the same service; this is ownership history rather than a clean identity succession to ANXPRO.",
+      "event_ids": ["hei_ev_000315"],
+      "evidence_ids": ["hei_src_000702"]
+    },
+    {
+      "entity_id": "hei_ex_000216",
+      "entity_name": "zondacrypto",
+      "classification": "link_now",
+      "relation_field": "predecessor_id",
+      "target_id": "hei_ex_000127",
+      "target_name": "BitBay",
+      "link_mode": "reciprocal_pair",
+      "rationale": "zondacrypto is the current identity in the direct BitBay to Zonda to zondacrypto brand lineage.",
+      "event_ids": ["hei_ev_000321", "hei_ev_000322"],
+      "evidence_ids": ["hei_src_000716"]
+    },
+    {
+      "entity_id": "hei_ex_000217",
+      "entity_name": "CoinMKT",
+      "classification": "document_only",
+      "rationale": "ANX acquired CoinMKT while the CoinMKT brand continued under the group; acquisition does not establish a direct successor identity to ANXPRO.",
+      "event_ids": ["hei_ev_000327"],
+      "evidence_ids": ["hei_src_000722", "hei_src_000725"]
+    },
+    {
+      "entity_id": "hei_ex_000248",
+      "entity_name": "CryptalDash",
+      "classification": "unresolved",
+      "named_target": "DLTify",
+      "unresolved_reason": "named_successor_not_canonical",
+      "rationale": "CryptalDash is described as transitioning to DLTify, but DLTify is not currently a canonical HEI entity and continuity cannot be represented safely yet.",
+      "event_ids": ["hei_ev_000422"],
+      "evidence_ids": ["hei_src_000838", "hei_src_000839", "hei_src_000840"]
+    },
+    {
+      "entity_id": "hei_ex_000251",
+      "entity_name": "Atomic Trade",
+      "classification": "unresolved",
+      "named_target": "Banx.io",
+      "unresolved_reason": "named_successor_not_canonical_and_source_limit",
+      "rationale": "Atomic Trade is associated with a transition to Banx.io, but Banx.io is not canonical and the available source quality is not strong enough for a forced identity link.",
+      "event_ids": ["hei_ev_000429"],
+      "evidence_ids": ["hei_src_000854", "hei_src_000855", "hei_src_000856"]
+    },
+    {
+      "entity_id": "hei_ex_000260",
+      "entity_name": "BTCChina",
+      "classification": "link_now",
+      "relation_field": "successor_id",
+      "target_id": "hei_ex_000410",
+      "target_name": "BTCC",
+      "link_mode": "reciprocal_pair",
+      "rationale": "BTCChina officially adopted the BTCC brand, creating direct one-to-one brand continuity suitable for reciprocal lineage fields.",
+      "event_ids": ["hei_ev_000448"],
+      "evidence_ids": ["hei_src_000903", "hei_src_000904", "hei_src_000905"]
+    },
+    {
+      "entity_id": "hei_ex_000268",
+      "entity_name": "LocalCryptos",
+      "classification": "document_only",
+      "rationale": "LocalEthereum changed its name to LocalCryptos within the same service identity; the in-place rebrand is already represented inside one umbrella entity.",
+      "event_ids": ["hei_ev_000464"],
+      "evidence_ids": ["hei_src_000950"]
+    },
+    {
+      "entity_id": "hei_ex_000271",
+      "entity_name": "CHBTC",
+      "classification": "link_now",
+      "relation_field": "successor_id",
+      "target_id": "hei_ex_000290",
+      "target_name": "ZB.com",
+      "link_mode": "reciprocal_pair",
+      "rationale": "CHBTC transitioned to the ZB.com brand, establishing direct one-to-one exchange identity continuity.",
+      "event_ids": ["hei_ev_000472"],
+      "evidence_ids": ["hei_src_000974"]
+    },
+    {
+      "entity_id": "hei_ex_000283",
+      "entity_name": "LiteBit",
+      "classification": "link_now",
+      "relation_field": "successor_id",
+      "target_id": "hei_ex_000046",
+      "target_name": "Bitvavo",
+      "link_mode": "one_way_documented",
+      "rationale": "Bitvavo acquired LiteBit's customer base and supported customer account or asset migration; the source-side endpoint is valid without forcing a singular reciprocal predecessor on Bitvavo.",
+      "event_ids": ["hei_ev_000502", "hei_ev_000503"],
+      "evidence_ids": ["hei_src_001050", "hei_src_001051", "hei_src_001053"]
+    },
+    {
+      "entity_id": "hei_ex_000284",
+      "entity_name": "Crypto Facilities",
+      "classification": "document_only",
+      "rationale": "Kraken acquired Crypto Facilities, but the company and regulated venue continued within the group; this is ownership history rather than replacement by the Kraken exchange identity.",
+      "event_ids": ["hei_ev_000505"],
+      "evidence_ids": ["hei_src_001057", "hei_src_001058", "hei_src_001059", "hei_src_001060"]
+    },
+    {
+      "entity_id": "hei_ex_000285",
+      "entity_name": "BitTrade Australia",
+      "classification": "link_now",
+      "relation_field": "successor_id",
+      "target_id": "hei_ex_000009",
+      "target_name": "Kraken",
+      "link_mode": "one_way_documented",
+      "rationale": "Kraken acquired Bit Trade Australia and integrated the service into its Australian operation; retain a one-way source endpoint because Kraken has multiple acquired lineages.",
+      "event_ids": ["hei_ev_000507"],
+      "evidence_ids": ["hei_src_001063", "hei_src_001064", "hei_src_001065", "hei_src_001066", "hei_src_001067", "hei_src_001386", "hei_src_001387", "hei_src_001388"]
+    },
+    {
+      "entity_id": "hei_ex_000287",
+      "entity_name": "Qryptos",
+      "classification": "unresolved",
+      "named_target": "Liquid",
+      "unresolved_reason": "named_successor_not_canonical",
+      "rationale": "Qryptos was folded into or rebranded under Liquid, but Liquid is not currently a canonical HEI entity and no thin target record should be added only for lineage completion.",
+      "event_ids": ["hei_ev_000513"],
+      "evidence_ids": ["hei_src_001081", "hei_src_001082", "hei_src_001083"]
+    },
+    {
+      "entity_id": "hei_ex_000295",
+      "entity_name": "BarterDEX",
+      "classification": "unresolved",
+      "named_target": "AtomicDEX",
+      "unresolved_reason": "named_successor_not_canonical",
+      "rationale": "BarterDEX evolved into AtomicDEX, but AtomicDEX is not currently a canonical HEI identity and the relationship remains documented without a forced link.",
+      "event_ids": ["hei_ev_000534"],
+      "evidence_ids": ["hei_src_001143", "hei_src_001144", "hei_src_001145", "hei_src_001146", "hei_src_001147"]
+    },
+    {
+      "entity_id": "hei_ex_000299",
+      "entity_name": "BayBit.io",
+      "classification": "unresolved",
+      "named_target": "Vero Exchange",
+      "unresolved_reason": "named_successor_not_canonical_and_source_limit",
+      "rationale": "BayBit.io is reported as transitioning to Vero Exchange, but Vero Exchange is not canonical and the available sources are largely secondary.",
+      "event_ids": ["hei_ev_000542"],
+      "evidence_ids": ["hei_src_001174", "hei_src_001175", "hei_src_001176", "hei_src_001177"]
+    },
+    {
+      "entity_id": "hei_ex_000301",
+      "entity_name": "BCM Exchange",
+      "classification": "link_now",
+      "relation_field": "successor_id",
+      "target_id": "hei_ex_000009",
+      "target_name": "Kraken",
+      "link_mode": "one_way_documented",
+      "rationale": "Kraken acquired BCM Exchange and migrated or transitioned its users; preserve the source-side endpoint without forcing one of several acquisitions into Kraken's singular predecessor field.",
+      "event_ids": ["hei_ev_000546", "hei_ev_000547"],
+      "evidence_ids": ["hei_src_001187", "hei_src_001188", "hei_src_001189", "hei_src_001190", "hei_src_001192"]
+    },
+    {
+      "entity_id": "hei_ex_000306",
+      "entity_name": "AlfaCashier",
+      "classification": "unresolved",
+      "named_target": "Alfacash",
+      "unresolved_reason": "named_successor_not_canonical",
+      "rationale": "AlfaCashier rebranded to Alfacash, but Alfacash is not currently represented as a separate canonical HEI entity.",
+      "event_ids": ["hei_ev_000557"],
+      "evidence_ids": ["hei_src_001227", "hei_src_001228", "hei_src_001229", "hei_src_001230"]
+    },
+    {
+      "entity_id": "hei_ex_000310",
+      "entity_name": "Anyswap",
+      "classification": "unresolved",
+      "named_target": "Multichain",
+      "unresolved_reason": "named_successor_not_canonical",
+      "rationale": "Anyswap adopted the Multichain identity, but Multichain is not currently a canonical HEI entity and the successor should not be invented solely to fill the field.",
+      "event_ids": ["hei_ev_000566"],
+      "evidence_ids": ["hei_src_001260", "hei_src_001261", "hei_src_001262", "hei_src_001263"]
+    },
+    {
+      "entity_id": "hei_ex_000510",
+      "entity_name": "Huobi Korea",
+      "classification": "document_only",
+      "rationale": "Huobi Korea separated from the wider Huobi or HTX group through ownership restructuring; independence did not create a successor exchange identity.",
+      "event_ids": ["hei_ev_002031"],
+      "evidence_ids": ["hei_src_003070", "hei_src_003071"]
+    },
+    {
+      "entity_id": "hei_ex_000517",
+      "entity_name": "dYdX",
+      "classification": "document_only",
+      "rationale": "The v3 to dYdX Chain transition was a protocol and token migration within the same umbrella dYdX identity, not a predecessor-successor split.",
+      "event_ids": ["hei_ev_002041"],
+      "evidence_ids": ["hei_src_003096", "hei_src_003097"]
+    },
+    {
+      "entity_id": "hei_ex_000520",
+      "entity_name": "LFJ",
+      "classification": "document_only",
+      "rationale": "Trader Joe changed its public brand to LFJ while remaining the same protocol family already represented by one HEI entity.",
+      "event_ids": ["hei_ev_002045"],
+      "evidence_ids": ["hei_src_003107", "hei_src_003108", "hei_src_003109"]
+    }
+  ]
+}
