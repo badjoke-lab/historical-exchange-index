@@ -1,0 +1,40 @@
+{
+  "entity": {
+    "id": "hei_ex_000290",
+    "slug": "zb-com",
+    "canonical_name": "ZB.com",
+    "aliases": [
+      "ZB",
+      "ZB Exchange",
+      "ZB Global",
+      "ZB.COM"
+    ],
+    "type": "cex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": "2013-01-01",
+    "death_date": null,
+    "country_or_origin": "China",
+    "summary": "China-linked centralized cryptocurrency exchange whose ZB.com platform lineage is described by market trackers as dating to early 2013. ZB.com suspended deposits and withdrawals in August 2022, around the same time blockchain-security firms and media reported a suspected hot-wallet exploit of roughly USD 4.8-5 million. Market trackers now show the exchange as untracked or with zero available trading pairs.",
+    "official_url_original": "https://www.zb.com/",
+    "official_domain_original": "zb.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.zb.com/",
+    "predecessor_id": "hei_ex_000271",
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-09",
+    "notes": "HEI uses limited rather than dead because the available sources support deposit/withdrawal suspension, suspected exploit, and apparent non-restoration of normal market activity, but do not provide a primary formal liquidation or permanent-closure notice. death_reason remains null until a terminal closure classification is better supported."
+  },
+  "events": [],
+  "evidence": [],
+  "entity_correction": {
+    "entity_id": "hei_ex_000290",
+    "expected": {
+      "predecessor_id": null
+    },
+    "changes": {
+      "predecessor_id": "hei_ex_000271"
+    }
+  }
+}

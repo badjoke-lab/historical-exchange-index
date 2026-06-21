@@ -1,0 +1,39 @@
+{
+  "entity": {
+    "id": "hei_ex_000128",
+    "slug": "bitfront",
+    "canonical_name": "BITFRONT",
+    "aliases": [
+      "Bitfront",
+      "BITBOX",
+      "LVC USA Inc."
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2020-02-01",
+    "death_date": "2023-03-31",
+    "country_or_origin": "United States",
+    "summary": "LINE-backed global centralized cryptocurrency exchange operated by LVC USA Inc. It announced a phased voluntary shutdown in late 2022 and scheduled withdrawals to end on 2023-03-31.",
+    "official_url_original": "https://www.bitfront.me/",
+    "official_domain_original": "bitfront.me",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitfront.me/",
+    "predecessor_id": "hei_ex_000302",
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-05-22",
+    "notes": "Entity death date uses the end of withdrawals and service termination rather than the announcement date."
+  },
+  "events": [],
+  "evidence": [],
+  "entity_correction": {
+    "entity_id": "hei_ex_000128",
+    "expected": {
+      "predecessor_id": null
+    },
+    "changes": {
+      "predecessor_id": "hei_ex_000302"
+    }
+  }
+}

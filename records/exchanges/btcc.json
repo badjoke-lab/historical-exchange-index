@@ -3,7 +3,10 @@
     "id": "hei_ex_000410",
     "slug": "btcc",
     "canonical_name": "BTCC",
-    "aliases": ["BTCC Exchange", "btcc.com"],
+    "aliases": [
+      "BTCC Exchange",
+      "btcc.com"
+    ],
     "type": "cex",
     "status": "active",
     "death_reason": null,
@@ -17,7 +20,8 @@
     "archived_url": "https://web.archive.org/web/*/https://www.btcc.com/",
     "confidence": "medium",
     "last_verified_at": "2026-06-19",
-    "notes": "Added from verified-unadded rows hei_unadded_0403 and hei_unadded_0404 as one entity. HEI uses the current operating-headquarters description published on BTCC's official site. This does not erase the brand's historical Chinese roots or imply that all current regional legal providers are UK-incorporated; official materials also identify Poland, Lithuania, and Cayman Islands entities for particular services."
+    "notes": "Added from verified-unadded rows hei_unadded_0403 and hei_unadded_0404 as one entity. HEI uses the current operating-headquarters description published on BTCC's official site. This does not erase the brand's historical Chinese roots or imply that all current regional legal providers are UK-incorporated; official materials also identify Poland, Lithuania, and Cayman Islands entities for particular services.",
+    "predecessor_id": "hei_ex_000260"
   },
   "events": [
     {

@@ -16,8 +16,16 @@ const ALLOWED_FIELDS = new Set([
   'notes',
 ])
 
+const MISSING_FIELD_KEY = '__hei_missing__'
+
 function isObject(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
+}
+
+function isMissingFieldExpectation(value) {
+  return isObject(value)
+    && value[MISSING_FIELD_KEY] === true
+    && Object.keys(value).length === 1
 }
 
 function stable(value) {
@@ -62,13 +70,28 @@ export function applyReviewedEntityCorrections(entities, entries) {
       if (!ALLOWED_FIELDS.has(field)) throw new Error(`${fileName}: entity_correction field is not allowed: ${field}`)
       const key = `${correction.entity_id}:${field}`
       if (fieldOwners.has(key)) throw new Error(`${fileName}: entity field already corrected: ${key}`)
-      if (stable(current[field]) !== stable(correction.expected[field])) {
-        throw new Error(`${fileName}: stale entity_correction expected value for ${key}`)
+
+      const expected = correction.expected[field]
+      const change = correction.changes[field]
+      if (isMissingFieldExpectation(change)) {
+        throw new Error(`${fileName}: entity_correction changes may not use the missing-field marker for ${key}`)
       }
-      if (stable(correction.expected[field]) === stable(correction.changes[field])) {
+      if (!isMissingFieldExpectation(expected) && stable(expected) === stable(change)) {
         throw new Error(`${fileName}: entity_correction does not change ${key}`)
       }
-      next[field] = correction.changes[field]
+
+      const currentHasField = Object.prototype.hasOwnProperty.call(current, field)
+      const alreadyApplied = currentHasField && stable(current[field]) === stable(change)
+
+      if (isMissingFieldExpectation(expected)) {
+        if (currentHasField && !alreadyApplied) {
+          throw new Error(`${fileName}: stale entity_correction expected missing field for ${key}`)
+        }
+      } else if (stable(current[field]) !== stable(expected) && !alreadyApplied) {
+        throw new Error(`${fileName}: stale entity_correction expected value for ${key}`)
+      }
+
+      next[field] = change
       fieldOwners.set(key, fileName)
     }
     result[index] = next

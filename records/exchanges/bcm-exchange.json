@@ -1,0 +1,46 @@
+{
+  "entity": {
+    "id": "hei_ex_000301",
+    "slug": "bcm-exchange",
+    "canonical_name": "BCM Exchange",
+    "aliases": [
+      "BCM",
+      "Coin Meester",
+      "Coin Meester B.V.",
+      "Bitcoin Meester",
+      "Bitladon",
+      "Bitladon Exchange",
+      "BCM Exchange",
+      "bcmtoday.com"
+    ],
+    "type": "cex",
+    "status": "acquired",
+    "death_reason": "acquisition",
+    "launch_date": "2017-01-01",
+    "death_date": "2025-01-07",
+    "country_or_origin": "Netherlands",
+    "summary": "Dutch cryptocurrency broker and exchange-style service operated by Coin Meester B.V., previously known as Bitcoin Meester and Bitladon. Kraken announced an agreement to acquire BCM in October 2023 and later announced completion of the acquisition in September 2024. BCM subsequently directed users toward Kraken, and BCM communications described the acquisition as completed on 2025-01-07. HEI treats the independent BCM Exchange entity as acquired rather than simply dead because the service was absorbed into Kraken.",
+    "official_url_original": "https://www.bcmtoday.com/",
+    "official_domain_original": "bcmtoday.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.bcmtoday.com/",
+    "predecessor_id": null,
+    "successor_id": "hei_ex_000009",
+    "confidence": "high",
+    "last_verified_at": "2026-06-19",
+    "notes": "HEI uses status acquired and death_reason acquisition because Kraken completed the BCM acquisition and BCM users were directed toward Kraken. successor_id links BCM Exchange to Kraken as a reviewed one-way acquisition endpoint; Kraken's singular predecessor_id is not changed because it cannot safely represent every acquired service."
+  },
+  "events": [],
+  "evidence": [],
+  "entity_correction": {
+    "entity_id": "hei_ex_000301",
+    "expected": {
+      "notes": "HEI uses status acquired and death_reason acquisition because Kraken completed the BCM acquisition and BCM users were directed toward Kraken. successor_id remains null because Kraken is not currently linked as a successor entity in this record.",
+      "successor_id": null
+    },
+    "changes": {
+      "notes": "HEI uses status acquired and death_reason acquisition because Kraken completed the BCM acquisition and BCM users were directed toward Kraken. successor_id links BCM Exchange to Kraken as a reviewed one-way acquisition endpoint; Kraken's singular predecessor_id is not changed because it cannot safely represent every acquired service.",
+      "successor_id": "hei_ex_000009"
+    }
+  }
+}
