@@ -3,6 +3,7 @@ import path from 'node:path'
 import process from 'node:process'
 import { loadReviewedBundles, mergeRecords } from './lib/reviewed-bundle-aggregation.mjs'
 import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
+import { restorePreA4LineageEntities } from './lib/lineage-a4-baseline.mjs'
 
 const root = process.cwd()
 const lineageEventTypes = new Set(['acquired', 'merged', 'rebranded', 'token_migration'])
@@ -16,11 +17,13 @@ const canonicalEntities = load('data/entities.json')
 const canonicalEvents = load('data/events.json')
 const canonicalEvidence = load('data/evidence.json')
 const review = load('config/lineage-l2-dispositions.json')
+const a4Manifest = load('config/lineage-a4-application.json')
 const { all, newEntityBundles, entityIdMap } = loadReviewedBundles(root, canonicalEntities)
-const entities = [
+const projectedEntities = [
   ...applyReviewedEntityCorrections(canonicalEntities, all),
   ...newEntityBundles.map(({ bundle }) => bundle.entity),
 ]
+const entities = restorePreA4LineageEntities(projectedEntities, a4Manifest)
 const events = mergeRecords(canonicalEvents, all, 'events', 'event', entityIdMap)
 const evidence = mergeRecords(canonicalEvidence, all, 'evidence', 'evidence', entityIdMap)
 
@@ -133,6 +136,7 @@ if (structuredCandidateIds.length !== 25) fail(`expected 25 structured candidate
 
 const report = {
   generated_at: new Date().toISOString(),
+  baseline: 'pre_a4_review_state',
   projected_public_entities: entities.length,
   structured_candidates: structuredCandidateIds.length,
   reviewed_dispositions: review.dispositions?.length ?? 0,
