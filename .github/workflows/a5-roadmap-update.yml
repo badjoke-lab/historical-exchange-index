@@ -1,34 +1,10 @@
-name: Apply A5 roadmap checkpoint
+name: Retired A5 roadmap checkpoint workflow
 
 on:
-  push:
-    branches:
-      - a5-entity-quality-audit
-    paths:
-      - .github/workflows/a5-roadmap-update.yml
-      - scripts/update-roadmap-a5.mjs
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
-  update-roadmap:
+  retired:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v4
-        with:
-          ref: a5-entity-quality-audit
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Update roadmap
-        run: node scripts/update-roadmap-a5.mjs
-      - name: Commit roadmap
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: Update roadmap after A5 entity quality audit
-          file_pattern: docs/HEI_V1_EXECUTION_ROADMAP.md
-          branch: a5-entity-quality-audit
+      - run: echo "This one-time workflow is retired."
