@@ -1,0 +1,27 @@
+name: Update A3 L1 roadmap
+
+on:
+  push:
+    branches:
+      - a3-l1
+    paths:
+      - .github/workflows/update-a3-l1-roadmap.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-roadmap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: a3-l1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/update-a3-l1-roadmap.mjs
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: a3-l1
+          commit_message: "[CF-Pages-Skip] Advance roadmap to A3 L2 review"
