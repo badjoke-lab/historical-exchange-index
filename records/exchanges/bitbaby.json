@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000690",
       "exchange_id": "hei_ex_000382",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "Bitbaby recorded as centralized exchange",
       "description": "Bitbaby is recorded as an active centralized exchange based on its official domain and CoinGecko source row; its legal and operating origin remains explicitly Unknown after official-site review.",

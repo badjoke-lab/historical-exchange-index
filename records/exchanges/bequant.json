@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000684",
       "exchange_id": "hei_ex_000376",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "Bequant present in exchange source data",
       "description": "Bequant appeared in the verified-unadded candidate pool through CoinPaprika exchange data and is retained as a Malta-based centralized exchange and institutional trading-platform entity.",

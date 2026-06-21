@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000710",
       "exchange_id": "hei_ex_000400",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-02",
       "title": "BladeSwap recorded as Blast ecosystem DEX",
       "description": "BladeSwap is recorded as a Blast ecosystem DEX/protocol entity, with AMM and CL candidate rows consolidated into one HEI record.",

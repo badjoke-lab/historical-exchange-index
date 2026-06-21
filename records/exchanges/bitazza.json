@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000689",
       "exchange_id": "hei_ex_000381",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "Bitazza recorded as centralized exchange",
       "description": "Bitazza is recorded as a centralized exchange entity based on its official trading domain and CoinGecko exchange source row.",

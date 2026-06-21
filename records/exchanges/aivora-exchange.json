@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000663",
       "exchange_id": "hei_ex_000355",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-05-31",
       "title": "Aivora Exchange present in exchange source data",
       "description": "Aivora Exchange is recorded as an active centralized exchange, with its British Virgin Islands establishment supported by the platform's official company profile.",

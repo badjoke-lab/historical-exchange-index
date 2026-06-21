@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000688",
       "exchange_id": "hei_ex_000380",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "Bit2C recorded as centralized exchange",
       "description": "Bit2C is recorded as a centralized exchange entity, with CoinGecko and CoinPaprika candidate rows consolidated into one HEI record.",

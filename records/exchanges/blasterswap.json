@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000711",
       "exchange_id": "hei_ex_000401",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-02",
       "title": "BlasterSwap recorded as Blast ecosystem DEX",
       "description": "BlasterSwap is recorded as a Blast ecosystem DEX/protocol entity, with V2 and V3 candidate rows consolidated into one HEI record.",

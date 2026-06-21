@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000727",
       "exchange_id": "hei_ex_000417",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-03",
       "title": "Camelot recorded as DEX candidate",
       "description": "Camelot is recorded as a DEX / exchange protocol entity, with Camelot, Camelot V2, and Camelot V3 candidate rows consolidated into one HEI record.",

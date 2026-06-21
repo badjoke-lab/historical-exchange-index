@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000694",
       "exchange_id": "hei_ex_000386",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "Binance US recorded as separate US exchange entity",
       "description": "Binance US is recorded as a separate US exchange entity, consolidating Binance US / Binance.US / binanceus source rows without merging other Binance derivatives rows.",

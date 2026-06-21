@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000654",
       "exchange_id": "hei_ex_000346",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-05-29",
       "title": "0x Protocol present in DEX aggregation source data",
       "description": "0x Protocol appeared in the verified-unadded candidate generator from DefiLlama source data as a DEX aggregation and liquidity-routing protocol not found in current HEI records.",

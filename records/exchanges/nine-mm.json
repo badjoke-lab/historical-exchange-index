@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000659",
       "exchange_id": "hei_ex_000351",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-05-30",
       "title": "9mm present in exchange and DEX source data",
       "description": "9mm appeared in the verified-unadded candidate generator from CoinPaprika, CoinGecko, and DefiLlama source data as an exchange-like DEX candidate not found in current HEI records.",

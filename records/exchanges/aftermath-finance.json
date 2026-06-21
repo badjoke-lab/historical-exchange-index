@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000660",
       "exchange_id": "hei_ex_000352",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-05-30",
       "title": "Aftermath Finance present in exchange and DEX source data",
       "description": "Aftermath Finance appeared in the verified-unadded candidate generator from CCXT, CoinGecko, and DefiLlama source data as an exchange-like DEX candidate not found in current HEI records.",

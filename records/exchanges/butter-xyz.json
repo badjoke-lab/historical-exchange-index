@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000723",
       "exchange_id": "hei_ex_000413",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-03",
       "title": "Butter.xyz recorded as DEX candidate",
       "description": "Butter.xyz is recorded as a DEX / exchange protocol entity, with CoinPaprika, CoinGecko, and DefiLlama candidate rows consolidated into one HEI record.",

@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000708",
       "exchange_id": "hei_ex_000398",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-02",
       "title": "Bitzy recorded as Bitcoin ecosystem DEX",
       "description": "Bitzy is recorded as a Bitcoin-ecosystem decentralized exchange based on its CoinGecko source row and current official description of an EVM-compatible exchange settled on Bitcoin.",

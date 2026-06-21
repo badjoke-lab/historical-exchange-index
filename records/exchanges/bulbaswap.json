@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000721",
       "exchange_id": "hei_ex_000411",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-03",
       "title": "BulbaSwap recorded as Morph ecosystem DEX",
       "description": "BulbaSwap is recorded as a Morph ecosystem DEX/protocol entity, with V2 and V3 candidate rows consolidated into one HEI record.",

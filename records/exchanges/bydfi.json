@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000724",
       "exchange_id": "hei_ex_000414",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-03",
       "title": "BYDFi recorded as centralized exchange",
       "description": "BYDFi is recorded as a Seychelles-registered centralized exchange entity, with related candidate rows consolidated into one HEI record.",

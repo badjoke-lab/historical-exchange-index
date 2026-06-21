@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000713",
       "exchange_id": "hei_ex_000403",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-03",
       "title": "Blockchain.com recorded as exchange entity",
       "description": "Blockchain.com is recorded as a United Kingdom-origin exchange platform, with Blockchain.com and blockchaincom candidate rows consolidated into one HEI record.",

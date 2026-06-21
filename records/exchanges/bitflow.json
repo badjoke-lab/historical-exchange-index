@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000697",
       "exchange_id": "hei_ex_000389",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "Bitflow recorded as Stacks ecosystem DEX",
       "description": "Bitflow is recorded as a Stacks ecosystem DEX entity, with CoinGecko and DefiLlama candidate rows consolidated into one HEI record.",

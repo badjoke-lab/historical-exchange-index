@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000722",
       "exchange_id": "hei_ex_000412",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-03",
       "title": "Bulla Exchange recorded as Berachain DEX",
       "description": "Bulla Exchange is recorded as a Berachain-native DEX and liquidity marketplace, with Bulla and Bulla Exchange candidate rows consolidated into one protocol-level HEI entity.",

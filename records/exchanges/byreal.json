@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000725",
       "exchange_id": "hei_ex_000415",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-03",
       "title": "Byreal recorded as DEX candidate",
       "description": "Byreal is recorded as a DEX / exchange protocol entity, with CoinGecko and DefiLlama candidate rows consolidated into one HEI record.",

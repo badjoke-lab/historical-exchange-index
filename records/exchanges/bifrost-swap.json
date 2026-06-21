@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000686",
       "exchange_id": "hei_ex_000378",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-01",
       "title": "Bifrost Swap recorded as Bifrost ecosystem DEX",
       "description": "Bifrost Swap is recorded as a Bifrost ecosystem DEX candidate with CoinGecko and DefiLlama rows consolidated into one HEI record.",

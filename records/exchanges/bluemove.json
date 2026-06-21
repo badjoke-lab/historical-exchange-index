@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000715",
       "exchange_id": "hei_ex_000405",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-03",
       "title": "BlueMove recorded as Aptos / Sui ecosystem DEX",
       "description": "BlueMove is recorded as an Aptos and Sui ecosystem DEX entity, with BlueMove and BlueMove DEX candidate rows consolidated into one HEI record.",

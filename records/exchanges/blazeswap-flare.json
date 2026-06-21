@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000712",
       "exchange_id": "hei_ex_000402",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-06-02",
       "title": "BlazeSwap recorded as Flare ecosystem DEX",
       "description": "BlazeSwap is recorded as a Flare ecosystem DEX/protocol entity based on its CoinGecko source row and official app domain.",

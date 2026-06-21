@@ -23,7 +23,7 @@
     {
       "id": "hei_ev_000664",
       "exchange_id": "hei_ex_000356",
-      "event_type": "listed_reference",
+      "event_type": "other",
       "event_date": "2026-05-31",
       "title": "Alcor Exchange present in exchange source data",
       "description": "Alcor and Alcor Exchange appeared in the verified-unadded candidate generator from CoinGecko and CoinPaprika source data as exchange-like candidates not found in current HEI records.",
