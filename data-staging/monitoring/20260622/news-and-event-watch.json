@@ -1,0 +1,167 @@
+{
+  "monitor": "news-and-event-watch",
+  "status": "ok",
+  "started_at": "2026-06-22T09:16:45.174Z",
+  "finished_at": "2026-06-22T09:17:00.254Z",
+  "findings": [
+    {
+      "finding_id": "finding_1782119820245_yce2ep",
+      "monitor": "news-and-event-watch",
+      "severity": "medium",
+      "category": "news_event_actionable_candidate_new",
+      "title": "New news/event candidate: Cardax",
+      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "affected_entity": null,
+      "recommended_action": "review_and_stage_public_quality_record",
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBzMGtzLXExc0xWWjR2VkM0NUhvVk92Tk0xbHB2QkpSVV9oSDhUR195LVFUVzBUOVgycW95b3JVX1B1OFU2TkFadzFRdGpjS0tYVGZFbUpUTlhJUQ?oc=5"
+      ],
+      "confidence": "low",
+      "dedupe_key": "news-and-event-watch:actionable_candidate:candidate:cardax",
+      "first_seen_at": "2026-06-22T09:17:52.100Z",
+      "last_seen_at": "2026-06-22T09:17:52.100Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "candidate:cardax",
+      "candidate_key": "candidate:cardax",
+      "canonical_name": "Cardax",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "regulation",
+      "record_shape": "new_entity",
+      "headline": "Cardano DEX Cardax to Shut Down, Cites Regulatory Troubles and Lack of Adoption as Reason - DailyCoin",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBzMGtzLXExc0xWWjR2VkM0NUhvVk92Tk0xbHB2QkpSVV9oSDhUR195LVFUVzBUOVgycW95b3JVX1B1OFU2TkFadzFRdGpjS0tYVGZFbUpUTlhJUQ?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "DailyCoin",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "shutdown"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 5,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "regulatory_language"
+      ],
+      "first_seen_at": "2026-06-22T09:17:00.243Z",
+      "last_seen_at": "2026-06-22T09:17:00.243Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:sure",
+      "candidate_key": "candidate:sure",
+      "canonical_name": "Sure",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "unknown",
+      "likely_status": "limited",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "SFC warns public against unlicensed virtual asset trading platform Sure X - Securities & Futures Commission of Hong Kong",
+      "hei_relevance": "Potential HEI regulatory candidate; do not mark dead unless service closure is proven.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZzNwbHloSzRxQXpMMEdfRlBsbkFoZHpOaHIxcXpLRzJXc19iWmZ1cTdjSkFiUElwZmI3d1dZV1l0VWRJb1liaVFGSVVOeXA2UHlKUi1vakJ1NnkxM3VaY3Foenl6dlRJN1oxUFkyeXlnaTJYZVVpS1BBZFB3YW9xbHdZTndFclY5NXNOWjhldVNYeWdfcUx3?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "hold_for_regulatory_scope_review",
+      "source_name": "Securities & Futures Commission of Hong Kong",
+      "source_category": "regulatory_source",
+      "likely_event_types": [
+        "regulatory_action",
+        "lawsuit"
+      ],
+      "news_event_categories": [
+        "regulatory"
+      ],
+      "regulatory_authorities": [
+        "Securities and Futures Commission"
+      ],
+      "regulatory_regions": [
+        "Hong Kong"
+      ],
+      "regulatory_signals": [
+        "warning_list",
+        "enforcement_action"
+      ],
+      "historical_dead_score": 3,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "regulatory_language",
+        "high_quality_source"
+      ],
+      "first_seen_at": "2026-06-22T09:17:00.244Z",
+      "last_seen_at": "2026-06-22T09:17:00.244Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "findings_count": 1,
+    "visible_findings_count": 1,
+    "candidate_count": 2,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0
+  },
+  "news_summary": {
+    "enabled": true,
+    "queries": 20,
+    "items": 1390,
+    "candidates": 1
+  },
+  "regulatory_summary": {
+    "enabled": true,
+    "authorities_configured": 7,
+    "query_templates": 5,
+    "queries": 25,
+    "items": 1943,
+    "candidates": 1
+  },
+  "combined_summary": {
+    "items": 3333,
+    "raw_candidates": 112,
+    "candidates": 2,
+    "dropped_candidates": 110,
+    "resolved_candidate_names": 70,
+    "missing_in_hei": 2,
+    "matched_existing": 0
+  }
+}
