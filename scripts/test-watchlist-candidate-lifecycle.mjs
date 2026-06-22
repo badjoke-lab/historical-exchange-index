@@ -1,7 +1,7 @@
 import { spawnSync } from 'node:child_process'
 import process from 'node:process'
 
-function run(args) {
+function run(args = []) {
   return spawnSync(process.execPath, [
     'scripts/monitoring/promote-candidate-to-staging.mjs',
     '--dry-run=true',
@@ -17,12 +17,15 @@ if (!`${resolved.stdout}\n${resolved.stderr}`.includes('No unresolved matching c
   throw new Error(`Resolved-candidate rejection was unexpected:\n${resolved.stdout}\n${resolved.stderr}`)
 }
 
-const unresolved = run(['--candidate-name=Figure Markets Exchange'])
+const unresolved = run()
 if (unresolved.status !== 0) {
-  throw new Error(`Unresolved candidate was not available for staging:\n${unresolved.stdout}\n${unresolved.stderr}`)
+  throw new Error(`No unresolved candidate was available for staging:\n${unresolved.stdout}\n${unresolved.stderr}`)
 }
 if (!unresolved.stdout.includes('monitoring_candidate_staging_draft')) {
   throw new Error('Unresolved candidate dry-run did not produce a staging draft')
+}
+if (!unresolved.stdout.includes('candidate_key')) {
+  throw new Error('Unresolved candidate draft did not preserve a stable candidate key')
 }
 
 console.log('Watchlist candidate lifecycle self-test: pass')
