@@ -10,7 +10,7 @@ The detailed pre-B1 roadmap is preserved at:
 
 `docs/archive/HEI_V1_EXECUTION_ROADMAP_PRE_B1_2026-06-22.md`
 
-This file is the current operational roadmap. Repository state is authoritative if this checkpoint and GitHub disagree.
+Repository state is authoritative if this checkpoint and GitHub disagree.
 
 ---
 
@@ -37,14 +37,14 @@ entities
 
 events
 = canonical events
-+ reviewed bundle events
++ reviewed bundle events deduplicated by ID
 
 evidence
 = canonical evidence
-+ reviewed bundle evidence
++ reviewed bundle evidence deduplicated by ID
 ```
 
-Duplicate IDs with identical content count once. Conflicting duplicate IDs are errors.
+Repair bundles do not increase entity count. Identical duplicate IDs count once. Conflicting duplicate IDs are errors.
 
 ### Record quality
 
@@ -81,12 +81,12 @@ Before merge:
 
 ```text
 Checkpoint date: 2026-06-22
-Last confirmed main SHA: 922f097f2734647f48021186d458df0b69f759ac
-Last merged implementation PR: #414 Validate full monitoring after structural cleanup
-Current implementation PR: #415 Reorganize watchlist and candidate resolutions
-Current phase: Phase B — Monitoring and count regression guarantees
-Completed item: B2 — Reorganize watchlists and resolutions
-Current item: B3 — Count-semantics regression tests
+Last confirmed main SHA: 50457980fa1c28a0e95620244a478152520e6716
+Last merged implementation PR: #416 Reorganize watchlist and candidate resolutions
+Current implementation PR: #417 Add count semantics regression gate
+Current phase: Phase C — Reviewed registry growth
+Completed item: B3 — Count-semantics regression tests
+Current item: C1 — Candidate scans and growth queue selection
 Cloudflare configuration changed by current work: no
 Production deployment performed by current work: no
 ```
@@ -95,43 +95,41 @@ Production deployment performed by current work: no
 
 ```text
 Entities:  412
-Events:    687
-Evidence: 1608
+Events:    691
+Evidence: 1620
 ```
 
 ### Maximum observed IDs
 
 ```text
 Maximum entity ID:    hei_ex_000525
-Maximum event ID:     hei_ev_002079
-Maximum evidence ID:  hei_src_003197
+Maximum event ID:     hei_ev_002083
+Maximum evidence ID:  hei_src_003209
+```
+
+### Count composition
+
+```text
+Canonical entities:  306
+Canonical events:    513
+Canonical evidence: 1172
+
+Reviewed bundles: 152
+New-entity bundles: 106
+Repair bundles:      46
 ```
 
 ### B1 completion result
 
 ```text
-Projected entities audited:  412
-Projected events audited:    687
-Projected evidence audited: 1608
-Monitoring groups:          7 / 7 ok
-Monitoring execution errors:    0
-Critical findings:              0
-Canonical file modifications:   0
-Invalid projected event fields: 0
-Invalid projected evidence fields: 0
+Monitoring groups: 7 / 7 ok
+Monitoring execution errors: 0
+Critical findings: 0
+Canonical file modifications: 0
 Closed Phase A debt rediscovered: 0
 ```
 
-Permanent B1 safeguards include:
-
-- projected-public enum validation in normal CI;
-- full monitoring completion validation;
-- canonical-file guard;
-- reviewed bundle entity-ID remapping for monitor events and evidence;
-- frozen pre-B1 lineage-review baseline;
-- normalized reviewed-bundle event and evidence enums.
-
-The B1 audit is recorded in:
+Audit:
 
 `docs/audits/HEI_B1_FULL_MONITORING_2026-06-22.md`
 
@@ -152,37 +150,46 @@ Repeated rows collapsed: 31
 Reviewed queue coverage failures: 0
 ```
 
-Permanent B2 safeguards include:
-
-- stable `candidate:*` identity keys;
-- one authoritative current-resolution index;
-- immutable dated resolution history;
-- terminal-state exclusion from new work and staging drafts;
-- open-state tracking without repeated new-candidate findings;
-- reviewed queue coverage checks;
-- projected entity checks for promoted and already-canonical candidates;
-- aged A and stale B visibility in monitoring-health;
-- PR, main, weekly, and manual watchlist-resolution validation.
-
-The B2 audit is recorded in:
+Audit:
 
 `docs/audits/HEI_B2_WATCHLIST_RESOLUTION_2026-06-22.md`
 
+### B3 completion result
+
+```text
+Projected registry:     412 / 691 / 1620
+Monitoring aggregate:   412 / 691 / 1620
+Machine-readable data:  412 / 691 / 1620
+Built public data:      412 / 691 / 1620
+Exchange detail pages:  412
+Sitemap exchange routes: 412
+Sitemap total routes:    419
+Bundle ID conflicts:       0
+```
+
+B3 discovered and corrected 16 hidden ID conflicts:
+
+```text
+Event conflicts:    4
+Evidence conflicts: 12
+Affected bundles: CoinLoan, Zipmex, Garantex
+```
+
+These records had been silently omitted by older deduplication behavior. Restoring them changed supporting-record counts from `687 / 1608` to `691 / 1620` without changing entity count.
+
+Audit:
+
+`docs/audits/HEI_B3_COUNT_SEMANTICS_2026-06-22.md`
+
 ### Known non-blocking queue
 
-The B1 run retained five high findings for later work:
+- ArcherSwap official-site DNS failure.
 
-- ArcherSwap official-site DNS failure;
-- CoinLoan has no projected evidence records;
-- Garantex has no projected evidence records;
-- Zipmex has no projected evidence records;
-- sitemap is missing required static routes.
-
-These are not critical Phase B structural failures.
+The earlier CoinLoan, Garantex, Zipmex evidence warnings and sitemap-route warning were resolved by B3.
 
 ---
 
-## 3. Completed execution phases
+## 3. Completed phases
 
 ### Phase R0 — Roadmap placement
 
@@ -198,56 +205,35 @@ Status: **COMPLETED**
 - A4 reviewed lineage application — PR #412;
 - A5 permanent entity-quality audit — PR #413.
 
-A5 baseline:
+### Phase B — Monitoring and count guarantees
 
-```text
-Projected entities: 412
-Critical structural findings: 0
-Permanent PR/main gate: enabled
-```
+Status: **COMPLETED**
 
-### Phase B1 — Full monitoring after structural cleanup
+- B1 full post-cleanup monitoring — PR #414;
+- B2 watchlist and resolution reorganization — PR #416;
+- B3 count-semantics regression — PR #417;
+- B4 earlier production smoke baseline — completed for the earlier production baseline.
 
-Status: **COMPLETED in PR #414**
+Permanent Phase B safeguards:
 
-Completion gate:
+- projected-public enum validation;
+- seven-monitor completion validation;
+- canonical-file guard;
+- stable candidate identity and authoritative resolution state;
+- terminal-candidate staging exclusion;
+- reviewed queue coverage;
+- repair/new-bundle count semantics;
+- cross-layer count and ID-set equality;
+- strict bundle event/evidence ID collision detection;
+- detail-page and sitemap route-count validation.
 
-```text
-critical monitoring findings = 0
-monitor execution errors = 0
-canonical guard passes
-fixed structural issues are not rediscovered
-projected enum violations = 0
-```
-
-### Phase B2 — Watchlist and resolution reorganization
-
-Status: **COMPLETED in PR #415**
-
-Completion gate:
-
-```text
-processed candidates do not repeatedly return as new
-aged A candidates are visible
-duplicate and C resolutions are retained
-resolution schema and validation exist
-monitoring-health uses the reorganized state
-reviewed queues are fully indexed
-terminal candidates cannot be staged again
-```
-
-### Phase B4 — Earlier production smoke baseline
-
-Status: **COMPLETED for the earlier production baseline**
-
-A final production integration smoke test remains part of G3 before v1.0.
+A final production integration smoke test remains part of Phase G.
 
 ---
 
 ## 4. Remaining execution order and schedule
 
 ```text
-B3     Count-semantics regression
 C      Grow reviewed registry to at least 550 entities
 D      Public-value update and research surfaces
 E      Stats, internal linking, and SEO
@@ -255,11 +241,11 @@ F      English/Japanese bilingual publication
 G      Final integration audit and HEI v1.0 baseline
 ```
 
-Estimated remaining effort from the B2 completion checkpoint:
+Estimated remaining effort from the B3 completion checkpoint:
 
 ```text
-Implementation PRs: approximately 33-45
-Working days: approximately 35-54
+Implementation PRs: approximately 32-44
+Working days: approximately 34-53
 Calendar estimate: approximately 8-12 weeks
 ```
 
@@ -267,78 +253,17 @@ The largest uncertainty remains Phase C. HEI must add at least 138 reviewed enti
 
 ---
 
-# Phase B — Monitoring and count regression guarantees
-
-Estimated remaining duration: 1-2 working days  
-Estimated remaining PRs: 1-2
-
-## B2. Reorganize watchlists and resolutions
-
-Status: **COMPLETED in PR #415**
-
-Candidate classes:
-
-```text
-A — strong add or update candidate
-B — needs research or stronger evidence
-C — out of scope, duplicate, or not an HEI exchange record
-```
-
-Resolution states:
-
-```text
-promoted
-held
-out_of_scope
-duplicate
-already_canonical
-needs_research
-```
-
-Completed work:
-
-- defined stable candidate identity and dedupe keys;
-- established one authoritative resolution index;
-- retained historical resolution files as audit records;
-- prevented terminal states from returning as new work;
-- preserved open research queues without repeated new findings;
-- migrated the June 14 reviewed queues into current state;
-- exposed candidate aging and review scheduling;
-- protected staging-draft generation from terminal candidates;
-- added permanent schema, history, queue, lifecycle, and entity-match checks.
-
-## B3. Count-semantics regression tests
-
-Status: **CURRENT**
-
-Test consistency across:
-
-- canonical JSON;
-- reviewed record bundles;
-- public page loaders;
-- monitoring aggregate;
-- machine-readable output;
-- sitemap generation.
-
-Completion gate:
-
-```text
-public reviewed counts = monitoring counts = machine-readable counts
-existing-entity repair bundles do not increase entity count
-all reviewed events and evidence are included
-conflicting duplicate IDs fail validation
-```
-
----
-
 # Phase C — Grow the reviewed registry to 550 entities
 
+Status: **CURRENT**  
 Starting reviewed count: 412  
 Required net additions: at least 138  
 Estimated duration: 15-25 working days  
 Estimated PRs: 14-19
 
-## C1. Candidate scans
+## C1. Candidate scans and queue selection
+
+Status: **CURRENT**
 
 Scan 30-50 candidates per block and classify:
 
@@ -351,9 +276,32 @@ out_of_scope_or_duplicate
 
 Only `add_now` enters record PRs.
 
+Required outputs:
+
+- stable candidate key;
+- entity-boundary decision;
+- duplicate and alias result;
+- likely type and status;
+- official and independent source coverage;
+- minimum event/evidence shape;
+- confidence and unresolved questions;
+- selected batch assignment.
+
+Completion gate:
+
+```text
+at least 30 candidates reviewed
+all candidates have one disposition
+add_now candidates meet minimum source shape
+no terminally resolved candidate returns as new
+first growth batch is fixed
+```
+
 ## C2-C3. Repair thin active CEX records
 
 Improve existing active records lacking clear identity, launch evidence, current-status evidence, original domain, origin, or normal evidence depth.
+
+Repair bundles must not increase entity count and must pass the B3 count gate.
 
 ## C4-C5. DEX, perp DEX, and hybrid batches
 
@@ -381,6 +329,7 @@ reviewed public entities >= 550
 all additions meet public quality
 no thin count-filler batch accepted
 all CI and record validations green
+public, monitoring, and machine counts agree
 duplicate, balance, archive, confidence, origin, and evidence-depth audit passes
 ```
 
@@ -479,13 +428,12 @@ operations runbook is complete
 
 ---
 
-## 5. Revised schedule from the B2 checkpoint
+## 5. Revised schedule from the B3 checkpoint
 
 | Relative week | Main work | Required result |
 |---|---|---|
-| 1 | B3 count regression and initial candidate scans | Phase B complete and growth queue fixed |
-| 2 | thin active CEX repair and first growth batches | stable batch cadence |
-| 3-4 | DEX, perp DEX, hybrid batches | approximately 460-490 entities |
+| 1 | C1 scans, thin active CEX review, first growth batch | growth queue and batch cadence fixed |
+| 2-4 | DEX, perp DEX, hybrid batches | approximately 460-490 entities |
 | 5-6 | historical batches and milestone audit | at least 550 entities |
 | 6-7 | Changelog, Timeline, Evidence Health, Monthly Snapshot, feeds | Phase D complete |
 | 7-9 | Stats tiers, history, search, links, SEO | Phase E complete |
