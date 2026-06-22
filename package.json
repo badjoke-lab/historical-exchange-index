@@ -21,7 +21,6 @@
     "watchlists:test": "node scripts/check-watchlist-resolutions.mjs --self-test",
     "counts:check": "node scripts/check-count-semantics-regression.mjs",
     "counts:test": "node scripts/check-count-semantics-regression.mjs --self-test",
-    "candidates:scan-build": "node scripts/build-c1-candidate-scan.mjs",
     "candidates:scan-check": "node scripts/check-c1-candidate-scan.mjs",
     "candidates:scan-test": "node scripts/check-c1-candidate-scan.mjs --self-test",
     "records:check-id-collisions": "node scripts/audit-reviewed-bundle-id-collisions.mjs --strict",
