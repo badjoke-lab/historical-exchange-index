@@ -147,7 +147,12 @@
       "proposed_aliases": [
         "DX Exchange"
       ],
-      "review_notes": "Distinct historical centralized exchange. Launch and 2019 shutdown are independently documented."
+      "review_notes": "Promoted as DX.Exchange (hei_ex_000526) after direct projected-public duplicate recheck and full historical record drafting.",
+      "target_entity_id": "hei_ex_000526",
+      "matched_entity_name": "DX.Exchange",
+      "matched_entity_slug": "dx-exchange",
+      "promoted_at": "2026-06-22",
+      "promotion_pr": 422
     },
     {
       "candidate_key": "candidate:dydx-v4",
