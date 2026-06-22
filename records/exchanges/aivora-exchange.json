@@ -3,68 +3,68 @@
     "id": "hei_ex_000355",
     "slug": "aivora-exchange",
     "canonical_name": "Aivora Exchange",
-    "aliases": ["Aivora", "aivora.com"],
+    "aliases": ["AIVORA", "Aivora", "aivora.com"],
     "type": "cex",
     "status": "active",
     "death_reason": null,
-    "launch_date": null,
+    "launch_date": "2024-01-01",
     "death_date": null,
     "country_or_origin": "British Virgin Islands",
-    "summary": "British Virgin Islands-established centralized exchange offering crypto, forex, and stock-CFD trading with AI-assisted features.",
+    "summary": "British Virgin Islands-established centralized exchange launched in 2024 and offering cryptocurrency, forex, and stock-CFD trading with AI-assisted and social features.",
     "official_url_original": "https://www.aivora.com/",
     "official_domain_original": "aivora.com",
-    "official_url_status": "live_unverified",
+    "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.aivora.com/",
-    "confidence": "medium",
-    "last_verified_at": "2026-06-20",
-    "notes": "Added from verified-unadded backlog row hei_unadded_0046. AIVORA's official About Us page states that the platform was established in 2024 in the British Virgin Islands and later set up subsidiaries in Dubai, Malaysia, and Singapore. HEI uses the founding jurisdiction rather than the later subsidiary locations."
+    "confidence": "high",
+    "last_verified_at": "2026-06-23",
+    "notes": "AIVORA's official About page states that the platform was established in 2024 in the British Virgin Islands and later set up subsidiaries in Dubai, Malaysia, and Singapore. HEI uses the founding jurisdiction and a year-level launch date because no exact public launch day is stated."
   },
   "events": [
     {
       "id": "hei_ev_000663",
       "exchange_id": "hei_ex_000355",
-      "event_type": "other",
-      "event_date": "2026-05-31",
-      "title": "Aivora Exchange present in exchange source data",
-      "description": "Aivora Exchange is recorded as an active centralized exchange, with its British Virgin Islands establishment supported by the platform's official company profile.",
-      "confidence": "medium",
-      "impact_level": "low",
+      "event_type": "launched",
+      "event_date": "2024-01-01",
+      "title": "AIVORA established",
+      "description": "AIVORA was established in the British Virgin Islands in 2024 as a centralized multi-asset trading platform with cryptocurrency and derivatives products.",
+      "confidence": "high",
+      "impact_level": "medium",
       "event_status_effect": "active",
-      "source_count": 3,
+      "source_count": 2,
       "sort_order": 1,
-      "notes": "Upgrade with a precise launch-date event if stronger dated material becomes available."
+      "notes": "The official sources identify the establishment year but not the exact launch day, so January 1 is used as a year-level date placeholder."
     }
   ],
   "evidence": [
     {
       "id": "hei_src_001449",
       "exchange_id": "hei_ex_000355",
-      "event_id": "hei_ev_000663",
+      "event_id": null,
       "source_type": "official_statement",
       "title": "Aivora Exchange official website",
       "url": "https://www.aivora.com/",
       "publisher": "Aivora Exchange",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://www.aivora.com/",
-      "accessed_at": "2026-05-31",
+      "accessed_at": "2026-06-23",
       "reliability": "high",
-      "claim_scope": "entity",
-      "notes": "Official domain used to preserve the active Aivora Exchange identity."
+      "claim_scope": "status",
+      "notes": "Official domain verifies the current Aivora Exchange identity and active trading platform."
     },
     {
       "id": "hei_src_001450",
       "exchange_id": "hei_ex_000355",
-      "event_id": "hei_ev_000663",
+      "event_id": null,
       "source_type": "database_reference",
       "title": "CoinGecko exchanges reference for Aivora Exchange",
-      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "url": "https://www.coingecko.com/en/exchanges/aivora-exchange",
       "publisher": "CoinGecko",
       "published_at": null,
-      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
-      "accessed_at": "2026-05-31",
+      "archived_url": "https://web.archive.org/web/*/https://www.coingecko.com/en/exchanges/aivora-exchange",
+      "accessed_at": "2026-06-23",
       "reliability": "medium",
       "claim_scope": "entity",
-      "notes": "Source used by verified-unadded backlog row hei_unadded_0046 with source id aivora-exchange."
+      "notes": "Independent exchange profile corroborates the Aivora Exchange identity."
     },
     {
       "id": "hei_src_003190",
@@ -76,10 +76,25 @@
       "publisher": "AIVORA",
       "published_at": "2024-10-19",
       "archived_url": "https://web.archive.org/web/*/https://www.aivora.com/en-us/cms/about",
-      "accessed_at": "2026-06-20",
+      "accessed_at": "2026-06-23",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Official company profile states that AIVORA was established in 2024 in the British Virgin Islands and describes its exchange products."
+    },
+    {
+      "id": "hei_src_003234",
+      "exchange_id": "hei_ex_000355",
+      "event_id": "hei_ev_000663",
+      "source_type": "official_statement",
+      "title": "AIVORA User Agreement",
+      "url": "https://www.aivora.com/en-us/cms/agreement",
+      "publisher": "AIVORA",
+      "published_at": "2024-10-19",
+      "archived_url": "https://web.archive.org/web/*/https://www.aivora.com/en-us/cms/agreement",
+      "accessed_at": "2026-06-23",
       "reliability": "high",
       "claim_scope": "entity",
-      "notes": "The official company profile states that AIVORA was established in 2024 in the British Virgin Islands and identifies later subsidiaries in Dubai, Malaysia, and Singapore."
+      "notes": "Official agreement documents Aivora as the provider of the platform and services during 2024."
     }
   ]
 }
