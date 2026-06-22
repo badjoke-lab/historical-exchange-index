@@ -1,0 +1,32 @@
+name: Finalize DX.Exchange promotion
+
+on:
+  push:
+    branches:
+      - c2-growth-batch-01a
+    paths:
+      - .github/workflows/c2-dx-promotion.yml
+      - scripts/apply-dx-exchange-promotion.mjs
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: c2-growth-batch-01a
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/apply-dx-exchange-promotion.mjs
+      - run: npm run candidates:scan-check
+      - run: node scripts/audit-open-candidate-canonical-overlap.mjs --strict
+      - run: npm run watchlists:check
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Finalize DX.Exchange promotion state
+          file_pattern: data-staging/watchlists/resolution/index.json data-staging/candidate-scans/c1-scan-01.json docs/HEI_V1_EXECUTION_ROADMAP.md
+          branch: c2-growth-batch-01a
