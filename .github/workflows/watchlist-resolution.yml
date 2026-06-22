@@ -23,9 +23,12 @@ jobs:
       - run: npm ci
       - run: npm run watchlists:test
       - run: node scripts/test-watchlist-candidate-lifecycle.mjs
+      - run: node scripts/audit-open-candidate-canonical-overlap.mjs --strict --output=audit-output/open-candidate-overlap.json
       - run: npm run watchlists:check -- --output=audit-output/watchlist-resolutions.json
       - uses: actions/upload-artifact@v4
         with:
           name: watchlist-resolution-audit
-          path: audit-output/watchlist-resolutions.json
+          path: |
+            audit-output/watchlist-resolutions.json
+            audit-output/open-candidate-overlap.json
           retention-days: 14

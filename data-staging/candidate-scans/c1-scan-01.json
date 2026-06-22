@@ -13,20 +13,13 @@
   ],
   "counts": {
     "total": 42,
-    "needs_research": 1,
-    "pending_thin": 31,
-    "add_now": 10,
-    "out_of_scope_or_duplicate": 0
+    "needs_research": 0,
+    "pending_thin": 29,
+    "add_now": 1,
+    "out_of_scope_or_duplicate": 12
   },
   "first_growth_batch": [
-    "candidate:curve-dex",
-    "candidate:dx-exchange",
-    "candidate:dydx-v4",
-    "candidate:joe-dex",
-    "candidate:orca-dex",
-    "candidate:osmosis-dex",
-    "candidate:quickswap-dex",
-    "candidate:thorchain-dex"
+    "candidate:dx-exchange"
   ],
   "candidates": [
     {
@@ -34,11 +27,11 @@
       "canonical_name": "Aevo Perps",
       "aliases": [],
       "source_resolution_state": "needs_research",
-      "scan_disposition": "add_now",
+      "scan_disposition": "out_of_scope_or_duplicate",
       "review_status": "reviewed",
       "research_priority": "priority",
-      "entity_boundary": "distinct_entity",
-      "duplicate_status": "clear",
+      "entity_boundary": "product_or_version",
+      "duplicate_status": "already_canonical",
       "likely_type": "dex",
       "likely_status": "active",
       "official_sources": [
@@ -52,34 +45,35 @@
         "evidence_records": 3
       },
       "confidence": "high",
-      "unresolved_questions": [
-        "Confirm the exact Ribbon Finance to Aevo lineage dates during record drafting."
-      ],
+      "unresolved_questions": [],
       "source_files": [
         "data-staging/watchlists/review/20260614-priority-research.json"
       ],
       "first_seen_at": "2026-06-14",
       "last_reviewed_at": "2026-06-22",
       "next_review_after": "2026-07-01",
-      "assigned_batch": "c1-growth-batch-02",
+      "assigned_batch": null,
       "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
       "proposed_canonical_name": "Aevo",
       "proposed_aliases": [
         "Aevo Perps",
         "Aevo Exchange"
       ],
-      "review_notes": "Aevo Perps is a product surface of the distinct Aevo derivatives exchange. Model the entity as Aevo, not as a separate perps-only exchange."
+      "review_notes": "Corrected after projected-public overlap audit: the candidate identity is already represented by Aevo (hei_ex_000519).",
+      "target_entity_id": "hei_ex_000519",
+      "matched_entity_name": "Aevo",
+      "matched_entity_slug": "aevo"
     },
     {
       "candidate_key": "candidate:curve-dex",
       "canonical_name": "Curve DEX",
       "aliases": [],
       "source_resolution_state": "needs_research",
-      "scan_disposition": "add_now",
+      "scan_disposition": "out_of_scope_or_duplicate",
       "review_status": "reviewed",
       "research_priority": "priority",
       "entity_boundary": "distinct_entity",
-      "duplicate_status": "clear",
+      "duplicate_status": "already_canonical",
       "likely_type": "dex",
       "likely_status": "active",
       "official_sources": [
@@ -100,14 +94,17 @@
       "first_seen_at": "2026-06-14",
       "last_reviewed_at": "2026-06-22",
       "next_review_after": "2026-07-01",
-      "assigned_batch": "c1-growth-batch-01",
+      "assigned_batch": null,
       "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
       "proposed_canonical_name": "Curve Finance",
       "proposed_aliases": [
         "Curve",
         "Curve DEX"
       ],
-      "review_notes": "Distinct AMM DEX identity. Use Curve Finance as the canonical entity name."
+      "review_notes": "Corrected after projected-public overlap audit: the candidate identity is already represented by Curve Finance (hei_ex_000511).",
+      "target_entity_id": "hei_ex_000511",
+      "matched_entity_name": "Curve Finance",
+      "matched_entity_slug": "curve-finance"
     },
     {
       "candidate_key": "candidate:dx-exchange",
@@ -157,11 +154,11 @@
       "canonical_name": "dYdX V4",
       "aliases": [],
       "source_resolution_state": "needs_research",
-      "scan_disposition": "add_now",
+      "scan_disposition": "out_of_scope_or_duplicate",
       "review_status": "reviewed",
       "research_priority": "priority",
-      "entity_boundary": "distinct_entity",
-      "duplicate_status": "clear",
+      "entity_boundary": "product_or_version",
+      "duplicate_status": "already_canonical",
       "likely_type": "dex",
       "likely_status": "active",
       "official_sources": [
@@ -175,34 +172,35 @@
         "evidence_records": 4
       },
       "confidence": "high",
-      "unresolved_questions": [
-        "Model V3 to V4 as platform evolution, not two public entities."
-      ],
+      "unresolved_questions": [],
       "source_files": [
         "data-staging/watchlists/review/20260614-priority-research.json"
       ],
       "first_seen_at": "2026-06-14",
       "last_reviewed_at": "2026-06-22",
       "next_review_after": "2026-07-01",
-      "assigned_batch": "c1-growth-batch-01",
+      "assigned_batch": null,
       "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
       "proposed_canonical_name": "dYdX",
       "proposed_aliases": [
         "dYdX V4",
         "dYdX Chain"
       ],
-      "review_notes": "The public entity is dYdX. V4 is a major chain/platform migration and event in the same entity lifecycle."
+      "review_notes": "Corrected after projected-public overlap audit: the candidate identity is already represented by dYdX (hei_ex_000517).",
+      "target_entity_id": "hei_ex_000517",
+      "matched_entity_name": "dYdX",
+      "matched_entity_slug": "dydx"
     },
     {
       "candidate_key": "candidate:gains-network",
       "canonical_name": "Gains Network",
       "aliases": [],
       "source_resolution_state": "needs_research",
-      "scan_disposition": "add_now",
+      "scan_disposition": "out_of_scope_or_duplicate",
       "review_status": "reviewed",
       "research_priority": "priority",
-      "entity_boundary": "distinct_entity",
-      "duplicate_status": "clear",
+      "entity_boundary": "product_or_version",
+      "duplicate_status": "already_canonical",
       "likely_type": "dex",
       "likely_status": "active",
       "official_sources": [
@@ -215,35 +213,36 @@
         "meaningful_events": 2,
         "evidence_records": 3
       },
-      "confidence": "medium",
-      "unresolved_questions": [
-        "Confirm the earliest public gTrade launch date from an archived official source."
-      ],
+      "confidence": "high",
+      "unresolved_questions": [],
       "source_files": [
         "data-staging/watchlists/review/20260614-priority-research.json"
       ],
       "first_seen_at": "2026-06-14",
       "last_reviewed_at": "2026-06-22",
       "next_review_after": "2026-07-01",
-      "assigned_batch": "c1-growth-batch-02",
+      "assigned_batch": null,
       "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
       "proposed_canonical_name": "gTrade",
       "proposed_aliases": [
         "Gains Network",
         "Gains.trade"
       ],
-      "review_notes": "Gains Network is the builder/protocol organization; gTrade is the exchange identity to publish."
+      "review_notes": "Corrected after projected-public overlap audit: the candidate identity is already represented by gTrade (hei_ex_000515).",
+      "target_entity_id": "hei_ex_000515",
+      "matched_entity_name": "gTrade",
+      "matched_entity_slug": "gtrade"
     },
     {
       "candidate_key": "candidate:joe-dex",
       "canonical_name": "Joe DEX",
       "aliases": [],
       "source_resolution_state": "needs_research",
-      "scan_disposition": "add_now",
+      "scan_disposition": "out_of_scope_or_duplicate",
       "review_status": "reviewed",
       "research_priority": "priority",
-      "entity_boundary": "distinct_entity",
-      "duplicate_status": "clear",
+      "entity_boundary": "product_or_version",
+      "duplicate_status": "already_canonical",
       "likely_type": "dex",
       "likely_status": "active",
       "official_sources": [
@@ -257,34 +256,35 @@
         "evidence_records": 4
       },
       "confidence": "high",
-      "unresolved_questions": [
-        "Confirm the dated Trader Joe to LFJ rebrand announcement during record drafting."
-      ],
+      "unresolved_questions": [],
       "source_files": [
         "data-staging/watchlists/review/20260614-priority-research.json"
       ],
       "first_seen_at": "2026-06-14",
       "last_reviewed_at": "2026-06-22",
       "next_review_after": "2026-07-01",
-      "assigned_batch": "c1-growth-batch-01",
+      "assigned_batch": null,
       "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
       "proposed_canonical_name": "LFJ",
       "proposed_aliases": [
         "Trader Joe",
         "Joe DEX"
       ],
-      "review_notes": "Distinct multichain DEX. Model Trader Joe to LFJ as a rebrand in one entity lifecycle."
+      "review_notes": "Corrected after projected-public overlap audit: the candidate identity is already represented by LFJ (hei_ex_000520).",
+      "target_entity_id": "hei_ex_000520",
+      "matched_entity_name": "LFJ",
+      "matched_entity_slug": "lfj"
     },
     {
       "candidate_key": "candidate:jupiter-perpetual-exchange",
       "canonical_name": "Jupiter Perpetual Exchange",
       "aliases": [],
       "source_resolution_state": "needs_research",
-      "scan_disposition": "needs_research",
+      "scan_disposition": "out_of_scope_or_duplicate",
       "review_status": "reviewed",
       "research_priority": "priority",
       "entity_boundary": "product_or_version",
-      "duplicate_status": "pending",
+      "duplicate_status": "already_canonical",
       "likely_type": "dex",
       "likely_status": "active",
       "official_sources": [
@@ -295,11 +295,8 @@
         "meaningful_events": 1,
         "evidence_records": 1
       },
-      "confidence": "low",
-      "unresolved_questions": [
-        "Decide whether Jupiter Perpetuals is a distinct exchange entity or a product surface within the broader Jupiter trading platform.",
-        "Find a durable independent source covering launch and operating status."
-      ],
+      "confidence": "high",
+      "unresolved_questions": [],
       "source_files": [
         "data-staging/watchlists/review/20260614-priority-research.json"
       ],
@@ -312,18 +309,21 @@
       "proposed_aliases": [
         "Jupiter Perpetual Exchange"
       ],
-      "review_notes": "Official materials describe a perpetual exchange program, but entity boundaries versus the Jupiter aggregator remain unresolved."
+      "review_notes": "Corrected after projected-public overlap audit: the candidate identity is already represented by Jupiter (hei_ex_000518).",
+      "target_entity_id": "hei_ex_000518",
+      "matched_entity_name": "Jupiter",
+      "matched_entity_slug": "jupiter"
     },
     {
       "candidate_key": "candidate:orca-dex",
       "canonical_name": "Orca DEX",
       "aliases": [],
       "source_resolution_state": "needs_research",
-      "scan_disposition": "add_now",
+      "scan_disposition": "out_of_scope_or_duplicate",
       "review_status": "reviewed",
       "research_priority": "priority",
       "entity_boundary": "distinct_entity",
-      "duplicate_status": "clear",
+      "duplicate_status": "already_canonical",
       "likely_type": "dex",
       "likely_status": "active",
       "official_sources": [
@@ -344,24 +344,27 @@
       "first_seen_at": "2026-06-14",
       "last_reviewed_at": "2026-06-22",
       "next_review_after": "2026-07-01",
-      "assigned_batch": "c1-growth-batch-01",
+      "assigned_batch": null,
       "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
       "proposed_canonical_name": "Orca",
       "proposed_aliases": [
         "Orca DEX"
       ],
-      "review_notes": "Distinct Solana spot DEX identity with official history and current operating documentation."
+      "review_notes": "Corrected after projected-public overlap audit: the candidate identity is already represented by Orca (hei_ex_000513).",
+      "target_entity_id": "hei_ex_000513",
+      "matched_entity_name": "Orca",
+      "matched_entity_slug": "orca"
     },
     {
       "candidate_key": "candidate:osmosis-dex",
       "canonical_name": "Osmosis DEX",
       "aliases": [],
       "source_resolution_state": "needs_research",
-      "scan_disposition": "add_now",
+      "scan_disposition": "out_of_scope_or_duplicate",
       "review_status": "reviewed",
       "research_priority": "priority",
       "entity_boundary": "distinct_entity",
-      "duplicate_status": "clear",
+      "duplicate_status": "already_canonical",
       "likely_type": "dex",
       "likely_status": "active",
       "official_sources": [
@@ -382,24 +385,27 @@
       "first_seen_at": "2026-06-14",
       "last_reviewed_at": "2026-06-22",
       "next_review_after": "2026-07-01",
-      "assigned_batch": "c1-growth-batch-01",
+      "assigned_batch": null,
       "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
       "proposed_canonical_name": "Osmosis",
       "proposed_aliases": [
         "Osmosis DEX"
       ],
-      "review_notes": "Distinct cross-chain DEX and appchain identity. Do not split chain deployments into separate entities."
+      "review_notes": "Corrected after projected-public overlap audit: the candidate identity is already represented by Osmosis (hei_ex_000514).",
+      "target_entity_id": "hei_ex_000514",
+      "matched_entity_name": "Osmosis",
+      "matched_entity_slug": "osmosis"
     },
     {
       "candidate_key": "candidate:quickswap-dex",
       "canonical_name": "Quickswap Dex",
       "aliases": [],
       "source_resolution_state": "needs_research",
-      "scan_disposition": "add_now",
+      "scan_disposition": "out_of_scope_or_duplicate",
       "review_status": "reviewed",
       "research_priority": "priority",
       "entity_boundary": "distinct_entity",
-      "duplicate_status": "clear",
+      "duplicate_status": "already_canonical",
       "likely_type": "dex",
       "likely_status": "active",
       "official_sources": [
@@ -420,25 +426,28 @@
       "first_seen_at": "2026-06-14",
       "last_reviewed_at": "2026-06-22",
       "next_review_after": "2026-07-01",
-      "assigned_batch": "c1-growth-batch-01",
+      "assigned_batch": null,
       "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
       "proposed_canonical_name": "QuickSwap",
       "proposed_aliases": [
         "Quickswap Dex",
         "QuickSwap DEX"
       ],
-      "review_notes": "Distinct DEX identity. Treat V2, V3, perps integrations, and chain deployments as products/events unless later evidence requires separation."
+      "review_notes": "Corrected after projected-public overlap audit: the candidate identity is already represented by QuickSwap (hei_ex_000512).",
+      "target_entity_id": "hei_ex_000512",
+      "matched_entity_name": "QuickSwap",
+      "matched_entity_slug": "quickswap"
     },
     {
       "candidate_key": "candidate:thorchain-dex",
       "canonical_name": "Thorchain DEX",
       "aliases": [],
       "source_resolution_state": "needs_research",
-      "scan_disposition": "add_now",
+      "scan_disposition": "out_of_scope_or_duplicate",
       "review_status": "reviewed",
       "research_priority": "priority",
       "entity_boundary": "distinct_entity",
-      "duplicate_status": "clear",
+      "duplicate_status": "already_canonical",
       "likely_type": "dex",
       "likely_status": "active",
       "official_sources": [
@@ -459,14 +468,17 @@
       "first_seen_at": "2026-06-14",
       "last_reviewed_at": "2026-06-22",
       "next_review_after": "2026-07-01",
-      "assigned_batch": "c1-growth-batch-01",
+      "assigned_batch": null,
       "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
       "proposed_canonical_name": "THORChain",
       "proposed_aliases": [
         "Thorchain DEX",
         "THORChain DEX"
       ],
-      "review_notes": "Official documentation explicitly describes THORChain as a Layer-1 decentralized exchange. Model interfaces as supporting frontends, not separate THORChain entities."
+      "review_notes": "Corrected after projected-public overlap audit: the candidate identity is already represented by THORChain (hei_ex_000516).",
+      "target_entity_id": "hei_ex_000516",
+      "matched_entity_name": "THORChain",
+      "matched_entity_slug": "thorchain"
     },
     {
       "candidate_key": "candidate:afx",
@@ -677,11 +689,11 @@
       "canonical_name": "Byte Exchange",
       "aliases": [],
       "source_resolution_state": "held",
-      "scan_disposition": "pending_thin",
-      "review_status": "queued",
+      "scan_disposition": "out_of_scope_or_duplicate",
+      "review_status": "reviewed",
       "research_priority": "normal",
-      "entity_boundary": "unknown",
-      "duplicate_status": "pending",
+      "entity_boundary": "distinct_entity",
+      "duplicate_status": "already_canonical",
       "likely_type": null,
       "likely_status": null,
       "official_sources": [],
@@ -690,21 +702,20 @@
         "meaningful_events": 0,
         "evidence_records": 0
       },
-      "confidence": "unreviewed",
-      "unresolved_questions": [
-        "Confirm HEI entity boundary and whether this is a distinct exchange identity.",
-        "Confirm launch or operating-era evidence.",
-        "Confirm current or terminal status evidence.",
-        "Check canonical names, aliases, domains, and product-version overlap."
-      ],
+      "confidence": "high",
+      "unresolved_questions": [],
       "source_files": [
         "data-staging/watchlists/review/20260614-active-later-01.json"
       ],
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-22",
       "next_review_after": "2026-09-01",
       "assigned_batch": null,
-      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available."
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "target_entity_id": "hei_ex_000416",
+      "matched_entity_name": "Byte Exchange",
+      "matched_entity_slug": "byte-exchange",
+      "review_notes": "Corrected after projected-public overlap audit: the candidate identity is already represented by Byte Exchange (hei_ex_000416)."
     },
     {
       "candidate_key": "candidate:decibel",
@@ -779,11 +790,11 @@
       "canonical_name": "dYdX V3",
       "aliases": [],
       "source_resolution_state": "held",
-      "scan_disposition": "pending_thin",
-      "review_status": "queued",
+      "scan_disposition": "out_of_scope_or_duplicate",
+      "review_status": "reviewed",
       "research_priority": "normal",
-      "entity_boundary": "unknown",
-      "duplicate_status": "pending",
+      "entity_boundary": "product_or_version",
+      "duplicate_status": "already_canonical",
       "likely_type": null,
       "likely_status": null,
       "official_sources": [],
@@ -792,21 +803,20 @@
         "meaningful_events": 0,
         "evidence_records": 0
       },
-      "confidence": "unreviewed",
-      "unresolved_questions": [
-        "Confirm HEI entity boundary and whether this is a distinct exchange identity.",
-        "Confirm launch or operating-era evidence.",
-        "Confirm current or terminal status evidence.",
-        "Check canonical names, aliases, domains, and product-version overlap."
-      ],
+      "confidence": "high",
+      "unresolved_questions": [],
       "source_files": [
         "data-staging/watchlists/review/20260614-active-later-01.json"
       ],
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-22",
       "next_review_after": "2026-09-01",
       "assigned_batch": null,
-      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available."
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "target_entity_id": "hei_ex_000517",
+      "matched_entity_name": "dYdX",
+      "matched_entity_slug": "dydx",
+      "review_notes": "Corrected after projected-public overlap audit: the candidate identity is already represented by dYdX (hei_ex_000517)."
     },
     {
       "candidate_key": "candidate:ethereal-dex",
@@ -1522,5 +1532,23 @@
       "assigned_batch": null,
       "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available."
     }
-  ]
+  ],
+  "correction": {
+    "corrected_at": "2026-06-22",
+    "reason": "C1 duplicate decisions were revalidated against the projected public registry after C2 record drafting found existing reviewed bundles.",
+    "already_canonical_candidates": [
+      "candidate:aevo-perps",
+      "candidate:byte-exchange",
+      "candidate:curve-dex",
+      "candidate:dydx-v3",
+      "candidate:dydx-v4",
+      "candidate:gains-network",
+      "candidate:joe-dex",
+      "candidate:jupiter-perpetual-exchange",
+      "candidate:orca-dex",
+      "candidate:osmosis-dex",
+      "candidate:quickswap-dex",
+      "candidate:thorchain-dex"
+    ]
+  }
 }

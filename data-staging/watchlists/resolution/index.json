@@ -22,15 +22,15 @@
       "canonical_name": "Aevo Perps",
       "aliases": [],
       "candidate_class": "B",
-      "state": "needs_research",
+      "state": "already_canonical",
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-22",
+      "target_entity_id": "hei_ex_000519",
       "source_files": [
-        "data-staging/watchlists/review/20260614-priority-research.json"
+        "data-staging/watchlists/review/20260614-priority-research.json",
+        "records/exchanges/aevo.json"
       ],
-      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
-      "next_review_after": "2026-07-01"
+      "notes": "Projected-public overlap audit confirmed this candidate is already represented by Aevo (hei_ex_000519). The candidate must not return as open research or new growth work."
     },
     {
       "candidate_key": "candidate:afx",
@@ -217,15 +217,15 @@
       "canonical_name": "Byte Exchange",
       "aliases": [],
       "candidate_class": "B",
-      "state": "held",
+      "state": "already_canonical",
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-22",
+      "target_entity_id": "hei_ex_000416",
       "source_files": [
-        "data-staging/watchlists/review/20260614-active-later-01.json"
+        "data-staging/watchlists/review/20260614-active-later-01.json",
+        "records/exchanges/byte-exchange.json"
       ],
-      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
-      "next_review_after": "2026-09-01"
+      "notes": "Projected-public overlap audit confirmed this candidate is already represented by Byte Exchange (hei_ex_000416). The candidate must not return as open research or new growth work."
     },
     {
       "candidate_key": "candidate:coindcx",
@@ -247,15 +247,15 @@
       "canonical_name": "Curve DEX",
       "aliases": [],
       "candidate_class": "B",
-      "state": "needs_research",
+      "state": "already_canonical",
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-22",
+      "target_entity_id": "hei_ex_000511",
       "source_files": [
-        "data-staging/watchlists/review/20260614-priority-research.json"
+        "data-staging/watchlists/review/20260614-priority-research.json",
+        "records/exchanges/curve-finance.json"
       ],
-      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
-      "next_review_after": "2026-07-01"
+      "notes": "Projected-public overlap audit confirmed this candidate is already represented by Curve Finance (hei_ex_000511). The candidate must not return as open research or new growth work."
     },
     {
       "candidate_key": "candidate:decibel",
@@ -341,30 +341,30 @@
       "canonical_name": "dYdX V3",
       "aliases": [],
       "candidate_class": "B",
-      "state": "held",
+      "state": "already_canonical",
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-22",
+      "target_entity_id": "hei_ex_000517",
       "source_files": [
-        "data-staging/watchlists/review/20260614-active-later-01.json"
+        "data-staging/watchlists/review/20260614-active-later-01.json",
+        "records/exchanges/dydx.json"
       ],
-      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
-      "next_review_after": "2026-09-01"
+      "notes": "Projected-public overlap audit confirmed this candidate is already represented by dYdX (hei_ex_000517). The candidate must not return as open research or new growth work."
     },
     {
       "candidate_key": "candidate:dydx-v4",
       "canonical_name": "dYdX V4",
       "aliases": [],
       "candidate_class": "B",
-      "state": "needs_research",
+      "state": "already_canonical",
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-22",
+      "target_entity_id": "hei_ex_000517",
       "source_files": [
-        "data-staging/watchlists/review/20260614-priority-research.json"
+        "data-staging/watchlists/review/20260614-priority-research.json",
+        "records/exchanges/dydx.json"
       ],
-      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
-      "next_review_after": "2026-07-01"
+      "notes": "Projected-public overlap audit confirmed this candidate is already represented by dYdX (hei_ex_000517). The candidate must not return as open research or new growth work."
     },
     {
       "candidate_key": "candidate:ethereal-dex",
@@ -461,15 +461,15 @@
       "canonical_name": "Gains Network",
       "aliases": [],
       "candidate_class": "B",
-      "state": "needs_research",
+      "state": "already_canonical",
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-22",
+      "target_entity_id": "hei_ex_000515",
       "source_files": [
-        "data-staging/watchlists/review/20260614-priority-research.json"
+        "data-staging/watchlists/review/20260614-priority-research.json",
+        "records/exchanges/gtrade.json"
       ],
-      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
-      "next_review_after": "2026-07-01"
+      "notes": "Projected-public overlap audit confirmed this candidate is already represented by gTrade (hei_ex_000515). The candidate must not return as open research or new growth work."
     },
     {
       "candidate_key": "candidate:gala-swap",
@@ -579,30 +579,30 @@
       "canonical_name": "Joe DEX",
       "aliases": [],
       "candidate_class": "B",
-      "state": "needs_research",
+      "state": "already_canonical",
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-22",
+      "target_entity_id": "hei_ex_000520",
       "source_files": [
-        "data-staging/watchlists/review/20260614-priority-research.json"
+        "data-staging/watchlists/review/20260614-priority-research.json",
+        "records/exchanges/lfj.json"
       ],
-      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
-      "next_review_after": "2026-07-01"
+      "notes": "Projected-public overlap audit confirmed this candidate is already represented by LFJ (hei_ex_000520). The candidate must not return as open research or new growth work."
     },
     {
       "candidate_key": "candidate:jupiter-perpetual-exchange",
       "canonical_name": "Jupiter Perpetual Exchange",
       "aliases": [],
       "candidate_class": "B",
-      "state": "needs_research",
+      "state": "already_canonical",
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-22",
+      "target_entity_id": "hei_ex_000518",
       "source_files": [
-        "data-staging/watchlists/review/20260614-priority-research.json"
+        "data-staging/watchlists/review/20260614-priority-research.json",
+        "records/exchanges/jupiter.json"
       ],
-      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
-      "next_review_after": "2026-07-01"
+      "notes": "Projected-public overlap audit confirmed this candidate is already represented by Jupiter (hei_ex_000518). The candidate must not return as open research or new growth work."
     },
     {
       "candidate_key": "candidate:lista-dex",
@@ -697,30 +697,30 @@
       "canonical_name": "Orca DEX",
       "aliases": [],
       "candidate_class": "B",
-      "state": "needs_research",
+      "state": "already_canonical",
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-22",
+      "target_entity_id": "hei_ex_000513",
       "source_files": [
-        "data-staging/watchlists/review/20260614-priority-research.json"
+        "data-staging/watchlists/review/20260614-priority-research.json",
+        "records/exchanges/orca.json"
       ],
-      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
-      "next_review_after": "2026-07-01"
+      "notes": "Projected-public overlap audit confirmed this candidate is already represented by Orca (hei_ex_000513). The candidate must not return as open research or new growth work."
     },
     {
       "candidate_key": "candidate:osmosis-dex",
       "canonical_name": "Osmosis DEX",
       "aliases": [],
       "candidate_class": "B",
-      "state": "needs_research",
+      "state": "already_canonical",
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-22",
+      "target_entity_id": "hei_ex_000514",
       "source_files": [
-        "data-staging/watchlists/review/20260614-priority-research.json"
+        "data-staging/watchlists/review/20260614-priority-research.json",
+        "records/exchanges/osmosis.json"
       ],
-      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
-      "next_review_after": "2026-07-01"
+      "notes": "Projected-public overlap audit confirmed this candidate is already represented by Osmosis (hei_ex_000514). The candidate must not return as open research or new growth work."
     },
     {
       "candidate_key": "candidate:ostium",
@@ -772,15 +772,15 @@
       "canonical_name": "Quickswap Dex",
       "aliases": [],
       "candidate_class": "B",
-      "state": "needs_research",
+      "state": "already_canonical",
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-22",
+      "target_entity_id": "hei_ex_000512",
       "source_files": [
-        "data-staging/watchlists/review/20260614-priority-research.json"
+        "data-staging/watchlists/review/20260614-priority-research.json",
+        "records/exchanges/quickswap.json"
       ],
-      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
-      "next_review_after": "2026-07-01"
+      "notes": "Projected-public overlap audit confirmed this candidate is already represented by QuickSwap (hei_ex_000512). The candidate must not return as open research or new growth work."
     },
     {
       "candidate_key": "candidate:reya-perps",
@@ -923,15 +923,15 @@
       "canonical_name": "Thorchain DEX",
       "aliases": [],
       "candidate_class": "B",
-      "state": "needs_research",
+      "state": "already_canonical",
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-22",
+      "target_entity_id": "hei_ex_000516",
       "source_files": [
-        "data-staging/watchlists/review/20260614-priority-research.json"
+        "data-staging/watchlists/review/20260614-priority-research.json",
+        "records/exchanges/thorchain.json"
       ],
-      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
-      "next_review_after": "2026-07-01"
+      "notes": "Projected-public overlap audit confirmed this candidate is already represented by THORChain (hei_ex_000516). The candidate must not return as open research or new growth work."
     },
     {
       "candidate_key": "candidate:trading",
