@@ -82,3 +82,5 @@ fs.mkdirSync(path.dirname(outputPath), { recursive: true })
 fs.writeFileSync(outputPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8')
 console.log(`Wrote ${path.relative(root, outputPath)} with ${counts.total} candidates.`)
 console.log(`Priority research: ${counts.needs_research}; pending thin: ${counts.pending_thin}`)
+
+await import('./apply-c1-priority-review.mjs')
