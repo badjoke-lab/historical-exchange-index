@@ -59,7 +59,7 @@ The initial record includes seven evidence records:
 - the archived original shutdown-notice URL;
 - two independent reports covering the service halt and financial difficulty.
 
-The evidence follows the HEI rule that entity and event claims remain separate from their supporting records, with archived access retained for dead-side material. 
+The evidence follows the HEI rule that entity and event claims remain separate from their supporting records, with archived access retained for dead-side material.
 
 ## Candidate lifecycle
 
@@ -90,9 +90,22 @@ Evidence: 1620 -> 1627
 - projected-public count and ID-set equality;
 - static detail-page and sitemap route-count equality;
 - country/origin and entity-quality gates;
-- A3 lineage closure safety checks.
+- A3 and A4 frozen lineage-review regression checks.
 
-The A3 closure gate now treats 412 entities and 691 events as minimum historical baselines rather than permanent exact totals, so normal reviewed growth cannot invalidate the completed Phase A audit.
+The lineage gates preserve the frozen Phase A reviewed sets while allowing later entities and lineage candidates to be added. The DX.Exchange record appears as one additional text-only lineage candidate because its shutdown material mentions a possible merger; it does not alter the reviewed A3/A4 decisions.
+
+## Validation result
+
+```text
+Records validation:             pass
+Candidate scan gate:            pass
+Watchlist resolution gate:      pass
+Country/origin strict gate:     pass
+Permanent entity quality audit: pass
+Lineage inventory audit:        pass
+Count semantics regression:     pass
+CI / static build:              pass
+```
 
 ## Next phase
 
