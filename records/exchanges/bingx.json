@@ -9,27 +9,114 @@
     "death_reason": null,
     "launch_date": "2018-01-01",
     "death_date": null,
-    "country_or_origin": "Singapore",
-    "summary": "Singapore-based centralized exchange launched in 2018 and still operating under the BingX brand.",
+    "country_or_origin": "British Virgin Islands / Global",
+    "summary": "Global centralized cryptocurrency exchange founded in 2018 under the Bingbon name, rebranded to BingX in November 2021, and currently offering spot, derivatives, and copy-trading services.",
     "official_url_original": "https://bingx.com/",
     "official_domain_original": "bingx.com",
-    "official_url_status": "live_unverified",
+    "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://bingx.com/",
-    "confidence": "low",
-    "notes": "",
-    "last_verified_at": "2026-04-07",
+    "confidence": "high",
+    "notes": "BingX presents itself as a global exchange. Independent exchange profiles and public legal-entity records identify British Virgin Islands registration, while the group operates through multiple regional entities. The existing predecessor relationship preserves the former Bingbon entity.",
+    "last_verified_at": "2026-06-22",
     "predecessor_id": "hei_ex_000309"
   },
-  "events": [],
-  "evidence": [],
+  "events": [
+    {
+      "id": "hei_ev_002088",
+      "exchange_id": "hei_ex_000101",
+      "event_type": "launched",
+      "event_date": "2018-01-01",
+      "title": "Exchange founded under the Bingbon name",
+      "description": "The exchange that later became BingX was founded in 2018 and developed spot, derivatives, and copy-trading services for a global user base.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Only the year is consistently stated in the reviewed sources, so January 1 is used as a year-level date placeholder."
+    },
+    {
+      "id": "hei_ev_002089",
+      "exchange_id": "hei_ex_000101",
+      "event_type": "rebranded",
+      "event_date": "2021-11-18",
+      "title": "Bingbon rebranded to BingX",
+      "description": "Bingbon announced and completed its transition to the BingX brand, including a new name and visual identity.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 2,
+      "notes": "The former Bingbon identity is retained separately in HEI and linked through predecessor_id."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_003217",
+      "exchange_id": "hei_ex_000101",
+      "event_id": "hei_ev_002088",
+      "source_type": "official_statement",
+      "title": "About BingX",
+      "url": "https://bingx.com/en-gb/about",
+      "publisher": "BingX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bingx.com/en-gb/about",
+      "accessed_at": "2026-06-22",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Official company overview states that BingX was founded in 2018 and describes its current exchange products."
+    },
+    {
+      "id": "hei_src_003218",
+      "exchange_id": "hei_ex_000101",
+      "event_id": "hei_ev_002089",
+      "source_type": "official_statement",
+      "title": "November 18, 2021 — Bingbon rebranding",
+      "url": "https://bingx.com/en/support/articles/4409686694681-november-18-2021-bingbon-rebranding",
+      "publisher": "BingX",
+      "published_at": "2021-11-18",
+      "archived_url": "https://web.archive.org/web/*/https://bingx.com/en/support/articles/4409686694681-november-18-2021-bingbon-rebranding",
+      "accessed_at": "2026-06-22",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Official notice announcing the new BingX logo and brand name on November 18, 2021."
+    },
+    {
+      "id": "hei_src_003219",
+      "exchange_id": "hei_ex_000101",
+      "event_id": "hei_ev_002088",
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange profile for BingX",
+      "url": "https://www.coingecko.com/en/exchanges/bingx",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.coingecko.com/en/exchanges/bingx",
+      "accessed_at": "2026-06-22",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Independent exchange profile corroborates the 2018 establishment year and identifies British Virgin Islands registration."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000101",
     "expected": {
+      "country_or_origin": "Singapore",
+      "summary": "Singapore-based centralized exchange launched in 2018 and still operating under the BingX brand.",
+      "official_url_status": "live_unverified",
+      "confidence": "low",
+      "notes": "",
+      "last_verified_at": "2026-04-07",
       "predecessor_id": {
         "__hei_missing__": true
       }
     },
     "changes": {
+      "country_or_origin": "British Virgin Islands / Global",
+      "summary": "Global centralized cryptocurrency exchange founded in 2018 under the Bingbon name, rebranded to BingX in November 2021, and currently offering spot, derivatives, and copy-trading services.",
+      "official_url_status": "live_verified",
+      "confidence": "high",
+      "notes": "BingX presents itself as a global exchange. Independent exchange profiles and public legal-entity records identify British Virgin Islands registration, while the group operates through multiple regional entities. The existing predecessor relationship preserves the former Bingbon entity.",
+      "last_verified_at": "2026-06-22",
       "predecessor_id": "hei_ex_000309"
     }
   }

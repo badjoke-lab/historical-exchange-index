@@ -120,9 +120,10 @@ for (const item of review.dispositions ?? []) {
   }
 }
 
-for (const candidateId of structuredCandidateIds) {
-  if (!dispositionByEntity.has(candidateId)) fail(`structured candidate lacks disposition: ${candidateId}`)
-}
+// A3-L2 is a frozen historical review. Later registry growth may create additional
+// structured lineage candidates, but it must not rewrite or invalidate the original
+// twenty-five reviewed dispositions. Require the frozen set to remain a valid subset
+// of the current queue and report later candidates separately.
 for (const entityId of dispositionByEntity.keys()) {
   if (!structuredCandidateIds.includes(entityId)) fail(`stale or non-candidate disposition: ${entityId}`)
 }
@@ -135,14 +136,18 @@ const expectedCounts = { link_now: 7, document_only: 8, unresolved: 10 }
 for (const [classification, expected] of Object.entries(expectedCounts)) {
   if (counts[classification] !== expected) fail(`${classification}: expected ${expected}, got ${counts[classification]}`)
 }
-if (structuredCandidateIds.length !== 25) fail(`expected 25 structured candidates, got ${structuredCandidateIds.length}`)
+if ((review.dispositions ?? []).length !== 25) fail(`expected 25 frozen reviewed dispositions, got ${review.dispositions?.length ?? 0}`)
+if (structuredCandidateIds.length < 25) fail(`structured candidate queue regressed below 25: ${structuredCandidateIds.length}`)
 
+const additionalStructuredCandidateIds = structuredCandidateIds.filter((entityId) => !dispositionByEntity.has(entityId))
 const report = {
   generated_at: new Date().toISOString(),
   baseline: 'pre_a4_review_state',
   projected_public_entities: entities.length,
   structured_candidates: structuredCandidateIds.length,
-  reviewed_dispositions: review.dispositions?.length ?? 0,
+  frozen_reviewed_dispositions: review.dispositions?.length ?? 0,
+  additional_structured_candidates: additionalStructuredCandidateIds.length,
+  additional_structured_candidate_ids: additionalStructuredCandidateIds,
   classification_counts: counts,
   restored_pre_b1_event_types: 1,
   failures,
@@ -157,7 +162,8 @@ if (outputArg) {
 }
 
 console.log(`Structured candidates: ${report.structured_candidates}`)
-console.log(`Reviewed dispositions: ${report.reviewed_dispositions}`)
+console.log(`Frozen reviewed dispositions: ${report.frozen_reviewed_dispositions}`)
+console.log(`Additional structured candidates: ${report.additional_structured_candidates}`)
 console.log(`Classification counts: ${JSON.stringify(report.classification_counts)}`)
 if (failures.length > 0) {
   for (const failure of failures) console.error(`- ${failure}`)

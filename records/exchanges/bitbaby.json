@@ -7,64 +7,79 @@
     "type": "cex",
     "status": "active",
     "death_reason": null,
-    "launch_date": null,
+    "launch_date": "2024-12-01",
     "death_date": null,
-    "country_or_origin": "Unknown",
-    "summary": "Centralized crypto exchange whose official site confirms an active trading platform but does not disclose a verifiable legal domicile or operating origin.",
+    "country_or_origin": "United Arab Emirates",
+    "summary": "Centralized cryptocurrency exchange launched in December 2024, offering spot and derivatives trading through the Bitbaby platform while serving an international user base.",
     "official_url_original": "https://bitbaby.com/",
     "official_domain_original": "bitbaby.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://bitbaby.com/",
     "confidence": "medium",
-    "last_verified_at": "2026-06-20",
-    "notes": "Added from verified-unadded row hei_unadded_0269. HEI reviewed the official exchange, About, User Agreement, Legal and Policy, and contact surfaces but could not verify a legal entity, headquarters, founding jurisdiction, or ecosystem origin. Unknown is an intentional reviewed classification, not a structural missing value."
+    "last_verified_at": "2026-06-22",
+    "notes": "CoinGecko and CoinMarketCap identify a December 2024 launch and United Arab Emirates registration. HEI did not find a clearly named operating legal entity on the reviewed official surfaces, so the origin remains medium-confidence and should be upgraded only with direct company or regulatory documentation."
   },
   "events": [
     {
       "id": "hei_ev_000690",
       "exchange_id": "hei_ex_000382",
-      "event_type": "other",
-      "event_date": "2026-06-01",
-      "title": "Bitbaby recorded as centralized exchange",
-      "description": "Bitbaby is recorded as an active centralized exchange based on its official domain and CoinGecko source row; its legal and operating origin remains explicitly Unknown after official-site review.",
+      "event_type": "launched",
+      "event_date": "2024-12-01",
+      "title": "Bitbaby Exchange launched",
+      "description": "Bitbaby began operating as a centralized cryptocurrency exchange in December 2024, with spot, derivatives, and copy-trading products described by exchange directories and the live official platform.",
       "confidence": "medium",
-      "impact_level": "low",
+      "impact_level": "medium",
       "event_status_effect": "active",
       "source_count": 2,
       "sort_order": 1,
-      "notes": "Upgrade the origin only if a verifiable company, licensing, or headquarters source becomes available."
+      "notes": "The reviewed sources establish December 2024 but not a precise day, so the first day of the month is used as a month-level date placeholder."
     }
   ],
   "evidence": [
     {
       "id": "hei_src_001523",
       "exchange_id": "hei_ex_000382",
-      "event_id": "hei_ev_000690",
+      "event_id": null,
       "source_type": "official_statement",
       "title": "Bitbaby official website",
       "url": "https://bitbaby.com/",
       "publisher": "Bitbaby",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://bitbaby.com/",
-      "accessed_at": "2026-06-01",
+      "accessed_at": "2026-06-22",
       "reliability": "high",
-      "claim_scope": "entity",
-      "notes": "Official domain verifies the Bitbaby identity and active exchange interface. Its linked legal and company surfaces did not provide a verifiable origin during the 2026-06-20 review."
+      "claim_scope": "status",
+      "notes": "Official domain verifies the current Bitbaby identity and active exchange interface."
     },
     {
       "id": "hei_src_001524",
       "exchange_id": "hei_ex_000382",
       "event_id": "hei_ev_000690",
       "source_type": "database_reference",
-      "title": "CoinGecko exchange reference for Bitbaby",
-      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "title": "CoinGecko exchange profile for Bitbaby",
+      "url": "https://www.coingecko.com/en/exchanges/bitbaby",
       "publisher": "CoinGecko",
       "published_at": null,
-      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
-      "accessed_at": "2026-06-01",
+      "archived_url": "https://web.archive.org/web/*/https://www.coingecko.com/en/exchanges/bitbaby",
+      "accessed_at": "2026-06-22",
       "reliability": "medium",
-      "claim_scope": "entity",
-      "notes": "Source used by verified-unadded backlog row hei_unadded_0269."
+      "claim_scope": "launch_date",
+      "notes": "Independent exchange profile identifies a 2024 establishment year, December 2024 launch, and United Arab Emirates registration."
+    },
+    {
+      "id": "hei_src_003220",
+      "exchange_id": "hei_ex_000382",
+      "event_id": "hei_ev_000690",
+      "source_type": "database_reference",
+      "title": "CoinMarketCap exchange profile for Bitbaby",
+      "url": "https://coinmarketcap.com/exchanges/bitbabyexchange/",
+      "publisher": "CoinMarketCap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/bitbabyexchange/",
+      "accessed_at": "2026-06-22",
+      "reliability": "medium",
+      "claim_scope": "launch_date",
+      "notes": "Independent exchange profile corroborates the December 2024 launch and United Arab Emirates headquarters claim."
     }
   ]
 }
