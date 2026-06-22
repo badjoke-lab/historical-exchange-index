@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - c2-growth-batch-01a
-    paths:
-      - .github/workflows/c2-open-overlap-audit.yml
-      - scripts/audit-open-candidate-canonical-overlap.mjs
-      - data-staging/watchlists/resolution/index.json
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   audit:
