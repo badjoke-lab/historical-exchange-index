@@ -1,0 +1,27 @@
+name: C2 open candidate overlap audit
+
+on:
+  push:
+    branches:
+      - c2-growth-batch-01a
+    paths:
+      - .github/workflows/c2-open-overlap-audit.yml
+      - scripts/audit-open-candidate-canonical-overlap.mjs
+      - data-staging/watchlists/resolution/index.json
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: node scripts/audit-open-candidate-canonical-overlap.mjs --output=audit-output/open-candidate-overlap.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: open-candidate-overlap-audit
+          path: audit-output/open-candidate-overlap.json
+          retention-days: 14
