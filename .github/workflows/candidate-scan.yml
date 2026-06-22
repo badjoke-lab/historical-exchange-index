@@ -1,0 +1,28 @@
+name: Candidate scan gate
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run candidates:scan-test
+      - run: npm run candidates:scan-check -- --output=audit-output/c1-candidate-scan.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c1-candidate-scan-audit
+          path: audit-output/c1-candidate-scan.json
+          retention-days: 14
