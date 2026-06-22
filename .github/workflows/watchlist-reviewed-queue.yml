@@ -1,0 +1,29 @@
+name: Reviewed queue coverage
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "45 2 * * 1"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: node scripts/check-watchlist-resolutions-integrated.mjs --output=audit-output/watchlist-resolution-integrated.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: watchlist-resolution-integrated-audit
+          path: audit-output/watchlist-resolution-integrated.json
+          retention-days: 14
