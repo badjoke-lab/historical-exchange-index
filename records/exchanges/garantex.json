@@ -65,7 +65,7 @@
   ],
   "evidence": [
     {
-      "id": "hei_src_001389",
+      "id": "hei_src_003205",
       "exchange_id": "hei_ex_000338",
       "event_id": "hei_ev_000634",
       "source_type": "database_reference",
@@ -80,7 +80,7 @@
       "notes": "Used only for launch-month and background cross-checking."
     },
     {
-      "id": "hei_src_001390",
+      "id": "hei_src_003206",
       "exchange_id": "hei_ex_000338",
       "event_id": "hei_ev_000635",
       "source_type": "regulatory_notice",
@@ -95,7 +95,7 @@
       "notes": "Primary U.S. sanctions source for Garantex."
     },
     {
-      "id": "hei_src_001391",
+      "id": "hei_src_003207",
       "exchange_id": "hei_ex_000338",
       "event_id": "hei_ev_000636",
       "source_type": "news_article",
@@ -110,7 +110,7 @@
       "notes": "Used for the March 2025 service suspension and wallet-blocking event."
     },
     {
-      "id": "hei_src_001392",
+      "id": "hei_src_003208",
       "exchange_id": "hei_ex_000338",
       "event_id": "hei_ev_000636",
       "source_type": "news_article",
@@ -125,7 +125,7 @@
       "notes": "Used for web-infrastructure seizure and indictment context."
     },
     {
-      "id": "hei_src_001393",
+      "id": "hei_src_003209",
       "exchange_id": "hei_ex_000338",
       "event_id": "hei_ev_000636",
       "source_type": "archive_capture",

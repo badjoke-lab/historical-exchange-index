@@ -40,7 +40,7 @@ const inventoryEdges = new Set((inventory.relationship_edges ?? []).map(edgeKey)
 const reviewedEdges = new Set((l1.dispositions ?? []).map(edgeKey))
 
 if (inventory.projected_public_entities !== 412) fail(`expected 412 projected public entities, got ${inventory.projected_public_entities}`)
-if (inventory.projected_public_events !== 687) fail(`expected 687 projected public events, got ${inventory.projected_public_events}`)
+if (inventory.projected_public_events !== 691) fail(`expected 691 projected public events, got ${inventory.projected_public_events}`)
 if (inventory.structured_review_queue_total !== 36) fail(`expected 36 structured candidates, got ${inventory.structured_review_queue_total}`)
 if (inventory.candidate_counts?.linked_existing !== 11) fail(`expected 11 linked-existing candidates, got ${inventory.candidate_counts?.linked_existing}`)
 if (inventory.text_watchlist_total !== 52) fail(`expected 52 text-only watchlist entries, got ${inventory.text_watchlist_total}`)

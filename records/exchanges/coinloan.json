@@ -21,7 +21,7 @@
   },
   "events": [
     {
-      "id": "hei_ev_000578",
+      "id": "hei_ev_002080",
       "exchange_id": "hei_ex_000315",
       "event_type": "launched",
       "event_date": "2017-01-01",
@@ -35,9 +35,9 @@
       "notes": "Year-level launch date based on company profile references."
     },
     {
-      "id": "hei_ev_000579",
+      "id": "hei_ev_002081",
       "exchange_id": "hei_ex_000315",
-      "event_type": "bankruptcy",
+      "event_type": "bankruptcy_filed",
       "event_date": "2023-04-24",
       "title": "Operations halted after court notice",
       "description": "CoinLoan received a notice of restraint on disposition and halted user operations, including withdrawals, while bankruptcy proceedings were reported as underway.",
@@ -51,9 +51,9 @@
   ],
   "evidence": [
     {
-      "id": "hei_src_001288",
+      "id": "hei_src_003198",
       "exchange_id": "hei_ex_000315",
-      "event_id": "hei_ev_000578",
+      "event_id": "hei_ev_002080",
       "source_type": "database_reference",
       "title": "CoinLoan profile",
       "url": "https://coinmarketcap.com/currencies/coinloan/",
@@ -66,9 +66,9 @@
       "notes": "Used for founding year and exchange-service context."
     },
     {
-      "id": "hei_src_001289",
+      "id": "hei_src_003199",
       "exchange_id": "hei_ex_000315",
-      "event_id": "hei_ev_000579",
+      "event_id": "hei_ev_002081",
       "source_type": "news_article",
       "title": "CoinLoan halts all withdrawals, user services",
       "url": "https://cryptorank.io/news/feed/8f062-coinloan-halts-all-withdrawals-user-services",
@@ -81,9 +81,9 @@
       "notes": "Used for the halt of user operations and withdrawals."
     },
     {
-      "id": "hei_src_001290",
+      "id": "hei_src_003200",
       "exchange_id": "hei_ex_000315",
-      "event_id": "hei_ev_000579",
+      "event_id": "hei_ev_002081",
       "source_type": "news_article",
       "title": "Belgian crypto lender Bit4You suspends activities after service provider declared insolvent",
       "url": "https://www.coindesk.com/business/2023/04/27/belgian-crypto-lender-bit4you-suspends-activities-after-service-provider-declared-insolvent",
@@ -96,10 +96,10 @@
       "notes": "Used for insolvency context around CoinLoan as service provider."
     },
     {
-      "id": "hei_src_001291",
+      "id": "hei_src_003201",
       "exchange_id": "hei_ex_000315",
-      "event_id": "hei_ev_000579",
-      "source_type": "legal_reference",
+      "event_id": "hei_ev_002081",
+      "source_type": "court_document",
       "title": "CoinLoan bankruptcy",
       "url": "https://lauspartners.ee/en/coinloan-bankruptcy/",
       "publisher": "Laus & Partnerid",

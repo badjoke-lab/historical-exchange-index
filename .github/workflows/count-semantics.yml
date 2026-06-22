@@ -1,0 +1,52 @@
+name: Count semantics regression
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "15 3 * * 1"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run records:validate
+      - run: npm run counts:test
+      - name: Audit reviewed bundle ID collisions
+        run: node scripts/audit-reviewed-bundle-id-collisions.mjs --output=audit-output/bundle-id-collisions.json
+      - run: npm run machine:build
+      - run: npm run build
+      - run: npm run machine:validate
+      - run: npm run public:validate
+      - name: Run count semantics gate
+        id: count_gate
+        continue-on-error: true
+        run: |
+          mkdir -p audit-output
+          set -o pipefail
+          npm run counts:check -- --output=audit-output/count-semantics.json 2>&1 | tee audit-output/count-semantics.log
+      - name: Upload count semantics diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: count-semantics-audit
+          path: |
+            audit-output/bundle-id-collisions.json
+            audit-output/count-semantics.json
+            audit-output/count-semantics.log
+          if-no-files-found: error
+          retention-days: 14
+      - name: Fail when count semantics gate failed
+        if: steps.count_gate.outcome == 'failure'
+        run: exit 1
