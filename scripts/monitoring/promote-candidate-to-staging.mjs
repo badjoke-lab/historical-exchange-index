@@ -2,6 +2,7 @@ import path from 'node:path';
 import { listJsonFiles, readJsonFile, writeJsonFile } from './core/fs-utils.mjs';
 import { WATCHLIST_AUTO_ROOT } from './core/constants.mjs';
 import { slugifyName, normalizeText, uniqueStrings } from './core/normalize.mjs';
+import { loadResolutionFiles } from './core/load-watchlists.mjs';
 
 const MANUAL_STAGING_ROOT = 'data-staging/manual';
 
@@ -21,8 +22,7 @@ function todayCompact() {
 }
 
 function reliabilityFromSourceQuality(value) {
-  if (['high', 'medium', 'low'].includes(value)) return value;
-  return 'medium';
+  return ['high', 'medium', 'low'].includes(value) ? value : 'medium';
 }
 
 function sourceTypeFromCandidate(candidate) {
@@ -39,29 +39,18 @@ function eventTypeFromCandidate(candidate) {
   if (candidate.likely_status === 'acquired') return 'acquired';
   if (candidate.likely_status === 'merged') return 'merged';
   if (candidate.likely_status === 'rebranded') return 'rebranded';
-  if (candidate.record_shape === 'existing_entity_event_update') return 'other';
   return 'other';
 }
 
 function eventStatusEffectFromCandidate(candidate) {
-  if (['active', 'limited', 'inactive', 'dead'].includes(candidate.likely_status)) return candidate.likely_status;
-  return 'none';
-}
-
-function titleCase(value) {
-  return String(value || '')
-    .split(/\s+/)
-    .filter(Boolean)
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+  return ['active', 'limited', 'inactive', 'dead'].includes(candidate.likely_status) ? candidate.likely_status : 'none';
 }
 
 function buildEntityDraft(candidate) {
   const name = candidate.canonical_name || candidate.headline || candidate.candidate_id;
-  const slug = candidate.slug || slugifyName(name);
   return {
     id: null,
-    slug,
+    slug: candidate.slug || slugifyName(name),
     canonical_name: name,
     aliases: uniqueStrings(candidate.aliases || []),
     type: ['cex', 'dex', 'hybrid'].includes(candidate.likely_type) ? candidate.likely_type : null,
@@ -122,23 +111,22 @@ function buildEvidenceDrafts(candidate, entityDraft, eventDraft) {
 function buildDraftPackage(candidate, sourceFile, args) {
   const entityDraft = buildEntityDraft(candidate);
   const eventDraft = buildEventDraft(candidate, entityDraft);
-  const evidenceDrafts = buildEvidenceDrafts(candidate, entityDraft, eventDraft);
-
   return {
     package_type: 'monitoring_candidate_staging_draft',
     package_status: 'draft_not_merge_ready',
     created_at: new Date().toISOString(),
     source: {
       candidate_id: candidate.candidate_id || null,
+      candidate_key: candidate.candidate_key || candidate.candidate_id || null,
       source_file: sourceFile,
       selected_by: 'scripts/monitoring/promote-candidate-to-staging.mjs',
     },
-    rationale: 'Draft generated from an auto monitoring candidate. This file is a review aid only and must not be applied to canonical data without manual completion.',
+    rationale: 'Draft generated from an unresolved auto monitoring candidate. This file is a review aid only and must not be applied to canonical data without manual completion.',
     candidate_snapshot: candidate,
     records: {
       entities: [entityDraft],
       events: [eventDraft],
-      evidence: evidenceDrafts,
+      evidence: buildEvidenceDrafts(candidate, entityDraft, eventDraft),
     },
     manual_review_checklist: [
       'Confirm HEI scope: exchange / DEX / hybrid trading platform, not wallet-only or unrelated protocol.',
@@ -154,18 +142,16 @@ function buildDraftPackage(candidate, sourceFile, args) {
   };
 }
 
-async function loadCandidateEntries() {
-  const files = await listJsonFiles(WATCHLIST_AUTO_ROOT);
+async function loadCandidateEntries(resolutions) {
+  const files = (await listJsonFiles(WATCHLIST_AUTO_ROOT)).sort().reverse();
   const entries = [];
-
   for (const file of files) {
     const json = await readJsonFile(file, null);
-    const candidates = Array.isArray(json?.candidates) ? json.candidates : [];
-    for (const candidate of candidates) {
+    for (const candidate of Array.isArray(json?.candidates) ? json.candidates : []) {
+      if (resolutions.match(candidate)) continue;
       entries.push({ file, candidate });
     }
   }
-
   return entries;
 }
 
@@ -173,52 +159,42 @@ function findCandidate(entries, args) {
   const id = args.candidateId || args.id || null;
   const name = args.candidateName || args.name || null;
   const sourceFile = args.sourceFile || null;
-
   const filtered = sourceFile ? entries.filter((entry) => path.normalize(entry.file) === path.normalize(sourceFile)) : entries;
 
   if (id) {
-    return filtered.find((entry) => entry.candidate?.candidate_id === id) || null;
+    return filtered.find((entry) => entry.candidate?.candidate_id === id || entry.candidate?.candidate_key === id) || null;
   }
-
   if (name) {
     const normalizedName = normalizeText(name);
     return filtered.find((entry) => normalizeText(entry.candidate?.canonical_name || entry.candidate?.headline) === normalizedName) || null;
   }
-
-  const aCandidate = filtered.find((entry) => entry.candidate?.candidate_class === 'A');
-  return aCandidate || filtered[0] || null;
+  return filtered.find((entry) => entry.candidate?.candidate_class === 'A') || filtered[0] || null;
 }
 
 function outputPathForDraft(candidate, args) {
   const name = candidate.canonical_name || candidate.headline || candidate.candidate_id || 'candidate';
   const slug = slugifyName(name) || 'candidate';
-  const date = args.date || todayCompact();
-  return `${MANUAL_STAGING_ROOT}/auto-draft-${slug}-${date}.json`;
+  return `${MANUAL_STAGING_ROOT}/auto-draft-${slug}-${args.date || todayCompact()}.json`;
 }
 
 async function main() {
   const args = parseArgs(process.argv);
-  const entries = await loadCandidateEntries();
-  if (!entries.length) {
-    throw new Error(`No auto watchlist candidates found under ${WATCHLIST_AUTO_ROOT}`);
-  }
+  const resolutions = await loadResolutionFiles();
+  const entries = await loadCandidateEntries(resolutions);
+  if (!entries.length) throw new Error(`No unresolved auto watchlist candidates found under ${WATCHLIST_AUTO_ROOT}`);
 
   const selected = findCandidate(entries, args);
-  if (!selected) {
-    throw new Error('No matching candidate found. Use --candidate-id=... or --candidate-name=...');
-  }
+  if (!selected) throw new Error('No unresolved matching candidate found. Use --candidate-id=... or --candidate-name=...');
 
   const draft = buildDraftPackage(selected.candidate, selected.file, args);
   const outPath = args.output || outputPathForDraft(selected.candidate, args);
-
   if (args.dryRun === 'true') {
     console.log(JSON.stringify({ output: outPath, draft }, null, 2));
     return;
   }
-
   await writeJsonFile(outPath, draft);
   console.log(`Wrote staging draft: ${outPath}`);
-  console.log(`Candidate: ${selected.candidate.candidate_id || 'unknown'} ${selected.candidate.canonical_name || selected.candidate.headline || ''}`);
+  console.log(`Candidate: ${selected.candidate.candidate_key || selected.candidate.candidate_id || 'unknown'} ${selected.candidate.canonical_name || selected.candidate.headline || ''}`);
 }
 
 main().catch((error) => {

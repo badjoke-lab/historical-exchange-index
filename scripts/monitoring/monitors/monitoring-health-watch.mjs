@@ -1,15 +1,19 @@
 import { MONITOR_NAMES } from '../core/constants.mjs';
 import { createFinding, createMonitorResult } from '../core/finding-utils.mjs';
 import { loadWatchlists, loadManualStagingPackages, loadResolutionFiles, normalizeName } from '../core/load-watchlists.mjs';
+import { TERMINAL_RESOLUTION_STATES, OPEN_RESOLUTION_STATES } from '../core/resolution-store.mjs';
 
-function daysSince(dateValue) {
-  if (!dateValue) return null;
-  const time = Date.parse(dateValue);
-  if (!Number.isFinite(time)) return null;
-  return Math.floor((Date.now() - time) / 86400000);
-}
+const ageInDays = (value) => {
+  const time = Date.parse(value || '');
+  return Number.isFinite(time) ? Math.floor((Date.now() - time) / 86400000) : null;
+};
 
-function canonicalNameSet(canonical) {
+const reviewDue = (entry) => {
+  const time = Date.parse(entry?.next_review_after || '');
+  return !Number.isFinite(time) || time <= Date.now();
+};
+
+function canonicalNames(canonical) {
   const names = new Set();
   for (const entity of canonical?.entities || []) {
     for (const value of [entity.canonical_name, entity.slug, ...(entity.aliases || [])]) {
@@ -19,103 +23,103 @@ function canonicalNameSet(canonical) {
   return names;
 }
 
-function addWatchlistFindings({ findings, monitor, watchlists, stagingPackages, resolutions, canonicalNames }) {
-  for (const entry of watchlists.parseErrors) {
-    findings.push(createFinding({
-      monitor,
-      severity: 'high',
-      category: 'watchlist_json_parse_error',
-      title: `Watchlist JSON parse error: ${entry.path}`,
-      summary: entry.error,
-      recommended_action: 'fix_watchlist_json',
-      confidence: 'high',
-      dedupe_key: `${monitor}:watchlist_parse:${entry.path}`,
-    }));
-  }
+function addError(findings, monitor, category, title, summary, action, key) {
+  findings.push(createFinding({
+    monitor,
+    severity: 'high',
+    category,
+    title,
+    summary,
+    recommended_action: action,
+    confidence: 'high',
+    dedupe_key: `${monitor}:${category}:${key}`,
+  }));
+}
 
-  for (const entry of stagingPackages.parseErrors) {
-    findings.push(createFinding({
-      monitor,
-      severity: 'high',
-      category: 'staging_json_parse_error',
-      title: `Manual staging JSON parse error: ${entry.path}`,
-      summary: entry.error,
-      recommended_action: 'fix_staging_json',
-      confidence: 'high',
-      dedupe_key: `${monitor}:staging_parse:${entry.path}`,
-    }));
-  }
+function inspectQueues({ findings, monitor, watchlists, staging, resolutions, projectedNames }) {
+  for (const entry of watchlists.parseErrors) addError(findings, monitor, 'watchlist_json_parse_error', `Watchlist JSON error: ${entry.path}`, entry.error, 'fix_watchlist_json', entry.path);
+  for (const entry of staging.parseErrors) addError(findings, monitor, 'staging_json_parse_error', `Staging JSON error: ${entry.path}`, entry.error, 'fix_staging_json', entry.path);
+  for (const entry of resolutions.parseErrors) addError(findings, monitor, 'resolution_json_parse_error', `Resolution JSON error: ${entry.path}`, entry.error, 'fix_resolution_json', entry.path);
+  for (const error of resolutions.errors) addError(findings, monitor, 'resolution_index_invalid', 'Resolution index is invalid', error, 'fix_resolution_index', error);
+  for (const error of resolutions.coverageErrors) addError(findings, monitor, 'resolution_history_not_indexed', 'Historical resolution is not indexed', error, 'migrate_historical_resolution_to_index', error);
 
   const stagedNames = new Set();
-  for (const pkg of stagingPackages.packages) {
+  for (const pkg of staging.packages) {
     for (const entity of pkg.entities) {
       if (entity.normalized_name) stagedNames.add(entity.normalized_name);
       if (entity.slug) stagedNames.add(normalizeName(entity.slug));
     }
   }
 
-  const countByClass = { A: 0, B: 0, C: 0, unknown: 0 };
+  const classes = { A: 0, B: 0, C: 0, unknown: 0 };
+  let agedA = 0;
+  let openTracked = 0;
+
   for (const candidate of watchlists.candidates) {
     const cls = ['A', 'B', 'C'].includes(candidate.candidate_class) ? candidate.candidate_class : 'unknown';
-    countByClass[cls] += 1;
+    classes[cls] += 1;
+    const age = ageInDays(candidate.first_seen_at);
+    const projected = projectedNames.has(candidate.normalized_name);
+    const stagedCandidate = stagedNames.has(candidate.normalized_name);
+    const resolution = resolutions.match(candidate.raw || { canonical_name: candidate.name });
+    const terminal = Boolean(resolution && TERMINAL_RESOLUTION_STATES.has(resolution.state));
+    const open = Boolean(resolution && OPEN_RESOLUTION_STATES.has(resolution.state));
+    if (open) openTracked += 1;
 
-    const ageDays = daysSince(candidate.created_at);
-    const isCanonical = canonicalNames.has(candidate.normalized_name);
-    const isStaged = stagedNames.has(candidate.normalized_name);
-    const isResolved = resolutions.resolvedNames.has(candidate.normalized_name);
-
-    if (cls === 'A' && !isStaged && !isCanonical && !isResolved) {
-      const severity = ageDays !== null && ageDays >= 60 ? 'high' : 'medium';
-      findings.push(createFinding({
-        monitor,
-        severity,
-        category: 'watchlist_a_candidate_pending',
-        title: `A candidate still pending: ${candidate.name}`,
-        summary: `${candidate.name} is still in watchlist and has not been staged, canonicalized, or resolved.${ageDays === null ? '' : ` age_days=${ageDays}`}`,
-        recommended_action: 'stage_downgrade_or_resolve_candidate',
-        confidence: 'medium',
-        dedupe_key: `${monitor}:a_pending:${candidate.normalized_name}`,
-      }));
+    if (cls === 'A' && !projected && !stagedCandidate && !terminal) {
+      if (age !== null && age >= 60) agedA += 1;
+      if (!open || reviewDue(resolution)) {
+        findings.push(createFinding({
+          monitor,
+          severity: age !== null && age >= 60 ? 'high' : 'medium',
+          category: open ? 'watchlist_a_candidate_review_due' : 'watchlist_a_candidate_pending',
+          title: `${open ? 'Tracked' : 'Unresolved'} A candidate: ${candidate.name}`,
+          summary: `candidate_key=${candidate.candidate_key}${age === null ? '' : ` age_days=${age}`}${resolution ? ` state=${resolution.state}` : ''}`,
+          recommended_action: open ? 'review_or_update_candidate_resolution' : 'stage_downgrade_or_resolve_candidate',
+          confidence: 'medium',
+          dedupe_key: `${monitor}:a_pending:${candidate.candidate_key}`,
+        }));
+      }
     }
 
-    if (cls === 'B' && ageDays !== null && ageDays >= 90 && !isResolved && !isCanonical) {
+    if (cls === 'B' && age !== null && age >= 90 && !projected && !terminal && (!open || reviewDue(resolution))) {
       findings.push(createFinding({
         monitor,
         severity: 'low',
-        category: 'watchlist_b_candidate_stale',
-        title: `B candidate may be stale: ${candidate.name}`,
-        summary: `${candidate.name} has remained in watchlist for ${ageDays} days.`,
+        category: open ? 'watchlist_b_candidate_review_due' : 'watchlist_b_candidate_stale',
+        title: `${open ? 'Tracked' : 'Unresolved'} B candidate: ${candidate.name}`,
+        summary: `candidate_key=${candidate.candidate_key} age_days=${age}${resolution ? ` state=${resolution.state}` : ''}`,
         recommended_action: 'review_keep_downgrade_or_resolve_candidate',
         confidence: 'low',
-        dedupe_key: `${monitor}:b_stale:${candidate.normalized_name}`,
+        dedupe_key: `${monitor}:b_stale:${candidate.candidate_key}`,
       }));
     }
 
-    if (isCanonical && !isResolved) {
+    if (projected && !terminal) {
       findings.push(createFinding({
         monitor,
         severity: 'low',
         category: 'canonicalized_watchlist_candidate_unresolved',
-        title: `Watchlist candidate appears canonicalized but unresolved: ${candidate.name}`,
-        summary: `${candidate.name} appears in canonical entities but is not recorded in resolution files.`,
-        recommended_action: 'add_resolution_promoted_to_canonical',
+        title: `Projected candidate lacks terminal resolution: ${candidate.name}`,
+        summary: `candidate_key=${candidate.candidate_key}`,
+        recommended_action: 'add_terminal_resolution',
         confidence: 'medium',
-        dedupe_key: `${monitor}:canonical_unresolved:${candidate.normalized_name}`,
+        dedupe_key: `${monitor}:canonical_unresolved:${candidate.candidate_key}`,
       }));
     }
   }
 
-  for (const pkg of stagingPackages.packages) {
+  for (const pkg of staging.packages) {
     for (const entity of pkg.entities) {
       if (!entity.normalized_name) continue;
-      const inCanonical = canonicalNames.has(entity.normalized_name) || (entity.slug && canonicalNames.has(normalizeName(entity.slug)));
-      if (!inCanonical) {
+      const projected = projectedNames.has(entity.normalized_name) || (entity.slug && projectedNames.has(normalizeName(entity.slug)));
+      if (!projected) {
         findings.push(createFinding({
           monitor,
           severity: 'medium',
           category: 'staging_package_not_canonicalized',
-          title: `Staging package entity not canonicalized: ${entity.canonical_name || entity.slug}`,
-          summary: `${pkg.path} contains ${entity.canonical_name || entity.slug}, but no canonical match was found.`,
+          title: `Staging entity not projected: ${entity.canonical_name || entity.slug}`,
+          summary: pkg.path,
           recommended_action: 'canonicalize_or_resolve_staging_package',
           confidence: 'medium',
           dedupe_key: `${monitor}:staging_not_canonical:${entity.normalized_name}:${pkg.path}`,
@@ -124,71 +128,41 @@ function addWatchlistFindings({ findings, monitor, watchlists, stagingPackages, 
     }
   }
 
-  return countByClass;
+  return { classes, agedA, openTracked };
 }
 
 export async function runMonitoringHealthWatch(context, { startedAt } = {}) {
   const monitor = 'monitoring-health-watch';
   const started_at = startedAt || new Date().toISOString();
   const findings = [];
-
   const canonical = context?.canonicalData;
+
   if (!canonical) {
     findings.push(createFinding({
       monitor,
       severity: 'critical',
       category: 'canonical_load_missing',
-      title: 'Canonical data was not loaded',
-      summary: 'The monitoring runner did not provide canonical data to the health monitor.',
+      title: 'Projected public data was not loaded',
+      summary: 'Monitoring health requires projected public data.',
       recommended_action: 'fix_monitoring_workflow',
       confidence: 'high',
     }));
-  } else {
-    const counts = {
-      entities: canonical.entities?.length || 0,
-      events: canonical.events?.length || 0,
-      evidence: canonical.evidence?.length || 0,
-    };
-
-    if (counts.entities === 0 || counts.events === 0 || counts.evidence === 0) {
-      findings.push(createFinding({
-        monitor,
-        severity: 'high',
-        category: 'canonical_data_empty_or_missing',
-        title: 'Canonical data appears empty or incomplete',
-        summary: `entities=${counts.entities}, events=${counts.events}, evidence=${counts.evidence}`,
-        recommended_action: 'inspect_canonical_data_paths',
-        confidence: 'high',
-      }));
-    }
   }
 
-  const expectedReports = MONITOR_NAMES.length;
-  if (expectedReports < 6) {
-    findings.push(createFinding({
-      monitor,
-      severity: 'medium',
-      category: 'monitor_registry_incomplete',
-      title: 'Monitor registry has fewer monitors than expected',
-      summary: `Registered monitors: ${expectedReports}`,
-      recommended_action: 'inspect_monitoring_constants',
-      confidence: 'medium',
-    }));
-  }
+  if (MONITOR_NAMES.length < 6) addError(findings, monitor, 'monitor_registry_incomplete', 'Monitor registry is incomplete', `registered=${MONITOR_NAMES.length}`, 'inspect_monitoring_constants', 'registry');
 
-  const [watchlists, stagingPackages, resolutions] = await Promise.all([
+  const [watchlists, staging, resolutions] = await Promise.all([
     loadWatchlists(),
     loadManualStagingPackages(),
     loadResolutionFiles(),
   ]);
-  const canonicalNames = canonicalNameSet(canonical);
-  const watchlistClassCounts = addWatchlistFindings({
+  const state = inspectQueues({
     findings,
     monitor,
     watchlists,
-    stagingPackages,
+    staging,
     resolutions,
-    canonicalNames,
+    projectedNames: canonicalNames(canonical),
   });
 
   return createMonitorResult({
@@ -199,17 +173,20 @@ export async function runMonitoringHealthWatch(context, { startedAt } = {}) {
     candidates: [],
     errors: [],
     extra: {
-      checked: {
-        canonical_data_loaded: Boolean(canonical),
-        registered_monitors: MONITOR_NAMES,
-      },
+      checked: { canonical_data_loaded: Boolean(canonical), registered_monitors: MONITOR_NAMES },
       watchlist_state: {
-        watchlist_files: watchlists.files.length,
-        watchlist_candidates: watchlists.candidates.length,
-        watchlist_class_counts: watchlistClassCounts,
-        manual_staging_packages: stagingPackages.packages.length,
-        resolution_files: resolutions.files.length,
-        resolved_names: resolutions.resolvedNames.size,
+        candidate_queue_files: watchlists.files.length,
+        raw_candidate_occurrences: watchlists.rawCandidateCount,
+        unique_candidate_identities: watchlists.candidates.length,
+        repeated_occurrences_collapsed: watchlists.rawCandidateCount - watchlists.candidates.length,
+        watchlist_class_counts: state.classes,
+        aged_a_candidates: state.agedA,
+        open_tracked_candidates: state.openTracked,
+        manual_staging_packages: staging.packages.length,
+        historical_resolution_files: resolutions.files.length,
+        resolution_index_entries: resolutions.index.entries?.length || 0,
+        resolution_state_counts: resolutions.stateCounts,
+        resolution_coverage_errors: resolutions.coverageErrors.length,
       },
     },
   });

@@ -1,0 +1,1012 @@
+{
+  "version": 1,
+  "updated_at": "2026-06-22",
+  "purpose": "Authoritative current resolution state for monitoring candidates. Historical resolution files remain immutable audit records.",
+  "allowed_states": [
+    "promoted",
+    "held",
+    "out_of_scope",
+    "duplicate",
+    "already_canonical",
+    "needs_research"
+  ],
+  "terminal_states": [
+    "promoted",
+    "out_of_scope",
+    "duplicate",
+    "already_canonical"
+  ],
+  "entries": [
+    {
+      "candidate_key": "candidate:aevo-perps",
+      "canonical_name": "Aevo Perps",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "needs_research",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-priority-research.json"
+      ],
+      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
+      "next_review_after": "2026-07-01"
+    },
+    {
+      "candidate_key": "candidate:afx",
+      "canonical_name": "AFX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:alchemix-v3",
+      "canonical_name": "Alchemix V3",
+      "aliases": [],
+      "candidate_class": "C",
+      "state": "out_of_scope",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-out-of-scope-candidates.json"
+      ],
+      "notes": "Reviewed in the initial 50-candidate classification and determined not to be a distinct HEI exchange entity."
+    },
+    {
+      "candidate_key": "candidate:antarctic",
+      "canonical_name": "Antarctic",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:apex-omni",
+      "canonical_name": "Apex Omni",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:avantis",
+      "canonical_name": "Avantis",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:bingx",
+      "canonical_name": "BingX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-04-26",
+      "last_reviewed_at": "2026-04-29",
+      "target_entity_id": "hei_ex_000101",
+      "source_files": [
+        "data-staging/watchlists/recent-negative-candidates-addendum-20260426-b.json",
+        "data-staging/watchlists/resolution/20260429-canonicalized-watchlist-candidates.json"
+      ],
+      "notes": "Candidate was reviewed and is represented by the canonical BingX entity."
+    },
+    {
+      "candidate_key": "candidate:bithumb",
+      "canonical_name": "Bithumb",
+      "aliases": [],
+      "candidate_class": "A",
+      "state": "promoted",
+      "first_seen_at": "2026-04-26",
+      "last_reviewed_at": "2026-04-29",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/recent-negative-candidates-addendum-20260426-c.json",
+        "data-staging/watchlists/resolution/20260429-canonicalized-watchlist-candidates.json"
+      ],
+      "notes": "Candidate was reviewed and is represented in the projected public registry."
+    },
+    {
+      "candidate_key": "candidate:bittrex",
+      "canonical_name": "Bittrex",
+      "aliases": [
+        "Bittrex Global"
+      ],
+      "candidate_class": "unknown",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": "hei_ex_000031",
+      "source_files": [
+        "data-staging/watchlists/resolution/20260614-initial-monitoring-noise.json"
+      ],
+      "notes": "Monitoring noise was resolved to the existing Bittrex terminal-lineage entity."
+    },
+    {
+      "candidate_key": "candidate:boros",
+      "canonical_name": "Boros",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:btcturk",
+      "canonical_name": "BtcTurk",
+      "aliases": [],
+      "candidate_class": "A",
+      "state": "promoted",
+      "first_seen_at": "2026-04-26",
+      "last_reviewed_at": "2026-04-29",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/recent-negative-candidates-addendum-20260426-b.json",
+        "data-staging/watchlists/resolution/20260429-canonicalized-watchlist-candidates.json"
+      ],
+      "notes": "Candidate was reviewed and is represented in the projected public registry."
+    },
+    {
+      "candidate_key": "candidate:bulk",
+      "canonical_name": "BULK",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:bybit",
+      "canonical_name": "Bybit",
+      "aliases": [],
+      "candidate_class": "A",
+      "state": "promoted",
+      "first_seen_at": "2026-04-26",
+      "last_reviewed_at": "2026-04-29",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/recent-negative-candidates-20260426.json",
+        "data-staging/watchlists/resolution/20260429-canonicalized-watchlist-candidates.json"
+      ],
+      "notes": "Candidate was reviewed and is represented in the projected public registry."
+    },
+    {
+      "candidate_key": "candidate:byte-exchange",
+      "canonical_name": "Byte Exchange",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:coindcx",
+      "canonical_name": "CoinDCX",
+      "aliases": [],
+      "candidate_class": "A",
+      "state": "promoted",
+      "first_seen_at": "2026-04-26",
+      "last_reviewed_at": "2026-04-29",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/recent-negative-candidates-20260426.json",
+        "data-staging/watchlists/resolution/20260429-canonicalized-watchlist-candidates.json"
+      ],
+      "notes": "Candidate was reviewed and is represented in the projected public registry."
+    },
+    {
+      "candidate_key": "candidate:curve-dex",
+      "canonical_name": "Curve DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "needs_research",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-priority-research.json"
+      ],
+      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
+      "next_review_after": "2026-07-01"
+    },
+    {
+      "candidate_key": "candidate:decibel",
+      "canonical_name": "Decibel",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:derive-v2",
+      "canonical_name": "Derive V2",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:dmm-bitcoin",
+      "canonical_name": "DMM Bitcoin",
+      "aliases": [],
+      "candidate_class": "A",
+      "state": "promoted",
+      "first_seen_at": "2026-04-26",
+      "last_reviewed_at": "2026-04-29",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/recent-negative-candidates-addendum-20260426-b.json",
+        "data-staging/watchlists/resolution/20260429-canonicalized-watchlist-candidates.json"
+      ],
+      "notes": "Candidate was reviewed and is represented in the projected public registry."
+    },
+    {
+      "candidate_key": "candidate:drift-trade",
+      "canonical_name": "Drift Trade",
+      "aliases": [
+        "Drift"
+      ],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-05-02",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/auto/recent-candidates-20260502.json",
+        "data-staging/watchlists/resolution/20260614-canonicalized-watchlist-candidates.json"
+      ],
+      "notes": "Candidate was reviewed and is represented in the projected public registry."
+    },
+    {
+      "candidate_key": "candidate:dx-exchange",
+      "canonical_name": "DX.Exchange",
+      "aliases": [
+        "DX."
+      ],
+      "candidate_class": "A",
+      "state": "needs_research",
+      "first_seen_at": "2026-04-29",
+      "last_reviewed_at": "2026-04-29",
+      "next_review_after": "2026-07-01",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/resolution/20260429-news-watch-triage-candidates.json"
+      ],
+      "notes": "The extracted shorthand referred to a DX.Exchange shutdown headline. Research must use the full identity before any canonical action."
+    },
+    {
+      "candidate_key": "candidate:dydx-v3",
+      "canonical_name": "dYdX V3",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:dydx-v4",
+      "canonical_name": "dYdX V4",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "needs_research",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-priority-research.json"
+      ],
+      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
+      "next_review_after": "2026-07-01"
+    },
+    {
+      "candidate_key": "candidate:ethereal-dex",
+      "canonical_name": "Ethereal DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:extended",
+      "canonical_name": "Extended",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:figure-markets-exchange",
+      "canonical_name": "Figure Markets Exchange",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:fluid-dex",
+      "canonical_name": "Fluid DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:frax-swap",
+      "canonical_name": "Frax Swap",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:fulcrom-perps",
+      "canonical_name": "Fulcrom Perps",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:gains-network",
+      "canonical_name": "Gains Network",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "needs_research",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-priority-research.json"
+      ],
+      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
+      "next_review_after": "2026-07-01"
+    },
+    {
+      "candidate_key": "candidate:gala-swap",
+      "canonical_name": "Gala Swap",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:gmtrade",
+      "canonical_name": "GMTrade",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:gmx",
+      "canonical_name": "GMX",
+      "aliases": [],
+      "candidate_class": "A",
+      "state": "promoted",
+      "first_seen_at": "2026-04-26",
+      "last_reviewed_at": "2026-04-29",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/recent-negative-candidates-addendum-20260426-b.json",
+        "data-staging/watchlists/resolution/20260429-canonicalized-watchlist-candidates.json"
+      ],
+      "notes": "Candidate was reviewed and is represented in the projected public registry."
+    },
+    {
+      "candidate_key": "candidate:gmx-v2-perps",
+      "canonical_name": "GMX V2 Perps",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "already_canonical",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": "hei_ex_000244",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-existing-candidates.json"
+      ],
+      "notes": "Reviewed as a GMX product or version rather than a separate exchange entity; represented by the canonical GMX record."
+    },
+    {
+      "candidate_key": "candidate:hashkey-exchange",
+      "canonical_name": "HashKey Exchange",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-05-02",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": "hei_ex_000093",
+      "source_files": [
+        "data-staging/watchlists/auto/recent-candidates-20260502.json",
+        "data-staging/watchlists/resolution/20260614-canonicalized-watchlist-candidates.json"
+      ],
+      "notes": "Candidate was reviewed and is represented by the canonical HashKey Exchange entity."
+    },
+    {
+      "candidate_key": "candidate:hydration-dex",
+      "canonical_name": "Hydration DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:hyperliquid-hlp",
+      "canonical_name": "Hyperliquid HLP",
+      "aliases": [],
+      "candidate_class": "C",
+      "state": "out_of_scope",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-out-of-scope-candidates.json"
+      ],
+      "notes": "Reviewed in the initial 50-candidate classification and determined not to be a distinct HEI exchange entity."
+    },
+    {
+      "candidate_key": "candidate:joe-dex",
+      "canonical_name": "Joe DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "needs_research",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-priority-research.json"
+      ],
+      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
+      "next_review_after": "2026-07-01"
+    },
+    {
+      "candidate_key": "candidate:jupiter-perpetual-exchange",
+      "canonical_name": "Jupiter Perpetual Exchange",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "needs_research",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-priority-research.json"
+      ],
+      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
+      "next_review_after": "2026-07-01"
+    },
+    {
+      "candidate_key": "candidate:lista-dex",
+      "canonical_name": "Lista DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:manifest-trade",
+      "canonical_name": "Manifest Trade",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:metronome-synth",
+      "canonical_name": "Metronome Synth",
+      "aliases": [],
+      "candidate_class": "C",
+      "state": "out_of_scope",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-out-of-scope-candidates.json"
+      ],
+      "notes": "Reviewed in the initial 50-candidate classification and determined not to be a distinct HEI exchange entity."
+    },
+    {
+      "candidate_key": "candidate:minswap-dex",
+      "canonical_name": "Minswap DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:moonlander",
+      "canonical_name": "Moonlander",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:neutral-trade",
+      "canonical_name": "Neutral Trade",
+      "aliases": [],
+      "candidate_class": "C",
+      "state": "out_of_scope",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-out-of-scope-candidates.json"
+      ],
+      "notes": "Reviewed in the initial 50-candidate classification and determined not to be a distinct HEI exchange entity."
+    },
+    {
+      "candidate_key": "candidate:orca-dex",
+      "canonical_name": "Orca DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "needs_research",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-priority-research.json"
+      ],
+      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
+      "next_review_after": "2026-07-01"
+    },
+    {
+      "candidate_key": "candidate:osmosis-dex",
+      "canonical_name": "Osmosis DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "needs_research",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-priority-research.json"
+      ],
+      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
+      "next_review_after": "2026-07-01"
+    },
+    {
+      "candidate_key": "candidate:ostium",
+      "canonical_name": "Ostium",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:pacifica-perps",
+      "canonical_name": "Pacifica Perps",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:polynomial-trade",
+      "canonical_name": "Polynomial Trade",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-05-02",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/auto/recent-candidates-20260502.json",
+        "data-staging/watchlists/resolution/20260614-canonicalized-watchlist-candidates.json"
+      ],
+      "notes": "Candidate was reviewed and is represented in the projected public registry."
+    },
+    {
+      "candidate_key": "candidate:quickswap-dex",
+      "canonical_name": "Quickswap Dex",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "needs_research",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-priority-research.json"
+      ],
+      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
+      "next_review_after": "2026-07-01"
+    },
+    {
+      "candidate_key": "candidate:reya-perps",
+      "canonical_name": "Reya Perps",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:rhea-dex",
+      "canonical_name": "Rhea Dex",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:rysk-v12",
+      "canonical_name": "Rysk V12",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:serum",
+      "canonical_name": "Serum",
+      "aliases": [],
+      "candidate_class": "A",
+      "state": "promoted",
+      "first_seen_at": "2026-04-29",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": "hei_ex_000505",
+      "source_files": [
+        "data-staging/watchlists/auto/news-event-candidates-20260429.json",
+        "data-staging/watchlists/resolution/20260429-news-watch-triage-candidates.json",
+        "data-staging/watchlists/resolution/20260614-serum-canonical-resolution.json"
+      ],
+      "notes": "Manual research completed and the Serum DEX record was promoted to the projected public registry."
+    },
+    {
+      "candidate_key": "candidate:solv-basis-trading",
+      "canonical_name": "Solv Basis Trading",
+      "aliases": [],
+      "candidate_class": "C",
+      "state": "out_of_scope",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-out-of-scope-candidates.json"
+      ],
+      "notes": "Reviewed in the initial 50-candidate classification and determined not to be a distinct HEI exchange entity."
+    },
+    {
+      "candidate_key": "candidate:sovryn-dex",
+      "canonical_name": "Sovryn Dex",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:stellar-dex",
+      "canonical_name": "Stellar DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:synthetix-v3",
+      "canonical_name": "Synthetix V3",
+      "aliases": [],
+      "candidate_class": "C",
+      "state": "out_of_scope",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-out-of-scope-candidates.json"
+      ],
+      "notes": "Reviewed in the initial 50-candidate classification and determined not to be a distinct HEI exchange entity."
+    },
+    {
+      "candidate_key": "candidate:tapp",
+      "canonical_name": "Tapp",
+      "aliases": [
+        "Tapp Exchange"
+      ],
+      "candidate_class": "A",
+      "state": "promoted",
+      "first_seen_at": "2026-05-02",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": "hei_ex_000503",
+      "source_files": [
+        "data-staging/watchlists/auto/news-event-candidates-20260502.json",
+        "data-staging/watchlists/resolution/20260614-canonicalized-watchlist-candidates.json"
+      ],
+      "notes": "Candidate was researched and promoted as the canonical Tapp Exchange record."
+    },
+    {
+      "candidate_key": "candidate:thorchain-dex",
+      "canonical_name": "Thorchain DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "needs_research",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-priority-research.json"
+      ],
+      "notes": "Priority research candidate. Requires entity-boundary, launch, current-status, duplicate, event, and evidence review before promotion.",
+      "next_review_after": "2026-07-01"
+    },
+    {
+      "candidate_key": "candidate:trading",
+      "canonical_name": "Trading",
+      "aliases": [],
+      "candidate_class": "C",
+      "state": "out_of_scope",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/resolution/20260614-initial-monitoring-noise.json"
+      ],
+      "notes": "Generic headline fragment rather than an exchange identity."
+    },
+    {
+      "candidate_key": "candidate:txbit",
+      "canonical_name": "Txbit",
+      "aliases": [],
+      "candidate_class": "A",
+      "state": "already_canonical",
+      "first_seen_at": "2026-04-29",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": "hei_ex_000312",
+      "source_files": [
+        "data-staging/watchlists/auto/news-event-candidates-20260429.json",
+        "data-staging/watchlists/resolution/20260429-news-watch-triage-candidates.json",
+        "data-staging/watchlists/resolution/20260614-zedxion-txbit-canonical-resolution.json"
+      ],
+      "notes": "Manual review found that Txbit already existed in canonical data; the duplicate addition was blocked."
+    },
+    {
+      "candidate_key": "candidate:xrpl-dex",
+      "canonical_name": "XRPL DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "held",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json"
+      ],
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "next_review_after": "2026-09-01"
+    },
+    {
+      "candidate_key": "candidate:youves",
+      "canonical_name": "Youves",
+      "aliases": [],
+      "candidate_class": "C",
+      "state": "out_of_scope",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": null,
+      "source_files": [
+        "data-staging/watchlists/review/20260614-out-of-scope-candidates.json"
+      ],
+      "notes": "Reviewed in the initial 50-candidate classification and determined not to be a distinct HEI exchange entity."
+    },
+    {
+      "candidate_key": "candidate:zedxion",
+      "canonical_name": "Zedxion",
+      "aliases": [],
+      "candidate_class": "A",
+      "state": "promoted",
+      "first_seen_at": "2026-04-29",
+      "last_reviewed_at": "2026-06-14",
+      "target_entity_id": "hei_ex_000504",
+      "source_files": [
+        "data-staging/watchlists/auto/news-event-candidates-20260429.json",
+        "data-staging/watchlists/resolution/20260429-news-watch-triage-candidates.json",
+        "data-staging/watchlists/resolution/20260614-zedxion-txbit-canonical-resolution.json"
+      ],
+      "notes": "Manual research completed and the Zedxion record was promoted to the projected public registry."
+    }
+  ]
+}
