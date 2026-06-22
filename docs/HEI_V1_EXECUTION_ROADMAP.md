@@ -81,12 +81,12 @@ Before merge:
 
 ```text
 Checkpoint date: 2026-06-22
-Last confirmed main SHA: 261fea4a37b101f4bbb7a53efc4acd4b5c045357
-Last merged implementation PR: #413 Add permanent entity quality audit
-Current implementation PR: #414 Validate full monitoring after structural cleanup
+Last confirmed main SHA: 922f097f2734647f48021186d458df0b69f759ac
+Last merged implementation PR: #414 Validate full monitoring after structural cleanup
+Current implementation PR: #415 Reorganize watchlist and candidate resolutions
 Current phase: Phase B — Monitoring and count regression guarantees
-Completed item: B1 — Full monitoring run after structural cleanup
-Current item: B2 — Reorganize watchlists and resolutions
+Completed item: B2 — Reorganize watchlists and resolutions
+Current item: B3 — Count-semantics regression tests
 Cloudflare configuration changed by current work: no
 Production deployment performed by current work: no
 ```
@@ -122,7 +122,7 @@ Invalid projected evidence fields: 0
 Closed Phase A debt rediscovered: 0
 ```
 
-Permanent safeguards now include:
+Permanent B1 safeguards include:
 
 - projected-public enum validation in normal CI;
 - full monitoring completion validation;
@@ -135,6 +135,39 @@ The B1 audit is recorded in:
 
 `docs/audits/HEI_B1_FULL_MONITORING_2026-06-22.md`
 
+### B2 completion result
+
+```text
+Resolution index entries: 66
+Promoted: 14
+Held: 31
+Out of scope: 8
+Duplicate: 0
+Already canonical: 2
+Needs research: 11
+Historical resolution coverage errors: 0
+Raw watchlist rows: 193
+Unique candidate identities: 162
+Repeated rows collapsed: 31
+Reviewed queue coverage failures: 0
+```
+
+Permanent B2 safeguards include:
+
+- stable `candidate:*` identity keys;
+- one authoritative current-resolution index;
+- immutable dated resolution history;
+- terminal-state exclusion from new work and staging drafts;
+- open-state tracking without repeated new-candidate findings;
+- reviewed queue coverage checks;
+- projected entity checks for promoted and already-canonical candidates;
+- aged A and stale B visibility in monitoring-health;
+- PR, main, weekly, and manual watchlist-resolution validation.
+
+The B2 audit is recorded in:
+
+`docs/audits/HEI_B2_WATCHLIST_RESOLUTION_2026-06-22.md`
+
 ### Known non-blocking queue
 
 The B1 run retained five high findings for later work:
@@ -145,7 +178,7 @@ The B1 run retained five high findings for later work:
 - Zipmex has no projected evidence records;
 - sitemap is missing required static routes.
 
-These are not critical B1 structural failures.
+These are not critical Phase B structural failures.
 
 ---
 
@@ -187,6 +220,22 @@ fixed structural issues are not rediscovered
 projected enum violations = 0
 ```
 
+### Phase B2 — Watchlist and resolution reorganization
+
+Status: **COMPLETED in PR #415**
+
+Completion gate:
+
+```text
+processed candidates do not repeatedly return as new
+aged A candidates are visible
+duplicate and C resolutions are retained
+resolution schema and validation exist
+monitoring-health uses the reorganized state
+reviewed queues are fully indexed
+terminal candidates cannot be staged again
+```
+
 ### Phase B4 — Earlier production smoke baseline
 
 Status: **COMPLETED for the earlier production baseline**
@@ -198,7 +247,7 @@ A final production integration smoke test remains part of G3 before v1.0.
 ## 4. Remaining execution order and schedule
 
 ```text
-B2-B3  Monitoring state and count regression
+B3     Count-semantics regression
 C      Grow reviewed registry to at least 550 entities
 D      Public-value update and research surfaces
 E      Stats, internal linking, and SEO
@@ -206,11 +255,11 @@ F      English/Japanese bilingual publication
 G      Final integration audit and HEI v1.0 baseline
 ```
 
-Estimated remaining effort from the B1 completion checkpoint:
+Estimated remaining effort from the B2 completion checkpoint:
 
 ```text
-Implementation PRs: approximately 34-46
-Working days: approximately 36-55
+Implementation PRs: approximately 33-45
+Working days: approximately 35-54
 Calendar estimate: approximately 8-12 weeks
 ```
 
@@ -220,12 +269,12 @@ The largest uncertainty remains Phase C. HEI must add at least 138 reviewed enti
 
 # Phase B — Monitoring and count regression guarantees
 
-Estimated remaining duration: 2-4 working days  
-Estimated remaining PRs: 2-3
+Estimated remaining duration: 1-2 working days  
+Estimated remaining PRs: 1-2
 
 ## B2. Reorganize watchlists and resolutions
 
-Status: **CURRENT**
+Status: **COMPLETED in PR #415**
 
 Candidate classes:
 
@@ -246,28 +295,21 @@ already_canonical
 needs_research
 ```
 
-Required work:
+Completed work:
 
-- define one authoritative candidate identity and dedupe key;
-- retain historical resolutions;
-- prevent promoted, duplicate, out-of-scope, and already-canonical items from returning as new;
-- expose aged A candidates;
-- preserve B research queues without repeatedly creating identical findings;
-- keep C resolutions auditable.
-
-Completion gate:
-
-```text
-processed candidates do not repeatedly return as new
-aged A candidates are visible
-duplicate and C resolutions are retained
-resolution schema and validation exist
-monitoring-health uses the reorganized state
-```
+- defined stable candidate identity and dedupe keys;
+- established one authoritative resolution index;
+- retained historical resolution files as audit records;
+- prevented terminal states from returning as new work;
+- preserved open research queues without repeated new findings;
+- migrated the June 14 reviewed queues into current state;
+- exposed candidate aging and review scheduling;
+- protected staging-draft generation from terminal candidates;
+- added permanent schema, history, queue, lifecycle, and entity-match checks.
 
 ## B3. Count-semantics regression tests
 
-Status: pending
+Status: **CURRENT**
 
 Test consistency across:
 
@@ -437,12 +479,12 @@ operations runbook is complete
 
 ---
 
-## 5. Revised schedule from the B1 checkpoint
+## 5. Revised schedule from the B2 checkpoint
 
 | Relative week | Main work | Required result |
 |---|---|---|
-| 1 | B2 watchlists/resolutions and B3 count regression | Phase B complete |
-| 2 | candidate scans and thin active CEX repair | growth queue fixed |
+| 1 | B3 count regression and initial candidate scans | Phase B complete and growth queue fixed |
+| 2 | thin active CEX repair and first growth batches | stable batch cadence |
 | 3-4 | DEX, perp DEX, hybrid batches | approximately 460-490 entities |
 | 5-6 | historical batches and milestone audit | at least 550 entities |
 | 6-7 | Changelog, Timeline, Evidence Health, Monthly Snapshot, feeds | Phase D complete |
