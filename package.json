@@ -19,6 +19,8 @@
     "monitor:smoke": "node scripts/monitoring/smoke-test.mjs",
     "watchlists:check": "node scripts/check-watchlist-resolutions.mjs",
     "watchlists:test": "node scripts/check-watchlist-resolutions.mjs --self-test",
+    "counts:check": "node scripts/check-count-semantics-regression.mjs",
+    "counts:test": "node scripts/check-count-semantics-regression.mjs --self-test",
     "publish:draft": "node scripts/publishing/build-publishing-drafts.mjs",
     "records:audit-overlaps": "node scripts/audit-record-entity-overlaps.mjs",
     "records:validate": "node scripts/audit-record-entity-overlaps.mjs && node scripts/validate-record-bundles.mjs && node scripts/check-record-duplicates.mjs",
