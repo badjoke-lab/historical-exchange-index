@@ -1,0 +1,35 @@
+name: Count semantics regression
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "15 3 * * 1"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run records:validate
+      - run: npm run counts:test
+      - run: npm run machine:build
+      - run: npm run build
+      - run: npm run machine:validate
+      - run: npm run public:validate
+      - run: npm run counts:check -- --output=audit-output/count-semantics.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: count-semantics-audit
+          path: audit-output/count-semantics.json
+          retention-days: 14
