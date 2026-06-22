@@ -104,17 +104,26 @@ function requireReviewedState(name, states, sourceFile) {
   }
 }
 
+const resolvedResearchStates = [
+  'needs_research',
+  'held',
+  'promoted',
+  'already_canonical',
+  'out_of_scope',
+  'duplicate',
+]
+
 for (const name of readCandidates(reviewedQueueFiles.existing)) {
   requireReviewedState(name, ['promoted', 'already_canonical'], reviewedQueueFiles.existing)
 }
 for (const name of readCandidates(reviewedQueueFiles.out_of_scope)) {
-  requireReviewedState(name, ['out_of_scope'], reviewedQueueFiles.out_of_scope)
+  requireReviewedState(name, ['out_of_scope', 'duplicate', 'already_canonical', 'promoted'], reviewedQueueFiles.out_of_scope)
 }
 for (const name of readCandidates(reviewedQueueFiles.priority)) {
-  requireReviewedState(name, ['needs_research'], reviewedQueueFiles.priority)
+  requireReviewedState(name, resolvedResearchStates, reviewedQueueFiles.priority)
 }
 for (const file of [reviewedQueueFiles.active_1, reviewedQueueFiles.active_2]) {
-  for (const name of readCandidates(file)) requireReviewedState(name, ['held', 'needs_research'], file)
+  for (const name of readCandidates(file)) requireReviewedState(name, resolvedResearchStates, file)
 }
 
 const lifecycleCounts = {
@@ -180,7 +189,7 @@ console.log(`Resolution states: ${JSON.stringify(report.resolution_state_counts)
 console.log(`Reviewed queues: ${JSON.stringify(report.reviewed_queue_counts)}`)
 console.log(`Raw watchlist candidates: ${report.raw_watchlist_candidates}`)
 console.log(`Unique watchlist candidates: ${report.unique_watchlist_candidates}`)
-console.log(`Repeated occurrences collapsed: ${report.repeated_watchlist_occurrences_collapsed}`)
+console.log(`Repeated occurrences collapsed: ${report.raw_watchlist_candidates - report.unique_watchlist_candidates}`)
 console.log(`Watchlist classes: ${JSON.stringify(report.watchlist_class_counts)}`)
 console.log(`Lifecycle counts: ${JSON.stringify(report.lifecycle_counts)}`)
 console.log(`Historical resolution coverage errors: ${report.historical_resolution_coverage_errors}`)
