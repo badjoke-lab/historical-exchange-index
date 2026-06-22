@@ -1,0 +1,29 @@
+name: Active CEX repair audit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: node scripts/audit-thin-active-cex.mjs --strict --output=audit-output/thin-active-cex.json --markdown=audit-output/thin-active-cex.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thin-active-cex-audit
+          path: |
+            audit-output/thin-active-cex.json
+            audit-output/thin-active-cex.md
+          retention-days: 14
