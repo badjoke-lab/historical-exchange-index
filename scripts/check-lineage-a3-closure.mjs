@@ -8,7 +8,7 @@ const root = process.cwd()
 const failures = []
 const fail = (message) => failures.push(message)
 const load = (file) => JSON.parse(fs.readFileSync(path.resolve(root, file), 'utf8'))
-const sameSet = (left, right) => left.size === right.size && [...left].every((value) => right.has(value))
+const isSubset = (subset, superset) => [...subset].every((value) => superset.has(value))
 
 function loadInventory() {
   const inventoryArg = process.argv.find((arg) => arg.startsWith('--inventory='))
@@ -39,22 +39,21 @@ const edgeKey = (item) => `${item.entity_id}:${item.field}:${item.target_id}`
 const inventoryEdges = new Set((inventory.relationship_edges ?? []).map(edgeKey))
 const reviewedEdges = new Set((l1.dispositions ?? []).map(edgeKey))
 
-if (inventory.projected_public_entities !== 412) fail(`expected 412 projected public entities, got ${inventory.projected_public_entities}`)
-if (inventory.projected_public_events !== 691) fail(`expected 691 projected public events, got ${inventory.projected_public_events}`)
-if (inventory.structured_review_queue_total !== 36) fail(`expected 36 structured candidates, got ${inventory.structured_review_queue_total}`)
-if (inventory.candidate_counts?.linked_existing !== 11) fail(`expected 11 linked-existing candidates, got ${inventory.candidate_counts?.linked_existing}`)
-if (inventory.text_watchlist_total !== 52) fail(`expected 52 text-only watchlist entries, got ${inventory.text_watchlist_total}`)
+if (inventory.projected_public_entities < 412) fail(`projected public entities regressed below the A3 baseline: ${inventory.projected_public_entities}`)
+if (inventory.projected_public_events < 691) fail(`projected public events regressed below the A3 baseline: ${inventory.projected_public_events}`)
+if (inventory.structured_review_queue_total < 36) fail(`structured candidate queue regressed below the A3 baseline: ${inventory.structured_review_queue_total}`)
+if ((inventory.candidate_counts?.linked_existing ?? 0) < 11) fail(`linked-existing candidates regressed below the A3 baseline: ${inventory.candidate_counts?.linked_existing ?? 0}`)
+if (inventory.text_watchlist_total < 52) fail(`text-only watchlist regressed below the A3 baseline: ${inventory.text_watchlist_total}`)
 if (inventory.missing_relationship_targets !== 0) fail('missing relationship targets must be zero')
 if (inventory.self_relationships !== 0) fail('self relationships must be zero')
 if (inventory.invalid_event_counterparty_targets !== 0) fail('invalid event counterparty targets must be zero')
 
 if (l1.version !== 1 || l1.scope !== 'existing_predecessor_successor_edges') fail('unexpected L1 manifest version or scope')
-if ((l1.dispositions ?? []).length !== 11) fail(`expected 11 L1 dispositions, got ${l1.dispositions?.length ?? 0}`)
-if (inventoryEdges.size !== 11) fail(`expected 11 current relationship edges, got ${inventoryEdges.size}`)
-if (!sameSet(inventoryEdges, reviewedEdges)) fail('L1 dispositions do not exactly cover the current relationship edges')
+if ((l1.dispositions ?? []).length !== 11) fail(`expected 11 frozen L1 dispositions, got ${l1.dispositions?.length ?? 0}`)
+if (!isSubset(reviewedEdges, inventoryEdges)) fail('one or more frozen L1 relationship edges disappeared from the current inventory')
 
 if (l2.version !== 1 || l2.scope !== 'structured_lineage_candidates_without_existing_edges') fail('unexpected L2 manifest version or scope')
-if ((l2.dispositions ?? []).length !== 25) fail(`expected 25 L2 dispositions, got ${l2.dispositions?.length ?? 0}`)
+if ((l2.dispositions ?? []).length !== 25) fail(`expected 25 frozen L2 dispositions, got ${l2.dispositions?.length ?? 0}`)
 
 const structuredIds = new Set((inventory.candidates ?? []).map((item) => item.entity.id))
 const linkedIds = new Set(
@@ -70,13 +69,13 @@ const unlinkedStructuredIds = new Set(
 const reviewedL1EntityIds = new Set((l1.dispositions ?? []).map((item) => item.entity_id))
 const reviewedL2EntityIds = new Set((l2.dispositions ?? []).map((item) => item.entity_id))
 
-if (!sameSet(linkedIds, reviewedL1EntityIds)) fail('L1 source entities do not exactly match linked-existing candidates')
-if (!sameSet(unlinkedStructuredIds, reviewedL2EntityIds)) fail('L2 dispositions do not exactly cover unlinked structured candidates')
+if (!isSubset(reviewedL1EntityIds, linkedIds)) fail('one or more frozen L1 source entities disappeared or changed classification')
+if (!isSubset(reviewedL2EntityIds, unlinkedStructuredIds)) fail('one or more frozen L2 entities disappeared or changed classification')
 if ([...reviewedL1EntityIds].some((id) => reviewedL2EntityIds.has(id))) fail('L1 and L2 disposition sets overlap')
 
 const combinedReviewedIds = new Set([...reviewedL1EntityIds, ...reviewedL2EntityIds])
-if (!sameSet(structuredIds, combinedReviewedIds)) fail('combined L1 and L2 dispositions do not exactly cover all structured candidates')
-if (combinedReviewedIds.size !== 36) fail(`expected 36 unique reviewed entities, got ${combinedReviewedIds.size}`)
+if (!isSubset(combinedReviewedIds, structuredIds)) fail('one or more frozen A3 reviewed entities disappeared from the current structured queue')
+if (combinedReviewedIds.size !== 36) fail(`expected 36 unique frozen reviewed entities, got ${combinedReviewedIds.size}`)
 
 const watchlistIds = (inventory.text_watchlist ?? []).map((item) => item.entity.id)
 const uniqueWatchlistIds = new Set(watchlistIds)
@@ -106,11 +105,20 @@ const report = {
   generated_at: new Date().toISOString(),
   phase: 'A3',
   status: failures.length === 0 ? 'closed' : 'failed',
+  baseline: {
+    projected_public_entities_minimum: 412,
+    projected_public_events_minimum: 691,
+    frozen_structured_candidates: 36,
+    frozen_linked_existing_candidates: 11,
+    text_watchlist_minimum: 52,
+  },
   projected_public_entities: inventory.projected_public_entities,
   projected_public_events: inventory.projected_public_events,
   structured_candidates: inventory.structured_review_queue_total,
   reviewed_structured_candidates: combinedReviewedIds.size,
+  additional_structured_candidates: inventory.structured_review_queue_total - combinedReviewedIds.size,
   text_only_watchlist: inventory.text_watchlist_total,
+  additional_text_watchlist_entries: inventory.text_watchlist_total - 52,
   l1_dispositions: l1Counts,
   l2_dispositions: l2Counts,
   safety: {
@@ -130,8 +138,10 @@ if (outputArg) {
 }
 
 console.log(`Structured candidates: ${report.structured_candidates}`)
-console.log(`Reviewed structured candidates: ${report.reviewed_structured_candidates}`)
+console.log(`Frozen reviewed structured candidates: ${report.reviewed_structured_candidates}`)
+console.log(`Additional structured candidates: ${report.additional_structured_candidates}`)
 console.log(`Text-only watchlist: ${report.text_only_watchlist}`)
+console.log(`Additional text-only entries: ${report.additional_text_watchlist_entries}`)
 console.log(`L1 dispositions: ${JSON.stringify(report.l1_dispositions)}`)
 console.log(`L2 dispositions: ${JSON.stringify(report.l2_dispositions)}`)
 if (failures.length > 0) {

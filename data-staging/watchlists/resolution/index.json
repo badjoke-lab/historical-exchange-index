@@ -326,15 +326,15 @@
         "DX."
       ],
       "candidate_class": "A",
-      "state": "needs_research",
+      "state": "promoted",
       "first_seen_at": "2026-04-29",
-      "last_reviewed_at": "2026-04-29",
-      "next_review_after": "2026-07-01",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-22",
+      "target_entity_id": "hei_ex_000526",
       "source_files": [
-        "data-staging/watchlists/resolution/20260429-news-watch-triage-candidates.json"
+        "data-staging/watchlists/resolution/20260429-news-watch-triage-candidates.json",
+        "records/exchanges/dx-exchange.json"
       ],
-      "notes": "The extracted shorthand referred to a DX.Exchange shutdown headline. Research must use the full identity before any canonical action."
+      "notes": "Promoted to the reviewed public registry as DX.Exchange (hei_ex_000526) in PR #422 after launch, operating-company insolvency, and service-shutdown evidence review."
     },
     {
       "candidate_key": "candidate:dydx-v3",

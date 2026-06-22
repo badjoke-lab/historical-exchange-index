@@ -81,12 +81,12 @@ Before merge:
 
 ```text
 Checkpoint date: 2026-06-22
-Last confirmed main SHA: b9893b78d9e1f20b1d02e6f16747cc206fb66ccd
-Last merged implementation PR: #418 Classify the first Phase C candidate scan
-Current implementation PR: #419 Correct stale open candidate resolutions
+Last confirmed main SHA: 61581e49b5b0ee6aadd600341f8d2e21eeb2baac
+Last merged implementation PR: #421 Allow reviewed candidate states to advance
+Current implementation PR: #422 Add DX.Exchange historical record
 Current phase: Phase C — Reviewed registry growth
-Completed item: C1 — Candidate scan corrected against projected public entities
-Current item: C2 — Draft the DX.Exchange reviewed record bundle
+Completed item: C2 — Add the DX.Exchange reviewed record bundle
+Current item: C3 — Repair thin active CEX records
 Cloudflare configuration changed by current work: no
 Production deployment performed by current work: no
 ```
@@ -94,17 +94,17 @@ Production deployment performed by current work: no
 ### Reviewed public counts
 
 ```text
-Entities:  412
-Events:    691
-Evidence: 1620
+Entities:  413
+Events:    695
+Evidence: 1627
 ```
 
 ### Maximum observed IDs
 
 ```text
-Maximum entity ID:    hei_ex_000525
-Maximum event ID:     hei_ev_002083
-Maximum evidence ID:  hei_src_003209
+Maximum entity ID:    hei_ex_000526
+Maximum event ID:     hei_ev_002087
+Maximum evidence ID:  hei_src_003216
 ```
 
 ### Count composition
@@ -114,8 +114,8 @@ Canonical entities:  306
 Canonical events:    513
 Canonical evidence: 1172
 
-Reviewed bundles: 152
-New-entity bundles: 106
+Reviewed bundles: 153
+New-entity bundles: 107
 Repair bundles:      46
 ```
 
@@ -290,7 +290,8 @@ The largest uncertainty remains Phase C. HEI must add at least 138 reviewed enti
 
 Status: **CURRENT**  
 Starting reviewed count: 412  
-Required net additions: at least 138  
+Required net additions from the original 412 baseline: at least 138  
+Remaining additions after C2: at least 137  
 Estimated duration: 15-25 working days  
 Estimated PRs: 14-19
 
@@ -327,15 +328,26 @@ first growth batch fixed at DX.Exchange
 
 ## C2. First growth record drafting
 
-Status: **CURRENT**
+Status: **COMPLETED in PR #422**
 
-Draft and validate one reviewed record bundle:
+Added one reviewed historical exchange record:
 
 ```text
 DX.Exchange
+Entity:   hei_ex_000526
+Events:   hei_ev_002084–hei_ev_002087
+Evidence: hei_src_003210–hei_src_003216
 ```
 
-Before selecting any later growth batch, run the strict projected-public overlap gate against all remaining pending-thin candidates.
+Count impact:
+
+```text
+Entities:  412 -> 413
+Events:    691 -> 695
+Evidence: 1620 -> 1627
+```
+
+The candidate resolution advanced from `needs_research` to `promoted`. The strict projected-public overlap gate remains mandatory before selecting later growth batches.
 
 ## C3. Repair thin active CEX records
 
