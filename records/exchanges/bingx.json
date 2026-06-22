@@ -3,7 +3,7 @@
     "id": "hei_ex_000101",
     "slug": "bingx",
     "canonical_name": "BingX",
-    "aliases": ["Bingbon"],
+    "aliases": [],
     "type": "cex",
     "status": "active",
     "death_reason": null,
@@ -100,11 +100,23 @@
   "entity_correction": {
     "entity_id": "hei_ex_000101",
     "expected": {
+      "country_or_origin": "Singapore",
+      "summary": "Singapore-based centralized exchange launched in 2018 and still operating under the BingX brand.",
+      "official_url_status": "live_unverified",
+      "confidence": "low",
+      "notes": "",
+      "last_verified_at": "2026-04-07",
       "predecessor_id": {
         "__hei_missing__": true
       }
     },
     "changes": {
+      "country_or_origin": "British Virgin Islands / Global",
+      "summary": "Global centralized cryptocurrency exchange founded in 2018 under the Bingbon name, rebranded to BingX in November 2021, and currently offering spot, derivatives, and copy-trading services.",
+      "official_url_status": "live_verified",
+      "confidence": "high",
+      "notes": "BingX presents itself as a global exchange. Independent exchange profiles and public legal-entity records identify British Virgin Islands registration, while the group operates through multiple regional entities. The existing predecessor relationship preserves the former Bingbon entity.",
+      "last_verified_at": "2026-06-22",
       "predecessor_id": "hei_ex_000309"
     }
   }
