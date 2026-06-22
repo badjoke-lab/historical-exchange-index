@@ -73,11 +73,11 @@ if (manifest.change_count !== 14) fail(`manifest change_count must be 14, got ${
 if (manifest.entity_count !== 14) fail(`manifest entity_count must be 14, got ${manifest.entity_count}`)
 if (expectedChanges.size !== 14) fail(`derived A4 change count must be 14, got ${expectedChanges.size}`)
 if ((manifest.changes ?? []).length !== 14) fail(`manifest must contain 14 changes, got ${manifest.changes?.length ?? 0}`)
-if (baselineEntities.length !== manifest.baseline_projected_entities) {
-  fail(`baseline projected entity count changed: ${baselineEntities.length}`)
+if (baselineEntities.length < manifest.baseline_projected_entities) {
+  fail(`baseline projected entity count regressed below ${manifest.baseline_projected_entities}: ${baselineEntities.length}`)
 }
-if (projectedEntities.length !== manifest.baseline_projected_entities) {
-  fail(`projected entity count changed: ${projectedEntities.length}`)
+if (projectedEntities.length < manifest.baseline_projected_entities) {
+  fail(`projected entity count regressed below ${manifest.baseline_projected_entities}: ${projectedEntities.length}`)
 }
 
 const manifestByKey = new Map()
@@ -175,9 +175,11 @@ const report = {
   generated_at: new Date().toISOString(),
   phase: 'A4',
   status: failures.length === 0 ? 'pass' : 'fail',
+  frozen_projected_entity_baseline: manifest.baseline_projected_entities,
   canonical_source_entities: canonicalEntities.length,
   baseline_projected_entities: baselineEntities.length,
   projected_entities: projectedEntities.length,
+  later_growth_entities: projectedEntities.length - manifest.baseline_projected_entities,
   reviewed_changes: expectedChanges.size,
   applied_changes: manifest.changes?.length ?? 0,
   relationship_edges: actualFinal.size,
@@ -194,8 +196,10 @@ if (outputArg) {
   fs.writeFileSync(outputPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8')
 }
 
+console.log(`Frozen projected entity baseline: ${report.frozen_projected_entity_baseline}`)
 console.log(`Canonical source entities: ${report.canonical_source_entities}`)
-console.log(`Baseline projected entities: ${report.baseline_projected_entities}`)
+console.log(`Current projected entities: ${report.projected_entities}`)
+console.log(`Later growth entities: ${report.later_growth_entities}`)
 console.log(`Reviewed A4 changes: ${report.reviewed_changes}`)
 console.log(`Applied A4 changes: ${report.applied_changes}`)
 console.log(`Relationship edges: ${report.relationship_edges}`)
