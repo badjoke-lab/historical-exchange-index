@@ -10,6 +10,13 @@ const root = process.cwd()
 const outputArg = process.argv.find((arg) => arg.startsWith('--output='))
 const selfTest = process.argv.includes('--self-test')
 
+function readCandidates(file) {
+  const data = JSON.parse(fs.readFileSync(file, 'utf8'))
+  return (data.candidates || [])
+    .map((item) => typeof item === 'string' ? item : item.name || item.canonical_name)
+    .filter(Boolean)
+}
+
 function runSelfTest() {
   const valid = {
     version: 1,
@@ -78,6 +85,38 @@ const duplicatedWatchlistKeys = watchlists.candidates
   .filter((key, index, values) => values.indexOf(key) !== index)
 if (duplicatedWatchlistKeys.length > 0) failures.push(`aggregated watchlist keys are not unique: ${duplicatedWatchlistKeys.join(', ')}`)
 
+const reviewedQueueFiles = {
+  existing: 'data-staging/watchlists/review/20260614-existing-candidates.json',
+  out_of_scope: 'data-staging/watchlists/review/20260614-out-of-scope-candidates.json',
+  priority: 'data-staging/watchlists/review/20260614-priority-research.json',
+  active_1: 'data-staging/watchlists/review/20260614-active-later-01.json',
+  active_2: 'data-staging/watchlists/review/20260614-active-later-02.json',
+}
+
+function requireReviewedState(name, states, sourceFile) {
+  const entry = resolutions.match({ canonical_name: name })
+  if (!entry) {
+    failures.push(`${sourceFile}: missing indexed candidate ${name}`)
+    return
+  }
+  if (!states.includes(entry.state)) {
+    failures.push(`${sourceFile}: ${name} state=${entry.state}, expected ${states.join('|')}`)
+  }
+}
+
+for (const name of readCandidates(reviewedQueueFiles.existing)) {
+  requireReviewedState(name, ['promoted', 'already_canonical'], reviewedQueueFiles.existing)
+}
+for (const name of readCandidates(reviewedQueueFiles.out_of_scope)) {
+  requireReviewedState(name, ['out_of_scope'], reviewedQueueFiles.out_of_scope)
+}
+for (const name of readCandidates(reviewedQueueFiles.priority)) {
+  requireReviewedState(name, ['needs_research'], reviewedQueueFiles.priority)
+}
+for (const file of [reviewedQueueFiles.active_1, reviewedQueueFiles.active_2]) {
+  for (const name of readCandidates(file)) requireReviewedState(name, ['held', 'needs_research'], file)
+}
+
 const lifecycleCounts = {
   terminal: 0,
   open: 0,
@@ -105,12 +144,20 @@ for (const candidate of watchlists.candidates) {
   }
 }
 
+const reviewedQueueCounts = {
+  existing_reviewed: readCandidates(reviewedQueueFiles.existing).length,
+  out_of_scope_reviewed: readCandidates(reviewedQueueFiles.out_of_scope).length,
+  priority_research_reviewed: readCandidates(reviewedQueueFiles.priority).length,
+  active_later_reviewed: [reviewedQueueFiles.active_1, reviewedQueueFiles.active_2].flatMap(readCandidates).length,
+}
+
 const report = {
   generated_at: new Date().toISOString(),
   resolution_index_entries: resolutions.index.entries?.length || 0,
   resolution_state_counts: resolutions.stateCounts,
   historical_resolution_files: resolutions.files.length,
   historical_resolution_coverage_errors: resolutions.coverageErrors.length,
+  reviewed_queue_counts: reviewedQueueCounts,
   watchlist_files: watchlists.files.length,
   raw_watchlist_candidates: watchlists.rawCandidateCount,
   unique_watchlist_candidates: watchlists.candidates.length,
@@ -130,6 +177,7 @@ if (outputArg) {
 
 console.log(`Resolution index entries: ${report.resolution_index_entries}`)
 console.log(`Resolution states: ${JSON.stringify(report.resolution_state_counts)}`)
+console.log(`Reviewed queues: ${JSON.stringify(report.reviewed_queue_counts)}`)
 console.log(`Raw watchlist candidates: ${report.raw_watchlist_candidates}`)
 console.log(`Unique watchlist candidates: ${report.unique_watchlist_candidates}`)
 console.log(`Repeated occurrences collapsed: ${report.repeated_watchlist_occurrences_collapsed}`)
