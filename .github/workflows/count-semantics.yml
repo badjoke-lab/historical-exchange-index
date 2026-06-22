@@ -23,6 +23,8 @@ jobs:
       - run: npm ci
       - run: npm run records:validate
       - run: npm run counts:test
+      - name: Audit reviewed bundle ID collisions
+        run: node scripts/audit-reviewed-bundle-id-collisions.mjs --output=audit-output/bundle-id-collisions.json
       - run: npm run machine:build
       - run: npm run build
       - run: npm run machine:validate
@@ -40,6 +42,7 @@ jobs:
         with:
           name: count-semantics-audit
           path: |
+            audit-output/bundle-id-collisions.json
             audit-output/count-semantics.json
             audit-output/count-semantics.log
           if-no-files-found: error
