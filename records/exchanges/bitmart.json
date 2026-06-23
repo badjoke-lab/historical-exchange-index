@@ -35,6 +35,20 @@
       "source_count": 1,
       "sort_order": 1,
       "notes": "The exact launch date is stated in BitMart's official operating history."
+    },
+    {
+      "id": "hei_ev_009102",
+      "exchange_id": "hei_ex_000393",
+      "event_type": "hack",
+      "event_date": "2021-12-04",
+      "title": "BitMart reported a large-scale hot-wallet security breach",
+      "description": "BitMart identified a large-scale security breach involving an Ethereum hot wallet and a BNB Smart Chain hot wallet and temporarily restricted withdrawals during its response.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 2,
+      "notes": "BitMart remained active and later resumed affected deposit and withdrawal services."
     }
   ],
   "evidence": [
@@ -112,6 +126,21 @@
       "reliability": "high",
       "claim_scope": "launch_date",
       "notes": "Official BitMart article states that the exchange officially launched on March 15, 2018."
+    },
+    {
+      "id": "hei_src_009102",
+      "exchange_id": "hei_ex_000393",
+      "event_id": "hei_ev_009102",
+      "source_type": "official_statement",
+      "title": "BitMart Security Breach Update",
+      "url": "https://www.bitmart.com/en-US/support/articles/7922665245339/7923672421147/4411998987419",
+      "publisher": "BitMart",
+      "published_at": "2021-12-07",
+      "archived_url": "https://web.archive.org/web/*/https://www.bitmart.com/en-US/support/articles/7922665245339/7923672421147/4411998987419",
+      "accessed_at": "2026-06-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Official update identifies the December 4, 2021 breach, affected hot wallets, and staged restoration of services."
     }
   ]
 }
