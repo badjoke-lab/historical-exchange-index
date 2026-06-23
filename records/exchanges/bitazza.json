@@ -55,7 +55,7 @@
   "evidence": [
     {
       "id": "hei_src_001521",
-      "exchane_id": "hei_ex_000381",
+      "exchange_id": "hei_ex_000381",
       "event_id": null,
       "source_type": "official_statement",
       "title": "Bitazza official platform",
@@ -100,7 +100,7 @@
     },
     {
       "id": "hei_src_003224",
-      "exchane_id": "hei_ex_000381",
+      "exchange_id": "hei_ex_000381",
       "event_id": "hei_ev_009007",
       "source_type": "official_blog",
       "title": "Bitazza Global platform remains accessible globally",
@@ -115,7 +115,7 @@
     },
     {
       "id": "hei_src_003225",
-      "exchane_id": "hei_ex_000381",
+      "exchange_id": "hei_ex_000381",
       "event_id": "hei_ev_000689",
       "source_type": "database_reference",
       "title": "CoinMarketCap exchange profile for Bitazza",
