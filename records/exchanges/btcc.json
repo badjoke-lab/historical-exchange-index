@@ -37,6 +37,21 @@
       "source_count": 1,
       "sort_order": 1,
       "notes": "This is the BTCC brand start; predecessor BTCChina retains the 2011 founding history."
+    },
+    {
+      "id": "hei_ev_009205",
+      "exchange_id": "hei_ex_000410",
+      "event_type": "acquired",
+      "event_date": "2018-01-29",
+      "title": "BTCC announced acquisition by a Hong Kong investment fund",
+      "description": "BTCC announced that its business had been acquired by a Hong Kong-based blockchain investment fund whose identity was not publicly disclosed in the reviewed reports.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 2,
+      "counterparty_name": "Undisclosed Hong Kong-based blockchain investment fund",
+      "notes": "The acquisition changed ownership but did not end the BTCC brand or exchange service."
     }
   ],
   "evidence": [
@@ -114,6 +129,36 @@
       "reliability": "high",
       "claim_scope": "event",
       "notes": "BTCC-issued release records the BTCChina-to-BTCC rebrand on September 15, 2015."
+    },
+    {
+      "id": "hei_src_009207",
+      "exchange_id": "hei_ex_000410",
+      "event_id": "hei_ev_009205",
+      "source_type": "news_article",
+      "title": "BTCC acquired by Hong Kong-based blockchain investment fund",
+      "url": "https://www.cryptoninjas.net/2018/01/29/btcc-acquired-hong-kong-based-blockchain-investment-fund/",
+      "publisher": "CryptoNinjas",
+      "published_at": "2018-01-29",
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptoninjas.net/2018/01/29/btcc-acquired-hong-kong-based-blockchain-investment-fund/",
+      "accessed_at": "2026-06-23",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Contemporaneous report records BTCC's acquisition announcement and the undisclosed fund description."
+    },
+    {
+      "id": "hei_src_009208",
+      "exchange_id": "hei_ex_000410",
+      "event_id": "hei_ev_009205",
+      "source_type": "news_article",
+      "title": "Bitcoin Exchange BTCC Just Got Acquired",
+      "url": "https://www.coindesk.com/markets/2018/01/29/bitcoin-exchange-btcc-just-got-acquired",
+      "publisher": "CoinDesk",
+      "published_at": "2018-01-29",
+      "archived_url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2018/01/29/bitcoin-exchange-btcc-just-got-acquired",
+      "accessed_at": "2026-06-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Independent contemporaneous report corroborates the acquisition and the absence of a disclosed buyer identity."
     }
   ]
 }
