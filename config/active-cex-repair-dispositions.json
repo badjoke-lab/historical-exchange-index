@@ -58,6 +58,13 @@
       "disposition": "defer",
       "reason": "The record already has launch, current-status, independent identity, and company-profile evidence. No additional meaningful lifecycle event is currently verified.",
       "review_after": "2026-09-23"
+    },
+    {
+      "id": "hei_ex_000391",
+      "slug": "bitkan",
+      "disposition": "defer",
+      "reason": "The record already has supported launch, current-status, independent identity, and historical-origin evidence. Available investment references do not establish a precise primary-source date, while current notices are routine product or listing activity rather than lifecycle events.",
+      "review_after": "2026-09-23"
     }
   ]
 }
