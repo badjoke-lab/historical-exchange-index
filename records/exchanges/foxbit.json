@@ -1,1 +1,119 @@
-{"entity":{"id":"hei_ex_000038","slug":"foxbit","canonical_name":"Foxbit","aliases":[],"type":"cex","status":"active","death_reason":null,"launch_date":"2014-01-01","death_date":null,"country_or_origin":"Brazil","summary":"Brazil-based centralized exchange launched in 2014 and still operating under the Foxbit brand.","official_url_original":"https://foxbit.com.br/","official_domain_original":"foxbit.com.br","official_url_status":"live_unverified","archived_url":"https://web.archive.org/web/*/https://foxbit.com.br/","confidence":"low","notes":"","last_verified_at":"2026-04-07"},"events":[{"id":"hei_ev_002072","exchange_id":"hei_ex_000038","event_type":"launched","event_date":"2014-12-10","title":"Foxbit was founded","description":"Foxbit was founded in Brazil on 2014-12-10 as a cryptocurrency exchange.","confidence":"high","impact_level":"medium","event_status_effect":"active","source_count":2,"sort_order":1,"notes":"Exact founding date is stated in Foxbit's official anniversary history."}],"evidence":[{"id":"hei_src_003168","exchange_id":"hei_ex_000038","event_id":"hei_ev_002072","source_type":"official_blog","title":"Foxbit: 4 anos de muita história","url":"https://foxbit.com.br/blog/foxbit-4-anos-muita-historia/","publisher":"Foxbit","published_at":null,"archived_url":"https://web.archive.org/web/*/https://foxbit.com.br/blog/foxbit-4-anos-muita-historia/","accessed_at":"2026-06-15","reliability":"high","claim_scope":"launch_date","notes":"Official anniversary article states that Foxbit was founded on 2014-12-10."},{"id":"hei_src_003169","exchange_id":"hei_ex_000038","event_id":"hei_ev_002072","source_type":"official_statement","title":"Conheça a Foxbit","url":"https://faq.foxbit.com.br/hc/pt-br/articles/29516384388493-Conhe%C3%A7a-a-Foxbit","publisher":"Foxbit","published_at":null,"archived_url":"https://web.archive.org/web/*/https://faq.foxbit.com.br/hc/pt-br/articles/29516384388493-Conhe%C3%A7a-a-Foxbit","accessed_at":"2026-06-15","reliability":"high","claim_scope":"entity","notes":"Official help-center profile states that Foxbit was created in 2014 and remains an exchange service."}]}
+{
+  "entity": {
+    "id": "hei_ex_000038",
+    "slug": "foxbit",
+    "canonical_name": "Foxbit",
+    "aliases": [],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2014-12-10",
+    "death_date": null,
+    "country_or_origin": "Brazil",
+    "summary": "Brazil-based centralized cryptocurrency exchange founded on December 10, 2014, providing BRL-denominated crypto trading and related digital-asset services through its active official platform.",
+    "official_url_original": "https://foxbit.com.br/",
+    "official_domain_original": "foxbit.com.br",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://foxbit.com.br/",
+    "confidence": "high",
+    "notes": "Official anniversary material gives an exact founding date of December 10, 2014. Current official and independent exchange profiles confirm the continuing Foxbit trading service in Brazil.",
+    "last_verified_at": "2026-06-23"
+  },
+  "entity_correction": {
+    "entity_id": "hei_ex_000038",
+    "expected": {
+      "launch_date": "2014-01-01",
+      "summary": "Brazil-based centralized exchange launched in 2014 and still operating under the Foxbit brand.",
+      "official_url_status": "live_unverified",
+      "confidence": "low",
+      "notes": "",
+      "last_verified_at": "2026-04-07"
+    },
+    "changes": {
+      "launch_date": "2014-12-10",
+      "summary": "Brazil-based centralized cryptocurrency exchange founded on December 10, 2014, providing BRL-denominated crypto trading and related digital-asset services through its active official platform.",
+      "official_url_status": "live_verified",
+      "confidence": "high",
+      "notes": "Official anniversary material gives an exact founding date of December 10, 2014. Current official and independent exchange profiles confirm the continuing Foxbit trading service in Brazil.",
+      "last_verified_at": "2026-06-23"
+    }
+  },
+  "events": [
+    {
+      "id": "hei_ev_002072",
+      "exchange_id": "hei_ex_000038",
+      "event_type": "launched",
+      "event_date": "2014-12-10",
+      "title": "Foxbit was founded",
+      "description": "Foxbit was founded in Brazil on 2014-12-10 as a cryptocurrency exchange.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Exact founding date is stated in Foxbit's official anniversary history."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_003168",
+      "exchange_id": "hei_ex_000038",
+      "event_id": "hei_ev_002072",
+      "source_type": "official_blog",
+      "title": "Foxbit: 4 anos de muita história",
+      "url": "https://foxbit.com.br/blog/foxbit-4-anos-muita-historia/",
+      "publisher": "Foxbit",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://foxbit.com.br/blog/foxbit-4-anos-muita-historia/",
+      "accessed_at": "2026-06-15",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Official anniversary article states that Foxbit was founded on 2014-12-10."
+    },
+    {
+      "id": "hei_src_003169",
+      "exchange_id": "hei_ex_000038",
+      "event_id": "hei_ev_002072",
+      "source_type": "official_statement",
+      "title": "Conheça a Foxbit",
+      "url": "https://faq.foxbit.com.br/hc/pt-br/articles/29516384388493-Conhe%C3%A7a-a-Foxbit",
+      "publisher": "Foxbit",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://faq.foxbit.com.br/hc/pt-br/articles/29516384388493-Conhe%C3%A7a-a-Foxbit",
+      "accessed_at": "2026-06-15",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official help-center profile states that Foxbit was created in 2014 and remains an exchange service."
+    },
+    {
+      "id": "hei_src_003253",
+      "exchange_id": "hei_ex_000038",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Foxbit official website",
+      "url": "https://foxbit.com.br/",
+      "publisher": "Foxbit",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://foxbit.com.br/",
+      "accessed_at": "2026-06-23",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Official domain verifies the current Foxbit identity and active exchange service."
+    },
+    {
+      "id": "hei_src_003254",
+      "exchange_id": "hei_ex_000038",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "CoinGecko exchange reference for Foxbit",
+      "url": "https://www.coingecko.com/en/exchanges/foxbit",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.coingecko.com/en/exchanges/foxbit",
+      "accessed_at": "2026-06-23",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Independent exchange profile corroborates the Foxbit identity, Brazil registration, and 2014 establishment year."
+    }
+  ]
+}
