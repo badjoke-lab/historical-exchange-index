@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-06-23",
+  "description": "Reviewed temporary deferrals for the active-side CEX repair queue. Deferred records remain fully scored and visible in the audit; only automatic top-five selection is postponed until review_after.",
+  "entities": [
+    {
+      "id": "hei_ex_000250",
+      "slug": "coinedup",
+      "disposition": "defer",
+      "reason": "Remaining score is driven by intentionally unresolved origin and official URL state. The reviewed evidence does not justify a stronger country, URL, or terminal-status classification.",
+      "review_after": "2026-09-23"
+    },
+    {
+      "id": "hei_ex_000382",
+      "slug": "bitbaby",
+      "disposition": "defer",
+      "reason": "The record already has launch and current-status evidence, but no second meaningful historical event or directly verifiable operating legal entity was found. Additional changes would be filler.",
+      "review_after": "2026-09-23"
+    },
+    {
+      "id": "hei_ex_000416",
+      "slug": "byte-exchange",
+      "disposition": "defer",
+      "reason": "Official and independent materials conflict on establishment year and domicile, and no additional meaningful historical event is currently verified. The disagreement remains visible in the record.",
+      "review_after": "2026-09-23"
+    }
+  ]
+}
