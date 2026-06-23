@@ -27,8 +27,39 @@
     "last_verified_at": "2026-04-25",
     "notes": "Do not mark dead yet. The official website is still live and no formal shutdown / bankruptcy / liquidation marker has been confirmed. Status is limited because prosecutor materials and victim instructions document withdrawal problems, an inaccessible approximately 4,500 BTC cold wallet, and losses reported at no less than 350 million PLN. Recheck frequently; potential future reclassification paths are inactive, dead, or scam_rug/insolvency depending on court, regulator, or liquidation evidence."
   },
-  "events": [],
-  "evidence": [],
+  "events": [
+    {
+      "id": "hei_ev_009001",
+      "exchange_id": "hei_ex_000216",
+      "event_type": "launched",
+      "event_date": "2014-01-01",
+      "title": "BitBay predecessor exchange was founded in Poland",
+      "description": "The exchange now known as zondacrypto was founded in Poland in 2014 under its earlier BitBay identity.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "The official history establishes the year but not the exact day, so January 1 is used as a year-level placeholder."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_009001",
+      "exchange_id": "hei_ex_000216",
+      "event_id": "hei_ev_009001",
+      "source_type": "official_statement",
+      "title": "About us - zondacrypto",
+      "url": "https://zondacrypto.com/who-we-are",
+      "publisher": "zondacrypto",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://zondacrypto.com/who-we-are",
+      "accessed_at": "2026-06-23",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Official company history states that the exchange was founded in Poland in 2014."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000216",
     "expected": {
