@@ -12,15 +12,15 @@
     "death_reason": null,
     "launch_date": "2023-01-01",
     "death_date": null,
-    "country_or_origin": "Global",
-    "summary": "Self-described global cryptocurrency exchange operating since 2023 and combining centralized trading with Web3 wallet access.",
+    "country_or_origin": "Seychelles",
+    "summary": "Seychelles-operated hybrid cryptocurrency exchange active since 2023, combining centralized trading, Web3 wallet connectivity, and multi-chain services under the Bitcointry brand.",
     "official_url_original": "https://bitcointry.com/",
     "official_domain_original": "bitcointry.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://bitcointry.com/",
-    "confidence": "medium",
+    "confidence": "high",
     "last_verified_at": "2026-06-23",
-    "notes": "Independent exchange data places Bitcointry's establishment in 2023 and reports Seychelles registration under Devcode Technology. HEI retains Global as the origin because the reviewed accessible official surface describes global operations but does not independently establish a canonical domicile. January 1 is used as a year-level date placeholder."
+    "notes": "Bitcointry's official whitepaper places exchange operations in Seychelles. The Google Play listing identifies Devcode Technology Ltd as the app developer, while the specific CoinGecko profile provides the same operator name and a Seychelles company address. January 1 remains a year-level launch placeholder."
   },
   "events": [
     {
@@ -82,7 +82,37 @@
       "accessed_at": "2026-06-23",
       "reliability": "medium",
       "claim_scope": "launch_date",
-      "notes": "Independent exchange profile identifies Bitcointry as established in 2023. Its Seychelles registration information is noted but does not override the retained Global origin without accessible official corroboration."
+      "notes": "Independent exchange profile identifies Bitcointry as established in 2023 and provides the Devcode Technology Ltd Seychelles company address."
+    },
+    {
+      "id": "hei_src_009004",
+      "exchange_id": "hei_ex_000385",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Bitcointry Whitepaper v3.0",
+      "url": "https://bitcointry.com/Whitepaper.pdf",
+      "publisher": "Bitcointry",
+      "published_at": "2024-01-05",
+      "archived_url": "https://web.archive.org/web/*/https://bitcointry.com/Whitepaper.pdf",
+      "accessed_at": "2026-06-23",
+      "reliability": "high",
+      "claim_scope": "ownership",
+      "notes": "Official whitepaper states that the Bitcointry exchange operates in Seychelles."
+    },
+    {
+      "id": "hei_src_009005",
+      "exchange_id": "hei_ex_000385",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Bitcointry app listing",
+      "url": "https://play.google.com/store/apps/details?id=com.bitcointry.com",
+      "publisher": "Google Play",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://play.google.com/store/apps/details?id=com.bitcointry.com",
+      "accessed_at": "2026-06-23",
+      "reliability": "medium",
+      "claim_scope": "ownership",
+      "notes": "The official app-store listing identifies Devcode Technology Ltd as the Bitcointry application developer."
     }
   ]
 }
