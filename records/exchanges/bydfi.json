@@ -56,7 +56,7 @@
     },
     {
       "id": "hei_src_001615",
-      "exchane_id": "hei_ex_000414",
+      "exchange_id": "hei_ex_000414",
       "event_id": null,
       "source_type": "database_reference",
       "title": "CoinGecko exchange reference for BYDFi",
