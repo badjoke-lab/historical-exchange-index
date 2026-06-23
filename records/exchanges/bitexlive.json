@@ -3,83 +3,87 @@
     "id": "hei_ex_000388",
     "slug": "bitexlive",
     "canonical_name": "Bitexlive",
-    "aliases": ["bitexlive.com"],
+    "aliases": [
+      "BitexLive",
+      "Bitex Live",
+      "bitexlive.com"
+    ],
     "type": "cex",
     "status": "active",
     "death_reason": null,
-    "launch_date": null,
+    "launch_date": "2017-01-01",
     "death_date": null,
     "country_or_origin": "Kazakhstan",
-    "summary": "Centralized crypto exchange founded in 2017 and described by current official ecosystem material as headquartered in Uralsk, Kazakhstan.",
+    "summary": "Kazakhstan-headquartered centralized digital-asset exchange founded in 2017 and offering trading, staking, and portfolio services.",
     "official_url_original": "https://bitexlive.com/",
     "official_domain_original": "bitexlive.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://bitexlive.com/",
-    "confidence": "medium",
-    "last_verified_at": "2026-06-20",
-    "notes": "Added from verified-unadded rows hei_unadded_0290 and hei_unadded_0291 as one entity. BitexLive's official tokenomics and ecosystem page states that the exchange was founded in 2017 and is headquartered in Uralsk, Kazakhstan."
+    "confidence": "high",
+    "last_verified_at": "2026-06-23",
+    "notes": "BitexLive's official ecosystem profile states that the exchange was founded in 2017 and is headquartered in Uralsk, Kazakhstan. The exact launch day is not stated, so HEI uses a year-level date placeholder."
   },
   "events": [
     {
       "id": "hei_ev_000696",
       "exchange_id": "hei_ex_000388",
-      "event_type": "other",
-      "event_date": "2026-06-01",
-      "title": "Bitexlive recorded as centralized exchange",
-      "description": "Bitexlive is recorded as a Kazakhstan-headquartered centralized exchange, with CoinPaprika and CoinGecko candidate rows consolidated into one HEI record.",
-      "confidence": "medium",
-      "impact_level": "low",
+      "event_type": "launched",
+      "event_date": "2017-01-01",
+      "title": "BitexLive exchange founded",
+      "description": "BitexLive was founded in Kazakhstan in 2017 as a centralized digital-asset exchange.",
+      "confidence": "high",
+      "impact_level": "medium",
       "event_status_effect": "active",
-      "source_count": 4,
+      "source_count": 1,
       "sort_order": 1,
-      "notes": "Upgrade with a precise launch-date or legal-provider event if stronger sources are added."
+      "notes": "The official ecosystem profile establishes the year but not the exact day, so January 1 is used as a year-level date placeholder."
     }
   ],
   "evidence": [
     {
       "id": "hei_src_001538",
       "exchange_id": "hei_ex_000388",
-      "event_id": "hei_ev_000696",
+      "event_id": null,
       "source_type": "official_statement",
       "title": "Bitexlive official website",
       "url": "https://bitexlive.com/",
       "publisher": "Bitexlive",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://bitexlive.com/",
-      "accessed_at": "2026-06-01",
+      "accessed_at": "2026-06-23",
       "reliability": "high",
-      "claim_scope": "entity",
-      "notes": "Official domain used to verify Bitexlive identity."
+      "claim_scope": "status",
+      "notes": "Official domain verifies the current BitexLive identity and active exchange interface."
     },
     {
       "id": "hei_src_001539",
       "exchange_id": "hei_ex_000388",
-      "event_id": "hei_ev_000696",
+      "event_id": null,
       "source_type": "database_reference",
       "title": "CoinPaprika exchange reference for Bitexlive",
       "url": "https://api.coinpaprika.com/v1/exchanges",
       "publisher": "CoinPaprika",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
-      "accessed_at": "2026-06-01",
+      "accessed_at": "2026-06-23",
       "reliability": "medium",
       "claim_scope": "entity",
-      "notes": "Source used by verified-unadded backlog row hei_unadded_0290."
+      "notes": "Independent exchange directory reference corroborates the BitexLive identity."
     },
     {
       "id": "hei_src_001540",
       "exchange_id": "hei_ex_000388",
-      "event_id": "hei_ev_000696",
+      "event_id": null,
       "source_type": "database_reference",
       "title": "CoinGecko exchange reference for Bitexlive",
-      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "url": "https://www.coingecko.com/en/exchanges/bitexlive",
       "publisher": "CoinGecko",
       "published_at": null,
-      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
-      "accessed_at": "2026-06-01",
+      "archived_url": "https://web.archive.org/web/*/https://www.coingecko.com/en/exchanges/bitexlive",
+      "accessed_at": "2026-06-23",
       "reliability": "medium",
       "claim_scope": "entity",
-      "notes": "Source used by verified-unadded backlog row hei_unadded_0291."
+      "notes": "Independent exchange profile corroborates the BitexLive exchange identity."
     },
     {
       "id": "hei_src_003191",
@@ -91,10 +95,10 @@
       "publisher": "BitexLive",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://dotc.bitexlive.com/tokenomics",
-      "accessed_at": "2026-06-20",
+      "accessed_at": "2026-06-23",
       "reliability": "high",
-      "claim_scope": "entity",
-      "notes": "The official ecosystem page describes BitexLive as founded in 2017 and headquartered in Uralsk, Kazakhstan."
+      "claim_scope": "launch_date",
+      "notes": "Official ecosystem profile states that BitexLive was founded in 2017 and is headquartered in Uralsk, Kazakhstan."
     }
   ]
 }
