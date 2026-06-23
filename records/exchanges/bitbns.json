@@ -40,7 +40,7 @@
     },
     {
       "id": "hei_ev_009008",
-      "exchane_id": "hei_ex_000383",
+      "exchange_id": "hei_ex_000383",
       "event_type": "hack",
       "event_date": "2022-02-01",
       "title": "Bitbns reported a February 2022 security incident",
