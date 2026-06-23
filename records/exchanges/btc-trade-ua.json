@@ -14,14 +14,14 @@
     "launch_date": "2014-01-01",
     "death_date": null,
     "country_or_origin": "Ukraine",
-    "summary": "Ukraine-focused centralized cryptocurrency exchange established in 2014, supporting hryvnia-denominated and crypto-to-crypto trading through its active official platform.",
+    "summary": "Ukraine-focused centralized cryptocurrency exchange established in 2014 that announced a planned closure after repeated attacks in May 2015 but later resumed and continues operating its official trading platform.",
     "official_url_original": "https://btc-trade.com.ua/",
     "official_domain_original": "btc-trade.com.ua",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://btc-trade.com.ua/",
     "confidence": "medium",
     "last_verified_at": "2026-06-23",
-    "notes": "Multiple independent exchange profiles identify BTC Trade UA as established in 2014, and official-domain pages retain a 2014 copyright baseline. The exact launch day is not available in reviewed primary material, so January 1 is used as a year-level placeholder and confidence remains medium."
+    "notes": "Independent exchange profiles identify a 2014 establishment year. Contemporaneous May 2015 reporting documented the founder's plan to close after repeated attacks, but the current official site and API remain accessible, so HEI records the announcement as a historical event rather than a terminal death marker."
   },
   "events": [
     {
@@ -37,6 +37,20 @@
       "source_count": 2,
       "sort_order": 1,
       "notes": "Reviewed sources establish the year but not the exact day, so January 1 is used as a year-level placeholder."
+    },
+    {
+      "id": "hei_ev_009002",
+      "exchange_id": "hei_ex_000409",
+      "event_type": "shutdown_announced",
+      "event_date": "2015-05-13",
+      "title": "BTC Trade UA founder announced plans to close the exchange",
+      "description": "The exchange's founder announced plans to close BTC Trade UA after repeated attacks and operational pressure; the service later returned and is currently active.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "This is a historical shutdown announcement, not a terminal death event, because the official platform later resumed operation."
     }
   ],
   "evidence": [
@@ -99,6 +113,36 @@
       "reliability": "high",
       "claim_scope": "status",
       "notes": "Official API documentation corroborates an operating exchange service and supported trading pairs."
+    },
+    {
+      "id": "hei_src_009002",
+      "exchange_id": "hei_ex_000409",
+      "event_id": "hei_ev_009002",
+      "source_type": "news_article",
+      "title": "Ukrainian bitcoin exchange btc-trade.com.ua is closing",
+      "url": "https://forklog.com/news/ukrainskaya-bitkoin-birzha-btc-trade-com-ua-okonchatelno-zakryvaetsya/",
+      "publisher": "ForkLog",
+      "published_at": "2015-05-13",
+      "archived_url": "https://web.archive.org/web/*/https://forklog.com/news/ukrainskaya-bitkoin-birzha-btc-trade-com-ua-okonchatelno-zakryvaetsya/",
+      "accessed_at": "2026-06-23",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Contemporaneous report on the founder's announced closure plan."
+    },
+    {
+      "id": "hei_src_009003",
+      "exchange_id": "hei_ex_000409",
+      "event_id": "hei_ev_009002",
+      "source_type": "news_article",
+      "title": "Ukrainian programmer plans to close bitcoin exchange after hacker attacks",
+      "url": "https://ain.ua/2015/05/13/580215",
+      "publisher": "AIN.UA",
+      "published_at": "2015-05-13",
+      "archived_url": "https://web.archive.org/web/*/https://ain.ua/2015/05/13/580215",
+      "accessed_at": "2026-06-23",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Contemporaneous report identifying repeated attacks as the reason for the announced closure plan."
     }
   ]
 }

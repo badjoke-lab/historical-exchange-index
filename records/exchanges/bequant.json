@@ -3,21 +3,25 @@
     "id": "hei_ex_000376",
     "slug": "bequant",
     "canonical_name": "Bequant",
-    "aliases": ["BEQUANT", "BeQuant", "BEQUANT Global"],
+    "aliases": [
+      "BEQUANT",
+      "BeQuant",
+      "BEQUANT Global"
+    ],
     "type": "cex",
     "status": "active",
     "death_reason": null,
     "launch_date": "2022-08-08",
     "death_date": null,
     "country_or_origin": "Malta",
-    "summary": "Malta-based centralized digital-asset exchange and institutional trading platform whose current BEQUANT Global service launched in August 2022 as part of the wider BEQUANT group.",
+    "summary": "Malta-based centralized digital-asset exchange and institutional trading platform whose current BEQUANT Global service launched in August 2022; CrossTower announced an agreement to acquire the wider BEQUANT business in November 2022.",
     "official_url_original": "https://bequant.io/",
     "official_domain_original": "bequant.io",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://bequant.io/",
     "confidence": "high",
-    "last_verified_at": "2026-06-22",
-    "notes": "The BEQUANT group predates the current BEQUANT Global exchange service. HEI uses August 8, 2022 as the launch date for the present retail and professional exchange line, while preserving the broader group identity and Malta origin."
+    "last_verified_at": "2026-06-23",
+    "notes": "The BEQUANT group predates the current BEQUANT Global exchange service. HEI uses August 8, 2022 as the launch date for the present exchange line. The November 2022 CrossTower announcement is recorded as acquisition history without treating it as a terminal shutdown because BEQUANT services remain publicly accessible."
   },
   "events": [
     {
@@ -33,6 +37,20 @@
       "source_count": 1,
       "sort_order": 1,
       "notes": "The wider BEQUANT group and institutional platform existed before this launch; this event marks the current exchange service line."
+    },
+    {
+      "id": "hei_ev_009003",
+      "exchange_id": "hei_ex_000376",
+      "event_type": "acquired",
+      "event_date": "2022-11-28",
+      "title": "CrossTower announced an agreement to acquire BEQUANT",
+      "description": "CrossTower announced that it had reached an agreement to acquire BEQUANT, including its prime-brokerage and digital-asset exchange business.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "The reviewed sources establish an announced acquisition agreement. HEI does not infer a terminal status change because BEQUANT's current services remain available."
     }
   ],
   "evidence": [
@@ -95,6 +113,36 @@
       "reliability": "high",
       "claim_scope": "status",
       "notes": "Current official support material documents active BEQUANT Global markets and trading support."
+    },
+    {
+      "id": "hei_src_009006",
+      "exchange_id": "hei_ex_000376",
+      "event_id": "hei_ev_009003",
+      "source_type": "official_statement",
+      "title": "CrossTower to Acquire BEQUANT",
+      "url": "https://www.prnewswire.com/news-releases/crosstower-to-acquire-bequant-and-launches-the-industry-first-esg-crypto-fund-301687937.html",
+      "publisher": "CrossTower",
+      "published_at": "2022-11-28",
+      "archived_url": "https://web.archive.org/web/*/https://www.prnewswire.com/news-releases/crosstower-to-acquire-bequant-and-launches-the-industry-first-esg-crypto-fund-301687937.html",
+      "accessed_at": "2026-06-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "CrossTower-issued announcement states that it reached an agreement to acquire BEQUANT."
+    },
+    {
+      "id": "hei_src_009007",
+      "exchange_id": "hei_ex_000376",
+      "event_id": "hei_ev_009003",
+      "source_type": "news_article",
+      "title": "CrossTower to acquire institutional prime brokerage BEQUANT",
+      "url": "https://cointelegraph.com/news/crosstower-to-acquire-institutional-prime-brokerage-bequant",
+      "publisher": "Cointelegraph",
+      "published_at": "2022-11-30",
+      "archived_url": "https://web.archive.org/web/*/https://cointelegraph.com/news/crosstower-to-acquire-institutional-prime-brokerage-bequant",
+      "accessed_at": "2026-06-23",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Independent report corroborates the November 2022 acquisition agreement and BEQUANT's exchange business."
     }
   ]
 }

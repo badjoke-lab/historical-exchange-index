@@ -13,11 +13,24 @@
     "summary": "Luxembourg-based centralized exchange launched in 2011 and still operating under the Bitstamp brand.",
     "official_url_original": "https://www.bitstamp.net/",
     "official_domain_original": "bitstamp.net",
-    "official_url_status": "live_unverified",
+    "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.bitstamp.net/",
     "confidence": "high",
-    "notes": "",
-    "last_verified_at": "2026-04-07"
+    "notes": "Bitstamp's official exchange and About Us surfaces were accessible and verified on June 23, 2026.",
+    "last_verified_at": "2026-06-23"
+  },
+  "entity_correction": {
+    "entity_id": "hei_ex_000010",
+    "expected": {
+      "official_url_status": "live_unverified",
+      "notes": "",
+      "last_verified_at": "2026-04-07"
+    },
+    "changes": {
+      "official_url_status": "live_verified",
+      "notes": "Bitstamp's official exchange and About Us surfaces were accessible and verified on June 23, 2026.",
+      "last_verified_at": "2026-06-23"
+    }
   },
   "events": [
     {
