@@ -3,83 +3,86 @@
     "id": "hei_ex_000385",
     "slug": "bitcointry",
     "canonical_name": "Bitcointry",
-    "aliases": ["Bitcointry Exchange", "bitcointry.com"],
+    "aliases": [
+      "Bitcointry Exchange",
+      "bitcointry.com"
+    ],
     "type": "cex",
     "status": "active",
     "death_reason": null,
-    "launch_date": null,
+    "launch_date": "2023-01-01",
     "death_date": null,
     "country_or_origin": "Global",
-    "summary": "Self-described global cryptocurrency exchange combining centralized trading with Web3 wallet access and broad international market coverage.",
+    "summary": "Self-described global cryptocurrency exchange operating since 2023 and combining centralized trading with Web3 wallet access.",
     "official_url_original": "https://bitcointry.com/",
     "official_domain_original": "bitcointry.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://bitcointry.com/",
     "confidence": "medium",
-    "last_verified_at": "2026-06-20",
-    "notes": "Added from verified-unadded rows hei_unadded_0277 and hei_unadded_0278 as one entity. Bitcointry's official site describes the platform as a global cryptocurrency exchange. HEI did not confirm a narrower legal domicile, so Global records the platform's supported operating scope rather than inventing a country assignment."
+    "last_verified_at": "2026-06-23",
+    "notes": "Independent exchange data places Bitcointry's establishment in 2023 and reports Seychelles registration under Devcode Technology. HEI retains Global as the origin because the reviewed accessible official surface describes global operations but does not independently establish a canonical domicile. January 1 is used as a year-level date placeholder."
   },
   "events": [
     {
       "id": "hei_ev_000693",
       "exchange_id": "hei_ex_000385",
-      "event_type": "other",
-      "event_date": "2026-06-01",
-      "title": "Bitcointry recorded as centralized exchange",
-      "description": "Bitcointry is recorded as a self-described global cryptocurrency exchange, with CoinPaprika and CoinGecko candidate rows consolidated into one HEI record.",
+      "event_type": "launched",
+      "event_date": "2023-01-01",
+      "title": "Bitcointry exchange established",
+      "description": "Bitcointry began operating as a cryptocurrency exchange in 2023.",
       "confidence": "medium",
-      "impact_level": "low",
+      "impact_level": "medium",
       "event_status_effect": "active",
-      "source_count": 3,
+      "source_count": 1,
       "sort_order": 1,
-      "notes": "Upgrade with a precise launch, legal-provider, licensing, or headquarters event if stronger sources are added."
+      "notes": "The reviewed independent profile establishes the year but not the exact day, so January 1 is used as a year-level date placeholder."
     }
   ],
   "evidence": [
     {
       "id": "hei_src_001530",
       "exchange_id": "hei_ex_000385",
-      "event_id": "hei_ev_000693",
+      "event_id": null,
       "source_type": "official_statement",
       "title": "Bitcointry official website",
       "url": "https://bitcointry.com/",
       "publisher": "Bitcointry",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://bitcointry.com/",
-      "accessed_at": "2026-06-01",
+      "accessed_at": "2026-06-23",
       "reliability": "high",
-      "claim_scope": "entity",
-      "notes": "Official domain verifies Bitcointry identity and describes it as a global cryptocurrency exchange."
+      "claim_scope": "status",
+      "notes": "Official domain verifies the current Bitcointry identity and active exchange interface."
     },
     {
       "id": "hei_src_001531",
       "exchange_id": "hei_ex_000385",
-      "event_id": "hei_ev_000693",
+      "event_id": null,
       "source_type": "database_reference",
       "title": "CoinPaprika exchange reference for Bitcointry",
       "url": "https://api.coinpaprika.com/v1/exchanges",
       "publisher": "CoinPaprika",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://api.coinpaprika.com/v1/exchanges",
-      "accessed_at": "2026-06-01",
+      "accessed_at": "2026-06-23",
       "reliability": "medium",
       "claim_scope": "entity",
-      "notes": "Source used by verified-unadded backlog row hei_unadded_0277."
+      "notes": "Independent exchange directory reference corroborates the Bitcointry identity."
     },
     {
       "id": "hei_src_001532",
       "exchange_id": "hei_ex_000385",
       "event_id": "hei_ev_000693",
       "source_type": "database_reference",
-      "title": "CoinGecko exchange reference for Bitcointry Exchange",
-      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "title": "CoinGecko exchange reference for Bitcointry",
+      "url": "https://www.coingecko.com/en/exchanges/bitcointry-exchange",
       "publisher": "CoinGecko",
       "published_at": null,
-      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
-      "accessed_at": "2026-06-01",
+      "archived_url": "https://web.archive.org/web/*/https://www.coingecko.com/en/exchanges/bitcointry-exchange",
+      "accessed_at": "2026-06-23",
       "reliability": "medium",
-      "claim_scope": "entity",
-      "notes": "Source used by verified-unadded backlog row hei_unadded_0278."
+      "claim_scope": "launch_date",
+      "notes": "Independent exchange profile identifies Bitcointry as established in 2023. Its Seychelles registration information is noted but does not override the retained Global origin without accessible official corroboration."
     }
   ]
 }
