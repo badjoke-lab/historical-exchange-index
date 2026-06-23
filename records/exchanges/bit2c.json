@@ -13,14 +13,14 @@
     "launch_date": "2013-01-01",
     "death_date": null,
     "country_or_origin": "Israel",
-    "summary": "Israeli centralized cryptocurrency exchange whose trading platform has operated since 2013 for the local market.",
+    "summary": "Israeli centralized cryptocurrency exchange operating since 2013 that announced a planned corporate transition involving the eToro group in May 2026 while continuing normal service.",
     "official_url_original": "https://www.bit2c.co.il/",
     "official_domain_original": "bit2c.co.il",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.bit2c.co.il/",
     "confidence": "high",
     "last_verified_at": "2026-06-23",
-    "notes": "Bit2C's official company page states that its trading platform has operated since 2013. The exact opening day is not stated there, so HEI uses a year-level date placeholder while retaining a dated official post from 2013 as contemporaneous operating evidence."
+    "notes": "Bit2C's official company page states that its trading platform has operated since 2013. On May 7, 2026, Bit2C announced a planned corporate transition involving Bit2C eToro Ltd, subject to closing conditions, while activity and fees remained unchanged."
   },
   "events": [
     {
@@ -36,6 +36,21 @@
       "source_count": 2,
       "sort_order": 1,
       "notes": "The official company history establishes the year but not the exact day, so January 1 is used as a year-level date placeholder."
+    },
+    {
+      "id": "hei_ev_009006",
+      "exchange_id": "hei_ex_000380",
+      "event_type": "acquired",
+      "event_date": "2026-05-07",
+      "title": "Bit2C announced an eToro group transition",
+      "description": "Bit2C announced a planned corporate transition involving Bit2C eToro Ltd and the eToro group.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 2,
+      "counterparty_name": "eToro",
+      "notes": "Normal service was expected to continue and completion remained subject to closing conditions."
     }
   ],
   "evidence": [
@@ -113,6 +128,21 @@
       "reliability": "high",
       "claim_scope": "event",
       "notes": "Contemporaneous official post confirms the exchange was actively operating during 2013."
+    },
+    {
+      "id": "hei_src_009009",
+      "exchange_id": "hei_ex_000380",
+      "event_id": "hei_ev_009006",
+      "source_type": "official_blog",
+      "title": "Bit2C joins the eToro group",
+      "url": "https://bit2c.co.il/Bitcoin/watch/650",
+      "publisher": "Bit2C",
+      "published_at": "2026-05-07",
+      "archived_url": "https://web.archive.org/web/*/https://bit2c.co.il/Bitcoin/watch/650",
+      "accessed_at": "2026-06-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Official announcement records the planned transition and continued normal service during the process."
     }
   ]
 }

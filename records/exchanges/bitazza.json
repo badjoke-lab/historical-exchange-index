@@ -3,21 +3,24 @@
     "id": "hei_ex_000381",
     "slug": "bitazza",
     "canonical_name": "Bitazza",
-    "aliases": ["Bitazza Global", "trade.bitazza.com"],
+    "aliases": [
+      "Bitazza Global",
+      "trade.bitazza.com"
+    ],
     "type": "cex",
     "status": "active",
     "death_reason": null,
     "launch_date": "2019-12-01",
     "death_date": null,
     "country_or_origin": "Thailand",
-    "summary": "Thailand-founded centralized digital-asset platform established in 2018 and operational since December 2019, with regulated Thai brokerage operations and a separate globally accessible Bitazza platform.",
+    "summary": "Thailand-founded centralized digital-asset platform operational since December 2019, with a globally accessible Bitazza service and region-specific access restrictions documented in April 2026.",
     "official_url_original": "https://trade.bitazza.com/",
     "official_domain_original": "trade.bitazza.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://trade.bitazza.com/",
     "confidence": "high",
-    "last_verified_at": "2026-06-22",
-    "notes": "Bitazza was founded in 2018 and began regulated Thai operations in December 2019. Current official notices distinguish the globally accessible Bitazza platform from Thailand-specific operations, so HEI keeps a single entity while documenting the operating distinction."
+    "last_verified_at": "2026-06-23",
+    "notes": "Bitazza was founded in 2018 and began regulated Thai operations in December 2019. An April 2026 official notice said the global platform continued operating normally while local regulatory frameworks could limit access in particular regions, including Thailand."
   },
   "events": [
     {
@@ -33,6 +36,20 @@
       "source_count": 2,
       "sort_order": 1,
       "notes": "The reviewed sources identify December 2019 but not a precise day, so the first day of the month is used as a month-level date placeholder."
+    },
+    {
+      "id": "hei_ev_009007",
+      "exchange_id": "hei_ex_000381",
+      "event_type": "other",
+      "event_date": "2026-04-02",
+      "title": "Bitazza Global clarified regional access limits",
+      "description": "Bitazza stated that its global platform remained in normal operation while regulatory frameworks could restrict access for users in certain regions, including Thailand.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 2,
+      "notes": "The announcement documented regional access limits without indicating a global platform shutdown."
     }
   ],
   "evidence": [
@@ -46,7 +63,7 @@
       "publisher": "Bitazza",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://www.bitazza.com/",
-      "accessed_at": "2026-06-22",
+      "accessed_at": "2026-06-23",
       "reliability": "high",
       "claim_scope": "status",
       "notes": "Official platform verifies the current Bitazza identity and active global services."
@@ -61,7 +78,7 @@
       "publisher": "CoinGecko",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://www.coingecko.com/en/exchanges/bitazza",
-      "accessed_at": "2026-06-22",
+      "accessed_at": "2026-06-23",
       "reliability": "medium",
       "claim_scope": "entity",
       "notes": "Independent exchange profile used to corroborate the Bitazza exchange identity."
@@ -76,25 +93,25 @@
       "publisher": "PR Newswire",
       "published_at": "2025-11-13",
       "archived_url": "https://web.archive.org/web/*/https://www.prnewswire.com/apac/news-releases/bitazza-thailand-marks-six-years-of-regulated-growth-announces-strategic-collaboration-with-b2c2-to-strengthen-institutional-digital-asset-liquidity-in-southeast-asia-302614455.html",
-      "accessed_at": "2026-06-22",
+      "accessed_at": "2026-06-23",
       "reliability": "medium",
       "claim_scope": "launch_date",
-      "notes": "Company-issued anniversary release distributed through PR Newswire states that Bitazza was founded in 2018 and operational since December 2019."
+      "notes": "Company-issued anniversary release states that Bitazza was founded in 2018 and operational since December 2019."
     },
     {
       "id": "hei_src_003224",
       "exchange_id": "hei_ex_000381",
-      "event_id": null,
+      "event_id": "hei_ev_009007",
       "source_type": "official_blog",
       "title": "Bitazza Global platform remains accessible globally",
       "url": "https://blog.bitazza.com/blog/normal-operation-announcement",
       "publisher": "Bitazza",
-      "published_at": "2026-04-01",
+      "published_at": "2026-04-02",
       "archived_url": "https://web.archive.org/web/*/https://blog.bitazza.com/blog/normal-operation-announcement",
-      "accessed_at": "2026-06-22",
+      "accessed_at": "2026-06-23",
       "reliability": "high",
-      "claim_scope": "status",
-      "notes": "Official notice confirms continued accessibility of the global platform while distinguishing it from Thailand-specific operations."
+      "claim_scope": "event",
+      "notes": "Official notice confirms continued global operation while documenting possible regional access limitations."
     },
     {
       "id": "hei_src_003225",
@@ -106,7 +123,7 @@
       "publisher": "CoinMarketCap",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/bitazza/",
-      "accessed_at": "2026-06-22",
+      "accessed_at": "2026-06-23",
       "reliability": "medium",
       "claim_scope": "launch_date",
       "notes": "Independent exchange profile identifies Bitazza as founded in 2018 and operating as a centralized digital-asset platform."
