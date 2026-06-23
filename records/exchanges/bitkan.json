@@ -3,83 +3,100 @@
     "id": "hei_ex_000391",
     "slug": "bitkan",
     "canonical_name": "BitKan",
-    "aliases": ["bitkan.com"],
+    "aliases": [
+      "bitkan.com"
+    ],
     "type": "cex",
     "status": "active",
     "death_reason": null,
-    "launch_date": null,
+    "launch_date": "2019-01-01",
     "death_date": null,
     "country_or_origin": "China",
-    "summary": "China-origin crypto broker and exchange platform founded in 2012 and described on its official domain as headquartered in Beijing.",
+    "summary": "China-origin crypto broker and exchange platform established in 2012 that officially launched its aggregated trading platform in 2019.",
     "official_url_original": "https://bitkan.com/",
     "official_domain_original": "bitkan.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://bitkan.com/",
-    "confidence": "medium",
-    "last_verified_at": "2026-06-19",
-    "notes": "Added from verified-unadded row hei_unadded_0307. BitKan's current official site confirms a 2012 founding, while an official-domain company explainer identifies Beijing, China as its headquarters. HEI records China as the historical operating origin rather than inferring a current legal domicile."
+    "confidence": "high",
+    "last_verified_at": "2026-06-23",
+    "notes": "BitKan's official materials distinguish the platform's 2012 establishment from the 2019 launch of its trading platform. HEI uses 2019 as the exchange launch year and retains China as the historical operating origin based on official-domain material identifying Beijing headquarters. The exact trading-platform launch day is not stated, so January 1 is used as a year-level placeholder."
   },
   "events": [
     {
       "id": "hei_ev_000699",
       "exchange_id": "hei_ex_000391",
-      "event_type": "other",
-      "event_date": "2026-06-01",
-      "title": "BitKan recorded as centralized exchange",
-      "description": "BitKan is recorded as a China-origin crypto broker and exchange platform based on its official domain, 2012 operating history, and CoinGecko exchange source row.",
-      "confidence": "medium",
-      "impact_level": "low",
+      "event_type": "launched",
+      "event_date": "2019-01-01",
+      "title": "BitKan trading platform launched",
+      "description": "BitKan officially launched its aggregated cryptocurrency trading platform in 2019 after operating since 2012 as a crypto data and services platform.",
+      "confidence": "high",
+      "impact_level": "high",
       "event_status_effect": "active",
-      "source_count": 3,
+      "source_count": 1,
       "sort_order": 1,
-      "notes": "Upgrade with a precise launch, licensing, or major operating-history event if stronger dated sources are added."
+      "notes": "The official source establishes the launch year but not the exact day, so January 1 is used as a year-level placeholder."
     }
   ],
   "evidence": [
     {
       "id": "hei_src_001547",
       "exchange_id": "hei_ex_000391",
-      "event_id": "hei_ev_000699",
+      "event_id": null,
       "source_type": "official_statement",
       "title": "BitKan official website",
       "url": "https://bitkan.com/",
       "publisher": "BitKan",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://bitkan.com/",
-      "accessed_at": "2026-06-01",
+      "accessed_at": "2026-06-23",
       "reliability": "high",
-      "claim_scope": "entity",
-      "notes": "Official domain used to verify BitKan identity and its stated 2012 founding."
+      "claim_scope": "status",
+      "notes": "Official domain verifies the current BitKan identity and active trading service."
     },
     {
       "id": "hei_src_001548",
       "exchange_id": "hei_ex_000391",
-      "event_id": "hei_ev_000699",
+      "event_id": null,
       "source_type": "database_reference",
       "title": "CoinGecko exchange reference for BitKan",
-      "url": "https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
+      "url": "https://www.coingecko.com/en/exchanges/bitkan",
       "publisher": "CoinGecko",
       "published_at": null,
-      "archived_url": "https://web.archive.org/web/*/https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1",
-      "accessed_at": "2026-06-01",
+      "archived_url": "https://web.archive.org/web/*/https://www.coingecko.com/en/exchanges/bitkan",
+      "accessed_at": "2026-06-23",
       "reliability": "medium",
       "claim_scope": "entity",
-      "notes": "Source used by verified-unadded backlog row hei_unadded_0307."
+      "notes": "Independent exchange profile corroborates the BitKan exchange identity."
     },
     {
       "id": "hei_src_003186",
       "exchange_id": "hei_ex_000391",
-      "event_id": "hei_ev_000699",
+      "event_id": null,
       "source_type": "official_blog",
       "title": "What to Do if You are not Receiving Verification Texts on BitKan?",
       "url": "https://bitkan.com/learn/what-to-do-if-you-are-not-receiving-verification-texts-on-bitkan-21890",
       "publisher": "BitKan",
       "published_at": "2023-11-29",
       "archived_url": "https://web.archive.org/web/*/https://bitkan.com/learn/what-to-do-if-you-are-not-receiving-verification-texts-on-bitkan-21890",
-      "accessed_at": "2026-06-19",
+      "accessed_at": "2026-06-23",
       "reliability": "medium",
-      "claim_scope": "entity",
-      "notes": "The official-domain explainer states that BitKan was founded in 2012 and is headquartered in Beijing, China. This supports historical operating origin, not a current legal-domicile claim."
+      "claim_scope": "ownership",
+      "notes": "Official-domain explainer states that BitKan was founded in 2012 and headquartered in Beijing, supporting historical operating origin rather than a current legal-domicile claim."
+    },
+    {
+      "id": "hei_src_003242",
+      "exchange_id": "hei_ex_000391",
+      "event_id": "hei_ev_000699",
+      "source_type": "official_blog",
+      "title": "How To Join the BitKan Lunar Festival Event? Guide To Get Free Crypto Airdrop",
+      "url": "https://bitkan.com/learn/how-to-join-the-bitkan-lunar-festival-event-guide-to-get-free-crypto-airdrop-46135",
+      "publisher": "BitKan",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bitkan.com/learn/how-to-join-the-bitkan-lunar-festival-event-guide-to-get-free-crypto-airdrop-46135",
+      "accessed_at": "2026-06-23",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Official-domain article states that BitKan was established in 2012 and officially launched its trading platform in 2019."
     }
   ]
 }
