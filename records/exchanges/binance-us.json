@@ -10,14 +10,14 @@
     "launch_date": "2019-09-24",
     "death_date": null,
     "country_or_origin": "United States",
-    "summary": "United States centralized digital-asset marketplace launched on September 24, 2019 and operated by BAM Trading Services as a separate company from Binance.com.",
+    "summary": "United States centralized digital-asset marketplace launched on September 24, 2019 and operated by BAM Trading Services, with USD banking services restored in May 2025 after a crypto-only period.",
     "official_url_original": "https://www.binance.us/",
     "official_domain_original": "binance.us",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.binance.us/",
     "confidence": "high",
     "last_verified_at": "2026-06-23",
-    "notes": "Binance.US was created as a separate U.S. company and marketplace, not merely a regional source-row variant of Binance.com. Official materials identify BAM Trading Services as the operator and September 24, 2019 as the start of trading operations."
+    "notes": "Binance.US was created as a separate U.S. company and marketplace, not merely a regional source-row variant of Binance.com. Official materials identify BAM Trading Services as the operator, September 24, 2019 as the start of trading operations, and May 29, 2025 as the restoration date for USD services."
   },
   "events": [
     {
@@ -33,6 +33,20 @@
       "source_count": 3,
       "sort_order": 1,
       "notes": "Official launch, company, and compliance materials independently state the September 24, 2019 operating date."
+    },
+    {
+      "id": "hei_ev_009005",
+      "exchange_id": "hei_ex_000386",
+      "event_type": "reopened",
+      "event_date": "2025-05-29",
+      "title": "Binance.US restored USD services",
+      "description": "Binance.US restored USD bank deposits and withdrawals and resumed support for USD trading pairs after operating as a crypto-only marketplace.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 2,
+      "notes": "The event represents restoration of fiat services rather than reopening of the entire exchange, which had remained active for crypto trading."
     }
   ],
   "evidence": [
@@ -125,6 +139,21 @@
       "reliability": "high",
       "claim_scope": "launch_date",
       "notes": "Official compliance page states that Binance.US launched operations on September 24, 2019 after registering as an MSB."
+    },
+    {
+      "id": "hei_src_009008",
+      "exchange_id": "hei_ex_000386",
+      "event_id": "hei_ev_009005",
+      "source_type": "official_statement",
+      "title": "Binance.US resumes USD services: A 2025 guide",
+      "url": "https://support.binance.us/en/articles/10582064-binance-us-resumes-usd-services-a-2025-guide",
+      "publisher": "Binance.US",
+      "published_at": "2025-05-29",
+      "archived_url": "https://web.archive.org/web/*/https://support.binance.us/en/articles/10582064-binance-us-resumes-usd-services-a-2025-guide",
+      "accessed_at": "2026-06-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Official guide states that USD deposits, withdrawals, ACH transfers, and USD trading pairs were available again."
     }
   ]
 }
