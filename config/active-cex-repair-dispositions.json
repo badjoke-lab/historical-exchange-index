@@ -37,6 +37,27 @@
       "disposition": "defer",
       "reason": "The record already contains launch, security-incident, and U.S. regulatory history. Its remaining score comes from canonical summary and URL-verification fields that require a separate guarded canonical correction rather than more events or evidence.",
       "review_after": "2026-07-07"
+    },
+    {
+      "id": "hei_ex_000385",
+      "slug": "bitcointry",
+      "disposition": "defer",
+      "reason": "The record already has reviewed launch, current-status, operator, and Seychelles-origin evidence. No second lifecycle event was found that would add historical value rather than routine product or listing activity.",
+      "review_after": "2026-09-23"
+    },
+    {
+      "id": "hei_ex_000387",
+      "slug": "bitdelta",
+      "disposition": "defer",
+      "reason": "The record has a supported launch and current operating evidence. Additional findings were routine listings, token migrations, or promotional partnerships rather than an exchange lifecycle event suitable for HEI.",
+      "review_after": "2026-09-23"
+    },
+    {
+      "id": "hei_ex_000388",
+      "slug": "bitexlive",
+      "disposition": "defer",
+      "reason": "The record already has launch, current-status, independent identity, and company-profile evidence. No additional meaningful lifecycle event is currently verified.",
+      "review_after": "2026-09-23"
     }
   ]
 }
