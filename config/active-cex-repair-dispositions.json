@@ -23,6 +23,13 @@
       "disposition": "defer",
       "reason": "Official and independent materials conflict on establishment year and domicile, and no additional meaningful historical event is currently verified. The disagreement remains visible in the record.",
       "review_after": "2026-09-23"
+    },
+    {
+      "id": "hei_ex_000355",
+      "slug": "aivora-exchange",
+      "disposition": "defer",
+      "reason": "The record already has launch and current-status evidence. The only additional compliance milestone found is the platform's own MSB claim, which is not enough to create a separate verified historical event.",
+      "review_after": "2026-09-23"
     }
   ]
 }
