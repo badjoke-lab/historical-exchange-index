@@ -14,14 +14,14 @@
     "launch_date": "2017-12-14",
     "death_date": null,
     "country_or_origin": "India",
-    "summary": "India-based centralized cryptocurrency exchange that went live on December 14, 2017, with an official platform focused on retail crypto trading and related services.",
+    "summary": "India-based centralized cryptocurrency exchange that went live on December 14, 2017 and later acknowledged a February 2022 security incident affecting exchange funds.",
     "official_url_original": "https://bitbns.com/",
     "official_domain_original": "bitbns.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://bitbns.com/",
     "confidence": "high",
     "last_verified_at": "2026-06-23",
-    "notes": "Bitbns' official About page gives an exact go-live date of December 14, 2017. HEI retains India as the origin based on the platform's own history and operating identity."
+    "notes": "Bitbns' official About page gives an exact go-live date of December 14, 2017. In March 2023, contemporaneous reporting said the CEO acknowledged that exchange funds had been compromised in February 2022. HEI records the incident without treating it as a terminal status change."
   },
   "events": [
     {
@@ -37,6 +37,20 @@
       "source_count": 1,
       "sort_order": 1,
       "notes": "The exact launch date is stated by the official company history."
+    },
+    {
+      "id": "hei_ev_009008",
+      "exchane_id": "hei_ex_000383",
+      "event_type": "hack",
+      "event_date": "2022-02-01",
+      "title": "Bitbns reported a February 2022 security incident",
+      "description": "Bitbns later acknowledged that exchange funds had been compromised in a February 2022 security incident.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "The reviewed reports establish the month but not the exact incident day, so February 1 is used as a month-level placeholder. The exchange remained active."
     }
   ],
   "evidence": [
@@ -99,6 +113,36 @@
       "reliability": "high",
       "claim_scope": "launch_date",
       "notes": "Official company history states that BNS went live on December 14, 2017."
+    },
+    {
+      "id": "hei_src_009010",
+      "exchange_id": "hei_ex_000383",
+      "event_id": "hei_ev_009008",
+      "source_type": "news_article",
+      "title": "Indian crypto exchange Bitbns says law enforcement advised against making hack public",
+      "url": "https://www.coindesk.com/policy/2023/03/02/indian-crypto-exchange-bitbns-says-law-enforcement-advised-against-making-hack-public",
+      "publisher": "CoinDesk",
+      "published_at": "2023-03-02",
+      "archived_url": "https://web.archive.org/web/*/https://www.coindesk.com/policy/2023/03/02/indian-crypto-exchange-bitbns-says-law-enforcement-advised-against-making-hack-public",
+      "accessed_at": "2026-06-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Report quotes the Bitbns CEO acknowledging that the incident occurred in February 2022."
+    },
+    {
+      "id": "hei_src_009011",
+      "exchange_id": "hei_ex_000383",
+      "event_id": "hei_ev_009008",
+      "source_type": "news_article",
+      "title": "Crypto exchange Bitbns admits partial fund compromise",
+      "url": "https://www.moneycontrol.com/news/business/cryptocurrency/crypto-exchange-bitbns-admits-partial-fund-compromise-following-allegations-of-7-5-million-hack-cover-up-10182851.html",
+      "publisher": "Moneycontrol",
+      "published_at": "2023-03-01",
+      "archived_url": "https://web.archive.org/web/*/https://www.moneycontrol.com/news/business/cryptocurrency/crypto-exchange-bitbns-admits-partial-fund-compromise-following-allegations-of-7-5-million-hack-cover-up-10182851.html",
+      "accessed_at": "2026-06-23",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Contemporaneous report records Bitbns' admission that exchange funds had been compromised."
     }
   ]
 }
