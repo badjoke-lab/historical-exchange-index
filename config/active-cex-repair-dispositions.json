@@ -107,6 +107,20 @@
       "disposition": "defer",
       "reason": "The reviewed bundle verifies the Singapore corporate lineage and current live platform, but the exact public exchange-launch date and primary-source proof linking the current operator to AIBIT PTE. LTD. remain unresolved. Medium confidence and a single lifecycle event are intentional.",
       "review_after": "2026-09-24"
+    },
+    {
+      "id": "hei_ex_000091",
+      "slug": "bitunix",
+      "disposition": "defer",
+      "reason": "The reviewed bundle verifies the 2021 establishment year and current official platform, but public materials do not identify a definitive global operating legal entity or domicile. Medium confidence and a single lifecycle event are intentional pending stronger primary evidence.",
+      "review_after": "2026-09-24"
+    },
+    {
+      "id": "hei_ex_000107",
+      "slug": "bity",
+      "disposition": "defer",
+      "reason": "The reviewed bundle documents the 2014 Swiss corporate lineage, current non-custodial brokerage model, and supervisory context. No second meaningful lifecycle event was verified, so a single event is retained rather than adding routine operating milestones.",
+      "review_after": "2026-09-24"
     }
   ]
 }
