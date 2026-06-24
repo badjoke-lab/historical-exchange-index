@@ -128,6 +128,34 @@
       "disposition": "defer",
       "reason": "The reviewed bundle verifies the July 2024 BitVenus-to-BVOX rebrand and current official domain, but public profiles conflict on whether the platform lineage began in 2018 or 2021. Medium confidence is retained until stronger primary launch evidence is available.",
       "review_after": "2026-09-24"
+    },
+    {
+      "id": "hei_ex_000102",
+      "slug": "cryptomarket",
+      "disposition": "defer",
+      "reason": "The reviewed bundle verifies the 2016 Chile origin, current official domain, and regional legal entities, but no second completed lifecycle milestone was found. A disclosed CMF application is not treated as an approval event.",
+      "review_after": "2026-09-24"
+    },
+    {
+      "id": "hei_ex_000081",
+      "slug": "deepcoin",
+      "disposition": "defer",
+      "reason": "The reviewed bundle verifies the June 2018 launch and current platform, but public materials conflict on the operating legal entity and jurisdiction. Medium confidence and a single lifecycle event are retained pending primary operator evidence.",
+      "review_after": "2026-09-24"
+    },
+    {
+      "id": "hei_ex_000086",
+      "slug": "flipster",
+      "disposition": "defer",
+      "reason": "The reviewed bundle verifies the 2021 AQX lineage and July 2023 rebrand, but current service-provider entities in Panama and Poland do not fully resolve the earlier Singapore or Seychelles origin classifications. Medium confidence is retained.",
+      "review_after": "2026-09-24"
+    },
+    {
+      "id": "hei_ex_000085",
+      "slug": "kcex",
+      "disposition": "defer",
+      "reason": "The reviewed bundle verifies the 2021 establishment year, Seychelles registration claim, and current platform. The definitive operating legal entity and claimed foreign registrations remain unverified in primary registries, so medium confidence and a single event are intentional.",
+      "review_after": "2026-09-24"
     }
   ]
 }
