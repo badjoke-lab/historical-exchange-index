@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-06-23",
+  "reviewed_at": "2026-06-24",
   "description": "Reviewed temporary deferrals for the active-side CEX repair queue. Deferred records remain fully scored and visible in the audit; only automatic top-five selection is postponed until review_after.",
   "entities": [
     {
@@ -72,6 +72,34 @@
       "disposition": "defer",
       "reason": "The January 2023 identity change is already preserved in reviewed notes and official evidence. Promoting it to a structured event currently regresses the frozen A3 text-watchlist baseline, so the record is deferred until the lineage baseline can be migrated safely.",
       "review_after": "2026-07-07"
+    },
+    {
+      "id": "hei_ex_000394",
+      "slug": "bitstorage",
+      "disposition": "defer",
+      "reason": "The Seychelles regulator material supports the domain and regulatory event, but the current platform operator remains unclear. Medium confidence is intentional and should not be upgraded merely to clear the repair score.",
+      "review_after": "2026-07-08"
+    },
+    {
+      "id": "hei_ex_000409",
+      "slug": "btc-trade-ua",
+      "disposition": "defer",
+      "reason": "The 2014 origin, 2015 closure announcement, and current live service are documented, but no primary source establishes the exact relaunch history or current operating legal entity. Medium confidence remains appropriate.",
+      "review_after": "2026-09-24"
+    },
+    {
+      "id": "hei_ex_000290",
+      "slug": "zb-com",
+      "disposition": "defer",
+      "reason": "The withdrawal suspension, suspected exploit, dead domain, and lack of tracked markets are documented, but no primary permanent-closure or liquidation notice has been found. The limited status and medium confidence remain intentionally conservative.",
+      "review_after": "2026-07-08"
+    },
+    {
+      "id": "hei_ex_000216",
+      "slug": "zondacrypto",
+      "disposition": "defer",
+      "reason": "The April 2026 custody and withdrawal crisis is strongly documented, but the official site remains live and no formal shutdown, bankruptcy, or liquidation outcome has been confirmed. Medium confidence is retained pending a terminal development.",
+      "review_after": "2026-07-08"
     }
   ]
 }
