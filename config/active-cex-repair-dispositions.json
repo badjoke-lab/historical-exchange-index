@@ -100,6 +100,13 @@
       "disposition": "defer",
       "reason": "The April 2026 custody and withdrawal crisis is strongly documented, but the official site remains live and no formal shutdown, bankruptcy, or liquidation outcome has been confirmed. Medium confidence is retained pending a terminal development.",
       "review_after": "2026-07-08"
+    },
+    {
+      "id": "hei_ex_000096",
+      "slug": "aibit",
+      "disposition": "defer",
+      "reason": "The reviewed bundle verifies the Singapore corporate lineage and current live platform, but the exact public exchange-launch date and primary-source proof linking the current operator to AIBIT PTE. LTD. remain unresolved. Medium confidence and a single lifecycle event are intentional.",
+      "review_after": "2026-09-24"
     }
   ]
 }
