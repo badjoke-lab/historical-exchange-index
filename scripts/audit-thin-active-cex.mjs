@@ -14,6 +14,7 @@ const ACTIVE_SIDE = new Set(['active', 'limited', 'inactive'])
 const OFFICIAL_SOURCE_TYPES = new Set(['official_statement', 'official_blog', 'official_social'])
 const INDEPENDENT_SOURCE_TYPES = new Set(['news_article', 'regulatory_notice', 'court_document', 'database_reference'])
 const REPAIR_DISPOSITIONS = new Set(['defer'])
+const STRICT_PASS_STATUSES = new Set(['pass', 'final_partial_batch', 'complete'])
 
 function listRecordBundles() {
   const dir = path.join(root, 'records', 'exchanges')
@@ -232,7 +233,8 @@ const bundleRepairable = records.filter((record) => (
   && record.repair_score > 0
   && !record.repair_disposition_active
 ))
-const selectedBatch = bundleRepairable.slice(0, 5).map((record) => record.entity_id)
+const targetBatchSize = Math.min(5, bundleRepairable.length)
+const selectedBatch = bundleRepairable.slice(0, targetBatchSize).map((record) => record.entity_id)
 const scoreBands = {
   critical: records.filter((record) => record.repair_score >= 20).length,
   high: records.filter((record) => record.repair_score >= 12 && record.repair_score < 20).length,
@@ -240,6 +242,11 @@ const scoreBands = {
   low: records.filter((record) => record.repair_score > 0 && record.repair_score < 6).length,
   complete: records.filter((record) => record.repair_score === 0).length,
 }
+const auditStatus = targetBatchSize === 5
+  ? 'pass'
+  : targetBatchSize > 0
+    ? 'final_partial_batch'
+    : 'complete'
 
 const report = {
   generated_at: new Date().toISOString(),
@@ -252,7 +259,7 @@ const report = {
     types: ['cex'],
     statuses: [...ACTIVE_SIDE],
   },
-  selection_policy: 'Rank all active-side CEX records, keep every score visible, exclude only active reviewed deferrals, then select the five highest-scoring records that already have a reviewed bundle.',
+  selection_policy: 'Rank all active-side CEX records, keep every score visible, exclude only active reviewed deferrals, then select up to five highest-scoring records that already have a reviewed bundle. A smaller final batch or zero remaining targets is valid.',
   active_side_cex_count: records.length,
   mapped_record_bundles: records.filter((record) => record.bundle_file).length,
   canonical_only_records: records.filter((record) => !record.bundle_file).length,
@@ -261,11 +268,13 @@ const report = {
   deferred_records: deferredRecords,
   due_disposition_count: dueDispositions.length,
   due_dispositions: dueDispositions,
+  repairable_bundle_targets: bundleRepairable.length,
+  target_batch_size: targetBatchSize,
   score_bands: scoreBands,
   selected_batch: selectedBatch,
   selected_records: selectedBatch.map((id) => records.find((record) => record.entity_id === id)),
   records,
-  status: selectedBatch.length === 5 ? 'pass' : 'insufficient_bundle_targets',
+  status: auditStatus,
 }
 
 const markdown = [
@@ -277,12 +286,16 @@ const markdown = [
   `- Canonical-only records: ${report.canonical_only_records}`,
   `- Active reviewed deferrals: ${report.deferred_record_count}`,
   `- Deferrals due for review: ${report.due_disposition_count}`,
+  `- Remaining repairable bundle targets: ${report.repairable_bundle_targets}`,
+  `- Audit status: ${report.status}`,
   `- Score bands: ${JSON.stringify(scoreBands)}`,
-  '- Selection: top five scored records with an existing reviewed bundle, excluding only active reviewed deferrals; deferred records remain visible and scored.',
+  '- Selection: up to five scored records with an existing reviewed bundle, excluding only active reviewed deferrals; deferred records remain visible and scored.',
   '',
   '## Selected repair batch',
   '',
-  ...report.selected_records.map((record, index) => `${index + 1}. ${record.canonical_name} (${record.entity_id}) — score ${record.repair_score} — ${record.bundle_file}`),
+  ...(report.selected_records.length > 0
+    ? report.selected_records.map((record, index) => `${index + 1}. ${record.canonical_name} (${record.entity_id}) — score ${record.repair_score} — ${record.bundle_file}`)
+    : ['- None; the reviewed bundle repair queue is complete.']),
   '',
   '## Reviewed deferrals',
   '',
@@ -319,6 +332,8 @@ console.log(`Active-side CEX records: ${records.length}`)
 console.log(`Mapped bundles: ${report.mapped_record_bundles}`)
 console.log(`Active reviewed deferrals: ${report.deferred_record_count}`)
 console.log(`Deferrals due for review: ${report.due_disposition_count}`)
+console.log(`Remaining repairable bundle targets: ${report.repairable_bundle_targets}`)
+console.log(`Audit status: ${report.status}`)
 console.log(`Score bands: ${JSON.stringify(scoreBands)}`)
 console.log(`Selected batch: ${selectedBatch.join(', ')}`)
-if (strict && report.status !== 'pass') process.exit(1)
+if (strict && !STRICT_PASS_STATUSES.has(report.status)) process.exit(1)
