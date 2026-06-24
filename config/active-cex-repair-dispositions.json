@@ -121,6 +121,13 @@
       "disposition": "defer",
       "reason": "The reviewed bundle documents the 2014 Swiss corporate lineage, current non-custodial brokerage model, and supervisory context. No second meaningful lifecycle event was verified, so a single event is retained rather than adding routine operating milestones.",
       "review_after": "2026-09-24"
+    },
+    {
+      "id": "hei_ex_000104",
+      "slug": "bvox",
+      "disposition": "defer",
+      "reason": "The reviewed bundle verifies the July 2024 BitVenus-to-BVOX rebrand and current official domain, but public profiles conflict on whether the platform lineage began in 2018 or 2021. Medium confidence is retained until stronger primary launch evidence is available.",
+      "review_after": "2026-09-24"
     }
   ]
 }
