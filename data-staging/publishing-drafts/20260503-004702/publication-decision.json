@@ -1,0 +1,21 @@
+{
+  "run_id": "20260503-004702",
+  "source_monitoring_dir": "data-staging/monitoring/20260503",
+  "generated_at": "2026-05-03T00:47:20.571Z",
+  "should_publish": false,
+  "recommended_publication_type": "no_publish",
+  "homepage_headliner_available": false,
+  "x_post_available": false,
+  "counts": {
+    "publishable": 0,
+    "review_needed": 1,
+    "internal_only": 586,
+    "no_material": 0
+  },
+  "reasons": [
+    "No publishable items, but review-needed items exist."
+  ],
+  "next_actions": [
+    "Manually verify review-needed items and add source review before publication."
+  ]
+}
