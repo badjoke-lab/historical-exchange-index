@@ -73,7 +73,7 @@ for (const [index, entry] of queue.entries.entries()) {
     if (entity.slug !== entry.slug) errors.push(`${label}.slug: ${entry.slug} does not match ${entity.slug}`)
     if (entity.canonical_name !== entry.canonical_name) errors.push(`${label}.canonical_name: ${entry.canonical_name} does not match ${entity.canonical_name}`)
     if (entity.type !== queue.scope.type) errors.push(`${label}.id: expected type ${queue.scope.type}, got ${entity.type}`)
-    if (!activeStatuses.has(entity.status)) errors.push(`${label}.id: entity status ${entity.status} is outside queue scope`)
+    if (entry.status === 'pending' && !activeStatuses.has(entity.status)) errors.push(`${label}.id: entity status ${entity.status} is outside queue scope`)
   }
 
   const hasBundle = bundleByEntityId.has(entry.id)
