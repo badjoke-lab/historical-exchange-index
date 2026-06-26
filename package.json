@@ -32,6 +32,7 @@
     "backlog:dedupe": "node scripts/check-backlog-dedupe.mjs",
     "backlog:build-unadded": "node scripts/build-verified-unadded-candidates.mjs",
     "dex:audit-readiness": "node scripts/audit-dex-seed-readiness.mjs",
+    "dex:check-repair-queue": "node scripts/check-canonical-only-dex-repair-queue.mjs --strict",
     "machine:build": "node scripts/build-machine-readable-layer.mjs",
     "machine:validate": "node scripts/validate-machine-readable-layer.mjs",
     "public:validate": "node scripts/validate-public-output-consistency.mjs",
