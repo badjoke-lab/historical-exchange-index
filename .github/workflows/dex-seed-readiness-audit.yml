@@ -1,0 +1,29 @@
+name: DEX seed readiness audit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: node scripts/audit-dex-seed-readiness.mjs --strict --output=audit-output/dex-seed-readiness.json --markdown=audit-output/dex-seed-readiness.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dex-seed-readiness-audit
+          path: |
+            audit-output/dex-seed-readiness.json
+            audit-output/dex-seed-readiness.md
+          retention-days: 14
