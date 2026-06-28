@@ -1,0 +1,72 @@
+name: Temporary update C1 ApeX Omni scan
+
+on:
+  push:
+    branches:
+      - growth-batch-0052-0100-03
+    paths:
+      - '.github/workflows/temp-update-c1-apex-omni.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: growth-batch-0052-0100-03
+          fetch-depth: 0
+
+      - name: Synchronize C1 candidate scan
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs')
+          const path = 'data-staging/candidate-scans/c1-scan-01.json'
+          const scan = JSON.parse(fs.readFileSync(path, 'utf8'))
+          const item = scan.candidates.find((candidate) => candidate.candidate_key === 'candidate:apex-omni')
+          if (!item) throw new Error('candidate:apex-omni not found')
+          item.source_resolution_state = 'already_canonical'
+          item.scan_disposition = 'out_of_scope_or_duplicate'
+          item.review_status = 'reviewed'
+          item.entity_boundary = 'product_or_version'
+          item.duplicate_status = 'already_canonical'
+          item.likely_type = 'dex'
+          item.likely_status = 'active'
+          item.official_sources = [
+            'https://www.apex.exchange/',
+            'https://www.apex.exchange/blog/detail/ApeX-Omni-Strategic-Roadmap-Unveiled'
+          ]
+          item.independent_sources = []
+          item.minimum_record_shape = { meaningful_events: 4, evidence_records: 8 }
+          item.confidence = 'high'
+          item.unresolved_questions = []
+          item.last_reviewed_at = '2026-06-28'
+          delete item.next_review_after
+          item.proposed_canonical_name = 'ApeX Protocol'
+          item.proposed_aliases = ['ApeX Omni', 'ApeX Pro']
+          item.review_notes = 'Resolved after projected-public overlap audit: ApeX Omni is a product generation of ApeX Protocol (hei_ex_000537).'
+          item.target_entity_id = 'hei_ex_000537'
+          item.matched_entity_name = 'ApeX Protocol'
+          item.matched_entity_slug = 'apex-protocol'
+          scan.updated_at = '2026-06-28'
+          scan.counts = {
+            total: scan.candidates.length,
+            needs_research: scan.candidates.filter((candidate) => candidate.scan_disposition === 'needs_research').length,
+            pending_thin: scan.candidates.filter((candidate) => candidate.scan_disposition === 'pending_thin').length,
+            add_now: scan.candidates.filter((candidate) => candidate.scan_disposition === 'add_now').length,
+            out_of_scope_or_duplicate: scan.candidates.filter((candidate) => candidate.scan_disposition === 'out_of_scope_or_duplicate').length
+          }
+          fs.writeFileSync(path, `${JSON.stringify(scan, null, 2)}\n`)
+          NODE
+
+      - name: Commit scan update
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data-staging/candidate-scans/c1-scan-01.json
+          git diff --cached --exit-code && exit 0
+          git commit -m "Resolve ApeX Omni in C1 scan"
+          git push origin HEAD:growth-batch-0052-0100-03
