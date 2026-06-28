@@ -2,7 +2,7 @@
   "version": 1,
   "scan_id": "c1-scan-01",
   "created_at": "2026-06-22",
-  "updated_at": "2026-06-22",
+  "updated_at": "2026-06-28",
   "source": "data-staging/watchlists/resolution/index.json",
   "purpose": "First Phase C scan of all open B2 candidate resolutions. This is internal reviewed-work metadata and is not canonical public data.",
   "allowed_dispositions": [
@@ -14,9 +14,9 @@
   "counts": {
     "total": 42,
     "needs_research": 0,
-    "pending_thin": 29,
+    "pending_thin": 28,
     "add_now": 1,
-    "out_of_scope_or_duplicate": 12
+    "out_of_scope_or_duplicate": 13
   },
   "first_growth_batch": [
     "candidate:dx-exchange"
@@ -557,35 +557,41 @@
       "candidate_key": "candidate:apex-omni",
       "canonical_name": "Apex Omni",
       "aliases": [],
-      "source_resolution_state": "held",
-      "scan_disposition": "pending_thin",
-      "review_status": "queued",
+      "source_resolution_state": "already_canonical",
+      "scan_disposition": "out_of_scope_or_duplicate",
+      "review_status": "reviewed",
       "research_priority": "normal",
-      "entity_boundary": "unknown",
-      "duplicate_status": "pending",
-      "likely_type": null,
-      "likely_status": null,
-      "official_sources": [],
+      "entity_boundary": "product_or_version",
+      "duplicate_status": "already_canonical",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "official_sources": [
+        "https://www.apex.exchange/",
+        "https://www.apex.exchange/blog/detail/ApeX-Omni-Strategic-Roadmap-Unveiled"
+      ],
       "independent_sources": [],
       "minimum_record_shape": {
-        "meaningful_events": 0,
-        "evidence_records": 0
+        "meaningful_events": 4,
+        "evidence_records": 8
       },
-      "confidence": "unreviewed",
-      "unresolved_questions": [
-        "Confirm HEI entity boundary and whether this is a distinct exchange identity.",
-        "Confirm launch or operating-era evidence.",
-        "Confirm current or terminal status evidence.",
-        "Check canonical names, aliases, domains, and product-version overlap."
-      ],
+      "confidence": "high",
+      "unresolved_questions": [],
       "source_files": [
         "data-staging/watchlists/review/20260614-active-later-01.json"
       ],
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "next_review_after": "2026-09-01",
+      "last_reviewed_at": "2026-06-28",
       "assigned_batch": null,
-      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available."
+      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
+      "proposed_canonical_name": "ApeX Protocol",
+      "proposed_aliases": [
+        "ApeX Omni",
+        "ApeX Pro"
+      ],
+      "review_notes": "Resolved after projected-public overlap audit: ApeX Omni is a product generation of ApeX Protocol (hei_ex_000537).",
+      "target_entity_id": "hei_ex_000537",
+      "matched_entity_name": "ApeX Protocol",
+      "matched_entity_slug": "apex-protocol"
     },
     {
       "candidate_key": "candidate:avantis",
