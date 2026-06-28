@@ -53,10 +53,10 @@ The integrity checker verifies candidate ID, name, slug, range, and disposition 
 
 - `0139` Baseline (Base) -> `hei_ex_000556` Baseline
 - `0141` Basin Exchange -> `hei_ex_000557` Basin
-- `0148` Beam Swap -> `hei_ex_000558`
+- `0148` Beam Swap -> `hei_ex_000558` Beam Network Swap
 - `0150` Bean Exchange -> `hei_ex_000559`
 
-Baseline versions and deployments are retained as one protocol-level entity. Basin's Ethereum and Arbitrum deployments are also retained as one entity. Beam Swap uses a month-level September 2023 launch marker because an exact standalone exchange launch day was not recovered. Bean Exchange uses Monad's November 24, 2025 public-mainnet date as its production launch marker.
+Baseline versions and deployments are retained as one protocol-level entity. Basin's Ethereum and Arbitrum deployments are also retained as one entity. The qualified name Beam Network Swap prevents collision with the unrelated Moonbeam protocol Beamswap (`hei_ex_000370`). Beam Network Swap uses a month-level September 2023 launch marker because an exact standalone launch day was not recovered. Bean Exchange uses Monad's November 24, 2025 public-mainnet date as its production launch marker.
 
 ## Existing canonical and version rows
 
