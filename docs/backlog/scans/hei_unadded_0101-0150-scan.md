@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0101-0150
 
-Status: corrected scan / growth batches 01-03 resolved
+Status: corrected scan / growth batches 01-04 resolved
 
 ## Integrity binding
 
@@ -16,8 +16,8 @@ The integrity checker verifies candidate ID, name, slug, range, and disposition 
 
 | class | count |
 |---|---:|
-| add_now | 10 |
-| needs_research | 15 |
+| add_now | 15 |
+| needs_research | 10 |
 | pending_thin | 5 |
 | out_of_scope_or_duplicate | 20 |
 
@@ -43,6 +43,16 @@ The integrity checker verifies candidate ID, name, slug, range, and disposition 
 
 ATOMARS is modeled as `dead / scam_rug` after the May 2021 wallet-access and withdrawal failure. Azbit remains active based on first-party 2026 product and listing updates. B2BX is `inactive`, not dead, because its site and license ceased normal operation but no definitive shutdown announcement was recovered.
 
+## Resolved in growth batch 04
+
+- `0101` ATAIX -> `hei_ex_000551`
+- `0102` Atlantis (Monad) -> `hei_ex_000552`
+- `0103` Atmos DEX -> `hei_ex_000553`
+- `0108` AuraSwap -> `hei_ex_000554` AuraSwap on Polygon
+- `0109`-`0110` AuroraSwap -> `hei_ex_000555`
+
+The Polygon AuraSwap candidate is distinct from the unrelated Aura Network AMM at `auraswap.io`. Polygon AuraSwap is modeled as inactive because its original application is no longer reliably reachable and current market tracking shows no active volume; no exact terminal date is asserted. AuroraSwap remains active with low but non-zero current market activity. Atmos Studio remains excluded as a launchpad component of the Atmos ecosystem rather than a separate exchange entity.
+
 ## Existing canonical and version rows
 
 - `0129`-`0132` Balancer deployments and versions -> existing `hei_ex_000228`
@@ -62,7 +72,7 @@ ATOMARS is modeled as `dead / scam_rug` after the May 2021 wallet-access and wit
 
 ## Needs research
 
-`0101`, `0102`, `0103`, `0108`, `0109`, `0137`, `0139`, `0140`, `0141`, `0142`, `0144`, `0145`, `0148`, `0149`, `0150`.
+`0137`, `0139`, `0140`, `0141`, `0142`, `0144`, `0145`, `0148`, `0149`, `0150`.
 
 These rows require stronger launch, status, or event evidence before promotion.
 
@@ -74,4 +84,4 @@ These rows remain non-canonical until stronger evidence appears.
 
 ## Next action
 
-Research the 15 remaining candidates in small batches.
+Research the 10 remaining candidates in small batches.
