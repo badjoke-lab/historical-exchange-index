@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-22",
+  "updated_at": "2026-06-28",
   "purpose": "Authoritative current resolution state for monitoring candidates. Historical resolution files remain immutable audit records.",
   "allowed_states": [
     "promoted",
@@ -81,15 +81,15 @@
       "canonical_name": "Apex Omni",
       "aliases": [],
       "candidate_class": "B",
-      "state": "held",
+      "state": "already_canonical",
       "first_seen_at": "2026-06-14",
-      "last_reviewed_at": "2026-06-14",
-      "target_entity_id": null,
+      "last_reviewed_at": "2026-06-28",
+      "target_entity_id": "hei_ex_000537",
       "source_files": [
-        "data-staging/watchlists/review/20260614-active-later-01.json"
+        "data-staging/watchlists/review/20260614-active-later-01.json",
+        "records/exchanges/apex-protocol.json"
       ],
-      "notes": "Reviewed active candidate retained for later research when stronger official and independent evidence is available.",
-      "next_review_after": "2026-09-01"
+      "notes": "Projected-public overlap audit confirms that ApeX Omni is a product generation of ApeX Protocol (hei_ex_000537). The candidate is represented by the canonical protocol-level entity and must not return as open research."
     },
     {
       "candidate_key": "candidate:avantis",
