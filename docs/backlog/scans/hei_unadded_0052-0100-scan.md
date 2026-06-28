@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0052-0100
 
-Status: corrected scan / growth batches 01-03 resolved
+Status: corrected scan complete / growth batches 01-04 resolved
 
 ## Integrity binding
 
@@ -16,9 +16,9 @@ The scan-integrity checker verifies candidate ID, name, slug, range, and disposi
 
 | class | count |
 |---|---:|
-| add_now | 12 |
-| needs_research | 4 |
-| pending_thin | 15 |
+| add_now | 14 |
+| needs_research | 0 |
+| pending_thin | 17 |
 | out_of_scope_or_duplicate | 18 |
 
 ## Resolved in batch 01
@@ -42,28 +42,28 @@ The scan-integrity checker verifies candidate ID, name, slug, range, and disposi
 - `0056` Antfarm (Ethereum) -> `hei_ex_000536` Antfarm
 - `0064` apex -> `hei_ex_000537` ApeX Protocol
 - `0075`-`0076` Archly V1/V2 -> `hei_ex_000538` Archly
-- `0071`-`0072` Arbitrum Exchange V2/V3 -> duplicate/version rows under the Arbidex identity; no separate entity created
+- `0071`-`0072` Arbitrum Exchange V2/V3 -> version rows under the Arbidex identity
 
-Batch 03 keeps ApeX beta, ApeX Pro, ApeX Omni, and the ApeX Pro sunset within one continuing protocol identity. Archly V1 and V2 are likewise retained as versions of one cross-chain DEX.
+## Resolved in batch 04
 
-## Needs research
+- `0070` Arbidex -> `hei_ex_000539` Arbidex
+- `0077`-`0078` Arena DEX -> `hei_ex_000540` Arena DEX
+- `0065` Apex DeFi -> `pending_thin` after completed research; official launch chronology and independent event evidence remain insufficient
+- `0067` AquaSpace V3 -> `pending_thin` after completed research; protocol boundary and launch chronology remain insufficient
 
-| candidate_id | name | reason |
-|---|---|---|
-| `hei_unadded_0065` | Apex DeFi | Identity is clear, but a sufficiently strong launch or historical-event date is still missing. |
-| `hei_unadded_0067` | AquaSpace V3 | Current identity is visible, but exchange-vs-launchpad scope and launch chronology remain insufficient. |
-| `hei_unadded_0070` | Arbidex | Official identity is established; a strong exact launch or major-event record is still required. |
-| `hei_unadded_0077` | Arena DEX | Current venue is visible, but launch chronology and meaningful event evidence remain insufficient. |
+Arbidex is modeled conservatively as `limited` because its official application remains reachable while headline activity was zero during review. Arena DEX is modeled as an active exchange embedded in The Arena ecosystem rather than as a separate representation of the social platform or launch service.
 
 ## Pending thin
 
-`0052`, `0055`, `0068`, `0069`, `0073`, `0074`, `0081`, `0082`, `0083`, `0084`, `0088`, `0089`, `0094`, `0098`, `0100`.
+`0052`, `0055`, `0065`, `0067`, `0068`, `0069`, `0073`, `0074`, `0081`, `0082`, `0083`, `0084`, `0088`, `0089`, `0094`, `0098`, `0100`.
+
+These rows remain non-canonical until stronger evidence appears. They are not an active research queue and must not be promoted from database presence alone.
 
 ## Out of scope / duplicate / version rows
 
 - out of scope: `0054`, `0059`, `0060`, `0061`, `0079`, `0080`
 - duplicate/version rows: `0063`, `0071`, `0072`, `0076`, `0078`, `0086`, `0091`, `0092`, `0093`, `0095`, `0096`, `0097`
 
-## Next action
+## Completion state
 
-Resolve the final four research candidates. Promote only records with a clear entity boundary, meaningful historical events, at least two evidence records, and no projected-public overlap.
+The corrected `0052-0100` range has no unresolved `needs_research` rows. Future work should move to the next rebuilt candidate range rather than repeatedly revisiting these thin rows without new evidence.
