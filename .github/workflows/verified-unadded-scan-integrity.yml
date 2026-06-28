@@ -1,0 +1,41 @@
+name: Verified-unadded scan integrity
+
+on:
+  pull_request:
+    paths:
+      - 'docs/backlog/verified-unadded-candidates-v1/**'
+      - 'docs/backlog/scans/hei_unadded_*-scan.json'
+      - 'scripts/check-verified-unadded-scan-integrity.mjs'
+      - 'package.json'
+      - '.github/workflows/verified-unadded-scan-integrity.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/backlog/verified-unadded-candidates-v1/**'
+      - 'docs/backlog/scans/hei_unadded_*-scan.json'
+      - 'scripts/check-verified-unadded-scan-integrity.mjs'
+      - 'package.json'
+      - '.github/workflows/verified-unadded-scan-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scan-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run self-test
+        run: npm run backlog:test-scan-integrity
+
+      - name: Verify scan manifests against JSONL
+        run: npm run backlog:check-scan-integrity
