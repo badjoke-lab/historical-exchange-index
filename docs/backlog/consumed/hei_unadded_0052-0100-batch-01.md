@@ -29,7 +29,7 @@ Reviewed at: 2026-06-28
 
 - new entities: 4
 - strengthened existing entities: 1
-- new events: 10
+- new events: 12
 - new evidence records: 22
 - duplicate entities created: 0
 
