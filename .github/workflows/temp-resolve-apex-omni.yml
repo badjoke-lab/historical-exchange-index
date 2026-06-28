@@ -1,0 +1,48 @@
+name: Temporary resolve ApeX Omni candidate
+
+on:
+  push:
+    branches:
+      - growth-batch-0052-0100-03
+    paths:
+      - '.github/workflows/temp-resolve-apex-omni.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: growth-batch-0052-0100-03
+          fetch-depth: 0
+
+      - name: Resolve candidate in authoritative index
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs')
+          const path = 'data-staging/watchlists/resolution/index.json'
+          const index = JSON.parse(fs.readFileSync(path, 'utf8'))
+          const entry = index.entries.find((item) => item.candidate_key === 'candidate:apex-omni')
+          if (!entry) throw new Error('candidate:apex-omni not found')
+          entry.state = 'already_canonical'
+          entry.last_reviewed_at = '2026-06-28'
+          entry.target_entity_id = 'hei_ex_000537'
+          entry.source_files = [...new Set([...(entry.source_files || []), 'records/exchanges/apex-protocol.json'])]
+          entry.notes = 'Projected-public overlap audit confirms that ApeX Omni is a product generation of ApeX Protocol (hei_ex_000537). The candidate is represented by the canonical protocol-level entity and must not return as open research.'
+          delete entry.next_review_after
+          index.updated_at = '2026-06-28'
+          fs.writeFileSync(path, `${JSON.stringify(index, null, 2)}\n`)
+          NODE
+
+      - name: Commit resolution update
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data-staging/watchlists/resolution/index.json
+          git diff --cached --exit-code && exit 0
+          git commit -m "Resolve ApeX Omni watchlist candidate"
+          git push origin HEAD:growth-batch-0052-0100-03
