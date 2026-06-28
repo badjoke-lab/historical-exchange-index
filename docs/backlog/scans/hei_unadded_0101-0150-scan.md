@@ -1,14 +1,62 @@
 # Scan: verified-unadded rows 0101-0150
 
-Status: invalidated — candidate-source drift detected
+Status: corrected scan / growth batch 01 resolved
 
-This scan must not be used for record promotion or candidate consumption.
+## Integrity binding
 
-The candidate IDs and names in the previous document no longer match the current source file:
+This scan is paired with:
 
-- source: `docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl`
-- current source blob: `0b0f758137396cc0a21a4eb2c122b71c01b0b3c6`
+- `docs/backlog/scans/hei_unadded_0101-0150-scan.json`
+- source blob: `0b0f758137396cc0a21a4eb2c122b71c01b0b3c6`
+- source generated_at: `2026-06-11T22:46:19.477Z`
 
-The stale classification was removed to prevent incorrect ID/name mapping. Rebuild this range from the current JSONL and add a machine-readable `hei_unadded_0101-0150-scan.json` manifest before using it again.
+The scan-integrity checker verifies candidate ID, name, slug, range, and disposition counts against the source JSONL.
 
-Until that rebuild is merged, all rows in this range remain unconsumed candidate-pool entries.
+## Classification summary
+
+| class | count |
+|---|---:|
+| add_now | 3 |
+| needs_research | 22 |
+| pending_thin | 5 |
+| out_of_scope_or_duplicate | 20 |
+
+## Resolved in growth batch 01
+
+- `0111`-`0112` AutoShark / AutoShark Finance -> `hei_ex_000541` AutoShark
+- `0116` Axial -> `hei_ex_000542` Axial
+- `0124`-`0125` BabyDogeSwap -> `hei_ex_000543` BabyDogeSwap
+- `0128` backpack -> existing `hei_ex_000068` Backpack Exchange strengthened without duplicate creation
+
+## Existing canonical and version rows
+
+- `0129`-`0132` Balancer deployments and versions -> existing `hei_ex_000228`
+- `0134` Bancor V3 -> existing `hei_ex_000358`
+- `0123` BabyDoge Algebra -> BabyDogeSwap product/version row
+- `0110`, `0112`, `0119`, `0125`, `0127`, `0143` -> duplicate rows paired with the primary identity in this range
+
+## Out of scope
+
+- `0104` Atmos Studio: launchpad rather than exchange
+- `0115` Ave.ai: trading application and aggregator
+- `0117` Axiom: trading application
+- `0121` b402: payments protocol
+- `0122` B4U Wallet: wallet product
+- `0133` Banana Gun: trading bot interface
+- `0138` Based Predict: prediction-market interface
+
+## Needs research
+
+`0101`, `0102`, `0103`, `0105`, `0107`, `0108`, `0109`, `0114`, `0118`, `0120`, `0126`, `0136`, `0137`, `0139`, `0140`, `0141`, `0142`, `0144`, `0145`, `0148`, `0149`, `0150`.
+
+These rows require direct canonical rechecks plus stronger launch, terminal-state, or event evidence before promotion.
+
+## Pending thin
+
+`0106`, `0113`, `0135`, `0146`, `0147`.
+
+These rows currently lack a reliable official domain, clear entity boundary, or sufficient event history. Database presence alone is not enough for promotion.
+
+## Next action
+
+Research the 22 remaining candidates in small batches. Prioritize terminal or historically meaningful venues, exact entity boundaries, and records with at least two independent evidence items.
