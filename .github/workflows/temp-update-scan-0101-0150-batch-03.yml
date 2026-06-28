@@ -1,0 +1,54 @@
+name: Temporary update scan 0101-0150 batch 03
+
+on:
+  push:
+    branches:
+      - growth-batch-0101-0150-03
+    paths:
+      - '.github/workflows/temp-update-scan-0101-0150-batch-03.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: growth-batch-0101-0150-03
+          fetch-depth: 0
+      - name: Update machine-readable scan
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs')
+          const path = 'docs/backlog/scans/hei_unadded_0101-0150-scan.json'
+          const scan = JSON.parse(fs.readFileSync(path, 'utf8'))
+          const promoted = new Set([
+            'hei_unadded_0105',
+            'hei_unadded_0118',
+            'hei_unadded_0120'
+          ])
+          for (const entry of scan.entries) {
+            if (promoted.has(entry.candidate_id)) entry.disposition = 'add_now'
+          }
+          scan.reviewed_at = '2026-06-29'
+          scan.counts = {
+            add_now: scan.entries.filter((entry) => entry.disposition === 'add_now').length,
+            needs_research: scan.entries.filter((entry) => entry.disposition === 'needs_research').length,
+            pending_thin: scan.entries.filter((entry) => entry.disposition === 'pending_thin').length,
+            out_of_scope_or_duplicate: scan.entries.filter((entry) => entry.disposition === 'out_of_scope_or_duplicate').length
+          }
+          const expected = { add_now: 10, needs_research: 15, pending_thin: 5, out_of_scope_or_duplicate: 20 }
+          if (JSON.stringify(scan.counts) !== JSON.stringify(expected)) {
+            throw new Error(`unexpected counts: ${JSON.stringify(scan.counts)}`)
+          }
+          fs.writeFileSync(path, `${JSON.stringify(scan)}\n`)
+          NODE
+      - name: Commit scan update
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add docs/backlog/scans/hei_unadded_0101-0150-scan.json
+          git commit -m "Resolve verified-unadded batch 03 scan entries"
+          git push origin HEAD:growth-batch-0101-0150-03
