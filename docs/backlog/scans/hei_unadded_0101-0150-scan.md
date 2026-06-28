@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0101-0150
 
-Status: corrected scan / growth batches 01-04 resolved
+Status: corrected scan / growth batches 01-05 resolved
 
 ## Integrity binding
 
@@ -16,8 +16,8 @@ The integrity checker verifies candidate ID, name, slug, range, and disposition 
 
 | class | count |
 |---|---:|
-| add_now | 15 |
-| needs_research | 10 |
+| add_now | 19 |
+| needs_research | 6 |
 | pending_thin | 5 |
 | out_of_scope_or_duplicate | 20 |
 
@@ -41,8 +41,6 @@ The integrity checker verifies candidate ID, name, slug, range, and disposition 
 - `0118`-`0119` Azbit -> `hei_ex_000549`
 - `0120` B2BX -> `hei_ex_000550`
 
-ATOMARS is modeled as `dead / scam_rug` after the May 2021 wallet-access and withdrawal failure. Azbit remains active based on first-party 2026 product and listing updates. B2BX is `inactive`, not dead, because its site and license ceased normal operation but no definitive shutdown announcement was recovered.
-
 ## Resolved in growth batch 04
 
 - `0101` ATAIX -> `hei_ex_000551`
@@ -51,7 +49,14 @@ ATOMARS is modeled as `dead / scam_rug` after the May 2021 wallet-access and wit
 - `0108` AuraSwap -> `hei_ex_000554` AuraSwap on Polygon
 - `0109`-`0110` AuroraSwap -> `hei_ex_000555`
 
-The Polygon AuraSwap candidate is distinct from the unrelated Aura Network AMM at `auraswap.io`. Polygon AuraSwap is modeled as inactive because its original application is no longer reliably reachable and current market tracking shows no active volume; no exact terminal date is asserted. AuroraSwap remains active with low but non-zero current market activity. Atmos Studio remains excluded as a launchpad component of the Atmos ecosystem rather than a separate exchange entity.
+## Resolved in growth batch 05
+
+- `0139` Baseline (Base) -> `hei_ex_000556` Baseline
+- `0141` Basin Exchange -> `hei_ex_000557` Basin
+- `0148` Beam Swap -> `hei_ex_000558`
+- `0150` Bean Exchange -> `hei_ex_000559`
+
+Baseline versions and deployments are retained as one protocol-level entity. Basin's Ethereum and Arbitrum deployments are also retained as one entity. Beam Swap uses a month-level September 2023 launch marker because an exact standalone exchange launch day was not recovered. Bean Exchange uses Monad's November 24, 2025 public-mainnet date as its production launch marker.
 
 ## Existing canonical and version rows
 
@@ -72,9 +77,9 @@ The Polygon AuraSwap candidate is distinct from the unrelated Aura Network AMM a
 
 ## Needs research
 
-`0137`, `0139`, `0140`, `0141`, `0142`, `0144`, `0145`, `0148`, `0149`, `0150`.
+`0137`, `0140`, `0142`, `0144`, `0145`, `0149`.
 
-These rows require stronger launch, status, or event evidence before promotion.
+These rows require a clearer entity boundary, stronger launch chronology, or stronger terminal/current-status evidence before promotion.
 
 ## Pending thin
 
@@ -84,4 +89,4 @@ These rows remain non-canonical until stronger evidence appears.
 
 ## Next action
 
-Research the 10 remaining candidates in small batches.
+Resolve the final six research candidates without promoting database-only or identity-ambiguous rows.
