@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0052-0100
 
-Status: corrected scan / growth batches 01-02 resolved
+Status: corrected scan / growth batches 01-03 resolved
 
 ## Integrity binding
 
@@ -16,10 +16,10 @@ The scan-integrity checker verifies candidate ID, name, slug, range, and disposi
 
 | class | count |
 |---|---:|
-| add_now | 9 |
-| needs_research | 8 |
+| add_now | 12 |
+| needs_research | 4 |
 | pending_thin | 15 |
-| out_of_scope_or_duplicate | 17 |
+| out_of_scope_or_duplicate | 18 |
 
 ## Resolved in batch 01
 
@@ -37,20 +37,23 @@ The scan-integrity checker verifies candidate ID, name, slug, range, and disposi
 - `0062`-`0063` ApertureSwap -> `hei_ex_000534`
 - `0085`-`0086` Ascent Exchange -> `hei_ex_000535`
 
-Batch 02 preserves the acquisition and migration history of Anycoin Direct, the terminal access disruption of AOFEX, and the EON chain-deprecation impact on Ascent Exchange. Duplicate registry and version rows remain collapsed into protocol-level entities.
+## Resolved in batch 03
+
+- `0056` Antfarm (Ethereum) -> `hei_ex_000536` Antfarm
+- `0064` apex -> `hei_ex_000537` ApeX Protocol
+- `0075`-`0076` Archly V1/V2 -> `hei_ex_000538` Archly
+- `0071`-`0072` Arbitrum Exchange V2/V3 -> duplicate/version rows under the Arbidex identity; no separate entity created
+
+Batch 03 keeps ApeX beta, ApeX Pro, ApeX Omni, and the ApeX Pro sunset within one continuing protocol identity. Archly V1 and V2 are likewise retained as versions of one cross-chain DEX.
 
 ## Needs research
 
 | candidate_id | name | reason |
 |---|---|---|
-| `hei_unadded_0056` | Antfarm (Ethereum) | Requires stronger launch and current-status evidence. |
-| `hei_unadded_0064` | apex | Ambiguous CCXT identifier; requires identity disambiguation. |
-| `hei_unadded_0065` | Apex DeFi | Requires disambiguation and event evidence. |
-| `hei_unadded_0067` | AquaSpace V3 | Requires exchange-vs-launchpad scope and identity research. |
-| `hei_unadded_0070` | Arbidex | Requires official launch, status, and historical-event evidence. |
-| `hei_unadded_0071` | Arbitrum Exchange V2 | Research one protocol-level entity rather than separate versions. |
-| `hei_unadded_0075` | Archly V1 | Requires protocol identity and history research. |
-| `hei_unadded_0077` | Arena DEX | Requires launch, status, and meaningful event evidence. |
+| `hei_unadded_0065` | Apex DeFi | Identity is clear, but a sufficiently strong launch or historical-event date is still missing. |
+| `hei_unadded_0067` | AquaSpace V3 | Current identity is visible, but exchange-vs-launchpad scope and launch chronology remain insufficient. |
+| `hei_unadded_0070` | Arbidex | Official identity is established; a strong exact launch or major-event record is still required. |
+| `hei_unadded_0077` | Arena DEX | Current venue is visible, but launch chronology and meaningful event evidence remain insufficient. |
 
 ## Pending thin
 
@@ -59,8 +62,8 @@ Batch 02 preserves the acquisition and migration history of Anycoin Direct, the 
 ## Out of scope / duplicate / version rows
 
 - out of scope: `0054`, `0059`, `0060`, `0061`, `0079`, `0080`
-- duplicate/version rows: `0063`, `0072`, `0076`, `0078`, `0086`, `0091`, `0092`, `0093`, `0095`, `0096`, `0097`
+- duplicate/version rows: `0063`, `0071`, `0072`, `0076`, `0078`, `0086`, `0091`, `0092`, `0093`, `0095`, `0096`, `0097`
 
 ## Next action
 
-Research the remaining eight candidates. Promote only records with a clear entity boundary, meaningful historical events, at least two evidence records, and no projected-public overlap.
+Resolve the final four research candidates. Promote only records with a clear entity boundary, meaningful historical events, at least two evidence records, and no projected-public overlap.
