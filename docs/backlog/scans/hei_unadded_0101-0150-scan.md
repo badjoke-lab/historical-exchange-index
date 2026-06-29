@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0101-0150
 
-Status: corrected scan / growth batches 01-05 resolved
+Status: corrected scan complete / growth batches 01-06 resolved
 
 ## Integrity binding
 
@@ -16,10 +16,10 @@ The integrity checker verifies candidate ID, name, slug, range, and disposition 
 
 | class | count |
 |---|---:|
-| add_now | 19 |
-| needs_research | 6 |
-| pending_thin | 5 |
-| out_of_scope_or_duplicate | 20 |
+| add_now | 22 |
+| needs_research | 0 |
+| pending_thin | 7 |
+| out_of_scope_or_duplicate | 21 |
 
 ## Resolved in growth batch 01
 
@@ -56,14 +56,23 @@ The integrity checker verifies candidate ID, name, slug, range, and disposition 
 - `0148` Beam Swap -> `hei_ex_000558` Beam Network Swap
 - `0150` Bean Exchange -> `hei_ex_000559`
 
-Baseline versions and deployments are retained as one protocol-level entity. Basin's Ethereum and Arbitrum deployments are also retained as one entity. The qualified name Beam Network Swap prevents collision with the unrelated Moonbeam protocol Beamswap (`hei_ex_000370`). Beam Network Swap uses a month-level September 2023 launch marker because an exact standalone launch day was not recovered. Bean Exchange uses Monad's November 24, 2025 public-mainnet date as its production launch marker.
+## Resolved in growth batch 06
+
+- `0137` BarterSwap Superposition -> `hei_ex_000560` Barter
+- `0140` BaseX -> `hei_ex_000561`
+- `0142`-`0143` Batonex / Batonex Derivative Exchange -> `hei_ex_000562` Batonex
+- `0149` Beamex AMM -> existing `hei_ex_000370` Beamswap, strengthened with the Beamex public-launch event
+- `0144` BCEX -> `pending_thin`
+- `0145` BCoin.sg -> `pending_thin`
+
+BarterSwap Superposition is modeled under the current Barter protocol identity. The basex.fi BaseX protocol is separated from unrelated BaseX and BSX projects. Wisebitcoin and Batonex remain one continuing exchange entity. Beamex is a Beamswap-developed perpetual product and does not receive a separate entity. BCEX and BCoin.sg remain non-canonical because their current or terminal state cannot be supported to the public-quality threshold.
 
 ## Existing canonical and version rows
 
 - `0129`-`0132` Balancer deployments and versions -> existing `hei_ex_000228`
 - `0134` Bancor V3 -> existing `hei_ex_000358`
 - `0123` BabyDoge Algebra -> BabyDogeSwap product/version row
-- `0110`, `0112`, `0119`, `0125`, `0127`, `0143` -> duplicate rows paired with the primary identity in this range
+- `0110`, `0112`, `0119`, `0125`, `0127`, `0143`, `0149` -> duplicate or product rows represented by their primary canonical identity
 
 ## Out of scope
 
@@ -75,18 +84,12 @@ Baseline versions and deployments are retained as one protocol-level entity. Bas
 - `0133` Banana Gun: trading bot interface
 - `0138` Based Predict: prediction-market interface
 
-## Needs research
-
-`0137`, `0140`, `0142`, `0144`, `0145`, `0149`.
-
-These rows require a clearer entity boundary, stronger launch chronology, or stronger terminal/current-status evidence before promotion.
-
 ## Pending thin
 
-`0106`, `0113`, `0135`, `0146`, `0147`.
+`0106`, `0113`, `0135`, `0144`, `0145`, `0146`, `0147`.
 
-These rows remain non-canonical until stronger evidence appears.
+These rows remain non-canonical until stronger evidence appears. They are not an active research queue and must not be promoted from database presence alone.
 
-## Next action
+## Completion state
 
-Resolve the final six research candidates without promoting database-only or identity-ambiguous rows.
+The corrected `0101-0150` range has no unresolved `needs_research` rows. Future growth work should move to the rebuilt `0151-0200` range.
