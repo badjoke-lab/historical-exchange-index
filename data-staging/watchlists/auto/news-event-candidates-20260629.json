@@ -1,0 +1,235 @@
+{
+  "watchlist_type": "auto_news_event_candidates",
+  "created_at": "2026-06-29T08:21:21.104Z",
+  "purpose": "Tightly filtered auto-generated news/regulatory/event candidate output. Not canonical. Requires review before staging/canonical append.",
+  "news_summary": {
+    "enabled": true,
+    "queries": 20,
+    "items": 1384
+  },
+  "regulatory_summary": {
+    "enabled": true,
+    "authorities_configured": 7,
+    "query_templates": 5,
+    "queries": 25,
+    "items": 1832,
+    "raw_candidates": 5
+  },
+  "filtering_summary": {
+    "raw_candidates": 110,
+    "retained_candidates": 4,
+    "new_candidates": 4,
+    "recurring_candidates": 0,
+    "dropped_candidates": 106,
+    "resolved_candidate_names": 70
+  },
+  "candidates": [
+    {
+      "candidate_id": "candidate:loopring",
+      "candidate_key": "candidate:loopring",
+      "canonical_name": "Loopring",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "Loopring shuts down its decentralized exchange due to weak adoption and competition from newer Ethereum networks. - Pluang",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPUkJfTktUWTI2Y09wYV8yaGI4bko4RG16UWxYV085MHNNT25fdWg0MXVLblpXUDVTZGtpS0RvMkF6S29zSW1HcXpYYXAyZU1XdGVDaFJBRThOdmlRRkM5cTJTWG95amxoUDQxRTdWU2xHSUVOb2hBOEFvRlNOODB1RXAteEN4dzJ6bkEzUDNQTFNpZFR2RURFb3o5LWNFOW1wb19CS3JOaGNfelU?oc=5",
+        "https://news.google.com/rss/articles/CBMimAFBVV95cUxQMjI4N0tDOGZtVVB0WFFXRWZURWx4SDJoSVpka1JidWo3eDk2azNOamhXTEtYZ2RQSzQ1V2xyelBjSzJNUUt2R280UHR5N3B4dUpjaXUxRVhqaXBwRWpNNko5TVRISm05eV9wQVdUbjZwRFhSNU1iSndwVW1MRlI0SmdIU3YyOGswUjR0NWFCaDRmTkcxX3FPVQ?oc=5",
+        "https://news.google.com/rss/articles/CBMifkFVX3lxTE5WeTdoNTBnVFlPeXF4UzJZT2tlNTZCczFKREU3QjJJcEo5RkxPUXBXTk81SGRBVnNfSlhrOFR3d2hDV2xyNlJ1cFM2NkpDOXFELV9PT1FDUXFiNFRHLTYzQWRFbW9vN0ZOWnhjWlBqb09EdEY3ZEFqcE4weklEZw?oc=5",
+        "https://news.google.com/rss/articles/CBMizwFBVV95cUxNYWhzQldUeXBRa04yb0EzaGcxR2pyVUpiclVlVVVFbXVSNkFCOVBtWUFjT2hDMmM4WjVwVVFJVlE2UHhzUDZyTUdMWjdiRGZDSkxRMy14WU1tX3pIMUI2Q2phSEZuLXJ2V0NXdjF5bVB6RkVua2JFcExwRmFUSGJ2SzN2bVFHYkZSNHFoRkJNcUNETTJkUDBSOWdqZi0wb1JNNWQxRGp3bDJURTE5SENYYWtCN2trT21NdnlxVXBBdnZ5WjE4WWZWTU5vM3Fjdm8?oc=5",
+        "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9hRGtYdzZDcUtxWDJsc3lBODNLNDBIZkZZTVFwTld6M2xtX3NJaWtrMTJXbGhxa091LU5ObmlpWjYwdFFlV1REMzhsMzlpamVrWHhRVFpfWHFrdDBtS2ZZMzB3WdIBY0FVX3lxTE9hRGtYdzZDcUtxWDJsc3lBODNLNDBIZkZZTVFwTld6M2xtX3NJaWtrMTJXbGhxa091LU5ObmlpWjYwdFFlV1REMzhsMzlpamVrWHhRVFpfWHFrdDBtS2ZZMzB3WQ?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "Pluang, crypto.news, WEEX, Bitget",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "shutdown"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 4,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "multiple_source_urls"
+      ],
+      "first_seen_at": "2026-06-29T08:21:21.102Z",
+      "last_seen_at": "2026-06-29T08:21:21.102Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:zkx",
+      "candidate_key": "candidate:zkx",
+      "canonical_name": "ZKX",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "Decentralized exchange ZKX ceases operations: blaming the market maker, a well-planned \"scam\"? - Binance",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4wR3BqQnBteDFnNEtDc3d0akhaQ0lBMDB1d2hOQ0JWLU9DRXpBc09scEpVcmkyYnRTZGpza0UxbHVLRHd4czNJeHBqeTU5ZGtTa05UcVhpSHQ3NDEydXltT05YVQ?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "Binance",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "shutdown"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 5,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "scam_or_exit_language"
+      ],
+      "first_seen_at": "2026-06-29T08:21:21.102Z",
+      "last_seen_at": "2026-06-29T08:21:21.102Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:closure",
+      "candidate_key": "candidate:closure",
+      "canonical_name": "Closure",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "Oxium Shuts Down as Revenue Collapse Forces DEX Closure - MEXC",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiSEFVX3lxTE5WSE5fQkZoejZVNUdWeDJLVTU4ajBDMTFsY1E5NFhnRVd2amU4WU5icnd3UE5QVHNoX0V4U014NE5EeWZJUk43VA?oc=5",
+        "https://news.google.com/rss/articles/CBMif0FVX3lxTE9TTjFYd1E5ZkJ1ZkNISkFEcTNVVHpKdDV5dVZLekE1cnBRaFhQMnNsdEo1Yk9vSTFnU2hKWmk4SjJLQ1lXU3cxUGtRVnNDbmh0TXFqVjJvTnJ2UGk1VmZtTEd0ME1FVVQyc2Y0VkVxSVZ5bHhiVnU2dmk0NDd6WVU?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "MEXC, HOKANEWS.COM",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "shutdown"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 4,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "multiple_source_urls"
+      ],
+      "first_seen_at": "2026-06-29T08:21:21.102Z",
+      "last_seen_at": "2026-06-29T08:21:21.102Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:coinunited-io",
+      "candidate_key": "candidate:coinunited-io",
+      "canonical_name": "CoinUnited.io",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "unknown",
+      "likely_status": "limited",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "SFC warns public against unlicensed virtual asset trading platform CoinUnited.io - Securities & Futures Commission of Hong Kong",
+      "hei_relevance": "Potential HEI regulatory candidate; do not mark dead unless service closure is proven.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMihwFBVV95cUxPY1EzMi1BNzhtRUpYZVh4WjcyQ1lRcmNhWTU1UW5rbEhDRlM1WGFXdnQ3Z0RyX1F3czVOR2xUM2pGNVRCemFDQnlwMWIzeHJyVUVqNG9TYkFad3ZkZS1STFRLVHR4TExnNHNXZy1MM3BKWjdiSjlXT1VrTlRuZnhUWW5nY2EzUEE?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "hold_for_regulatory_scope_review",
+      "source_name": "Securities & Futures Commission of Hong Kong",
+      "source_category": "regulatory_source",
+      "likely_event_types": [
+        "regulatory_action"
+      ],
+      "news_event_categories": [
+        "regulatory"
+      ],
+      "regulatory_authorities": [
+        "Securities and Futures Commission"
+      ],
+      "regulatory_regions": [
+        "Hong Kong"
+      ],
+      "regulatory_signals": [
+        "warning_list"
+      ],
+      "historical_dead_score": 3,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "regulatory_language",
+        "high_quality_source"
+      ],
+      "first_seen_at": "2026-06-29T08:21:21.103Z",
+      "last_seen_at": "2026-06-29T08:21:21.103Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "missing_in_hei": 4,
+    "matched_existing": 0,
+    "regulatory_candidates": 1,
+    "A": 3,
+    "B": 1,
+    "C": 0
+  }
+}
