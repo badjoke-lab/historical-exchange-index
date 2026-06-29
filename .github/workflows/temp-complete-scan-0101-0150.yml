@@ -1,0 +1,57 @@
+name: Temporary complete scan 0101-0150
+
+on:
+  push:
+    branches:
+      - growth-batch-0101-0150-06
+    paths:
+      - '.github/workflows/temp-complete-scan-0101-0150.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: growth-batch-0101-0150-06
+          fetch-depth: 0
+      - name: Complete machine-readable scan
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs')
+          const path = 'docs/backlog/scans/hei_unadded_0101-0150-scan.json'
+          const scan = JSON.parse(fs.readFileSync(path, 'utf8'))
+          const dispositions = new Map([
+            ['hei_unadded_0137', 'add_now'],
+            ['hei_unadded_0140', 'add_now'],
+            ['hei_unadded_0142', 'add_now'],
+            ['hei_unadded_0144', 'pending_thin'],
+            ['hei_unadded_0145', 'pending_thin'],
+            ['hei_unadded_0149', 'out_of_scope_or_duplicate']
+          ])
+          for (const entry of scan.entries) {
+            if (dispositions.has(entry.candidate_id)) entry.disposition = dispositions.get(entry.candidate_id)
+          }
+          scan.reviewed_at = '2026-06-29'
+          scan.counts = {
+            add_now: scan.entries.filter((entry) => entry.disposition === 'add_now').length,
+            needs_research: scan.entries.filter((entry) => entry.disposition === 'needs_research').length,
+            pending_thin: scan.entries.filter((entry) => entry.disposition === 'pending_thin').length,
+            out_of_scope_or_duplicate: scan.entries.filter((entry) => entry.disposition === 'out_of_scope_or_duplicate').length
+          }
+          const expected = { add_now: 22, needs_research: 0, pending_thin: 7, out_of_scope_or_duplicate: 21 }
+          if (JSON.stringify(scan.counts) !== JSON.stringify(expected)) {
+            throw new Error(`unexpected counts: ${JSON.stringify(scan.counts)}`)
+          }
+          fs.writeFileSync(path, `${JSON.stringify(scan)}\n`)
+          NODE
+      - name: Commit scan completion
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add docs/backlog/scans/hei_unadded_0101-0150-scan.json
+          git commit -m "Complete verified-unadded scan 0101-0150"
+          git push origin HEAD:growth-batch-0101-0150-06
