@@ -1,28 +1,30 @@
 {
   "entity": {
-    "id": "hei_ex_000570",
+    "id": "hei_ex_000308",
     "slug": "binance-jex",
     "canonical_name": "Binance JEX",
-    "aliases": ["JEX", "JEX Exchange", "JEX.com", "Binance JEX Futures"],
+    "aliases": ["JEX", "JEX Exchange", "Binance JEX Exchange", "JEX.com", "jex.com"],
     "type": "cex",
     "status": "dead",
     "death_reason": "regulation",
-    "launch_date": null,
+    "launch_date": "2019-09-02",
     "death_date": "2021-12-01",
-    "country_or_origin": "Global",
-    "summary": "Centralized spot and crypto-derivatives exchange acquired by Binance in September 2019 and renamed Binance JEX. In October 2021, the platform announced a staged exit under new regulatory requirements, closing spot and futures trading on November 21 and officially ceasing operations on December 1, 2021.",
+    "country_or_origin": "Seychelles",
+    "summary": "Crypto-asset derivatives and spot trading platform originally known as JEX and later operated as Binance JEX after Binance acquired it in September 2019. JEX offered futures, options, perpetual contracts, and spot trading. In October 2021, JEX announced that, under latest regulatory requirements, new mainland China registrations and KYC had stopped and the platform would officially cease operations on 2021-12-01. Cryptowisser later marked Binance JEX dead and moved it to the Exchange Graveyard.",
     "official_url_original": "https://www.jex.com/",
     "official_domain_original": "jex.com",
     "official_url_status": "dead_domain",
     "archived_url": "https://web.archive.org/web/*/https://www.jex.com/",
+    "predecessor_id": null,
+    "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-06-30",
-    "notes": "HEI models the spot and futures rows as one exchange entity. The acquisition did not make JEX a separate Binance.com product record: it continued as the Binance JEX platform until its staged regulatory shutdown. No launch date is stored because a sufficiently strong exact or year-level original launch marker was not recovered in this review."
+    "last_verified_at": "2026-05-12",
+    "notes": "HEI uses death_reason regulation because the JEX suspension notice explicitly cites latest regulatory requirements and Cryptowisser attributes closure to regulatory pressure from Chinese authorities. country_or_origin follows CoinDesk/Nasdaq reporting that JEX was Seychelles-registered."
   },
   "events": [
     {
       "id": "hei_ev_010015",
-      "exchange_id": "hei_ex_000570",
+      "exchange_id": "hei_ex_000308",
       "event_type": "acquired",
       "event_date": "2019-09-02",
       "title": "Binance acquired JEX",
@@ -36,7 +38,7 @@
     },
     {
       "id": "hei_ev_010016",
-      "exchange_id": "hei_ex_000570",
+      "exchange_id": "hei_ex_000308",
       "event_type": "shutdown_effective",
       "event_date": "2021-12-01",
       "title": "Binance JEX officially ceased operations",
@@ -52,7 +54,7 @@
   "evidence": [
     {
       "id": "hei_src_011032",
-      "exchange_id": "hei_ex_000570",
+      "exchange_id": "hei_ex_000308",
       "event_id": "hei_ev_010015",
       "source_type": "news_article",
       "title": "Binance Acquires Crypto Exchange JEX to Boost Derivatives Offerings",
@@ -67,7 +69,7 @@
     },
     {
       "id": "hei_src_011033",
-      "exchange_id": "hei_ex_000570",
+      "exchange_id": "hei_ex_000308",
       "event_id": "hei_ev_010015",
       "source_type": "news_article",
       "title": "Binance acquires JEX and enters crypto derivatives market",
@@ -82,7 +84,7 @@
     },
     {
       "id": "hei_src_011034",
-      "exchange_id": "hei_ex_000570",
+      "exchange_id": "hei_ex_000308",
       "event_id": "hei_ev_010016",
       "source_type": "official_statement",
       "title": "Announcement on the suspension of operation of the JEX platform",
@@ -97,7 +99,7 @@
     },
     {
       "id": "hei_src_011035",
-      "exchange_id": "hei_ex_000570",
+      "exchange_id": "hei_ex_000308",
       "event_id": "hei_ev_010016",
       "source_type": "database_reference",
       "title": "Binance JEX exchange closure profile",
