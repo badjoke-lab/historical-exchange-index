@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0151-0200
 
-Status: rebuilt scan / growth batches 01-02 resolved
+Status: rebuilt scan / add-now queue resolved
 
 ## Integrity binding
 
@@ -16,12 +16,12 @@ The integrity checker verifies candidate IDs, names, slugs, range, and dispositi
 
 | class | count |
 |---|---:|
-| add_now | 10 |
-| needs_research | 17 |
+| add_now | 9 |
+| needs_research | 18 |
 | pending_thin | 9 |
 | out_of_scope_or_duplicate | 14 |
 
-The counts above preserve the initial reviewed classification. Promotion history is recorded below and in `docs/backlog/consumed/`.
+All nine current `add_now` rows are resolved through promotion or existing-entity strengthening. Bit.com was moved from `add_now` to `needs_research` because its historical exchange wind-down and continuing BIT services require separate modeling.
 
 ## Resolved in batch 01
 
@@ -36,17 +36,15 @@ The counts above preserve the initial reviewed classification. Promotion history
 - `0193` BitcoinTrade -> `hei_ex_000571`
 - `0194` BitcoinVN candidate -> `hei_ex_000572` VBTC
 
-Binance JEX is an existing regulation-related staged-closure entity strengthened by this batch. BitcoinTrade is the historical Brazilian predecessor that became Ripio Trade. VBTC remains limited because its planned end-of-2026 shutdown has not yet occurred.
+## Resolved in batch 03
 
-## Remaining add-now research
-
-- `0165` Bibox — current active-side state requires separate review
-- `0185`-`0186` Bit.com spot/futures — one entity; continuing OTC activity requires scope review
-- `0192` BitcoinToYou — current and terminal state require stronger evidence
+- `0165` Bibox -> `hei_ex_000573`
+- `0192` BitcoinToYou -> `hei_ex_000574`
+- `0185`-`0186` Bit.com -> moved to `needs_research`
 
 ## Needs research
 
-`0155`, `0156`, `0157`, `0158`, `0159`, `0161`, `0162`, `0166`, `0171`, `0182`, `0184`, `0187`, `0189`, `0190`, `0195`, `0197`, `0199`.
+`0155`, `0156`, `0157`, `0158`, `0159`, `0161`, `0162`, `0166`, `0171`, `0182`, `0184`, `0185`, `0187`, `0189`, `0190`, `0195`, `0197`, `0199`.
 
 ## Pending thin
 
@@ -79,4 +77,4 @@ Database presence alone is insufficient for promotion.
 
 ## Next step
 
-Review Bibox, Bit.com, and BitcoinToYou separately. Downgrade them rather than forcing record creation if public-quality state remains ambiguous.
+Process the 18 `needs_research` candidates in small thematic batches. Strongly evidenced records may be promoted; unresolved rows should move to `pending_thin` or `out_of_scope_or_duplicate` rather than remain indefinitely open.
