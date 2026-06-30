@@ -21,7 +21,7 @@
   },
   "events": [
     {
-      "id": "hei_ev_009897",
+      "id": "hei_ev_010001",
       "exchange_id": "hei_ex_000563",
       "event_type": "launched",
       "event_date": "2020-02-01",
@@ -35,7 +35,7 @@
       "notes": "The official April 2020 API announcement states that Loopring Exchange had launched in late February; HEI stores a month-level date."
     },
     {
-      "id": "hei_ev_009898",
+      "id": "hei_ev_010002",
       "exchange_id": "hei_ex_000563",
       "event_type": "shutdown_effective",
       "event_date": "2026-06-28",
@@ -51,9 +51,9 @@
   ],
   "evidence": [
     {
-      "id": "hei_src_010263",
+      "id": "hei_src_011001",
       "exchange_id": "hei_ex_000563",
-      "event_id": "hei_ev_009897",
+      "event_id": "hei_ev_010001",
       "source_type": "official_blog",
       "title": "Loopring Exchange Launches API",
       "url": "https://medium.com/loopring-protocol/loopring-exchange-launches-api-ea7dba7f8718",
@@ -66,9 +66,9 @@
       "notes": "Official post says Loopring Exchange launched in late February 2020 and identifies it as the first decentralized trading platform built on the Loopring zkRollup protocol."
     },
     {
-      "id": "hei_src_010264",
+      "id": "hei_src_011002",
       "exchange_id": "hei_ex_000563",
-      "event_id": "hei_ev_009897",
+      "event_id": "hei_ev_010001",
       "source_type": "official_statement",
       "title": "Loopring Protocol and Exchange introduction",
       "url": "https://docs-protocol.loopring.io/",
@@ -81,9 +81,9 @@
       "notes": "Official developer documentation identifies Loopring Exchange as a decentralized trading platform built on the Loopring zkRollup protocol."
     },
     {
-      "id": "hei_src_010265",
+      "id": "hei_src_011003",
       "exchange_id": "hei_ex_000563",
-      "event_id": "hei_ev_009898",
+      "event_id": "hei_ev_010002",
       "source_type": "official_social",
       "title": "Sunsetting Loopring DEX",
       "url": "https://x.com/loopringorg/status/2071253250725322987",
@@ -96,9 +96,9 @@
       "notes": "Official shutdown statement says trading services ceased immediately and the relayer was taken offline."
     },
     {
-      "id": "hei_src_010266",
+      "id": "hei_src_011004",
       "exchange_id": "hei_ex_000563",
-      "event_id": "hei_ev_009898",
+      "event_id": "hei_ev_010002",
       "source_type": "news_article",
       "title": "Ethereum zkRollup project Loopring sunsets DEX, citing lack of meaningful adoption",
       "url": "https://www.theblock.co/post/406492/loopring-sunsets-dex",
@@ -111,9 +111,9 @@
       "notes": "Independent report confirms the immediate DEX shutdown, relayer termination, and planned direct return of remaining user assets."
     },
     {
-      "id": "hei_src_010267",
+      "id": "hei_src_011005",
       "exchange_id": "hei_ex_000563",
-      "event_id": "hei_ev_009898",
+      "event_id": "hei_ev_010002",
       "source_type": "official_statement",
       "title": "Loopring has shut down",
       "url": "https://loopring.io/",
