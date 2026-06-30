@@ -21,7 +21,7 @@
   },
   "events": [
     {
-      "id": "hei_ev_009899",
+      "id": "hei_ev_010003",
       "exchange_id": "hei_ex_000564",
       "event_type": "launched",
       "event_date": "2024-01-31",
@@ -35,7 +35,7 @@
       "notes": "Exact date follows the official ZKX launch post."
     },
     {
-      "id": "hei_ev_009900",
+      "id": "hei_ev_010004",
       "exchange_id": "hei_ex_000564",
       "event_type": "shutdown_effective",
       "event_date": "2024-07-30",
@@ -51,9 +51,9 @@
   ],
   "evidence": [
     {
-      "id": "hei_src_010268",
+      "id": "hei_src_011006",
       "exchange_id": "hei_ex_000564",
-      "event_id": "hei_ev_009899",
+      "event_id": "hei_ev_010003",
       "source_type": "official_blog",
       "title": "ZKX OG Trade LIVE on Mainnet",
       "url": "https://zkx.fi/blogs/zkx-og-trade-live-on-mainnet",
@@ -66,9 +66,9 @@
       "notes": "Official launch post states that OG Trade was live on Starknet mainnet on January 31, 2024."
     },
     {
-      "id": "hei_src_010269",
+      "id": "hei_src_011007",
       "exchange_id": "hei_ex_000564",
-      "event_id": "hei_ev_009900",
+      "event_id": "hei_ev_010004",
       "source_type": "official_social",
       "title": "Important statement on discontinuation of ZKX",
       "url": "https://twitter.com/0xEduard/status/1818206251089551810",
@@ -81,9 +81,9 @@
       "notes": "Founder statement announces discontinuation, market delisting, position closure, and the withdrawal process."
     },
     {
-      "id": "hei_src_010270",
+      "id": "hei_src_011008",
       "exchange_id": "hei_ex_000564",
-      "event_id": "hei_ev_009900",
+      "event_id": "hei_ev_010004",
       "source_type": "news_article",
       "title": "Crypto futures DEX ZKX announces suspension of operations",
       "url": "https://crypto-times.jp/news-zkx-announces-suspension-of-operation/",
@@ -96,9 +96,9 @@
       "notes": "Report preserves the founder's statement and summarizes the low-engagement, low-volume, revenue, cost, and token-value reasons for the shutdown."
     },
     {
-      "id": "hei_src_010271",
+      "id": "hei_src_011009",
       "exchange_id": "hei_ex_000564",
-      "event_id": "hei_ev_009900",
+      "event_id": "hei_ev_010004",
       "source_type": "news_article",
       "title": "StarkNet derivative trading protocol ZKX has ceased operations",
       "url": "https://www.chaincatcher.com/en/article/2135959",
