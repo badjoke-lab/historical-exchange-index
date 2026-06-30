@@ -2,6 +2,8 @@ import { MONITOR_NAMES } from './core/constants.mjs';
 import { monitorRegistryNames, MONITOR_REGISTRY } from './core/monitor-registry.mjs';
 import { loadCanonicalData } from './core/load-canonical-data.mjs';
 import { createMonitorResult, runMonitorSafely } from './core/finding-utils.mjs';
+import { buildSummaryMarkdown } from './core/summary-writer.mjs';
+import { normalizeSitemapUrl } from './adapters/sitemap-check.mjs';
 import { runReviewedBundleAggregationRegression } from '../test-reviewed-bundle-aggregation.mjs';
 import { buildRegistryMetrics, parseReviewMonth } from '../review/monthly-registry-core.mjs';
 import { runMonthlyWatchlistBacklogRegression } from '../review/test-monthly-watchlist-core.mjs';
@@ -36,6 +38,47 @@ function validateMonitorResult(result, expectedName) {
   assert(Number.isInteger(result.summary.errors_count), `${expectedName} summary.errors_count must be integer`);
 }
 
+function runMonitoringOutputRegressions() {
+  assert(
+    normalizeSitemapUrl('https://hei.badjoke-lab.com/dead/') === normalizeSitemapUrl('https://hei.badjoke-lab.com/dead'),
+    'sitemap URL comparison must ignore a non-root trailing slash',
+  );
+  assert(
+    normalizeSitemapUrl('https://hei.badjoke-lab.com/') === 'https://hei.badjoke-lab.com/',
+    'sitemap root URL must retain its slash',
+  );
+
+  const summary = buildSummaryMarkdown({
+    runId: '20260630-smoke',
+    mode: 'smoke',
+    startedAt: '2026-06-30T00:00:00.000Z',
+    finishedAt: '2026-06-30T00:00:01.000Z',
+    hasMeaningfulFindings: false,
+    results: [
+      {
+        monitor: 'monitoring-health-watch',
+        findings: [],
+        candidates: [],
+        watchlist_state: {
+          candidate_queue_files: 2,
+          raw_candidate_occurrences: 12,
+          unique_candidate_identities: 9,
+          repeated_occurrences_collapsed: 3,
+          watchlist_class_counts: { A: 1, B: 7, C: 1 },
+          manual_staging_packages: 4,
+          historical_resolution_files: 5,
+          resolution_index_entries: 6,
+          resolution_coverage_errors: 0,
+        },
+      },
+    ],
+  });
+
+  assert(!summary.includes('undefined'), 'monitoring summary must not render undefined watchlist values');
+  assert(summary.includes('candidate_queue_files: 2'), 'monitoring summary must use the current watchlist state schema');
+  assert(summary.includes('unique_candidate_identities: 9'), 'monitoring summary must report deduplicated candidate identities');
+}
+
 async function main() {
   assertSameSet(MONITOR_NAMES, monitorRegistryNames(), 'MONITOR_NAMES and MONITOR_REGISTRY are out of sync');
 
@@ -62,6 +105,7 @@ async function main() {
   });
   validateMonitorResult(synthetic, 'smoke-synthetic');
 
+  runMonitoringOutputRegressions();
   runReviewedBundleAggregationRegression();
   runMonthlyWatchlistBacklogRegression();
   runMonthlyReviewBuilderRegression();
