@@ -32,11 +32,11 @@ The counts above preserve the initial reviewed classification. Promotion history
 
 ## Resolved in batch 02
 
-- `0178`-`0179` Binance JEX spot/futures -> `hei_ex_000570`
+- `0178`-`0179` Binance JEX spot/futures -> existing `hei_ex_000308`
 - `0193` BitcoinTrade -> `hei_ex_000571`
 - `0194` BitcoinVN candidate -> `hei_ex_000572` VBTC
 
-Binance JEX is recorded as a regulation-related staged closure. BitcoinTrade is the historical Brazilian predecessor that became Ripio Trade. VBTC remains limited because its planned end-of-2026 shutdown has not yet occurred.
+Binance JEX is an existing regulation-related staged-closure entity strengthened by this batch. BitcoinTrade is the historical Brazilian predecessor that became Ripio Trade. VBTC remains limited because its planned end-of-2026 shutdown has not yet occurred.
 
 ## Remaining add-now research
 
@@ -59,7 +59,7 @@ Database presence alone is insufficient for promotion.
 - `0151`-`0153` -> existing Beets `hei_ex_000371`
 - `0173` -> duplicate Bilaxy row
 - `0175`, `0177`, `0180`, `0181` -> Binance products or adapters
-- `0179` -> Binance JEX futures row merged into `hei_ex_000570`
+- `0179` -> Binance JEX futures row merged into existing `hei_ex_000308`
 - `0186` -> same Bit.com identity as `0185`
 - `0200` -> same Bitenium identity as `0199`
 
