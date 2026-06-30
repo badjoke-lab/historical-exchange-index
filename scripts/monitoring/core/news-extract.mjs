@@ -23,6 +23,7 @@ const STOP_PREFIXES = [
 ];
 
 const KNOWN_BAD_NAMES = new Set([
+  'closure',
   'crypto',
   'cryptocurrency',
   'bitcoin',
@@ -77,9 +78,9 @@ export function inferEventCategory(textValue, fallbackCategory = 'unknown') {
 export function extractCandidateNameFromNews(item) {
   const text = `${item.title || ''} ${item.snippet || ''}`;
   const patterns = [
+    /\b([A-Z][A-Za-z0-9.&-]{2,}(?:\s+[A-Z][A-Za-z0-9.&-]{1,}){0,2})\s+(?:(?:[Ss]huts|[Ww]ill [Ss]hut|[Tt]o [Ss]hut) [Dd]own|[Cc]eases [Oo]perations|[Hh]alts [Tt]rading|[Ss]uspends [Ww]ithdrawals|[Ii]s [Hh]acked|[Ww]as [Hh]acked|[Rr]ebrands|[Ii]s [Aa]cquired|[Ww]arning|[Ee]nforcement [Aa]ction|[Ss]anctioned)\b/,
     /\b(?:exchange|platform|protocol|DEX)\s+([A-Z][A-Za-z0-9.&-]{2,}(?:\s+[A-Z][A-Za-z0-9.&-]{1,}){0,3})\b/,
     /\b([A-Z][A-Za-z0-9.&-]{2,}(?:\s+[A-Z][A-Za-z0-9.&-]{1,}){0,3})\s+(?:exchange|DEX|protocol|platform)\b/,
-    /\b([A-Z][A-Za-z0-9.&-]{2,}(?:\s+[A-Z][A-Za-z0-9.&-]{1,}){0,2})\s+(?:shuts down|ceases operations|halts trading|suspends withdrawals|is hacked|was hacked|rebrands|is acquired|warning|enforcement action|sanctioned)\b/,
   ];
 
   for (const pattern of patterns) {
