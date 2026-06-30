@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0151-0200
 
-Status: rebuilt scan complete / growth work not yet started
+Status: rebuilt scan / growth batch 01 resolved
 
 ## Integrity binding
 
@@ -23,17 +23,22 @@ The integrity checker verifies candidate ID, name, slug, range, and disposition 
 | pending_thin | 9 |
 | out_of_scope_or_duplicate | 14 |
 
-## Add now
+## Resolved in growth batch 01
 
-These candidates have enough historical or operating significance to enter public-quality record research immediately. `add_now` does not authorize direct canonical insertion; each still requires exact identity, event, evidence, URL, date, and duplicate review.
+- `0163` BHEX -> `hei_ex_000566` BHEX
+- `0167` Bidesk -> `hei_ex_000567` Bidesk
+- `0172`-`0173` Bilaxy -> `hei_ex_000568` Bilaxy
+- `0176` Binance DEX -> `hei_ex_000569` Binance DEX
 
-- `0163` BHEX
-- `0165` Bibox
-- `0167` Bidesk
-- `0172` Bilaxy
-- `0176` Binance DEX
-- `0178` Binance JEX (Spot)
-- `0185` Bit.com Futures — model as one Bit.com entity, not separate spot/futures entities
+BHEX and Bidesk are modeled as regulation-related permanent closures. Bilaxy remains active with its 2021 hack and phased recovery represented as lifecycle events. Binance DEX is modeled separately from Binance.com and ends with the decommissioned order-book module and final BNB Beacon Chain sunset.
+
+## Remaining add-now research
+
+These candidates remain in the `add_now` class but have not yet been promoted.
+
+- `0165` Bibox — current active-side state requires a separate review
+- `0178` Binance JEX (Spot) — collapse spot/futures rows into one JEX identity
+- `0185` Bit.com Futures — model one Bit.com entity, not separate spot/futures entities
 - `0192` BitcoinToYou
 - `0193` BitcoinTrade
 - `0194` BitcoinVN
@@ -65,7 +70,7 @@ These candidates appear potentially in scope but need stronger identity, current
 - `0151` Beethoven X (Optimism) -> existing `hei_ex_000371` Beets
 - `0152` Beethoven X (Optimism) -> existing `hei_ex_000371` Beets
 - `0153` Beets (Sonic) -> existing `hei_ex_000371` Beets
-- `0173` Bilaxy -> duplicate source row for `0172`
+- `0173` Bilaxy -> duplicate source row represented by `hei_ex_000568`
 - `0175` Binance Alpha -> product/interface of existing Binance, not a separate exchange entity
 - `0177` Binance Futures -> product market of existing Binance, not a separate exchange entity
 - `0179` Binance JEX Futures -> same JEX exchange identity as `0178`
@@ -98,7 +103,7 @@ The following rows remain non-canonical because the current evidence is too thin
 
 ## Safety rules for promotion
 
-Before any `add_now` or `needs_research` candidate becomes canonical:
+Before any remaining `add_now` or `needs_research` candidate becomes canonical:
 
 1. Check exact canonical name, aliases, slug, and domain against projected and record-bundle data.
 2. Resolve product, version, deployment, predecessor, successor, acquisition, and rebrand relationships.
@@ -109,14 +114,4 @@ Before any `add_now` or `needs_research` candidate becomes canonical:
 
 ## Next step
 
-Start with a small reviewed batch from the `add_now` queue. Recommended first research cohort:
-
-```text
-BHEX
-Bibox
-Bidesk
-Bilaxy
-Binance DEX
-```
-
-The remaining candidates stay classified in this scan until a later batch changes their disposition through reviewed evidence.
+Review the remaining add-now cohort in small batches. Bibox should be handled separately as an active-side candidate; Binance JEX and Bit.com require entity-boundary review before record creation.

@@ -1,0 +1,99 @@
+{
+  "entity": {
+    "id": "hei_ex_000567",
+    "slug": "bidesk",
+    "canonical_name": "Bidesk",
+    "aliases": ["Bidesk Exchange", "bidesk.com"],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": "2019-10-01",
+    "death_date": "2021-10-23",
+    "country_or_origin": "British Virgin Islands",
+    "summary": "British Virgin Islands-registered centralized cryptocurrency exchange launched in October 2019. Bidesk announced a permanent staged shutdown in September 2021, citing major policy and regulatory changes, and scheduled final platform closure after trading and withdrawal wind-down phases in October.",
+    "official_url_original": "https://www.bidesk.com/",
+    "official_domain_original": "bidesk.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.bidesk.com/",
+    "confidence": "medium",
+    "last_verified_at": "2026-06-30",
+    "notes": "Launch is stored at month precision from exchange-directory history. Shutdown reporting describes phased deadlines during October 2021; HEI uses 2021-10-23 as the final platform closure date reported in the detailed schedule."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010008",
+      "exchange_id": "hei_ex_000567",
+      "event_type": "launched",
+      "event_date": "2019-10-01",
+      "title": "Bidesk launched",
+      "description": "Bidesk began operating as a centralized cryptocurrency exchange registered in the British Virgin Islands.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "Month-level launch marker."
+    },
+    {
+      "id": "hei_ev_010009",
+      "exchange_id": "hei_ex_000567",
+      "event_type": "shutdown_effective",
+      "event_date": "2021-10-23",
+      "title": "Bidesk permanently shut down",
+      "description": "Bidesk completed a staged permanent shutdown after stopping trading and providing a final withdrawal period in October 2021.",
+      "confidence": "medium",
+      "impact_level": "critical",
+      "event_status_effect": "dead",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "The shutdown was announced in late September 2021 and attributed to major policy and regulatory changes."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_011019",
+      "exchange_id": "hei_ex_000567",
+      "event_id": "hei_ev_010008",
+      "source_type": "database_reference",
+      "title": "Bidesk exchange profile and launch history",
+      "url": "https://coinmarketcap.com/exchanges/bidesk/",
+      "publisher": "CoinMarketCap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/bidesk/",
+      "accessed_at": "2026-06-30",
+      "reliability": "medium",
+      "claim_scope": "launch_date",
+      "notes": "Profile records an October 2019 launch and British Virgin Islands registration and notes the permanent shutdown."
+    },
+    {
+      "id": "hei_src_011020",
+      "exchange_id": "hei_ex_000567",
+      "event_id": "hei_ev_010009",
+      "source_type": "news_article",
+      "title": "Bidesk shuts down",
+      "url": "https://cryptotvplus.com/2021/09/bidesk-shuts-down/",
+      "publisher": "CryptoTvplus",
+      "published_at": "2021-09-29",
+      "archived_url": "https://web.archive.org/web/*/https://cryptotvplus.com/2021/09/bidesk-shuts-down/",
+      "accessed_at": "2026-06-30",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Reports the permanent shutdown announcement, regulatory-policy context, and October 23 final platform closure."
+    },
+    {
+      "id": "hei_src_011021",
+      "exchange_id": "hei_ex_000567",
+      "event_id": "hei_ev_010009",
+      "source_type": "news_article",
+      "title": "Bidesk Exchange informs users of permanent shutdown",
+      "url": "https://diutocoinnews.com/bidesk-exchange-shutdown/6848/",
+      "publisher": "DiutoCoinNews",
+      "published_at": "2021-09-30",
+      "archived_url": "https://web.archive.org/web/*/https://diutocoinnews.com/bidesk-exchange-shutdown/6848/",
+      "accessed_at": "2026-06-30",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Preserves the operator's staged shutdown phases and confirms that the closure was permanent."
+    }
+  ]
+}
