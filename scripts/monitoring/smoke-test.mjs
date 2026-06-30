@@ -3,6 +3,7 @@ import { monitorRegistryNames, MONITOR_REGISTRY } from './core/monitor-registry.
 import { loadCanonicalData } from './core/load-canonical-data.mjs';
 import { createMonitorResult, runMonitorSafely } from './core/finding-utils.mjs';
 import { buildSummaryMarkdown } from './core/summary-writer.mjs';
+import { extractCandidateNameFromNews } from './core/news-extract.mjs';
 import { normalizeSitemapUrl } from './adapters/sitemap-check.mjs';
 import { runReviewedBundleAggregationRegression } from '../test-reviewed-bundle-aggregation.mjs';
 import { buildRegistryMetrics, parseReviewMonth } from '../review/monthly-registry-core.mjs';
@@ -47,6 +48,12 @@ function runMonitoringOutputRegressions() {
     normalizeSitemapUrl('https://hei.badjoke-lab.com/') === 'https://hei.badjoke-lab.com/',
     'sitemap root URL must retain its slash',
   );
+
+  const extractedName = extractCandidateNameFromNews({
+    title: 'Oxium Shuts Down as Revenue Collapse Forces DEX Closure',
+    snippet: 'The Sei ecosystem exchange will close its interface.',
+  });
+  assert(extractedName === 'Oxium', `news extraction must identify Oxium instead of a headline fragment: ${extractedName}`);
 
   const summary = buildSummaryMarkdown({
     runId: '20260630-smoke',
