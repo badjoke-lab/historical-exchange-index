@@ -1,0 +1,100 @@
+{
+  "entity": {
+    "id": "hei_ex_000573",
+    "slug": "bibox",
+    "canonical_name": "Bibox",
+    "aliases": ["Bibox Exchange", "Bibox Digital Asset Exchange", "bibox.com"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2017-11-01",
+    "death_date": null,
+    "country_or_origin": "Global",
+    "summary": "Centralized digital-asset exchange launched in November 2017 with spot, leveraged, and derivatives trading. Bibox continues to operate through its official website and trading interface, which currently advertise hundreds of supported assets and trading pairs.",
+    "official_url_original": "https://www.bibox.com/",
+    "official_domain_original": "bibox.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.bibox.com/",
+    "confidence": "high",
+    "last_verified_at": "2026-06-30",
+    "notes": "Launch is stored at month precision because both Bibox historical material and contemporary reporting identify November 2017 without a consistently supported exact public-launch day. HEI uses Global for origin because public materials describe distributed operations across multiple regions rather than one stable operating jurisdiction."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010023",
+      "exchange_id": "hei_ex_000573",
+      "event_type": "launched",
+      "event_date": "2017-11-01",
+      "title": "Bibox launched",
+      "description": "Bibox began operating as an AI-enhanced centralized digital-asset exchange in November 2017.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Month-level launch marker based on official Bibox historical material and contemporary exchange coverage."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_011046",
+      "exchange_id": "hei_ex_000573",
+      "event_id": "hei_ev_010023",
+      "source_type": "official_blog",
+      "title": "Future of Exchanges - A Historical Move of Token Cross-Listing for Bibox and Huobi Pro",
+      "url": "https://www.bibox.com/en/nr/524",
+      "publisher": "Bibox",
+      "published_at": "2022-07-11",
+      "archived_url": "https://web.archive.org/web/*/https://www.bibox.com/en/nr/524",
+      "accessed_at": "2026-06-30",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Bibox historical material states that the exchange launched in November 2017."
+    },
+    {
+      "id": "hei_src_011047",
+      "exchange_id": "hei_ex_000573",
+      "event_id": "hei_ev_010023",
+      "source_type": "news_article",
+      "title": "Bitcoin exchange Bibox acquires decentralized exchange DEx.top",
+      "url": "https://www.cryptoninjas.net/2018/12/17/bitcoin-exchange-bibox-acquires-decentralized-exchange-dex-top/",
+      "publisher": "CryptoNinjas",
+      "published_at": "2018-12-17",
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptoninjas.net/2018/12/17/bitcoin-exchange-bibox-acquires-decentralized-exchange-dex-top/",
+      "accessed_at": "2026-06-30",
+      "reliability": "medium",
+      "claim_scope": "launch_date",
+      "notes": "Contemporary coverage independently identifies November 2017 as the Bibox launch month."
+    },
+    {
+      "id": "hei_src_011048",
+      "exchange_id": "hei_ex_000573",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Bibox Exchange official website",
+      "url": "https://www.bibox.com/en/",
+      "publisher": "Bibox",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.bibox.com/en/",
+      "accessed_at": "2026-06-30",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current official site advertises spot, leveraged, and futures trading and lists hundreds of supported assets and trading pairs."
+    },
+    {
+      "id": "hei_src_011049",
+      "exchange_id": "hei_ex_000573",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Bibox spot trading interface",
+      "url": "https://www.bibox.com/en/exchange/basic",
+      "publisher": "Bibox",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.bibox.com/en/exchange/basic",
+      "accessed_at": "2026-06-30",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current official trading interface used to support active-side handling."
+    }
+  ]
+}
