@@ -20,6 +20,10 @@ function findResult(results, monitor) {
   return results.find((result) => result.monitor === monitor) || null;
 }
 
+function summaryValue(value, fallback = 0) {
+  return value ?? fallback;
+}
+
 export function buildSummaryMarkdown({ runId, mode, startedAt, finishedAt, results, hasMeaningfulFindings, noiseSummary = null }) {
   const allFindings = flattenFindings(results);
   const findings = visibleFindings(allFindings);
@@ -132,7 +136,7 @@ ${sectionList(evidenceHealthFindings, (finding) => `- [${finding.severity}] ${fi
 
 ## Watchlist state
 
-${watchlistState ? `- watchlist_files: ${watchlistState.watchlist_files}\n- watchlist_candidates: ${watchlistState.watchlist_candidates}\n- class_A: ${watchlistState.watchlist_class_counts?.A || 0}\n- class_B: ${watchlistState.watchlist_class_counts?.B || 0}\n- class_C: ${watchlistState.watchlist_class_counts?.C || 0}\n- manual_staging_packages: ${watchlistState.manual_staging_packages}\n- resolution_files: ${watchlistState.resolution_files}` : '- Not available.'}
+${watchlistState ? `- candidate_queue_files: ${summaryValue(watchlistState.candidate_queue_files)}\n- raw_candidate_occurrences: ${summaryValue(watchlistState.raw_candidate_occurrences)}\n- unique_candidate_identities: ${summaryValue(watchlistState.unique_candidate_identities)}\n- repeated_occurrences_collapsed: ${summaryValue(watchlistState.repeated_occurrences_collapsed)}\n- class_A: ${watchlistState.watchlist_class_counts?.A || 0}\n- class_B: ${watchlistState.watchlist_class_counts?.B || 0}\n- class_C: ${watchlistState.watchlist_class_counts?.C || 0}\n- manual_staging_packages: ${summaryValue(watchlistState.manual_staging_packages)}\n- historical_resolution_files: ${summaryValue(watchlistState.historical_resolution_files)}\n- resolution_index_entries: ${summaryValue(watchlistState.resolution_index_entries)}\n- resolution_coverage_errors: ${summaryValue(watchlistState.resolution_coverage_errors)}` : '- Not available.'}
 
 ${sectionList(watchlistFindings, (finding) => `- [${finding.severity}] ${finding.title} — ${finding.recommended_action || 'review'}`)}
 

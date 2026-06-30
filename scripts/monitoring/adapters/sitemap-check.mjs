@@ -16,6 +16,19 @@ function extractLocs(xml) {
     .filter(Boolean);
 }
 
+export function normalizeSitemapUrl(value) {
+  const input = String(value || '').trim();
+  if (!input) return input;
+
+  try {
+    const parsed = new URL(input);
+    const pathname = parsed.pathname === '/' ? '/' : parsed.pathname.replace(/\/+$/, '');
+    return `${parsed.origin}${pathname}${parsed.search}${parsed.hash}`;
+  } catch {
+    return input === '/' ? '/' : input.replace(/\/+$/, '');
+  }
+}
+
 async function fetchText(url) {
   const response = await fetch(url, {
     headers: { 'user-agent': 'HEI-Monitoring/0.1' },
@@ -43,13 +56,14 @@ export async function checkSitemap({ sitemapUrl, siteUrl, entities = [], require
 
   const xml = await fetchText(sitemapUrl);
   const urls = extractLocs(xml);
+  const normalizedUrls = new Set(urls.map(normalizeSitemapUrl));
   const normalizedSiteUrl = String(siteUrl || '').replace(/\/+$/, '');
   const exchangePrefix = `${normalizedSiteUrl}/exchange/`;
   const actualExchangeRoutes = urls.filter((url) => url.startsWith(exchangePrefix)).length;
   const missingStaticRoutes = requiredStaticRoutes.filter((route) => {
     const normalizedRoute = route === '/' ? '/' : route.replace(/\/+$/, '');
     const expected = normalizedRoute === '/' ? `${normalizedSiteUrl}/` : `${normalizedSiteUrl}${normalizedRoute}`;
-    return !urls.includes(expected);
+    return !normalizedUrls.has(normalizeSitemapUrl(expected));
   });
 
   return {
