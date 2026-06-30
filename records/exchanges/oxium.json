@@ -21,7 +21,7 @@
   },
   "events": [
     {
-      "id": "hei_ev_009901",
+      "id": "hei_ev_010005",
       "exchange_id": "hei_ex_000565",
       "event_type": "shutdown_announced",
       "event_date": "2026-06-25",
@@ -37,9 +37,9 @@
   ],
   "evidence": [
     {
-      "id": "hei_src_010272",
+      "id": "hei_src_011010",
       "exchange_id": "hei_ex_000565",
-      "event_id": "hei_ev_009901",
+      "event_id": "hei_ev_010005",
       "source_type": "official_social",
       "title": "Oxium wind-down announcement",
       "url": "https://x.com/oxiumxyz/status/2070162907145330799",
@@ -52,9 +52,9 @@
       "notes": "Official announcement states that Oxium will wind down, cites financially unsustainable revenue, and sets August 1, 2026 as the interface closure date."
     },
     {
-      "id": "hei_src_010273",
+      "id": "hei_src_011011",
       "exchange_id": "hei_ex_000565",
-      "event_id": "hei_ev_009901",
+      "event_id": "hei_ev_010005",
       "source_type": "news_article",
       "title": "Sei DEX Oxium to Shut Down August 1 as Revenue Hits Critical Lows",
       "url": "https://www.cryptotimes.io/2026/06/26/sei-dex-oxium-to-shut-down-august-1-as-revenue-hits-critical-lows/",
@@ -67,9 +67,9 @@
       "notes": "Report embeds the official announcement and documents the August 1 deadline, withdrawal guidance, and financial reason for the closure."
     },
     {
-      "id": "hei_src_010274",
+      "id": "hei_src_011012",
       "exchange_id": "hei_ex_000565",
-      "event_id": "hei_ev_009901",
+      "event_id": "hei_ev_010005",
       "source_type": "news_article",
       "title": "Sei ecological DEX Oxium announces gradual cessation of operations",
       "url": "https://www.chaincatcher.com/en/article/2273896",
@@ -82,7 +82,7 @@
       "notes": "Independent report confirms the planned gradual cessation and August 1 front-end closure."
     },
     {
-      "id": "hei_src_010275",
+      "id": "hei_src_011013",
       "exchange_id": "hei_ex_000565",
       "event_id": null,
       "source_type": "official_statement",
@@ -97,7 +97,7 @@
       "notes": "Official site identifies Oxium as a fully onchain central limit order book DEX on Sei."
     },
     {
-      "id": "hei_src_010276",
+      "id": "hei_src_011014",
       "exchange_id": "hei_ex_000565",
       "event_id": null,
       "source_type": "official_statement",
