@@ -17,7 +17,7 @@
     "archived_url": "https://web.archive.org/web/*/https://hub.berachain.com/",
     "confidence": "medium",
     "last_verified_at": "2026-06-01",
-    "notes": "Added from verified-unadded rows hei_unadded_0230 and hei_unadded_0231 as one entity. The later BeraSwap source label is mapped to this existing BEX entity."
+    "notes": "Added from verified-unadded rows hei_unadded_0230 and hei_unadded_0231 as one entity."
   },
   "events": [
     {
@@ -31,8 +31,8 @@
       "impact_level": "low",
       "event_status_effect": "active",
       "source_count": 3,
-      "sort_order": 2,
-      "notes": "Initial candidate-consolidation event retained for provenance."
+      "sort_order": 1,
+      "notes": "Upgrade with a precise launch or operating-history event if stronger sources are added."
     },
     {
       "id": "hei_ev_010027",
@@ -45,7 +45,7 @@
       "impact_level": "medium",
       "event_status_effect": "active",
       "source_count": 2,
-      "sort_order": 1,
+      "sort_order": 2,
       "notes": "The Berachain mainnet launch date is used as the public launch marker for the native exchange deployment."
     }
   ],
