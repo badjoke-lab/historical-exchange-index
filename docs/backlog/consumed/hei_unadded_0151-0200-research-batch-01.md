@@ -9,8 +9,8 @@ Reviewed at: 2026-07-02
 | candidate row | canonical entity | result |
 |---|---|---|
 | `hei_unadded_0156` BenSwap | `hei_ex_000575` BenSwap | Added as an active smartBCH DEX with August 2021 launch history and current official contracts, API, and application evidence. |
-| `hei_unadded_0158` BeraSwap | `hei_ex_000576` BEX | Normalized to Berachain's canonical BEX name and added as the active native Berachain DEX. |
-| `hei_unadded_0161` BetterSwap | `hei_ex_000577` BetterSwap | Added as an active VeChainThor DEX and aggregator with current pool and application evidence. |
+| `hei_unadded_0158` BeraSwap | existing `hei_ex_000377` BEX | Normalized to Berachain's canonical BEX record and strengthened with launch and current first-party evidence. |
+| `hei_unadded_0161` BetterSwap | `hei_ex_000576` BetterSwap | Added as an active VeChainThor DEX and aggregator with current pool and application evidence. |
 
 ## Reclassified candidates
 
@@ -21,7 +21,8 @@ Reviewed at: 2026-07-02
 
 ## Batch output
 
-- new entities: 3
+- new entities: 2
+- existing entities strengthened: 1
 - new events: 3
 - new evidence records: 13
 - moved to out of scope: 1
@@ -31,8 +32,8 @@ Reviewed at: 2026-07-02
 ## Modeling decisions
 
 - BenSwap uses a month-level August 2021 launch marker because the exact first-party launch day was not recovered.
-- BeraSwap is treated as an alias/source label for BEX, not as a separate Berachain exchange.
-- BEX uses the Berachain mainnet launch date as its public launch marker.
+- BeraSwap is treated as an alias/source label for existing BEX, not as a separate Berachain exchange.
+- BEX receives a mainnet-launch event and first-party documentation without changing its canonical entity identity.
 - BetterSwap is modeled as a DEX rather than only an interface because its official documentation includes pool creation and liquidity management in addition to aggregation.
 - Beldex is excluded from HEI's exchange scope.
 - Beralis V3 remains non-canonical until first-party identity and lifecycle evidence are available.
@@ -40,6 +41,7 @@ Reviewed at: 2026-07-02
 ## Safety checks
 
 - exact names, aliases, slugs, and domains were checked before creation
+- the pre-existing BEX canonical entity was reused rather than duplicated
 - source labels were normalized to canonical project names
 - aggregator-only evidence was not promoted as a public record
 - event source counts match linked evidence
