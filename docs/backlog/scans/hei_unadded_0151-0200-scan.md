@@ -21,7 +21,7 @@ The integrity checker verifies candidate IDs, names, slugs, range, and dispositi
 | pending_thin | 10 |
 | out_of_scope_or_duplicate | 15 |
 
-All nine `add_now` rows are resolved. Of the sixteen rows still classified as `needs_research`, three have now been promoted through research batch 01; thirteen remain unresolved.
+All nine `add_now` rows are resolved. Of the sixteen rows still classified as `needs_research`, three have now been resolved through research batch 01; thirteen remain unresolved.
 
 ## Resolved growth batches
 
@@ -47,8 +47,8 @@ All nine `add_now` rows are resolved. Of the sixteen rows still classified as `n
 ## Resolved research batch 01
 
 - `0156` BenSwap -> `hei_ex_000575`
-- `0158` BeraSwap -> normalized to `hei_ex_000576` BEX
-- `0161` BetterSwap -> `hei_ex_000577`
+- `0158` BeraSwap -> normalized to existing `hei_ex_000377` BEX
+- `0161` BetterSwap -> `hei_ex_000576`
 - `0155` Beldex -> moved to `out_of_scope_or_duplicate`
 - `0157` Beralis V3 -> moved to `pending_thin`
 
