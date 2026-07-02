@@ -17,7 +17,7 @@
     "archived_url": "https://web.archive.org/web/*/https://hub.berachain.com/",
     "confidence": "medium",
     "last_verified_at": "2026-06-01",
-    "notes": "Added from verified-unadded rows hei_unadded_0230 and hei_unadded_0231 as one entity."
+    "notes": "Added from verified-unadded rows hei_unadded_0230 and hei_unadded_0231 as one entity. The later BeraSwap source label is mapped to this existing BEX entity."
   },
   "events": [
     {
@@ -31,8 +31,22 @@
       "impact_level": "low",
       "event_status_effect": "active",
       "source_count": 3,
+      "sort_order": 2,
+      "notes": "Initial candidate-consolidation event retained for provenance."
+    },
+    {
+      "id": "hei_ev_010027",
+      "exchange_id": "hei_ex_000377",
+      "event_type": "launched",
+      "event_date": "2025-02-06",
+      "title": "BEX launched with Berachain mainnet",
+      "description": "Berachain's native BEX decentralized exchange became available as part of the chain's February 2025 mainnet launch.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
       "sort_order": 1,
-      "notes": "Upgrade with a precise launch or operating-history event if stronger sources are added."
+      "notes": "The Berachain mainnet launch date is used as the public launch marker for the native exchange deployment."
     }
   ],
   "evidence": [
@@ -80,6 +94,66 @@
       "reliability": "medium",
       "claim_scope": "entity",
       "notes": "Source used by verified-unadded backlog row hei_unadded_0231."
+    },
+    {
+      "id": "hei_src_011059",
+      "exchange_id": "hei_ex_000377",
+      "event_id": "hei_ev_010027",
+      "source_type": "official_statement",
+      "title": "What Is BEX?",
+      "url": "https://docs.berachain.com/bex/learn/what-is-bex",
+      "publisher": "Berachain",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.berachain.com/bex/learn/what-is-bex",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official documentation identifies BEX as Berachain's native decentralized exchange."
+    },
+    {
+      "id": "hei_src_011060",
+      "exchange_id": "hei_ex_000377",
+      "event_id": "hei_ev_010027",
+      "source_type": "news_article",
+      "title": "Berachain to Roll Out Its Mainnet on Feb. 6",
+      "url": "https://www.coindesk.com/markets/2025/02/04/berachain-to-roll-out-its-mainnet-on-feb-6",
+      "publisher": "CoinDesk",
+      "published_at": "2025-02-04",
+      "archived_url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2025/02/04/berachain-to-roll-out-its-mainnet-on-feb-6",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Independent launch-date source for Berachain mainnet, used as BEX's public mainnet launch marker."
+    },
+    {
+      "id": "hei_src_011061",
+      "exchange_id": "hei_ex_000377",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BEX developer overview",
+      "url": "https://docs.berachain.com/build/bex/overview",
+      "publisher": "Berachain",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.berachain.com/build/bex/overview",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Official developer documentation covers current BEX swaps, liquidity pools, LP tokens, and integration resources."
+    },
+    {
+      "id": "hei_src_011062",
+      "exchange_id": "hei_ex_000377",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BEX deployed contracts",
+      "url": "https://docs.berachain.com/build/bex/deployed-contracts",
+      "publisher": "Berachain",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.berachain.com/build/bex/deployed-contracts",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Official registry of BEX mainnet contract addresses."
     }
   ]
 }
