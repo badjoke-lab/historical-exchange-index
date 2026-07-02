@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0151-0200
 
-Status: add-now queue resolved / research batch 01 resolved
+Status: add-now queue resolved / research batches 01-02 resolved
 
 ## Integrity binding
 
@@ -17,11 +17,11 @@ The integrity checker verifies candidate IDs, names, slugs, range, and dispositi
 | class | count |
 |---|---:|
 | add_now | 9 |
-| needs_research | 16 |
-| pending_thin | 10 |
+| needs_research | 14 |
+| pending_thin | 12 |
 | out_of_scope_or_duplicate | 15 |
 
-All nine `add_now` rows are resolved. Of the sixteen rows still classified as `needs_research`, three have now been resolved through research batch 01; thirteen remain unresolved.
+All nine `add_now` rows are resolved. Five rows still classified as `needs_research` have already been resolved through research batches because the machine-readable scan preserves their original research class; nine research rows remain unresolved.
 
 ## Resolved growth batches
 
@@ -47,26 +47,34 @@ All nine `add_now` rows are resolved. Of the sixteen rows still classified as `n
 ## Resolved research batch 01
 
 - `0156` BenSwap -> `hei_ex_000575`
-- `0158` BeraSwap -> normalized to existing `hei_ex_000377` BEX
+- `0158` BeraSwap -> existing `hei_ex_000377` BEX
 - `0161` BetterSwap -> `hei_ex_000576`
 - `0155` Beldex -> moved to `out_of_scope_or_duplicate`
 - `0157` Beralis V3 -> moved to `pending_thin`
 
-Beldex is a privacy blockchain and asset project rather than an exchange entity. Beralis V3 remains non-canonical because no stable first-party identity and lifecycle evidence were recovered.
+## Resolved research batch 02
+
+- `0166` Biconomy -> existing `hei_ex_000094` Biconomy Exchange
+- `0187` BIT.TEAM -> `hei_ex_000577`
+- `0159` BETCONIX -> moved to `pending_thin`
+- `0171` BIKA -> moved to `pending_thin`
+
+Biconomy was already represented by a reviewed active record. BIT.TEAM is added as an active exchange ecosystem. BETCONIX and BIKA retain historical exchange references, but their former exchange identities and present service state cannot be resolved safely from stable first-party lifecycle evidence.
 
 ## Unresolved needs research
 
-`0159`, `0162`, `0166`, `0171`, `0182`, `0184`, `0185`, `0187`, `0189`, `0190`, `0195`, `0197`, `0199`.
+`0162`, `0182`, `0184`, `0185`, `0189`, `0190`, `0195`, `0197`, `0199`.
 
 ## Pending thin
 
-`0157`, `0164`, `0168`, `0170`, `0174`, `0183`, `0188`, `0191`, `0196`, `0198`.
+`0157`, `0159`, `0164`, `0168`, `0170`, `0171`, `0174`, `0183`, `0188`, `0191`, `0196`, `0198`.
 
 Database or aggregator presence alone is insufficient for promotion.
 
 ## Existing, duplicate, or product rows
 
 - `0151`-`0153` -> existing Beets `hei_ex_000371`
+- `0166` -> existing Biconomy Exchange `hei_ex_000094`
 - `0173` -> duplicate Bilaxy row
 - `0175`, `0177`, `0180`, `0181` -> Binance products or adapters
 - `0179` -> Binance JEX futures row merged into existing `hei_ex_000308`
@@ -90,4 +98,4 @@ Database or aggregator presence alone is insufficient for promotion.
 
 ## Next step
 
-Process the thirteen unresolved research candidates in small CEX and DEX batches. Strongly evidenced records may be promoted; unresolved rows should move to `pending_thin` or `out_of_scope_or_duplicate` rather than remain indefinitely open.
+Process the nine unresolved research candidates in small CEX and DEX batches. Strongly evidenced records may be promoted; unresolved rows should move to `pending_thin` or `out_of_scope_or_duplicate` rather than remain indefinitely open.
