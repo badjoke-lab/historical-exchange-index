@@ -1,0 +1,100 @@
+{
+  "entity": {
+    "id": "hei_ex_000578",
+    "slug": "bevmswap",
+    "canonical_name": "BEVMSwap",
+    "aliases": ["BEVM Swap", "bevmswap.xyz"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2024-01-01",
+    "death_date": null,
+    "country_or_origin": "BEVM ecosystem",
+    "summary": "Decentralized exchange in the BEVM Bitcoin Layer 2 ecosystem. BEVMSwap uses automated-market-maker and concentrated-liquidity designs and presents itself as infrastructure for BTC-ecosystem DeFi trading and liquidity. Its official documentation and exchange profile remain available.",
+    "official_url_original": "https://bevmswap.xyz/",
+    "official_domain_original": "bevmswap.xyz",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bevmswap.xyz/",
+    "confidence": "medium",
+    "last_verified_at": "2026-07-02",
+    "notes": "Launch is stored at year precision because exchange directories identify BEVMSwap as established in 2024 but a reliable exact first-party launch day was not recovered. The record is scoped to the DEX and is distinct from the underlying BEVM Layer 2 network."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010031",
+      "exchange_id": "hei_ex_000578",
+      "event_type": "launched",
+      "event_date": "2024-01-01",
+      "title": "BEVMSwap began operating in the BEVM ecosystem",
+      "description": "BEVMSwap was established in 2024 as a decentralized exchange for the BEVM Bitcoin Layer 2 ecosystem.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "Year-level marker from the current exchange profile; no exact first-party launch day was recovered."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_011073",
+      "exchange_id": "hei_ex_000578",
+      "event_id": "hei_ev_010031",
+      "source_type": "database_reference",
+      "title": "BEVMSwap exchange profile",
+      "url": "https://www.coingecko.com/en/exchanges/bevmswap",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.coingecko.com/en/exchanges/bevmswap",
+      "accessed_at": "2026-07-02",
+      "reliability": "medium",
+      "claim_scope": "launch_date",
+      "notes": "Current exchange profile identifies BEVMSwap as a decentralized exchange established in 2024 and links the bevmswap.xyz domain."
+    },
+    {
+      "id": "hei_src_011074",
+      "exchange_id": "hei_ex_000578",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BEVMSwap introduction",
+      "url": "https://bevmswap.gitbook.io/bevmswap",
+      "publisher": "BEVMSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bevmswap.gitbook.io/bevmswap",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official documentation describes BEVMSwap's AMM, concentrated-liquidity, yield-token, and governance model for BTC-ecosystem DeFi users."
+    },
+    {
+      "id": "hei_src_011075",
+      "exchange_id": "hei_ex_000578",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BEVMSwap official application",
+      "url": "https://bevmswap.xyz/",
+      "publisher": "BEVMSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bevmswap.xyz/",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Official application domain used as current operating-status evidence."
+    },
+    {
+      "id": "hei_src_011076",
+      "exchange_id": "hei_ex_000578",
+      "event_id": null,
+      "source_type": "news_article",
+      "title": "BEVM mainnet launch and ecosystem context",
+      "url": "https://www.globenewswire.com/news-release/2024/03/27/2853249/0/en/BEVM-Bitcoin-Layer2-Closes-Seed-Round-with-RockTree-Capital-Sathoshi-Lab-20-Others.html",
+      "publisher": "GlobeNewswire",
+      "published_at": "2024-03-27",
+      "archived_url": "https://web.archive.org/web/*/https://www.globenewswire.com/news-release/2024/03/27/2853249/0/en/BEVM-Bitcoin-Layer2-Closes-Seed-Round-with-RockTree-Capital-Sathoshi-Lab-20-Others.html",
+      "accessed_at": "2026-07-02",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Ecosystem source documenting the BEVM Bitcoin Layer 2 context in which BEVMSwap operates."
+    }
+  ]
+}
