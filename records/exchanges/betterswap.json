@@ -1,6 +1,6 @@
 {
   "entity": {
-    "id": "hei_ex_000577",
+    "id": "hei_ex_000576",
     "slug": "betterswap",
     "canonical_name": "BetterSwap",
     "aliases": ["Better Swap", "BetterSwap VeChain", "betterswap.io"],
@@ -22,7 +22,7 @@
   "events": [
     {
       "id": "hei_ev_010028",
-      "exchange_id": "hei_ex_000577",
+      "exchange_id": "hei_ex_000576",
       "event_type": "launched",
       "event_date": "2024-11-24",
       "title": "BetterSwap publicly launched on VeChainThor",
@@ -38,7 +38,7 @@
   "evidence": [
     {
       "id": "hei_src_011063",
-      "exchange_id": "hei_ex_000577",
+      "exchange_id": "hei_ex_000576",
       "event_id": "hei_ev_010028",
       "source_type": "news_article",
       "title": "BetterSwap Official Launch",
@@ -53,7 +53,7 @@
     },
     {
       "id": "hei_src_011064",
-      "exchange_id": "hei_ex_000577",
+      "exchange_id": "hei_ex_000576",
       "event_id": null,
       "source_type": "official_statement",
       "title": "BetterSwap introduction",
@@ -68,7 +68,7 @@
     },
     {
       "id": "hei_src_011065",
-      "exchange_id": "hei_ex_000577",
+      "exchange_id": "hei_ex_000576",
       "event_id": null,
       "source_type": "official_statement",
       "title": "BetterSwap liquidity pools",
@@ -83,7 +83,7 @@
     },
     {
       "id": "hei_src_011066",
-      "exchange_id": "hei_ex_000577",
+      "exchange_id": "hei_ex_000576",
       "event_id": null,
       "source_type": "official_statement",
       "title": "BetterSwap create-pool documentation",
@@ -98,7 +98,7 @@
     },
     {
       "id": "hei_src_011067",
-      "exchange_id": "hei_ex_000577",
+      "exchange_id": "hei_ex_000576",
       "event_id": null,
       "source_type": "official_statement",
       "title": "BetterSwap official application",
