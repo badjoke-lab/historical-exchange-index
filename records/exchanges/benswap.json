@@ -1,0 +1,100 @@
+{
+  "entity": {
+    "id": "hei_ex_000575",
+    "slug": "benswap",
+    "canonical_name": "BenSwap",
+    "aliases": ["BenSwap smartBCH", "BenSwap BCH", "benswap.cash"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2021-08-01",
+    "death_date": null,
+    "country_or_origin": "smartBCH ecosystem",
+    "summary": "Decentralized exchange and DeFi platform on smartBCH supporting token swaps, liquidity pools, concentrated liquidity through Gridex, and related ecosystem services. BenSwap's official site, documentation, public API, and deployed-contract references remain available.",
+    "official_url_original": "https://www.benswap.cash/",
+    "official_domain_original": "benswap.cash",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.benswap.cash/",
+    "confidence": "medium",
+    "last_verified_at": "2026-07-02",
+    "notes": "Launch is stored at month precision from contemporary smartBCH ecosystem coverage identifying BenSwap as the first deployed DEX in August 2021. The official documentation remains accessible and documents active exchange contracts and API endpoints."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010026",
+      "exchange_id": "hei_ex_000575",
+      "event_type": "launched",
+      "event_date": "2021-08-01",
+      "title": "BenSwap launched on smartBCH",
+      "description": "BenSwap began operating as an early decentralized exchange on the smartBCH sidechain in August 2021.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "Month-level marker; the available contemporary ecosystem source identifies an August 2021 deployment without a first-party exact launch-day record."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_011055",
+      "exchange_id": "hei_ex_000575",
+      "event_id": "hei_ev_010026",
+      "source_type": "news_article",
+      "title": "First DEX deployed on smartBCH",
+      "url": "https://www.reddit.com/r/btc/comments/p6m687/first_dex_on_smartbch/",
+      "publisher": "r/btc community",
+      "published_at": "2021-08-18",
+      "archived_url": "https://web.archive.org/web/*/https://www.reddit.com/r/btc/comments/p6m687/first_dex_on_smartbch/",
+      "accessed_at": "2026-07-02",
+      "reliability": "medium",
+      "claim_scope": "launch_date",
+      "notes": "Contemporary community record identifies the first BenSwap smartBCH deployment in August 2021."
+    },
+    {
+      "id": "hei_src_011056",
+      "exchange_id": "hei_ex_000575",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BenSwap official documentation - Gridex",
+      "url": "https://docs.benswap.cash/features/gridex",
+      "publisher": "BenSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.benswap.cash/features/gridex",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official documentation describes BenSwap's concentrated-liquidity exchange implementation and publishes current contract addresses."
+    },
+    {
+      "id": "hei_src_011057",
+      "exchange_id": "hei_ex_000575",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BenSwap public API documentation",
+      "url": "https://docs.benswap.cash/features/api",
+      "publisher": "BenSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.benswap.cash/features/api",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Official documentation lists public smartBCH and DEX API endpoints and current exchange-data functions."
+    },
+    {
+      "id": "hei_src_011058",
+      "exchange_id": "hei_ex_000575",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BenSwap official site",
+      "url": "https://www.benswap.cash/",
+      "publisher": "BenSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.benswap.cash/",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current official application entry point."
+    }
+  ]
+}
