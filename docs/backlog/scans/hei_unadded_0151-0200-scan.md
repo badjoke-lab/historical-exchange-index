@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0151-0200
 
-Status: rebuilt scan / add-now queue resolved
+Status: add-now queue resolved / research batch 01 resolved
 
 ## Integrity binding
 
@@ -8,7 +8,7 @@ Status: rebuilt scan / add-now queue resolved
 - source: `docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl`
 - source blob: `0b0f758137396cc0a21a4eb2c122b71c01b0b3c6`
 - source generated_at: `2026-06-11T22:46:19.477Z`
-- reviewed_at: `2026-06-30`
+- reviewed_at: `2026-07-02`
 
 The integrity checker verifies candidate IDs, names, slugs, range, and disposition counts against the current source JSONL.
 
@@ -17,40 +17,52 @@ The integrity checker verifies candidate IDs, names, slugs, range, and dispositi
 | class | count |
 |---|---:|
 | add_now | 9 |
-| needs_research | 18 |
-| pending_thin | 9 |
-| out_of_scope_or_duplicate | 14 |
+| needs_research | 16 |
+| pending_thin | 10 |
+| out_of_scope_or_duplicate | 15 |
 
-All nine current `add_now` rows are resolved through promotion or existing-entity strengthening. Bit.com was moved from `add_now` to `needs_research` because its historical exchange wind-down and continuing BIT services require separate modeling.
+All nine `add_now` rows are resolved. Of the sixteen rows still classified as `needs_research`, three have now been promoted through research batch 01; thirteen remain unresolved.
 
-## Resolved in batch 01
+## Resolved growth batches
+
+### Batch 01
 
 - `0163` BHEX -> `hei_ex_000566`
 - `0167` Bidesk -> `hei_ex_000567`
 - `0172`-`0173` Bilaxy -> `hei_ex_000568`
 - `0176` Binance DEX -> `hei_ex_000569`
 
-## Resolved in batch 02
+### Batch 02
 
-- `0178`-`0179` Binance JEX spot/futures -> existing `hei_ex_000308`
+- `0178`-`0179` Binance JEX -> existing `hei_ex_000308`
 - `0193` BitcoinTrade -> `hei_ex_000571`
-- `0194` BitcoinVN candidate -> `hei_ex_000572` VBTC
+- `0194` BitcoinVN -> `hei_ex_000572` VBTC
 
-## Resolved in batch 03
+### Batch 03
 
 - `0165` Bibox -> `hei_ex_000573`
 - `0192` BitcoinToYou -> `hei_ex_000574`
 - `0185`-`0186` Bit.com -> moved to `needs_research`
 
-## Needs research
+## Resolved research batch 01
 
-`0155`, `0156`, `0157`, `0158`, `0159`, `0161`, `0162`, `0166`, `0171`, `0182`, `0184`, `0185`, `0187`, `0189`, `0190`, `0195`, `0197`, `0199`.
+- `0156` BenSwap -> `hei_ex_000575`
+- `0158` BeraSwap -> normalized to `hei_ex_000576` BEX
+- `0161` BetterSwap -> `hei_ex_000577`
+- `0155` Beldex -> moved to `out_of_scope_or_duplicate`
+- `0157` Beralis V3 -> moved to `pending_thin`
+
+Beldex is a privacy blockchain and asset project rather than an exchange entity. Beralis V3 remains non-canonical because no stable first-party identity and lifecycle evidence were recovered.
+
+## Unresolved needs research
+
+`0159`, `0162`, `0166`, `0171`, `0182`, `0184`, `0185`, `0187`, `0189`, `0190`, `0195`, `0197`, `0199`.
 
 ## Pending thin
 
-`0164`, `0168`, `0170`, `0174`, `0183`, `0188`, `0191`, `0196`, `0198`.
+`0157`, `0164`, `0168`, `0170`, `0174`, `0183`, `0188`, `0191`, `0196`, `0198`.
 
-Database presence alone is insufficient for promotion.
+Database or aggregator presence alone is insufficient for promotion.
 
 ## Existing, duplicate, or product rows
 
@@ -64,6 +76,7 @@ Database presence alone is insufficient for promotion.
 ## Out of scope
 
 - `0154` Beezie — physical trading-card marketplace
+- `0155` Beldex — blockchain and privacy-asset project
 - `0160` Betmoar.fun — interface row
 - `0169` BigPump — token launchpad
 
@@ -77,4 +90,4 @@ Database presence alone is insufficient for promotion.
 
 ## Next step
 
-Process the 18 `needs_research` candidates in small thematic batches. Strongly evidenced records may be promoted; unresolved rows should move to `pending_thin` or `out_of_scope_or_duplicate` rather than remain indefinitely open.
+Process the thirteen unresolved research candidates in small CEX and DEX batches. Strongly evidenced records may be promoted; unresolved rows should move to `pending_thin` or `out_of_scope_or_duplicate` rather than remain indefinitely open.
