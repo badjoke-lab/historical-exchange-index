@@ -20,16 +20,16 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 ## Current checkpoint
 
 ```text
-Last confirmed main SHA: 10daf033d186602c9843fce930a4f8942b47b542
-Last merged PR: #508
+Last confirmed main SHA: 9f8d417d99fabd0627a6ca49e3506a0c65adf18d
+Last merged PR: #509 Close verified-unadded range 0201-0250
 Current phase: Phase C — Reviewed registry growth
-Current item: final cluster for range 0201-0250
-Next item: scan verified-unadded rows 0251-0300
+Current item: verified-unadded range 0251-0300 initial scan
+Next item: Braziliex / BTC-Alpha / BXH historical batch
 Cloudflare changes: none
 Production deployment: none
 ```
 
-## Projected state after current cluster
+## Current reviewed state
 
 ```text
 Entities:  483
@@ -42,41 +42,64 @@ Maximum evidence ID: hei_src_011174
 
 ```text
 Target entities: 550
-Projected entities: 483
+Current entities: 483
 Remaining additions: 67
 Progress: 87.8%
 ```
 
-## Range 0201-0250
+## Completed range 0201-0250
 
 ```text
-Total rows:             50
-Promoted add_now:        7
-Promoted research:       8
-Pending thin:           30
-Excluded:                5
-Unresolved research:     0
-Range status:       closed
+Promoted add_now:    7
+Promoted research:   8
+Pending thin:       30
+Excluded:            5
+Range status:   closed
 ```
 
-Final cluster:
+## Range 0251-0300
 
 ```text
-Bithesap        pending_thin
-BLEX            pending_thin
-Blitz Exchange  hei_ex_000596; inactive
-Blockbid        hei_ex_000597; inactive
-Blockchain.io   hei_ex_000598; inactive
+Total rows:                    50
+add_now:                        8
+needs_research:                16
+pending_thin:                  16
+out_of_scope_or_duplicate:     10
+range status:                  open
+```
+
+Add-now queue:
+
+```text
+Blocktrade
+Braziliex
+BTC-Alpha
+BTCBOX
+BTC Markets
+Buda
+BuyUcoin
+BXH
+```
+
+First implementation batch:
+
+```text
+Braziliex
+BTC-Alpha
+BXH
 ```
 
 ## Remaining execution order
 
-1. Validate and merge final cluster 04.
-2. Scan verified-unadded rows 0251-0300.
-3. Promote public-quality records from that range.
-4. Continue reviewed growth until at least 550 entities.
-5. Run the Phase C milestone audit.
-6. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
+1. Merge the range 0251-0300 scan.
+2. Draft and validate Braziliex, BTC-Alpha, and BXH.
+3. Draft the active CEX batch: Blocktrade, BTCBOX, BTC Markets, Buda, and BuyUcoin.
+4. Resolve BTSE Futures and Bybit EU identity boundaries.
+5. Process remaining research rows in evidence-backed batches.
+6. Close range 0251-0300.
+7. Continue reviewed growth until at least 550 entities.
+8. Run the Phase C milestone audit.
+9. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
 
 ## Phase C completion gate
 
@@ -99,8 +122,8 @@ duplicate, archive, confidence, origin, and evidence-depth audits pass
 
 | Period | Work | Result |
 |---|---|---|
-| Immediate | merge final range cluster | 483 reviewed entities |
-| Weeks 1-3 | next ranges and growth batches | at least 550 entities |
+| Immediate | merge scan and start historical batch | fixed 50-row queue |
+| Weeks 1-3 | reviewed growth batches | at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
 | Weeks 4-10 | public surfaces through final integration | HEI v1.0 baseline |
 
