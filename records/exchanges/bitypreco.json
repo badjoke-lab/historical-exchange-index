@@ -3,14 +3,14 @@
     "id": "hei_ex_000589",
     "slug": "bitypreco",
     "canonical_name": "Bitypreco",
-    "aliases": ["Bitpreco", "BitPreco", "BityPreco"],
+    "aliases": ["Bitpreco", "BityPreco"],
     "type": "cex",
     "status": "active",
     "death_reason": null,
     "launch_date": "2018-10-01",
     "death_date": null,
     "country_or_origin": "Brazil",
-    "summary": "Brazilian cryptocurrency marketplace launched as Bitpreco in October 2018. It acquired Biscoint in July 2022, joined the Bity group, and moved to the Bitypreco name and domain in September 2023 while continuing to operate.",
+    "summary": "Brazilian cryptocurrency marketplace launched in October 2018 and currently operating within the Bity group.",
     "official_url_original": "https://bitypreco.com/",
     "official_domain_original": "bitypreco.com",
     "official_url_status": "live_verified",
@@ -34,36 +34,39 @@
       "event_status_effect": "active",
       "source_count": 2,
       "sort_order": 1,
-      "notes": "Month-level marker from first-party history."
-    },
-    {
-      "id": "hei_ev_010053",
-      "exchange_id": "hei_ex_000589",
-      "event_type": "acquired",
-      "event_date": "2022-07-21",
-      "title": "Bitpreco acquired Biscoint",
-      "description": "Bitpreco acquired Biscoint as part of the consolidation that later produced the Bity group.",
-      "confidence": "high",
-      "impact_level": "high",
-      "event_status_effect": "active",
-      "source_count": 2,
-      "sort_order": 2,
-      "notes": "Non-terminal acquisition."
-    },
-    {
-      "id": "hei_ev_010054",
-      "exchange_id": "hei_ex_000589",
-      "event_type": "rebranded",
-      "event_date": "2023-09-22",
-      "title": "Bitpreco became Bitypreco",
-      "description": "The platform aligned its identity with the Bity group and moved to bitypreco.com without ending service continuity.",
-      "confidence": "high",
-      "impact_level": "medium",
-      "event_status_effect": "active",
-      "source_count": 2,
-      "sort_order": 3,
-      "notes": "Non-terminal rebrand."
+      "notes": "Month-level marker."
     }
   ],
-  "evidence": []
+  "evidence": [
+    {
+      "id": "hei_src_011133",
+      "exchange_id": "hei_ex_000589",
+      "event_id": "hei_ev_010052",
+      "source_type": "official_blog",
+      "title": "Bitypreco history",
+      "url": "https://www.bity.com.br/blog/bitypreco-o-que-aconteceu-com-exchange/",
+      "publisher": "Bity",
+      "published_at": "2022-12-26",
+      "archived_url": "https://web.archive.org/web/*/https://www.bity.com.br/blog/bitypreco-o-que-aconteceu-com-exchange/",
+      "accessed_at": "2026-07-03",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "First-party history records the October 2018 launch."
+    },
+    {
+      "id": "hei_src_011134",
+      "exchange_id": "hei_ex_000589",
+      "event_id": "hei_ev_010052",
+      "source_type": "official_blog",
+      "title": "Bitypreco company profile",
+      "url": "https://www.bity.com.br/blog/bitypreco-a-melhor-fintech-cripto-do-brasil/",
+      "publisher": "Bity",
+      "published_at": "2024-01-09",
+      "archived_url": "https://web.archive.org/web/*/https://www.bity.com.br/blog/bitypreco-a-melhor-fintech-cripto-do-brasil/",
+      "accessed_at": "2026-07-03",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "First-party profile confirms current marketplace operation."
+    }
+  ]
 }
