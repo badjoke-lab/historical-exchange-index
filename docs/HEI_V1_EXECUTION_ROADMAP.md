@@ -13,73 +13,70 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 - Automated monitoring must not directly edit canonical data.
 - Do not add thin records to satisfy a count target.
 - Preserve historical URLs and conservative status decisions.
-- Do not bypass frozen lineage reviews when adding later records.
+- Do not bypass frozen lineage reviews.
 - Treat maximum IDs as allocation markers, not record counts.
 - Confirm the full diff and all required checks before merge.
 
 ## Current checkpoint
 
 ```text
-Last confirmed main SHA: 59fed4e9775ec0574357fe68b99cc20fe4b759aa
-Last merged PR: #507 Process research rows 0206 0215 and 0219
+Last confirmed main SHA: 10daf033d186602c9843fce930a4f8942b47b542
+Last merged PR: #508
 Current phase: Phase C — Reviewed registry growth
-Current item: Bitonic / Bits Blockchain / Bitsdaq / Bittylicious scope cluster
-Next item: final five research rows in range 0201-0250
+Current item: final cluster for range 0201-0250
+Next item: scan verified-unadded rows 0251-0300
 Cloudflare changes: none
 Production deployment: none
 ```
 
-## Projected state after the current cluster
+## Projected state after current cluster
 
 ```text
-Entities:  480
-Events:    993
-Evidence: 2473
-Maximum entity ID:   hei_ex_000595
-Maximum event ID:    hei_ev_010068
-Maximum evidence ID: hei_src_011162
+Entities:  483
+Events:    997
+Evidence: 2485
+Maximum entity ID:   hei_ex_000598
+Maximum event ID:    hei_ev_010072
+Maximum evidence ID: hei_src_011174
 ```
-
-These values become authoritative only after CI passes and the pull request merges.
 
 ```text
 Target entities: 550
-Projected entities: 480
-Remaining additions: 70
-Progress: 87.3%
+Projected entities: 483
+Remaining additions: 67
+Progress: 87.8%
 ```
 
 ## Range 0201-0250
 
 ```text
-Total rows:                    50
-Promoted add_now:               7
-Promoted research:              5
-Research moved to pending:      2
-Research excluded:              2
-Remaining needs_research:       5
-Pending thin total:            28
-Excluded total:                 5
+Total rows:             50
+Promoted add_now:        7
+Promoted research:       8
+Pending thin:           30
+Excluded:                5
+Unresolved research:     0
+Range status:       closed
 ```
 
-Current cluster:
+Final cluster:
 
 ```text
-Bitonic          excluded; BL3P already represents the order-book exchange
-Bits Blockchain pending_thin
-Bitsdaq          hei_ex_000595; rebranded
-Bittylicious     excluded as broker marketplace
+Bithesap        pending_thin
+BLEX            pending_thin
+Blitz Exchange  hei_ex_000596; inactive
+Blockbid        hei_ex_000597; inactive
+Blockchain.io   hei_ex_000598; inactive
 ```
 
 ## Remaining execution order
 
-1. Validate and merge scope research cluster 03.
-2. Resolve Bithesap, BLEX, Blitz AMM, Blockbid, and Blockchain.io.
-3. Close range 0201-0250.
-4. Open the next verified-unadded range.
-5. Continue reviewed growth until at least 550 entities.
-6. Run the Phase C milestone audit.
-7. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
+1. Validate and merge final cluster 04.
+2. Scan verified-unadded rows 0251-0300.
+3. Promote public-quality records from that range.
+4. Continue reviewed growth until at least 550 entities.
+5. Run the Phase C milestone audit.
+6. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
 
 ## Phase C completion gate
 
@@ -93,46 +90,21 @@ duplicate, archive, confidence, origin, and evidence-depth audits pass
 
 ## Later phases
 
-### Phase D — Public-value surfaces
-
-- Registry Update / Changelog
-- Exchange Incident Timeline
-- safe Evidence Health aggregates
-- Monthly Exchange Failure Snapshot
-- RSS and JSON feeds
-
-### Phase E — Stats, links, and SEO
-
-- stats generator and schemas
-- snapshot, trend, and coverage layers
-- search and related-entity links
-- metadata, JSON-LD, sitemap, and internal-link validation
-
-### Phase F — English/Japanese publication
-
-English remains at root; Japanese uses `/ja/`. Canonical data stays single-source and translations remain overlays.
-
-### Phase G — Final audit and HEI v1.0
-
-- accessibility and interaction audit
-- URL-safety audit
-- production integration test
-- operations runbook
-- v1.0 release baseline
+- Phase D: Registry Update, incident timeline, evidence health, monthly snapshot, feeds.
+- Phase E: Stats, internal links, SEO, metadata, sitemap.
+- Phase F: English root and Japanese `/ja/` routes with translation overlays.
+- Phase G: accessibility, URL safety, production integration, runbook, v1.0 baseline.
 
 ## Schedule
 
 | Period | Work | Result |
 |---|---|---|
-| Immediate | validate and merge cluster 03 | 480 reviewed entities |
-| Weeks 1-3 | remaining research and growth batches | at least 550 entities |
+| Immediate | merge final range cluster | 483 reviewed entities |
+| Weeks 1-3 | next ranges and growth batches | at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
-| Weeks 4-5 | public update surfaces | Phase D complete |
-| Weeks 5-7 | Stats, links, SEO | Phase E complete |
-| Weeks 7-9 | Japanese routes | Phase F complete |
-| Weeks 9-10 | final audit and production smoke | HEI v1.0 baseline |
+| Weeks 4-10 | public surfaces through final integration | HEI v1.0 baseline |
 
-GitHub-side work can continue without Cloudflare access. Cloudflare-only work remains confined to final production integration.
+GitHub-side work can continue without Cloudflare access.
 
 ## Recovery procedure
 
