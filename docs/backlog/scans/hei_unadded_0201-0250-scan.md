@@ -37,10 +37,10 @@ Batch 02:
 
 Research cluster 01:
 
-- `0210` BitGlobal -> `hei_ex_000591`
-- `0212` Bithumb Singapore -> `hei_ex_000592`
+- `0210` BitGlobal -> new `hei_ex_000591`
+- `0212` Bithumb Singapore -> corrected existing `hei_ex_000199` Bitholic
 
-The shared Bithumb name did not represent one entity. Bithumb Korea, BitGlobal, and Bithumb Singapore are modeled as three separate exchange identities.
+The shared Bithumb name did not represent one entity. Bithumb Korea, BitGlobal, and Bithumb Singapore are modeled as three separate exchange identities. Bitholic and Bithumb Singapore are one continuous identity, so no new Singapore entity is created.
 
 ## Remaining needs-research queue
 
