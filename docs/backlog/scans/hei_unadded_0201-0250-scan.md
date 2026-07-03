@@ -4,7 +4,6 @@ Status: reviewed / add-now queue promoted / first research cluster resolved
 
 ## Integrity binding
 
-- machine-readable scan: `docs/backlog/scans/hei_unadded_0201-0250-scan.json`
 - source: `docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl`
 - source blob: `0b0f758137396cc0a21a4eb2c122b71c01b0b3c6`
 - reviewed_at: `2026-07-03`
@@ -20,55 +19,47 @@ Status: reviewed / add-now queue promoted / first research cluster resolved
 
 ## Promoted add-now rows
 
-Batch 01:
-
 - `0202` Bitex.la -> `hei_ex_000584`
-- `0223` Bitpanda Pro -> `hei_ex_000585`
-- `0243` BL3P -> `hei_ex_000586`
-
-Batch 02:
-
 - `0214` Bitinka -> `hei_ex_000587`
 - `0220` Bitocto Exchange -> `hei_ex_000588`
+- `0223` Bitpanda Pro -> `hei_ex_000585`
 - `0226` BitPreco -> `hei_ex_000589` Bitypreco
 - `0230` BitShares DEX -> `hei_ex_000590`
+- `0243` BL3P -> `hei_ex_000586`
 
-## Resolved needs-research rows
-
-Research cluster 01:
+## Resolved research rows
 
 - `0210` BitGlobal -> new `hei_ex_000591`
-- `0212` Bithumb Singapore -> new successor `hei_ex_000592`
-- related repair: existing `hei_ex_000199` Bitholic -> `rebranded`, successor `hei_ex_000592`
+- `0212` Bithumb Singapore -> new `hei_ex_000592`
+- related correction: `hei_ex_000199` Bitholic status -> `rebranded`
 
-The shared Bithumb name did not represent one operating entity. Bithumb Korea and BitGlobal are separate exchanges. Within the Singapore lineage, Bitholic remains the terminal predecessor brand and Bithumb Singapore is the separately modeled successor, matching HEI's rebrand relationship model.
+The Bitholic and Bithumb Singapore records remain separate. Their transition is recorded in events and notes; relationship fields remain unset pending a later lineage review.
 
-## Remaining needs-research queue
+## Remaining research rows
 
-`0206`, `0211`, `0215`, `0219`, `0222`, `0227`, `0229`, `0236`, `0245`-`0246`, `0248`, `0250`.
+`0206`, `0211`, `0215`, `0219`, `0222`, `0227`, `0229`, `0236`, `0245`, `0246`, `0248`, `0250`.
 
 ## Pending thin
 
 `0201`, `0203`-`0205`, `0207`-`0208`, `0213`, `0216`-`0218`, `0221`, `0224`-`0225`, `0228`, `0231`-`0235`, `0237`-`0240`, `0242`, `0247`, `0249`.
 
-## Out of scope or product/version rows
+## Excluded rows
 
 - `0209` Bitget Wallet Card
 - `0241` Bitzyswap V3
 - `0244` Bleap Card
 
-## Current range position
+## Current position
 
 ```text
-range records:                 50
 promoted add_now:               7
 resolved needs_research:        2
 unresolved needs_research:     12
-pending-thin decisions:        26
-out-of-scope/product rows:      3
+pending_thin:                  26
+excluded:                       3
 range status:                  open
 ```
 
 ## Next step
 
-Research the historical terminal-state cluster for BitFlip, BITKER, and Bitnaru, while keeping Bithesap separate because its present operator and lifecycle evidence remain weaker.
+Research BitFlip, BITKER, and Bitnaru as the next terminal-state cluster.
