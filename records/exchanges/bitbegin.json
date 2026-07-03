@@ -1,0 +1,100 @@
+{
+  "entity": {
+    "id": "hei_ex_000581",
+    "slug": "bitbegin",
+    "canonical_name": "BitBegin",
+    "aliases": ["Bitbegin", "BitBegin Exchange", "bitbegin.io"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2018-03-01",
+    "death_date": null,
+    "country_or_origin": "Georgia",
+    "summary": "Georgia-registered centralized cryptocurrency exchange launched in March 2018 as a brand of British Capital LLC. BitBegin currently maintains public spot markets, account and identity-verification flows, a mobile application, and exchange information pages.",
+    "official_url_original": "https://www.bitbegin.io/",
+    "official_domain_original": "bitbegin.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitbegin.io/",
+    "confidence": "high",
+    "last_verified_at": "2026-07-02",
+    "notes": "Launch is stored at month precision because current exchange and app profiles identify March 2018 without a reliable exact public-launch day. The operator relationship to British Capital LLC and Georgia registration follows the official app description and exchange pages."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010036",
+      "exchange_id": "hei_ex_000581",
+      "event_type": "launched",
+      "event_date": "2018-03-01",
+      "title": "BitBegin Exchange launched",
+      "description": "BitBegin began operating in March 2018 as a Georgia-registered centralized cryptocurrency exchange associated with British Capital LLC.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Month-level launch marker from current exchange and official-app profiles."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_011089",
+      "exchange_id": "hei_ex_000581",
+      "event_id": "hei_ev_010036",
+      "source_type": "database_reference",
+      "title": "BitBegin exchange profile",
+      "url": "https://www.coingecko.com/en/exchanges/bitbegin",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.coingecko.com/en/exchanges/bitbegin",
+      "accessed_at": "2026-07-02",
+      "reliability": "medium",
+      "claim_scope": "launch_date",
+      "notes": "Current exchange profile identifies a March 2018 launch, British Capital LLC relationship, and Georgia registration."
+    },
+    {
+      "id": "hei_src_011090",
+      "exchange_id": "hei_ex_000581",
+      "event_id": "hei_ev_010036",
+      "source_type": "official_statement",
+      "title": "BitBegin Exchange mobile application",
+      "url": "https://play.google.com/store/apps/details?id=com.bitbegin.bitbegin",
+      "publisher": "BitBegin Exchange",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://play.google.com/store/apps/details?id=com.bitbegin.bitbegin",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Official app listing describes BitBegin as established in March 2018 under British Capital LLC and licensed in Georgia."
+    },
+    {
+      "id": "hei_src_011091",
+      "exchange_id": "hei_ex_000581",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BitBegin official exchange markets",
+      "url": "https://www.bitbegin.io/",
+      "publisher": "BitBegin",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.bitbegin.io/",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current official site displays public spot markets, prices, and exchange access."
+    },
+    {
+      "id": "hei_src_011092",
+      "exchange_id": "hei_ex_000581",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BitBegin exchange registration statement",
+      "url": "https://www.bitbegin.io/info/ETH",
+      "publisher": "BitBegin",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.bitbegin.io/info/ETH",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official exchange page states that BitBegin is a centralized exchange registered by the Georgia government."
+    }
+  ]
+}

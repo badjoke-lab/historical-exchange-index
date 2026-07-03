@@ -1,0 +1,100 @@
+{
+  "entity": {
+    "id": "hei_ex_000582",
+    "slug": "bitcoiva",
+    "canonical_name": "BITCOIVA",
+    "aliases": ["Bitcoiva", "Bitcoiva Exchange", "bitcoiva.com"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2020-06-01",
+    "death_date": null,
+    "country_or_origin": "India",
+    "summary": "India-focused centralized cryptocurrency exchange launched in June 2020. BITCOIVA currently offers INR and crypto deposits and withdrawals, spot trading, swap, P2P, OTC, earn products, and mobile applications through its official platform.",
+    "official_url_original": "https://www.bitcoiva.com/",
+    "official_domain_original": "bitcoiva.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitcoiva.com/",
+    "confidence": "high",
+    "last_verified_at": "2026-07-02",
+    "notes": "Launch is stored at month precision because first-party Bitcoiva articles consistently identify June 2020 without a reliable exact public-launch day. This exchange entity is distinct from the BCA platform token."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010037",
+      "exchange_id": "hei_ex_000582",
+      "event_type": "launched",
+      "event_date": "2020-06-01",
+      "title": "BITCOIVA launched in India",
+      "description": "BITCOIVA began operating in June 2020 as an India-focused centralized cryptocurrency exchange supporting fiat and crypto trading.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Month-level launch marker from first-party Bitcoiva articles."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_011093",
+      "exchange_id": "hei_ex_000582",
+      "event_id": "hei_ev_010037",
+      "source_type": "official_blog",
+      "title": "How To Add INR Funds in Bitcoiva",
+      "url": "https://blog.bitcoiva.com/how-to-add-inr-funds-in-bitcoiva/",
+      "publisher": "BITCOIVA",
+      "published_at": "2022-06-02",
+      "archived_url": "https://web.archive.org/web/*/https://blog.bitcoiva.com/how-to-add-inr-funds-in-bitcoiva/",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "First-party article states that BITCOIVA launched in June 2020 and describes INR deposit and exchange functions."
+    },
+    {
+      "id": "hei_src_011094",
+      "exchange_id": "hei_ex_000582",
+      "event_id": "hei_ev_010037",
+      "source_type": "official_blog",
+      "title": "Reasons Why BITCOIVA is The Best Crypto Trading Platform",
+      "url": "https://blog.bitcoiva.com/reasons-why-bitcoiva-is-the-best-crypto-trading-platform/",
+      "publisher": "BITCOIVA",
+      "published_at": "2022-02-17",
+      "archived_url": "https://web.archive.org/web/*/https://blog.bitcoiva.com/reasons-why-bitcoiva-is-the-best-crypto-trading-platform/",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "First-party company article independently repeats the June 2020 launch marker and exchange product scope."
+    },
+    {
+      "id": "hei_src_011095",
+      "exchange_id": "hei_ex_000582",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "About BITCOIVA",
+      "url": "https://www.bitcoiva.com/about",
+      "publisher": "BITCOIVA",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.bitcoiva.com/about",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official company page describes BITCOIVA as an India-focused cryptocurrency exchange for buying, selling, and trading digital assets."
+    },
+    {
+      "id": "hei_src_011096",
+      "exchange_id": "hei_ex_000582",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BITCOIVA official exchange platform",
+      "url": "https://www.bitcoiva.com/",
+      "publisher": "BITCOIVA",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.bitcoiva.com/",
+      "accessed_at": "2026-07-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current official site advertises active deposits, withdrawals, spot trading, swap, P2P, OTC, and earn services."
+    }
+  ]
+}
