@@ -1,0 +1,102 @@
+{
+  "entity": {
+    "id": "hei_ex_000598",
+    "slug": "blockchain-io",
+    "canonical_name": "Blockchain.io",
+    "aliases": ["Blockchain.io Exchange", "BCIO Exchange"],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": "2019-01-01",
+    "death_date": null,
+    "country_or_origin": "France",
+    "summary": "French multi-cryptocurrency exchange created by the Paymium team and publicly launched around January 2019 as a platform dedicated to altcoin trading. Its services and brand were later absorbed into Paymium and the original domain now redirects to the parent platform, but no reliable dated terminal announcement has been recovered.",
+    "official_url_original": "https://blockchain.io/",
+    "official_domain_original": "blockchain.io",
+    "official_url_status": "redirected",
+    "archived_url": "https://web.archive.org/web/*/https://blockchain.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-07-04",
+    "notes": "Paymium's current company history preserves Blockchain.io as a former altcoin platform, while current third-party profiles report that the brand and services were integrated into Paymium. Because an exact integration or shutdown date was not recovered, HEI uses inactive status and leaves death_date and death_reason null rather than forcing merged or rebranded."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010072",
+      "exchange_id": "hei_ex_000598",
+      "event_type": "launched",
+      "event_date": "2019-01-01",
+      "title": "Blockchain.io launched as Paymium's altcoin exchange",
+      "description": "The Paymium team launched Blockchain.io as a French multi-cryptocurrency exchange dedicated to altcoin trading for retail and institutional users.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "Month-level January 2019 marker from exchange-profile data; Paymium had announced the project and released an early MVP during 2018."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_011171",
+      "exchange_id": "hei_ex_000598",
+      "event_id": "hei_ev_010072",
+      "source_type": "official_statement",
+      "title": "Paymium company history",
+      "url": "https://www.paymium.com/en/about/the-company",
+      "publisher": "Paymium",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.paymium.com/en/about/the-company",
+      "accessed_at": "2026-07-04",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party history identifies the launch of Blockchain.io as Paymium's platform dedicated to altcoins."
+    },
+    {
+      "id": "hei_src_011172",
+      "exchange_id": "hei_ex_000598",
+      "event_id": "hei_ev_010072",
+      "source_type": "news_article",
+      "title": "Paymium launching European cryptocurrency trading platform Blockchain.io",
+      "url": "https://www.cryptoninjas.net/2018/02/15/paymium-launches-european-cryptocurrency-trading-platform-blockchain-io/",
+      "publisher": "CryptoNinjas",
+      "published_at": "2018-02-15",
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptoninjas.net/2018/02/15/paymium-launches-european-cryptocurrency-trading-platform-blockchain-io/",
+      "accessed_at": "2026-07-04",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Contemporaneous report documents Paymium's announcement of the separate European multi-cryptocurrency exchange."
+    },
+    {
+      "id": "hei_src_011173",
+      "exchange_id": "hei_ex_000598",
+      "event_id": "hei_ev_010072",
+      "source_type": "database_reference",
+      "title": "Blockchain.io exchange market profile",
+      "url": "https://coinmarketcap.com/exchanges/blockchain-io/",
+      "publisher": "CoinMarketCap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/blockchain-io/",
+      "accessed_at": "2026-07-04",
+      "reliability": "medium",
+      "claim_scope": "launch_date",
+      "notes": "Exchange profile identifies Blockchain.io as a France-based centralized exchange launched in January 2019."
+    },
+    {
+      "id": "hei_src_011174",
+      "exchange_id": "hei_ex_000598",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Blockchain.io integration and redirect status",
+      "url": "https://www.trustfinance.com/companies/blockchain-io",
+      "publisher": "TrustFinance",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.trustfinance.com/companies/blockchain-io",
+      "accessed_at": "2026-07-04",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current company profile reports that Blockchain.io services and branding were integrated into Paymium and that the domain redirects to the parent platform."
+    }
+  ]
+}
