@@ -27,15 +27,19 @@
       "status": "limited",
       "death_reason": null,
       "death_date": null,
-      "summary": "Solana-based decentralized perpetuals and trading protocol that remained in a critical limited state after the April 2026 exploit. Drift's June 2026 recovery update said the team was rebuilding the protocol for a security-first relaunch and that the exchange had not yet been brought fully back online.",
-      "notes": "Retain limited rather than active or dead. The official domain and recovery pages are live, but the June 3 recovery update describes relaunch as future work and says the team is taking steps to bring the platform back online. Existing exploit and suspension events are not duplicated.",
-      "last_verified_at": "2026-06-28"
+      "summary": "Solana-based decentralized perpetuals and trading protocol that entered a critical limited state in April 2026 after a major exploit and suspension of deposits and withdrawals.",
+      "official_url_status": "live_unverified",
+      "confidence": "medium",
+      "notes": "Do not mark dead yet. The April 2026 exploit and deposit / withdrawal suspension are material enough for HEI because they changed platform availability, but no final shutdown marker is confirmed.",
+      "last_verified_at": "2026-04-25"
     },
     "changes": {
       "status": "rebranded",
       "death_reason": "rebrand",
       "death_date": "2026-07-01",
       "summary": "Solana-based decentralized perpetuals and trading protocol that entered a critical limited state after the April 2026 exploit and officially rebranded to Velocity on July 1, 2026 while the rebuilt successor platform remained in private-beta preparation.",
+      "official_url_status": "live_verified",
+      "confidence": "high",
       "notes": "Reclassified from limited to rebranded after the official account announced that Drift was becoming Velocity on 2026-07-01. The private beta was still described as forthcoming and no verified public Velocity platform URL or completed public relaunch was available at review time, so HEI does not yet create a separate successor entity or assign successor_id. The original Drift domain remains reachable and is preserved as the historical URL.",
       "last_verified_at": "2026-07-03"
     }
