@@ -62,6 +62,36 @@
   ],
   "evidence": [
     {
+      "id": "hei_src_010051",
+      "exchange_id": "hei_ex_000221",
+      "event_id": null,
+      "source_type": "official_blog",
+      "title": "Drift Recovery Update – June 3, 2026",
+      "url": "https://www.drift.trade/updates/drift-recovery-update-june-3-2026",
+      "publisher": "Drift",
+      "published_at": "2026-06-04",
+      "archived_url": "https://web.archive.org/web/*/https://www.drift.trade/updates/drift-recovery-update-june-3-2026",
+      "accessed_at": "2026-06-28",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "First-party update says Drift's focus remained relaunching the exchange and described work to bring the platform back online, preserving the pre-rebrand recovery context."
+    },
+    {
+      "id": "hei_src_010052",
+      "exchange_id": "hei_ex_000221",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Drift official protocol site",
+      "url": "https://www.drift.trade/",
+      "publisher": "Drift",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.drift.trade/",
+      "accessed_at": "2026-06-28",
+      "reliability": "high",
+      "claim_scope": "url_history",
+      "notes": "The historical Drift domain remained reachable before the Velocity rebrand and linked to Drift's application, documentation, and incident-recovery updates."
+    },
+    {
       "id": "hei_src_011102",
       "exchange_id": "hei_ex_000221",
       "event_id": "hei_ev_010039",
