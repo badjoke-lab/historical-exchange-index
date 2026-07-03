@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "reviewed_at": "2026-06-21",
+  "reviewed_at": "2026-07-03",
   "source_inventory_pr": 408,
   "scope": "existing_predecessor_successor_edges",
   "dispositions": [
@@ -135,6 +135,30 @@
       "rationale": "OPNX was connected to CoinFLEX leadership and creditor plans, but the transition was not a clean exchange-name rebrand and later evidence disputes the extent of continuity. The relationship remains historical narrative rather than a forced canonical successor link.",
       "event_ids": ["hei_ev_000575"],
       "evidence_ids": ["hei_src_001284", "hei_src_000387", "hei_src_003196"]
+    },
+    {
+      "entity_id": "hei_ex_000199",
+      "entity_name": "Bitholic",
+      "field": "successor_id",
+      "target_id": "hei_ex_000592",
+      "target_name": "Bithumb Singapore",
+      "disposition": "keep_bidirectional",
+      "continuity_status": "official_brand_rebrand",
+      "rationale": "Bitholic ended as a brand when the same Singapore exchange operation adopted the Bithumb Singapore identity. The reviewed one-to-one rebrand supports a reciprocal successor and predecessor relationship.",
+      "event_ids": ["hei_ev_010060"],
+      "evidence_ids": ["hei_src_011147"]
+    },
+    {
+      "entity_id": "hei_ex_000592",
+      "entity_name": "Bithumb Singapore",
+      "field": "predecessor_id",
+      "target_id": "hei_ex_000199",
+      "target_name": "Bitholic",
+      "disposition": "keep_bidirectional",
+      "continuity_status": "official_brand_rebrand",
+      "rationale": "Bithumb Singapore began as the successor identity to Bitholic under a documented August 2019 brand transition. The reciprocal link preserves that one-to-one lineage without merging the two terminal brand records.",
+      "event_ids": ["hei_ev_010060"],
+      "evidence_ids": ["hei_src_011147"]
     }
   ]
 }
