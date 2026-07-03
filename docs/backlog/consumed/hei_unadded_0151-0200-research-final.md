@@ -8,7 +8,7 @@ Reviewed at: 2026-07-02
 
 | candidate rows | canonical entity | result |
 |---|---|---|
-| `hei_unadded_0185`-`0186` Bit.com spot/futures | `hei_ex_000580` Bit.com Exchange | Added once as `dead / voluntary_shutdown`; launched in August 2020, trading ended January 31, 2026, and the final withdrawal/service deadline expired March 31, 2026. |
+| `hei_unadded_0185`-`0186` Bit.com spot/futures | existing `hei_ex_000220` Bit.com | Mapped to the existing `dead / voluntary_shutdown` record; spot and futures are one historical exchange identity, so no duplicate entity was created. |
 | `hei_unadded_0190` BitBegin | `hei_ex_000581` BitBegin | Added as an active Georgia-registered CEX launched in March 2018. |
 | `hei_unadded_0195` BITCOIVA | `hei_ex_000582` BITCOIVA | Added as an active India-focused CEX launched in June 2020. |
 | `hei_unadded_0197` Bitcratic | `hei_ex_000583` Bitcratic | Added as an active Ethereum and BNB Smart Chain DEX using an off-chain order book with on-chain settlement. |
@@ -22,18 +22,18 @@ Reviewed at: 2026-07-02
 
 ## Batch output
 
-- new entities: 4
-- new events: 6
-- new evidence records: 20
+- new entities: 3
+- existing entities matched: 1
+- new events: 3
+- new evidence records: 13
 - moved to pending thin: 2
 - duplicate product rows collapsed: 2
 - unresolved research rows after batch: 0
 
 ## Modeling decisions
 
-- Bit.com spot and futures are one historical exchange entity.
-- Bit.com's terminal date is March 31, 2026, when the final backup-withdrawal and service window ended; January 31 remains the earlier trading and main-site cutoff.
-- The current bit.com domain is classified as repurposed because it now presents the broader BIT financial-services group, formerly Matrixport.
+- Bit.com spot and futures map to existing `hei_ex_000220`; the source rows do not justify a second Bit.com entity.
+- The existing Bit.com record already preserves the March 31, 2026 terminal date and the earlier January 31 trading cutoff.
 - BitBegin uses a month-level March 2018 launch marker and Georgia origin.
 - BITCOIVA uses a month-level June 2020 launch marker and is separated from its BCA token.
 - Bitcratic retains a medium-confidence November 26, 2018 launch marker from contemporary community evidence and high-confidence current operating evidence.
@@ -52,8 +52,8 @@ range status:                   closed
 
 ## Safety checks
 
+- existing Bit.com identity was reused rather than duplicated
 - spot and futures product rows were collapsed before entity creation
-- active financial services were separated from a closed exchange lifecycle
 - current official sites and interfaces were checked for active entities
 - tracker-only disappearance was not converted into invented terminal dates
 - event source counts match linked evidence
