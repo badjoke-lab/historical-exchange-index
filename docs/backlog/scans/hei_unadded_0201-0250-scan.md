@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0201-0250
 
-Status: reviewed / add-now queue promoted / three research clusters resolved
+Status: closed
 
 ## Integrity binding
 
@@ -27,56 +27,50 @@ Status: reviewed / add-now queue promoted / three research clusters resolved
 - `0230` BitShares DEX -> `hei_ex_000590`
 - `0243` BL3P -> `hei_ex_000586`
 
-## Resolved research rows
-
-Cluster 01:
-
-- `0210` BitGlobal -> `hei_ex_000591`
-- `0212` Bithumb Singapore -> `hei_ex_000592`
-- related correction: `hei_ex_000199` Bitholic -> `rebranded`
-
-Cluster 02:
+## Promoted research rows
 
 - `0206` BitFlip -> `hei_ex_000593`
+- `0210` BitGlobal -> `hei_ex_000591`
+- `0212` Bithumb Singapore -> `hei_ex_000592`
 - `0215` BITKER -> `hei_ex_000594`
-- `0219` Bitnaru -> `pending_thin`
-
-Cluster 03:
-
-- `0222` Bitonic -> excluded as a separate exchange entity; BL3P already represents the order-book exchange product
-- `0227` Bits Blockchain -> `pending_thin`
 - `0229` Bitsdaq -> `hei_ex_000595`
-- `0236` Bittylicious -> excluded as a broker marketplace
+- `0246` Blitz AMM -> `hei_ex_000596` Blitz Exchange
+- `0248` Blockbid -> `hei_ex_000597`
+- `0250` Blockchain.io -> `hei_ex_000598`
 
-## Remaining research rows
+Related correction:
 
-`0211`, `0245`, `0246`, `0248`, `0250`.
+- existing `hei_ex_000199` Bitholic: `dead` -> `rebranded`
 
-## Pending thin
+## Research rows moved to pending-thin
 
-`0201`, `0203`-`0205`, `0207`-`0208`, `0213`, `0216`-`0219`, `0221`, `0224`-`0225`, `0227`-`0228`, `0231`-`0235`, `0237`-`0240`, `0242`, `0247`, `0249`.
+- `0211` Bithesap
+- `0219` Bitnaru
+- `0227` Bits Blockchain
+- `0245` BLEX
+
+These rows remain non-canonical because operator identity, lifecycle, or source depth is insufficient.
 
 ## Excluded rows
 
-- `0209` Bitget Wallet Card
-- `0222` Bitonic
-- `0236` Bittylicious
-- `0241` Bitzyswap V3
-- `0244` Bleap Card
+- `0209` Bitget Wallet Card — card product
+- `0222` Bitonic — broker/direct purchase service; BL3P represents the order-book exchange
+- `0236` Bittylicious — broker marketplace
+- `0241` Bitzyswap V3 — version/deployment row
+- `0244` Bleap Card — card product
 
-## Current position
+## Final range result
 
 ```text
-promoted add_now:               7
-promoted research:              5
-research moved to pending:      2
-research excluded:              2
-unresolved needs_research:      5
-pending_thin total:            28
-excluded total:                 5
-range status:                  open
+range records:                50
+promoted add_now:              7
+promoted research:             8
+pending_thin:                 30
+excluded:                      5
+unresolved research:           0
+range status:             closed
 ```
 
 ## Next step
 
-Resolve Bithesap, BLEX, Blitz AMM, Blockbid, and Blockchain.io, then close range 0201-0250.
+Open and scan the next verified-unadded range, rows `0251-0300`.
