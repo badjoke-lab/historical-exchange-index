@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0201-0250
 
-Status: reviewed / add-now queue promoted
+Status: reviewed / add-now queue promoted / first research cluster resolved
 
 ## Integrity binding
 
@@ -33,9 +33,18 @@ Batch 02:
 - `0226` BitPreco -> `hei_ex_000589` Bitypreco
 - `0230` BitShares DEX -> `hei_ex_000590`
 
-## Needs-research queue
+## Resolved needs-research rows
 
-`0206`, `0210`-`0212`, `0215`, `0219`, `0222`, `0227`, `0229`, `0236`, `0245`-`0246`, `0248`, `0250`.
+Research cluster 01:
+
+- `0210` BitGlobal -> `hei_ex_000591`
+- `0212` Bithumb Singapore -> `hei_ex_000592`
+
+The shared Bithumb name did not represent one entity. Bithumb Korea, BitGlobal, and Bithumb Singapore are modeled as three separate exchange identities.
+
+## Remaining needs-research queue
+
+`0206`, `0211`, `0215`, `0219`, `0222`, `0227`, `0229`, `0236`, `0245`-`0246`, `0248`, `0250`.
 
 ## Pending thin
 
@@ -52,8 +61,8 @@ Batch 02:
 ```text
 range records:                 50
 promoted add_now:               7
-remaining add_now:              0
-unresolved needs_research:     14
+resolved needs_research:        2
+unresolved needs_research:     12
 pending-thin decisions:        26
 out-of-scope/product rows:      3
 range status:                  open
@@ -61,4 +70,4 @@ range status:                  open
 
 ## Next step
 
-Resolve the BitGlobal and Bithumb Singapore identity boundary, then process the remaining needs-research rows in small batches.
+Research the historical terminal-state cluster for BitFlip, BITKER, and Bitnaru, while keeping Bithesap separate because its present operator and lifecycle evidence remain weaker.
