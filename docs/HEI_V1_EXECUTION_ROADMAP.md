@@ -13,6 +13,7 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 - Automated monitoring must not directly edit canonical data.
 - Do not add thin records to satisfy a count target.
 - Preserve historical URLs and use conservative status decisions.
+- Reuse existing canonical identities before allocating new ones.
 - Treat maximum IDs as allocation markers, not record counts.
 - Confirm the full diff and all required checks before merge.
 
@@ -31,10 +32,10 @@ Production deployment: none
 ## Projected state after the current research cluster
 
 ```text
-Entities:  477
+Entities:  476
 Events:    987
 Evidence: 2461
-Maximum entity ID:   hei_ex_000592
+Maximum entity ID:   hei_ex_000591
 Maximum event ID:    hei_ev_010062
 Maximum evidence ID: hei_src_011150
 ```
@@ -43,9 +44,9 @@ These values become authoritative only after CI passes and the pull request merg
 
 ```text
 Target entities: 550
-Projected entities: 477
-Remaining additions: 73
-Progress: 86.7%
+Projected entities: 476
+Remaining additions: 74
+Progress: 86.5%
 ```
 
 ## Range 0201-0250
@@ -76,8 +77,8 @@ BitShares DEX
 Resolved research cluster:
 
 ```text
-BitGlobal          inactive; former Bithumb Global
-Bithumb Singapore  dead / unknown; former Bitholic
+BitGlobal          new hei_ex_000591; inactive; former Bithumb Global
+Bithumb Singapore  corrected hei_ex_000199; dead / unknown; former Bitholic
 ```
 
 Identity boundary:
@@ -85,8 +86,10 @@ Identity boundary:
 ```text
 Bithumb Korea      existing canonical entity hei_ex_000021
 BitGlobal          separate global exchange and trademark licensee
-Bithumb Singapore  separate Singapore exchange and trademark licensee
+Bithumb Singapore  existing Bitholic identity hei_ex_000199
 ```
+
+The initial draft attempted to allocate a second Singapore entity. Record-overlap CI detected the existing Bitholic identity, and the branch was corrected to preserve `hei_ex_000199`.
 
 ## Remaining execution order
 
@@ -142,7 +145,7 @@ English remains at root; Japanese uses `/ja/`. Canonical data stays single-sourc
 
 | Period | Work | Result |
 |---|---|---|
-| Immediate | validate and merge Bithumb identity cluster | 477 reviewed entities |
+| Immediate | validate and merge Bithumb identity cluster | 476 reviewed entities |
 | Weeks 1-3 | remaining research and growth batches | at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
 | Weeks 4-5 | public update surfaces | Phase D complete |
