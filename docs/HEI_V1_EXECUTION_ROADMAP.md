@@ -1,573 +1,202 @@
 # HEI v1 Execution Roadmap
 
 Status: active execution source of truth  
-Project: Historical Exchange Index (HEI)  
 Repository: `badjoke-lab/historical-exchange-index`  
-Current checkpoint: 2026-06-22  
-Target: HEI v1.0 and transition to recurring registry operations
+Checkpoint: 2026-07-03  
+Target: HEI v1.0 and recurring registry operations
 
-The detailed pre-B1 roadmap is preserved at:
+Repository state is authoritative if this checkpoint and GitHub disagree. Earlier detailed planning remains available in Git history and `docs/archive/HEI_V1_EXECUTION_ROADMAP_PRE_B1_2026-06-22.md`.
 
-`docs/archive/HEI_V1_EXECUTION_ROADMAP_PRE_B1_2026-06-22.md`
+## Operating rules
 
-Repository state is authoritative if this checkpoint and GitHub disagree.
+- Automated monitoring must not directly modify `data/entities.json`, `data/events.json`, or `data/evidence.json`.
+- Canonical changes require a reviewed normal pull request.
+- Repair bundles do not increase entity count.
+- Do not add thin records to reach a numerical target.
+- Preserve original URLs; prefer archived access for dead-side records.
+- Never infer reviewed counts from maximum IDs.
+- Before merge, confirm the PR head, full diff, count effect, and all required checks.
 
----
-
-## 1. Non-negotiable operating rules
-
-### Canonical safety
-
-Automated monitoring may create findings, reports, watchlists, artifacts, and monitoring pull requests. It must not directly modify:
-
-```text
-data/entities.json
-data/events.json
-data/evidence.json
-```
-
-Canonical changes require a reviewed normal pull request.
-
-### Count semantics
+## Current checkpoint
 
 ```text
-entities
-= canonical entities
-+ reviewed bundle entities representing genuinely new identities
-
-events
-= canonical events
-+ reviewed bundle events deduplicated by ID
-
-evidence
-= canonical evidence
-+ reviewed bundle evidence deduplicated by ID
-```
-
-Repair bundles do not increase entity count. Identical duplicate IDs count once. Conflicting duplicate IDs are errors.
-
-### Record quality
-
-Do not add thin records only to reach a numerical target. A normal new public record requires:
-
-- a clear HEI-relevant identity;
-- at least one meaningful event;
-- normally two or more evidence records;
-- source-backed status and date decisions;
-- alias, slug, domain, and duplicate checks;
-- conservative confidence and end-state classification.
-
-### URL and origin discipline
-
-- preserve original URLs as historical fields;
-- use archived access for dead-side records;
-- do not treat unsafe, repurposed, or dead domains as ordinary live links;
-- do not infer origin from domain suffix, language, or unsupported secondary summaries;
-- use `Unknown`, `Global`, or an ecosystem label where evidence does not support a country.
-
-### Merge discipline
-
-Before merge:
-
-- inspect current `main` and the complete PR diff;
-- confirm the expected head SHA;
-- confirm all required checks;
-- confirm count effects;
-- update this checkpoint.
-
----
-
-## 2. Current checkpoint
-
-```text
-Checkpoint date: 2026-06-22
-Last confirmed main SHA: 61581e49b5b0ee6aadd600341f8d2e21eeb2baac
-Last merged implementation PR: #421 Allow reviewed candidate states to advance
-Current implementation PR: #422 Add DX.Exchange historical record
+Last confirmed main SHA: f7d358fe6b90e08d28f4e4f40bacd791e0ea98f7
+Last merged PR: #501 Close verified-unadded research range 0151-0200
 Current phase: Phase C — Reviewed registry growth
-Completed item: C2 — Add the DX.Exchange reviewed record bundle
-Current item: C3 — Repair thin active CEX records
-Cloudflare configuration changed by current work: no
-Production deployment performed by current work: no
+Completed item: verified-unadded range 0151-0200 closed
+Current item: Drift Protocol -> Velocity lifecycle repair
+Cloudflare changes: none
+Production deployment: none
 ```
 
-### Reviewed public counts
+### Reviewed public counts after PR #501
 
 ```text
-Entities:  413
-Events:    695
-Evidence: 1627
+Entities:  468
+Events:    963
+Evidence: 2412
 ```
 
-### Maximum observed IDs
+### Maximum observed IDs after PR #501
 
 ```text
-Maximum entity ID:    hei_ex_000526
-Maximum event ID:     hei_ev_002087
-Maximum evidence ID:  hei_src_003216
+Entity:   hei_ex_000583
+Event:    hei_ev_010038
+Evidence: hei_src_011101
 ```
+
+Maximum IDs are allocation markers, not counts.
 
 ### Count composition
 
 ```text
-Canonical entities:  306
-Canonical events:    513
-Canonical evidence: 1172
-
-Reviewed bundles: 153
-New-entity bundles: 107
-Repair bundles:      46
+Canonical: 306 entities / 513 events / 1172 evidence
+Reviewed bundles: 323 total
+New-entity bundles: 162
+Repair bundles: 161
 ```
 
-### B1 completion result
+### Phase C position
 
 ```text
-Monitoring groups: 7 / 7 ok
-Monitoring execution errors: 0
-Critical findings: 0
-Canonical file modifications: 0
-Closed Phase A debt rediscovered: 0
+Target entities: 550
+Current entities: 468
+Remaining additions: 82
+Progress: 85.1%
 ```
 
-Audit:
+Phase C remains current. The 550 milestone has not been reached.
 
-`docs/audits/HEI_B1_FULL_MONITORING_2026-06-22.md`
+## Inserted current-event repair: Drift -> Velocity
 
-### B2 completion result
+The July 1, 2026 rebrand is inserted before the next growth range because it changes an existing high-impact DEX lifecycle record.
 
 ```text
-Resolution index entries: 66
-Promoted: 14
-Held: 31
-Out of scope: 8
-Duplicate: 0
-Already canonical: 2
-Needs research: 11
-Historical resolution coverage errors: 0
-Raw watchlist rows: 193
-Unique candidate identities: 162
-Repeated rows collapsed: 31
-Reviewed queue coverage failures: 0
+Entity: hei_ex_000221 Drift Protocol
+Status: limited -> rebranded
+Death reason: null -> rebrand
+Terminal/rebrand date: 2026-07-01
+Entity count effect: 0
+Event effect: +1
+Evidence effect: +2
+Projected counts: 468 / 964 / 2414
 ```
 
-Audit:
+Do not create a second Drift entity. Do not create Velocity as a separate successor until a verified operating platform URL and launched private or public product identity are available. When that gate is met, create Velocity no stronger than `limited` and link `Drift.successor_id` to `Velocity.predecessor_id`.
 
-`docs/audits/HEI_B2_WATCHLIST_RESOLUTION_2026-06-22.md`
-
-### B3 completion result
+## Remaining execution order
 
 ```text
-Projected registry:     412 / 691 / 1620
-Monitoring aggregate:   412 / 691 / 1620
-Machine-readable data:  412 / 691 / 1620
-Built public data:      412 / 691 / 1620
-Exchange detail pages:  412
-Sitemap exchange routes: 412
-Sitemap total routes:    419
-Bundle ID conflicts:       0
-```
-
-B3 discovered and corrected 16 hidden ID conflicts:
-
-```text
-Event conflicts:    4
-Evidence conflicts: 12
-Affected bundles: CoinLoan, Zipmex, Garantex
-```
-
-These records had been silently omitted by older deduplication behavior. Restoring them changed supporting-record counts from `687 / 1608` to `691 / 1620` without changing entity count.
-
-Audit:
-
-`docs/audits/HEI_B3_COUNT_SEMANTICS_2026-06-22.md`
-
-### C1 completion result — corrected before C2
-
-The initial C1 duplicate decisions were revalidated against the projected public registry. Twelve supposedly open candidates were already represented by reviewed HEI entities.
-
-```text
-Candidates reviewed:             42
-Add now:                          1
-Needs further research:           0
-Pending thin:                    29
-Already canonical / duplicate:   12
-First growth batch:               1
-```
-
-Corrected first growth batch:
-
-```text
-DX.Exchange
-```
-
-Already-canonical corrections:
-
-```text
-Aevo Perps / Byte Exchange / Curve DEX / dYdX V3 / dYdX V4
-Gains Network / Joe DEX / Jupiter Perpetual Exchange
-Orca DEX / Osmosis DEX / Quickswap Dex / Thorchain DEX
-```
-
-The resolution index now points each corrected candidate to its projected entity ID.
-
-Audit:
-
-`docs/audits/HEI_C1_CANDIDATE_SCAN_01_2026-06-22.md`
-
-### Known non-blocking queue
-
-- ArcherSwap official-site DNS failure.
-
-The earlier CoinLoan, Garantex, Zipmex evidence warnings and sitemap-route warning were resolved by B3.
-
----
-
-## 3. Completed phases
-
-### Phase R0 — Roadmap placement
-
-Status: **COMPLETED**
-
-### Phase A — Structural entity-quality debt
-
-Status: **COMPLETED**
-
-- A1 official URL status normalization — PR #394;
-- A2 country/origin cleanup and strict gate — PRs #399-#407;
-- A3 lineage inventory and complete review — PRs #408-#411;
-- A4 reviewed lineage application — PR #412;
-- A5 permanent entity-quality audit — PR #413.
-
-### Phase B — Monitoring and count guarantees
-
-Status: **COMPLETED**
-
-- B1 full post-cleanup monitoring — PR #414;
-- B2 watchlist and resolution reorganization — PR #416;
-- B3 count-semantics regression — PR #417;
-- B4 earlier production smoke baseline — completed for the earlier production baseline.
-
-Permanent Phase B safeguards:
-
-- projected-public enum validation;
-- seven-monitor completion validation;
-- canonical-file guard;
-- stable candidate identity and authoritative resolution state;
-- terminal-candidate staging exclusion;
-- reviewed queue coverage;
-- repair/new-bundle count semantics;
-- cross-layer count and ID-set equality;
-- strict bundle event/evidence ID collision detection;
-- detail-page and sitemap route-count validation.
-
-A final production integration smoke test remains part of Phase G.
-
----
-
-## 4. Remaining execution order and schedule
-
-```text
-C      Grow reviewed registry to at least 550 entities
+C      Grow reviewed registry from 468 to at least 550
+C8     Run the 550-entity milestone audit
 D      Public-value update and research surfaces
 E      Stats, internal linking, and SEO
 F      English/Japanese bilingual publication
-G      Final integration audit and HEI v1.0 baseline
+G      Final integration audit and HEI v1.0
 ```
 
-Estimated remaining effort after the C1 overlap correction:
+## Phase C — Reviewed registry growth
 
-```text
-Implementation PRs: approximately 32-44
-Working days: approximately 34-53
-Calendar estimate: approximately 8-12 weeks
-```
+Status: CURRENT  
+Estimated remaining duration: 12-20 working days  
+Estimated PRs: 10-16 growth PRs, excluding the Drift repair
 
-The largest uncertainty remains Phase C. HEI must add at least 138 reviewed entities without accepting thin count-filler records.
+After the Drift repair:
 
----
+1. open the next unconsumed verified-unadded range;
+2. review 30-50 candidates as a pool;
+3. classify each as `add_now`, `needs_research`, `pending_thin`, or `out_of_scope_or_duplicate`;
+4. promote only public-quality records;
+5. keep normal PRs near 5-10 new entities;
+6. run overlap, record, count, URL, origin, and evidence checks.
 
-# Phase C — Grow the reviewed registry to 550 entities
+Priority:
 
-Status: **CURRENT**  
-Starting reviewed count: 412  
-Required net additions from the original 412 baseline: at least 138  
-Remaining additions after C2: at least 137  
-Estimated duration: 15-25 working days  
-Estimated PRs: 14-19
-
-## C1. Candidate scans and queue selection
-
-Status: **COMPLETED in PR #418, corrected in PR #419**
-
-The scan reviewed 42 candidates. A projected-public overlap audit then found 12 stale open resolutions already represented by reviewed HEI entities.
-
-```text
-add_now:                          1
-needs_research:                   0
-pending_thin:                    29
-out_of_scope_or_duplicate:       12
-```
-
-Completed work:
-
-- fixed stable candidate keys and one disposition for every scanned candidate;
-- independently rechecked candidate names, proposed names, aliases, and product/version labels against projected entities;
-- moved 12 stale open entries to `already_canonical` with target entity IDs;
-- reduced the first growth batch to DX.Exchange;
-- added strict open-candidate overlap validation to the resolution and candidate-scan gates.
-
-Completion gate:
-
-```text
-42 candidates retained in the historical scan
-all current open resolution entries remain covered
-12 already-canonical overlaps corrected
-no open candidate overlaps a projected entity
-first growth batch fixed at DX.Exchange
-```
-
-## C2. First growth record drafting
-
-Status: **COMPLETED in PR #422**
-
-Added one reviewed historical exchange record:
-
-```text
-DX.Exchange
-Entity:   hei_ex_000526
-Events:   hei_ev_002084–hei_ev_002087
-Evidence: hei_src_003210–hei_src_003216
-```
-
-Count impact:
-
-```text
-Entities:  412 -> 413
-Events:    691 -> 695
-Evidence: 1620 -> 1627
-```
-
-The candidate resolution advanced from `needs_research` to `promoted`. The strict projected-public overlap gate remains mandatory before selecting later growth batches.
-
-## C3. Repair thin active CEX records
-
-Improve existing active records lacking clear identity, launch evidence, current-status evidence, original domain, origin, or normal evidence depth.
-
-Repair bundles must not increase entity count and must pass the B3 count gate.
-
-## C4-C5. DEX, perp DEX, and hybrid batches
+1. dead, acquired, merged, and rebranded records with strong terminal evidence;
+2. active CEX and DEX records with meaningful lifecycle history;
+3. perp DEX and hybrid entities with clear identity boundaries;
+4. thin tracker-only candidates last or not at all.
 
 Rules:
 
-- model entity identity rather than deployment rows;
-- start with small public-quality batches;
-- do not classify a protocol as dead only because one frontend disappeared;
-- use `inactive` where permanent end-state evidence is weak.
+- model entities, not deployment rows;
+- do not split spot, futures, chain, or version rows without a distinct lifecycle identity;
+- do not call a DEX dead only because one frontend disappeared;
+- use `inactive` when terminal evidence is weak;
+- reuse existing canonical identities instead of creating duplicates.
 
-Expected contribution: approximately 55-70 entities.
-
-## C6-C7. Historical dead, acquired, merged, and rebranded batches
-
-Prioritize official shutdown, bankruptcy, liquidation, regulatory termination, permanent post-hack closure, acquisition, merger, clear rebrand, and preserved archive evidence.
-
-Expected contribution: approximately 70-85 entities.
-
-## C8. Review the 550-entity milestone
-
-Completion gate:
+### C8 milestone gate
 
 ```text
-reviewed public entities >= 550
+reviewed entities >= 550
 all additions meet public quality
-no thin count-filler batch accepted
-all CI and record validations green
-public, monitoring, and machine counts agree
-duplicate, balance, archive, confidence, origin, and evidence-depth audit passes
+all required CI checks green
+public, monitoring, machine, and built counts agree
+duplicate, archive, confidence, origin, and evidence-depth audits pass
 ```
 
----
+## Phase D — Public-value surfaces
 
-# Phase D — Public-value update and research surfaces
+Estimated duration: 5-7 working days / 4-5 PRs
 
-Estimated duration: 5-7 working days  
-Estimated PRs: 4-5
+- Registry Update / Changelog from merged reviewed changes;
+- Exchange Incident Timeline;
+- safe Evidence Health aggregates;
+- Monthly Exchange Failure Snapshot;
+- RSS and JSON feeds.
 
-Planned surfaces:
+## Phase E — Stats, links, and SEO
 
-- D1 Registry Update / Changelog generated only from merged reviewed changes;
-- D2 Exchange Incident Timeline;
-- D3 safe public Evidence Health aggregates;
-- D4 Monthly Exchange Failure Snapshot;
-- D5 RSS and JSON feeds for reviewed updates.
-
-Internal danger lists and unreviewed candidates must not be exposed.
-
----
-
-# Phase E — Stats, internal linking, and SEO
-
-Estimated duration: 7-10 working days  
-Estimated PRs: 5-7
-
-Planned work:
+Estimated duration: 7-10 working days / 5-7 PRs
 
 - stats generator and schemas;
-- Tier 1 totals and coverage;
-- Tier 2 date, evidence-depth, unknown-field, recency, and origin summaries;
-- Tier 3 event, evidence, lineage, and completeness internals;
-- comparable history snapshots;
+- snapshot, trend, and coverage layers;
 - search and related-entity links;
-- canonical metadata, Open Graph, JSON-LD, sitemap, discovery, and internal-link validation.
+- metadata, JSON-LD, sitemap, and internal-link validation.
 
-Trend charts require at least two comparable snapshots.
+## Phase F — English/Japanese publication
 
----
+Estimated duration: 6-9 working days / 5-6 PRs
 
-# Phase F — English/Japanese bilingual publication
+English remains at root; Japanese uses `/ja/`. Canonical data stays single-source and translations remain overlays.
 
-Estimated duration: 6-9 working days  
-Estimated PRs: 5-6
+## Phase G — Final audit and HEI v1.0
 
-English remains at root. Japanese uses `/ja/`. Canonical data remains single-source; translation is an overlay.
-
-Planned work:
-
-- i18n foundations and fallback rules;
-- Japanese common UI;
-- Japanese About and Methodology;
-- `/ja/`, `/ja/dead/`, `/ja/active/`, and `/ja/exchange/[slug]/`;
-- Japanese Stats presentation using identical numerical data;
-- `lang`, `hreflang`, locale canonical URLs, `og:locale`, sitemap, dictionary, and route validation.
-
-Do not translate IDs, slugs, enums, URLs, publishers, or canonical evidence titles.
-
----
-
-# Phase G — Final integration audit and HEI v1.0
-
-Estimated duration: 4-6 working days  
-Estimated PRs: 4-5
-
-Planned work:
+Estimated duration: 4-6 working days / 4-5 PRs
 
 - accessibility and interaction audit;
-- final URL-safety audit;
+- URL-safety audit;
 - production integration test;
 - operations runbook;
 - v1.0 release baseline.
 
-HEI v1.0 completion gate:
+## Revised schedule
 
-```text
-reviewed entities >= 550
-legacy enum violations = 0
-invalid URL status = 0
-critical data-quality alerts = 0
-public, monitoring, and machine-readable counts agree
-weekly monitoring is healthy
-monthly review is healthy
-canonical guard is healthy
-Stats is public
-Registry Update is public
-Incident Timeline is public
-Evidence Health is public
-Monthly Snapshot is public
-English and Japanese primary routes are public
-all required CI checks are green
-Cloudflare production smoke passes
-operations runbook is complete
-```
-
----
-
-## 5. Revised schedule from the B3 checkpoint
-
-| Relative week | Main work | Required result |
+| Period | Main work | Required result |
 |---|---|---|
-| 1 | C1 scans, thin active CEX review, first growth batch | growth queue and batch cadence fixed |
-| 2-4 | DEX, perp DEX, hybrid batches | approximately 460-490 entities |
-| 5-6 | historical batches and milestone audit | at least 550 entities |
-| 6-7 | Changelog, Timeline, Evidence Health, Monthly Snapshot, feeds | Phase D complete |
-| 7-9 | Stats tiers, history, search, links, SEO | Phase E complete |
-| 9-10 | i18n foundation and Japanese primary routes | bilingual primary layer complete |
-| 11 | accessibility, URL safety, and integration | release candidate |
-| 12 | runbook, final production smoke, and release baseline | HEI v1.0 complete |
+| Immediate / Day 0-1 | Drift -> Velocity repair | existing Drift record reclassified; no premature successor duplicate |
+| Weeks 1-3 | reviewed growth batches | 468 -> at least 550 entities |
+| Week 3 | milestone audit | Phase C complete |
+| Weeks 4-5 | public update surfaces | Phase D complete |
+| Weeks 5-7 | Stats, links, SEO | Phase E complete |
+| Weeks 7-9 | Japanese primary routes | Phase F complete |
+| Weeks 9-10 | final audit, runbook, production smoke | HEI v1.0 baseline |
 
-This is a sequencing estimate, not a deadline. Phase C may extend the calendar when evidence quality is insufficient.
+This is sequencing guidance, not a deadline. Evidence quality may extend Phase C. GitHub-side work can continue without Cloudflare access; Cloudflare-only work is confined to final production integration.
 
----
-
-## 6. Pull-request checkpoint template
+### Remaining estimate
 
 ```text
-Checkpoint date:
-Current phase and item:
-Last merged PR:
-Last merged SHA:
-Reviewed counts:
-Maximum IDs:
-What changed:
-Validation result:
-Known remaining issue:
-Next item:
+Implementation PRs: approximately 26-39
+Working days: approximately 35-56
+Calendar estimate: approximately 8-13 weeks
 ```
 
-A PR changing counts must update reviewed counts and maximum IDs. A PR not changing counts must state that explicitly.
-
----
-
-## 7. Recovery procedure
+## Recovery procedure
 
 1. Read this file from `main`.
-2. Confirm actual current main SHA.
-3. Compare it with Section 2.
-4. Inspect open PRs and relevant branches.
-5. Regenerate reviewed counts; never infer them from maximum IDs.
-6. Run relevant validation commands.
-7. Resume the first item whose completion gate is not satisfied.
-8. Update this file in the same implementation PR.
-
----
-
-## 8. Deferred beyond v1.0
-
-- D1 migration;
-- deployment-level DEX modeling;
-- chain-specific deployment pages;
-- public comments;
-- live price, TVL, volume, or order-book data;
-- rankings or recommendation scores;
-- automatic canonical publication without review.
-
----
-
-## 9. Recurring operation after v1.0
-
-### Weekly
-
-- automated monitoring;
-- A/B/C candidate review;
-- URL and evidence-health review;
-- monitoring PR only for meaningful findings.
-
-### Monthly
-
-- reviewed growth batch;
-- Monthly Exchange Failure Snapshot;
-- Registry Update;
-- stats snapshot;
-- stale-record repair;
-- checkpoint refresh.
-
-### Quarterly
-
-- coverage, archive, low-confidence, lineage, classification, search, and SEO review.
-
-Longer-term reviewed entity targets:
-
-```text
-v1.1: 750
-v1.2: 1,000
-v1.5: 2,000
-long-term entity-only range: 4,000-6,000
-```
+2. Confirm current main SHA and open PRs.
+3. Regenerate reviewed counts; do not infer them from IDs.
+4. Run the relevant validation commands.
+5. Resume the first item whose completion gate is not met.
+6. Update this checkpoint when phase, counts, or next item changes.
