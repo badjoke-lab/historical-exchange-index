@@ -10,7 +10,7 @@
     "launch_date": "2018-10-01",
     "death_date": null,
     "country_or_origin": "Brazil",
-    "summary": "Brazilian cryptocurrency marketplace launched in October 2018 and currently operating within the Bity group.",
+    "summary": "Brazilian cryptocurrency marketplace launched as Bitpreco in October 2018 and renamed Bitypreco in September 2023 while continuing to operate within the Bity group.",
     "official_url_original": "https://bitypreco.com/",
     "official_domain_original": "bitypreco.com",
     "official_url_status": "live_verified",
@@ -35,6 +35,20 @@
       "source_count": 2,
       "sort_order": 1,
       "notes": "Month-level marker."
+    },
+    {
+      "id": "hei_ev_010053",
+      "exchange_id": "hei_ex_000589",
+      "event_type": "rebranded",
+      "event_date": "2023-09-22",
+      "title": "Bitpreco became Bitypreco",
+      "description": "The platform aligned its name and domain with the Bity group while continuing the same exchange service.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 2,
+      "notes": "Non-terminal rebrand."
     }
   ],
   "evidence": [
@@ -67,6 +81,21 @@
       "reliability": "high",
       "claim_scope": "status",
       "notes": "First-party profile confirms current marketplace operation."
+    },
+    {
+      "id": "hei_src_011135",
+      "exchange_id": "hei_ex_000589",
+      "event_id": "hei_ev_010053",
+      "source_type": "official_blog",
+      "title": "Bitpreco domain became Bitypreco",
+      "url": "https://www.bity.com.br/blog/bitpreco-com-agora-e-bitypreco-com/",
+      "publisher": "Bity",
+      "published_at": "2023-09-22",
+      "archived_url": "https://web.archive.org/web/*/https://www.bity.com.br/blog/bitpreco-com-agora-e-bitypreco-com/",
+      "accessed_at": "2026-07-03",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party domain migration and brand-alignment notice."
     }
   ]
 }
