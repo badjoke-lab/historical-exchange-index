@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0201-0250
 
-Status: reviewed initial scan / actionable rows open
+Status: reviewed / first growth batch promoted
 
 ## Integrity binding
 
@@ -23,15 +23,18 @@ Actionable rows at scan creation: **21**.
 
 ## Add-now queue
 
-- `0202` Bitex.la
+Promoted in batch 01:
+
+- `0202` Bitex.la → `hei_ex_000584`
+- `0223` Bitpanda Pro → `hei_ex_000585`
+- `0243` BL3P → `hei_ex_000586`
+
+Remaining add-now rows:
+
 - `0214` Bitinka
 - `0220` Bitocto Exchange
-- `0223` Bitpanda Pro
 - `0226` BitPreço
 - `0230` BitShares DEX
-- `0243` BL3P
-
-These rows have a clear exchange identity and a plausible evidence path, but still require normal record drafting, overlap review, and CI before canonical promotion.
 
 ## Needs-research queue
 
@@ -53,17 +56,18 @@ These rows currently rely mainly on tracker presence or weak lifecycle evidence 
 
 ## Execution order
 
-1. Bitex.la, Bitpanda Pro, and BL3P.
-2. Bitinka, Bitocto Exchange, BitPreço, and BitShares DEX.
-3. BitGlobal and Bithumb Singapore identity-boundary review.
-4. Remaining research rows in small evidence-backed batches.
-5. Pending-thin rows stay non-canonical unless better evidence appears.
+1. Complete batch 01: Bitex.la, Bitpanda Pro, and BL3P.
+2. Promote Bitinka, Bitocto Exchange, BitPreço, and BitShares DEX.
+3. Resolve BitGlobal and Bithumb Singapore identity boundaries.
+4. Process remaining research rows in small evidence-backed batches.
+5. Keep pending-thin rows non-canonical unless better evidence appears.
 
-## Closure condition
+## Current range position
 
 ```text
 range records:                 50
-unresolved add_now:             7
+promoted add_now:               3
+remaining add_now:              4
 unresolved needs_research:     14
 pending-thin decisions:        26
 out-of-scope/product rows:      3
@@ -72,4 +76,4 @@ range status:                  open
 
 ## Next step
 
-Draft the first reviewed batch for Bitex.la, Bitpanda Pro, and BL3P.
+Draft the second reviewed batch for Bitinka, Bitocto Exchange, BitPreço, and BitShares DEX.
