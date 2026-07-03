@@ -1,1 +1,125 @@
-{"entity":{"id":"hei_ex_000221","slug":"drift-protocol","canonical_name":"Drift Protocol","aliases":["Drift","Drift Trade"],"type":"dex","status":"limited","death_reason":null,"launch_date":"2021-10-01","death_date":null,"country_or_origin":"Solana ecosystem","summary":"Solana-based decentralized perpetuals and trading protocol that remained in a critical limited state after the April 2026 exploit. Drift's June 2026 recovery update said the team was rebuilding the protocol for a security-first relaunch and that the exchange had not yet been brought fully back online.","official_url_original":"https://www.drift.trade/","official_domain_original":"drift.trade","official_url_status":"live_verified","archived_url":"https://web.archive.org/web/*/https://www.drift.trade/","predecessor_id":null,"successor_id":null,"confidence":"high","last_verified_at":"2026-06-28","notes":"Retain limited rather than active or dead. The official domain and recovery pages are live, but the June 3 recovery update describes relaunch as future work and says the team is taking steps to bring the platform back online. Existing exploit and suspension events are not duplicated."},"entity_correction":{"entity_id":"hei_ex_000221","expected":{"summary":"Solana-based decentralized perpetuals and trading protocol that entered a critical limited state in April 2026 after a major exploit and suspension of deposits and withdrawals.","official_url_status":"live_unverified","confidence":"medium","notes":"Do not mark dead yet. The April 2026 exploit and deposit / withdrawal suspension are material enough for HEI because they changed platform availability, but no final shutdown marker is confirmed.","last_verified_at":"2026-04-25"},"changes":{"summary":"Solana-based decentralized perpetuals and trading protocol that remained in a critical limited state after the April 2026 exploit. Drift's June 2026 recovery update said the team was rebuilding the protocol for a security-first relaunch and that the exchange had not yet been brought fully back online.","official_url_status":"live_verified","confidence":"high","notes":"Retain limited rather than active or dead. The official domain and recovery pages are live, but the June 3 recovery update describes relaunch as future work and says the team is taking steps to bring the platform back online. Existing exploit and suspension events are not duplicated.","last_verified_at":"2026-06-28"}},"events":[],"evidence":[{"id":"hei_src_010051","exchange_id":"hei_ex_000221","event_id":null,"source_type":"official_blog","title":"Drift Recovery Update – June 3, 2026","url":"https://www.drift.trade/updates/drift-recovery-update-june-3-2026","publisher":"Drift","published_at":"2026-06-04","archived_url":"https://web.archive.org/web/*/https://www.drift.trade/updates/drift-recovery-update-june-3-2026","accessed_at":"2026-06-28","reliability":"high","claim_scope":"status","notes":"First-party update says Drift's focus remained relaunching the exchange and described work to bring the platform back online, supporting limited rather than active or dead classification."},{"id":"hei_src_010052","exchange_id":"hei_ex_000221","event_id":null,"source_type":"official_statement","title":"Drift official protocol site","url":"https://www.drift.trade/","publisher":"Drift","published_at":null,"archived_url":"https://web.archive.org/web/*/https://www.drift.trade/","accessed_at":"2026-06-28","reliability":"high","claim_scope":"url_history","notes":"Current official domain remains reachable and links to Drift's application, documentation, and incident-recovery updates."}]}
+{
+  "entity": {
+    "id": "hei_ex_000221",
+    "slug": "drift-protocol",
+    "canonical_name": "Drift Protocol",
+    "aliases": ["Drift", "Drift Trade"],
+    "type": "dex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": "2021-10-01",
+    "death_date": "2026-07-01",
+    "country_or_origin": "Solana ecosystem",
+    "summary": "Solana-based decentralized perpetuals and trading protocol that entered a critical limited state after the April 2026 exploit and officially rebranded to Velocity on July 1, 2026 while the rebuilt successor platform remained in private-beta preparation.",
+    "official_url_original": "https://www.drift.trade/",
+    "official_domain_original": "drift.trade",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.drift.trade/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-07-03",
+    "notes": "Reclassified from limited to rebranded after the official account announced that Drift was becoming Velocity on 2026-07-01. The private beta was still described as forthcoming and no verified public Velocity platform URL or completed public relaunch was available at review time, so HEI does not yet create a separate successor entity or assign successor_id. The original Drift domain remains reachable and is preserved as the historical URL."
+  },
+  "entity_correction": {
+    "entity_id": "hei_ex_000221",
+    "expected": {
+      "status": "limited",
+      "death_reason": null,
+      "death_date": null,
+      "summary": "Solana-based decentralized perpetuals and trading protocol that entered a critical limited state in April 2026 after a major exploit and suspension of deposits and withdrawals.",
+      "official_url_status": "live_unverified",
+      "confidence": "medium",
+      "notes": "Do not mark dead yet. The April 2026 exploit and deposit / withdrawal suspension are material enough for HEI because they changed platform availability, but no final shutdown marker is confirmed.",
+      "last_verified_at": "2026-04-25"
+    },
+    "changes": {
+      "status": "rebranded",
+      "death_reason": "rebrand",
+      "death_date": "2026-07-01",
+      "summary": "Solana-based decentralized perpetuals and trading protocol that entered a critical limited state after the April 2026 exploit and officially rebranded to Velocity on July 1, 2026 while the rebuilt successor platform remained in private-beta preparation.",
+      "official_url_status": "live_verified",
+      "confidence": "high",
+      "notes": "Reclassified from limited to rebranded after the official account announced that Drift was becoming Velocity on 2026-07-01. The private beta was still described as forthcoming and no verified public Velocity platform URL or completed public relaunch was available at review time, so HEI does not yet create a separate successor entity or assign successor_id. The original Drift domain remains reachable and is preserved as the historical URL.",
+      "last_verified_at": "2026-07-03"
+    }
+  },
+  "events": [
+    {
+      "id": "hei_ev_010039",
+      "exchange_id": "hei_ex_000221",
+      "event_type": "rebranded",
+      "event_date": "2026-07-01",
+      "title": "Drift rebranded to Velocity",
+      "description": "Drift's official account announced that the Solana perpetuals platform was rebranding to Velocity. The team said a private beta for selected partners and traders would follow in the coming days, without announcing a public relaunch date.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "rebranded",
+      "source_count": 2,
+      "sort_order": 3,
+      "notes": "HEI uses the official rebrand announcement as the terminal marker for the Drift brand. Velocity remains a prospective successor record until a verified operating platform identity and public URL are available."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_010051",
+      "exchange_id": "hei_ex_000221",
+      "event_id": null,
+      "source_type": "official_blog",
+      "title": "Drift Recovery Update – June 3, 2026",
+      "url": "https://www.drift.trade/updates/drift-recovery-update-june-3-2026",
+      "publisher": "Drift",
+      "published_at": "2026-06-04",
+      "archived_url": "https://web.archive.org/web/*/https://www.drift.trade/updates/drift-recovery-update-june-3-2026",
+      "accessed_at": "2026-06-28",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "First-party update says Drift's focus remained relaunching the exchange and described work to bring the platform back online, preserving the pre-rebrand recovery context."
+    },
+    {
+      "id": "hei_src_010052",
+      "exchange_id": "hei_ex_000221",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Drift official protocol site",
+      "url": "https://www.drift.trade/",
+      "publisher": "Drift",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.drift.trade/",
+      "accessed_at": "2026-06-28",
+      "reliability": "high",
+      "claim_scope": "url_history",
+      "notes": "The historical Drift domain remained reachable before the Velocity rebrand and linked to Drift's application, documentation, and incident-recovery updates."
+    },
+    {
+      "id": "hei_src_011102",
+      "exchange_id": "hei_ex_000221",
+      "event_id": "hei_ev_010039",
+      "source_type": "official_social",
+      "title": "Today, Drift is rebranding to Velocity",
+      "url": "https://x.com/VelocityDEX/status/2072334490949574677",
+      "publisher": "Velocity / Drift",
+      "published_at": "2026-07-01",
+      "archived_url": "https://web.archive.org/web/*/https://x.com/VelocityDEX/status/2072334490949574677",
+      "accessed_at": "2026-07-03",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party announcement states that Drift is rebranding to Velocity and describes the new name as reflecting the rebuilt platform."
+    },
+    {
+      "id": "hei_src_011103",
+      "exchange_id": "hei_ex_000221",
+      "event_id": "hei_ev_010039",
+      "source_type": "news_article",
+      "title": "Drift Rebrands to Velocity Ahead of Private Beta Launch",
+      "url": "https://www.cryptotimes.io/2026/07/02/drift-rebrands-to-velocity-ahead-of-private-beta-launch/",
+      "publisher": "The Crypto Times",
+      "published_at": "2026-07-02",
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptotimes.io/2026/07/02/drift-rebrands-to-velocity-ahead-of-private-beta-launch/",
+      "accessed_at": "2026-07-03",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Independent report embeds the official announcement and confirms that the private beta was planned for selected participants, with no public relaunch date stated."
+    }
+  ]
+}
