@@ -20,11 +20,11 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 ## Current checkpoint
 
 ```text
-Last confirmed main SHA: a2a1e7c9623ab89d1bb3dd82c58b5e5f9b788f2c
-Last merged PR: #506 Resolve BitGlobal and Bithumb Singapore identity cluster
+Last confirmed main SHA: 59fed4e9775ec0574357fe68b99cc20fe4b759aa
+Last merged PR: #507 Process research rows 0206 0215 and 0219
 Current phase: Phase C — Reviewed registry growth
-Current item: BitFlip / BITKER / Bitnaru research cluster
-Next item: Bitonic scope review against BL3P
+Current item: Bitonic / Bits Blockchain / Bitsdaq / Bittylicious scope cluster
+Next item: final five research rows in range 0201-0250
 Cloudflare changes: none
 Production deployment: none
 ```
@@ -32,21 +32,21 @@ Production deployment: none
 ## Projected state after the current cluster
 
 ```text
-Entities:  479
-Events:    991
-Evidence: 2469
-Maximum entity ID:   hei_ex_000594
-Maximum event ID:    hei_ev_010066
-Maximum evidence ID: hei_src_011158
+Entities:  480
+Events:    993
+Evidence: 2473
+Maximum entity ID:   hei_ex_000595
+Maximum event ID:    hei_ev_010068
+Maximum evidence ID: hei_src_011162
 ```
 
 These values become authoritative only after CI passes and the pull request merges.
 
 ```text
 Target entities: 550
-Projected entities: 479
-Remaining additions: 71
-Progress: 87.1%
+Projected entities: 480
+Remaining additions: 70
+Progress: 87.3%
 ```
 
 ## Range 0201-0250
@@ -54,31 +54,32 @@ Progress: 87.1%
 ```text
 Total rows:                    50
 Promoted add_now:               7
-Resolved needs_research:        4
-Remaining needs_research:       9
-Pending thin:                  27
-Out of scope / duplicate:       3
+Promoted research:              5
+Research moved to pending:      2
+Research excluded:              2
+Remaining needs_research:       5
+Pending thin total:            28
+Excluded total:                 5
 ```
 
 Current cluster:
 
 ```text
-BitFlip  -> hei_ex_000593
-BITKER   -> hei_ex_000594
-Bitnaru  -> pending_thin
+Bitonic          excluded; BL3P already represents the order-book exchange
+Bits Blockchain pending_thin
+Bitsdaq          hei_ex_000595; rebranded
+Bittylicious     excluded as broker marketplace
 ```
 
 ## Remaining execution order
 
-1. Validate and merge the current cluster.
-2. Resolve Bitonic scope against BL3P.
-3. Review Bits Blockchain, Bitsdaq, and Bittylicious.
-4. Review BLEX, Blitz AMM, Blockbid, and Blockchain.io.
-5. Resolve Bithesap or move it to pending-thin.
-6. Close range 0201-0250.
-7. Continue reviewed growth until at least 550 entities.
-8. Run the Phase C milestone audit.
-9. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
+1. Validate and merge scope research cluster 03.
+2. Resolve Bithesap, BLEX, Blitz AMM, Blockbid, and Blockchain.io.
+3. Close range 0201-0250.
+4. Open the next verified-unadded range.
+5. Continue reviewed growth until at least 550 entities.
+6. Run the Phase C milestone audit.
+7. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
 
 ## Phase C completion gate
 
@@ -123,7 +124,7 @@ English remains at root; Japanese uses `/ja/`. Canonical data stays single-sourc
 
 | Period | Work | Result |
 |---|---|---|
-| Immediate | validate and merge cluster 02 | 479 reviewed entities |
+| Immediate | validate and merge cluster 03 | 480 reviewed entities |
 | Weeks 1-3 | remaining research and growth batches | at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
 | Weeks 4-5 | public update surfaces | Phase D complete |
