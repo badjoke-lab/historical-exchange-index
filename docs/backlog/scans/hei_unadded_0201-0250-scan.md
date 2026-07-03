@@ -1,16 +1,15 @@
 # Scan: verified-unadded rows 0201-0250
 
-Status: reviewed / first growth batch promoted
+Status: reviewed / add-now queue promoted
 
 ## Integrity binding
 
 - machine-readable scan: `docs/backlog/scans/hei_unadded_0201-0250-scan.json`
 - source: `docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl`
 - source blob: `0b0f758137396cc0a21a4eb2c122b71c01b0b3c6`
-- source generated_at: `2026-06-11T22:46:19.477Z`
 - reviewed_at: `2026-07-03`
 
-## Classification summary
+## Initial classification
 
 | class | count |
 |---|---:|
@@ -19,55 +18,41 @@ Status: reviewed / first growth batch promoted
 | pending_thin | 26 |
 | out_of_scope_or_duplicate | 3 |
 
-Actionable rows at scan creation: **21**.
+## Promoted add-now rows
 
-## Add-now queue
+Batch 01:
 
-Promoted in batch 01:
+- `0202` Bitex.la -> `hei_ex_000584`
+- `0223` Bitpanda Pro -> `hei_ex_000585`
+- `0243` BL3P -> `hei_ex_000586`
 
-- `0202` Bitex.la → `hei_ex_000584`
-- `0223` Bitpanda Pro → `hei_ex_000585`
-- `0243` BL3P → `hei_ex_000586`
+Batch 02:
 
-Remaining add-now rows:
-
-- `0214` Bitinka
-- `0220` Bitocto Exchange
-- `0226` BitPreço
-- `0230` BitShares DEX
+- `0214` Bitinka -> `hei_ex_000587`
+- `0220` Bitocto Exchange -> `hei_ex_000588`
+- `0226` BitPreco -> `hei_ex_000589` Bitypreco
+- `0230` BitShares DEX -> `hei_ex_000590`
 
 ## Needs-research queue
 
 `0206`, `0210`-`0212`, `0215`, `0219`, `0222`, `0227`, `0229`, `0236`, `0245`-`0246`, `0248`, `0250`.
 
-The main unresolved questions are terminal state, operator identity, regional/product boundaries, or exchange-versus-broker scope.
-
 ## Pending thin
 
 `0201`, `0203`-`0205`, `0207`-`0208`, `0213`, `0216`-`0218`, `0221`, `0224`-`0225`, `0228`, `0231`-`0235`, `0237`-`0240`, `0242`, `0247`, `0249`.
 
-These rows currently rely mainly on tracker presence or weak lifecycle evidence and remain non-canonical.
-
 ## Out of scope or product/version rows
 
-- `0209` Bitget Wallet Card — card product, not an exchange entity.
-- `0241` Bitzyswap V3 — version/deployment row without a separate lifecycle identity.
-- `0244` Bleap Card — card product, not an exchange entity.
-
-## Execution order
-
-1. Complete batch 01: Bitex.la, Bitpanda Pro, and BL3P.
-2. Promote Bitinka, Bitocto Exchange, BitPreço, and BitShares DEX.
-3. Resolve BitGlobal and Bithumb Singapore identity boundaries.
-4. Process remaining research rows in small evidence-backed batches.
-5. Keep pending-thin rows non-canonical unless better evidence appears.
+- `0209` Bitget Wallet Card
+- `0241` Bitzyswap V3
+- `0244` Bleap Card
 
 ## Current range position
 
 ```text
 range records:                 50
-promoted add_now:               3
-remaining add_now:              4
+promoted add_now:               7
+remaining add_now:              0
 unresolved needs_research:     14
 pending-thin decisions:        26
 out-of-scope/product rows:      3
@@ -76,4 +61,4 @@ range status:                  open
 
 ## Next step
 
-Draft the second reviewed batch for Bitinka, Bitocto Exchange, BitPreço, and BitShares DEX.
+Resolve the BitGlobal and Bithumb Singapore identity boundary, then process the remaining needs-research rows in small batches.
