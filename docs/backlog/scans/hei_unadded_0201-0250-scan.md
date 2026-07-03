@@ -38,9 +38,10 @@ Batch 02:
 Research cluster 01:
 
 - `0210` BitGlobal -> new `hei_ex_000591`
-- `0212` Bithumb Singapore -> corrected existing `hei_ex_000199` Bitholic
+- `0212` Bithumb Singapore -> new successor `hei_ex_000592`
+- related repair: existing `hei_ex_000199` Bitholic -> `rebranded`, successor `hei_ex_000592`
 
-The shared Bithumb name did not represent one entity. Bithumb Korea, BitGlobal, and Bithumb Singapore are modeled as three separate exchange identities. Bitholic and Bithumb Singapore are one continuous identity, so no new Singapore entity is created.
+The shared Bithumb name did not represent one operating entity. Bithumb Korea and BitGlobal are separate exchanges. Within the Singapore lineage, Bitholic remains the terminal predecessor brand and Bithumb Singapore is the separately modeled successor, matching HEI's rebrand relationship model.
 
 ## Remaining needs-research queue
 
