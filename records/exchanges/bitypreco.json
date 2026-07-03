@@ -1,0 +1,26 @@
+{
+  "entity": {
+    "id": "hei_ex_000589",
+    "slug": "bitypreco",
+    "canonical_name": "Bitypreco",
+    "aliases": ["Bitpreco"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2018-10-01",
+    "death_date": null,
+    "country_or_origin": "Brazil",
+    "summary": "Brazilian cryptocurrency marketplace launched in October 2018 and currently operating within the Bity group.",
+    "official_url_original": "https://bitypreco.com/",
+    "official_domain_original": "bitypreco.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bitypreco.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-07-03",
+    "notes": "The former Bitpreco name and the current Bitypreco name are treated as one continuing exchange identity."
+  },
+  "events": [],
+  "evidence": []
+}
