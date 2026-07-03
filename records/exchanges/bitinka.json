@@ -1,0 +1,102 @@
+{
+  "entity": {
+    "id": "hei_ex_000587",
+    "slug": "bitinka",
+    "canonical_name": "Bitinka",
+    "aliases": ["BitInka", "Bitinka Exchange", "BitInka Limited"],
+    "type": "cex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": "2013-11-01",
+    "death_date": null,
+    "country_or_origin": "Peru / Latin America",
+    "summary": "Peru-origin cryptocurrency exchange and wallet platform founded in November 2013 for local-currency trading across Latin America. Its official site remains reachable, but current market-data services report no measurable trading volume, so HEI classifies it as limited rather than fully active or dead.",
+    "official_url_original": "https://www.bitinka.com/",
+    "official_domain_original": "bitinka.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitinka.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-07-03",
+    "notes": "Launch uses the month-level November 2013 operating marker from company-profile and historical reporting. The official domain still presents exchange and broker functionality, but independent market trackers show no current volume or pairs and one tracker describes the exchange as no longer operational. Without a first-party shutdown notice, HEI retains limited status and no death date."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010049",
+      "exchange_id": "hei_ex_000587",
+      "event_type": "launched",
+      "event_date": "2013-11-01",
+      "title": "Bitinka began operations in Lima",
+      "description": "Bitinka began operations in November 2013 as a Peru-origin exchange and wallet project designed to support cryptocurrency conversion through local Latin American currencies.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Month-level founding and operating marker; historical sources indicate that wider platform development and regional expansion continued afterward."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_011123",
+      "exchange_id": "hei_ex_000587",
+      "event_id": "hei_ev_010049",
+      "source_type": "database_reference",
+      "title": "BitInka company profile",
+      "url": "https://es.linkedin.com/company/bitinka",
+      "publisher": "BitInka",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://es.linkedin.com/company/bitinka",
+      "accessed_at": "2026-07-03",
+      "reliability": "medium",
+      "claim_scope": "launch_date",
+      "notes": "Company-controlled profile states that BitInka Limited started operations in November 2013 and owns Bitinka Exchange."
+    },
+    {
+      "id": "hei_src_011124",
+      "exchange_id": "hei_ex_000587",
+      "event_id": "hei_ev_010049",
+      "source_type": "news_article",
+      "title": "Incas, Gold and Bitcoin: Story of InkaPay",
+      "url": "https://cointelegraph.com/news/incas-gold-and-bitcoin-story-of-inkapay-south-american-blockchain-platform-for-people",
+      "publisher": "Cointelegraph",
+      "published_at": "2016-11-08",
+      "archived_url": "https://web.archive.org/web/*/https://cointelegraph.com/news/incas-gold-and-bitcoin-story-of-inkapay-south-american-blockchain-platform-for-people",
+      "accessed_at": "2026-07-03",
+      "reliability": "medium",
+      "claim_scope": "launch_date",
+      "notes": "Historical reporting states that BitInka was founded in November 2013 in Lima, Peru, and initially focused on a local exchange."
+    },
+    {
+      "id": "hei_src_011125",
+      "exchange_id": "hei_ex_000587",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Bitinka exchange and broker platform",
+      "url": "https://www.bitinka.com/pt/broker",
+      "publisher": "Bitinka",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.bitinka.com/pt/broker",
+      "accessed_at": "2026-07-03",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "The official domain remains reachable and exposes exchange, broker, and API navigation."
+    },
+    {
+      "id": "hei_src_011126",
+      "exchange_id": "hei_ex_000587",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Bitinka exchange statistics",
+      "url": "https://coinpaprika.com/exchanges/bitinka/",
+      "publisher": "CoinPaprika",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinpaprika.com/exchanges/bitinka/",
+      "accessed_at": "2026-07-03",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current tracker profile reports zero volume and no active currencies, supporting limited rather than fully active classification."
+    }
+  ]
+}
