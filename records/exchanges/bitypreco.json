@@ -3,14 +3,14 @@
     "id": "hei_ex_000589",
     "slug": "bitypreco",
     "canonical_name": "Bitypreco",
-    "aliases": ["Bitpreco"],
+    "aliases": ["Bitpreco", "BitPreco", "BityPreco"],
     "type": "cex",
     "status": "active",
     "death_reason": null,
     "launch_date": "2018-10-01",
     "death_date": null,
     "country_or_origin": "Brazil",
-    "summary": "Brazilian cryptocurrency marketplace launched in October 2018 and currently operating within the Bity group.",
+    "summary": "Brazilian cryptocurrency marketplace launched as Bitpreco in October 2018. It acquired Biscoint in July 2022, joined the Bity group, and moved to the Bitypreco name and domain in September 2023 while continuing to operate.",
     "official_url_original": "https://bitypreco.com/",
     "official_domain_original": "bitypreco.com",
     "official_url_status": "live_verified",
@@ -19,8 +19,51 @@
     "successor_id": null,
     "confidence": "high",
     "last_verified_at": "2026-07-03",
-    "notes": "The former Bitpreco name and the current Bitypreco name are treated as one continuing exchange identity."
+    "notes": "The former Bitpreco name and current Bitypreco name are one continuing identity."
   },
-  "events": [],
+  "events": [
+    {
+      "id": "hei_ev_010052",
+      "exchange_id": "hei_ex_000589",
+      "event_type": "launched",
+      "event_date": "2018-10-01",
+      "title": "Bitpreco launched",
+      "description": "Bitpreco began operating in October 2018 as a Brazilian cryptocurrency marketplace.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Month-level marker from first-party history."
+    },
+    {
+      "id": "hei_ev_010053",
+      "exchange_id": "hei_ex_000589",
+      "event_type": "acquired",
+      "event_date": "2022-07-21",
+      "title": "Bitpreco acquired Biscoint",
+      "description": "Bitpreco acquired Biscoint as part of the consolidation that later produced the Bity group.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "Non-terminal acquisition."
+    },
+    {
+      "id": "hei_ev_010054",
+      "exchange_id": "hei_ex_000589",
+      "event_type": "rebranded",
+      "event_date": "2023-09-22",
+      "title": "Bitpreco became Bitypreco",
+      "description": "The platform aligned its identity with the Bity group and moved to bitypreco.com without ending service continuity.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 3,
+      "notes": "Non-terminal rebrand."
+    }
+  ],
   "evidence": []
 }
