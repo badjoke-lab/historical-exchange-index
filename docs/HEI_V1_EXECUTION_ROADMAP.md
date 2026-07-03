@@ -20,41 +20,33 @@ Repository state is authoritative if this checkpoint and GitHub disagree. Earlie
 ## Current checkpoint
 
 ```text
-Last confirmed main SHA: f7d358fe6b90e08d28f4e4f40bacd791e0ea98f7
-Last merged PR: #501 Close verified-unadded research range 0151-0200
+Last confirmed main SHA: 33be1010f3a72a0f5a6ee9147cfae30cb3d8d110
+Last merged PR: #502 Record Drift rebrand to Velocity and rebase HEI roadmap
 Current phase: Phase C — Reviewed registry growth
-Completed item: verified-unadded range 0151-0200 closed
-Current item: Drift Protocol -> Velocity lifecycle repair
+Completed item: Drift Protocol -> Velocity lifecycle repair
+Current item: verified-unadded range 0201-0250 initial scan
+Next implementation item: first growth batch for Bitex.la, Bitpanda Pro, and BL3P
 Cloudflare changes: none
 Production deployment: none
 ```
 
-### Reviewed public counts after PR #501
+### Reviewed public counts after PR #502
 
 ```text
 Entities:  468
-Events:    963
-Evidence: 2412
+Events:    964
+Evidence: 2414
 ```
 
-### Maximum observed IDs after PR #501
+### Maximum observed IDs after PR #502
 
 ```text
 Entity:   hei_ex_000583
-Event:    hei_ev_010038
-Evidence: hei_src_011101
+Event:    hei_ev_010039
+Evidence: hei_src_011103
 ```
 
 Maximum IDs are allocation markers, not counts.
-
-### Count composition
-
-```text
-Canonical: 306 entities / 513 events / 1172 evidence
-Reviewed bundles: 323 total
-New-entity bundles: 162
-Repair bundles: 161
-```
 
 ### Phase C position
 
@@ -67,9 +59,9 @@ Progress: 85.1%
 
 Phase C remains current. The 550 milestone has not been reached.
 
-## Inserted current-event repair: Drift -> Velocity
+## Completed current-event repair: Drift -> Velocity
 
-The July 1, 2026 rebrand is inserted before the next growth range because it changes an existing high-impact DEX lifecycle record.
+The July 1, 2026 rebrand is now recorded on the existing Drift entity.
 
 ```text
 Entity: hei_ex_000221 Drift Protocol
@@ -79,10 +71,43 @@ Terminal/rebrand date: 2026-07-01
 Entity count effect: 0
 Event effect: +1
 Evidence effect: +2
-Projected counts: 468 / 964 / 2414
 ```
 
-Do not create a second Drift entity. Do not create Velocity as a separate successor until a verified operating platform URL and launched private or public product identity are available. When that gate is met, create Velocity no stronger than `limited` and link `Drift.successor_id` to `Velocity.predecessor_id`.
+Velocity remains a successor candidate rather than a separate canonical entity until an operating platform URL and launched private or public product identity are verified.
+
+## Verified-unadded range 0201-0250
+
+Status: initial scan prepared
+
+```text
+Range records:                  50
+add_now:                         7
+needs_research:                 14
+pending_thin:                   26
+out_of_scope_or_duplicate:       3
+```
+
+Add-now queue:
+
+```text
+Bitex.la
+Bitinka
+Bitocto Exchange
+Bitpanda Pro
+BitPreço
+BitShares DEX
+BL3P
+```
+
+First implementation batch:
+
+```text
+Bitex.la
+Bitpanda Pro
+BL3P
+```
+
+The first batch is prioritized because each record has a clear acquisition, rebrand, or shutdown lifecycle that can be documented with strong sources.
 
 ## Remaining execution order
 
@@ -99,23 +124,16 @@ G      Final integration audit and HEI v1.0
 
 Status: CURRENT  
 Estimated remaining duration: 12-20 working days  
-Estimated PRs: 10-16 growth PRs, excluding the Drift repair
+Estimated PRs: 10-16 growth PRs
 
-After the Drift repair:
+Execution order:
 
-1. open the next unconsumed verified-unadded range;
-2. review 30-50 candidates as a pool;
-3. classify each as `add_now`, `needs_research`, `pending_thin`, or `out_of_scope_or_duplicate`;
-4. promote only public-quality records;
-5. keep normal PRs near 5-10 new entities;
-6. run overlap, record, count, URL, origin, and evidence checks.
-
-Priority:
-
-1. dead, acquired, merged, and rebranded records with strong terminal evidence;
-2. active CEX and DEX records with meaningful lifecycle history;
-3. perp DEX and hybrid entities with clear identity boundaries;
-4. thin tracker-only candidates last or not at all.
+1. merge the `0201-0250` scan;
+2. promote Bitex.la, Bitpanda Pro, and BL3P;
+3. promote Bitinka, Bitocto Exchange, BitPreço, and BitShares DEX;
+4. resolve BitGlobal/Bithumb Singapore identity boundaries;
+5. process the remaining research rows in small evidence-backed batches;
+6. open the next unconsumed range only after actionable rows in this range are resolved or explicitly reclassified.
 
 Rules:
 
@@ -123,7 +141,8 @@ Rules:
 - do not split spot, futures, chain, or version rows without a distinct lifecycle identity;
 - do not call a DEX dead only because one frontend disappeared;
 - use `inactive` when terminal evidence is weak;
-- reuse existing canonical identities instead of creating duplicates.
+- reuse existing canonical identities instead of creating duplicates;
+- leave tracker-only rows non-canonical until stronger evidence appears.
 
 ### C8 milestone gate
 
@@ -174,7 +193,7 @@ Estimated duration: 4-6 working days / 4-5 PRs
 
 | Period | Main work | Required result |
 |---|---|---|
-| Immediate / Day 0-1 | Drift -> Velocity repair | existing Drift record reclassified; no premature successor duplicate |
+| Immediate | merge scan 0201-0250 | fixed 50-row queue and first batch |
 | Weeks 1-3 | reviewed growth batches | 468 -> at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
 | Weeks 4-5 | public update surfaces | Phase D complete |
@@ -183,14 +202,6 @@ Estimated duration: 4-6 working days / 4-5 PRs
 | Weeks 9-10 | final audit, runbook, production smoke | HEI v1.0 baseline |
 
 This is sequencing guidance, not a deadline. Evidence quality may extend Phase C. GitHub-side work can continue without Cloudflare access; Cloudflare-only work is confined to final production integration.
-
-### Remaining estimate
-
-```text
-Implementation PRs: approximately 26-39
-Working days: approximately 35-56
-Calendar estimate: approximately 8-13 weeks
-```
 
 ## Recovery procedure
 
