@@ -20,33 +20,33 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 ## Current checkpoint
 
 ```text
-Last confirmed main SHA: c3acdfb359b533c88847ec2156a42dd2bdb535dc
-Last merged PR: #515 Process research cluster 04 from range 0251-0300
+Last confirmed main SHA: a9d5d2d018abca2adabca7026595b0970bbf7060
+Last merged PR: #516 Process research cluster 05 from range 0251-0300
 Current phase: Phase C — Reviewed registry growth
-Current item: BTCMEX / BTCsquare / BtcTrade.im / Buenbit / BurrBear / BW research cluster
-Next item: Bebop / BMX by Morphex / BTSE / Bybit parent and global identity reviews
+Current item: Bebop / BMX Trade / BTSE / Bybit identity reviews and range closure
+Next item: scan verified-unadded range 0301-0350
 Cloudflare changes: none
 Production deployment: none
 ```
 
-## Projected state after current cluster
+## Projected state after current review
 
 ```text
-Entities:  492
+Entities:  494
 Events:    1004
-Evidence: 2505
-Maximum entity ID:   hei_ex_000608
+Evidence: 2509
+Maximum entity ID:   hei_ex_000610
 Maximum event ID:    hei_ev_010080
-Maximum evidence ID: hei_src_011196
+Maximum evidence ID: hei_src_011200
 ```
 
 These values become authoritative only after CI passes and the pull request merges.
 
 ```text
 Target entities: 550
-Projected entities: 492
-Remaining additions: 58
-Progress: 89.5%
+Projected entities: 494
+Remaining additions: 56
+Progress: 89.8%
 ```
 
 ## Range 0251-0300
@@ -54,40 +54,29 @@ Progress: 89.5%
 ```text
 Total rows:                    50
 promoted add_now:               5
-promoted research:              4
-existing duplicate consumed:    3
+promoted research:              6
+existing duplicate consumed:    5
 unresolved add_now:             0
-unresolved needs_research:      4
+unresolved needs_research:      0
 pending_thin:                  24
 out_of_scope_or_duplicate:     10
-range status:                  open
+range status:                  closed
 ```
 
-Current cluster:
+Current review results:
 
 ```text
-BTCMEX      pending_thin
-BTCsquare   pending_thin
-BtcTrade.im pending_thin
-Buenbit     hei_ex_000607; active; acquisition event recorded
-BurrBear    hei_ex_000608; active
-BW          pending_thin
-```
-
-Open identity reviews:
-
-```text
-Bebop           parent protocol review for bopAMM
-BMX by Morphex  parent protocol review
-BTSE            parent exchange review
-Bybit           global/regional identity review
+bopAMM           parent Bebop added as hei_ex_000609
+BMX product row  parent BMX Trade added as hei_ex_000610
+BTSE Futures     consumed under existing hei_ex_000052
+Bybit EU         consumed under existing hei_ex_000011
 ```
 
 ## Remaining execution order
 
-1. Validate and merge research cluster 05.
-2. Complete Bebop, BMX by Morphex, BTSE, and Bybit parent/global identity reviews.
-3. Close range 0251-0300.
+1. Validate and merge the final identity-review and range-close PR.
+2. Scan verified-unadded range 0301-0350.
+3. Process add-now and evidence-backed research batches from that range.
 4. Continue reviewed growth until at least 550 entities.
 5. Run the Phase C milestone audit.
 6. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
@@ -113,7 +102,7 @@ duplicate, archive, confidence, origin, and evidence-depth audits pass
 
 | Period | Work | Result |
 |---|---|---|
-| Immediate | merge research cluster 05 and start identity reviews | 492 reviewed entities |
+| Immediate | merge final identity reviews and start range 0301-0350 scan | 494 reviewed entities |
 | Weeks 1-3 | reviewed growth batches | at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
 | Weeks 4-10 | public surfaces through final integration | HEI v1.0 baseline |
