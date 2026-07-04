@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0251-0300
 
-Status: reviewed initial scan / add-now queue consumed / research cluster 03 reviewed
+Status: reviewed initial scan / add-now queue consumed / research clusters 03-04 reviewed
 
 ## Integrity binding
 
@@ -44,6 +44,13 @@ Status: reviewed initial scan / add-now queue consumed / research cluster 03 rev
 - `0260` BMEX -> `pending_thin`
 - `0261` BMX Classic AMM -> parent BMX by Morphex identity review remains open; no standalone record
 
+## Research cluster 04 results
+
+- `0269` bopAMM -> parent Bebop identity review remains open; no standalone record
+- `0271` Brexily -> `pending_thin`
+- `0272` BrownFi -> new `hei_ex_000606`
+- `0279` BTCEX -> `pending_thin`
+
 ## Remaining add-now queue
 
 None.
@@ -51,10 +58,7 @@ None.
 ## Remaining needs-research queue
 
 - `0261` BMX by Morphex parent identity review
-- `0269` bopAMM
-- `0271` Brexily
-- `0272` BrownFi
-- `0279` BTCEX
+- `0269` Bebop parent identity review for bopAMM row
 - `0282` BTCMEX
 - `0283` BTCsquare
 - `0284` BtcTrade.im
@@ -66,7 +70,7 @@ None.
 
 ## Pending thin
 
-`0251`, `0254`, `0256`, `0259`-`0260`, `0262`-`0265`, `0268`, `0273`-`0274`, `0276`-`0277`, `0280`, `0285`-`0286`, `0290`.
+`0251`, `0254`, `0256`, `0259`-`0260`, `0262`-`0265`, `0268`, `0271`, `0273`-`0274`, `0276`-`0277`, `0279`-`0280`, `0285`-`0286`, `0290`.
 
 ## Out of scope or product/version rows
 
@@ -86,17 +90,17 @@ None.
 ```text
 range records:                 50
 promoted add_now:               5
-promoted research:              1
+promoted research:              2
 existing duplicate consumed:    3
 boundary rows reviewed:         2
-research cluster rows reviewed: 4
+research cluster rows reviewed: 8
 unresolved add_now:             0
-unresolved needs_research:     13
-pending_thin:                  18
+unresolved needs_research:     10
+pending_thin:                  20
 out_of_scope_or_duplicate:     10
 range status:                  open
 ```
 
 ## Next step
 
-Process bopAMM, Brexily, BrownFi, and BTCEX as the next evidence-backed research cluster while keeping BMX, BTSE, and Bybit in parent/global identity review.
+Process BTCMEX, BTCsquare, BtcTrade.im, Buenbit, BurrBear, and BW, then complete the Bebop, BMX, BTSE, and Bybit parent/global identity reviews.
