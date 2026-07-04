@@ -29,7 +29,7 @@ Status: reviewed initial scan / add-now queue consumed
 - `0252` Blocktrade -> new `hei_ex_000601`
 - `0278` BTCBOX -> new `hei_ex_000602`
 - `0281` btcmarkets / BTC Markets -> existing `hei_ex_000039`; no new record
-- `0288` Buda -> new `hei_ex_000603`
+- `0288` Buda -> existing `hei_ex_000054` Buda.com; no new record
 - `0295` BuyUcoin -> new `hei_ex_000604`
 
 ## Remaining add-now queue
@@ -76,8 +76,8 @@ None.
 
 ```text
 range records:                 50
-promoted add_now:               6
-existing duplicate consumed:    2
+promoted add_now:               5
+existing duplicate consumed:    3
 unresolved add_now:             0
 unresolved needs_research:     16
 pending_thin:                  16
