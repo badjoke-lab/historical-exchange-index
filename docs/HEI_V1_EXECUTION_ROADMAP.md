@@ -20,31 +20,33 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 ## Current checkpoint
 
 ```text
-Last confirmed main SHA: 1fa444f8b5eb12a86bc9a7da9c87df38851d9fba
-Last merged PR: #512 Promote active CEX batch from range 0251-0300
+Last confirmed main SHA: 58ed3d30b26f50c267ae08060817b1a2e6c7a0a9
+Last merged PR: #513 Review BTSE Futures and Bybit EU boundary rows
 Current phase: Phase C — Reviewed registry growth
-Current item: BTSE Futures / Bybit EU identity-boundary review
-Next item: Blocktane / Blue Planet / BMEX / BMX Classic AMM research cluster
+Current item: Blocktane / Blue Planet / BMEX / BMX Classic AMM research cluster
+Next item: bopAMM / Brexily / BrownFi / BTCEX research cluster
 Cloudflare changes: none
 Production deployment: none
 ```
 
-## Current reviewed state
+## Projected state after current cluster
 
 ```text
-Entities:  488
+Entities:  489
 Events:    1003
-Evidence: 2497
-Maximum entity ID:   hei_ex_000604
+Evidence: 2499
+Maximum entity ID:   hei_ex_000605
 Maximum event ID:    hei_ev_010079
-Maximum evidence ID: hei_src_011188
+Maximum evidence ID: hei_src_011190
 ```
+
+These values become authoritative only after CI passes and the pull request merges.
 
 ```text
 Target entities: 550
-Current entities: 488
-Remaining additions: 62
-Progress: 88.7%
+Projected entities: 489
+Remaining additions: 61
+Progress: 88.9%
 ```
 
 ## Range 0251-0300
@@ -52,33 +54,42 @@ Progress: 88.7%
 ```text
 Total rows:                    50
 promoted add_now:               5
+promoted research:              1
 existing duplicate consumed:    3
-boundary rows reviewed:         2
 unresolved add_now:             0
-unresolved needs_research:     16
-pending_thin:                  16
+unresolved needs_research:     13
+pending_thin:                  18
 out_of_scope_or_duplicate:     10
 range status:                  open
 ```
 
-Boundary decisions:
+Current cluster:
 
 ```text
-BTSE Futures  product row under BTSE; requires parent BTSE identity review
-Bybit EU      regional Bybit platform; requires broader Bybit identity review
+Blocktane       pending_thin
+Blue Planet     hei_ex_000605; active
+BMEX            pending_thin
+BMX Classic AMM parent BMX by Morphex identity review remains open
+```
+
+Open identity reviews:
+
+```text
+BMX by Morphex  parent protocol review
+BTSE            parent exchange review
+Bybit           global/regional identity review
 ```
 
 ## Remaining execution order
 
-1. Merge the BTSE / Bybit EU boundary review.
-2. Process Blocktane, Blue Planet, BMEX, and BMX Classic AMM.
-3. Process bopAMM, Brexily, BrownFi, and BTCEX.
-4. Process BTCMEX, BTCsquare, BtcTrade.im, Buenbit, BurrBear, and BW.
-5. Complete BTSE parent and Bybit global/regional identity reviews.
-6. Close range 0251-0300.
-7. Continue reviewed growth until at least 550 entities.
-8. Run the Phase C milestone audit.
-9. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
+1. Validate and merge research cluster 03.
+2. Process bopAMM, Brexily, BrownFi, and BTCEX.
+3. Process BTCMEX, BTCsquare, BtcTrade.im, Buenbit, BurrBear, and BW.
+4. Complete BMX, BTSE, and Bybit parent/global identity reviews.
+5. Close range 0251-0300.
+6. Continue reviewed growth until at least 550 entities.
+7. Run the Phase C milestone audit.
+8. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
 
 ## Phase C completion gate
 
@@ -101,7 +112,7 @@ duplicate, archive, confidence, origin, and evidence-depth audits pass
 
 | Period | Work | Result |
 |---|---|---|
-| Immediate | merge boundary review and start next research cluster | 488 reviewed entities |
+| Immediate | merge research cluster 03 and start next cluster | 489 reviewed entities |
 | Weeks 1-3 | reviewed growth batches | at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
 | Weeks 4-10 | public surfaces through final integration | HEI v1.0 baseline |
