@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0351-0400
 
-Status: reviewed initial scan / implementation not started
+Status: reviewed initial scan / add-now queue consumed
 
 ## Integrity binding
 
@@ -18,18 +18,18 @@ Status: reviewed initial scan / implementation not started
 | pending_thin | 11 |
 | out_of_scope_or_duplicate | 14 |
 
-## Add-now queue
+## Promoted add-now rows
 
-- `0352` ChainEX
-- `0353` Chainflip
-- `0361` Changelly PRO
-- `0368` Choice
-- `0369` Chronos
-- `0373` ClaimSwap
-- `0378` Clipper
-- `0382` CobaltX
+- `0352` ChainEX -> `hei_ex_000627`
+- `0353` Chainflip -> `hei_ex_000628`
+- `0361` Changelly PRO -> `hei_ex_000629`
+- `0368` Choice -> `hei_ex_000630`
+- `0369` Chronos -> `hei_ex_000631`
+- `0373` ClaimSwap -> `hei_ex_000632`
+- `0378` Clipper -> `hei_ex_000633`
+- `0382` CobaltX -> `hei_ex_000634`
 
-## Needs-research queue
+## Remaining needs-research queue
 
 - `0351` Chaince
 - `0355` Chainge Finance
@@ -65,12 +65,12 @@ Status: reviewed initial scan / implementation not started
 
 ## Out of scope or duplicate rows
 
-- `0354` Chainflip AMM — protocol surface under parent Chainflip candidate `0353`
-- `0360` Changelly PRO — duplicate source row for `0361`
+- `0354` Chainflip AMM — protocol surface under `hei_ex_000628`
+- `0360` Changelly PRO — duplicate source row consumed under `hei_ex_000629`
 - `0363` Chapool — source category is Physical TCG, outside HEI exchange scope
-- `0370` Chronos V1 — version row under parent Chronos `0369`
-- `0371` Chronos V2 — version row under parent Chronos `0369`
-- `0374` ClaimSwap V1 — version row under parent ClaimSwap `0373`
+- `0370` Chronos V1 — version row under `hei_ex_000631`
+- `0371` Chronos V2 — version row under `hei_ex_000631`
+- `0374` ClaimSwap V1 — version row under `hei_ex_000632`
 - `0376` Cleopatra CL — product/version row under parent identity review `0375`
 - `0377` Cleopatra Legacy — product/version row under parent identity review `0375`
 - `0380` Clober V2 — version row held under the Clober parent identity review at `0379`
@@ -84,9 +84,9 @@ Status: reviewed initial scan / implementation not started
 
 ```text
 range records:                 50
-promoted add_now:               0
+promoted add_now:               8
 promoted research:              0
-unresolved add_now:             8
+unresolved add_now:             0
 unresolved needs_research:     17
 pending_thin:                  11
 out_of_scope_or_duplicate:     14
@@ -95,4 +95,4 @@ range status:                  open
 
 ## Next step
 
-Promote the eight add-now parent entities in reviewed batches, then process the seventeen research rows in evidence-backed clusters.
+Process the seventeen needs-research rows in evidence-backed clusters and close the range when every research row is resolved.
