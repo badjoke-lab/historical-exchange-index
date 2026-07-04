@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0251-0300
 
-Status: reviewed initial scan / add-now queue consumed
+Status: reviewed initial scan / add-now and boundary rows reviewed
 
 ## Integrity binding
 
@@ -32,11 +32,16 @@ Status: reviewed initial scan / add-now queue consumed
 - `0288` Buda -> existing `hei_ex_000054` Buda.com; no new record
 - `0295` BuyUcoin -> new `hei_ex_000604`
 
+## Boundary review results
+
+- `0287` BTSE Futures -> product row under BTSE; requires parent BTSE identity review before canonical action
+- `0300` Bybit EU -> regional Bybit platform boundary; requires broader Bybit identity review before canonical action
+
 ## Remaining add-now queue
 
 None.
 
-## Needs-research queue
+## Remaining needs-research queue
 
 - `0251` Blocktane
 - `0255` Blue Planet
@@ -49,11 +54,11 @@ None.
 - `0282` BTCMEX
 - `0283` BTCsquare
 - `0284` BtcTrade.im
-- `0287` BTSE Futures
+- `0287` BTSE Futures parent-identity review
 - `0289` Buenbit
 - `0294` BurrBear
 - `0296` BW
-- `0300` Bybit EU
+- `0300` Bybit global/regional identity review
 
 ## Pending thin
 
@@ -78,6 +83,7 @@ None.
 range records:                 50
 promoted add_now:               5
 existing duplicate consumed:    3
+boundary rows reviewed:         2
 unresolved add_now:             0
 unresolved needs_research:     16
 pending_thin:                  16
@@ -87,4 +93,4 @@ range status:                  open
 
 ## Next step
 
-Resolve BTSE Futures and Bybit EU identity boundaries, then process the remaining research rows in small evidence-backed batches.
+Process Blocktane, Blue Planet, BMEX, and BMX Classic AMM as the next evidence-backed research cluster while keeping BTSE and Bybit in parent/global identity review.
