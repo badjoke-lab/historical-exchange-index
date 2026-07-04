@@ -53,19 +53,19 @@ Progress: 88.7%
 Total rows:                    50
 promoted add_now:               5
 existing duplicate consumed:    3
-boundary rows resolved:         2
+boundary rows reviewed:         2
 unresolved add_now:             0
-unresolved needs_research:     14
+unresolved needs_research:     16
 pending_thin:                  16
-out_of_scope_or_deferred:      12
+out_of_scope_or_duplicate:     10
 range status:                  open
 ```
 
 Boundary decisions:
 
 ```text
-BTSE Futures  product row under BTSE; no standalone entity
-Bybit EU      regional Bybit platform; defer to broader Bybit identity review
+BTSE Futures  product row under BTSE; requires parent BTSE identity review
+Bybit EU      regional Bybit platform; requires broader Bybit identity review
 ```
 
 ## Remaining execution order
@@ -74,10 +74,11 @@ Bybit EU      regional Bybit platform; defer to broader Bybit identity review
 2. Process Blocktane, Blue Planet, BMEX, and BMX Classic AMM.
 3. Process bopAMM, Brexily, BrownFi, and BTCEX.
 4. Process BTCMEX, BTCsquare, BtcTrade.im, Buenbit, BurrBear, and BW.
-5. Close range 0251-0300.
-6. Continue reviewed growth until at least 550 entities.
-7. Run the Phase C milestone audit.
-8. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
+5. Complete BTSE parent and Bybit global/regional identity reviews.
+6. Close range 0251-0300.
+7. Continue reviewed growth until at least 550 entities.
+8. Run the Phase C milestone audit.
+9. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
 
 ## Phase C completion gate
 
