@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0351-0400
 
-Status: reviewed initial scan / add-now queue consumed
+Status: reviewed initial scan / add-now queue consumed / research cluster 01 reviewed
 
 ## Integrity binding
 
@@ -29,19 +29,21 @@ Status: reviewed initial scan / add-now queue consumed
 - `0378` Clipper -> `hei_ex_000633`
 - `0382` CobaltX -> `hei_ex_000634`
 
+## Promoted research rows
+
+- `0355` Chainge Finance -> `hei_ex_000635`
+- `0359` ChampagneSwap -> `hei_ex_000636`
+- `0364` Cherryswap -> `hei_ex_000637`
+- `0367` ChimpX AI DEX -> `hei_ex_000638`
+- `0379` Clober V1 identity review -> parent Clober `hei_ex_000639`
+
 ## Remaining needs-research queue
 
 - `0351` Chaince
-- `0355` Chainge Finance
-- `0359` ChampagneSwap
-- `0364` Cherryswap
 - `0365` ChileBit
 - `0366` Chiliz
-- `0367` ChimpX AI DEX
 - `0372` CITEX
 - `0375` Cleo
-- `0379` Clober V1 identity review
-- `0381` Clutch Anvil AMM
 - `0383` CODEX
 - `0384` CODEX Exchange
 - `0395` Coinbe
@@ -55,6 +57,7 @@ Status: reviewed initial scan / add-now queue consumed
 - `0357` ChainX
 - `0358` Chamber Ex
 - `0362` ChaoEX
+- `0381` Clutch Anvil AMM
 - `0385` Coin Galaxy
 - `0386` Coin Republic
 - `0387` Coin163
@@ -73,7 +76,7 @@ Status: reviewed initial scan / add-now queue consumed
 - `0374` ClaimSwap V1 — version row under `hei_ex_000632`
 - `0376` Cleopatra CL — product/version row under parent identity review `0375`
 - `0377` Cleopatra Legacy — product/version row under parent identity review `0375`
-- `0380` Clober V2 — version row held under the Clober parent identity review at `0379`
+- `0380` Clober V2 — version row consumed under `hei_ex_000639`
 - `0390` Coinbase — existing `hei_ex_000012` Coinbase Exchange parent
 - `0391` Coinbase International Exchange — product/regional surface under existing Coinbase parent
 - `0392` coinbaseadvanced — product/API row under existing Coinbase parent
@@ -85,14 +88,14 @@ Status: reviewed initial scan / add-now queue consumed
 ```text
 range records:                 50
 promoted add_now:               8
-promoted research:              0
+promoted research:              5
 unresolved add_now:             0
-unresolved needs_research:     17
-pending_thin:                  11
+unresolved needs_research:     11
+pending_thin:                  12
 out_of_scope_or_duplicate:     14
 range status:                  open
 ```
 
 ## Next step
 
-Process the seventeen needs-research rows in evidence-backed clusters and close the range when every research row is resolved.
+Process the remaining eleven needs-research rows in evidence-backed clusters and close the range when every research row is resolved.
