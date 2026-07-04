@@ -20,16 +20,16 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 ## Current checkpoint
 
 ```text
-Last confirmed main SHA: a9d5d2d018abca2adabca7026595b0970bbf7060
-Last merged PR: #516 Process research cluster 05 from range 0251-0300
+Last confirmed main SHA: 9705d7e80573da808209185891c17038aedda30e
+Last merged PR: #517 Complete final identity reviews and close range 0251-0300
 Current phase: Phase C — Reviewed registry growth
-Current item: Bebop / BMX Trade / BTSE / Bybit identity reviews and range closure
-Next item: scan verified-unadded range 0301-0350
+Current item: verified-unadded range 0301-0350 scan
+Next item: promote add-now parents from range 0301-0350
 Cloudflare changes: none
 Production deployment: none
 ```
 
-## Projected state after current review
+## Current reviewed state
 
 ```text
 Entities:  494
@@ -40,19 +40,39 @@ Maximum event ID:    hei_ev_010080
 Maximum evidence ID: hei_src_011200
 ```
 
-These values become authoritative only after CI passes and the pull request merges.
-
 ```text
 Target entities: 550
-Projected entities: 494
+Reviewed entities: 494
 Remaining additions: 56
 Progress: 89.8%
 ```
 
-## Range 0251-0300
+## Range 0301-0350 initial scan
 
 ```text
 Total rows:                    50
+add_now:                        5
+needs_research:                15
+pending_thin:                  10
+out_of_scope_or_duplicate:     20
+range status:                  open
+```
+
+Add-now queue:
+
+```text
+Capricorn
+Carbon Defi
+Catex
+CaviarNine
+Cellana Finance
+```
+
+The scan collapses network, deployment, version, regional, and product rows under parent entities where appropriate. Existing parent matches include Bybit, BYDFi, Cetus Protocol, and CEX.IO.
+
+## Recently closed range 0251-0300
+
+```text
 promoted add_now:               5
 promoted research:              6
 existing duplicate consumed:    5
@@ -63,23 +83,15 @@ out_of_scope_or_duplicate:     10
 range status:                  closed
 ```
 
-Current review results:
-
-```text
-bopAMM           parent Bebop added as hei_ex_000609
-BMX product row  parent BMX Trade added as hei_ex_000610
-BTSE Futures     consumed under existing hei_ex_000052
-Bybit EU         consumed under existing hei_ex_000011
-```
-
 ## Remaining execution order
 
-1. Validate and merge the final identity-review and range-close PR.
-2. Scan verified-unadded range 0301-0350.
-3. Process add-now and evidence-backed research batches from that range.
-4. Continue reviewed growth until at least 550 entities.
-5. Run the Phase C milestone audit.
-6. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
+1. Validate and merge the range 0301-0350 scan PR.
+2. Promote the five add-now parent entities in reviewed batches.
+3. Process the fifteen needs-research rows in evidence-backed clusters.
+4. Close range 0301-0350.
+5. Continue reviewed growth until at least 550 entities.
+6. Run the Phase C milestone audit.
+7. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
 
 ## Phase C completion gate
 
@@ -102,7 +114,7 @@ duplicate, archive, confidence, origin, and evidence-depth audits pass
 
 | Period | Work | Result |
 |---|---|---|
-| Immediate | merge final identity reviews and start range 0301-0350 scan | 494 reviewed entities |
+| Immediate | merge range 0301-0350 scan and start add-now promotion | 494 reviewed entities, 5 immediate candidates queued |
 | Weeks 1-3 | reviewed growth batches | at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
 | Weeks 4-10 | public surfaces through final integration | HEI v1.0 baseline |
