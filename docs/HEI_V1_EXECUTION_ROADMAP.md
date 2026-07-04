@@ -32,9 +32,9 @@ Production deployment: none
 ## Projected state after current batch
 
 ```text
-Entities:  489
-Events:    1004
-Evidence: 2499
+Entities:  488
+Events:    1003
+Evidence: 2497
 Maximum entity ID:   hei_ex_000604
 Maximum event ID:    hei_ev_010079
 Maximum evidence ID: hei_src_011188
@@ -42,17 +42,17 @@ Maximum evidence ID: hei_src_011188
 
 ```text
 Target entities: 550
-Projected entities: 489
-Remaining additions: 61
-Progress: 88.9%
+Projected entities: 488
+Remaining additions: 62
+Progress: 88.7%
 ```
 
 ## Range 0251-0300
 
 ```text
 Total rows:                    50
-promoted add_now:               6
-existing duplicate consumed:    2
+promoted add_now:               5
+existing duplicate consumed:    3
 unresolved add_now:             0
 needs_research:                16
 pending_thin:                  16
@@ -66,7 +66,7 @@ Current batch:
 Blocktrade   hei_ex_000601
 BTCBOX       hei_ex_000602
 BTC Markets  existing hei_ex_000039
-Buda         hei_ex_000603
+Buda         existing hei_ex_000054
 BuyUcoin     hei_ex_000604
 ```
 
@@ -101,7 +101,7 @@ duplicate, archive, confidence, origin, and evidence-depth audits pass
 
 | Period | Work | Result |
 |---|---|---|
-| Immediate | merge active CEX batch and start boundary review | 489 reviewed entities |
+| Immediate | merge active CEX batch and start boundary review | 488 reviewed entities |
 | Weeks 1-3 | reviewed growth batches | at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
 | Weeks 4-10 | public surfaces through final integration | HEI v1.0 baseline |
