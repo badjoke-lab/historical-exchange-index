@@ -20,16 +20,16 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 ## Current checkpoint
 
 ```text
-Last confirmed main SHA: 3834638482e6ccf72555bd91acde784cede89b83
-Last merged PR: #525 Process research cluster 01 from range 0351-0400
+Last confirmed main SHA: 6294fa9a6f909df1e374442ad7fe2ef2304097d9
+Last merged PR: #526 Complete research and close range 0351-0400
 Current phase: Phase C — Reviewed registry growth
-Current item: final research cluster and closure of range 0351-0400
-Next item: scan verified-unadded range 0401-0450
+Current item: verified-unadded range 0401-0450 scan
+Next item: promote add-now parents from range 0401-0450
 Cloudflare changes: none
 Production deployment: none
 ```
 
-## Projected state after current final cluster
+## Current reviewed state
 
 ```text
 Entities:  526
@@ -40,19 +40,42 @@ Maximum event ID:    hei_ev_010080
 Maximum evidence ID: hei_src_011264
 ```
 
-These values become authoritative only after CI passes and the pull request merges.
-
 ```text
 Target entities: 550
-Projected entities: 526
+Reviewed entities: 526
 Remaining additions: 24
 Progress: 95.6%
 ```
 
-## Range 0351-0400
+## Range 0401-0450 initial scan
 
 ```text
 Total rows:                    50
+add_now:                        8
+needs_research:                23
+pending_thin:                  12
+out_of_scope_or_duplicate:      7
+range status:                  open
+```
+
+Add-now queue:
+
+```text
+CoinCorner
+Coinmate
+Coins.ph
+CoinTR
+CoinUp.io
+Coinzoom
+Comet Swap
+Convergence Finance
+```
+
+The scan collapses derivative/product rows under parent identities, recognizes CoinEx Market and CoinOne Swap as child surfaces of existing canonical parents, and excludes Physical TCG marketplaces and launchpad-only rows from HEI exchange scope.
+
+## Recently closed range 0351-0400
+
+```text
 promoted add_now:               8
 promoted research:              8
 unresolved add_now:             0
@@ -62,30 +85,15 @@ out_of_scope_or_duplicate:     15
 range status:                  closed
 ```
 
-Final research cluster:
-
-```text
-Chaince        pending_thin
-ChileBit       pending_thin
-Chiliz         out_of_scope_or_duplicate
-CITEX          hei_ex_000640; inactive
-Cleopatra      hei_ex_000641; inactive
-CODEX          pending_thin
-CODEX Exchange pending_thin
-Coinbe         pending_thin
-Coinbit        pending_thin
-CoinCasso      hei_ex_000642; inactive
-CoinCex        pending_thin
-```
-
 ## Remaining execution order
 
-1. Validate and merge the final research and range-close PR.
-2. Scan verified-unadded range 0401-0450.
-3. Process add-now and research batches from that range.
-4. Continue reviewed growth until at least 550 entities.
-5. Run the Phase C milestone audit.
-6. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
+1. Validate and merge the range 0401-0450 scan PR.
+2. Promote the eight add-now parent entities in reviewed batches.
+3. Process the twenty-three needs-research rows in evidence-backed clusters.
+4. Close range 0401-0450.
+5. Continue reviewed growth until at least 550 entities.
+6. Run the Phase C milestone audit.
+7. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
 
 ## Phase C completion gate
 
@@ -108,7 +116,7 @@ duplicate, archive, confidence, origin, and evidence-depth audits pass
 
 | Period | Work | Result |
 |---|---|---|
-| Immediate | merge final range-close PR and start 0401-0450 scan | 526 reviewed entities |
+| Immediate | merge 0401-0450 scan and start add-now promotion | 526 reviewed entities, 8 immediate candidates queued |
 | Weeks 1-3 | reviewed growth batches | at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
 | Weeks 4-10 | public surfaces through final integration | HEI v1.0 baseline |
