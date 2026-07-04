@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0251-0300
 
-Status: reviewed initial scan / add-now and boundary rows reviewed
+Status: reviewed initial scan / add-now queue consumed / research cluster 03 reviewed
 
 ## Integrity binding
 
@@ -37,16 +37,20 @@ Status: reviewed initial scan / add-now and boundary rows reviewed
 - `0287` BTSE Futures -> product row under BTSE; requires parent BTSE identity review before canonical action
 - `0300` Bybit EU -> regional Bybit platform boundary; requires broader Bybit identity review before canonical action
 
+## Research cluster 03 results
+
+- `0251` Blocktane -> `pending_thin`
+- `0255` Blue Planet -> new `hei_ex_000605`
+- `0260` BMEX -> `pending_thin`
+- `0261` BMX Classic AMM -> parent BMX by Morphex identity review remains open; no standalone record
+
 ## Remaining add-now queue
 
 None.
 
 ## Remaining needs-research queue
 
-- `0251` Blocktane
-- `0255` Blue Planet
-- `0260` BMEX
-- `0261` BMX Classic AMM
+- `0261` BMX by Morphex parent identity review
 - `0269` bopAMM
 - `0271` Brexily
 - `0272` BrownFi
@@ -54,7 +58,7 @@ None.
 - `0282` BTCMEX
 - `0283` BTCsquare
 - `0284` BtcTrade.im
-- `0287` BTSE Futures parent-identity review
+- `0287` BTSE parent-identity review
 - `0289` Buenbit
 - `0294` BurrBear
 - `0296` BW
@@ -62,7 +66,7 @@ None.
 
 ## Pending thin
 
-`0254`, `0256`, `0259`, `0262`-`0265`, `0268`, `0273`-`0274`, `0276`-`0277`, `0280`, `0285`-`0286`, `0290`.
+`0251`, `0254`, `0256`, `0259`-`0260`, `0262`-`0265`, `0268`, `0273`-`0274`, `0276`-`0277`, `0280`, `0285`-`0286`, `0290`.
 
 ## Out of scope or product/version rows
 
@@ -82,15 +86,17 @@ None.
 ```text
 range records:                 50
 promoted add_now:               5
+promoted research:              1
 existing duplicate consumed:    3
 boundary rows reviewed:         2
+research cluster rows reviewed: 4
 unresolved add_now:             0
-unresolved needs_research:     16
-pending_thin:                  16
+unresolved needs_research:     13
+pending_thin:                  18
 out_of_scope_or_duplicate:     10
 range status:                  open
 ```
 
 ## Next step
 
-Process Blocktane, Blue Planet, BMEX, and BMX Classic AMM as the next evidence-backed research cluster while keeping BTSE and Bybit in parent/global identity review.
+Process bopAMM, Brexily, BrownFi, and BTCEX as the next evidence-backed research cluster while keeping BMX, BTSE, and Bybit in parent/global identity review.
