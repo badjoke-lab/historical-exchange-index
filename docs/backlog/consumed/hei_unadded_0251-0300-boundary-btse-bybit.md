@@ -34,8 +34,8 @@ The correct follow-up is a broader Bybit identity review covering:
 - new entities: 0
 - new events: 0
 - new evidence: 0
-- research rows resolved: 2
-- rows deferred to parent/global identity review: 2
+- boundary rows reviewed: 2
+- rows kept in parent/global identity review: 2
 
 ## Safety checks
 
