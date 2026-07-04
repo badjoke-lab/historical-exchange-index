@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0401-0450
 
-Status: reviewed initial scan / implementation not started
+Status: reviewed initial scan / add-now queue consumed
 
 ## Integrity binding
 
@@ -18,16 +18,19 @@ Status: reviewed initial scan / implementation not started
 | pending_thin | 12 |
 | out_of_scope_or_duplicate | 7 |
 
-## Add-now queue
+## Promoted add-now rows
 
-- `0402` CoinCorner
-- `0416` Coinmate
-- `0424` coinsph / Coins.ph
-- `0427` CoinTR
-- `0429` CoinUp.io
-- `0433` Coinzoom
-- `0436` Comet Swap
-- `0443` Convergence Finance
+- `0402` CoinCorner -> `hei_ex_000643`
+- `0416` Coinmate -> `hei_ex_000644`
+- `0427` CoinTR -> `hei_ex_000645`
+- `0429` CoinUp.io -> `hei_ex_000646`
+- `0433` Coinzoom -> `hei_ex_000647`
+- `0436` Comet Swap -> `hei_ex_000648`
+- `0443` Convergence Finance -> `hei_ex_000649`
+
+## Existing duplicate consumed from add-now queue
+
+- `0424` coinsph / Coins.ph -> existing `hei_ex_000043`; no new entity
 
 ## Needs-research queue
 
@@ -84,9 +87,10 @@ Status: reviewed initial scan / implementation not started
 
 ```text
 range records:                 50
-promoted add_now:               0
+promoted add_now:               7
 promoted research:              0
-unresolved add_now:             8
+existing duplicate consumed:    1
+unresolved add_now:             0
 unresolved needs_research:     23
 pending_thin:                  12
 out_of_scope_or_duplicate:      7
@@ -95,4 +99,4 @@ range status:                  open
 
 ## Next step
 
-Promote the eight add-now parent entities in reviewed batches, then process the twenty-three research rows in evidence-backed clusters.
+Process the twenty-three needs-research rows in evidence-backed clusters and close the range when every research row is resolved.
