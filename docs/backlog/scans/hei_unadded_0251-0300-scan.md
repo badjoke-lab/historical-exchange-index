@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0251-0300
 
-Status: reviewed initial scan / first batch promoted
+Status: reviewed initial scan / add-now queue consumed
 
 ## Integrity binding
 
@@ -24,13 +24,17 @@ Status: reviewed initial scan / first batch promoted
 - `0275` BTC-Alpha -> new `hei_ex_000599`
 - `0297` BXH -> new `hei_ex_000600`
 
+## Batch 02 results
+
+- `0252` Blocktrade -> new `hei_ex_000601`
+- `0278` BTCBOX -> new `hei_ex_000602`
+- `0281` btcmarkets / BTC Markets -> existing `hei_ex_000039`; no new record
+- `0288` Buda -> new `hei_ex_000603`
+- `0295` BuyUcoin -> new `hei_ex_000604`
+
 ## Remaining add-now queue
 
-- `0252` Blocktrade
-- `0278` BTCBOX
-- `0281` btcmarkets / BTC Markets
-- `0288` Buda
-- `0295` BuyUcoin
+None.
 
 ## Needs-research queue
 
@@ -72,9 +76,9 @@ Status: reviewed initial scan / first batch promoted
 
 ```text
 range records:                 50
-promoted add_now:               2
-existing duplicate consumed:    1
-unresolved add_now:             5
+promoted add_now:               6
+existing duplicate consumed:    2
+unresolved add_now:             0
 unresolved needs_research:     16
 pending_thin:                  16
 out_of_scope_or_duplicate:     10
@@ -83,4 +87,4 @@ range status:                  open
 
 ## Next step
 
-Draft the active CEX batch for Blocktrade, BTCBOX, BTC Markets, Buda, and BuyUcoin.
+Resolve BTSE Futures and Bybit EU identity boundaries, then process the remaining research rows in small evidence-backed batches.
