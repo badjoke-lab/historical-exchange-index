@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0301-0350
 
-Status: reviewed initial scan / add-now queue consumed / research cluster 01 reviewed
+Status: reviewed initial scan / add-now queue consumed / research clusters 01-02 reviewed
 
 ## Integrity binding
 
@@ -32,15 +32,14 @@ Status: reviewed initial scan / add-now queue consumed / research cluster 01 rev
 - `0305` Cables Finance -> `hei_ex_000617`
 - `0306` Caliber -> `hei_ex_000618`
 - `0307` Canary -> `hei_ex_000619`
+- `0309` Canonic -> `hei_ex_000620`
+- `0313` Capricorn Finance -> `hei_ex_000621`
+- `0314` Capybara Dexs -> `hei_ex_000622`
+- `0322` Carbonswap -> `hei_ex_000623`
 
 ## Remaining needs-research queue
 
-- `0308` CandySwap
-- `0309` Canonic
 - `0310` Canto Dex
-- `0313` Capricorn Finance
-- `0314` Capybara Dexs
-- `0322` Carbonswap
 - `0323` Cashierest
 - `0325` Catalist DEX
 - `0329` Cauldron
@@ -51,6 +50,7 @@ These rows remain under review for stronger operator identity, lifecycle, domain
 
 ## Pending thin
 
+- `0308` CandySwap
 - `0324` CashPayz Exchange
 - `0334` CBX
 - `0335` Ccore
@@ -62,7 +62,7 @@ These rows remain under review for stronger operator identity, lifecycle, domain
 - `0348` Cexland
 - `0349` CexZ
 
-These rows currently have only thin list-level signals or ambiguous identity and are not implementation candidates without better evidence.
+These rows currently have thin or ambiguous identity and are not implementation candidates without better evidence.
 
 ## Out of scope or duplicate rows
 
@@ -70,7 +70,7 @@ These rows currently have only thin list-level signals or ambiguous identity and
 - `0302` BYDFi Spot — product row under existing `hei_ex_000414`
 - `0304` C3 Exchange — source category identifies a cross-chain bridge rather than an exchange registry entity
 - `0312` Capricorn — duplicate parent-source row consumed under `hei_ex_000611`
-- `0315` CapybaraDEX V2 — version/product row; parent review remains at `0314`
+- `0315` CapybaraDEX V2 — version/product row under `hei_ex_000622`
 - `0317`-`0321` Carbon DeFi network/deployment rows — consumed under `hei_ex_000612`
 - `0326` Catex — duplicate source row consumed under `hei_ex_000613`
 - `0328` Catton — source category is CDP, outside HEI exchange scope
@@ -85,14 +85,14 @@ These rows currently have only thin list-level signals or ambiguous identity and
 ```text
 range records:                 50
 promoted add_now:               5
-promoted research:              4
+promoted research:              8
 unresolved add_now:             0
-unresolved needs_research:     11
-pending_thin:                  10
+unresolved needs_research:      6
+pending_thin:                  11
 out_of_scope_or_duplicate:     20
 range status:                  open
 ```
 
 ## Next step
 
-Process the remaining eleven needs-research rows in evidence-backed clusters and close the range when every research row is resolved.
+Resolve the final six needs-research rows, then close range 0301-0350.
