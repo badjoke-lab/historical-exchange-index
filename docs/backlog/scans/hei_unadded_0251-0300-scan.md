@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0251-0300
 
-Status: reviewed initial scan / add-now queue consumed
+Status: reviewed initial scan / add-now and boundary rows consumed
 
 ## Integrity binding
 
@@ -32,11 +32,16 @@ Status: reviewed initial scan / add-now queue consumed
 - `0288` Buda -> existing `hei_ex_000054` Buda.com; no new record
 - `0295` BuyUcoin -> new `hei_ex_000604`
 
+## Boundary review results
+
+- `0287` BTSE Futures -> product row under BTSE; no standalone canonical record
+- `0300` Bybit EU -> regional Bybit platform boundary; deferred to a broader Bybit identity review
+
 ## Remaining add-now queue
 
 None.
 
-## Needs-research queue
+## Remaining needs-research queue
 
 - `0251` Blocktane
 - `0255` Blue Planet
@@ -49,11 +54,9 @@ None.
 - `0282` BTCMEX
 - `0283` BTCsquare
 - `0284` BtcTrade.im
-- `0287` BTSE Futures
 - `0289` Buenbit
 - `0294` BurrBear
 - `0296` BW
-- `0300` Bybit EU
 
 ## Pending thin
 
@@ -66,11 +69,13 @@ None.
 - `0258` Blur Bids
 - `0266` BONKbot
 - `0267` boop.fun
+- `0287` BTSE Futures
 - `0291` Bullpen Prediction Markets
 - `0292` BullX
 - `0293` Bunni V2
 - `0298` Bybit Spot
 - `0299` Bybit Derivative Exchange
+- `0300` Bybit EU
 
 ## Current range position
 
@@ -78,13 +83,14 @@ None.
 range records:                 50
 promoted add_now:               5
 existing duplicate consumed:    3
+boundary rows resolved:         2
 unresolved add_now:             0
-unresolved needs_research:     16
+unresolved needs_research:     14
 pending_thin:                  16
-out_of_scope_or_duplicate:     10
+out_of_scope_or_deferred:      12
 range status:                  open
 ```
 
 ## Next step
 
-Resolve BTSE Futures and Bybit EU identity boundaries, then process the remaining research rows in small evidence-backed batches.
+Process Blocktane, Blue Planet, BMEX, and BMX Classic AMM as the next evidence-backed research cluster.
