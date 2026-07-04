@@ -20,33 +20,33 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 ## Current checkpoint
 
 ```text
-Last confirmed main SHA: a2486a7b01d74d4fb1546a350cc7a68be136c04e
-Last merged PR: #524 Add reviewed exchange batch for range 0351-0400
+Last confirmed main SHA: 3834638482e6ccf72555bd91acde784cede89b83
+Last merged PR: #525 Process research cluster 01 from range 0351-0400
 Current phase: Phase C — Reviewed registry growth
-Current item: research cluster 01 from range 0351-0400
-Next item: continue remaining needs-research rows from range 0351-0400
+Current item: final research cluster and closure of range 0351-0400
+Next item: scan verified-unadded range 0401-0450
 Cloudflare changes: none
 Production deployment: none
 ```
 
-## Projected state after current research cluster
+## Projected state after current final cluster
 
 ```text
-Entities:  523
+Entities:  526
 Events:    1004
-Evidence: 2567
-Maximum entity ID:   hei_ex_000639
+Evidence: 2573
+Maximum entity ID:   hei_ex_000642
 Maximum event ID:    hei_ev_010080
-Maximum evidence ID: hei_src_011258
+Maximum evidence ID: hei_src_011264
 ```
 
 These values become authoritative only after CI passes and the pull request merges.
 
 ```text
 Target entities: 550
-Projected entities: 523
-Remaining additions: 27
-Progress: 95.1%
+Projected entities: 526
+Remaining additions: 24
+Progress: 95.6%
 ```
 
 ## Range 0351-0400
@@ -54,30 +54,35 @@ Progress: 95.1%
 ```text
 Total rows:                    50
 promoted add_now:               8
-promoted research:              5
+promoted research:              8
 unresolved add_now:             0
-unresolved needs_research:     11
-pending_thin:                  12
-out_of_scope_or_duplicate:     14
-range status:                  open
+unresolved needs_research:      0
+pending_thin:                  19
+out_of_scope_or_duplicate:     15
+range status:                  closed
 ```
 
-Current research cluster:
+Final research cluster:
 
 ```text
-Chainge Finance  hei_ex_000635; limited
-ChampagneSwap    hei_ex_000636; active
-CherrySwap       hei_ex_000637; inactive
-ChimpX AI DEX    hei_ex_000638; active
-Clober           hei_ex_000639; active
-Clutch Anvil AMM pending_thin
+Chaince        pending_thin
+ChileBit       pending_thin
+Chiliz         out_of_scope_or_duplicate
+CITEX          hei_ex_000640; inactive
+Cleopatra      hei_ex_000641; inactive
+CODEX          pending_thin
+CODEX Exchange pending_thin
+Coinbe         pending_thin
+Coinbit        pending_thin
+CoinCasso      hei_ex_000642; inactive
+CoinCex        pending_thin
 ```
 
 ## Remaining execution order
 
-1. Validate and merge research cluster 01.
-2. Process the remaining eleven needs-research rows in evidence-backed clusters.
-3. Close range 0351-0400.
+1. Validate and merge the final research and range-close PR.
+2. Scan verified-unadded range 0401-0450.
+3. Process add-now and research batches from that range.
 4. Continue reviewed growth until at least 550 entities.
 5. Run the Phase C milestone audit.
 6. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
@@ -103,7 +108,7 @@ duplicate, archive, confidence, origin, and evidence-depth audits pass
 
 | Period | Work | Result |
 |---|---|---|
-| Immediate | merge research cluster 01 and continue range review | 523 reviewed entities |
+| Immediate | merge final range-close PR and start 0401-0450 scan | 526 reviewed entities |
 | Weeks 1-3 | reviewed growth batches | at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
 | Weeks 4-10 | public surfaces through final integration | HEI v1.0 baseline |
