@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0301-0350
 
-Status: reviewed initial scan / add-now queue consumed / research clusters 01-02 reviewed
+Status: closed / all add-now and research rows resolved
 
 ## Integrity binding
 
@@ -33,36 +33,35 @@ Status: reviewed initial scan / add-now queue consumed / research clusters 01-02
 - `0306` Caliber -> `hei_ex_000618`
 - `0307` Canary -> `hei_ex_000619`
 - `0309` Canonic -> `hei_ex_000620`
+- `0310` Canto Dex -> `hei_ex_000624`
 - `0313` Capricorn Finance -> `hei_ex_000621`
 - `0314` Capybara Dexs -> `hei_ex_000622`
 - `0322` Carbonswap -> `hei_ex_000623`
+- `0325` Catalist DEX -> `hei_ex_000625`
+- `0329` Cauldron -> `hei_ex_000626`
 
 ## Remaining needs-research queue
 
-- `0310` Canto Dex
-- `0323` Cashierest
-- `0325` Catalist DEX
-- `0329` Cauldron
-- `0337` CCXCanada
-- `0350` CGCX
-
-These rows remain under review for stronger operator identity, lifecycle, domain, or status evidence.
+None.
 
 ## Pending thin
 
 - `0308` CandySwap
+- `0323` Cashierest
 - `0324` CashPayz Exchange
 - `0334` CBX
 - `0335` Ccore
 - `0336` CCRYPTOEX
+- `0337` CCXCanada
 - `0341` Centex
 - `0344` CEX
 - `0345` Cex-Trade
 - `0347` Cexius
 - `0348` Cexland
 - `0349` CexZ
+- `0350` CGCX
 
-These rows currently have thin or ambiguous identity and are not implementation candidates without better evidence.
+These rows remain non-canonical because reviewed evidence is too thin or identity is too ambiguous for a public-quality record.
 
 ## Out of scope or duplicate rows
 
@@ -85,14 +84,14 @@ These rows currently have thin or ambiguous identity and are not implementation 
 ```text
 range records:                 50
 promoted add_now:               5
-promoted research:              8
+promoted research:             11
 unresolved add_now:             0
-unresolved needs_research:      6
-pending_thin:                  11
+unresolved needs_research:      0
+pending_thin:                  14
 out_of_scope_or_duplicate:     20
-range status:                  open
+range status:                  closed
 ```
 
 ## Next step
 
-Resolve the final six needs-research rows, then close range 0301-0350.
+Scan and process verified-unadded range 0351-0400, then continue reviewed growth until at least 550 entities.
