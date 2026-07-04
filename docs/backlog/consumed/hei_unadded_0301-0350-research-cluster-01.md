@@ -11,6 +11,13 @@ Reviewed at: 2026-07-05
 
 Canto Dex remains in the research queue for a later batch.
 
+## Review notes
+
+- C-Patex is promoted from its reachable first-party exchange site and exchange-directory corroboration.
+- Cables Finance is promoted as the parent trading protocol because the first-party application remains live even though historical DEX metrics are thin.
+- Caliber is promoted from current Aptos on-chain volume plus an explicit event-stream adapter; no canonical public website is claimed.
+- Canary is promoted from a reachable first-party application surface plus current protocol liquidity data.
+
 ## Batch output
 
 - new entities: 4
