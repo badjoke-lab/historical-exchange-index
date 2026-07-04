@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0301-0350
 
-Status: reviewed initial scan / add-now queue consumed
+Status: reviewed initial scan / add-now queue consumed / research cluster 01 reviewed
 
 ## Integrity binding
 
@@ -26,12 +26,15 @@ Status: reviewed initial scan / add-now queue consumed
 - `0330` CaviarNine -> `hei_ex_000614`
 - `0339` Cellana Finance -> `hei_ex_000615`
 
-## Needs-research queue
+## Promoted research rows
 
-- `0303` C-Patex
-- `0305` Cables Finance
-- `0306` Caliber
-- `0307` Canary
+- `0303` C-Patex -> `hei_ex_000616`
+- `0305` Cables Finance -> `hei_ex_000617`
+- `0306` Caliber -> `hei_ex_000618`
+- `0307` Canary -> `hei_ex_000619`
+
+## Remaining needs-research queue
+
 - `0308` CandySwap
 - `0309` Canonic
 - `0310` Canto Dex
@@ -44,7 +47,7 @@ Status: reviewed initial scan / add-now queue consumed
 - `0337` CCXCanada
 - `0350` CGCX
 
-These rows appear exchange-like or protocol-like but need stronger operator identity, lifecycle, domain, or status evidence before canonical promotion.
+These rows remain under review for stronger operator identity, lifecycle, domain, or status evidence.
 
 ## Pending thin
 
@@ -82,9 +85,9 @@ These rows currently have only thin list-level signals or ambiguous identity and
 ```text
 range records:                 50
 promoted add_now:               5
-promoted research:              0
+promoted research:              4
 unresolved add_now:             0
-unresolved needs_research:     15
+unresolved needs_research:     11
 pending_thin:                  10
 out_of_scope_or_duplicate:     20
 range status:                  open
@@ -92,4 +95,4 @@ range status:                  open
 
 ## Next step
 
-Process the fifteen needs-research rows in evidence-backed clusters and close the range when every research row is resolved.
+Process the remaining eleven needs-research rows in evidence-backed clusters and close the range when every research row is resolved.
