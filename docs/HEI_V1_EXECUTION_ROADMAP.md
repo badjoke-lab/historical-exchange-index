@@ -20,80 +20,69 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 ## Current checkpoint
 
 ```text
-Last confirmed main SHA: 5d5baf59688418b52a78273e26cf2c2014b945cf
-Last merged PR: #522 Complete research and close range 0301-0350
+Last confirmed main SHA: e8d4f92d307f68ff0aa80d5ce154b366ed461ddc
+Last merged PR: #523 Scan verified-unadded range 0351-0400
 Current phase: Phase C — Reviewed registry growth
-Current item: verified-unadded range 0351-0400 scan
-Next item: promote add-now parents from range 0351-0400
+Current item: promote add-now parents from range 0351-0400
+Next item: process needs-research rows from range 0351-0400
 Cloudflare changes: none
 Production deployment: none
 ```
 
-## Current reviewed state
+## Projected state after current add-now batch
 
 ```text
-Entities:  510
+Entities:  518
 Events:    1004
-Evidence: 2541
-Maximum entity ID:   hei_ex_000626
+Evidence: 2557
+Maximum entity ID:   hei_ex_000634
 Maximum event ID:    hei_ev_010080
-Maximum evidence ID: hei_src_011232
+Maximum evidence ID: hei_src_011248
 ```
+
+These values become authoritative only after CI passes and the pull request merges.
 
 ```text
 Target entities: 550
-Reviewed entities: 510
-Remaining additions: 40
-Progress: 92.7%
+Projected entities: 518
+Remaining additions: 32
+Progress: 94.2%
 ```
 
-## Range 0351-0400 initial scan
+## Range 0351-0400
 
 ```text
 Total rows:                    50
-add_now:                        8
-needs_research:                17
+promoted add_now:               8
+promoted research:              0
+unresolved add_now:             0
+unresolved needs_research:     17
 pending_thin:                  11
 out_of_scope_or_duplicate:     14
 range status:                  open
 ```
 
-Add-now queue:
+Promoted add-now parents:
 
 ```text
-ChainEX
-Chainflip
-Changelly PRO
-Choice
-Chronos
-ClaimSwap
-Clipper
-CobaltX
-```
-
-The scan collapses protocol versions, product surfaces, connector rows, and Coinbase product/regional rows under parent identities where appropriate.
-
-## Recently closed range 0301-0350
-
-```text
-promoted add_now:               5
-promoted research:             11
-unresolved add_now:             0
-unresolved needs_research:      0
-pending_thin:                  14
-out_of_scope_or_duplicate:     20
-range status:                  closed
+ChainEX       hei_ex_000627
+Chainflip     hei_ex_000628
+Changelly PRO hei_ex_000629
+Choice        hei_ex_000630
+Chronos       hei_ex_000631
+ClaimSwap     hei_ex_000632
+Clipper       hei_ex_000633
+CobaltX       hei_ex_000634
 ```
 
 ## Remaining execution order
 
-1. Validate and merge the range 0351-0400 scan PR.
-2. Promote the eight add-now parent entities in reviewed batches.
-3. Process the seventeen needs-research rows in evidence-backed clusters.
-4. Close range 0351-0400.
-5. Continue reviewed growth until at least 550 entities.
-6. Run the Phase C milestone audit.
-7. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
+1. Validate and merge the add-now promotion batch.
+2. Process the seventeen needs-research rows in evidence-backed clusters.
+3. Close range 0351-0400.
+4. Continue reviewed growth until at least 550 entities.
+5. Run the Phase C milestone audit.
+6. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
 
 ## Phase C completion gate
 
@@ -116,7 +105,7 @@ duplicate, archive, confidence, origin, and evidence-depth audits pass
 
 | Period | Work | Result |
 |---|---|---|
-| Immediate | merge 0351-0400 scan and start add-now promotion | 510 reviewed entities, 8 immediate candidates queued |
+| Immediate | merge add-now batch and start research clusters | 518 reviewed entities |
 | Weeks 1-3 | reviewed growth batches | at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
 | Weeks 4-10 | public surfaces through final integration | HEI v1.0 baseline |
