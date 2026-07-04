@@ -70,7 +70,7 @@ Bybit EU      regional Bybit platform; requires broader Bybit identity review
 
 ## Remaining execution order
 
-1. Validate and merge the BTSE / Bybit EU boundary review.
+1. Merge the BTSE / Bybit EU boundary review.
 2. Process Blocktane, Blue Planet, BMEX, and BMX Classic AMM.
 3. Process bopAMM, Brexily, BrownFi, and BTCEX.
 4. Process BTCMEX, BTCsquare, BtcTrade.im, Buenbit, BurrBear, and BW.
