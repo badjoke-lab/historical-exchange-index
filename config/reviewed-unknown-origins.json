@@ -4,60 +4,17 @@
   "audit_document": "docs/audits/HEI_A2_EXPLICIT_UNKNOWN_REVIEW_2026-07-05.md",
   "description": "Entity IDs whose projected public country_or_origin value is intentionally Unknown after documented review. The strict country/origin gate requires this set to match the projected public Unknown set exactly.",
   "entities": [
-    {
-      "id": "hei_ex_000212",
-      "slug": "coin-swap",
-      "canonical_name": "Coin-Swap"
-    },
-    {
-      "id": "hei_ex_000215",
-      "slug": "allcrypt",
-      "canonical_name": "AllCrypt"
-    },
-    {
-      "id": "hei_ex_000218",
-      "slug": "mcxnow",
-      "canonical_name": "McxNOW"
-    },
-    {
-      "id": "hei_ex_000246",
-      "slug": "crypto-trade",
-      "canonical_name": "Crypto-Trade"
-    },
-    {
-      "id": "hei_ex_000250",
-      "slug": "coinedup",
-      "canonical_name": "CoinedUp"
-    },
-    {
-      "id": "hei_ex_000296",
-      "slug": "aidosmarket",
-      "canonical_name": "AidosMarket"
-    },
-    {
-      "id": "hei_ex_000297",
-      "slug": "55-global-markets",
-      "canonical_name": "55 Global Markets"
-    },
-    {
-      "id": "hei_ex_000300",
-      "slug": "bcc-exchange-bitconnect-coin",
-      "canonical_name": "BCC Exchange (BitConnect Coin)"
-    },
-    {
-      "id": "hei_ex_000312",
-      "slug": "txbit",
-      "canonical_name": "Txbit"
-    },
-    {
-      "id": "hei_ex_000640",
-      "slug": "citex",
-      "canonical_name": "CITEX"
-    },
-    {
-      "id": "hei_ex_000642",
-      "slug": "coincasso",
-      "canonical_name": "CoinCasso"
-    }
+    {"id":"hei_ex_000212","slug":"coin-swap","canonical_name":"Coin-Swap"},
+    {"id":"hei_ex_000215","slug":"allcrypt","canonical_name":"AllCrypt"},
+    {"id":"hei_ex_000218","slug":"mcxnow","canonical_name":"McxNOW"},
+    {"id":"hei_ex_000246","slug":"crypto-trade","canonical_name":"Crypto-Trade"},
+    {"id":"hei_ex_000250","slug":"coinedup","canonical_name":"CoinedUp"},
+    {"id":"hei_ex_000296","slug":"aidosmarket","canonical_name":"AidosMarket"},
+    {"id":"hei_ex_000297","slug":"55-global-markets","canonical_name":"55 Global Markets"},
+    {"id":"hei_ex_000300","slug":"bcc-exchange-bitconnect-coin","canonical_name":"BCC Exchange (BitConnect Coin)"},
+    {"id":"hei_ex_000312","slug":"txbit","canonical_name":"Txbit"},
+    {"id":"hei_ex_000640","slug":"citex","canonical_name":"CITEX"},
+    {"id":"hei_ex_000642","slug":"coincasso","canonical_name":"CoinCasso"},
+    {"id":"hei_ex_000664","slug":"coinexchange","canonical_name":"CoinExchange"}
   ]
 }
