@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0251-0300
 
-Status: reviewed initial scan / add-now queue consumed / research clusters 03-05 reviewed
+Status: closed / all add-now and research rows resolved
 
 ## Integrity binding
 
@@ -34,19 +34,19 @@ Status: reviewed initial scan / add-now queue consumed / research clusters 03-05
 
 ## Boundary review results
 
-- `0287` BTSE Futures -> product row under BTSE; requires parent BTSE identity review before canonical action
-- `0300` Bybit EU -> regional Bybit platform boundary; requires broader Bybit identity review before canonical action
+- `0287` BTSE Futures -> existing parent `hei_ex_000052`; no standalone product entity
+- `0300` Bybit EU -> existing parent `hei_ex_000011`; regional platform represented under parent record and events
 
 ## Research cluster 03 results
 
 - `0251` Blocktane -> `pending_thin`
 - `0255` Blue Planet -> new `hei_ex_000605`
 - `0260` BMEX -> `pending_thin`
-- `0261` BMX Classic AMM -> parent BMX by Morphex identity review remains open; no standalone record
+- `0261` BMX Classic product row -> parent BMX Trade added as new `hei_ex_000610`; no standalone product entity
 
 ## Research cluster 04 results
 
-- `0269` bopAMM -> parent Bebop identity review remains open; no standalone record
+- `0269` bopAMM -> parent Bebop added as new `hei_ex_000609`; no standalone product entity
 - `0271` Brexily -> `pending_thin`
 - `0272` BrownFi -> new `hei_ex_000606`
 - `0279` BTCEX -> `pending_thin`
@@ -66,10 +66,7 @@ None.
 
 ## Remaining needs-research queue
 
-- `0261` BMX by Morphex parent identity review
-- `0269` Bebop parent identity review for bopAMM row
-- `0287` BTSE parent-identity review
-- `0300` Bybit global/regional identity review
+None.
 
 ## Pending thin
 
@@ -93,17 +90,18 @@ None.
 ```text
 range records:                 50
 promoted add_now:               5
-promoted research:              4
-existing duplicate consumed:    3
+promoted research:              6
+existing duplicate consumed:    5
 boundary rows reviewed:         2
 research cluster rows reviewed: 14
+identity review rows resolved:   4
 unresolved add_now:             0
-unresolved needs_research:      4
+unresolved needs_research:      0
 pending_thin:                  24
 out_of_scope_or_duplicate:     10
-range status:                  open
+range status:                  closed
 ```
 
 ## Next step
 
-Complete the Bebop, BMX by Morphex, BTSE, and Bybit parent/global identity reviews, then close range 0251-0300.
+Scan and process verified-unadded range 0301-0350, then continue reviewed growth until at least 550 entities.
