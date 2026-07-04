@@ -2,7 +2,7 @@
 
 Status: active execution source of truth  
 Repository: `badjoke-lab/historical-exchange-index`  
-Checkpoint: 2026-07-04  
+Checkpoint: 2026-07-05  
 Target: HEI v1.0 and recurring registry operations
 
 Repository state is authoritative when this checkpoint and GitHub disagree.
@@ -20,11 +20,11 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 ## Current checkpoint
 
 ```text
-Last confirmed main SHA: 6c06f81e753fae04de51a26833f1072826f6e9e8
-Last merged PR: #514 Process research cluster 03 from range 0251-0300
+Last confirmed main SHA: c3acdfb359b533c88847ec2156a42dd2bdb535dc
+Last merged PR: #515 Process research cluster 04 from range 0251-0300
 Current phase: Phase C — Reviewed registry growth
-Current item: bopAMM / Brexily / BrownFi / BTCEX research cluster
-Next item: BTCMEX / BTCsquare / BtcTrade.im / Buenbit / BurrBear / BW research cluster
+Current item: BTCMEX / BTCsquare / BtcTrade.im / Buenbit / BurrBear / BW research cluster
+Next item: Bebop / BMX by Morphex / BTSE / Bybit parent and global identity reviews
 Cloudflare changes: none
 Production deployment: none
 ```
@@ -32,21 +32,21 @@ Production deployment: none
 ## Projected state after current cluster
 
 ```text
-Entities:  490
-Events:    1003
-Evidence: 2501
-Maximum entity ID:   hei_ex_000606
-Maximum event ID:    hei_ev_010079
-Maximum evidence ID: hei_src_011192
+Entities:  492
+Events:    1004
+Evidence: 2505
+Maximum entity ID:   hei_ex_000608
+Maximum event ID:    hei_ev_010080
+Maximum evidence ID: hei_src_011196
 ```
 
 These values become authoritative only after CI passes and the pull request merges.
 
 ```text
 Target entities: 550
-Projected entities: 490
-Remaining additions: 60
-Progress: 89.1%
+Projected entities: 492
+Remaining additions: 58
+Progress: 89.5%
 ```
 
 ## Range 0251-0300
@@ -54,11 +54,11 @@ Progress: 89.1%
 ```text
 Total rows:                    50
 promoted add_now:               5
-promoted research:              2
+promoted research:              4
 existing duplicate consumed:    3
 unresolved add_now:             0
-unresolved needs_research:     10
-pending_thin:                  20
+unresolved needs_research:      4
+pending_thin:                  24
 out_of_scope_or_duplicate:     10
 range status:                  open
 ```
@@ -66,10 +66,12 @@ range status:                  open
 Current cluster:
 
 ```text
-bopAMM   parent Bebop identity review remains open
-Brexily  pending_thin
-BrownFi  hei_ex_000606; active
-BTCEX    pending_thin
+BTCMEX      pending_thin
+BTCsquare   pending_thin
+BtcTrade.im pending_thin
+Buenbit     hei_ex_000607; active; acquisition event recorded
+BurrBear    hei_ex_000608; active
+BW          pending_thin
 ```
 
 Open identity reviews:
@@ -83,13 +85,12 @@ Bybit           global/regional identity review
 
 ## Remaining execution order
 
-1. Validate and merge research cluster 04.
-2. Process BTCMEX, BTCsquare, BtcTrade.im, Buenbit, BurrBear, and BW.
-3. Complete Bebop, BMX, BTSE, and Bybit parent/global identity reviews.
-4. Close range 0251-0300.
-5. Continue reviewed growth until at least 550 entities.
-6. Run the Phase C milestone audit.
-7. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
+1. Validate and merge research cluster 05.
+2. Complete Bebop, BMX by Morphex, BTSE, and Bybit parent/global identity reviews.
+3. Close range 0251-0300.
+4. Continue reviewed growth until at least 550 entities.
+5. Run the Phase C milestone audit.
+6. Build public update surfaces, Stats, SEO, Japanese routes, and final integration.
 
 ## Phase C completion gate
 
@@ -112,7 +113,7 @@ duplicate, archive, confidence, origin, and evidence-depth audits pass
 
 | Period | Work | Result |
 |---|---|---|
-| Immediate | merge research cluster 04 and start next cluster | 490 reviewed entities |
+| Immediate | merge research cluster 05 and start identity reviews | 492 reviewed entities |
 | Weeks 1-3 | reviewed growth batches | at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
 | Weeks 4-10 | public surfaces through final integration | HEI v1.0 baseline |

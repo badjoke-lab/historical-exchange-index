@@ -1,13 +1,13 @@
 # Scan: verified-unadded rows 0251-0300
 
-Status: reviewed initial scan / add-now queue consumed / research clusters 03-04 reviewed
+Status: reviewed initial scan / add-now queue consumed / research clusters 03-05 reviewed
 
 ## Integrity binding
 
 - machine-readable scan: `docs/backlog/scans/hei_unadded_0251-0300-scan.json`
 - source: `docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl`
 - source blob: `0b0f758137396cc0a21a4eb2c122b71c01b0b3c6`
-- reviewed_at: `2026-07-04`
+- reviewed_at: `2026-07-05`
 
 ## Initial classification summary
 
@@ -51,6 +51,15 @@ Status: reviewed initial scan / add-now queue consumed / research clusters 03-04
 - `0272` BrownFi -> new `hei_ex_000606`
 - `0279` BTCEX -> `pending_thin`
 
+## Research cluster 05 results
+
+- `0282` BTCMEX -> `pending_thin`
+- `0283` BTCsquare -> `pending_thin`
+- `0284` BtcTrade.im -> `pending_thin`
+- `0289` Buenbit -> new `hei_ex_000607`; active with acquisition event
+- `0294` BurrBear -> new `hei_ex_000608`; active DEX
+- `0296` BW -> `pending_thin`
+
 ## Remaining add-now queue
 
 None.
@@ -59,18 +68,12 @@ None.
 
 - `0261` BMX by Morphex parent identity review
 - `0269` Bebop parent identity review for bopAMM row
-- `0282` BTCMEX
-- `0283` BTCsquare
-- `0284` BtcTrade.im
 - `0287` BTSE parent-identity review
-- `0289` Buenbit
-- `0294` BurrBear
-- `0296` BW
 - `0300` Bybit global/regional identity review
 
 ## Pending thin
 
-`0251`, `0254`, `0256`, `0259`-`0260`, `0262`-`0265`, `0268`, `0271`, `0273`-`0274`, `0276`-`0277`, `0279`-`0280`, `0285`-`0286`, `0290`.
+`0251`, `0254`, `0256`, `0259`-`0260`, `0262`-`0265`, `0268`, `0271`, `0273`-`0274`, `0276`-`0277`, `0279`-`0280`, `0282`-`0284`, `0285`-`0286`, `0290`, `0296`.
 
 ## Out of scope or product/version rows
 
@@ -90,17 +93,17 @@ None.
 ```text
 range records:                 50
 promoted add_now:               5
-promoted research:              2
+promoted research:              4
 existing duplicate consumed:    3
 boundary rows reviewed:         2
-research cluster rows reviewed: 8
+research cluster rows reviewed: 14
 unresolved add_now:             0
-unresolved needs_research:     10
-pending_thin:                  20
+unresolved needs_research:      4
+pending_thin:                  24
 out_of_scope_or_duplicate:     10
 range status:                  open
 ```
 
 ## Next step
 
-Process BTCMEX, BTCsquare, BtcTrade.im, Buenbit, BurrBear, and BW, then complete the Bebop, BMX, BTSE, and Bybit parent/global identity reviews.
+Complete the Bebop, BMX by Morphex, BTSE, and Bybit parent/global identity reviews, then close range 0251-0300.
