@@ -1,6 +1,6 @@
 # Scan: verified-unadded rows 0251-0300
 
-Status: reviewed initial scan / add-now and boundary rows consumed
+Status: reviewed initial scan / add-now and boundary rows reviewed
 
 ## Integrity binding
 
@@ -34,8 +34,8 @@ Status: reviewed initial scan / add-now and boundary rows consumed
 
 ## Boundary review results
 
-- `0287` BTSE Futures -> product row under BTSE; no standalone canonical record
-- `0300` Bybit EU -> regional Bybit platform boundary; deferred to a broader Bybit identity review
+- `0287` BTSE Futures -> product row under BTSE; requires parent BTSE identity review before canonical action
+- `0300` Bybit EU -> regional Bybit platform boundary; requires broader Bybit identity review before canonical action
 
 ## Remaining add-now queue
 
@@ -54,9 +54,11 @@ None.
 - `0282` BTCMEX
 - `0283` BTCsquare
 - `0284` BtcTrade.im
+- `0287` BTSE Futures parent-identity review
 - `0289` Buenbit
 - `0294` BurrBear
 - `0296` BW
+- `0300` Bybit global/regional identity review
 
 ## Pending thin
 
@@ -69,13 +71,11 @@ None.
 - `0258` Blur Bids
 - `0266` BONKbot
 - `0267` boop.fun
-- `0287` BTSE Futures
 - `0291` Bullpen Prediction Markets
 - `0292` BullX
 - `0293` Bunni V2
 - `0298` Bybit Spot
 - `0299` Bybit Derivative Exchange
-- `0300` Bybit EU
 
 ## Current range position
 
@@ -83,14 +83,14 @@ None.
 range records:                 50
 promoted add_now:               5
 existing duplicate consumed:    3
-boundary rows resolved:         2
+boundary rows reviewed:         2
 unresolved add_now:             0
-unresolved needs_research:     14
+unresolved needs_research:     16
 pending_thin:                  16
-out_of_scope_or_deferred:      12
+out_of_scope_or_duplicate:     10
 range status:                  open
 ```
 
 ## Next step
 
-Process Blocktane, Blue Planet, BMEX, and BMX Classic AMM as the next evidence-backed research cluster.
+Process Blocktane, Blue Planet, BMEX, and BMX Classic AMM as the next evidence-backed research cluster while keeping BTSE and Bybit in parent/global identity review.
