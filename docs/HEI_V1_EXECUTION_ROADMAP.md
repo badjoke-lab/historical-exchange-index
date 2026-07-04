@@ -20,33 +20,33 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 ## Current checkpoint
 
 ```text
-Last confirmed main SHA: e8d4f92d307f68ff0aa80d5ce154b366ed461ddc
-Last merged PR: #523 Scan verified-unadded range 0351-0400
+Last confirmed main SHA: a2486a7b01d74d4fb1546a350cc7a68be136c04e
+Last merged PR: #524 Add reviewed exchange batch for range 0351-0400
 Current phase: Phase C — Reviewed registry growth
-Current item: promote add-now parents from range 0351-0400
-Next item: process needs-research rows from range 0351-0400
+Current item: research cluster 01 from range 0351-0400
+Next item: continue remaining needs-research rows from range 0351-0400
 Cloudflare changes: none
 Production deployment: none
 ```
 
-## Projected state after current add-now batch
+## Projected state after current research cluster
 
 ```text
-Entities:  518
+Entities:  523
 Events:    1004
-Evidence: 2557
-Maximum entity ID:   hei_ex_000634
+Evidence: 2567
+Maximum entity ID:   hei_ex_000639
 Maximum event ID:    hei_ev_010080
-Maximum evidence ID: hei_src_011248
+Maximum evidence ID: hei_src_011258
 ```
 
 These values become authoritative only after CI passes and the pull request merges.
 
 ```text
 Target entities: 550
-Projected entities: 518
-Remaining additions: 32
-Progress: 94.2%
+Projected entities: 523
+Remaining additions: 27
+Progress: 95.1%
 ```
 
 ## Range 0351-0400
@@ -54,31 +54,29 @@ Progress: 94.2%
 ```text
 Total rows:                    50
 promoted add_now:               8
-promoted research:              0
+promoted research:              5
 unresolved add_now:             0
-unresolved needs_research:     17
-pending_thin:                  11
+unresolved needs_research:     11
+pending_thin:                  12
 out_of_scope_or_duplicate:     14
 range status:                  open
 ```
 
-Promoted add-now parents:
+Current research cluster:
 
 ```text
-ChainEX       hei_ex_000627
-Chainflip     hei_ex_000628
-Changelly PRO hei_ex_000629
-Choice        hei_ex_000630
-Chronos       hei_ex_000631
-ClaimSwap     hei_ex_000632
-Clipper       hei_ex_000633
-CobaltX       hei_ex_000634
+Chainge Finance  hei_ex_000635; limited
+ChampagneSwap    hei_ex_000636; active
+CherrySwap       hei_ex_000637; inactive
+ChimpX AI DEX    hei_ex_000638; active
+Clober           hei_ex_000639; active
+Clutch Anvil AMM pending_thin
 ```
 
 ## Remaining execution order
 
-1. Validate and merge the add-now promotion batch.
-2. Process the seventeen needs-research rows in evidence-backed clusters.
+1. Validate and merge research cluster 01.
+2. Process the remaining eleven needs-research rows in evidence-backed clusters.
 3. Close range 0351-0400.
 4. Continue reviewed growth until at least 550 entities.
 5. Run the Phase C milestone audit.
@@ -105,7 +103,7 @@ duplicate, archive, confidence, origin, and evidence-depth audits pass
 
 | Period | Work | Result |
 |---|---|---|
-| Immediate | merge add-now batch and start research clusters | 518 reviewed entities |
+| Immediate | merge research cluster 01 and continue range review | 523 reviewed entities |
 | Weeks 1-3 | reviewed growth batches | at least 550 entities |
 | Week 3 | milestone audit | Phase C complete |
 | Weeks 4-10 | public surfaces through final integration | HEI v1.0 baseline |
