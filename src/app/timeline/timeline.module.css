@@ -7,3 +7,6 @@
 .summaryGrid>div{display:flex;flex-direction:column;gap:7px;padding:14px;background:var(--panel)}
 .summaryGrid span{color:var(--muted);font-size:12px}
 .summaryGrid strong{font-size:20px}
+.typeSummary{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.typeSummaryItem{border:1px solid var(--line);border-radius:999px;padding:6px 9px;color:var(--muted);font-size:11px}
+.typeSummaryItem strong{color:var(--text);margin-left:4px}
