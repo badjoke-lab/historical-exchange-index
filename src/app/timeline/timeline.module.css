@@ -21,3 +21,7 @@
 .eventMeta{display:flex;gap:8px;flex-wrap:wrap}
 .eventType,.impactChip{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px 8px;font-size:10px;text-transform:uppercase}
 .eventType{color:var(--archive)}
+.impact_critical{color:var(--dead)}
+.impact_high{color:var(--limited)}
+.impact_medium{color:var(--inactive)}
+.impact_low{color:var(--muted)}
