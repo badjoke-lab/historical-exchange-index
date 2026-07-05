@@ -88,6 +88,7 @@ const home = readOut('index.html')
 const dead = readOut(path.join('dead', 'index.html'))
 const active = readOut(path.join('active', 'index.html'))
 const stats = readOut(path.join('stats', 'index.html'))
+const updates = readOut(path.join('updates', 'index.html'))
 const firstEntity = entities[0]
 const detail = readOut(path.join('exchange', firstEntity.slug, 'index.html'))
 
@@ -101,12 +102,14 @@ assertTextCount(stats, 'Dead-side', expected.deadSide, '/stats/')
 assertTextCount(stats, 'Active-side', expected.activeSide, '/stats/')
 assertTextCount(stats, 'Total events', expected.events, '/stats/')
 assertTextCount(stats, 'Total evidence', expected.evidence, '/stats/')
+assert(stripHtml(updates).includes('Registry Updates'), '/updates/ does not expose Registry Updates heading')
 
 for (const [route, html, canonical] of [
   ['/', home, `${origin}/`],
   ['/dead/', dead, `${origin}/dead/`],
   ['/active/', active, `${origin}/active/`],
   ['/stats/', stats, `${origin}/stats/`],
+  ['/updates/', updates, `${origin}/updates/`],
   [`/exchange/${firstEntity.slug}/`, detail, `${origin}/exchange/${firstEntity.slug}/`],
 ]) {
   assertCanonical(html, canonical, route)
@@ -176,7 +179,8 @@ for (const [label, count] of [
 
 const sitemap = readOut('sitemap.xml')
 const sitemapLocations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1])
-assert(sitemapLocations.length === entities.length + 7, `sitemap URL count mismatch: ${sitemapLocations.length}`)
+assert(sitemapLocations.length === entities.length + 8, `sitemap URL count mismatch: ${sitemapLocations.length}`)
+assert(sitemapLocations.includes(`${origin}/updates/`), 'sitemap is missing /updates/')
 for (const entity of entities) {
   assert(sitemapLocations.includes(`${origin}/exchange/${entity.slug}/`), `sitemap missing ${entity.slug}`)
 }

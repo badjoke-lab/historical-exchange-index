@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "updates": [
+    {
+      "id": "phase-c-audit-complete",
+      "date": "2026-07-05",
+      "update_type": "quality_audit",
+      "title": "Phase C milestone audit completed",
+      "summary": "The 550-entity milestone audit completed with count surfaces aligned and the post-repair entity-quality audit reporting zero critical and zero high findings.",
+      "counts": {
+        "entities_before": 550,
+        "entities_after": 550,
+        "events_before": 1004,
+        "events_after": 1004,
+        "evidence_before": 2621,
+        "evidence_after": 2621
+      },
+      "added_entities": [],
+      "updated_entities": [
+        {
+          "name": "BKEX",
+          "slug": "bkex",
+          "change": "Status reclassified from limited to inactive after milestone quality review."
+        },
+        {
+          "name": "ZB.com",
+          "slug": "zb-com",
+          "change": "Status reclassified from limited to inactive after milestone quality review."
+        }
+      ],
+      "evidence_added": 0,
+      "notes": [
+        "No terminal closure date was asserted for BKEX or ZB.com.",
+        "The post-repair entity-quality audit reported 0 critical and 0 high findings."
+      ]
+    },
+    {
+      "id": "phase-c-550-milestone",
+      "date": "2026-07-05",
+      "update_type": "registry_growth",
+      "title": "HEI reaches 550 reviewed exchange entities",
+      "summary": "A sequence of reviewed growth batches expanded the projected public registry from 510 to 550 entities while events remained at 1,004 and evidence increased from 2,541 to 2,621 records.",
+      "counts": {
+        "entities_before": 510,
+        "entities_after": 550,
+        "events_before": 1004,
+        "events_after": 1004,
+        "evidence_before": 2541,
+        "evidence_after": 2621
+      },
+      "added_entities": [
+        { "name": "ChainEX", "slug": "chainex", "type": "cex", "status": "active" },
+        { "name": "Chainflip", "slug": "chainflip", "type": "dex", "status": "active" },
+        { "name": "Changelly PRO", "slug": "changelly-pro", "type": "cex", "status": "active" },
+        { "name": "Choice", "slug": "choice", "type": "dex", "status": "active" },
+        { "name": "Chronos", "slug": "chronos", "type": "dex", "status": "active" },
+        { "name": "ClaimSwap", "slug": "claimswap", "type": "dex", "status": "active" },
+        { "name": "Clipper", "slug": "clipper", "type": "dex", "status": "active" },
+        { "name": "CobaltX", "slug": "cobaltx", "type": "dex", "status": "active" },
+        { "name": "Chainge Finance", "slug": "chainge-finance", "type": "dex", "status": "limited" },
+        { "name": "ChampagneSwap", "slug": "champagneswap", "type": "dex", "status": "active" },
+        { "name": "CherrySwap", "slug": "cherryswap", "type": "dex", "status": "inactive" },
+        { "name": "ChimpX AI DEX", "slug": "chimpx-ai-dex", "type": "dex", "status": "active" },
+        { "name": "Clober", "slug": "clober", "type": "dex", "status": "active" },
+        { "name": "CITEX", "slug": "citex", "type": "cex", "status": "inactive" },
+        { "name": "Cleopatra", "slug": "cleopatra", "type": "dex", "status": "inactive" },
+        { "name": "CoinCasso", "slug": "coincasso", "type": "cex", "status": "inactive" },
+        { "name": "CoinCorner", "slug": "coincorner", "type": "cex", "status": "active" },
+        { "name": "Coinmate", "slug": "coinmate", "type": "cex", "status": "active" },
+        { "name": "CoinTR", "slug": "cointr", "type": "cex", "status": "active" },
+        { "name": "CoinUp.io", "slug": "coinup", "type": "cex", "status": "active" },
+        { "name": "CoinZoom", "slug": "coinzoom", "type": "cex", "status": "active" },
+        { "name": "Comet Swap", "slug": "comet-swap", "type": "dex", "status": "active" },
+        { "name": "Convergence Finance", "slug": "convergence-finance", "type": "dex", "status": "active" },
+        { "name": "Coinhain", "slug": "coinhain", "type": "dex", "status": "active" },
+        { "name": "CoinSwap Space", "slug": "coinswap-space", "type": "dex", "status": "active" },
+        { "name": "ColorPool", "slug": "colorpool", "type": "dex", "status": "inactive" },
+        { "name": "Cometh", "slug": "cometh", "type": "hybrid", "status": "active" },
+        { "name": "Complus Network", "slug": "complus-network", "type": "dex", "status": "active" },
+        { "name": "Concordex", "slug": "concordex", "type": "dex", "status": "active" },
+        { "name": "Cone", "slug": "cone", "type": "dex", "status": "active" },
+        { "name": "Swapscanner", "slug": "swapscanner", "type": "hybrid", "status": "active" },
+        { "name": "Coinhouse", "slug": "coinhouse", "type": "hybrid", "status": "active" },
+        { "name": "COINUT", "slug": "coinut", "type": "hybrid", "status": "active" },
+        { "name": "Counos", "slug": "counos", "type": "hybrid", "status": "active" },
+        { "name": "Coinsbit", "slug": "coinsbit", "type": "cex", "status": "inactive" },
+        { "name": "CoinField", "slug": "coinfield", "type": "cex", "status": "inactive" },
+        { "name": "CoinTiger", "slug": "cointiger", "type": "cex", "status": "inactive" },
+        { "name": "Coindelta", "slug": "coindelta", "type": "cex", "status": "inactive" },
+        { "name": "CPDAX", "slug": "cpdax", "type": "cex", "status": "inactive" },
+        { "name": "CoinZest", "slug": "coinzest", "type": "cex", "status": "inactive" }
+      ],
+      "updated_entities": [],
+      "evidence_added": 80,
+      "notes": [
+        "All additions were reviewed before canonical publication.",
+        "The milestone batches added no new event records."
+      ]
+    }
+  ]
+}

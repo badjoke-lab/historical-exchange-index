@@ -178,6 +178,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <Link className="nav-link" href="/dead">Dead</Link>
               <Link className="nav-link" href="/active">Active</Link>
               <Link className="nav-link" href="/stats">Stats</Link>
+              <Link className="nav-link" href="/updates">Updates</Link>
               <Link className="nav-link nav-secondary" href="/methodology">Methodology</Link>
               <Link className="nav-link nav-secondary" href="/about">About</Link>
               <Link className="utility" href={DONATE_HREF}>Donate</Link>
@@ -196,6 +197,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <a className="archive-link" href={ISSUES_HREF} target="_blank" rel="noreferrer">
                 GitHub Issues
               </a>
+              <span className="muted footer-sep"> · </span>
+              <Link className="archive-link" href="/updates">Updates</Link>
               <span className="muted footer-sep"> · </span>
               <Link className="archive-link" href="/stats">Stats</Link>
               <span className="muted footer-sep"> · </span>
