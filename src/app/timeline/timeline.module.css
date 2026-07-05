@@ -3,3 +3,4 @@
 .pageTitle{margin:0;font-size:36px}
 .lead{max-width:82ch;color:var(--muted);line-height:1.7}
 .actions{display:flex;gap:8px;flex-wrap:wrap}
+.summaryGrid{display:grid;gap:1px;margin-top:20px;border:1px solid var(--line)}
