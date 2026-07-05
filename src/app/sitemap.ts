@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/dead/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE_URL}/active/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE_URL}/stats/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${SITE_URL}/updates/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/methodology/`, lastModified: registryLastModified, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/about/`, lastModified: registryLastModified, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/donate/`, lastModified: registryLastModified, changeFrequency: 'monthly', priority: 0.4 },
