@@ -13,18 +13,16 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 - Automated monitoring must not directly edit canonical data.
 - Do not add thin records to satisfy a count target.
 - Preserve historical URLs and conservative status decisions.
-- Do not bypass frozen lineage reviews.
-- Treat maximum IDs as allocation markers, not record counts.
-- Confirm the full diff and all required checks before merge.
+- Confirm the full diff and required checks before merge.
 
 ## Current checkpoint
 
 ```text
-Last confirmed main SHA: c483db495733722b1a38df7ceeb9b85487d17df3
-Last merged PR: #530 Reach Phase C 550-entity milestone
-Current phase: Phase C milestone audit
-Current item: resolve milestone audit findings and document completion
-Next item: close range 0401-0450, then begin Phase D public update surfaces
+Last confirmed main SHA: 68ebe476e87d6ccb764bd51d52b94caf9638e039
+Last merged PR: #531 Complete Phase C milestone audit
+Current phase: Phase D — public update surfaces
+Current item: finalize range 0401-0450 closure
+Next item: HEI Registry Update surface
 Cloudflare changes: none
 Production deployment: none
 ```
@@ -40,37 +38,19 @@ Maximum event ID:    hei_ev_010080
 Maximum evidence ID: hei_src_011312
 ```
 
-```text
-Phase C entity target: 550
-Reviewed entities:     550
-Remaining to target:     0
-Progress:              100%
-```
-
-## Phase C milestone audit
-
-Milestone count consistency:
+## Phase C completion
 
 ```text
-Projected:   550 / 1004 / 2621
-Monitoring:  550 / 1004 / 2621
-Machine:     550 / 1004 / 2621
-Built:       550 / 1004 / 2621
-Detail pages: 550
-Sitemap exchange routes: 550
-Count semantics status: pass
+entity target:                     550 / 550
+count semantics:                   pass
+records validation:                pass
+country origin strict gate:        pass
+active CEX / DEX readiness:        pass
+watchlist resolution gate:         pass
+entity quality critical findings:  0
+entity quality high findings:      0
+Phase C status:                    complete
 ```
-
-Milestone entity-quality baseline:
-
-```text
-critical: 0
-high:     2
-medium:  17
-low:     60
-```
-
-The two high findings are resolved in the current audit branch by reclassifying BKEX and ZB.com from `limited` to `inactive`. Neither is marked dead because the reviewed evidence does not establish a sufficiently strong terminal closure marker.
 
 Audit source of truth:
 
@@ -78,65 +58,59 @@ Audit source of truth:
 docs/audits/HEI_PHASE_C_MILESTONE_AUDIT_2026-07-05.md
 ```
 
+Remaining quality queues are handled through reviewed repair batches and do not reopen count-driven growth as the primary milestone.
+
 ## Range 0401-0450
 
-The range remains open after the 550 milestone. Five research rows remain unresolved:
-
 ```text
-0403 CoinDeal
-0410 Coingi
-0419 CoinPlace
-0422 CoinsBank
-0447 Covesting
+range records:                 50
+promoted add_now:               7
+promoted research:             17
+existing duplicates consumed:   2
+unresolved add_now:              0
+unresolved needs_research:       0
+pending_thin:                   16
+out_of_scope_or_duplicate:       8
+range status:                   closed
 ```
 
-Range closure is operational cleanup and no longer a prerequisite for reaching the Phase C entity milestone.
+## Phase D execution order
 
-## Remaining execution order
+1. HEI Registry Update surface.
+2. Exchange Incident Timeline surface.
+3. Evidence Health and Data Quality public summary.
+4. Monthly historical exchange snapshot.
+5. RSS and JSON feed outputs for reviewed public updates.
+6. Continue quality repair batches in parallel.
 
-1. Validate and merge the Phase C milestone audit PR.
-2. Resolve the five remaining research rows and close range 0401-0450.
-3. Begin Phase D public update surfaces and publication-oriented registry outputs.
-4. Continue reviewed quality-repair batches for medium and low audit findings.
-5. Build Stats, SEO, Japanese routes, and final integration in the existing phase order.
+Public publication rules:
 
-## Phase C completion gate
-
-```text
-reviewed entities >= 550                    pass
-no thin count-filler records                pass through reviewed bundle policy
-all required CI checks green                milestone PR pass; audit PR pending
-public, monitoring, machine, built agree    pass
-record duplicate / ID collision checks      pass
-country/origin strict gate                  pass
-active CEX / DEX readiness gates            pass
-entity quality critical findings            0
-entity quality high findings                2 -> resolved in audit branch
-```
-
-Phase C becomes formally complete when the current audit PR passes all repository gates and merges.
+- only merged canonical changes are presented as official registry updates;
+- raw monitoring findings remain internal;
+- monitoring signals are not final status classifications;
+- public timeline items require reviewed canonical events or separately reviewed confirmed items.
 
 ## Later phases
 
-- Phase D: Registry Update, incident timeline, evidence health, monthly snapshot, feeds.
 - Phase E: Stats, internal links, SEO, metadata, sitemap.
 - Phase F: English root and Japanese `/ja/` routes with translation overlays.
 - Phase G: accessibility, URL safety, production integration, runbook, v1.0 baseline.
 
-## Schedule
+## Immediate schedule
 
-| Period | Work | Result |
+| Order | Work | Result |
 |---|---|---|
-| Immediate | merge milestone audit and close current research range | Phase C complete |
-| Next | Phase D public update surfaces | visible registry update layer |
-| Following | Stats / SEO / Japanese routes | analysis and discovery expansion |
-| Final | integration and v1.0 baseline | HEI v1.0 |
+| 1 | merge range-close checkpoint | current research range fully closed |
+| 2 | implement Registry Update | first Phase D public update surface |
+| 3 | implement Incident Timeline | canonical event history surface |
+| 4 | implement quality and monthly summaries | transparent maintenance outputs |
+| 5 | add feeds | machine-readable public update stream |
 
 GitHub-side work can continue without Cloudflare access.
 
 ## Recovery procedure
 
 1. Confirm current main, open PRs, and actual reviewed counts.
-2. Read the Phase C milestone audit document and latest workflow results.
-3. Resume the first incomplete item in the execution order above.
+2. Read the Phase C audit and latest range-close memo.
+3. Resume the first incomplete Phase D item above.
 4. Update this checkpoint whenever counts, phase, or execution order change.
