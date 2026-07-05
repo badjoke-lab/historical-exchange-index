@@ -10,3 +10,8 @@
 .typeSummary{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
 .typeSummaryItem{border:1px solid var(--line);border-radius:999px;padding:6px 9px;color:var(--muted);font-size:11px}
 .typeSummaryItem strong{color:var(--text);margin-left:4px}
+.timeline{display:grid;gap:22px}
+.yearGroup{display:grid;grid-template-columns:90px 1fr;gap:16px}
+.yearRail h3{margin:0;font-size:24px;color:var(--accent)}
+.yearRail span{display:block;color:var(--muted);font-size:11px}
+.eventList{display:grid;gap:8px}
