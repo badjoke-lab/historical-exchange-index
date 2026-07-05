@@ -1,0 +1,10 @@
+.page{display:grid;gap:18px}
+.headerRow{display:flex;justify-content:space-between;gap:24px}
+.pageTitle{margin:0;font-size:36px}
+.lead{max-width:82ch;color:var(--muted);line-height:1.7}
+.headerActions{display:flex;gap:8px;flex-wrap:wrap}
+.updateList{display:grid;gap:16px}
+.updateCard{padding:22px}
+.updateHeader{display:flex;justify-content:space-between;gap:16px}
+.updateHeader h3{margin:8px 0;font-size:24px}
+.updateHeader p{color:var(--muted);line-height:1.65}
