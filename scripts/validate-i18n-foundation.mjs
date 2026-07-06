@@ -37,7 +37,7 @@ function sameStringSet(actual, expected, label) {
 }
 
 function extractUnionValues(source, typeName) {
-  const pattern = new RegExp(`export type ${typeName}\\s*=([\\s\\S]*?)(?:\\n\\n|export interface)`)
+  const pattern = new RegExp(`export type ${typeName}\\s*=([\\s\\S]*?)(?=\\nexport type|\\nexport interface|$)`)
   const match = source.match(pattern)
   assert(match, `cannot find type union ${typeName}`)
   return [...match[1].matchAll(/'([^']+)'/g)].map((item) => item[1])
@@ -144,7 +144,7 @@ for (const locale of localeConfig.supported_locales) {
 }
 
 const configSource = readText('src/i18n/config.ts')
-assert(configSource.includes("../../config/i18n-locales.json"), 'TypeScript locale config must read shared JSON contract')
+assert(configSource.includes('../../config/i18n-locales.json'), 'TypeScript locale config must read shared JSON contract')
 assert(configSource.includes('publicLocales'), 'TypeScript locale config must distinguish public locales')
 assert(configSource.includes('pilotLocales'), 'TypeScript locale config must distinguish pilot locales')
 
