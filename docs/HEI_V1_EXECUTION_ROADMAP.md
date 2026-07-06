@@ -13,7 +13,7 @@ Before implementation work, read:
 1. `AGENTS.md`;
 2. deployment policy and Cloudflare project policy;
 3. this roadmap;
-4. `docs/HEI_PRODUCT_SURFACES_SPEC.md` for product behavior;
+4. `docs/HEI_PRODUCT_SURFACES_SPEC.md` for public product behavior;
 5. `docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md` for localization;
 6. `docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md` for Phase G;
 7. Explorer contracts when changing Explorer behavior;
@@ -26,7 +26,7 @@ Execution order comes from this roadmap. Completion gates come from the relevant
 - Canonical changes require reviewed PRs.
 - Monitoring must not directly edit canonical data.
 - Public features use reviewed public data only.
-- Raw monitoring and unreviewed candidates remain private/internal.
+- Raw monitoring and unreviewed candidates remain internal.
 - No synthetic risk scores or free-form AI truth claims.
 - Canonical facts remain single-source across locales.
 - Explorer query keys and enum values remain locale-independent.
@@ -37,13 +37,13 @@ Execution order comes from this roadmap. Completion gates come from the relevant
 ## 3. Current checkpoint
 
 ```text
-Last merged implementation PR: #551 Add localization foundation and revised execution roadmap
-F-1 Multilingual Foundation: COMPLETE
+Last merged implementation PR: #552 Add Phase G accessibility baseline audit
+G-1 Accessibility Audit: COMPLETE
 Current phase: Phase G — v1.0 Integration Baseline
-Current PR: #552 Add Phase G accessibility baseline audit
-Current item: G-1 Accessibility Audit
-Current G-1 final audit: 13 generated routes; 0 critical / 0 high / 0 medium / 0 low findings
-Next item: G-2 URL Safety Audit
+Current PR: #553 Add Phase G URL safety audit
+Current item: G-2 URL Safety Audit
+Current G-2 final audit: 550 entity detail pages × 7 URL statuses; 0 critical / 0 high / 0 medium / 0 low findings
+Next item after G-2: G-3 Cross-surface Integration Audit
 Next product feature after v1.0: H Compare v1
 Localization after Compare: L-1 Japanese Pilot -> L-2 Evaluation Gate
 ```
@@ -59,6 +59,8 @@ Maximum event ID:    hei_ev_010080
 Maximum evidence ID: hei_src_011312
 ```
 
+Phase G work does not change canonical counts unless a separate reviewed data PR explicitly does so.
+
 ## 5. Completed phases
 
 ```text
@@ -67,6 +69,7 @@ Phase D   Change layer                       COMPLETE
 Phase E   Discovery foundation               COMPLETE
 Phase E.5 Explorer v1                        COMPLETE
 Phase F-1 Multilingual Foundation            COMPLETE
+G-1       Accessibility Audit                COMPLETE
 ```
 
 ### Explorer v1 completion
@@ -92,7 +95,7 @@ exchange routes:         550
 total sitemap URLs:      562
 ```
 
-### F-1 completion
+### F-1 Multilingual Foundation completion
 
 Source:
 
@@ -118,6 +121,26 @@ public regression integration
 ```
 
 Public Japanese full-site rollout remains intentionally deferred.
+
+### G-1 Accessibility Audit completion
+
+Report:
+
+```text
+docs/audits/HEI_G1_ACCESSIBILITY_AUDIT_2026-07-06.md
+```
+
+Final result:
+
+```text
+routes covered: 13
+critical: 0
+high:     0
+medium:   0
+low:      0
+```
+
+Repairs included Home search accessible naming, global and Explorer focus-visible treatment, reduced-motion handling, and primary-navigation accessible naming.
 
 ## 6. Parallel execution lanes
 
@@ -176,12 +199,12 @@ Source:
 docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md
 ```
 
-Order:
+Fixed order:
 
 ```text
-G-1 Accessibility Audit                         ACTIVE / COMPLETE AFTER #552 MERGE
-G-2 URL Safety Audit                            NEXT
-G-3 Cross-surface Integration Audit
+G-1 Accessibility Audit                         COMPLETE
+G-2 URL Safety Audit                            ACTIVE / COMPLETE AFTER #553 MERGE
+G-3 Cross-surface Integration Audit             NEXT
 G-4 Machine/Public Consistency Audit
 G-5 Production Verification
 G-6 Maintainer Runbook and Recovery Validation
@@ -190,74 +213,104 @@ G-7 v1.0 Baseline Checkpoint
 
 ### G-1 Accessibility Audit
 
+Final gate:
+
+```text
+13 generated routes covered
+critical findings: 0
+high findings:     0
+medium findings:   0
+low findings:      0
+self-test:          pass
+public regression: pass
+```
+
+### G-2 URL Safety Audit
+
+Machine-readable policy:
+
+```text
+config/url-display-policy.json
+```
+
+Policy:
+
+```text
+clickable original URL:
+  live_verified
+  live_unverified
+
+plain-text original URL:
+  dead_domain
+  redirected
+  repurposed
+  unsafe
+  unknown
+
+archive-first:
+  dead_domain
+  redirected
+  repurposed
+  unsafe
+```
+
 Coverage:
 
 ```text
-12 core static routes
-1 representative exchange detail route
-Explorer interaction source contracts
-global focus behavior
-reduced-motion handling
-responsive Explorer behavior
-textual status semantics
+550 reviewed public entity records
+550 generated exchange detail pages
+7 official_url_status values
+Methodology URL-safety explanation
+About archive-safety explanation
+Dead browse source contract
+Active browse source contract
+Entity Explorer source contract
 ```
 
-Initial findings:
+First audit result:
 
 ```text
-HIGH Home registry search input missing accessible name
-HIGH Explorer local focus-visible contract missing
-```
-
-Repairs:
-
-```text
-Home search accessible name added
-global focus-visible treatment added
-Explorer tabs/summaries/checkbox/date/origin focus treatment added
-reduced-motion handling added
-primary navigation accessible name added
-```
-
-Final result:
-
-```text
-routes covered: 13
-critical: 0
-high:     0
+critical: 12
+high:     128
 medium:   0
 low:      0
+```
+
+All 140 initial findings were caused by page-wide `href` scanning: Evidence and other historical-source sections may legitimately link to a URL equal to the entity's historical Original URL. The audit parser was corrected to scope clickability checks to the generated `URL handling` block only. This was a parser correction, not a policy weakening.
+
+Final G-2 result:
+
+```text
+entity detail pages: 550
+URL status values:    7
+critical:             0
+high:                 0
+medium:               0
+low:                  0
 ```
 
 Report:
 
 ```text
-docs/audits/HEI_G1_ACCESSIBILITY_AUDIT_2026-07-06.md
+docs/audits/HEI_G2_URL_SAFETY_AUDIT_2026-07-06.md
 ```
 
-### G-2 URL Safety Audit
-
-Work:
-
-- audit original URL, domain, URL status, and archive URL relationships;
-- cover every URL-status enum value;
-- ensure unsafe URLs are not presented as ordinary trusted links;
-- keep redirected/repurposed status visible;
-- verify original/archive distinction across detail, lists, Explorer, About, and Methodology;
-- add reusable validator, self-test, report, and CI integration.
-
-Completion gate:
-
-```text
-critical URL-safety findings: 0
-high URL-safety findings:     0
-all URL-status values covered
-archive/original distinction verified
-```
+G-2 is complete after PR #553 final workflows pass and the PR merges.
 
 ### G-3 Cross-surface Integration Audit
 
-Audit graph:
+Next work:
+
+- audit the complete core-surface graph;
+- reuse and extend the E-4 navigation graph audit rather than creating a competing route model;
+- validate Stats -> Explorer deep links against the fixed Explorer query contract;
+- validate Updates/Incidents/Monthly -> Explorer cross-links;
+- validate browse/Explorer/Change contexts can reach exchange dossiers where applicable;
+- verify no unintended orphan core surface;
+- verify contextual links preserve reviewed-public-only boundaries;
+- add a persistent report and reusable regression gate.
+
+Core graph:
 
 ```text
 Home
@@ -275,13 +328,13 @@ Donate
 Exchange Detail
 ```
 
-Gate:
+Completion gate:
 
 ```text
 unintended orphan core surfaces: 0
-required contextual edges: pass
-Explorer query-link contract: pass
-broken core cross-links: 0
+required contextual edges:       pass
+Explorer query-link contract:     pass
+broken core cross-links:          0
 ```
 
 ### G-4 Machine/Public Consistency Audit
@@ -303,14 +356,14 @@ llms.txt
 ai.txt
 ```
 
-Gate:
+Completion gate:
 
 ```text
-critical consistency findings: 0
-count mismatches: 0
-route-discovery mismatches: 0
-public safety-boundary leaks: 0
-feed contract findings: 0
+critical consistency findings:     0
+count mismatches:                  0
+route-discovery mismatches:        0
+public safety-boundary leaks:      0
+feed contract findings:            0
 ```
 
 ### G-5 Production Verification
@@ -328,6 +381,8 @@ result
 known limitations
 ```
 
+Before diagnosing production behavior, compare deployed `/version.json` commit with the expected merge commit.
+
 ### G-6 Maintainer Runbook and Recovery
 
 Repository-only recovery must determine:
@@ -338,7 +393,7 @@ canonical counts
 current phase
 current item
 next item
-active specs
+active specifications
 open product PRs
 deployment policy
 production verification state
@@ -364,7 +419,7 @@ production verification record
 known deferred items
 ```
 
-After G-7, move to Phase H.
+After G-7, move to Phase H Compare v1.
 
 ## 8. Phase H — Compare v1
 
@@ -505,21 +560,20 @@ reviewed feeds
 ## 14. Immediate execution order
 
 ```text
-1. Complete G-1 Accessibility Audit                    CURRENT
-2. G-2 URL Safety Audit                                NEXT
-3. G-3 Cross-surface Integration Audit
-4. G-4 Machine/Public Consistency Audit
-5. G-5 Production Verification
-6. G-6 Maintainer Runbook and Recovery Validation
-7. G-7 v1.0 Baseline Checkpoint
-8. H Compare v1
-9. L-1 Japanese Pilot
-10. L-2 Localization Evaluation Gate
-11. Execute GO / HOLD / PIVOT decision
-12. I Discovery Log Trial
-13. Language Selection Gate when evidence exists
-14. J NL Filter Translator only if justified
-15. K API Expansion only if justified
+1. Complete G-2 URL Safety Audit                       CURRENT
+2. G-3 Cross-surface Integration Audit                 NEXT
+3. G-4 Machine/Public Consistency Audit
+4. G-5 Production Verification
+5. G-6 Maintainer Runbook and Recovery Validation
+6. G-7 v1.0 Baseline Checkpoint
+7. H Compare v1
+8. L-1 Japanese Pilot
+9. L-2 Localization Evaluation Gate
+10. Execute GO / HOLD / PIVOT decision
+11. I Discovery Log Trial
+12. Language Selection Gate when evidence exists
+13. J NL Filter Translator only if justified
+14. K API Expansion only if justified
 ```
 
 ## 15. Recovery procedure
