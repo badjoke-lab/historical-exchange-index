@@ -9,7 +9,7 @@ Repository state is authoritative when this checkpoint and GitHub disagree.
 
 ## 1. Required reference set
 
-Before implementation work, read in this order:
+Read in this order before implementation work:
 
 1. `AGENTS.md`;
 2. `docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md`;
@@ -17,14 +17,14 @@ Before implementation work, read in this order:
 4. this roadmap;
 5. `docs/HEI_PRODUCT_SURFACES_SPEC.md`;
 6. `docs/HEI_STATS_EXPLORER_HANDOFF.md`;
-7. `docs/HEI_EXPLORER_QUERY_CONTRACT.md` for Explorer work;
-8. `config/explorer-query-contract.json` for fixed machine-readable query semantics;
+7. `docs/HEI_EXPLORER_QUERY_CONTRACT.md`;
+8. `config/explorer-query-contract.json`;
 9. the task-specific schema, monitoring, machine-readable, localization, audit, or feed contract document.
 
 Every implementation PR must identify:
 
 - roadmap item;
-- relevant specification section;
+- specification source;
 - canonical count impact;
 - deployment impact;
 - validation performed;
@@ -34,26 +34,27 @@ Every implementation PR must identify:
 
 - Canonical changes require reviewed pull requests.
 - Automated monitoring must not directly edit canonical data.
-- Do not add thin records to satisfy a count target.
+- Do not add thin records merely to increase counts.
 - Preserve historical URLs and conservative status decisions.
 - Raw monitoring findings remain internal unless reviewed into a safe public form.
-- Public product features must query reviewed public data only.
-- Do not introduce risk scores, free-form AI truth claims, or unreviewed candidate exposure.
-- Explorer filters and URL state must be deterministic and tested.
-- Explorer implementation must follow the fixed query contract unless a reviewed specification change updates it.
+- Public product features use reviewed public data only.
+- No risk scores, free-form AI truth claims, or unreviewed candidate exposure.
+- Explorer filters and URL state are deterministic and tested.
+- Explorer implementation follows the fixed query contract unless a reviewed specification change updates it.
+- Stats deep links remain disabled until Entity and Event Explorer are both stable.
 - Update this checkpoint when counts, phase state, active item, or execution order materially changes.
 
 ## 3. Current checkpoint
 
 ```text
-Last merged implementation PR: #544 Map Stats dimensions to Explorer filter semantics
-Current PR: #545 Fix Explorer v1 query contract and reference parser
+Last merged implementation PR: #545 Fix Explorer v1 query contract and reference parser
+Current PR: #546 Add deterministic Entity Explorer
 Current phase: Phase E.5 — Explorer v1
-Completed after current PR merges: E5-1 Explorer query contract
-Current item after current PR merges: E5-2 Entity Explorer
-Next item after E5-2: E5-3 Event Explorer
-Cloudflare configuration changes required for E5-2: none expected
-Production verification: required when /explore/ becomes public
+Completed after current PR merges: E5-1 Query Contract / E5-2 Entity Explorer
+Current item after current PR merges: E5-3 Event Explorer
+Next item after E5-3: E5-4 Stats -> Explorer deep links
+Cloudflare configuration changes required for E5-3: none expected
+Production verification: required for public Explorer output after deployment propagation
 ```
 
 ## 4. Current reviewed state
@@ -73,6 +74,8 @@ Explorer product work does not change canonical counts unless a separate reviewe
 
 ### 5.1 Phase C milestone
 
+Status: **COMPLETE**.
+
 ```text
 entity target:                     550 / 550
 count semantics:                   pass
@@ -82,10 +85,9 @@ active CEX / DEX readiness:        pass
 watchlist resolution gate:         pass
 entity quality critical findings:  0
 entity quality high findings:      0
-Phase C status:                    complete
 ```
 
-Audit source of truth:
+Audit source:
 
 ```text
 docs/audits/HEI_PHASE_C_MILESTONE_AUDIT_2026-07-05.md
@@ -124,97 +126,20 @@ E-4 Public route discovery/navigation audit          COMPLETE
 E-5 Stats readiness for Explorer deep links          COMPLETE
 ```
 
-E-1 result:
+Key completion results:
 
 ```text
-internal-link audit: present
-self-test: pass
-generated-output audit: pass
-broken internal routes: 0
-fragment failures: 0
-```
-
-E-2 result:
-
-```text
-audited public pages: 561
-metadata findings: 0
-missing titles/descriptions: 0
-missing or duplicate canonicals: 0
-canonical route mismatches: 0
-critical OG metadata gaps: 0
-Updates feed alternate mismatches: 0
-```
-
-E-3 result:
-
-```text
-expected sitemap URLs: 561
-static routes: 11
-exchange routes: 550
-exact route-set comparison: pass
-duplicate sitemap URLs: 0
-missing/unexpected routes: 0
-canonical/sitemap mismatches: 0
-trailing-slash mismatches: 0
-feed URLs in page sitemap: 0
-obsolete routes in sitemap: 0
-obsolete redirect contract: pass
-```
-
-E-4 navigation contract:
-
-```text
-Registry  — Home / Dead / Active
-Analysis  — Stats / Quality
-Change    — Updates / Incidents / Monthly
-Trust     — Methodology / About
-Support   — Donate
-```
-
-E-4 result:
-
-```text
-core surfaces: 11
-header internal routes: 9
-footer internal routes: 7
-required contextual edges: 8
-reachable core surfaces: 11 / 11
-orphan public surfaces: 0
-navigation findings: 0
-```
-
-E-5 sources:
-
-```text
-config/stats-explorer-deep-link-map.json
-docs/HEI_STATS_EXPLORER_HANDOFF.md
-scripts/validate-stats-explorer-handoff.mjs
-```
-
-E-5 result:
-
-```text
-semantic dimensions: 23
-Stats paths mapped exactly once: 40
-Stats dimensions mapped: pass
-future query keys identified: pass
-canonical value sources identified: pass
-direct/compound/range separation: pass
-derived/non-filter metrics explicit: pass
-Evidence Explorer dimensions deferred: pass
-reviewed-data direct source validation: pass
-Stats deep links remain disabled until Explorer views exist: pass
-```
-
-Phase E completion gate:
-
-```text
-core public routes discoverable                         pass
-internal links valid                                   pass
-canonical metadata coherent                            pass
-sitemap aligned with intended public routes            pass
-Stats dimensions mapped to Explorer semantics          pass
+broken internal routes:                 0
+fragment failures:                      0
+metadata findings before Explorer:      0
+sitemap URLs before Explorer:           561
+static sitemap routes:                  11
+exchange sitemap routes:                550
+orphan public surfaces before Explorer: 0
+Stats semantic dimensions:              23
+Stats paths mapped exactly once:        40
+Evidence Explorer:                      deferred
+Stats deep links:                       disabled pending E5-4
 ```
 
 ## 6. Execution model
@@ -230,7 +155,7 @@ medium/low quality repair batches
 archive and evidence improvements
 ```
 
-This lane continues throughout the schedule and must not displace the active product phase.
+Lane A continues in parallel and must not displace the active product phase.
 
 ### Lane B — Product surfaces
 
@@ -254,8 +179,6 @@ monthly reviewed snapshots
 optional post-v1.0 Discovery Log trial
 ```
 
-Monitoring output remains internal until reviewed into a public-safe form.
-
 ### Lane D — Machine use
 
 ```text
@@ -270,7 +193,7 @@ conditional API expansion only if real consumer need is demonstrated
 
 ## 7. Phase E.5 — Explorer v1
 
-Product sources of truth:
+Sources of truth:
 
 ```text
 docs/HEI_PRODUCT_SURFACES_SPEC.md
@@ -283,29 +206,26 @@ config/explorer-query-contract.json
 Execution order:
 
 ```text
-E5-1 Explorer implementation specification and query contract   COMPLETE AFTER CURRENT PR MERGE
-E5-2 Entity Explorer                                            NEXT
-E5-3 Event Explorer
+E5-1 Explorer query contract                              COMPLETE
+E5-2 Entity Explorer                                      COMPLETE AFTER CURRENT PR MERGE
+E5-3 Event Explorer                                       NEXT
 E5-4 Stats -> Explorer deep links
 E5-5 Timeline / Updates -> Explorer cross-links
-E5-6 accessibility, URL-state, crawl-control, and regression audit
+E5-6 accessibility, URL-state, crawl-control, regression audit
 ```
 
-### 7.1 E5-1 Explorer query contract
+### 7.1 E5-1 — Explorer query contract
 
-Status: **COMPLETE AFTER CURRENT PR MERGE**.
+Status: **COMPLETE** after PR #545.
 
-Fixed route:
+Fixed route and views:
 
 ```text
 /explore/
-```
-
-Fixed views:
-
-```text
-entities
-events
+view=entities
+view=events
+default view=entities
+view always serialized
 ```
 
 Fixed combination semantics:
@@ -368,7 +288,7 @@ generated filter landing pages disabled
 query variants canonicalize to /explore/
 ```
 
-E5-1 implementation sources:
+Implementation sources:
 
 ```text
 config/explorer-query-contract.json
@@ -378,7 +298,7 @@ scripts/validate-explorer-query-contract.mjs
 scripts/test-explorer-query-contract.mjs
 ```
 
-E5-1 validation result:
+Validation result:
 
 ```text
 query parameter schema fixed: pass
@@ -395,16 +315,29 @@ malformed-input tests: pass
 multi-value ordering tests: pass
 date normalization tests: pass
 Stats handoff compatibility: pass
-Stats deep links still disabled: pass
-Evidence Explorer still deferred: pass
-E5-2 implementation handoff: ready
+Evidence Explorer deferred: pass
 ```
 
-### 7.2 E5-2 Entity Explorer
+### 7.2 E5-2 — Entity Explorer
 
-Purpose: implement deterministic Entity Explorer filtering over reviewed public entity data.
+Status: **COMPLETE AFTER CURRENT PR MERGE**.
 
-Required filter set:
+Public route:
+
+```text
+/explore/?view=entities
+```
+
+Implementation sources:
+
+```text
+src/app/explore/page.tsx
+src/components/explorer/entity-explorer-client.tsx
+src/components/explorer/entity-explorer-client.module.css
+src/lib/explorer/entity-query.ts
+```
+
+Implemented Entity filter set:
 
 ```text
 q
@@ -422,42 +355,87 @@ country_or_origin
 sort
 ```
 
-Required implementation behavior:
+Behavior:
 
-- read reviewed public entity data only;
-- parse URL state through the fixed contract;
-- apply OR within repeated values and AND across keys;
-- apply inclusive date comparisons;
-- return zero results for valid inverted ranges;
-- use contract-defined search scope;
-- use contract-defined sort behavior and tie-breakers;
-- serialize shareable URLs deterministically;
-- keep default sort omitted;
-- keep Evidence Explorer out of the UI;
-- do not enable Stats deep links yet;
-- add `/explore/` to intended public route, sitemap, metadata, and navigation contracts;
-- provide Entity/Event view switch UI while Event view may remain a documented not-yet-implemented handoff until E5-3, without violating URL parsing semantics.
+- server loads reviewed entity data through the existing reviewed-data loader;
+- client receives reviewed entities only;
+- URL state is parsed and serialized against the fixed contract;
+- repeated values within one key use OR semantics;
+- different keys combine with AND semantics;
+- date comparisons are inclusive;
+- valid inverted date ranges return zero results;
+- year shorthand remains accepted by URL parsing and normalizes to ISO boundaries;
+- UI date controls emit complete ISO dates;
+- search scope matches the fixed contract;
+- reviewed origin values serialize using canonical spelling;
+- default sort is omitted from URL serialization;
+- deterministic tie-breakers are implemented;
+- dense desktop table and compact mobile record list are provided;
+- load-more behavior resets on canonical query-state changes;
+- Event view is an explicit E5-3 placeholder rather than incomplete event filtering;
+- Stats deep links remain disabled.
 
-E5-2 completion gate:
+Public discovery/navigation state after E5-2:
 
 ```text
-/explore/ public route exists
-Entity view reads reviewed public entity data only
-all Entity filters implemented
-Entity search scope matches contract
-Entity sort options implemented
-URL parse/serialize round-trip works in UI
-malformed query behavior matches contract
-shareable URLs stable
-internal-link audit pass
-metadata audit pass
-sitemap/canonical audit pass
-navigation/discovery audit pass
-mobile and keyboard basics reviewed
-E5-3 handoff ready
+core public surfaces:       12
+navigation layers:          Registry / Research / Analysis / Change / Trust / Support
+header internal routes:     10
+footer internal routes:     8
+orphan public surfaces:     0
+Explorer metadata:          present
+Explorer canonical:         /explore/
+Explorer JSON-LD:           present
 ```
 
-### 7.3 E5-3 Event Explorer
+Sitemap handling:
+
+```text
+E5-2 keeps the existing sitemap contract at 561 URLs:
+11 static routes + 550 exchange routes.
+
+/explore/ is publicly discoverable through header/footer navigation and has canonical metadata.
+Base-route sitemap inclusion is intentionally deferred to E5-6, where query crawl-control, canonical behavior, and final sitemap policy are audited together.
+Query variants remain excluded from sitemap in all cases.
+```
+
+E5-2 validation result:
+
+```text
+Next build:                         pass
+lint:                               pass
+machine-readable validation:       pass
+public output validation:          pass
+internal-link audit:                pass
+metadata diagnostics:               pass
+sitemap/canonical audit:            pass
+navigation/discovery audit:         pass
+Explorer query contract validation: pass
+Explorer contract tests:            pass
+count semantics regression:         pass
+record/quality/watchlist gates:      pass
+canonical count impact:              none
+```
+
+E5-2 production verification after merge:
+
+```text
+verify deployed commit propagation
+verify /explore/?view=entities loads
+verify repeated-value OR filtering
+verify cross-filter AND behavior
+verify date range behavior
+verify inverted-range empty result
+verify reload/share URL state
+verify malformed input fallback
+verify desktop/mobile layouts
+verify header/footer Explorer discovery
+verify Event view remains E5-3 placeholder
+```
+
+### 7.3 E5-3 — Event Explorer
+
+Status: **NEXT**.
 
 Purpose: implement deterministic Event Explorer filtering over reviewed public events plus reviewed parent exchange context.
 
@@ -479,29 +457,67 @@ sort
 Required behavior:
 
 - reviewed public event data only;
-- parent exchange context from reviewed public entity data;
+- reviewed parent entity context only;
 - event search scope follows fixed contract;
-- entity_type/entity_status evaluated against parent entity;
-- deterministic date and sort semantics;
-- stable shareable URL state.
+- `entity_type` and `entity_status` evaluate against parent entity;
+- same-key repeated values use OR;
+- cross-key filters use AND;
+- date range comparison is inclusive;
+- valid inverted range returns zero results;
+- stable shareable URL state;
+- contract-defined deterministic sorting;
+- no Evidence Explorer;
+- no Stats deep links yet.
 
-### 7.4 E5-4 Stats -> Explorer deep links
+E5-3 completion gate:
+
+```text
+Event view reads reviewed events only
+reviewed parent entity context joined correctly
+all Event filters implemented
+Event search scope matches contract
+Event sort options implemented
+URL parse/serialize behavior matches contract
+malformed query behavior matches contract
+shareable URL state stable
+internal-link audit pass
+metadata audit pass
+navigation/discovery audit pass
+public validation pass
+E5-4 handoff ready
+```
+
+### 7.4 E5-4 — Stats -> Explorer deep links
 
 Only after E5-2 and E5-3 are stable:
 
 - enable direct mappings;
 - implement fixed year-to-ISO range conversion;
-- enable compound links using fixed repeated-value OR semantics;
+- enable compound links using repeated-value OR semantics;
 - keep derived/non-filter metrics unlinked unless explicitly specified;
 - change `stats_links_enabled` only in this phase.
 
-### 7.5 E5-5 Timeline / Updates -> Explorer cross-links
+### 7.5 E5-5 — Timeline / Updates -> Explorer cross-links
 
-Add reviewed public query links where the fixed query contract safely represents the target subset.
+Add reviewed public query links only where the fixed query contract safely represents the target subset.
 
 No raw monitoring or unmerged candidate query states are allowed.
 
-### 7.6 E5-6 Explorer audit
+### 7.6 E5-6 — Explorer final audit
+
+Required work:
+
+- accessibility audit;
+- keyboard behavior;
+- mobile interaction audit;
+- URL-state round-trip regression;
+- malformed query regression;
+- canonical behavior for query variants;
+- robots/indexing review;
+- add the base `/explore/` route to sitemap if final crawl policy confirms inclusion;
+- keep query variants outside sitemap;
+- final public route consistency audit;
+- final machine-readable route discoverability review.
 
 Completion gate:
 
@@ -513,6 +529,7 @@ malformed query values fail safely or fall back predictably
 Stats deep links resolve to correct Explorer states
 reviewed public data boundary enforced
 query URL crawl behavior controlled
+base route sitemap policy finalized
 keyboard and mobile interaction audited
 ```
 
@@ -524,7 +541,7 @@ Work:
 - add Japanese `/ja/` routes using translation overlays;
 - localize UI, Methodology, About, Stats, Updates, Incidents, Quality, Monthly, and Explorer labels in dependency order;
 - keep query parameter keys and enum values locale-independent;
-- preserve a single canonical factual data source.
+- preserve one canonical factual data source.
 
 Completion gate:
 
@@ -574,14 +591,13 @@ No synthetic risk score is allowed. Free-form Ask HEI remains outside the active
 ## 11. Immediate schedule
 
 ```text
-1. E5-2 Entity Explorer
-2. E5-3 Event Explorer
-3. E5-4 Stats -> Explorer deep links
-4. E5-5 Timeline / Updates -> Explorer cross-links
-5. E5-6 Explorer accessibility, URL-state, crawl-control, and regression audit
-6. Phase F bilingual layer
-7. Phase G v1.0 integration baseline
-8. Post-v1.0 evaluation sequence
+1. E5-3 Event Explorer
+2. E5-4 Stats -> Explorer deep links
+3. E5-5 Timeline / Updates -> Explorer cross-links
+4. E5-6 Explorer accessibility, URL-state, crawl-control, regression audit
+5. Phase F bilingual layer
+6. Phase G v1.0 integration baseline
+7. Post-v1.0 evaluation sequence
 ```
 
 Lane A quality repair and reviewed record growth continue in parallel without replacing the main product sequence.
@@ -593,7 +609,7 @@ GitHub-side work can continue without Cloudflare access unless a task specifical
 When resuming HEI work:
 
 1. Confirm current `main`, open PRs, and reviewed counts.
-2. Read `AGENTS.md` and the Cloudflare deployment policy.
+2. Read `AGENTS.md` and Cloudflare deployment policy.
 3. Read this roadmap.
 4. Read `docs/HEI_PRODUCT_SURFACES_SPEC.md`.
 5. Read `docs/HEI_STATS_EXPLORER_HANDOFF.md`.
