@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "layers": {
+    "registry": ["/", "/dead/", "/active/"],
+    "analysis": ["/stats/", "/quality/"],
+    "change": ["/updates/", "/incidents/", "/monthly/"],
+    "trust": ["/methodology/", "/about/"],
+    "support": ["/donate/"]
+  },
+  "header_routes": [
+    "/",
+    "/dead/",
+    "/active/",
+    "/stats/",
+    "/updates/",
+    "/incidents/",
+    "/methodology/",
+    "/about/",
+    "/donate/"
+  ],
+  "footer_routes": [
+    "/updates/",
+    "/incidents/",
+    "/monthly/",
+    "/quality/",
+    "/stats/",
+    "/donate/",
+    "/about/"
+  ],
+  "header_internal_route_limit": 9,
+  "contextual_edges": [
+    ["/stats/", "/quality/"],
+    ["/quality/", "/stats/"],
+    ["/updates/", "/incidents/"],
+    ["/updates/", "/monthly/"],
+    ["/incidents/", "/updates/"],
+    ["/incidents/", "/monthly/"],
+    ["/monthly/", "/incidents/"],
+    ["/monthly/", "/updates/"]
+  ]
+}
