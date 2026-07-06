@@ -18,13 +18,13 @@ Before implementation work, read in this order:
 5. `docs/HEI_PRODUCT_SURFACES_SPEC.md` for public product-surface work;
 6. the relevant schema, monitoring, record-growth, machine-readable, localization, or audit document for the task.
 
-Implementation pull requests must identify:
+Every implementation PR must identify:
 
-- the roadmap item being advanced;
-- the relevant specification section;
+- roadmap item;
+- relevant specification section;
 - canonical count impact;
 - deployment impact;
-- required validation;
+- validation performed;
 - production verification plan when public output changes.
 
 ## 2. Operating rules
@@ -42,13 +42,13 @@ Implementation pull requests must identify:
 ## 3. Current checkpoint
 
 ```text
-Implementation baseline SHA: 00e532ae8f0ff85918690b4fc4ea11f82dd1b112
-Last merged implementation PR: #533 Add reviewed Registry Updates public surface
+Implementation baseline SHA before current D-2 work: 25955dc1ea20af9d53a4a860653f0ca417a1523a
+Last merged planning PR: #534 Rebase HEI product roadmap and add Explorer specification
 Current phase: Phase D — Change layer completion
-Completed item: D-1 HEI Registry Update surface
-Current item: D-2 Exchange Incident Timeline
-Next item after D-2: D-3 Evidence Health and Data Quality public summary
-Cloudflare configuration changes required for current item: none expected
+Completed items after this PR merges: D-1 Registry Update / D-2 Exchange Incident Timeline
+Current item after this PR merges: D-3 Evidence Health and Data Quality public summary
+Next item after D-3: D-4 Monthly Historical Exchange Snapshot
+Cloudflare configuration changes required for D-3: none expected
 Production verification: required when a new public route or public feed is merged
 ```
 
@@ -63,7 +63,7 @@ Maximum event ID:    hei_ev_010080
 Maximum evidence ID: hei_src_011312
 ```
 
-These are reviewed public-layer counts and sequence maxima at the Phase C completion checkpoint. A later merged canonical change overrides these values and requires this section to be refreshed.
+These counts are unchanged by D-2. D-2 adds a public route derived from reviewed event records; it does not add or modify canonical entity, event, or evidence records.
 
 ## 5. Completed foundation
 
@@ -87,7 +87,7 @@ Audit source of truth:
 docs/audits/HEI_PHASE_C_MILESTONE_AUDIT_2026-07-05.md
 ```
 
-Remaining quality queues continue through reviewed repair batches. They do not reopen count-driven growth as the primary project milestone.
+Remaining quality queues continue through reviewed repair batches and do not reopen count-driven growth as the primary milestone.
 
 ### 5.2 Verified-unadded range 0401-0450
 
@@ -103,9 +103,9 @@ out_of_scope_or_duplicate:       8
 range status:                   closed
 ```
 
-### 5.3 Existing product foundation
+### 5.3 Existing public foundation
 
-Already implemented before the remaining schedule below:
+Implemented:
 
 - registry browsing and exchange detail pages;
 - active-side and dead-side views;
@@ -115,13 +115,14 @@ Already implemented before the remaining schedule below:
 - machine-readable public layer;
 - reviewed canonical entity, event, and evidence JSON publication;
 - public HTML / JSON / metadata consistency validation;
-- `/updates/` reviewed Registry Update surface.
+- `/updates/` reviewed Registry Update surface;
+- `/incidents/` Exchange Incident Timeline after D-2 merge.
 
-Stats is not a future build dependency. It is an existing analysis layer that will later gain deep links into Explorer.
+Stats is not a future build dependency. It is an existing analysis layer that will later gain Explorer deep links.
 
 ## 6. Execution model
 
-HEI now proceeds through four coordinated lanes.
+HEI proceeds through four coordinated lanes.
 
 ### Lane A — Data and quality
 
@@ -134,7 +135,7 @@ medium/low quality repair batches
 archive and evidence improvements
 ```
 
-This lane continues throughout the schedule. It must not block product work unless a product phase depends on unresolved data-contract problems.
+This lane continues throughout the schedule. It must not displace the active product phase unless unresolved data-contract issues block it.
 
 ### Lane B — Product surfaces
 
@@ -177,35 +178,40 @@ A new API phase does not precede Explorer.
 
 Purpose: make registry change and historical activity visible without turning HEI into a breaking-news site.
 
-Execution order:
-
 ```text
 D-1 HEI Registry Update surface                         COMPLETE
-D-2 Exchange Incident Timeline                         NEXT
-D-3 Evidence Health and Data Quality public summary   PENDING
+D-2 Exchange Incident Timeline                         COMPLETE AFTER CURRENT PR MERGE
+D-3 Evidence Health and Data Quality public summary   NEXT
 D-4 Monthly Historical Exchange Snapshot              PENDING
 D-5 RSS and JSON feeds for reviewed public updates    PENDING
 D-6 Quality repair batches                             PARALLEL
 ```
 
-### D-2 Exchange Incident Timeline
+### D-2 completion record
 
-Work:
+D-2 implementation includes:
 
-- define the public incident event subset;
-- build a chronological public surface from reviewed canonical events or separately reviewed confirmed items;
-- link incidents back to exchange dossiers and supporting evidence context;
-- preserve conservative event wording and status effects;
-- add route, sitemap, metadata, and regression validation as required.
+- `/incidents/` public route;
+- deterministic incident extraction from reviewed event records;
+- explicit incident event-type allowlist;
+- reverse chronological ordering with year grouping;
+- event type and impact presentation;
+- links from incidents to canonical exchange dossiers;
+- event-linked evidence counts;
+- sitemap, navigation, machine-readable route discovery, site monitoring, and public-output validation updates;
+- no raw monitoring output;
+- no unreviewed candidates;
+- no canonical data changes.
 
 Completion gate:
 
 ```text
 public timeline surface exists
-all displayed incidents satisfy reviewed-public boundary
+all displayed incidents come from reviewed public events
 entity links resolve
-no raw monitoring findings are exposed
-route and output checks pass
+raw monitoring findings are excluded
+route is in sitemap and machine-readable discovery
+public output validator checks incident count and canonical metadata
 ```
 
 ### D-3 Evidence Health and Data Quality public summary
@@ -214,16 +220,19 @@ Work:
 
 - summarize reviewed public quality and coverage metrics;
 - expose aggregate evidence health, not internal raw repair queues;
-- reuse stable quality data where possible;
-- clearly separate coverage metrics from claims of completeness.
+- reuse stable Stats and quality data where possible;
+- clearly separate coverage metrics from claims of completeness;
+- define metric labels and denominators;
+- add public route, metadata, sitemap/discovery integration, and validation.
 
 Completion gate:
 
 ```text
 public quality summary exists
 no private monitoring or research notes are exposed
-metric definitions are documented
+metric definitions and denominators are documented
 counts are validated against reviewed public data
+route and canonical metadata checks pass
 ```
 
 ### D-4 Monthly Historical Exchange Snapshot
@@ -231,8 +240,9 @@ counts are validated against reviewed public data
 Work:
 
 - present a reviewed monthly historical snapshot;
-- summarize relevant shutdown, hack, exploit, withdrawal suspension, regulatory action, acquisition, merger, and rebrand events where represented in reviewed data;
-- preserve historical context rather than imitate general news coverage.
+- summarize relevant shutdown, hack, exploit, withdrawal suspension, regulatory action, acquisition, merger, and rebrand events represented in reviewed data;
+- preserve historical context rather than imitate general news coverage;
+- state review period and snapshot generation time separately.
 
 Completion gate:
 
@@ -247,10 +257,11 @@ links resolve to canonical public context where available
 
 Work:
 
-- expose reviewed Registry Update and related safe public change outputs;
+- expose reviewed Registry Update and other safe public change outputs;
 - define stable feed schemas and URLs;
 - exclude raw monitoring data and unmerged candidates;
-- add validation for ordering, IDs, timestamps, and public-data safety.
+- validate ordering, IDs, timestamps, and public-data safety;
+- update machine-readable discovery where appropriate.
 
 Completion gate:
 
@@ -259,7 +270,7 @@ RSS feed valid
 JSON feed valid
 stable identifiers documented
 reviewed-only boundary tested
-machine-readable manifest/discovery references updated where appropriate
+manifest and discovery references updated where appropriate
 ```
 
 ## 8. Phase E — Discovery foundation hardening
@@ -267,8 +278,6 @@ machine-readable manifest/discovery references updated where appropriate
 Purpose: prepare navigation, linking, metadata, and route behavior before Explorer v1.
 
 Stats already exists. Phase E is not a Stats implementation phase.
-
-Work:
 
 ```text
 E-1 internal-link audit and repair
@@ -295,8 +304,6 @@ Product source of truth:
 ```text
 docs/HEI_PRODUCT_SURFACES_SPEC.md
 ```
-
-Purpose: move HEI from record browsing alone to deterministic cross-record research.
 
 Explorer v1 includes:
 
@@ -339,13 +346,11 @@ query state round-trips through shareable URLs
 malformed query values fail safely or fall back predictably
 Stats deep links resolve to correct Explorer states
 reviewed public data boundary enforced
-SEO/crawl behavior does not create uncontrolled query-URL indexation
+query URL crawl behavior controlled
 keyboard and mobile interaction audited
 ```
 
 ## 10. Phase F — English root and Japanese `/ja/`
-
-Purpose: introduce the planned bilingual public layer without duplicating canonical facts.
 
 Work:
 
@@ -353,7 +358,7 @@ Work:
 - add Japanese `/ja/` routes using translation overlays;
 - localize UI, methodology, about, Stats, Update, Timeline, and Explorer labels in dependency order;
 - keep query parameter keys and enum values locale-independent;
-- preserve a single canonical data source.
+- preserve a single canonical factual data source.
 
 Completion gate:
 
@@ -366,10 +371,6 @@ translation fallback behavior tested
 ```
 
 ## 11. Phase G — v1.0 integration baseline
-
-Purpose: complete HEI v1.0 as a coherent public registry system.
-
-Work:
 
 ```text
 G-1 accessibility audit
@@ -389,64 +390,40 @@ critical URL-safety issues = 0
 critical public-data consistency issues = 0
 all required public routes verified
 machine-readable outputs match reviewed public data
-runbook can recover current phase and next action from repository documents
+runbook can recover phase and next action from repository documents
 v1.0 baseline recorded
 ```
 
 ## 12. Post-v1.0 sequence
 
-Post-v1.0 work is not allowed to displace the active v1.0 path.
-
-Recommended evaluation order:
+Post-v1.0 work must not displace the active v1.0 path.
 
 ```text
 Phase H   Compare v1
 Phase I   Discovery Log trial
-Phase J   Natural Language Filter Translator, only if Explorer usage justifies it
-Phase K   API expansion, only if consumer demand justifies it
+Phase J   Natural Language Filter Translator only if Explorer usage justifies it
+Phase K   API expansion only if consumer demand justifies it
 ```
 
 ### H — Compare v1
 
-Compare follows Explorer and v1.0.
-
-It may compare reviewed facts such as:
-
-```text
-type
-launch date
-terminal date
-status
-death reason
-lifespan
-major events
-evidence count
-archive status
-country or origin
-confidence
-```
+Compare follows Explorer and v1.0. It may compare reviewed facts such as type, launch date, terminal date, status, death reason, lifespan, major events, evidence count, archive status, origin, and confidence.
 
 No synthetic risk score is allowed.
 
 ### I — Discovery Log trial
 
-A reviewed Discovery Log may be tested as an operations/content surface after v1.0.
-
-It should summarize research activity such as reviewed promotions, pending-thin outcomes, duplicates, and out-of-scope decisions without exposing private research notes or raw monitoring data.
+A reviewed Discovery Log may summarize promotions, pending-thin outcomes, duplicates, and out-of-scope decisions without exposing private research notes or raw monitoring data.
 
 ### J — Natural Language Filter Translator
 
-Conditional only.
-
-Its role is limited to translating user language into validated Explorer parameters. Deterministic Explorer results remain authoritative.
+Conditional only. Its role is limited to translating user language into validated Explorer parameters. Deterministic Explorer results remain authoritative.
 
 Free-form AI classification of exchange history is not part of the plan.
 
 ### K — API expansion
 
-Conditional only.
-
-Do not add API endpoints merely for appearance. Stable JSON, schema behavior, manifests, feeds, and Explorer contracts come first.
+Conditional only. Do not add API endpoints merely for appearance. Stable JSON, schema behavior, manifests, feeds, and Explorer contracts come first.
 
 ## 13. Indefinite backlog and rejected active priorities
 
@@ -456,7 +433,7 @@ Do not add API endpoints merely for appearance. Stable JSON, schema behavior, ma
 Public Comments
 ```
 
-Comments remain deferred because moderation, spam, source disputes, legal risk, and community-management cost do not currently justify displacement of core registry work.
+Comments remain deferred because moderation, spam, source disputes, legal risk, and community-management cost do not justify displacement of core registry work.
 
 ### Not part of the active roadmap
 
@@ -472,15 +449,14 @@ Weekly Exchange Watch as a scheduled product phase
 ## 14. Immediate schedule from the current checkpoint
 
 ```text
-1. D-2 Exchange Incident Timeline
-2. D-3 Evidence Health and Data Quality public summary
-3. D-4 Monthly Historical Exchange Snapshot
-4. D-5 RSS and JSON reviewed-update feeds
-5. Phase E discovery foundation hardening
-6. Phase E.5 Explorer v1
-7. Phase F bilingual layer
-8. Phase G v1.0 integration baseline
-9. Post-v1.0 evaluation sequence
+1. D-3 Evidence Health and Data Quality public summary
+2. D-4 Monthly Historical Exchange Snapshot
+3. D-5 RSS and JSON reviewed-update feeds
+4. Phase E discovery foundation hardening
+5. Phase E.5 Explorer v1
+6. Phase F bilingual layer
+7. Phase G v1.0 integration baseline
+8. Post-v1.0 evaluation sequence
 ```
 
 Lane A quality repair and reviewed record growth continue in parallel without replacing the main product sequence.
@@ -494,7 +470,7 @@ When resuming HEI work:
 1. Confirm current `main`, open PRs, and actual reviewed counts.
 2. Read `AGENTS.md` and the Cloudflare deployment policy.
 3. Read this roadmap.
-4. Read `docs/HEI_PRODUCT_SURFACES_SPEC.md` for Phase D, E, E.5, post-v1 product-surface work, or any related route/feature decision.
+4. Read `docs/HEI_PRODUCT_SURFACES_SPEC.md` for public product-surface work.
 5. Read the task-specific schema, monitoring, machine-readable, localization, or audit document.
 6. Resume the first incomplete item in the active phase.
 7. In the PR body, cite the roadmap item and relevant specification section.
