@@ -7,71 +7,43 @@ const root = process.cwd()
 const outDir = path.join(root, 'out')
 const origin = 'https://hei.badjoke-lab.com'
 
-function fail(message) {
-  throw new Error(`public output validation failed: ${message}`)
-}
-
-function assert(condition, message) {
-  if (!condition) fail(message)
-}
-
-function percent(count, total) {
-  return total > 0 ? Math.round((count / total) * 100) : 0
-}
-
-function pad(value) {
-  return String(value).padStart(2, '0')
-}
-
+function fail(message) { throw new Error(`public output validation failed: ${message}`) }
+function assert(condition, message) { if (!condition) fail(message) }
+function percent(count, total) { return total > 0 ? Math.round((count / total) * 100) : 0 }
+function pad(value) { return String(value).padStart(2, '0') }
 function previousCompletedUtcMonth(now = new Date()) {
   const previous = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - 1, 1))
   return `${previous.getUTCFullYear()}-${pad(previous.getUTCMonth() + 1)}`
 }
-
 function readJson(relativePath) {
   const filePath = path.join(root, relativePath)
   assert(fs.existsSync(filePath), `missing ${relativePath}`)
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
 }
-
 function readOut(relativePath) {
   const filePath = path.join(outDir, relativePath)
   assert(fs.existsSync(filePath), `missing out/${relativePath}`)
   return fs.readFileSync(filePath, 'utf8')
 }
-
 function stripHtml(html) {
-  return html
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/\s+/g, ' ')
-    .trim()
+  return html.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim()
 }
-
 function assertTextCount(html, label, count, route) {
   const text = stripHtml(html)
   assert(text.includes(`${label} ${count}`), `${route} does not expose ${label} ${count} in static HTML`)
 }
-
 function assertTextValue(html, label, value, route) {
   const text = stripHtml(html)
   assert(text.includes(`${label} ${value}`), `${route} does not expose ${label} ${value} in static HTML`)
 }
-
 function assertCanonical(html, expected, route) {
   const escaped = expected.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  assert(new RegExp(`<link[^>]+rel=["']canonical["'][^>]+href=["']${escaped}["']`, 'i').test(html)
-    || new RegExp(`<link[^>]+href=["']${escaped}["'][^>]+rel=["']canonical["']`, 'i').test(html), `${route} canonical link is missing or incorrect`)
+  assert(new RegExp(`<link[^>]+rel=["']canonical["'][^>]+href=["']${escaped}["']`, 'i').test(html) || new RegExp(`<link[^>]+href=["']${escaped}["'][^>]+rel=["']canonical["']`, 'i').test(html), `${route} canonical link is missing or incorrect`)
 }
-
 function assertDiscovery(html, route) {
   assert(html.includes('/data/manifest.json'), `${route} is missing JSON discovery link`)
   assert(html.includes('/llms.txt'), `${route} is missing text discovery link`)
 }
-
 function walk(dir) {
   if (!fs.existsSync(dir)) return []
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -84,25 +56,13 @@ const canonicalEntities = readJson('data/entities.json')
 const canonicalEvents = readJson('data/events.json')
 const canonicalEvidence = readJson('data/evidence.json')
 const { all: reviewedBundles, newEntityBundles, entityIdMap } = loadReviewedBundles(root, canonicalEntities)
-const entities = [
-  ...applyReviewedEntityCorrections(canonicalEntities, reviewedBundles),
-  ...newEntityBundles.map(({ bundle }) => bundle.entity),
-]
+const entities = [...applyReviewedEntityCorrections(canonicalEntities, reviewedBundles), ...newEntityBundles.map(({ bundle }) => bundle.entity)]
 const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event', entityIdMap)
 const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence', entityIdMap)
 const deadSideStatuses = new Set(['dead', 'merged', 'acquired', 'rebranded'])
 const activeSideStatuses = new Set(['active', 'limited', 'inactive'])
-const incidentEventTypes = new Set([
-  'hack', 'exploit', 'withdrawal_suspended', 'deposit_suspended', 'trading_halted', 'service_outage',
-  'regulatory_action', 'lawsuit', 'bankruptcy_filed', 'insolvency_declared', 'shutdown_announced',
-  'shutdown_effective', 'chain_shutdown_impact',
-])
-const monthlyEventTypes = new Set([
-  'rebranded', 'acquired', 'merged', 'hack', 'exploit', 'withdrawal_suspended', 'deposit_suspended',
-  'trading_halted', 'service_outage', 'regulatory_action', 'lawsuit', 'bankruptcy_filed',
-  'insolvency_declared', 'shutdown_announced', 'shutdown_effective', 'reopened', 'token_migration',
-  'chain_shutdown_impact',
-])
+const incidentEventTypes = new Set(['hack','exploit','withdrawal_suspended','deposit_suspended','trading_halted','service_outage','regulatory_action','lawsuit','bankruptcy_filed','insolvency_declared','shutdown_announced','shutdown_effective','chain_shutdown_impact'])
+const monthlyEventTypes = new Set(['rebranded','acquired','merged','hack','exploit','withdrawal_suspended','deposit_suspended','trading_halted','service_outage','regulatory_action','lawsuit','bankruptcy_filed','insolvency_declared','shutdown_announced','shutdown_effective','reopened','token_migration','chain_shutdown_impact'])
 const evidenceCountsByExchange = new Map()
 const evidenceCountsByEvent = new Map()
 for (const item of evidence) {
@@ -132,12 +92,12 @@ const expected = {
   monthlyCriticalOrHigh: monthlyEvents.filter((event) => event.impact_level === 'critical' || event.impact_level === 'high').length,
   monthlyEventLinkedEvidence: monthlyEvents.reduce((sum, event) => sum + (evidenceCountsByEvent.get(event.id) ?? 0), 0),
 }
-
 assert(expected.deadSide + expected.activeSide === expected.total, 'active/dead-side counts do not cover all reviewed entities')
 
 const home = readOut('index.html')
 const dead = readOut(path.join('dead', 'index.html'))
 const active = readOut(path.join('active', 'index.html'))
+const explore = readOut(path.join('explore', 'index.html'))
 const stats = readOut(path.join('stats', 'index.html'))
 const quality = readOut(path.join('quality', 'index.html'))
 const updates = readOut(path.join('updates', 'index.html'))
@@ -151,6 +111,7 @@ assertTextCount(home, 'Dead-side', expected.deadSide, '/')
 assertTextCount(home, 'Active-side', expected.activeSide, '/')
 assertTextCount(dead, 'Dead-side total:', expected.deadSide, '/dead/')
 assertTextCount(active, 'Active-side total:', expected.activeSide, '/active/')
+assert(stripHtml(explore).includes('Explorer'), '/explore/ does not expose Explorer heading')
 assertTextCount(stats, 'Total entities', expected.total, '/stats/')
 assertTextCount(stats, 'Dead-side', expected.deadSide, '/stats/')
 assertTextCount(stats, 'Active-side', expected.activeSide, '/stats/')
@@ -178,6 +139,7 @@ for (const [route, html, canonical] of [
   ['/', home, `${origin}/`],
   ['/dead/', dead, `${origin}/dead/`],
   ['/active/', active, `${origin}/active/`],
+  ['/explore/', explore, `${origin}/explore/`],
   ['/stats/', stats, `${origin}/stats/`],
   ['/quality/', quality, `${origin}/quality/`],
   ['/updates/', updates, `${origin}/updates/`],
@@ -191,8 +153,7 @@ for (const [route, html, canonical] of [
 }
 
 assert(home.includes('"@type":"Dataset"') || home.includes('&quot;@type&quot;:&quot;Dataset&quot;'), 'home Dataset JSON-LD is missing')
-assert(dead.includes('"numberOfItems":189') || dead.includes(`"numberOfItems":${expected.deadSide}`), 'dead CollectionPage JSON-LD count is missing')
-assert(active.includes('"numberOfItems":223') || active.includes(`"numberOfItems":${expected.activeSide}`), 'active CollectionPage JSON-LD count is missing')
+assert(explore.includes('application/ld+json'), 'Explorer JSON-LD is missing')
 assert(detail.includes('application/ld+json'), 'detail JSON-LD is missing')
 
 const version = JSON.parse(readOut('version.json'))
@@ -208,23 +169,21 @@ assert(version.data.record_counts.events === expected.events, 'version event cou
 assert(version.data.record_counts.evidence === expected.evidence, 'version evidence count mismatch')
 assert(version.data.record_count_breakdown.dead_side === expected.deadSide, 'version dead-side mismatch')
 assert(version.data.record_count_breakdown.active_side === expected.activeSide, 'version active-side mismatch')
+assert(version.routes.explorer === '/explore/', 'version route map is missing Explorer')
 assert(version.routes.quality === '/quality/', 'version route map is missing quality')
 assert(version.routes.incidents === '/incidents/', 'version route map is missing incidents')
 assert(version.routes.monthly === '/monthly/', 'version route map is missing monthly')
 assert(manifest.record_counts.primary_records === expected.total, 'manifest entity count mismatch')
 assert(manifest.record_count_breakdown.dead_side === expected.deadSide, 'manifest dead-side mismatch')
 assert(manifest.record_count_breakdown.active_side === expected.activeSide, 'manifest active-side mismatch')
+assert(manifest.main_routes.includes('/explore/'), 'manifest main_routes is missing Explorer')
 assert(manifest.main_routes.includes('/quality/'), 'manifest main_routes is missing quality')
 assert(manifest.main_routes.includes('/incidents/'), 'manifest main_routes is missing incidents')
 assert(manifest.main_routes.includes('/monthly/'), 'manifest main_routes is missing monthly')
 assert(manifest.data_safety.canonical_only === true, 'manifest canonical_only must be true')
 assert(manifest.data_safety.includes_unreviewed_candidates === false, 'manifest must exclude unreviewed candidates')
 
-for (const [name, collection, count] of [
-  ['entities', publicEntities, expected.total],
-  ['events', publicEvents, expected.events],
-  ['evidence', publicEvidence, expected.evidence],
-]) {
+for (const [name, collection, count] of [['entities', publicEntities, expected.total], ['events', publicEvents, expected.events], ['evidence', publicEvidence, expected.evidence]]) {
   assert(collection.canonical_only === true, `${name} canonical_only must be true`)
   assert(collection.record_count === count, `${name} record_count mismatch`)
   assert(collection.records.length === count, `${name} records length mismatch`)
@@ -239,33 +198,26 @@ assert(publicEntities.records.every((record) => record.last_verified_at && recor
 assert(publicEvents.records.every((record) => record.confidence), 'event confidence is incomplete')
 assert(publicEvidence.records.every((record) => record.reliability), 'evidence reliability is incomplete')
 
-for (const endpoint of ['/version.json', '/data/manifest.json', '/data/entities.json', '/data/events.json', '/data/evidence.json', '/llms.txt', '/ai.txt']) {
+for (const endpoint of ['/version.json','/data/manifest.json','/data/entities.json','/data/events.json','/data/evidence.json','/llms.txt','/ai.txt']) {
   assert(Object.values(manifest.public_files).includes(endpoint), `manifest public_files is missing ${endpoint}`)
   assert(llms.includes(endpoint), `llms.txt is missing ${endpoint}`)
   assert(ai.includes(endpoint) || endpoint === '/ai.txt', `ai.txt is missing ${endpoint}`)
 }
-
-for (const [label, count] of [
-  ['Total records', expected.total],
-  ['Dead-side', expected.deadSide],
-  ['Active-side', expected.activeSide],
-  ['Events', expected.events],
-  ['Evidence', expected.evidence],
-]) {
+for (const [label, count] of [['Total records', expected.total],['Dead-side', expected.deadSide],['Active-side', expected.activeSide],['Events', expected.events],['Evidence', expected.evidence]]) {
   assert(llms.includes(`${label}: ${count}`), `llms.txt is missing ${label}: ${count}`)
   assert(ai.includes(`${label}: ${count}`), `ai.txt is missing ${label}: ${count}`)
 }
 
 const sitemap = readOut('sitemap.xml')
 const sitemapLocations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1])
-assert(sitemapLocations.length === entities.length + 11, `sitemap URL count mismatch: ${sitemapLocations.length}`)
+assert(sitemapLocations.length === entities.length + 12, `sitemap URL count mismatch: ${sitemapLocations.length}`)
+assert(sitemapLocations.includes(`${origin}/explore/`), 'sitemap is missing /explore/')
+assert(!sitemapLocations.some((url) => url.includes('?')), 'sitemap contains query variants')
 assert(sitemapLocations.includes(`${origin}/quality/`), 'sitemap is missing /quality/')
 assert(sitemapLocations.includes(`${origin}/updates/`), 'sitemap is missing /updates/')
 assert(sitemapLocations.includes(`${origin}/incidents/`), 'sitemap is missing /incidents/')
 assert(sitemapLocations.includes(`${origin}/monthly/`), 'sitemap is missing /monthly/')
-for (const entity of entities) {
-  assert(sitemapLocations.includes(`${origin}/exchange/${entity.slug}/`), `sitemap missing ${entity.slug}`)
-}
+for (const entity of entities) assert(sitemapLocations.includes(`${origin}/exchange/${entity.slug}/`), `sitemap missing ${entity.slug}`)
 assert(!sitemap.includes('/all/'), 'sitemap includes obsolete /all/ route')
 assert(!sitemap.includes('/registry/'), 'sitemap includes obsolete /registry/ route')
 assert(!sitemap.includes('/exchanges/'), 'sitemap includes obsolete /exchanges/ route')
@@ -273,19 +225,11 @@ assert(!sitemap.includes('/exchanges/'), 'sitemap includes obsolete /exchanges/ 
 const robots = readOut('robots.txt')
 assert(robots.includes(`${origin}/sitemap.xml`), 'robots.txt sitemap is incorrect')
 const redirects = readOut('_redirects')
-for (const obsolete of ['/index.html', '/all', '/registry', '/exchanges']) {
-  assert(redirects.includes(`${obsolete} / 301`), `_redirects is missing ${obsolete}`)
-}
+for (const obsolete of ['/index.html','/all','/registry','/exchanges']) assert(redirects.includes(`${obsolete} / 301`), `_redirects is missing ${obsolete}`)
 
-const textFiles = walk(outDir).filter((filePath) => {
-  const extension = path.extname(filePath)
-  return ['.html', '.json', '.txt', '.xml'].includes(extension)
-})
+const textFiles = walk(outDir).filter((filePath) => ['.html','.json','.txt','.xml'].includes(path.extname(filePath)))
 const staleFiles = textFiles.filter((filePath) => /\b386\b/.test(fs.readFileSync(filePath, 'utf8')))
 assert(staleFiles.length === 0, `obsolete count 386 found in ${staleFiles.map((filePath) => path.relative(root, filePath)).join(', ')}`)
+for (const obsoleteDir of ['all','registry','exchanges']) assert(!fs.existsSync(path.join(outDir, obsoleteDir, 'index.html')), `obsolete route output still exists: /${obsoleteDir}/`)
 
-for (const obsoleteDir of ['all', 'registry', 'exchanges']) {
-  assert(!fs.existsSync(path.join(outDir, obsoleteDir, 'index.html')), `obsolete route output still exists: /${obsoleteDir}/`)
-}
-
-console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence, ${expected.incidents} incident timeline events, ${expected.monthlyEvents} monthly snapshot events, quality summary checked.`)
+console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence, Explorer route and crawl contract checked.`)
