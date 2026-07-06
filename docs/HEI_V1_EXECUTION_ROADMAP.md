@@ -42,13 +42,13 @@ Every implementation PR must identify:
 ## 3. Current checkpoint
 
 ```text
-Implementation baseline SHA before current D-3 work: ac626337e04847e2a5db7c3119aaf54b256f3213
-Last merged implementation PR: #535 Add reviewed Exchange Incident Timeline
+Implementation baseline SHA before current D-4 work: a1b79426e2d3f21e134962c914689887d1474612
+Last merged implementation PR: #536 Add public Evidence Health and Data Quality summary
 Current phase: Phase D — Change layer completion
-Completed items after this PR merges: D-1 Registry Update / D-2 Incident Timeline / D-3 Evidence Health and Data Quality
-Current item after this PR merges: D-4 Monthly Historical Exchange Snapshot
-Next item after D-4: D-5 RSS and JSON reviewed-update feeds
-Cloudflare configuration changes required for D-4: none expected
+Completed items after this PR merges: D-1 Registry Update / D-2 Incident Timeline / D-3 Quality Summary / D-4 Monthly Snapshot
+Current item after this PR merges: D-5 RSS and JSON reviewed-update feeds
+Next phase after D-5: Phase E Discovery foundation hardening
+Cloudflare configuration changes required for D-5: none expected
 Production verification: required when a new public route or public feed is merged
 ```
 
@@ -63,7 +63,7 @@ Maximum event ID:    hei_ev_010080
 Maximum evidence ID: hei_src_011312
 ```
 
-These counts are unchanged by D-2 and D-3. Both phases add public surfaces derived from reviewed public records and do not modify canonical entity, event, or evidence records.
+These counts are unchanged by D-2, D-3, and D-4. These phases add public surfaces derived from reviewed public records and do not modify canonical entity, event, or evidence records.
 
 ## 5. Completed foundation
 
@@ -117,7 +117,8 @@ Implemented:
 - public HTML / JSON / metadata consistency validation;
 - `/updates/` reviewed Registry Update surface;
 - `/incidents/` Exchange Incident Timeline;
-- `/quality/` Evidence Health and Data Quality public summary after D-3 merge.
+- `/quality/` Evidence Health and Data Quality public summary;
+- `/monthly/` Monthly Historical Exchange Snapshot after D-4 merge.
 
 Stats is not a future build dependency. It is an existing analysis layer that will later gain Explorer deep links.
 
@@ -182,9 +183,9 @@ Purpose: make registry change and historical activity visible without turning HE
 ```text
 D-1 HEI Registry Update surface                         COMPLETE
 D-2 Exchange Incident Timeline                         COMPLETE
-D-3 Evidence Health and Data Quality public summary   COMPLETE AFTER CURRENT PR MERGE
-D-4 Monthly Historical Exchange Snapshot              NEXT
-D-5 RSS and JSON feeds for reviewed public updates    PENDING
+D-3 Evidence Health and Data Quality public summary   COMPLETE
+D-4 Monthly Historical Exchange Snapshot              COMPLETE AFTER CURRENT PR MERGE
+D-5 RSS and JSON feeds for reviewed public updates    NEXT
 D-6 Quality repair batches                             PARALLEL
 ```
 
@@ -210,49 +211,45 @@ D-3 includes:
 
 - `/quality/` public route;
 - a public summary builder reusing the existing Stats calculation layer;
-- entity confidence distribution;
-- evidence reliability distribution;
-- evidence depth per entity;
-- record freshness bands;
-- archive, date, origin, domain, and confidence coverage metrics;
+- entity confidence, evidence reliability, evidence depth, and record freshness;
+- archive, date, origin, domain, and confidence coverage;
 - evidence source-type and claim-scope breakdowns;
 - selected missing-field counts and completeness indicators;
-- public metric definitions and explicit denominator notes;
-- explicit statement that coverage metrics do not certify registry completeness;
+- public metric definitions and denominator notes;
 - explicit exclusion of internal monitoring findings, private research notes, unresolved candidate queues, and operator-only repair priorities;
-- sitemap, footer, machine-readable discovery, monitoring, and public-output validation integration;
-- independent validator recomputation of headline quality metrics from reviewed data;
+- independent validator recomputation of headline quality metrics;
 - no canonical data changes.
 
-D-3 completion gate:
+### D-4 completion record
 
-```text
-public quality summary exists
-private monitoring and research notes are not exposed
-metric definitions and denominators are documented
-headline quality values are independently recomputed in validation
-route, sitemap, discovery, and canonical metadata checks pass
-```
+D-4 includes:
 
-### D-4 Monthly Historical Exchange Snapshot
+- `/monthly/` public route;
+- latest completed UTC month selection;
+- explicit review period start and end dates;
+- separate snapshot generation date;
+- deterministic projection from reviewed public event records;
+- explicit allowlist of significant lifecycle and incident event types;
+- event count, affected exchange count, critical/high event count, and event-linked evidence count;
+- event-type and impact-level breakdowns;
+- chronological reviewed event list with exchange dossier links;
+- current reviewed registry counts shown separately from the historical event period;
+- explicit empty-month behavior that does not fill gaps with monitoring signals or unreviewed candidates;
+- sitemap, footer, machine-readable discovery, monitoring, and public-output validation integration;
+- independent validator recomputation of month selection and monthly event metrics;
+- no publication of monitoring health, next-month repair priorities, internal watchlists, or raw monthly-review artifacts;
+- no canonical data changes.
 
-Work:
-
-- present a reviewed monthly historical snapshot;
-- summarize relevant shutdown, hack, exploit, withdrawal suspension, regulatory action, acquisition, merger, and rebrand events represented in reviewed data;
-- preserve historical context rather than imitate general news coverage;
-- state review period and snapshot generation time separately;
-- link included items to canonical exchange/event context where available;
-- reuse existing monthly review aggregation where appropriate without publishing internal review artifacts wholesale.
-
-Completion gate:
+D-4 completion gate:
 
 ```text
 monthly snapshot format is stable
-period and snapshot time are explicit
+review period and generation date are separate and explicit
+monthly event inclusion is deterministic from reviewed event data
+monthly summary metrics are independently recomputed in validation
 all included records are review-safe
-links resolve to canonical public context where available
-internal review artifacts remain private
+internal monthly-review artifacts remain private
+route, sitemap, discovery, and canonical metadata checks pass
 ```
 
 ### D-5 RSS and JSON feeds
@@ -263,7 +260,9 @@ Work:
 - define stable feed schemas and URLs;
 - exclude raw monitoring data and unmerged candidates;
 - validate ordering, IDs, timestamps, and public-data safety;
-- update machine-readable discovery where appropriate.
+- update machine-readable discovery where appropriate;
+- define which reviewed Change-layer surfaces are feed sources;
+- keep feed IDs stable across rebuilds.
 
 Completion gate:
 
@@ -272,7 +271,8 @@ RSS feed valid
 JSON feed valid
 stable identifiers documented
 reviewed-only boundary tested
-manifest and discovery references updated where appropriate
+manifest and discovery references updated
+feed rebuilds preserve item identity and ordering
 ```
 
 ## 8. Phase E — Discovery foundation hardening
@@ -358,7 +358,7 @@ Work:
 
 - keep English as root canonical language;
 - add Japanese `/ja/` routes using translation overlays;
-- localize UI, methodology, about, Stats, Update, Timeline, Quality, and Explorer labels in dependency order;
+- localize UI, methodology, about, Stats, Update, Timeline, Quality, Monthly, and Explorer labels in dependency order;
 - keep query parameter keys and enum values locale-independent;
 - preserve a single canonical factual data source.
 
@@ -451,13 +451,12 @@ Weekly Exchange Watch as a scheduled product phase
 ## 14. Immediate schedule from the current checkpoint
 
 ```text
-1. D-4 Monthly Historical Exchange Snapshot
-2. D-5 RSS and JSON reviewed-update feeds
-3. Phase E discovery foundation hardening
-4. Phase E.5 Explorer v1
-5. Phase F bilingual layer
-6. Phase G v1.0 integration baseline
-7. Post-v1.0 evaluation sequence
+1. D-5 RSS and JSON reviewed-update feeds
+2. Phase E discovery foundation hardening
+3. Phase E.5 Explorer v1
+4. Phase F bilingual layer
+5. Phase G v1.0 integration baseline
+6. Post-v1.0 evaluation sequence
 ```
 
 Lane A quality repair and reviewed record growth continue in parallel without replacing the main product sequence.
