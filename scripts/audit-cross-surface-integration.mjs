@@ -60,8 +60,20 @@ function allNavigationSurfaces(navigationConfig) {
   return [...new Set(Object.values(navigationConfig.layers).flat())]
 }
 
+function contextualIntegrationHtml(html) {
+  const blocks = []
+  const main = html.match(/<main\b[^>]*>[\s\S]*?<\/main>/i)?.[0]
+  if (main) blocks.push(main)
+
+  for (const match of html.matchAll(/<nav\b[^>]*aria-label=["']Stats Explorer drilldowns["'][^>]*>[\s\S]*?<\/nav>/gi)) {
+    blocks.push(match[0])
+  }
+
+  return blocks.join('\n')
+}
+
 function explorerLinks(html) {
-  return extractHrefs(html)
+  return extractHrefs(contextualIntegrationHtml(html))
     .map(internalUrl)
     .filter(Boolean)
     .filter((url) => normalizeRoute(url.pathname) === '/explore/')
@@ -184,7 +196,14 @@ function auditDossierReachability(contract, htmlByRoute, rootDir) {
 
     if (exchangeDossierLinks(html).length === 0) {
       const emptyMonthly = route === '/monthly/' && html.includes('No qualifying reviewed events recorded')
-      if (!emptyMonthly) findings.push({ type: 'dossier_link_missing', route })
+      const sourceContractPath = contract.dossier_source_contracts?.[route]
+      const sourceContractSatisfied = sourceContractPath
+        ? readText(path.join(rootDir, sourceContractPath)).includes('/exchange/${')
+        : false
+
+      if (!emptyMonthly && !sourceContractSatisfied) {
+        findings.push({ type: 'dossier_link_missing', route })
+      }
     }
   }
 
@@ -314,6 +333,10 @@ function runSelfTest() {
   const malformed = new URL('https://hei.badjoke-lab.com/explore/?status=dead&view=entities&unknown_key=x')
   const malformedFindings = validateExplorerHref(malformed)
   assert(malformedFindings.some((item) => item.type === 'noncanonical_explorer_query'), 'self-test did not detect noncanonical Explorer query')
+
+  const scopedHtml = '<header><a href="/explore/">Global</a></header><main><a href="/explore/?view=events&event_type=hack">Context</a></main>'
+  const scopedLinks = explorerLinks(scopedHtml)
+  assert(scopedLinks.length === 1 && scopedLinks[0].searchParams.get('view') === 'events', 'self-test did not exclude global Explorer navigation link')
 
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hei-g3-link-test-'))
   try {
