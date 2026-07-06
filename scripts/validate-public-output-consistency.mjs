@@ -15,6 +15,10 @@ function assert(condition, message) {
   if (!condition) fail(message)
 }
 
+function percent(count, total) {
+  return total > 0 ? Math.round((count / total) * 100) : 0
+}
+
 function readJson(relativePath) {
   const filePath = path.join(root, relativePath)
   assert(fs.existsSync(filePath), `missing ${relativePath}`)
@@ -43,6 +47,11 @@ function assertTextCount(html, label, count, route) {
   assert(text.includes(`${label} ${count}`), `${route} does not expose ${label} ${count} in static HTML`)
 }
 
+function assertTextValue(html, label, value, route) {
+  const text = stripHtml(html)
+  assert(text.includes(`${label} ${value}`), `${route} does not expose ${label} ${value} in static HTML`)
+}
+
 function assertCanonical(html, expected, route) {
   const escaped = expected.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   assert(new RegExp(`<link[^>]+rel=["']canonical["'][^>]+href=["']${escaped}["']`, 'i').test(html)
@@ -65,13 +74,13 @@ function walk(dir) {
 const canonicalEntities = readJson('data/entities.json')
 const canonicalEvents = readJson('data/events.json')
 const canonicalEvidence = readJson('data/evidence.json')
-const { all: reviewedBundles, newEntityBundles } = loadReviewedBundles(root, canonicalEntities)
+const { all: reviewedBundles, newEntityBundles, entityIdMap } = loadReviewedBundles(root, canonicalEntities)
 const entities = [
   ...applyReviewedEntityCorrections(canonicalEntities, reviewedBundles),
   ...newEntityBundles.map(({ bundle }) => bundle.entity),
 ]
-const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event')
-const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence')
+const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event', entityIdMap)
+const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence', entityIdMap)
 const deadSideStatuses = new Set(['dead', 'merged', 'acquired', 'rebranded'])
 const activeSideStatuses = new Set(['active', 'limited', 'inactive'])
 const incidentEventTypes = new Set([
@@ -89,6 +98,14 @@ const incidentEventTypes = new Set([
   'shutdown_effective',
   'chain_shutdown_impact',
 ])
+const evidenceCountsByExchange = new Map()
+for (const item of evidence) {
+  evidenceCountsByExchange.set(item.exchange_id, (evidenceCountsByExchange.get(item.exchange_id) ?? 0) + 1)
+}
+const archivedEntityCount = entities.filter((entity) => Boolean(entity.archived_url)).length
+const highConfidenceEntityCount = entities.filter((entity) => entity.confidence === 'high').length
+const highReliabilityEvidenceCount = evidence.filter((item) => item.reliability === 'high').length
+const zeroEvidenceEntityCount = entities.filter((entity) => (evidenceCountsByExchange.get(entity.id) ?? 0) === 0).length
 const expected = {
   total: entities.length,
   deadSide: entities.filter((entity) => deadSideStatuses.has(entity.status)).length,
@@ -96,6 +113,10 @@ const expected = {
   events: events.length,
   evidence: evidence.length,
   incidents: events.filter((event) => event.event_date && incidentEventTypes.has(event.event_type)).length,
+  archiveCoverage: percent(archivedEntityCount, entities.length),
+  highConfidenceShare: percent(highConfidenceEntityCount, entities.length),
+  highReliabilityEvidenceShare: percent(highReliabilityEvidenceCount, evidence.length),
+  zeroEvidenceEntities: zeroEvidenceEntityCount,
 }
 
 assert(expected.deadSide + expected.activeSide === expected.total, 'active/dead-side counts do not cover all reviewed entities')
@@ -104,6 +125,7 @@ const home = readOut('index.html')
 const dead = readOut(path.join('dead', 'index.html'))
 const active = readOut(path.join('active', 'index.html'))
 const stats = readOut(path.join('stats', 'index.html'))
+const quality = readOut(path.join('quality', 'index.html'))
 const updates = readOut(path.join('updates', 'index.html'))
 const incidents = readOut(path.join('incidents', 'index.html'))
 const firstEntity = entities[0]
@@ -119,6 +141,14 @@ assertTextCount(stats, 'Dead-side', expected.deadSide, '/stats/')
 assertTextCount(stats, 'Active-side', expected.activeSide, '/stats/')
 assertTextCount(stats, 'Total events', expected.events, '/stats/')
 assertTextCount(stats, 'Total evidence', expected.evidence, '/stats/')
+assert(stripHtml(quality).includes('Evidence Health & Data Quality'), '/quality/ does not expose Evidence Health & Data Quality heading')
+assertTextCount(quality, 'Entities', expected.total, '/quality/')
+assertTextCount(quality, 'Events', expected.events, '/quality/')
+assertTextCount(quality, 'Evidence', expected.evidence, '/quality/')
+assertTextValue(quality, 'Entity archive coverage', `${expected.archiveCoverage}%`, '/quality/')
+assertTextValue(quality, 'High-confidence entities', `${expected.highConfidenceShare}%`, '/quality/')
+assertTextValue(quality, 'High-reliability evidence', `${expected.highReliabilityEvidenceShare}%`, '/quality/')
+assertTextCount(quality, 'Entities with 0 evidence', expected.zeroEvidenceEntities, '/quality/')
 assert(stripHtml(updates).includes('Registry Updates'), '/updates/ does not expose Registry Updates heading')
 assert(stripHtml(incidents).includes('Exchange Incident Timeline'), '/incidents/ does not expose Exchange Incident Timeline heading')
 assertTextCount(incidents, 'Timeline events', expected.incidents, '/incidents/')
@@ -128,6 +158,7 @@ for (const [route, html, canonical] of [
   ['/dead/', dead, `${origin}/dead/`],
   ['/active/', active, `${origin}/active/`],
   ['/stats/', stats, `${origin}/stats/`],
+  ['/quality/', quality, `${origin}/quality/`],
   ['/updates/', updates, `${origin}/updates/`],
   ['/incidents/', incidents, `${origin}/incidents/`],
   [`/exchange/${firstEntity.slug}/`, detail, `${origin}/exchange/${firstEntity.slug}/`],
@@ -155,10 +186,12 @@ assert(version.data.record_counts.events === expected.events, 'version event cou
 assert(version.data.record_counts.evidence === expected.evidence, 'version evidence count mismatch')
 assert(version.data.record_count_breakdown.dead_side === expected.deadSide, 'version dead-side mismatch')
 assert(version.data.record_count_breakdown.active_side === expected.activeSide, 'version active-side mismatch')
+assert(version.routes.quality === '/quality/', 'version route map is missing quality')
 assert(version.routes.incidents === '/incidents/', 'version route map is missing incidents')
 assert(manifest.record_counts.primary_records === expected.total, 'manifest entity count mismatch')
 assert(manifest.record_count_breakdown.dead_side === expected.deadSide, 'manifest dead-side mismatch')
 assert(manifest.record_count_breakdown.active_side === expected.activeSide, 'manifest active-side mismatch')
+assert(manifest.main_routes.includes('/quality/'), 'manifest main_routes is missing quality')
 assert(manifest.main_routes.includes('/incidents/'), 'manifest main_routes is missing incidents')
 assert(manifest.data_safety.canonical_only === true, 'manifest canonical_only must be true')
 assert(manifest.data_safety.includes_unreviewed_candidates === false, 'manifest must exclude unreviewed candidates')
@@ -201,7 +234,8 @@ for (const [label, count] of [
 
 const sitemap = readOut('sitemap.xml')
 const sitemapLocations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1])
-assert(sitemapLocations.length === entities.length + 9, `sitemap URL count mismatch: ${sitemapLocations.length}`)
+assert(sitemapLocations.length === entities.length + 10, `sitemap URL count mismatch: ${sitemapLocations.length}`)
+assert(sitemapLocations.includes(`${origin}/quality/`), 'sitemap is missing /quality/')
 assert(sitemapLocations.includes(`${origin}/updates/`), 'sitemap is missing /updates/')
 assert(sitemapLocations.includes(`${origin}/incidents/`), 'sitemap is missing /incidents/')
 for (const entity of entities) {
@@ -229,4 +263,4 @@ for (const obsoleteDir of ['all', 'registry', 'exchanges']) {
   assert(!fs.existsSync(path.join(outDir, obsoleteDir, 'index.html')), `obsolete route output still exists: /${obsoleteDir}/`)
 }
 
-console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence, ${expected.incidents} incident timeline events.`)
+console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence, ${expected.incidents} incident timeline events, quality summary checked.`)
