@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "status": "mapped_to_fixed_explorer_v1_query_contract",
+  "status": "deep_links_enabled_on_fixed_explorer_v1_contract",
   "explorer_route": "/explore/",
   "rules": {
     "url_contract_finalized": true,
-    "stats_links_enabled": false,
+    "stats_links_enabled": true,
     "evidence_explorer_in_v1": false,
     "reviewed_public_data_only": true
   },
