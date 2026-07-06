@@ -1,14 +1,14 @@
 import localeConfig from '../../config/i18n-locales.json'
 
-export const defaultLocale = localeConfig.default_locale as 'en'
-export const fallbackLocale = localeConfig.fallback_locale as 'en'
-export const supportedLocales = localeConfig.supported_locales as readonly ['en', 'ja']
-export const publicLocales = localeConfig.public_locales as readonly ['en']
-export const pilotLocales = localeConfig.pilot_locales as readonly ['ja']
+export type SupportedLocale = 'en' | 'ja'
+export type PublicLocale = 'en'
+export type PilotLocale = 'ja'
 
-export type SupportedLocale = (typeof supportedLocales)[number]
-export type PublicLocale = (typeof publicLocales)[number]
-export type PilotLocale = (typeof pilotLocales)[number]
+export const defaultLocale: SupportedLocale = localeConfig.default_locale as SupportedLocale
+export const fallbackLocale: SupportedLocale = localeConfig.fallback_locale as SupportedLocale
+export const supportedLocales = localeConfig.supported_locales as SupportedLocale[]
+export const publicLocales = localeConfig.public_locales as PublicLocale[]
+export const pilotLocales = localeConfig.pilot_locales as PilotLocale[]
 
 export function isSupportedLocale(value: string): value is SupportedLocale {
   return supportedLocales.includes(value as SupportedLocale)
