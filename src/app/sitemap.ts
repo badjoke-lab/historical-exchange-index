@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 1 },
     { url: `${SITE_URL}/dead/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE_URL}/active/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE_URL}/explore/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE_URL}/stats/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/quality/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/updates/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.8 },
