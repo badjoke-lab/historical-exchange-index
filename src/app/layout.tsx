@@ -203,6 +203,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <span className="muted footer-sep"> · </span>
               <Link className="archive-link" href="/incidents">Incidents</Link>
               <span className="muted footer-sep"> · </span>
+              <Link className="archive-link" href="/monthly">Monthly</Link>
+              <span className="muted footer-sep"> · </span>
               <Link className="archive-link" href="/quality">Quality</Link>
               <span className="muted footer-sep"> · </span>
               <Link className="archive-link" href="/stats">Stats</Link>

@@ -112,6 +112,7 @@ deepEqual(version.public_files, expectedPublicFiles, 'version public_files')
 assert(version.routes?.quality === '/quality/', 'version routes is missing quality')
 assert(version.routes?.updates === '/updates/', 'version routes is missing updates')
 assert(version.routes?.incidents === '/incidents/', 'version routes is missing incidents')
+assert(version.routes?.monthly === '/monthly/', 'version routes is missing monthly')
 
 assert(manifest.schema_version === '1.0.0', 'manifest schema_version must be 1.0.0')
 assert(manifest.data_schema_version === 'hei_entity_event_evidence_v1', 'manifest data_schema_version is incorrect')
@@ -157,7 +158,7 @@ assert(publicEntities.records.every((record) => record.record_type === 'exchange
 assert(publicEvents.records.every((record) => record.record_type === 'exchange_event' && record.confidence && entityById.has(record.exchange_id)), 'public event identity fields are incomplete')
 assert(publicEvidence.records.every((record) => record.record_type === 'exchange_evidence' && record.reliability && entityById.has(record.exchange_id)), 'public evidence identity fields are incomplete')
 
-const requiredRoutes = ['/', '/dead/', '/active/', '/exchange/{slug}/', '/stats/', '/quality/', '/updates/', '/incidents/', '/methodology/', '/about/', '/donate/']
+const requiredRoutes = ['/', '/dead/', '/active/', '/exchange/{slug}/', '/stats/', '/quality/', '/updates/', '/incidents/', '/monthly/', '/methodology/', '/about/', '/donate/']
 for (const route of requiredRoutes) {
   assert(manifest.main_routes?.includes(route), `manifest is missing route ${route}`)
   assert(llms.includes(route), `llms.txt is missing route ${route}`)

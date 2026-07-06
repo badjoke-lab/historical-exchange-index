@@ -6,7 +6,7 @@ import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
 const root = process.cwd()
 const publicDir = path.join(root, 'public')
 const canonicalOrigin = 'https://hei.badjoke-lab.com'
-const mainRoutes = ['/', '/dead/', '/active/', '/exchange/{slug}/', '/stats/', '/quality/', '/updates/', '/incidents/', '/methodology/', '/about/', '/donate/']
+const mainRoutes = ['/', '/dead/', '/active/', '/exchange/{slug}/', '/stats/', '/quality/', '/updates/', '/incidents/', '/monthly/', '/methodology/', '/about/', '/donate/']
 
 function readJson(relativePath, fallback = []) {
   const filePath = path.join(root, relativePath)
@@ -137,7 +137,7 @@ writeJson('version.json', {
   },
   routes: {
     home: '/', dead: '/dead/', active: '/active/', exchange_detail: '/exchange/{slug}/',
-    stats: '/stats/', quality: '/quality/', updates: '/updates/', incidents: '/incidents/', methodology: '/methodology/', about: '/about/', donate: '/donate/',
+    stats: '/stats/', quality: '/quality/', updates: '/updates/', incidents: '/incidents/', monthly: '/monthly/', methodology: '/methodology/', about: '/about/', donate: '/donate/',
   },
   public_files: publicFiles,
 })
