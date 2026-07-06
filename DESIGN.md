@@ -50,6 +50,90 @@ Change
 
 These layers should feel like one registry system rather than separate microsites.
 
+## Layout rules
+
+### Registry pages
+- compact tool-like header
+- summary strip
+- controls
+- dense table/list
+- footer note
+
+### Detail pages
+- dossier-style layout
+- identity and status first
+- fact block
+- URL block
+- timeline
+- evidence
+- correction/disclaimer
+
+### Longform pages
+- readable stack
+- moderate width
+- plainspoken, research-like tone
+
+### Explorer pages
+- research-utility layout
+- visible active query state
+- restrained filter controls
+- explicit result count
+- dense result list or table
+- direct links into exchange dossiers and event context
+- mobile controls that preserve query visibility
+
+## Visual rules
+
+- desktop-first
+- tables preferred over oversized cards
+- compact clarity over decorative whitespace
+- borders matter
+- low-contrast surface separation
+- restrained depth
+- no glossy SaaS hero treatment
+- no crypto-neon styling
+- no trading-terminal chrome
+- no animated market counters
+- no synthetic risk-score gauges
+
+## Color roles
+
+- base background: deep charcoal / near-black
+- primary accent: muted bronze / aged gold
+- archive accent: soft archival blue
+- dead accent: muted red-brown
+- active accent: subdued green
+- limited accent: dusty amber
+- inactive accent: blue-gray
+- unknown accent: gray-violet
+
+## Header
+
+Must include:
+
+- HEI wordmark/title
+- primary nav
+- one utility-emphasis action
+
+It should feel like a tool header, not a launch header.
+
+## Registry tables
+
+- dense and legible
+- modest row height
+- subtle separators
+- name column strongest
+- archive access clearly scannable
+- mobile should collapse rows compactly, not explode into giant cards
+
+## Detail pages
+
+- should read like compact dossiers
+- original URL and archived URL must be visually separated
+- archived URL should feel like the safer historical action for dead-side entries
+- timeline should be factual and chronological
+- evidence should feel citation-like, not social
+
 ## Explorer direction
 
 Explorer must look like a research utility inside HEI.
@@ -101,3 +185,8 @@ Change surfaces should emphasize:
 - links back to canonical record context
 
 They must not resemble a breaking-news homepage or engagement feed.
+
+## Final sentence
+
+HEI should feel like a modern archival ledger for crypto exchange history:
+clean, restrained, data-dense, quietly authoritative, and visibly aware of uncertainty.
