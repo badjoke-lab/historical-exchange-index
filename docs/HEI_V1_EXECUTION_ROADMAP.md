@@ -16,7 +16,7 @@ Before implementation work, read in this order:
 3. `config/cloudflare-pages-project.json`;
 4. this roadmap;
 5. `docs/HEI_PRODUCT_SURFACES_SPEC.md` for public product-surface work;
-6. the task-specific schema, monitoring, record-growth, machine-readable, localization, audit, or feed contract document.
+6. the task-specific schema, monitoring, record-growth, machine-readable, localization, audit, or feed-contract document.
 
 Every implementation PR must identify:
 
@@ -42,13 +42,13 @@ Every implementation PR must identify:
 ## 3. Current checkpoint
 
 ```text
-Last merged implementation PR: #539 Add generated-output internal link audit
-Current PR: #541 Add generated-output SEO metadata audit
+Last merged implementation PR: #541 Add generated-output SEO metadata audit
+Current PR: #542 Add sitemap and canonical route-set audit
 Current phase: Phase E — Discovery foundation hardening
-Completed after current PR merges: E-1 Internal links / E-2 SEO metadata
-Current item after current PR merges: E-3 Sitemap and canonical-route consistency
-Next item after E-3: E-4 Public route discovery and cross-surface navigation audit
-Cloudflare configuration changes required for E-3: none expected
+Completed after current PR merges: E-1 Internal links / E-2 SEO metadata / E-3 Sitemap consistency
+Current item after current PR merges: E-4 Public route discovery and cross-surface navigation audit
+Next item after E-4: E-5 Stats readiness for Explorer deep links
+Cloudflare configuration changes required for E-4: none expected
 Production verification: required when public routes, feeds, metadata output, or deployment-sensitive behavior changes
 ```
 
@@ -107,7 +107,8 @@ Implemented:
 - machine-readable version and manifest layer;
 - public-output consistency validation;
 - generated-output internal-link audit;
-- generated-output SEO metadata audit after E-2 merge.
+- generated-output SEO metadata audit;
+- exact sitemap/canonical route-set audit after E-3 merge.
 
 ## 6. Execution model
 
@@ -196,9 +197,9 @@ Execution order:
 
 ```text
 E-1 Internal-link audit and repair                    COMPLETE
-E-2 SEO and metadata consistency audit               COMPLETE AFTER CURRENT PR MERGE
-E-3 Sitemap and canonical-route consistency          NEXT
-E-4 Public route discovery and cross-surface navigation audit
+E-2 SEO and metadata consistency audit               COMPLETE
+E-3 Sitemap and canonical-route consistency          COMPLETE AFTER CURRENT PR MERGE
+E-4 Public route discovery and cross-surface navigation audit   NEXT
 E-5 Stats readiness for Explorer deep links
 ```
 
@@ -206,11 +207,9 @@ E-5 Stats readiness for Explorer deep links
 
 Implementation:
 
-- scan generated `out/**/*.html` files;
-- collect and resolve internal links;
-- support root-relative, relative, and same-origin absolute URLs;
-- resolve generated HTML routes and static JSON/XML/TXT outputs;
-- validate same-page and cross-page fragment IDs where present;
+- scan generated HTML output;
+- resolve internal route and static-output links;
+- validate same-page and cross-page fragment IDs;
 - ignore external origins and non-navigation schemes;
 - run self-test and generated-output audit under `public:validate`.
 
@@ -229,36 +228,16 @@ repairs required from initial audit: 0
 
 Implementation:
 
-- generated-output metadata audit across normal public HTML pages;
-- validate one non-empty title and description per page;
-- validate canonical presence, route match, and uniqueness;
-- validate Open Graph title, description, URL, and image;
-- validate Twitter card, title, description, and image;
-- validate JSON Feed and RSS alternate discovery on `/updates/`;
-- normalize equivalent trailing-slash URL forms during route comparison;
-- exclude generated 404 output and ownership-verification HTML from normal page metadata requirements;
-- add reusable route-specific social metadata helper;
-- add route-specific OG/Twitter metadata to Stats, Quality, Updates, Incidents, Monthly, Methodology, About, and Donate;
-- emit machine-readable metadata audit diagnostics as a workflow artifact.
+- validate title and description presence;
+- validate canonical presence, exact route ownership, and uniqueness;
+- validate Open Graph and Twitter metadata;
+- validate Updates JSON Feed/RSS alternates;
+- normalize equivalent trailing-slash route forms where appropriate;
+- exclude 404 and ownership-verification HTML from normal public-page contracts;
+- add route-specific social metadata for Stats, Quality, Updates, Incidents, Monthly, Methodology, About, and Donate;
+- emit machine-readable diagnostics artifact.
 
-Initial audit behavior:
-
-```text
-build: pass
-machine-readable validation: pass
-public metadata audit: findings detected
-```
-
-The initial diagnostic artifact showed that remaining findings after route metadata repairs were confined to non-page HTML artifacts:
-
-```text
-/404/
-Google ownership-verification HTML
-```
-
-Those files were removed from the normal public-page metadata contract.
-
-Final E-2 audit result:
+Completion result:
 
 ```text
 audited public pages: 561
@@ -269,60 +248,69 @@ missing or duplicate canonicals: 0
 canonical route mismatches: 0
 critical Open Graph metadata gaps: 0
 Updates feed alternate mismatches: 0
-metadata diagnostics workflow: pass
-CI: pass
-count semantics regression: pass
-```
-
-Completion gate:
-
-```text
-reusable metadata audit exists                 pass
-missing page titles = 0                        pass
-missing page descriptions = 0                  pass
-missing or duplicate canonicals = 0            pass
-canonical route mismatches = 0                 pass
-critical Open Graph metadata gaps = 0          pass
-Updates feed alternates validated              pass
 ```
 
 ### E-3 Sitemap and canonical-route consistency
 
-Work:
+Implementation:
 
-- create a reusable sitemap/canonical route-set audit;
-- audit sitemap route set against intended static routes and reviewed entity routes;
-- verify all reviewed entities have exactly one sitemap exchange route;
-- verify sitemap URLs resolve to generated public output;
-- verify sitemap URL canonicals map back to the same intended route;
-- verify obsolete routes remain redirected and excluded;
-- verify canonical route and trailing-slash policy;
-- verify feed endpoints remain outside the HTML page sitemap;
-- verify there are no duplicate sitemap URLs;
-- replace count-only assumptions with exact route-set comparison where practical.
+- exact sitemap set comparison rather than count-only validation;
+- expected set = 11 static public routes + every reviewed public exchange route;
+- parse reviewed public entity output for expected exchange slugs;
+- verify duplicate sitemap URLs = 0;
+- verify all sitemap URLs resolve to generated HTML output;
+- verify each sitemap target has one canonical URL;
+- verify canonical URL exactly matches the sitemap URL;
+- verify non-root sitemap page URLs use the trailing-slash policy;
+- verify JSON/RSS feed endpoints stay outside the page sitemap;
+- verify obsolete `/all`, `/registry`, and `/exchanges` route families are absent;
+- verify their redirect contracts remain present and use `/ 301` targets;
+- run auditor self-test and real generated-output audit under `public:validate`.
+
+Completion result:
+
+```text
+expected sitemap URLs: 561
+static routes: 11
+exchange routes: 550
+exact route-set comparison: pass
+duplicate sitemap URLs: 0
+missing reviewed exchange routes: 0
+unexpected sitemap routes: 0
+missing generated route outputs: 0
+canonical/sitemap mismatches: 0
+trailing-slash mismatches: 0
+feed URLs in page sitemap: 0
+obsolete routes in sitemap: 0
+obsolete redirect contract: pass
+repairs required from initial audit: 0
+```
 
 Completion gate:
 
 ```text
-reusable sitemap/canonical audit exists
-sitemap expected route set matches output
-entity route coverage complete
-obsolete routes excluded
-canonical/trailing-slash policy consistent
-feed endpoints excluded from page sitemap
-duplicate sitemap URLs = 0
+reusable sitemap/canonical audit exists      pass
+sitemap expected route set matches output   pass
+entity route coverage complete              pass
+obsolete routes excluded                    pass
+canonical/trailing-slash policy consistent  pass
+feed endpoints excluded                     pass
+duplicate sitemap URLs = 0                  pass
 ```
 
 ### E-4 Public route discovery and cross-surface navigation audit
 
 Work:
 
-- verify Registry, Analysis, and Change surfaces are discoverable from appropriate entry points;
+- define intended discovery paths for Registry, Analysis, Change, Trust/Methodology, and Support surfaces;
+- verify every core public surface is reachable from an intended header, footer, or contextual path;
 - check header and footer hierarchy;
 - check direct relationships among Stats, Quality, Updates, Incidents, and Monthly;
 - verify page-level contextual links where useful;
+- detect orphan public surfaces;
 - avoid turning the header into a dashboard-style menu;
-- document intended navigation hierarchy before Explorer is added.
+- document intended navigation hierarchy before Explorer is added;
+- add reusable generated-output discovery/navigation checks where deterministic.
 
 Completion gate:
 
@@ -514,13 +502,12 @@ Weekly Exchange Watch as a scheduled product phase
 ## 14. Immediate schedule from the current checkpoint
 
 ```text
-1. E-3 Sitemap and canonical-route consistency
-2. E-4 Public route discovery and cross-surface navigation audit
-3. E-5 Stats readiness for Explorer deep links
-4. Phase E.5 Explorer v1
-5. Phase F bilingual layer
-6. Phase G v1.0 integration baseline
-7. Post-v1.0 evaluation sequence
+1. E-4 Public route discovery and cross-surface navigation audit
+2. E-5 Stats readiness for Explorer deep links
+3. Phase E.5 Explorer v1
+4. Phase F bilingual layer
+5. Phase G v1.0 integration baseline
+6. Post-v1.0 evaluation sequence
 ```
 
 Lane A quality repair and reviewed record growth continue in parallel without replacing the main product sequence.
