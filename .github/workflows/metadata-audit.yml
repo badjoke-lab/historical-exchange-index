@@ -1,0 +1,29 @@
+name: Metadata audit diagnostics
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  metadata-audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run machine:build
+      - run: npm run build
+      - name: Run metadata audit and write diagnostics
+        run: node scripts/audit-public-metadata-v2.mjs || true
+      - name: Upload metadata audit diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-metadata-audit
+          path: artifacts/public-metadata-audit.json
+          if-no-files-found: error
+      - name: Fail when metadata findings remain
+        run: node -e "const r=require('./artifacts/public-metadata-audit.json'); if(r.finding_count>0){console.error(JSON.stringify(r.findings,null,2)); process.exit(1)}"
