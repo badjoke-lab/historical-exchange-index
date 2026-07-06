@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "status": "handoff_for_e5_1_query_contract",
+  "status": "mapped_to_fixed_explorer_v1_query_contract",
   "explorer_route": "/explore/",
   "rules": {
-    "url_contract_finalized": false,
+    "url_contract_finalized": true,
     "stats_links_enabled": false,
     "evidence_explorer_in_v1": false,
     "reviewed_public_data_only": true
@@ -72,7 +72,7 @@
       "mapping_kind": "compound_candidate",
       "query_keys": ["archive_available", "status"],
       "value_source": "entity.archived_url",
-      "note": "Overall archive coverage can map directly to archive_available. Active/dead-side rows require E5-1 to define group or multi-status semantics."
+      "note": "Overall archive coverage maps to archive_available. Active/dead-side rows can use repeated status parameters under the fixed OR-within-key contract."
     },
     {
       "id": "entity_country_or_origin_strict",
