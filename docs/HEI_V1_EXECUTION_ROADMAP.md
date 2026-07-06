@@ -42,14 +42,14 @@ Every implementation PR must identify:
 ## 3. Current checkpoint
 
 ```text
-Implementation baseline SHA before current D-5 work: 4318f274650c50e89520d941c991da05bacde6e6
-Last merged implementation PR: #537 Add Monthly Historical Exchange Snapshot
-Current phase after this PR merges: Phase E — Discovery foundation hardening
-Completed phase after this PR merges: Phase D — Change layer completion
-Current item after this PR merges: E-1 Internal-link audit and repair
-Next item after E-1: E-2 SEO and metadata consistency audit
-Cloudflare configuration changes required for E-1: none expected
-Production verification: required when public routes, feeds, or deployment-sensitive output change
+Implementation baseline before E-1: 8cbc861ca53cd9f65e91e84ecb8f6bf62698c29f
+Last merged implementation PR: #538 Add reviewed Registry Update RSS and JSON feeds
+Current phase: Phase E — Discovery foundation hardening
+Completed item after this PR merges: E-1 Internal-link audit and repair
+Current item after this PR merges: E-2 SEO and metadata consistency audit
+Next item after E-2: E-3 Sitemap and canonical-route consistency
+Cloudflare configuration changes required for E-2: none expected
+Production verification: required when public routes, feeds, metadata output, or deployment-sensitive behavior changes
 ```
 
 ## 4. Current reviewed state
@@ -63,7 +63,7 @@ Maximum event ID:    hei_ev_010080
 Maximum evidence ID: hei_src_011312
 ```
 
-D-2 through D-5 add public surfaces and reviewed feed outputs. They do not change canonical entity, event, or evidence counts.
+Phase D and the Phase E audits do not change canonical entity, event, or evidence counts unless a separate reviewed data PR explicitly does so.
 
 ## 5. Completed foundation
 
@@ -89,40 +89,24 @@ docs/audits/HEI_PHASE_C_MILESTONE_AUDIT_2026-07-05.md
 
 Remaining quality queues continue through reviewed repair batches and do not reopen count-driven growth as the primary milestone.
 
-### 5.2 Verified-unadded range 0401-0450
+### 5.2 Current public foundation
 
-```text
-range records:                 50
-promoted add_now:               7
-promoted research:             17
-existing duplicates consumed:   2
-unresolved add_now:              0
-unresolved needs_research:       0
-pending_thin:                   16
-out_of_scope_or_duplicate:       8
-range status:                   closed
-```
-
-### 5.3 Existing public foundation
-
-Implemented after Phase D completion:
+Implemented:
 
 - registry browsing and exchange detail pages;
 - active-side and dead-side views;
 - exchange timeline and evidence presentation;
 - `/stats/` analysis surface;
-- monitoring and recurring review infrastructure;
-- machine-readable public layer;
-- reviewed canonical entity, event, and evidence JSON publication;
-- public HTML / JSON / metadata consistency validation;
 - `/updates/` reviewed Registry Update surface;
 - `/incidents/` Exchange Incident Timeline;
 - `/quality/` Evidence Health and Data Quality public summary;
 - `/monthly/` Monthly Historical Exchange Snapshot;
-- `/feeds/updates.json` reviewed JSON Feed;
-- `/feeds/updates.xml` reviewed RSS feed.
-
-Stats is an existing analysis layer and will later gain Explorer deep links.
+- `/feeds/updates.json` JSON Feed 1.1;
+- `/feeds/updates.xml` RSS 2.0;
+- reviewed entity/event/evidence JSON publication;
+- machine-readable version and manifest layer;
+- public-output consistency validation;
+- reusable generated-output internal-link audit after E-1 merge.
 
 ## 6. Execution model
 
@@ -144,8 +128,8 @@ This lane continues throughout the schedule. It must not displace the active pro
 ### Lane B — Product surfaces
 
 ```text
-Phase D Change layer completion          COMPLETE after D-5 merge
-Phase E Discovery foundation hardening  NEXT
+Phase D Change layer completion          COMPLETE
+Phase E Discovery foundation hardening  ACTIVE
 Phase E.5 Explorer v1
 Phase F Multilingual layer
 Phase G v1.0 integration
@@ -180,100 +164,75 @@ A new API phase does not precede Explorer.
 
 ## 7. Phase D — Change layer completion
 
-Purpose: make registry change and historical activity visible without turning HEI into a breaking-news site.
+Status: **COMPLETE** after PR #538.
 
 ```text
 D-1 HEI Registry Update surface                         COMPLETE
 D-2 Exchange Incident Timeline                         COMPLETE
 D-3 Evidence Health and Data Quality public summary   COMPLETE
 D-4 Monthly Historical Exchange Snapshot              COMPLETE
-D-5 RSS and JSON feeds for reviewed public updates    COMPLETE AFTER CURRENT PR MERGE
+D-5 RSS and JSON feeds for reviewed public updates    COMPLETE
 D-6 Quality repair batches                             PARALLEL CONTINUOUS LANE
 ```
 
-### D-2 completion record
+### D-1 Registry Update
 
-D-2 includes:
+- reviewed update data source;
+- `/updates/` public changelog;
+- canonical-only publication rule;
+- raw monitoring findings excluded.
 
-- `/incidents/` public route;
-- deterministic incident extraction from reviewed event records;
+### D-2 Incident Timeline
+
+- `/incidents/` route;
+- deterministic reviewed-event extraction;
 - explicit incident event-type allowlist;
-- reverse chronological ordering with year grouping;
-- links to canonical exchange dossiers;
-- event-linked evidence counts;
-- sitemap, navigation, discovery, monitoring, and output validation integration;
-- no raw monitoring output or unreviewed candidates.
+- reverse chronology and year grouping;
+- dossier links and event-linked evidence counts;
+- sitemap, discovery, monitoring, and output validation integration.
 
-### D-3 completion record
+### D-3 Quality Summary
 
-D-3 includes:
+- `/quality/` route;
+- confidence, reliability, evidence depth, freshness, and coverage metrics;
+- source-type and claim-scope breakdowns;
+- denominator notes and non-completeness disclaimer;
+- independent headline metric recomputation;
+- internal repair queues and monitoring output excluded.
 
-- `/quality/` public route;
-- public summary built from the existing Stats calculation layer;
-- entity confidence, evidence reliability, evidence depth, record freshness, coverage, source-type, claim-scope, missing-field, and completeness metrics;
-- public metric definitions and denominator notes;
-- independent validator recomputation of headline metrics;
-- explicit exclusion of internal monitoring findings, private research notes, unresolved candidate queues, and operator-only repair priorities.
+### D-4 Monthly Snapshot
 
-### D-4 completion record
-
-D-4 includes:
-
-- `/monthly/` public route;
+- `/monthly/` route;
 - latest completed UTC month selection;
-- explicit review period and separate generation date;
-- deterministic reviewed-event projection using a public event-type allowlist;
-- monthly event, affected exchange, critical/high, and event-linked evidence counts;
-- event-type and impact breakdowns;
-- chronological event list with dossier links;
+- review period separated from generation date;
+- deterministic reviewed-event allowlist;
+- monthly event, exchange, impact, and evidence counts;
+- chronological dossier-linked list;
 - explicit empty-month behavior;
-- independent validator recomputation of month selection and monthly metrics;
-- no publication of monitoring health, repair priorities, internal watchlists, or raw monthly-review artifacts.
+- internal monthly-review artifacts excluded.
 
-### D-5 completion record
+### D-5 Reviewed Feeds
 
-D-5 includes:
-
-- `/feeds/updates.json` using JSON Feed 1.1;
-- `/feeds/updates.xml` using RSS 2.0;
-- `data/registry-updates.json` as the sole reviewed feed source;
-- deterministic source order: `date desc`, then `id asc`;
-- stable item identity: `urn:hei:registry-update:<update_id>`;
-- stable item URLs anchored to `/updates/#<update_id>`;
-- reviewed-only marker in JSON Feed extension data;
-- source counts and reviewed change summaries in feed items;
-- `/updates/` alternate feed discovery and direct feed links;
-- feed endpoints added to `version.json`, manifest, `llms.txt`, and `ai.txt` discovery;
-- build-time machine validation of source count, stable IDs, ordering, timestamps, and reviewed-only marker;
-- exported-output validation of JSON/RSS count and stable ID order;
-- production checker support for both feed endpoints and content types;
-- no raw monitoring output, internal watchlists, or unmerged candidates.
-
-D-5 completion gate:
-
-```text
-RSS 2.0 feed generated
-JSON Feed 1.1 generated
-source is reviewed Registry Update data only
-stable identifiers documented and tested
-ordering and timestamps validated
-reviewed-only boundary tested
-manifest and discovery references updated
-exported feed files validated after Next static export
-production checker validates both endpoints
-```
+- JSON Feed 1.1 and RSS 2.0;
+- reviewed Registry Update source only;
+- stable `urn:hei:registry-update:<id>` identities;
+- deterministic `date desc`, then `id asc` ordering;
+- stable anchored item URLs;
+- feed discovery in Updates, version, manifest, llms.txt, and ai.txt;
+- build, export, and production-check validation;
+- fixed contract in `docs/HEI_REVIEWED_UPDATE_FEEDS_SPEC.md`.
 
 ## 8. Phase E — Discovery foundation hardening
 
-Purpose: prepare navigation, linking, metadata, and route behavior before Explorer v1.
+Purpose: prepare navigation, metadata, route consistency, and Stats/query semantics before Explorer v1.
 
 Stats already exists. Phase E is not a Stats implementation phase.
 
 Execution order:
 
 ```text
-E-1 Internal-link audit and repair                    NEXT
-E-2 SEO and metadata consistency audit
+E-1 Internal-link audit and repair                    COMPLETE AFTER CURRENT PR MERGE
+E-2 SEO and metadata consistency audit               NEXT
 E-3 Sitemap and canonical-route consistency
 E-4 Public route discovery and cross-surface navigation audit
 E-5 Stats readiness for Explorer deep links
@@ -281,58 +240,124 @@ E-5 Stats readiness for Explorer deep links
 
 ### E-1 Internal-link audit and repair
 
-Work:
+Implementation:
 
-- inventory all internal links in generated public HTML;
-- detect broken internal routes and fragment links where practical;
-- verify entity dossier links from Updates, Incidents, Monthly, Stats-related surfaces, and core registry views;
-- verify footer and header routes;
-- avoid treating external evidence URLs as internal-link failures;
-- add a reusable CI audit before fixing any discovered broken links.
+- scan all generated `out/**/*.html` files;
+- collect internal `href` values;
+- resolve root-relative, relative, and same-origin absolute URLs;
+- resolve generated HTML routes and static JSON/XML/TXT files;
+- validate same-page and cross-page fragment IDs where present;
+- ignore external origins and non-navigation schemes;
+- include auditor self-test with valid route, relative path, missing target, valid fragment, and missing-fragment cases;
+- run the audit under the existing `public:validate` CI path.
+
+Audit result at E-1 completion:
+
+```text
+reusable internal-link audit: present
+self-test: pass
+generated-output audit: pass
+broken internal route targets: 0
+checked fragment failures: 0
+repairs required from initial audit: 0
+```
 
 Completion gate:
 
 ```text
-reusable internal-link audit exists
-all generated internal route targets resolve
-critical broken internal links = 0
-new Change-layer surfaces are included in audit coverage
+reusable internal-link audit exists       pass
+all generated internal route targets      pass
+critical broken internal links = 0        pass
+Change-layer surfaces included            pass
 ```
 
 ### E-2 SEO and metadata consistency audit
 
 Work:
 
-- audit title, description, canonical, Open Graph, and relevant alternate discovery metadata;
-- verify new Change-layer pages are consistent with site semantics;
+- build a reusable generated-output metadata audit before applying repairs;
+- audit title and description presence;
+- audit canonical link presence and uniqueness;
+- verify canonical URL matches the intended public route;
+- audit Open Graph title, description, URL, and image where applicable;
+- audit Twitter card metadata where applicable;
+- verify feed alternate discovery on `/updates/`;
 - detect duplicate or missing canonical metadata;
-- preserve research/share URL concerns separately from future Explorer query URLs.
+- verify new Change-layer pages use consistent registry semantics;
+- preserve future Explorer share URLs separately from canonical SEO landing-page policy.
+
+Completion gate:
+
+```text
+reusable metadata audit exists
+missing page titles = 0
+missing page descriptions = 0
+missing or duplicate canonicals = 0
+canonical route mismatches = 0
+critical Open Graph metadata gaps = 0
+Updates feed alternates validated
+```
 
 ### E-3 Sitemap and canonical-route consistency
 
 Work:
 
-- audit sitemap route set against intended public static routes and entity routes;
+- audit sitemap route set against intended static routes and entity routes;
 - verify obsolete routes remain redirected and excluded;
 - verify canonical routes and trailing-slash behavior;
-- keep feed endpoints out of sitemap unless a reviewed reason changes that rule.
+- ensure feed endpoints remain outside the HTML page sitemap unless a reviewed rule changes that policy;
+- turn route-count and route-set expectations into reusable checks.
+
+Completion gate:
+
+```text
+sitemap expected route set matches output
+entity route coverage complete
+obsolete routes excluded
+canonical/trailing-slash policy consistent
+feed endpoints excluded from page sitemap
+```
 
 ### E-4 Public route discovery and cross-surface navigation audit
 
 Work:
 
-- verify Registry, Analysis, Research-ready, and Change surfaces are discoverable from appropriate public entry points;
-- check navigation hierarchy and footer density;
-- ensure Updates, Incidents, Monthly, Quality, and Stats connect coherently without turning the header into a dashboard menu.
+- verify Registry, Analysis, and Change surfaces are discoverable from appropriate entry points;
+- check header and footer hierarchy;
+- check direct relationships among Stats, Quality, Updates, Incidents, and Monthly;
+- verify page-level contextual links where useful;
+- avoid turning the header into a dashboard-style menu;
+- document intended navigation hierarchy before Explorer is added.
+
+Completion gate:
+
+```text
+core surface discovery paths documented
+all core surfaces reachable from intended entry points
+no orphan public surface
+header/footer hierarchy reviewed
+cross-surface contextual links verified
+```
 
 ### E-5 Stats readiness for Explorer deep links
 
 Work:
 
 - map Stats dimensions to future Explorer filter semantics;
-- define which Stats blocks will receive deep links;
-- identify mismatches between display labels and canonical enum/query values;
+- identify which Stats blocks will receive deep links;
+- identify display-label versus canonical enum/query-value mismatches;
+- define entity-view versus event-view mappings;
 - produce the handoff required by E5-1 Explorer query-contract work.
+
+Completion gate:
+
+```text
+Stats dimensions mapped
+future query keys identified
+enum/query value mapping documented
+entity/event destination mode documented
+E5-1 handoff ready
+```
 
 Phase E completion gate:
 
@@ -496,15 +521,14 @@ Weekly Exchange Watch as a scheduled product phase
 ## 14. Immediate schedule from the current checkpoint
 
 ```text
-1. E-1 Internal-link audit and repair
-2. E-2 SEO and metadata consistency audit
-3. E-3 Sitemap and canonical-route consistency
-4. E-4 Public route discovery and cross-surface navigation audit
-5. E-5 Stats readiness for Explorer deep links
-6. Phase E.5 Explorer v1
-7. Phase F bilingual layer
-8. Phase G v1.0 integration baseline
-9. Post-v1.0 evaluation sequence
+1. E-2 SEO and metadata consistency audit
+2. E-3 Sitemap and canonical-route consistency
+3. E-4 Public route discovery and cross-surface navigation audit
+4. E-5 Stats readiness for Explorer deep links
+5. Phase E.5 Explorer v1
+6. Phase F bilingual layer
+7. Phase G v1.0 integration baseline
+8. Post-v1.0 evaluation sequence
 ```
 
 Lane A quality repair and reviewed record growth continue in parallel without replacing the main product sequence.
