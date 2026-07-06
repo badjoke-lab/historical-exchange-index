@@ -46,11 +46,21 @@ function expectedBranch() {
   return process.env.CF_PAGES_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.GITHUB_REF_NAME || 'main'
 }
 
+function expectedUpdateOrder(updateFile) {
+  return [...updateFile.updates].sort((a, b) => {
+    const dateOrder = b.date.localeCompare(a.date)
+    return dateOrder !== 0 ? dateOrder : a.id.localeCompare(b.id)
+  })
+}
+
 const version = readJson('public/version.json')
 const manifest = readJson('public/data/manifest.json')
 const publicEntities = readJson('public/data/entities.json')
 const publicEvents = readJson('public/data/events.json')
 const publicEvidence = readJson('public/data/evidence.json')
+const updateFeedJson = readJson('public/feeds/updates.json')
+const updateFeedRss = readText('public/feeds/updates.xml')
+const registryUpdateFile = readJson('data/registry-updates.json')
 const llms = readText('public/llms.txt')
 const ai = readText('public/ai.txt')
 
@@ -63,6 +73,7 @@ const entities = [...correctedCanonicalEntities, ...newEntityBundles.map(({ bund
 const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event')
 const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence')
 const entityById = new Map(entities.map((entity) => [entity.id, entity]))
+const reviewedUpdates = expectedUpdateOrder(registryUpdateFile)
 
 const deadSideStatuses = new Set(['dead', 'merged', 'acquired', 'rebranded'])
 const activeSideStatuses = new Set(['active', 'limited', 'inactive'])
@@ -89,6 +100,8 @@ const expectedPublicFiles = {
   entities: '/data/entities.json',
   events: '/data/events.json',
   evidence: '/data/evidence.json',
+  updates_json_feed: '/feeds/updates.json',
+  updates_rss_feed: '/feeds/updates.xml',
   llms: '/llms.txt',
   ai: '/ai.txt',
 }
@@ -132,6 +145,7 @@ deepEqual(manifest.data_safety, {
 }, 'manifest data_safety')
 deepEqual(manifest.public_files, expectedPublicFiles, 'manifest public_files')
 assert(manifest.canonical_source_of_truth?.entities, 'manifest canonical source description is missing')
+assert(manifest.canonical_source_of_truth?.registry_updates, 'manifest registry update source description is missing')
 
 for (const [label, collection, sourceRecords, recordType] of [
   ['entities', publicEntities, entities, 'exchange_entity'],
@@ -157,6 +171,32 @@ for (const [label, collection, sourceRecords, recordType] of [
 assert(publicEntities.records.every((record) => record.record_type === 'exchange_entity' && record.last_verified_at && record.confidence), 'public entity identity fields are incomplete')
 assert(publicEvents.records.every((record) => record.record_type === 'exchange_event' && record.confidence && entityById.has(record.exchange_id)), 'public event identity fields are incomplete')
 assert(publicEvidence.records.every((record) => record.record_type === 'exchange_evidence' && record.reliability && entityById.has(record.exchange_id)), 'public evidence identity fields are incomplete')
+
+assert(updateFeedJson.version === 'https://jsonfeed.org/version/1.1', 'JSON feed version is incorrect')
+assert(updateFeedJson.home_page_url === `${origin}/updates/`, 'JSON feed home_page_url is incorrect')
+assert(updateFeedJson.feed_url === `${origin}/feeds/updates.json`, 'JSON feed feed_url is incorrect')
+assert(updateFeedJson.items.length === reviewedUpdates.length, 'JSON feed item count mismatch')
+assert(updateFeedJson.items.every((item) => item._hei?.reviewed_public_only === true), 'JSON feed reviewed-only marker is missing')
+for (let index = 0; index < reviewedUpdates.length; index += 1) {
+  const source = reviewedUpdates[index]
+  const item = updateFeedJson.items[index]
+  assert(item.id === `urn:hei:registry-update:${source.id}`, `JSON feed stable id mismatch: ${source.id}`)
+  assert(item.url === `${origin}/updates/#${source.id}`, `JSON feed item URL mismatch: ${source.id}`)
+  assert(item.date_published === `${source.date}T00:00:00.000Z`, `JSON feed date mismatch: ${source.id}`)
+  assert(item._hei.update_id === source.id, `JSON feed HEI update id mismatch: ${source.id}`)
+  deepEqual(item._hei.counts, source.counts, `JSON feed counts:${source.id}`)
+}
+
+assert(updateFeedRss.startsWith('<?xml version="1.0" encoding="UTF-8"?>'), 'RSS XML declaration is missing')
+assert(updateFeedRss.includes('<rss version="2.0">'), 'RSS 2.0 root is missing')
+assert(updateFeedRss.includes(`${origin}/feeds/updates.xml`), 'RSS self URL is missing')
+const rssGuids = [...updateFeedRss.matchAll(/<guid isPermaLink="false">([^<]+)<\/guid>/g)].map((match) => match[1])
+assert(rssGuids.length === reviewedUpdates.length, 'RSS item count mismatch')
+deepEqual(rssGuids, reviewedUpdates.map((update) => `urn:hei:registry-update:${update.id}`), 'RSS stable GUID order')
+const feedText = `${JSON.stringify(updateFeedJson)}\n${updateFeedRss}`
+for (const forbidden of ['candidate_class', 'data-staging', 'internal monitoring', 'private research note']) {
+  assert(!feedText.includes(forbidden), `reviewed update feeds contain forbidden internal marker: ${forbidden}`)
+}
 
 const requiredRoutes = ['/', '/dead/', '/active/', '/exchange/{slug}/', '/stats/', '/quality/', '/updates/', '/incidents/', '/monthly/', '/methodology/', '/about/', '/donate/']
 for (const route of requiredRoutes) {
@@ -186,4 +226,4 @@ assert(ai.includes(origin), 'ai.txt is missing canonical origin')
 assert(ai.includes('do not include unreviewed candidates'), 'ai.txt is missing public-data safety note')
 assert(ai.includes('Search-engine and AI caches may contain older counts'), 'ai.txt is missing freshness guidance')
 
-console.log(`Validated HEI machine-readable layer: ${entities.length} entities, ${events.length} events, ${evidence.length} evidence records.`)
+console.log(`Validated HEI machine-readable layer: ${entities.length} entities, ${events.length} events, ${evidence.length} evidence records, ${reviewedUpdates.length} reviewed update feed items.`)

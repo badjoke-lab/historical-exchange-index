@@ -51,12 +51,14 @@ function assertPositiveInteger(value, label) {
 
 async function verifyProduction() {
   const cacheKey = expectedCommit || Date.now().toString()
-  const [versionText, manifestText, entitiesText, eventsText, evidenceText, llms, ai] = await Promise.all([
+  const [versionText, manifestText, entitiesText, eventsText, evidenceText, feedJsonText, feedRss, llms, ai] = await Promise.all([
     fetchEndpoint('/version.json', 'application/json', cacheKey),
     fetchEndpoint('/data/manifest.json', 'application/json', cacheKey),
     fetchEndpoint('/data/entities.json', 'application/json', cacheKey),
     fetchEndpoint('/data/events.json', 'application/json', cacheKey),
     fetchEndpoint('/data/evidence.json', 'application/json', cacheKey),
+    fetchEndpoint('/feeds/updates.json', 'application/json', cacheKey),
+    fetchEndpoint('/feeds/updates.xml', 'xml', cacheKey),
     fetchEndpoint('/llms.txt', 'text/plain', cacheKey),
     fetchEndpoint('/ai.txt', 'text/plain', cacheKey),
   ])
@@ -66,6 +68,7 @@ async function verifyProduction() {
   const entities = JSON.parse(entitiesText)
   const events = JSON.parse(eventsText)
   const evidence = JSON.parse(evidenceText)
+  const feedJson = JSON.parse(feedJsonText)
 
   assert(version.schema_version === '1.0.0', 'version schema_version is incorrect')
   assert(version.project_id === 'historical-exchange-index', 'version project_id is incorrect')
@@ -107,6 +110,8 @@ async function verifyProduction() {
     entities: '/data/entities.json',
     events: '/data/events.json',
     evidence: '/data/evidence.json',
+    updates_json_feed: '/feeds/updates.json',
+    updates_rss_feed: '/feeds/updates.xml',
     llms: '/llms.txt',
     ai: '/ai.txt',
   }, 'production public file map is incorrect')
@@ -123,7 +128,18 @@ async function verifyProduction() {
     assert(collection.records.every((record) => typeof record.canonical_page_url === 'string'), `${label} canonical page links are incomplete`)
   }
 
-  const requiredRoutes = ['/', '/dead/', '/active/', '/exchange/{slug}/', '/stats/', '/methodology/', '/about/', '/donate/']
+  assert(feedJson.version === 'https://jsonfeed.org/version/1.1', 'JSON feed version is incorrect')
+  assert(feedJson.feed_url === `${origin}/feeds/updates.json`, 'JSON feed URL is incorrect')
+  assert(Array.isArray(feedJson.items) && feedJson.items.length > 0, 'JSON feed has no reviewed update items')
+  assert(feedJson.items.every((item) => item.id?.startsWith('urn:hei:registry-update:')), 'JSON feed stable ids are invalid')
+  assert(feedJson.items.every((item) => item._hei?.reviewed_public_only === true), 'JSON feed reviewed-only marker is missing')
+  assert(feedRss.startsWith('<?xml version="1.0" encoding="UTF-8"?>'), 'RSS XML declaration is missing')
+  assert((feedRss.match(/<item>/g) || []).length === feedJson.items.length, 'RSS/JSON feed item counts differ')
+  for (const item of feedJson.items) {
+    assert(feedRss.includes(`<guid isPermaLink="false">${item.id}</guid>`), `RSS is missing stable guid ${item.id}`)
+  }
+
+  const requiredRoutes = ['/', '/dead/', '/active/', '/exchange/{slug}/', '/stats/', '/quality/', '/updates/', '/incidents/', '/monthly/', '/methodology/', '/about/', '/donate/']
   for (const route of requiredRoutes) {
     assert(manifest.main_routes?.includes(route), `manifest is missing route ${route}`)
     assert(llms.includes(route), `llms.txt is missing route ${route}`)
@@ -141,7 +157,7 @@ async function verifyProduction() {
 
   console.log(`Production machine-readable layer verified at ${origin}`)
   console.log(`commit=${version.build.commit}`)
-  console.log(`records=${counts.primary_records}, events=${counts.events}, evidence=${counts.evidence}`)
+  console.log(`records=${counts.primary_records}, events=${counts.events}, evidence=${counts.evidence}, update_feed_items=${feedJson.items.length}`)
 }
 
 let lastError
