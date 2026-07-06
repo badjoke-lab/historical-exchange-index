@@ -52,6 +52,11 @@ function hrefs(html) {
   return [...html.matchAll(/\bhref=["']([^"']+)["']/gi)].map((match) => decodeHtml(match[1]))
 }
 
+function extractUrlHandlingSection(html) {
+  const match = html.match(/<h4\b[^>]*>\s*URL handling\s*<\/h4>([\s\S]*?)(?=<h4\b[^>]*>\s*Summary\s*<\/h4>)/i)
+  return match?.[0] ?? null
+}
+
 function normalizeUrl(value) {
   try {
     const url = new URL(value)
@@ -124,10 +129,16 @@ function auditDataAndDetails({ entities, outDir, policy }) {
     }
 
     const html = fs.readFileSync(filePath, 'utf8')
-    const pageHrefs = hrefs(html)
-    const pageText = stripHtml(html)
-    const originalLinked = Boolean(originalUrl && pageHrefs.includes(originalUrl))
-    const archiveLinked = Boolean(archivedUrl && pageHrefs.includes(archivedUrl))
+    const urlSection = extractUrlHandlingSection(html)
+    if (!urlSection) {
+      add('high', 'url_handling_section_missing', entity)
+      continue
+    }
+
+    const sectionHrefs = hrefs(urlSection)
+    const sectionText = stripHtml(urlSection)
+    const originalLinked = Boolean(originalUrl && sectionHrefs.includes(originalUrl))
+    const archiveLinked = Boolean(archivedUrl && sectionHrefs.includes(archivedUrl))
 
     if (clickable.has(entity.official_url_status)) {
       if (originalUrl && !originalLinked) add('medium', 'live_original_url_not_linked', entity, originalUrl)
@@ -136,18 +147,18 @@ function auditDataAndDetails({ entities, outDir, policy }) {
       add(severity, 'non_clickable_original_url_linked', entity, originalUrl ?? '')
     }
 
-    if (originalUrl && plainText.has(entity.official_url_status) && !pageText.includes(originalUrl)) {
+    if (originalUrl && plainText.has(entity.official_url_status) && !sectionText.includes(originalUrl)) {
       add('medium', 'historical_original_url_not_visible_as_text', entity, originalUrl)
     }
 
     if (archivedUrl && !archiveLinked) add('high', 'archive_url_not_linked', entity, archivedUrl)
 
     const shouldPreferArchive = DEAD_SIDE.has(entity.status) && Boolean(archivedUrl) && archiveFirst.has(entity.official_url_status)
-    if (shouldPreferArchive && !pageText.includes('Use archived URL first for historical viewing.')) {
+    if (shouldPreferArchive && !sectionText.includes('Use archived URL first for historical viewing.')) {
       add('high', 'archive_first_guidance_missing', entity)
     }
 
-    if (!pageText.includes('URL status')) add('high', 'url_status_label_missing', entity)
+    if (!sectionText.includes('URL status')) add('high', 'url_status_label_missing', entity)
   }
 
   return findings
@@ -271,7 +282,7 @@ function runSelfTest() {
         ? `<a href="${entity.official_url_original}">${entity.official_url_original}</a>`
         : entity.official_url_original
       const guidance = archiveFirst ? 'Use archived URL first for historical viewing.' : 'Use current URL handling based on status below.'
-      writeFile(outDir, `exchange/${entity.slug}/index.html`, `<main><h2>${entity.canonical_name}</h2><div>URL status</div><div>${original}</div><a href="${entity.archived_url}">View archived site</a><p>${guidance}</p></main>`)
+      writeFile(outDir, `exchange/${entity.slug}/index.html`, `<main><h4>URL handling</h4><div>URL status</div><div>${original}</div><a href="${entity.archived_url}">View archived site</a><p>${guidance}</p><h4>Summary</h4></main>`)
     }
 
     const methodologyText = `${URL_STATUSES.join(' ')} old exchange domains are not always safe or authoritative today may not always be clickable`
@@ -288,7 +299,7 @@ function runSelfTest() {
     assert(clean.critical.length === 0 && clean.high.length === 0, `clean fixture blocked: ${JSON.stringify(clean.findings)}`)
 
     const unsafe = entities.find((entity) => entity.official_url_status === 'unsafe')
-    writeFile(outDir, `exchange/${unsafe.slug}/index.html`, `<main><div>URL status</div><a href="${unsafe.official_url_original}">${unsafe.official_url_original}</a><a href="${unsafe.archived_url}">Archive</a><p>Use archived URL first for historical viewing.</p></main>`)
+    writeFile(outDir, `exchange/${unsafe.slug}/index.html`, `<main><h4>URL handling</h4><div>URL status</div><a href="${unsafe.official_url_original}">${unsafe.official_url_original}</a><a href="${unsafe.archived_url}">Archive</a><p>Use archived URL first for historical viewing.</p><h4>Summary</h4></main>`)
     const broken = auditPublicUrlSafety(outDir, rootDir)
     assert(broken.critical.some((item) => item.type === 'non_clickable_original_url_linked'), 'self-test did not detect clickable unsafe original URL')
   } finally {
