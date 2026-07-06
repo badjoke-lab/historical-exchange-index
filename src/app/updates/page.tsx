@@ -8,7 +8,13 @@ import styles from './updates.module.css'
 export const metadata: Metadata = {
   title: 'Registry Updates',
   description: 'Reviewed additions, corrections, and milestone updates from the Historical Exchange Index registry.',
-  alternates: { canonical: '/updates' },
+  alternates: {
+    canonical: '/updates',
+    types: {
+      'application/feed+json': '/feeds/updates.json',
+      'application/rss+xml': '/feeds/updates.xml',
+    },
+  },
 }
 
 function delta(after: number, before: number): string {
@@ -62,6 +68,8 @@ export default function RegistryUpdatesPage() {
             </p>
           </div>
           <div className={styles.headerActions}>
+            <a className="btn" href="/feeds/updates.xml">RSS</a>
+            <a className="btn" href="/feeds/updates.json">JSON Feed</a>
             <Link className="btn" href="/methodology">Methodology</Link>
             <a className="btn" href={CONTACT_HREF} target="_blank" rel="noreferrer">Submit correction</a>
           </div>
@@ -159,8 +167,7 @@ export default function RegistryUpdatesPage() {
       </section>
 
       <section className="callout">
-        Registry Updates only covers reviewed public changes. Monitoring candidates, unresolved watchlist items, and raw risk
-        signals remain outside this public changelog until they are separately reviewed.
+        Registry Updates and its RSS/JSON feeds only cover reviewed public changes. Monitoring candidates, unresolved watchlist items, and raw risk signals remain outside these public outputs until separately reviewed.
       </section>
     </main>
   )
