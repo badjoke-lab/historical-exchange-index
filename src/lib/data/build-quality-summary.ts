@@ -60,7 +60,6 @@ export function buildQualitySummary(): QualitySummary {
   const evidenceAverage = metricByKey(snapshot.evidence.averages, 'evidence_per_entity')
   const archivedEvidence = metricByKey(snapshot.evidence.averages, 'archived_evidence_share')
   const zeroEvidence = metricByKey(snapshot.completeness, 'zero_evidence')
-  const deadTwoPlusEvidence = metricByKey(snapshot.completeness, 'dead_two_plus_evidence')
   const highReliability = snapshot.evidence.reliability_breakdown.find((item) => item.key === 'high')
 
   return {
@@ -120,10 +119,7 @@ export function buildQualitySummary(): QualitySummary {
     freshness: snapshot.quality.last_verified_recency,
     coverage: [...snapshot.coverage.archive, ...snapshot.coverage.date_known],
     unknownFields: snapshot.quality.unknown_field_rates,
-    completeness: [
-      ...snapshot.completeness,
-      ...(deadTwoPlusEvidence ? [] : []),
-    ],
+    completeness: snapshot.completeness,
     definitions: [
       {
         term: 'Entity confidence',
