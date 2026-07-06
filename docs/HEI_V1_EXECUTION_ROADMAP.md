@@ -33,24 +33,27 @@ Execution order comes from this roadmap. Product behavior and completion gates c
 - Explorer query keys and enum values remain locale-independent.
 - Full multilingual rollout is not a v1.0 requirement.
 - Data growth, operations, and machine-readable maintenance continue in parallel.
-- Phase G temporarily prioritizes integration correctness over adding major new public surfaces.
+- Phase G prioritizes integration correctness over adding major new public surfaces.
 - Update this checkpoint whenever phase, active item, order, or canonical counts materially change.
 
 ## 3. Current checkpoint
 
 ```text
-Last merged implementation PR: #553 Add Phase G URL safety audit
+Last merged implementation PR: #554 Add Phase G cross-surface integration audit
 G-1 Accessibility Audit: COMPLETE
 G-2 URL Safety Audit: COMPLETE
+G-3 Cross-surface Integration Audit: COMPLETE
 Current phase: Phase G — v1.0 Integration Baseline
-Current PR: #554 Add Phase G cross-surface integration audit
-Current item: G-3 Cross-surface Integration Audit
-Current G-3 final audit before merge:
-  12 core surfaces
-  4 Explorer-link source routes
-  5 dossier-link source routes
-  0 findings
-Next item after G-3: G-4 Machine/Public Consistency Audit
+Current PR: #555 Add Phase G machine/public consistency audit
+Current item: G-4 Machine/Public Consistency Audit
+Current G-4 final audit before merge:
+  550 entities
+  1004 events
+  2621 evidence
+  2 reviewed updates
+  562 sitemap URLs
+  0 findings across all six consistency categories
+Next item after G-4: G-5 Production Integration and Verification
 Next product feature after v1.0: H Compare v1
 Localization after Compare: L-1 Japanese Pilot -> L-2 Evaluation Gate
 ```
@@ -68,7 +71,7 @@ Maximum evidence ID: hei_src_011312
 
 Phase G work does not change canonical counts unless a separate reviewed data PR explicitly does so.
 
-## 5. Completed product/foundation phases
+## 5. Completed foundation and product phases
 
 ```text
 Phase C   Registry milestone                 COMPLETE
@@ -78,20 +81,10 @@ Phase E.5 Explorer v1                        COMPLETE
 Phase F-1 Multilingual Foundation            COMPLETE
 G-1       Accessibility Audit                COMPLETE
 G-2       URL Safety Audit                   COMPLETE
+G-3       Cross-surface Integration Audit    COMPLETE
 ```
 
-### Explorer v1
-
-```text
-E5-1 query contract                         COMPLETE
-E5-2 Entity Explorer                        COMPLETE
-E5-3 Event Explorer                         COMPLETE
-E5-4 Stats -> Explorer deep links           COMPLETE
-E5-5 Change -> Explorer cross-links         COMPLETE
-E5-6 accessibility/URL/crawl regression     COMPLETE
-```
-
-Final Explorer route/crawl contract:
+### Explorer v1 contract
 
 ```text
 base route:              /explore/
@@ -111,7 +104,7 @@ Source:
 docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md
 ```
 
-Completed:
+Completed foundation:
 
 ```text
 locale config
@@ -192,9 +185,9 @@ Fixed order:
 ```text
 G-1 Accessibility Audit                         COMPLETE
 G-2 URL Safety Audit                            COMPLETE
-G-3 Cross-surface Integration Audit             ACTIVE / COMPLETE AFTER #554 MERGE
-G-4 Machine/Public Consistency Audit             NEXT
-G-5 Production Verification
+G-3 Cross-surface Integration Audit             COMPLETE
+G-4 Machine/Public Consistency Audit            ACTIVE / COMPLETE AFTER #555 MERGE
+G-5 Production Integration and Verification     NEXT
 G-6 Maintainer Runbook and Recovery Validation
 G-7 v1.0 Baseline Checkpoint
 ```
@@ -216,8 +209,6 @@ high findings:     0
 medium findings:   0
 low findings:      0
 ```
-
-Repairs included Home search accessible naming, global and Explorer focus-visible treatment, reduced-motion handling, and primary-navigation accessible naming.
 
 ### G-2 URL Safety Audit
 
@@ -245,8 +236,6 @@ medium findings:   0
 low findings:      0
 ```
 
-Original URL behavior remains separate from Evidence/source links elsewhere on a dossier.
-
 ### G-3 Cross-surface Integration Audit
 
 Report:
@@ -261,59 +250,7 @@ Machine integration contract:
 config/cross-surface-integration-contract.json
 ```
 
-The G-3 audit reuses:
-
-```text
-config/public-navigation-surfaces.json
-config/explorer-query-contract.json
-config/stats-explorer-deep-link-map.json
-```
-
-It does not create a competing route graph.
-
-Coverage:
-
-```text
-12 core public surfaces
-4 Explorer-link source routes
-5 dossier-link source routes
-Stats -> Explorer
-Updates -> Explorer
-Incidents -> Explorer
-Monthly -> Explorer
-Dead/Active/Change -> exchange dossier
-Explorer -> exchange dossier source contracts
-reviewed-public-only link boundary
-broken core cross-links
-```
-
-Stats deep-link coverage validated:
-
-```text
-Entity direct:
-  type
-  status
-  death_reason
-  official_url_status
-  confidence
-  country_or_origin
-
-Entity ranges:
-  launch_from + launch_to
-  death_from + death_to
-
-Entity compounds:
-  archive_available + status
-  country_or_origin + status
-  country_or_origin + type
-
-Event direct:
-  event_type
-  impact_level
-  event_status_effect
-```
-
-Final G-3 result:
+Final result:
 
 ```text
 Public navigation:
@@ -330,26 +267,24 @@ Cross-surface integration:
   findings:                0
 ```
 
-G-3 is complete after PR #554 final workflows pass and the PR merges.
-
 ### G-4 Machine/Public Consistency Audit
 
-Next work:
+Report:
 
-- consolidate existing public-output, sitemap, feed, machine-layer, and count checks into one Phase G consistency contract;
-- verify HTML route state against version/manifest route discovery;
-- verify count agreement across HTML summaries and machine-readable outputs where comparable;
-- verify sitemap exact set and robots behavior;
-- verify `entities.json`, `events.json`, and `evidence.json` remain canonical-only;
-- verify update JSON/RSS feeds contain reviewed Registry Updates only;
-- verify `llms.txt` and `ai.txt` describe current route/count state;
-- verify no staging, monitoring, watchlist, private-note, or unreviewed-candidate leakage;
-- add reusable audit, self-test, dedicated gate, diagnostic artifact, and persistent report.
+```text
+docs/audits/HEI_G4_MACHINE_PUBLIC_CONSISTENCY_AUDIT_2026-07-07.md
+```
+
+Machine contract:
+
+```text
+config/machine-public-consistency-contract.json
+```
 
 Audit surfaces:
 
 ```text
-HTML
+HTML count surfaces
 sitemap.xml
 robots.txt
 version.json
@@ -363,19 +298,41 @@ llms.txt
 ai.txt
 ```
 
-Completion gate:
+Final result:
 
 ```text
-critical consistency findings:     0
-count mismatches:                  0
-route-discovery mismatches:        0
-public safety-boundary leaks:      0
-feed contract findings:            0
+Entities:          550
+Events:            1004
+Evidence:          2621
+Reviewed updates:  2
+Sitemap URLs:      562
+
+count_mismatch:                 0
+route_discovery_mismatch:       0
+public_safety_boundary_leak:    0
+feed_contract:                  0
+timestamp_mismatch:             0
+sitemap_robots:                 0
 ```
 
-### G-5 Production Verification
+G-4 is complete after PR #555 final workflows pass and the PR merges.
 
-Verify deployed commit propagation and production routes/files.
+### G-5 Production Integration and Verification
+
+Next work:
+
+1. determine expected merge commit from current `main` after G-4 merge;
+2. read deployed `/version.json` first;
+3. compare deployed commit with expected commit before diagnosing route behavior;
+4. verify production Home and all core routes;
+5. verify Explorer Entity and Event views;
+6. verify a representative Stats -> Explorer deep link;
+7. verify representative Change -> Explorer deep links;
+8. verify sitemap and robots;
+9. verify version/manifest and three public datasets;
+10. verify update JSON/RSS feeds;
+11. verify a representative exchange dossier;
+12. record dated production verification result and known limitations.
 
 Required record:
 
@@ -567,19 +524,18 @@ reviewed feeds
 ## 14. Immediate execution order
 
 ```text
-1. Complete G-3 Cross-surface Integration Audit       CURRENT
-2. G-4 Machine/Public Consistency Audit               NEXT
-3. G-5 Production Verification
-4. G-6 Maintainer Runbook and Recovery Validation
-5. G-7 v1.0 Baseline Checkpoint
-6. H Compare v1
-7. L-1 Japanese Pilot
-8. L-2 Localization Evaluation Gate
-9. Execute GO / HOLD / PIVOT decision
-10. I Discovery Log Trial
-11. Language Selection Gate when evidence exists
-12. J NL Filter Translator only if justified
-13. K API Expansion only if justified
+1. Complete G-4 Machine/Public Consistency Audit       CURRENT
+2. G-5 Production Integration and Verification         NEXT
+3. G-6 Maintainer Runbook and Recovery Validation
+4. G-7 v1.0 Baseline Checkpoint
+5. H Compare v1
+6. L-1 Japanese Pilot
+7. L-2 Localization Evaluation Gate
+8. Execute GO / HOLD / PIVOT decision
+9. I Discovery Log Trial
+10. Language Selection Gate when evidence exists
+11. J NL Filter Translator only if justified
+12. K API Expansion only if justified
 ```
 
 ## 15. Recovery procedure

@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "canonical_origin": "https://hei.badjoke-lab.com",
+  "required_main_routes": [
+    "/",
+    "/dead/",
+    "/active/",
+    "/exchange/{slug}/",
+    "/explore/",
+    "/stats/",
+    "/quality/",
+    "/updates/",
+    "/incidents/",
+    "/monthly/",
+    "/methodology/",
+    "/about/",
+    "/donate/"
+  ],
+  "required_machine_files": [
+    "/version.json",
+    "/data/manifest.json",
+    "/data/entities.json",
+    "/data/events.json",
+    "/data/evidence.json",
+    "/feeds/updates.json",
+    "/feeds/updates.xml",
+    "/llms.txt",
+    "/ai.txt"
+  ],
+  "sitemap": {
+    "static_route_count": 12,
+    "query_variants_allowed": false,
+    "feeds_in_page_sitemap": false,
+    "explorer_base_route_exact_count": 1
+  },
+  "robots": {
+    "required_user_agent": "*",
+    "required_allow": "/",
+    "required_sitemap": "https://hei.badjoke-lab.com/sitemap.xml"
+  },
+  "timestamp_fields": [
+    "version.build.generated_at",
+    "version.data.generated_at",
+    "manifest.generated_at",
+    "entities.generated_at",
+    "events.generated_at",
+    "evidence.generated_at"
+  ],
+  "reviewed_state_fields": [
+    "version.data.records_last_reviewed_at",
+    "manifest.records_last_reviewed_at",
+    "entities.records_last_reviewed_at",
+    "events.records_last_reviewed_at",
+    "evidence.records_last_reviewed_at"
+  ],
+  "public_safety": {
+    "manifest_exact": {
+      "canonical_only": true,
+      "includes_unreviewed_candidates": false,
+      "includes_internal_monitoring": false,
+      "includes_private_notes": false
+    },
+    "forbidden_machine_markers": [
+      "candidate_class",
+      "data-staging",
+      "watchlists/auto",
+      "unreviewed_candidate",
+      "private_notes"
+    ],
+    "forbidden_feed_markers": [
+      "candidate_class",
+      "data-staging",
+      "watchlists/auto",
+      "private research note"
+    ]
+  },
+  "html_count_surfaces": {
+    "/": ["Total records", "Dead-side", "Active-side"],
+    "/stats/": ["Total entities", "Dead-side", "Active-side", "Total events", "Total evidence"],
+    "/quality/": ["Entities", "Events", "Evidence"]
+  },
+  "reviewed_update_source": "data/registry-updates.json"
+}
