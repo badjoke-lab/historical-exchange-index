@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "default_locale": "en",
+  "supported_locales": ["en", "ja"],
+  "public_locales": ["en"],
+  "fallback_locale": "en",
+  "entity_overlay": {
+    "identifier": "slug",
+    "allowed_fields": ["summary", "notes"],
+    "forbidden_fields": [
+      "id",
+      "slug",
+      "canonical_name",
+      "aliases",
+      "type",
+      "status",
+      "death_reason",
+      "launch_date",
+      "death_date",
+      "country_or_origin",
+      "official_url_original",
+      "official_domain_original",
+      "official_url_status",
+      "archived_url",
+      "predecessor_id",
+      "successor_id",
+      "parent_id",
+      "confidence",
+      "last_verified_at"
+    ]
+  },
+  "event_overlay": {
+    "identifier": "id",
+    "allowed_fields": ["title", "description"],
+    "forbidden_fields": [
+      "id",
+      "exchange_id",
+      "event_type",
+      "event_date",
+      "confidence",
+      "impact_level",
+      "event_status_effect",
+      "source_count",
+      "sort_order",
+      "notes"
+    ]
+  }
+}
