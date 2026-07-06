@@ -69,14 +69,16 @@ function requireOne(findings, route, field, values) {
   return true
 }
 
-const pages = walk(outDir).filter((file) => {
+function isPublicPageHtml(file) {
   const relative = path.relative(outDir, file).split(path.sep).join('/')
-  return relative.endsWith('.html')
-    && relative !== '404.html'
-    && relative !== '_not-found.html'
-    && !relative.startsWith('_not-found/')
-})
+  if (!relative.endsWith('.html')) return false
+  if (relative === '404.html' || relative === '404/index.html') return false
+  if (relative === '_not-found.html' || relative.startsWith('_not-found/')) return false
+  if (/^google[a-z0-9_-]+\.html$/i.test(relative)) return false
+  return true
+}
 
+const pages = walk(outDir).filter(isPublicPageHtml)
 const findings = []
 const canonicalOwners = new Map()
 
