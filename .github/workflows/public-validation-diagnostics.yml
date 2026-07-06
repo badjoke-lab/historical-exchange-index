@@ -17,7 +17,21 @@ jobs:
       - run: npm run machine:build
       - run: npm run build
       - name: Public output consistency
-        run: node scripts/validate-public-output-consistency.mjs
+        id: public_consistency
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/validate-public-output-consistency.mjs 2>&1 | tee public-consistency.log
+      - name: Upload public consistency diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-consistency-diagnostics
+          path: public-consistency.log
+      - name: Fail when public consistency failed
+        if: steps.public_consistency.outcome == 'failure'
+        run: exit 1
       - name: Reviewed update feed export
         run: node scripts/validate-reviewed-update-feed-export.mjs
       - name: Internal link self-test
