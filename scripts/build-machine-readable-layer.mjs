@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { buildBundleEntityIdMap, loadReviewedBundles, mergeRecords } from './lib/reviewed-bundle-aggregation.mjs'
 import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
+import { buildReviewedUpdateFeeds } from './lib/reviewed-update-feeds.mjs'
 
 const root = process.cwd()
 const publicDir = path.join(root, 'public')
@@ -42,6 +43,8 @@ function writeText(relativePath, value) {
 const canonicalEntities = readJson('data/entities.json')
 const canonicalEvents = readJson('data/events.json')
 const canonicalEvidence = readJson('data/evidence.json')
+const registryUpdateFile = readJson('data/registry-updates.json', { version: 1, updates: [] })
+const reviewedUpdateFeeds = buildReviewedUpdateFeeds(registryUpdateFile, { origin: canonicalOrigin })
 const { all: reviewedBundles, newEntityBundles } = loadReviewedBundles(root, canonicalEntities)
 const correctedCanonicalEntities = applyReviewedEntityCorrections(canonicalEntities, reviewedBundles)
 const entities = [...correctedCanonicalEntities, ...newEntityBundles.map(({ bundle }) => bundle.entity)]
@@ -114,6 +117,8 @@ const publicFiles = {
   entities: '/data/entities.json',
   events: '/data/events.json',
   evidence: '/data/evidence.json',
+  updates_json_feed: '/feeds/updates.json',
+  updates_rss_feed: '/feeds/updates.xml',
   llms: '/llms.txt',
   ai: '/ai.txt',
 }
@@ -155,6 +160,7 @@ writeJson(path.join('data', 'manifest.json'), {
     entities: 'data/entities.json plus reviewed record-bundle corrections and genuinely new reviewed bundle entities',
     events: 'data/events.json plus reviewed bundle events deduplicated by ID and normalized to canonical entity IDs',
     evidence: 'data/evidence.json plus reviewed bundle evidence deduplicated by ID and normalized to canonical entity IDs',
+    registry_updates: 'data/registry-updates.json reviewed public update entries only',
   },
   data_model: { primary_record: 'exchange_entity', supporting_records: ['exchange_event', 'exchange_evidence'] },
   public_files: publicFiles,
@@ -192,6 +198,9 @@ for (const [name, recordType, records] of [
   })
 }
 
+writeJson(path.join('feeds', 'updates.json'), reviewedUpdateFeeds.json)
+writeText(path.join('feeds', 'updates.xml'), reviewedUpdateFeeds.rss)
+
 writeText('llms.txt', `# Historical Exchange Index
 
 Evidence-backed historical registry of crypto exchanges, active and gone.
@@ -207,7 +216,7 @@ Current reviewed counts:
 - Events: ${recordCounts.events}
 - Evidence: ${recordCounts.evidence}
 
-Canonical machine-readable files:
+Canonical machine-readable files and reviewed feeds:
 ${Object.values(publicFiles).map((route) => `- ${route}`).join('\n')}
 
 Main routes:
@@ -216,11 +225,12 @@ ${mainRoutes.map((route) => `- ${route}`).join('\n')}
 Use notes:
 - Treat /version.json and /data/manifest.json as the current deployment and count authority.
 - Use /data/entities.json, /data/events.json, and /data/evidence.json for reviewed public records.
+- Use /feeds/updates.json or /feeds/updates.xml for reviewed Registry Update entries only.
 - Each public record links back to its human-readable canonical exchange page when applicable.
 - Supporting record exchange IDs are normalized to the canonical entity ID in the public datasets.
 - This is a historical registry, not a live exchange ranking.
 - This is not an exchange recommendation site or investment advice.
-- Public data is canonical-only and excludes unreviewed candidates, internal monitoring, and private notes.
+- Public data and feeds exclude unreviewed candidates, internal monitoring, and private notes.
 - Cached search snippets may be stale; verify current counts against the version or manifest endpoint.
 `)
 
@@ -247,14 +257,18 @@ Reviewed canonical datasets:
 /data/events.json
 /data/evidence.json
 
+Reviewed Registry Update feeds:
+/feeds/updates.json
+/feeds/updates.xml
+
 LLM guide:
 /llms.txt
 
 Important routes:
 ${mainRoutes.join('\n')}
 
-Safety note: Public files expose reviewed canonical registry information only. They do not include unreviewed candidates, private notes, or internal monitoring output.
+Safety note: Public files and feeds expose reviewed public registry information only. They do not include unreviewed candidates, private notes, or internal monitoring output.
 Freshness note: Search-engine and AI caches may contain older counts. Resolve the current state through /version.json or /data/manifest.json before answering.
 `)
 
-console.log(`Built HEI machine-readable public layer: ${recordCounts.primary_records} primary records, ${recordCounts.events} events, ${recordCounts.evidence} evidence records.`)
+console.log(`Built HEI machine-readable public layer: ${recordCounts.primary_records} primary records, ${recordCounts.events} events, ${recordCounts.evidence} evidence records, ${reviewedUpdateFeeds.updates.length} reviewed update feed items.`)
