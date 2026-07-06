@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "origin": "https://hei.badjoke-lab.com",
+  "expected_commit": "daed55da7673dbd16faf8c69bcd2274a546c463f",
+  "core_routes": [
+    "/",
+    "/dead/",
+    "/active/",
+    "/explore/",
+    "/stats/",
+    "/quality/",
+    "/updates/",
+    "/incidents/",
+    "/monthly/",
+    "/methodology/",
+    "/about/",
+    "/donate/"
+  ],
+  "explorer_queries": [
+    "/explore/?view=entities&status=dead",
+    "/explore/?view=events&event_type=hack"
+  ],
+  "representative_deep_links": [
+    "/explore/?view=entities&status=dead&status=merged&archive_available=true",
+    "/explore/?view=events&event_type=hack",
+    "/explore/?view=events&date_from=2026-06-01&date_to=2026-06-30"
+  ],
+  "machine_files": [
+    "/version.json",
+    "/data/manifest.json",
+    "/data/entities.json",
+    "/data/events.json",
+    "/data/evidence.json",
+    "/feeds/updates.json",
+    "/feeds/updates.xml",
+    "/llms.txt",
+    "/ai.txt",
+    "/sitemap.xml",
+    "/robots.txt"
+  ],
+  "explorer_canonical": "https://hei.badjoke-lab.com/explore/",
+  "sitemap_url": "https://hei.badjoke-lab.com/sitemap.xml"
+}
