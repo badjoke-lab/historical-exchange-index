@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "clickable": ["live_verified", "live_unverified"],
+  "plain_text": ["dead_domain", "redirected", "repurposed", "unsafe", "unknown"],
+  "archive_first": ["dead_domain", "redirected", "repurposed", "unsafe"]
+}
