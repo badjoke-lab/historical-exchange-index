@@ -1,0 +1,50 @@
+name: Cross-surface integration gate
+
+on:
+  pull_request:
+    paths:
+      - 'src/app/**'
+      - 'src/components/**'
+      - 'src/lib/explorer/**'
+      - 'config/public-navigation-surfaces.json'
+      - 'config/explorer-query-contract.json'
+      - 'config/stats-explorer-deep-link-map.json'
+      - 'config/cross-surface-integration-contract.json'
+      - 'scripts/audit-public-navigation-discovery.mjs'
+      - 'scripts/audit-cross-surface-integration.mjs'
+      - 'scripts/lib/explorer-query-contract.mjs'
+      - 'docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md'
+      - 'package.json'
+      - '.github/workflows/cross-surface-integration-gate.yml'
+  workflow_dispatch:
+
+jobs:
+  integration:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run machine:build
+      - run: npm run build
+      - name: Cross-surface integration self-test
+        run: npm run integration:test
+      - name: Cross-surface integration audit
+        id: integration_audit
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run integration:audit 2>&1 | tee cross-surface-integration-audit.log
+      - name: Upload cross-surface integration report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cross-surface-integration-audit-report
+          path: cross-surface-integration-audit.log
+      - name: Fail when integration audit failed
+        if: steps.integration_audit.outcome == 'failure'
+        run: exit 1
