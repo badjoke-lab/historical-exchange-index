@@ -1,0 +1,50 @@
+name: Machine/public consistency gate
+
+on:
+  pull_request:
+    paths:
+      - 'data/**'
+      - 'records/**'
+      - 'src/app/**'
+      - 'src/components/**'
+      - 'scripts/build-machine-readable-layer.mjs'
+      - 'scripts/validate-machine-readable-layer.mjs'
+      - 'scripts/validate-public-output-consistency.mjs'
+      - 'scripts/validate-reviewed-update-feed-export.mjs'
+      - 'scripts/audit-sitemap-canonical-routes.mjs'
+      - 'scripts/audit-machine-public-consistency.mjs'
+      - 'config/machine-public-consistency-contract.json'
+      - 'package.json'
+      - '.github/workflows/machine-public-consistency-gate.yml'
+  workflow_dispatch:
+
+jobs:
+  consistency:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run machine:build
+      - run: npm run build
+      - name: Consistency audit self-test
+        run: npm run consistency:test
+      - name: Machine/public consistency audit
+        id: consistency_audit
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run consistency:audit 2>&1 | tee machine-public-consistency-audit.log
+      - name: Upload consistency audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: machine-public-consistency-audit-report
+          path: machine-public-consistency-audit.log
+      - name: Fail when consistency audit failed
+        if: steps.consistency_audit.outcome == 'failure'
+        run: exit 1
