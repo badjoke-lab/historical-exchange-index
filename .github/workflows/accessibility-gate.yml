@@ -1,0 +1,44 @@
+name: Accessibility gate
+
+on:
+  pull_request:
+    paths:
+      - 'src/app/**'
+      - 'src/components/**'
+      - 'src/lib/**'
+      - 'scripts/audit-public-accessibility.mjs'
+      - 'docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md'
+      - 'package.json'
+      - '.github/workflows/accessibility-gate.yml'
+  workflow_dispatch:
+
+jobs:
+  accessibility:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run machine:build
+      - run: npm run build
+      - name: Accessibility audit self-test
+        run: npm run accessibility:test
+      - name: Public accessibility audit
+        id: accessibility_audit
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run accessibility:audit 2>&1 | tee accessibility-audit.log
+      - name: Upload accessibility audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-audit-report
+          path: accessibility-audit.log
+      - name: Fail when accessibility audit failed
+        if: steps.accessibility_audit.outcome == 'failure'
+        run: exit 1

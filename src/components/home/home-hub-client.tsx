@@ -82,20 +82,17 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
   const deadHref = trimmedQuery ? `/dead?q=${encodeURIComponent(trimmedQuery)}` : '/dead'
   const activeHref = trimmedQuery ? `/active?q=${encodeURIComponent(trimmedQuery)}` : '/active'
 
-  const recentUpdated = useMemo(() => {
-    return [...entities]
-      .sort((a, b) => {
-        if (a.last_verified_at !== b.last_verified_at) {
-          return a.last_verified_at < b.last_verified_at ? 1 : -1
-        }
-        return a.canonical_name.localeCompare(b.canonical_name)
-      })
-      .slice(0, 4)
-  }, [entities])
+  const recentUpdated = useMemo(() => [...entities]
+    .sort((a, b) => {
+      if (a.last_verified_at !== b.last_verified_at) {
+        return a.last_verified_at < b.last_verified_at ? 1 : -1
+      }
+      return a.canonical_name.localeCompare(b.canonical_name)
+    })
+    .slice(0, 4), [entities])
 
   const searchState = useMemo(() => {
     const q = trimmedQuery.toLowerCase()
-
     if (!q) {
       return {
         total: 0,
@@ -106,19 +103,13 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
       }
     }
 
-    const matches = entities.filter((entity) => {
-      const haystack = [
-        entity.canonical_name,
-        ...entity.aliases,
-        entity.official_domain_original ?? '',
-        entity.country_or_origin ?? '',
-        entity.summary,
-      ]
-        .join(' ')
-        .toLowerCase()
-
-      return haystack.includes(q)
-    })
+    const matches = entities.filter((entity) => [
+      entity.canonical_name,
+      ...entity.aliases,
+      entity.official_domain_original ?? '',
+      entity.country_or_origin ?? '',
+      entity.summary,
+    ].join(' ').toLowerCase().includes(q))
 
     const deadMatches = matches.filter((item) => DEAD_SIDE.has(item.status))
     const activeMatches = matches.filter((item) => ACTIVE_SIDE.has(item.status))
@@ -180,6 +171,7 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
         <div className="search">
           <input
             className="field"
+            aria-label="Search all exchange records"
             placeholder="Search by exchange name / alias / domain / origin"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
@@ -197,9 +189,7 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
             <span className="chip dead">{summary.deadSide} records</span>
             <span className="muted">dead / merged / acquired / rebranded</span>
           </div>
-          <div>
-            <Link className="btn btn-primary" href={deadHref}>Open Dead</Link>
-          </div>
+          <div><Link className="btn btn-primary" href={deadHref}>Open Dead</Link></div>
         </section>
 
         <section className="panel home-entry-card">
@@ -211,9 +201,7 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
             <span className="chip active">{summary.activeSide} records</span>
             <span className="muted">active / limited / inactive</span>
           </div>
-          <div>
-            <Link className="btn" href={activeHref}>Open Active</Link>
-          </div>
+          <div><Link className="btn" href={activeHref}>Open Active</Link></div>
         </section>
       </section>
 
@@ -221,11 +209,8 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
         <section className="panel home-preview-panel">
           <div className="home-section-copy">
             <h3>Search preview</h3>
-            <p>
-              {searchState.total} matches · {searchState.deadCount} dead-side · {searchState.activeCount} active-side
-            </p>
+            <p>{searchState.total} matches · {searchState.deadCount} dead-side · {searchState.activeCount} active-side</p>
           </div>
-
           <div className="home-preview-grid">
             <section className="home-preview-side">
               <div className="home-preview-side-head">
@@ -235,9 +220,7 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
                 </div>
                 <span className="chip dead">{searchState.deadCount}</span>
               </div>
-
               <PreviewList items={searchState.deadPreview} />
-
               <div className="home-preview-actions">
                 <Link className="btn btn-primary" href={deadHref}>Open dead results</Link>
               </div>
@@ -251,9 +234,7 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
                 </div>
                 <span className="chip active">{searchState.activeCount}</span>
               </div>
-
               <PreviewList items={searchState.activePreview} />
-
               <div className="home-preview-actions">
                 <Link className="btn" href={activeHref}>Open active results</Link>
               </div>
