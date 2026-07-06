@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "status": "fixed_for_explorer_v1_implementation",
+  "route": "/explore/",
+  "view_parameter": {
+    "key": "view",
+    "values": ["entities", "events"],
+    "default": "entities",
+    "always_serialize": true
+  },
+  "combination_semantics": {
+    "same_key_multiple_values": "or",
+    "different_keys": "and",
+    "repeated_parameter_encoding": true,
+    "deduplicate_repeated_values": true
+  },
+  "invalid_input": {
+    "unknown_parameter": "ignore",
+    "invalid_enum_value": "ignore_value",
+    "invalid_boolean_value": "ignore_parameter",
+    "invalid_date_value": "ignore_parameter",
+    "cross_view_parameter": "ignore",
+    "inverted_valid_range": "preserve_and_return_empty_results"
+  },
+  "text_search": {
+    "parameter": "q",
+    "normalization": ["unicode_nfkc", "trim", "collapse_whitespace", "lowercase_for_matching"],
+    "max_code_points": 160,
+    "overflow_behavior": "truncate",
+    "match": "case_insensitive_normalized_substring",
+    "entity_fields": ["canonical_name", "aliases", "slug", "summary", "country_or_origin"],
+    "event_fields": ["title", "description", "parent.canonical_name", "parent.aliases", "parent.slug", "parent.country_or_origin"]
+  },
+  "date_semantics": {
+    "accepted_input_formats": ["YYYY", "YYYY-MM-DD"],
+    "from_year_expansion": "YYYY-01-01",
+    "to_year_expansion": "YYYY-12-31",
+    "serialized_format": "YYYY-MM-DD",
+    "comparison": "inclusive",
+    "null_dates": "do_not_match_active_date_range"
+  },
+  "serialization": {
+    "encoding": "URLSearchParams",
+    "stable_parameter_order": ["view", "q", "view_filters_in_contract_order", "sort"],
+    "multi_value_order": "contract_enum_order_or_canonical_lexical_order",
+    "omit_empty_text": true,
+    "omit_default_sort": true,
+    "omit_invalid_values": true
+  },
+  "views": {
+    "entities": {
+      "default_sort": "name_asc",
+      "parameters": [
+        {"key": "q", "kind": "text", "cardinality": "single"},
+        {"key": "type", "kind": "enum", "cardinality": "multi", "values": ["cex", "dex", "hybrid"]},
+        {"key": "status", "kind": "enum", "cardinality": "multi", "values": ["active", "limited", "inactive", "dead", "merged", "acquired", "rebranded", "unknown"]},
+        {"key": "death_reason", "kind": "enum", "cardinality": "multi", "values": ["hack", "insolvency", "regulation", "scam_rug", "merger", "acquisition", "rebrand", "voluntary_shutdown", "chain_failure", "unknown"]},
+        {"key": "launch_from", "kind": "date", "cardinality": "single"},
+        {"key": "launch_to", "kind": "date", "cardinality": "single"},
+        {"key": "death_from", "kind": "date", "cardinality": "single"},
+        {"key": "death_to", "kind": "date", "cardinality": "single"},
+        {"key": "official_url_status", "kind": "enum", "cardinality": "multi", "values": ["live_verified", "live_unverified", "redirected", "repurposed", "dead_domain", "unsafe", "unknown"]},
+        {"key": "archive_available", "kind": "boolean", "cardinality": "single", "values": ["true", "false"]},
+        {"key": "confidence", "kind": "enum", "cardinality": "multi", "values": ["high", "medium", "low"]},
+        {"key": "country_or_origin", "kind": "reviewed_value", "cardinality": "multi", "matching": "case_insensitive_to_reviewed_canonical_value"},
+        {"key": "sort", "kind": "enum", "cardinality": "single", "values": ["name_asc", "name_desc", "launch_oldest", "launch_newest", "death_oldest", "death_newest", "last_verified_newest"]}
+      ],
+      "sort_semantics": {
+        "name_asc": ["canonical_name asc", "id asc"],
+        "name_desc": ["canonical_name desc", "id asc"],
+        "launch_oldest": ["launch_date known first asc", "canonical_name asc", "id asc"],
+        "launch_newest": ["launch_date known first desc", "canonical_name asc", "id asc"],
+        "death_oldest": ["death_date known first asc", "canonical_name asc", "id asc"],
+        "death_newest": ["death_date known first desc", "canonical_name asc", "id asc"],
+        "last_verified_newest": ["last_verified_at desc", "canonical_name asc", "id asc"]
+      }
+    },
+    "events": {
+      "default_sort": "date_newest",
+      "parameters": [
+        {"key": "q", "kind": "text", "cardinality": "single"},
+        {"key": "event_type", "kind": "enum", "cardinality": "multi", "values": ["launched", "rebranded", "acquired", "merged", "hack", "exploit", "withdrawal_suspended", "deposit_suspended", "trading_halted", "service_outage", "regulatory_action", "lawsuit", "bankruptcy_filed", "insolvency_declared", "shutdown_announced", "shutdown_effective", "reopened", "token_migration", "chain_shutdown_impact", "other"]},
+        {"key": "date_from", "kind": "date", "cardinality": "single"},
+        {"key": "date_to", "kind": "date", "cardinality": "single"},
+        {"key": "impact_level", "kind": "enum", "cardinality": "multi", "values": ["critical", "high", "medium", "low"]},
+        {"key": "event_status_effect", "kind": "enum", "cardinality": "multi", "values": ["dead", "inactive", "limited", "active", "none", "acquired", "merged", "rebranded", "unknown"]},
+        {"key": "confidence", "kind": "enum", "cardinality": "multi", "values": ["high", "medium", "low"]},
+        {"key": "entity_type", "kind": "enum", "cardinality": "multi", "values": ["cex", "dex", "hybrid"]},
+        {"key": "entity_status", "kind": "enum", "cardinality": "multi", "values": ["active", "limited", "inactive", "dead", "merged", "acquired", "rebranded", "unknown"]},
+        {"key": "sort", "kind": "enum", "cardinality": "single", "values": ["date_newest", "date_oldest", "entity_name_asc"]}
+      ],
+      "sort_semantics": {
+        "date_newest": ["event_date known first desc", "sort_order desc", "id asc"],
+        "date_oldest": ["event_date known first asc", "sort_order asc", "id asc"],
+        "entity_name_asc": ["parent canonical_name asc", "event_date known first desc", "id asc"]
+      }
+    }
+  },
+  "crawl_policy": {
+    "base_route_indexable": true,
+    "canonical_for_all_query_variants": "/explore/",
+    "query_variants_in_sitemap": false,
+    "generated_filter_landing_pages": false,
+    "robots_strategy": "base_static_page_index_follow_with_base_canonical"
+  },
+  "compatibility": {
+    "unknown_future_keys_on_old_parser": "ignore",
+    "parameter_rename_after_v1": "requires_spec_change_and_migration_plan",
+    "enum_value_change_after_v1": "requires_schema_and_query_contract_review",
+    "serialization_order_change_after_v1": "requires_compatibility_review"
+  }
+}
