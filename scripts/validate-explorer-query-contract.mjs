@@ -53,32 +53,25 @@ for (const viewName of contract.view_parameter.values) {
   assert(view, `missing view contract: ${viewName}`)
   assert(typeof view.default_sort === 'string' && view.default_sort.length > 0, `default sort missing: ${viewName}`)
   assert(Array.isArray(view.parameters) && view.parameters.length > 0, `parameters missing: ${viewName}`)
-
   const keys = view.parameters.map((parameter) => parameter.key)
   assert(new Set(keys).size === keys.length, `duplicate parameter key in ${viewName}`)
   assert(keys[0] === 'q', `q must be first view parameter in ${viewName}`)
   assert(keys[keys.length - 1] === 'sort', `sort must be last view parameter in ${viewName}`)
-
   for (const parameter of view.parameters) {
-    assert(['text', 'enum', 'date', 'boolean', 'reviewed_value'].includes(parameter.kind), `unsupported kind ${viewName}:${parameter.key}`)
-    assert(['single', 'multi'].includes(parameter.cardinality), `unsupported cardinality ${viewName}:${parameter.key}`)
-    if (parameter.cardinality === 'multi') {
-      assert(['enum', 'reviewed_value'].includes(parameter.kind), `multi cardinality only supported for enum/reviewed_value: ${viewName}:${parameter.key}`)
-    }
+    assert(['text','enum','date','boolean','reviewed_value'].includes(parameter.kind), `unsupported kind ${viewName}:${parameter.key}`)
+    assert(['single','multi'].includes(parameter.cardinality), `unsupported cardinality ${viewName}:${parameter.key}`)
+    if (parameter.cardinality === 'multi') assert(['enum','reviewed_value'].includes(parameter.kind), `multi cardinality only supported for enum/reviewed_value: ${viewName}:${parameter.key}`)
     if (parameter.kind === 'enum' || parameter.kind === 'boolean') {
       assert(Array.isArray(parameter.values) && parameter.values.length > 0, `values missing: ${viewName}:${parameter.key}`)
       assert(new Set(parameter.values).size === parameter.values.length, `duplicate values: ${viewName}:${parameter.key}`)
     }
   }
-
   const sort = view.parameters.find((parameter) => parameter.key === 'sort')
   assert(sort?.kind === 'enum', `sort must be enum: ${viewName}`)
   assert(sort?.cardinality === 'single', `sort must be single: ${viewName}`)
   assert(sort.values.includes(view.default_sort), `default sort not allowed: ${viewName}:${view.default_sort}`)
   assert(view.sort_semantics?.[view.default_sort], `default sort semantics missing: ${viewName}:${view.default_sort}`)
-  for (const value of sort.values) {
-    assert(Array.isArray(view.sort_semantics?.[value]) && view.sort_semantics[value].length > 0, `sort semantics missing: ${viewName}:${value}`)
-  }
+  for (const value of sort.values) assert(Array.isArray(view.sort_semantics?.[value]) && view.sort_semantics[value].length > 0, `sort semantics missing: ${viewName}:${value}`)
 }
 
 assert(contract.crawl_policy?.base_route_indexable === true, 'base Explorer route must be indexable')
@@ -86,22 +79,17 @@ assert(contract.crawl_policy?.canonical_for_all_query_variants === '/explore/', 
 assert(contract.crawl_policy?.query_variants_in_sitemap === false, 'query variants must stay out of sitemap')
 assert(contract.crawl_policy?.generated_filter_landing_pages === false, 'generated filter landing pages must remain disabled')
 
-assert(handoff.status === 'mapped_to_fixed_explorer_v1_query_contract', 'Stats handoff status not advanced to fixed contract')
+assert(handoff.status === 'deep_links_enabled_on_fixed_explorer_v1_contract', 'Stats handoff status is not enabled')
 assert(handoff.explorer_route === contract.route, 'Stats handoff route differs from query contract')
 assert(handoff.rules?.url_contract_finalized === true, 'Stats handoff must mark URL contract finalized')
-assert(handoff.rules?.stats_links_enabled === false, 'Stats links must remain disabled until Explorer views exist')
+assert(handoff.rules?.stats_links_enabled === true, 'Stats Explorer links must be enabled')
 assert(handoff.rules?.evidence_explorer_in_v1 === false, 'Evidence Explorer must remain outside v1')
 assert(handoff.rules?.reviewed_public_data_only === true, 'reviewed public data boundary missing')
 
-const keysByView = Object.fromEntries(
-  Object.entries(contract.views).map(([viewName, view]) => [viewName, new Set(view.parameters.map((parameter) => parameter.key))]),
-)
-
+const keysByView = Object.fromEntries(Object.entries(contract.views).map(([viewName, view]) => [viewName, new Set(view.parameters.map((parameter) => parameter.key))]))
 for (const dimension of handoff.dimensions) {
   if (dimension.destination_view === 'entities' || dimension.destination_view === 'events') {
-    for (const key of dimension.query_keys) {
-      assert(keysByView[dimension.destination_view].has(key), `Stats handoff query key absent from fixed contract: ${dimension.id}:${key}`)
-    }
+    for (const key of dimension.query_keys) assert(keysByView[dimension.destination_view].has(key), `Stats handoff query key absent from fixed contract: ${dimension.id}:${key}`)
   } else {
     assert(dimension.query_keys.length === 0, `non-Explorer destination exposes query keys: ${dimension.id}`)
   }
@@ -111,4 +99,4 @@ const evidenceDimension = handoff.dimensions.find((dimension) => dimension.id ==
 assert(evidenceDimension?.destination_view === 'deferred_evidence', 'Evidence dimensions must remain deferred')
 assert(evidenceDimension?.query_keys.length === 0, 'Evidence dimensions must expose no query keys')
 
-console.log(`Validated Explorer query contract v${contract.version}: ${contract.views.entities.parameters.length} entity parameters, ${contract.views.events.parameters.length} event parameters, ${handoff.dimensions.length} Stats mappings checked.`)
+console.log(`Validated Explorer query contract v${contract.version}: Stats deep links enabled across ${handoff.dimensions.length} mapped dimensions.`)
