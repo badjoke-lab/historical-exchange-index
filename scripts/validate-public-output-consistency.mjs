@@ -19,6 +19,15 @@ function percent(count, total) {
   return total > 0 ? Math.round((count / total) * 100) : 0
 }
 
+function pad(value) {
+  return String(value).padStart(2, '0')
+}
+
+function previousCompletedUtcMonth(now = new Date()) {
+  const previous = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - 1, 1))
+  return `${previous.getUTCFullYear()}-${pad(previous.getUTCMonth() + 1)}`
+}
+
 function readJson(relativePath) {
   const filePath = path.join(root, relativePath)
   assert(fs.existsSync(filePath), `missing ${relativePath}`)
@@ -84,28 +93,28 @@ const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'e
 const deadSideStatuses = new Set(['dead', 'merged', 'acquired', 'rebranded'])
 const activeSideStatuses = new Set(['active', 'limited', 'inactive'])
 const incidentEventTypes = new Set([
-  'hack',
-  'exploit',
-  'withdrawal_suspended',
-  'deposit_suspended',
-  'trading_halted',
-  'service_outage',
-  'regulatory_action',
-  'lawsuit',
-  'bankruptcy_filed',
-  'insolvency_declared',
-  'shutdown_announced',
-  'shutdown_effective',
+  'hack', 'exploit', 'withdrawal_suspended', 'deposit_suspended', 'trading_halted', 'service_outage',
+  'regulatory_action', 'lawsuit', 'bankruptcy_filed', 'insolvency_declared', 'shutdown_announced',
+  'shutdown_effective', 'chain_shutdown_impact',
+])
+const monthlyEventTypes = new Set([
+  'rebranded', 'acquired', 'merged', 'hack', 'exploit', 'withdrawal_suspended', 'deposit_suspended',
+  'trading_halted', 'service_outage', 'regulatory_action', 'lawsuit', 'bankruptcy_filed',
+  'insolvency_declared', 'shutdown_announced', 'shutdown_effective', 'reopened', 'token_migration',
   'chain_shutdown_impact',
 ])
 const evidenceCountsByExchange = new Map()
+const evidenceCountsByEvent = new Map()
 for (const item of evidence) {
   evidenceCountsByExchange.set(item.exchange_id, (evidenceCountsByExchange.get(item.exchange_id) ?? 0) + 1)
+  if (item.event_id) evidenceCountsByEvent.set(item.event_id, (evidenceCountsByEvent.get(item.event_id) ?? 0) + 1)
 }
 const archivedEntityCount = entities.filter((entity) => Boolean(entity.archived_url)).length
 const highConfidenceEntityCount = entities.filter((entity) => entity.confidence === 'high').length
 const highReliabilityEvidenceCount = evidence.filter((item) => item.reliability === 'high').length
 const zeroEvidenceEntityCount = entities.filter((entity) => (evidenceCountsByExchange.get(entity.id) ?? 0) === 0).length
+const monthlyMonth = previousCompletedUtcMonth()
+const monthlyEvents = events.filter((event) => Boolean(event.event_date?.startsWith(monthlyMonth)) && monthlyEventTypes.has(event.event_type))
 const expected = {
   total: entities.length,
   deadSide: entities.filter((entity) => deadSideStatuses.has(entity.status)).length,
@@ -117,6 +126,11 @@ const expected = {
   highConfidenceShare: percent(highConfidenceEntityCount, entities.length),
   highReliabilityEvidenceShare: percent(highReliabilityEvidenceCount, evidence.length),
   zeroEvidenceEntities: zeroEvidenceEntityCount,
+  monthlyMonth,
+  monthlyEvents: monthlyEvents.length,
+  monthlyAffectedExchanges: new Set(monthlyEvents.map((event) => event.exchange_id)).size,
+  monthlyCriticalOrHigh: monthlyEvents.filter((event) => event.impact_level === 'critical' || event.impact_level === 'high').length,
+  monthlyEventLinkedEvidence: monthlyEvents.reduce((sum, event) => sum + (evidenceCountsByEvent.get(event.id) ?? 0), 0),
 }
 
 assert(expected.deadSide + expected.activeSide === expected.total, 'active/dead-side counts do not cover all reviewed entities')
@@ -128,6 +142,7 @@ const stats = readOut(path.join('stats', 'index.html'))
 const quality = readOut(path.join('quality', 'index.html'))
 const updates = readOut(path.join('updates', 'index.html'))
 const incidents = readOut(path.join('incidents', 'index.html'))
+const monthly = readOut(path.join('monthly', 'index.html'))
 const firstEntity = entities[0]
 const detail = readOut(path.join('exchange', firstEntity.slug, 'index.html'))
 
@@ -152,6 +167,12 @@ assertTextCount(quality, 'Entities with 0 evidence', expected.zeroEvidenceEntiti
 assert(stripHtml(updates).includes('Registry Updates'), '/updates/ does not expose Registry Updates heading')
 assert(stripHtml(incidents).includes('Exchange Incident Timeline'), '/incidents/ does not expose Exchange Incident Timeline heading')
 assertTextCount(incidents, 'Timeline events', expected.incidents, '/incidents/')
+assert(stripHtml(monthly).includes('Monthly Historical Exchange Snapshot'), '/monthly/ does not expose Monthly Historical Exchange Snapshot heading')
+assert(stripHtml(monthly).includes(expected.monthlyMonth), `/monthly/ does not expose review month ${expected.monthlyMonth}`)
+assertTextCount(monthly, 'Recorded events', expected.monthlyEvents, '/monthly/')
+assertTextCount(monthly, 'Affected exchanges', expected.monthlyAffectedExchanges, '/monthly/')
+assertTextCount(monthly, 'Critical / high', expected.monthlyCriticalOrHigh, '/monthly/')
+assertTextCount(monthly, 'Event-linked evidence', expected.monthlyEventLinkedEvidence, '/monthly/')
 
 for (const [route, html, canonical] of [
   ['/', home, `${origin}/`],
@@ -161,6 +182,7 @@ for (const [route, html, canonical] of [
   ['/quality/', quality, `${origin}/quality/`],
   ['/updates/', updates, `${origin}/updates/`],
   ['/incidents/', incidents, `${origin}/incidents/`],
+  ['/monthly/', monthly, `${origin}/monthly/`],
   [`/exchange/${firstEntity.slug}/`, detail, `${origin}/exchange/${firstEntity.slug}/`],
 ]) {
   assertCanonical(html, canonical, route)
@@ -188,11 +210,13 @@ assert(version.data.record_count_breakdown.dead_side === expected.deadSide, 'ver
 assert(version.data.record_count_breakdown.active_side === expected.activeSide, 'version active-side mismatch')
 assert(version.routes.quality === '/quality/', 'version route map is missing quality')
 assert(version.routes.incidents === '/incidents/', 'version route map is missing incidents')
+assert(version.routes.monthly === '/monthly/', 'version route map is missing monthly')
 assert(manifest.record_counts.primary_records === expected.total, 'manifest entity count mismatch')
 assert(manifest.record_count_breakdown.dead_side === expected.deadSide, 'manifest dead-side mismatch')
 assert(manifest.record_count_breakdown.active_side === expected.activeSide, 'manifest active-side mismatch')
 assert(manifest.main_routes.includes('/quality/'), 'manifest main_routes is missing quality')
 assert(manifest.main_routes.includes('/incidents/'), 'manifest main_routes is missing incidents')
+assert(manifest.main_routes.includes('/monthly/'), 'manifest main_routes is missing monthly')
 assert(manifest.data_safety.canonical_only === true, 'manifest canonical_only must be true')
 assert(manifest.data_safety.includes_unreviewed_candidates === false, 'manifest must exclude unreviewed candidates')
 
@@ -234,10 +258,11 @@ for (const [label, count] of [
 
 const sitemap = readOut('sitemap.xml')
 const sitemapLocations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1])
-assert(sitemapLocations.length === entities.length + 10, `sitemap URL count mismatch: ${sitemapLocations.length}`)
+assert(sitemapLocations.length === entities.length + 11, `sitemap URL count mismatch: ${sitemapLocations.length}`)
 assert(sitemapLocations.includes(`${origin}/quality/`), 'sitemap is missing /quality/')
 assert(sitemapLocations.includes(`${origin}/updates/`), 'sitemap is missing /updates/')
 assert(sitemapLocations.includes(`${origin}/incidents/`), 'sitemap is missing /incidents/')
+assert(sitemapLocations.includes(`${origin}/monthly/`), 'sitemap is missing /monthly/')
 for (const entity of entities) {
   assert(sitemapLocations.includes(`${origin}/exchange/${entity.slug}/`), `sitemap missing ${entity.slug}`)
 }
@@ -263,4 +288,4 @@ for (const obsoleteDir of ['all', 'registry', 'exchanges']) {
   assert(!fs.existsSync(path.join(outDir, obsoleteDir, 'index.html')), `obsolete route output still exists: /${obsoleteDir}/`)
 }
 
-console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence, ${expected.incidents} incident timeline events, quality summary checked.`)
+console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence, ${expected.incidents} incident timeline events, ${expected.monthlyEvents} monthly snapshot events, quality summary checked.`)
