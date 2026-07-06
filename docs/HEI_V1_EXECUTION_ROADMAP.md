@@ -15,8 +15,9 @@ Before implementation work, read in this order:
 2. `docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md`;
 3. `config/cloudflare-pages-project.json`;
 4. this roadmap;
-5. `docs/HEI_PRODUCT_SURFACES_SPEC.md` for public product-surface work;
-6. the task-specific schema, monitoring, record-growth, machine-readable, localization, audit, or feed-contract document.
+5. `docs/HEI_PRODUCT_SURFACES_SPEC.md`;
+6. `docs/HEI_STATS_EXPLORER_HANDOFF.md` for Explorer work;
+7. the task-specific schema, monitoring, record-growth, machine-readable, localization, audit, or feed-contract document.
 
 Every implementation PR must identify:
 
@@ -37,20 +38,20 @@ Every implementation PR must identify:
 - Raw monitoring findings remain internal unless reviewed into a safe public form.
 - Public product features must query reviewed public data only.
 - Do not introduce risk scores, free-form AI truth claims, or unreviewed candidate exposure.
+- Explorer filters and URL state must be deterministic and tested.
 - Update this checkpoint when counts, phase state, active item, or execution order materially changes.
 
 ## 3. Current checkpoint
 
 ```text
-Last merged implementation PR: #542 Add sitemap and canonical route-set audit
-Current PR: #543 Add public navigation and surface discovery audit
-Current phase: Phase E — Discovery foundation hardening
-Completed after current PR merges: E-1 Internal links / E-2 SEO metadata / E-3 Sitemap / E-4 Navigation discovery
-Current item after current PR merges: E-5 Stats readiness for Explorer deep links
-Next phase after E-5: Phase E.5 — Explorer v1
-Next item after E-5: E5-1 Explorer implementation specification and query contract
-Cloudflare configuration changes required for E-5: none expected
-Production verification: required when public routes, feeds, metadata output, navigation, or deployment-sensitive behavior changes
+Last merged implementation PR: #543 Add public navigation and surface discovery audit
+Current PR: #544 Map Stats dimensions to Explorer filter semantics
+Completed after current PR merges: Phase E — Discovery foundation hardening
+Current phase after current PR merges: Phase E.5 — Explorer v1
+Current item after current PR merges: E5-1 Explorer implementation specification and query contract
+Next item after E5-1: E5-2 Entity Explorer
+Cloudflare configuration changes required for E5-1: none expected
+Production verification: not required for specification-only E5-1 unless public output changes
 ```
 
 ## 4. Current reviewed state
@@ -64,7 +65,7 @@ Maximum event ID:    hei_ev_010080
 Maximum evidence ID: hei_src_011312
 ```
 
-Phase D and Phase E discovery audits do not change canonical entity, event, or evidence counts unless a separate reviewed data PR explicitly does so.
+Phase E and the initial Explorer specification phase do not change canonical counts unless a separate reviewed data PR explicitly does so.
 
 ## 5. Completed foundation
 
@@ -88,8 +89,6 @@ Audit source of truth:
 docs/audits/HEI_PHASE_C_MILESTONE_AUDIT_2026-07-05.md
 ```
 
-Remaining quality queues continue through reviewed repair batches and do not reopen count-driven growth as the primary milestone.
-
 ### 5.2 Current public foundation
 
 Implemented:
@@ -102,19 +101,16 @@ Implemented:
 - `/incidents/` Exchange Incident Timeline;
 - `/quality/` Evidence Health and Data Quality public summary;
 - `/monthly/` Monthly Historical Exchange Snapshot;
-- `/feeds/updates.json` JSON Feed 1.1;
-- `/feeds/updates.xml` RSS 2.0;
+- reviewed JSON Feed and RSS update feeds;
 - reviewed entity/event/evidence JSON publication;
 - machine-readable version and manifest layer;
-- public-output consistency validation;
-- generated-output internal-link audit;
-- generated-output SEO metadata audit;
-- exact sitemap/canonical route-set audit;
-- public navigation/discovery contract and audit after E-4 merge.
+- internal-link audit;
+- metadata audit;
+- sitemap/canonical route-set audit;
+- navigation/discovery audit;
+- Stats-to-Explorer semantic handoff after E-5 merge.
 
 ## 6. Execution model
-
-HEI proceeds through four coordinated lanes.
 
 ### Lane A — Data and quality
 
@@ -127,14 +123,14 @@ medium/low quality repair batches
 archive and evidence improvements
 ```
 
-This lane continues throughout the schedule. It must not displace the active product phase unless unresolved data-contract issues block it.
+This lane continues throughout the schedule and must not displace the active product phase.
 
 ### Lane B — Product surfaces
 
 ```text
 Phase D Change layer completion          COMPLETE
-Phase E Discovery foundation hardening  ACTIVE
-Phase E.5 Explorer v1
+Phase E Discovery foundation hardening  COMPLETE AFTER CURRENT PR MERGE
+Phase E.5 Explorer v1                    ACTIVE AFTER CURRENT PR MERGE
 Phase F Multilingual layer
 Phase G v1.0 integration
 Post-v1.0 Compare evaluation
@@ -161,115 +157,66 @@ schema stability
 version and manifest integrity
 machine-readable public layer
 reviewed update feeds
-conditional API expansion only if consumer need is demonstrated
+Explorer query contract
+conditional API expansion only if real consumer need is demonstrated
 ```
-
-A new API phase does not precede Explorer.
 
 ## 7. Phase D — Change layer completion
 
 Status: **COMPLETE** after PR #538.
 
 ```text
-D-1 HEI Registry Update surface                         COMPLETE
-D-2 Exchange Incident Timeline                         COMPLETE
-D-3 Evidence Health and Data Quality public summary   COMPLETE
-D-4 Monthly Historical Exchange Snapshot              COMPLETE
-D-5 RSS and JSON feeds for reviewed public updates    COMPLETE
-D-6 Quality repair batches                             PARALLEL CONTINUOUS LANE
+D-1 Registry Update surface                         COMPLETE
+D-2 Exchange Incident Timeline                     COMPLETE
+D-3 Evidence Health and Data Quality summary       COMPLETE
+D-4 Monthly Historical Exchange Snapshot           COMPLETE
+D-5 RSS and JSON reviewed-update feeds             COMPLETE
+D-6 Quality repair batches                         PARALLEL CONTINUOUS LANE
 ```
 
-Key completed outputs:
+Public Change-layer safety remains fixed:
 
-- `/updates/` reviewed public changelog;
-- `/incidents/` reviewed incident timeline;
-- `/quality/` public aggregate evidence/data-quality summary;
-- `/monthly/` reviewed monthly historical snapshot;
-- reviewed-only JSON Feed and RSS output;
-- fixed feed contract in `docs/HEI_REVIEWED_UPDATE_FEEDS_SPEC.md`;
-- raw monitoring output and unreviewed candidates excluded from public Change-layer outputs.
+- reviewed public data only;
+- raw monitoring output excluded;
+- unmerged candidates excluded;
+- history-first interpretation preserved;
+- HEI does not become a general breaking-news site.
 
 ## 8. Phase E — Discovery foundation hardening
 
-Purpose: prepare navigation, metadata, route consistency, and Stats/query semantics before Explorer v1.
-
-Stats already exists. Phase E is not a Stats implementation phase.
-
-Execution order:
+Status: **COMPLETE AFTER CURRENT PR MERGE**.
 
 ```text
 E-1 Internal-link audit and repair                    COMPLETE
 E-2 SEO and metadata consistency audit               COMPLETE
 E-3 Sitemap and canonical-route consistency          COMPLETE
-E-4 Public route discovery and cross-surface navigation audit   COMPLETE AFTER CURRENT PR MERGE
-E-5 Stats readiness for Explorer deep links          NEXT
+E-4 Public route discovery/navigation audit          COMPLETE
+E-5 Stats readiness for Explorer deep links          COMPLETE AFTER CURRENT PR MERGE
 ```
 
-### E-1 Internal-link audit and repair
-
-Implementation:
-
-- scan generated HTML output;
-- resolve internal route and static-output links;
-- validate same-page and cross-page fragment IDs;
-- ignore external origins and non-navigation schemes;
-- run self-test and generated-output audit under `public:validate`.
-
-Completion result:
+### E-1 completion
 
 ```text
-reusable internal-link audit: present
+internal-link audit: present
 self-test: pass
 generated-output audit: pass
-broken internal route targets: 0
-checked fragment failures: 0
-repairs required from initial audit: 0
+broken internal routes: 0
+fragment failures: 0
 ```
 
-### E-2 SEO and metadata consistency audit
-
-Implementation:
-
-- validate title and description presence;
-- validate canonical presence, exact route ownership, and uniqueness;
-- validate Open Graph and Twitter metadata;
-- validate Updates JSON Feed/RSS alternates;
-- normalize equivalent trailing-slash route forms where appropriate;
-- exclude 404 and ownership-verification HTML from normal public-page contracts;
-- add route-specific social metadata for Stats, Quality, Updates, Incidents, Monthly, Methodology, About, and Donate;
-- emit machine-readable diagnostics artifact.
-
-Completion result:
+### E-2 completion
 
 ```text
 audited public pages: 561
 metadata findings: 0
-missing page titles: 0
-missing page descriptions: 0
+missing titles/descriptions: 0
 missing or duplicate canonicals: 0
 canonical route mismatches: 0
-critical Open Graph metadata gaps: 0
+critical OG metadata gaps: 0
 Updates feed alternate mismatches: 0
 ```
 
-### E-3 Sitemap and canonical-route consistency
-
-Implementation:
-
-- exact sitemap set comparison rather than count-only validation;
-- expected set = 11 static public routes + every reviewed public exchange route;
-- parse reviewed public entity output for expected exchange slugs;
-- verify duplicate sitemap URLs = 0;
-- verify all sitemap URLs resolve to generated HTML output;
-- verify each sitemap target has one canonical URL;
-- verify canonical URL exactly matches the sitemap URL;
-- verify non-root sitemap page URLs use the trailing-slash policy;
-- verify JSON/RSS feed endpoints stay outside the page sitemap;
-- verify obsolete `/all`, `/registry`, and `/exchanges` route families are absent;
-- verify their redirect contracts remain present and use `/ 301` targets;
-- run auditor self-test and real generated-output audit under `public:validate`.
-
-Completion result:
+### E-3 completion
 
 ```text
 expected sitemap URLs: 561
@@ -277,34 +224,15 @@ static routes: 11
 exchange routes: 550
 exact route-set comparison: pass
 duplicate sitemap URLs: 0
-missing reviewed exchange routes: 0
-unexpected sitemap routes: 0
-missing generated route outputs: 0
+missing/unexpected routes: 0
 canonical/sitemap mismatches: 0
 trailing-slash mismatches: 0
 feed URLs in page sitemap: 0
 obsolete routes in sitemap: 0
 obsolete redirect contract: pass
-repairs required from initial audit: 0
 ```
 
-### E-4 Public route discovery and cross-surface navigation audit
-
-Implementation:
-
-- define public surface layers in `config/public-navigation-surfaces.json`;
-- classify Registry, Analysis, Change, Trust, and Support routes;
-- preserve a nine-route global header instead of adding every surface;
-- keep Quality and Monthly discoverable through footer and contextual navigation rather than header expansion;
-- define and validate exact header and footer route sets;
-- add reusable RelatedSurfaceLinks component;
-- add Stats → Quality contextual navigation;
-- add Updates → Incidents / Monthly contextual navigation;
-- add Incidents → Monthly contextual navigation;
-- validate existing reverse edges Quality → Stats, Incidents → Updates, Monthly → Incidents / Updates;
-- build a generated-output reachability graph;
-- detect missing surface outputs, missing contextual edges, unreachable surfaces, and orphan surfaces;
-- run self-test and generated-output navigation audit under `public:validate`.
+### E-4 completion
 
 Navigation contract:
 
@@ -323,99 +251,223 @@ core surfaces: 11
 header internal routes: 9
 footer internal routes: 7
 required contextual edges: 8
-all configured surface outputs: present
-header exact route set: pass
-footer exact route set: pass
-header route limit: pass
-contextual edges: pass
 reachable core surfaces: 11 / 11
 orphan public surfaces: 0
-navigation audit findings: 0
+navigation findings: 0
 ```
 
-Completion gate:
+### E-5 completion
+
+Source files:
 
 ```text
-core surface discovery paths documented          pass
-all core surfaces reachable from entry points    pass
-no orphan public surface                         pass
-header/footer hierarchy reviewed                 pass
-cross-surface contextual links verified          pass
+config/stats-explorer-deep-link-map.json
+docs/HEI_STATS_EXPLORER_HANDOFF.md
+scripts/validate-stats-explorer-handoff.mjs
 ```
 
-### E-5 Stats readiness for Explorer deep links
-
-Work:
-
-- map Stats dimensions to future Explorer filter semantics;
-- identify which Stats blocks will receive deep links;
-- identify display-label versus canonical enum/query-value mismatches;
-- define entity-view versus event-view mappings;
-- distinguish directly filterable dimensions from derived/non-filter dimensions;
-- define the handoff boundary: E-5 maps semantics, E5-1 fixes the final Explorer URL/query contract;
-- produce the handoff required by E5-1 Explorer query-contract work;
-- add machine-readable mapping and validation where practical.
-
-Completion gate:
+E-5 mapping classes:
 
 ```text
-Stats dimensions mapped
-future query keys identified
-enum/query value mapping documented
-entity/event destination mode documented
-derived/non-filter metrics marked explicitly
-E5-1 handoff ready
+direct
+range_candidate
+compound_candidate
+derived_non_filter
+aggregate_non_filter
+deferred
+```
+
+Direct Entity candidates:
+
+```text
+status
+type
+death_reason
+official_url_status
+confidence
+country_or_origin
+```
+
+Direct Event candidates:
+
+```text
+event_type
+impact_level
+event_status_effect
+```
+
+Range candidates:
+
+```text
+launch year -> launch_from / launch_to
+death year -> death_from / death_to
+```
+
+Explicit non-filter/deferred categories include:
+
+```text
+age bands
+evidence depth
+review freshness
+missing-field metrics
+averages
+snapshot growth
+Evidence Explorer dimensions
+```
+
+Completion result:
+
+```text
+semantic dimensions: 23
+Stats paths mapped exactly once: 40
+Stats dimensions mapped: pass
+future query keys identified: pass
+canonical value sources identified: pass
+direct/compound/range separation: pass
+derived/non-filter metrics explicit: pass
+Evidence Explorer dimensions deferred: pass
+query keys constrained to Product Spec candidate sets: pass
+reviewed-data direct source validation: pass
+Stats deep links remain disabled before Explorer: pass
+URL contract remains unfinalized before E5-1: pass
 ```
 
 Phase E completion gate:
 
 ```text
-core public routes discoverable
-internal links valid
-canonical metadata coherent
-sitemap aligned with intended public routes
-Stats dimensions mapped to planned Explorer query semantics
+core public routes discoverable                         pass
+internal links valid                                   pass
+canonical metadata coherent                            pass
+sitemap aligned with intended public routes            pass
+Stats dimensions mapped to Explorer semantics          pass
 ```
 
 ## 9. Phase E.5 — Explorer v1
 
-Product source of truth:
+Product sources of truth:
 
 ```text
 docs/HEI_PRODUCT_SURFACES_SPEC.md
+docs/HEI_STATS_EXPLORER_HANDOFF.md
+config/stats-explorer-deep-link-map.json
 ```
 
-Explorer v1 includes:
+Execution order:
 
 ```text
-Entity Explorer
-Event Explorer
-shareable URL query state
-Stats -> Explorer deep links
-Timeline / Updates -> Explorer cross-links where useful
-```
-
-Explorer v1 excludes:
-
-```text
-Evidence Explorer
-risk scores
-free-form Ask HEI
-AI-generated classifications
-Natural Language Filter Translator
-Compare view
-```
-
-Recommended implementation order:
-
-```text
-E5-1 Explorer implementation specification and query contract
+E5-1 Explorer implementation specification and query contract   NEXT
 E5-2 Entity Explorer
 E5-3 Event Explorer
 E5-4 Stats -> Explorer deep links
 E5-5 Timeline / Updates -> Explorer cross-links
 E5-6 accessibility, URL-state, crawl-control, and regression audit
 ```
+
+### E5-1 Explorer implementation specification and query contract
+
+Purpose:
+
+- convert the E-5 semantic handoff into a fixed implementation contract;
+- define deterministic URL parsing and serialization before UI implementation;
+- prevent Entity and Event Explorer from developing incompatible query semantics.
+
+Required decisions:
+
+```text
+route: /explore/
+view semantics: entities | events
+parameter allowlists
+single-value vs multi-value semantics
+date parsing and year-bar boundary conversion
+unknown-value behavior
+search field scope
+sort options and defaults
+stable serialization order
+empty/default parameter omission
+malformed parameter fallback
+canonical URL policy
+robots/indexing policy for query combinations
+backward-compatibility/change-control rule
+```
+
+E5-1 must not:
+
+- build the full Explorer UI;
+- enable Stats deep links;
+- introduce Evidence Explorer;
+- introduce AI-generated filtering or labels;
+- expose monitoring candidates.
+
+Completion gate:
+
+```text
+query parameter schema fixed
+parser/serializer behavior documented
+multi-value semantics fixed
+date semantics fixed
+sort defaults fixed
+malformed input behavior fixed
+search scope fixed
+canonical/robots policy fixed
+contract validator/tests present
+E5-2 implementation handoff ready
+```
+
+### E5-2 Entity Explorer
+
+Implements deterministic entity filtering over reviewed public entity data.
+
+Candidate filter set from Product Spec:
+
+```text
+q
+type
+status
+death_reason
+launch_from
+launch_to
+death_from
+death_to
+official_url_status
+archive_available
+confidence
+country_or_origin
+sort
+```
+
+### E5-3 Event Explorer
+
+Implements deterministic event filtering over reviewed public event data with parent exchange context.
+
+Candidate filter set:
+
+```text
+q
+event_type
+date_from
+date_to
+impact_level
+event_status_effect
+confidence
+entity_type
+entity_status
+sort
+```
+
+### E5-4 Stats -> Explorer deep links
+
+Only after E5-1 through E5-3 are stable:
+
+- enable direct mappings;
+- implement reviewed range conversions;
+- enable compound links only where the contract supports them;
+- keep derived/non-filter metrics unlinked unless explicitly specified.
+
+### E5-5 Timeline / Updates -> Explorer cross-links
+
+Add reviewed public query links where the fixed query contract can represent the subset safely.
+
+### E5-6 Explorer audit
 
 Completion gate:
 
@@ -480,80 +532,40 @@ v1.0 baseline recorded
 Phase H   Compare v1
 Phase I   Discovery Log trial
 Phase J   Natural Language Filter Translator only if Explorer usage justifies it
-Phase K   API expansion only if consumer need is demonstrated
+Phase K   API expansion only if real consumer demand justifies it
 ```
 
-### H — Compare v1
+No synthetic risk score is allowed. Free-form Ask HEI remains outside the active roadmap.
 
-Compare follows Explorer and v1.0. It may compare reviewed facts such as type, launch date, terminal date, status, death reason, lifespan, major events, evidence count, archive status, origin, and confidence.
-
-No synthetic risk score is allowed.
-
-### I — Discovery Log trial
-
-A reviewed Discovery Log may summarize promotions, pending-thin outcomes, duplicates, and out-of-scope decisions without exposing private research notes or raw monitoring data.
-
-### J — Natural Language Filter Translator
-
-Conditional only. Its role is limited to translating user language into validated Explorer parameters. Deterministic Explorer results remain authoritative.
-
-Free-form AI classification of exchange history is not part of the plan.
-
-### K — API expansion
-
-Conditional only. Do not add API endpoints merely for appearance. Stable JSON, schema behavior, manifests, feeds, and Explorer contracts come first.
-
-## 13. Indefinite backlog and rejected active priorities
-
-### Indefinite backlog
+## 13. Immediate schedule
 
 ```text
-Public Comments
-```
-
-Comments remain deferred because moderation, spam, source disputes, legal risk, and community-management cost do not justify displacement of core registry work.
-
-### Not part of the active roadmap
-
-```text
-Risk Score
-AI Summary vs Human Summary
-free-form Ask HEI
-raw monitoring publication
-general crypto breaking-news operation
-Weekly Exchange Watch as a scheduled product phase
-```
-
-## 14. Immediate schedule from the current checkpoint
-
-```text
-1. E-5 Stats readiness for Explorer deep links
-2. Phase E.5 / E5-1 Explorer query contract
-3. E5-2 Entity Explorer
-4. E5-3 Event Explorer
-5. E5-4 Stats -> Explorer deep links
-6. E5-5 Timeline / Updates -> Explorer cross-links
-7. E5-6 accessibility, URL-state, crawl-control, and regression audit
-8. Phase F bilingual layer
-9. Phase G v1.0 integration baseline
-10. Post-v1.0 evaluation sequence
+1. E5-1 Explorer query contract
+2. E5-2 Entity Explorer
+3. E5-3 Event Explorer
+4. E5-4 Stats -> Explorer deep links
+5. E5-5 Timeline / Updates -> Explorer cross-links
+6. E5-6 Explorer accessibility, URL-state, crawl-control, and regression audit
+7. Phase F bilingual layer
+8. Phase G v1.0 integration baseline
+9. Post-v1.0 evaluation sequence
 ```
 
 Lane A quality repair and reviewed record growth continue in parallel without replacing the main product sequence.
 
 GitHub-side work can continue without Cloudflare access unless a task specifically requires deployment configuration or production verification.
 
-## 15. Recovery procedure
+## 14. Recovery procedure
 
 When resuming HEI work:
 
-1. Confirm current `main`, open PRs, and actual reviewed counts.
+1. Confirm current `main`, open PRs, and reviewed counts.
 2. Read `AGENTS.md` and the Cloudflare deployment policy.
 3. Read this roadmap.
-4. Read `docs/HEI_PRODUCT_SURFACES_SPEC.md` for public product-surface work.
-5. Read the task-specific schema, monitoring, machine-readable, localization, or audit document.
+4. For Explorer work, read `docs/HEI_PRODUCT_SURFACES_SPEC.md`.
+5. Read `docs/HEI_STATS_EXPLORER_HANDOFF.md` and the machine-readable mapping.
 6. Resume the first incomplete item in the active phase.
-7. In the PR body, cite the roadmap item and relevant specification section.
-8. Update this checkpoint whenever counts, phase, active item, or execution order materially changes.
+7. Cite roadmap/specification sections in the PR body.
+8. Update this checkpoint when counts, phase, active item, or execution order materially changes.
 
 Do not use remembered chat history as the execution source of truth when repository documents and current GitHub state can be inspected directly.

@@ -1,0 +1,200 @@
+{
+  "version": 1,
+  "status": "handoff_for_e5_1_query_contract",
+  "explorer_route": "/explore/",
+  "rules": {
+    "url_contract_finalized": false,
+    "stats_links_enabled": false,
+    "evidence_explorer_in_v1": false,
+    "reviewed_public_data_only": true
+  },
+  "dimensions": [
+    {
+      "id": "entity_status",
+      "stats_paths": ["snapshot.by_status", "snapshot.active_analysis.status_breakdown", "snapshot.dead_analysis.status_breakdown"],
+      "destination_view": "entities",
+      "mapping_kind": "direct",
+      "query_keys": ["status"],
+      "value_source": "entity.status"
+    },
+    {
+      "id": "entity_type",
+      "stats_paths": ["snapshot.by_type", "snapshot.active_analysis.type_breakdown"],
+      "destination_view": "entities",
+      "mapping_kind": "direct",
+      "query_keys": ["type"],
+      "value_source": "entity.type"
+    },
+    {
+      "id": "entity_death_reason",
+      "stats_paths": ["snapshot.dead_reason", "snapshot.dead_analysis.death_reason_breakdown"],
+      "destination_view": "entities",
+      "mapping_kind": "direct",
+      "query_keys": ["death_reason"],
+      "value_source": "entity.death_reason"
+    },
+    {
+      "id": "entity_launch_year",
+      "stats_paths": ["snapshot.active_analysis.launch_year_histogram", "history.launch_year_counts"],
+      "destination_view": "entities",
+      "mapping_kind": "range_candidate",
+      "query_keys": ["launch_from", "launch_to"],
+      "value_source": "entity.launch_date"
+    },
+    {
+      "id": "entity_death_year",
+      "stats_paths": ["snapshot.dead_analysis.death_year_histogram", "history.death_year_counts"],
+      "destination_view": "entities",
+      "mapping_kind": "range_candidate",
+      "query_keys": ["death_from", "death_to"],
+      "value_source": "entity.death_date"
+    },
+    {
+      "id": "entity_url_status",
+      "stats_paths": ["snapshot.active_analysis.url_status_breakdown", "snapshot.coverage.url_status_breakdown"],
+      "destination_view": "entities",
+      "mapping_kind": "direct",
+      "query_keys": ["official_url_status"],
+      "value_source": "entity.official_url_status"
+    },
+    {
+      "id": "entity_confidence",
+      "stats_paths": ["snapshot.active_analysis.confidence_breakdown", "snapshot.quality.confidence_breakdown"],
+      "destination_view": "entities",
+      "mapping_kind": "direct",
+      "query_keys": ["confidence"],
+      "value_source": "entity.confidence"
+    },
+    {
+      "id": "entity_archive_coverage",
+      "stats_paths": ["snapshot.coverage.archive"],
+      "destination_view": "entities",
+      "mapping_kind": "compound_candidate",
+      "query_keys": ["archive_available", "status"],
+      "value_source": "entity.archived_url",
+      "note": "Overall archive coverage can map directly to archive_available. Active/dead-side rows require E5-1 to define group or multi-status semantics."
+    },
+    {
+      "id": "entity_country_or_origin_strict",
+      "stats_paths": ["snapshot.country_origin.strict_countries"],
+      "destination_view": "entities",
+      "mapping_kind": "direct",
+      "query_keys": ["country_or_origin"],
+      "value_source": "entity.country_or_origin"
+    },
+    {
+      "id": "entity_origin_bucket",
+      "stats_paths": ["snapshot.country_origin.origin_buckets"],
+      "destination_view": "entities",
+      "mapping_kind": "derived_non_filter",
+      "query_keys": [],
+      "value_source": "derived.classify_origin",
+      "note": "Bucket labels such as ecosystem or region-level are derived groups, not exact canonical field values."
+    },
+    {
+      "id": "entity_origin_status_matrix",
+      "stats_paths": ["snapshot.country_origin.status_rows"],
+      "destination_view": "entities",
+      "mapping_kind": "compound_candidate",
+      "query_keys": ["country_or_origin", "status"],
+      "value_source": "entity.country_or_origin + entity.status"
+    },
+    {
+      "id": "entity_origin_type_matrix",
+      "stats_paths": ["snapshot.country_origin.type_rows"],
+      "destination_view": "entities",
+      "mapping_kind": "compound_candidate",
+      "query_keys": ["country_or_origin", "type"],
+      "value_source": "entity.country_or_origin + entity.type"
+    },
+    {
+      "id": "event_type",
+      "stats_paths": ["snapshot.events.event_type_breakdown"],
+      "destination_view": "events",
+      "mapping_kind": "direct",
+      "query_keys": ["event_type"],
+      "value_source": "event.event_type"
+    },
+    {
+      "id": "event_impact_level",
+      "stats_paths": ["snapshot.events.impact_level_breakdown"],
+      "destination_view": "events",
+      "mapping_kind": "direct",
+      "query_keys": ["impact_level"],
+      "value_source": "event.impact_level"
+    },
+    {
+      "id": "event_status_effect",
+      "stats_paths": ["snapshot.events.status_effect_breakdown"],
+      "destination_view": "events",
+      "mapping_kind": "direct",
+      "query_keys": ["event_status_effect"],
+      "value_source": "event.event_status_effect"
+    },
+    {
+      "id": "entity_age_bands",
+      "stats_paths": ["snapshot.active_analysis.age_bands"],
+      "destination_view": "entities",
+      "mapping_kind": "derived_non_filter",
+      "query_keys": [],
+      "value_source": "derived.current_year_minus_launch_year"
+    },
+    {
+      "id": "entity_evidence_depth",
+      "stats_paths": ["snapshot.active_analysis.evidence_depth", "snapshot.dead_analysis.evidence_depth", "snapshot.completeness"],
+      "destination_view": "entities",
+      "mapping_kind": "derived_non_filter",
+      "query_keys": [],
+      "value_source": "derived.evidence_count_by_entity"
+    },
+    {
+      "id": "entity_review_freshness",
+      "stats_paths": ["snapshot.active_analysis.last_verified_recency", "snapshot.quality.last_verified_recency"],
+      "destination_view": "entities",
+      "mapping_kind": "derived_non_filter",
+      "query_keys": [],
+      "value_source": "derived.now_minus_entity.last_verified_at"
+    },
+    {
+      "id": "entity_quality_missing_fields",
+      "stats_paths": ["snapshot.quality.unknown_field_rates", "snapshot.coverage.date_known", "snapshot.country_origin.completeness"],
+      "destination_view": "entities",
+      "mapping_kind": "derived_non_filter",
+      "query_keys": [],
+      "value_source": "derived.field_presence_metrics"
+    },
+    {
+      "id": "event_averages",
+      "stats_paths": ["snapshot.events.averages"],
+      "destination_view": "events",
+      "mapping_kind": "aggregate_non_filter",
+      "query_keys": [],
+      "value_source": "derived.event_count_averages"
+    },
+    {
+      "id": "evidence_dimensions",
+      "stats_paths": ["snapshot.evidence.source_type_breakdown", "snapshot.evidence.reliability_breakdown", "snapshot.evidence.claim_scope_breakdown", "snapshot.evidence.averages"],
+      "destination_view": "deferred_evidence",
+      "mapping_kind": "deferred",
+      "query_keys": [],
+      "value_source": "evidence.*",
+      "note": "Evidence Explorer is outside Explorer v1."
+    },
+    {
+      "id": "snapshot_growth",
+      "stats_paths": ["history.snapshots"],
+      "destination_view": "none",
+      "mapping_kind": "aggregate_non_filter",
+      "query_keys": [],
+      "value_source": "stats_history.snapshots"
+    },
+    {
+      "id": "dead_archive_and_lifespan_aggregates",
+      "stats_paths": ["snapshot.dead_analysis.archive_coverage", "snapshot.dead_analysis.average_lifespan_years"],
+      "destination_view": "entities",
+      "mapping_kind": "aggregate_non_filter",
+      "query_keys": [],
+      "value_source": "derived.dead_side_aggregates"
+    }
+  ]
+}
