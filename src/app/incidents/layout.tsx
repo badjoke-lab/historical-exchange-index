@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import RelatedSurfaceLinks from '../../components/navigation/related-surface-links'
 import { buildRouteSocialMetadata } from '../../lib/metadata/build-route-social-metadata'
 
 export const metadata = buildRouteSocialMetadata({
@@ -8,5 +9,10 @@ export const metadata = buildRouteSocialMetadata({
 })
 
 export default function IncidentsLayout({ children }: { children: ReactNode }) {
-  return children
+  return (
+    <>
+      <RelatedSurfaceLinks links={[{ href: '/monthly', label: 'Monthly Snapshot' }]} />
+      {children}
+    </>
+  )
 }

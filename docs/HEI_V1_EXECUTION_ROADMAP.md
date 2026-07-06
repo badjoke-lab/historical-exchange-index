@@ -42,14 +42,15 @@ Every implementation PR must identify:
 ## 3. Current checkpoint
 
 ```text
-Last merged implementation PR: #541 Add generated-output SEO metadata audit
-Current PR: #542 Add sitemap and canonical route-set audit
+Last merged implementation PR: #542 Add sitemap and canonical route-set audit
+Current PR: #543 Add public navigation and surface discovery audit
 Current phase: Phase E — Discovery foundation hardening
-Completed after current PR merges: E-1 Internal links / E-2 SEO metadata / E-3 Sitemap consistency
-Current item after current PR merges: E-4 Public route discovery and cross-surface navigation audit
-Next item after E-4: E-5 Stats readiness for Explorer deep links
-Cloudflare configuration changes required for E-4: none expected
-Production verification: required when public routes, feeds, metadata output, or deployment-sensitive behavior changes
+Completed after current PR merges: E-1 Internal links / E-2 SEO metadata / E-3 Sitemap / E-4 Navigation discovery
+Current item after current PR merges: E-5 Stats readiness for Explorer deep links
+Next phase after E-5: Phase E.5 — Explorer v1
+Next item after E-5: E5-1 Explorer implementation specification and query contract
+Cloudflare configuration changes required for E-5: none expected
+Production verification: required when public routes, feeds, metadata output, navigation, or deployment-sensitive behavior changes
 ```
 
 ## 4. Current reviewed state
@@ -108,7 +109,8 @@ Implemented:
 - public-output consistency validation;
 - generated-output internal-link audit;
 - generated-output SEO metadata audit;
-- exact sitemap/canonical route-set audit after E-3 merge.
+- exact sitemap/canonical route-set audit;
+- public navigation/discovery contract and audit after E-4 merge.
 
 ## 6. Execution model
 
@@ -198,9 +200,9 @@ Execution order:
 ```text
 E-1 Internal-link audit and repair                    COMPLETE
 E-2 SEO and metadata consistency audit               COMPLETE
-E-3 Sitemap and canonical-route consistency          COMPLETE AFTER CURRENT PR MERGE
-E-4 Public route discovery and cross-surface navigation audit   NEXT
-E-5 Stats readiness for Explorer deep links
+E-3 Sitemap and canonical-route consistency          COMPLETE
+E-4 Public route discovery and cross-surface navigation audit   COMPLETE AFTER CURRENT PR MERGE
+E-5 Stats readiness for Explorer deep links          NEXT
 ```
 
 ### E-1 Internal-link audit and repair
@@ -286,40 +288,59 @@ obsolete redirect contract: pass
 repairs required from initial audit: 0
 ```
 
-Completion gate:
-
-```text
-reusable sitemap/canonical audit exists      pass
-sitemap expected route set matches output   pass
-entity route coverage complete              pass
-obsolete routes excluded                    pass
-canonical/trailing-slash policy consistent  pass
-feed endpoints excluded                     pass
-duplicate sitemap URLs = 0                  pass
-```
-
 ### E-4 Public route discovery and cross-surface navigation audit
 
-Work:
+Implementation:
 
-- define intended discovery paths for Registry, Analysis, Change, Trust/Methodology, and Support surfaces;
-- verify every core public surface is reachable from an intended header, footer, or contextual path;
-- check header and footer hierarchy;
-- check direct relationships among Stats, Quality, Updates, Incidents, and Monthly;
-- verify page-level contextual links where useful;
-- detect orphan public surfaces;
-- avoid turning the header into a dashboard-style menu;
-- document intended navigation hierarchy before Explorer is added;
-- add reusable generated-output discovery/navigation checks where deterministic.
+- define public surface layers in `config/public-navigation-surfaces.json`;
+- classify Registry, Analysis, Change, Trust, and Support routes;
+- preserve a nine-route global header instead of adding every surface;
+- keep Quality and Monthly discoverable through footer and contextual navigation rather than header expansion;
+- define and validate exact header and footer route sets;
+- add reusable RelatedSurfaceLinks component;
+- add Stats → Quality contextual navigation;
+- add Updates → Incidents / Monthly contextual navigation;
+- add Incidents → Monthly contextual navigation;
+- validate existing reverse edges Quality → Stats, Incidents → Updates, Monthly → Incidents / Updates;
+- build a generated-output reachability graph;
+- detect missing surface outputs, missing contextual edges, unreachable surfaces, and orphan surfaces;
+- run self-test and generated-output navigation audit under `public:validate`.
+
+Navigation contract:
+
+```text
+Registry  — Home / Dead / Active
+Analysis  — Stats / Quality
+Change    — Updates / Incidents / Monthly
+Trust     — Methodology / About
+Support   — Donate
+```
+
+Completion result:
+
+```text
+core surfaces: 11
+header internal routes: 9
+footer internal routes: 7
+required contextual edges: 8
+all configured surface outputs: present
+header exact route set: pass
+footer exact route set: pass
+header route limit: pass
+contextual edges: pass
+reachable core surfaces: 11 / 11
+orphan public surfaces: 0
+navigation audit findings: 0
+```
 
 Completion gate:
 
 ```text
-core surface discovery paths documented
-all core surfaces reachable from intended entry points
-no orphan public surface
-header/footer hierarchy reviewed
-cross-surface contextual links verified
+core surface discovery paths documented          pass
+all core surfaces reachable from entry points    pass
+no orphan public surface                         pass
+header/footer hierarchy reviewed                 pass
+cross-surface contextual links verified          pass
 ```
 
 ### E-5 Stats readiness for Explorer deep links
@@ -330,7 +351,10 @@ Work:
 - identify which Stats blocks will receive deep links;
 - identify display-label versus canonical enum/query-value mismatches;
 - define entity-view versus event-view mappings;
-- produce the handoff required by E5-1 Explorer query-contract work.
+- distinguish directly filterable dimensions from derived/non-filter dimensions;
+- define the handoff boundary: E-5 maps semantics, E5-1 fixes the final Explorer URL/query contract;
+- produce the handoff required by E5-1 Explorer query-contract work;
+- add machine-readable mapping and validation where practical.
 
 Completion gate:
 
@@ -339,6 +363,7 @@ Stats dimensions mapped
 future query keys identified
 enum/query value mapping documented
 entity/event destination mode documented
+derived/non-filter metrics marked explicitly
 E5-1 handoff ready
 ```
 
@@ -455,7 +480,7 @@ v1.0 baseline recorded
 Phase H   Compare v1
 Phase I   Discovery Log trial
 Phase J   Natural Language Filter Translator only if Explorer usage justifies it
-Phase K   API expansion only if consumer demand justifies it
+Phase K   API expansion only if consumer need is demonstrated
 ```
 
 ### H — Compare v1
@@ -502,12 +527,16 @@ Weekly Exchange Watch as a scheduled product phase
 ## 14. Immediate schedule from the current checkpoint
 
 ```text
-1. E-4 Public route discovery and cross-surface navigation audit
-2. E-5 Stats readiness for Explorer deep links
-3. Phase E.5 Explorer v1
-4. Phase F bilingual layer
-5. Phase G v1.0 integration baseline
-6. Post-v1.0 evaluation sequence
+1. E-5 Stats readiness for Explorer deep links
+2. Phase E.5 / E5-1 Explorer query contract
+3. E5-2 Entity Explorer
+4. E5-3 Event Explorer
+5. E5-4 Stats -> Explorer deep links
+6. E5-5 Timeline / Updates -> Explorer cross-links
+7. E5-6 accessibility, URL-state, crawl-control, and regression audit
+8. Phase F bilingual layer
+9. Phase G v1.0 integration baseline
+10. Post-v1.0 evaluation sequence
 ```
 
 Lane A quality repair and reviewed record growth continue in parallel without replacing the main product sequence.
