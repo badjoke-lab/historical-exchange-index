@@ -27,4 +27,18 @@ jobs:
       - name: Accessibility audit self-test
         run: npm run accessibility:test
       - name: Public accessibility audit
-        run: npm run accessibility:audit
+        id: accessibility_audit
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run accessibility:audit 2>&1 | tee accessibility-audit.log
+      - name: Upload accessibility audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-audit-report
+          path: accessibility-audit.log
+      - name: Fail when accessibility audit failed
+        if: steps.accessibility_audit.outcome == 'failure'
+        run: exit 1
