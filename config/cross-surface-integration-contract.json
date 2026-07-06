@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "navigation_contract": "config/public-navigation-surfaces.json",
+  "explorer_contract": "config/explorer-query-contract.json",
+  "stats_handoff_contract": "config/stats-explorer-deep-link-map.json",
+  "explorer_link_sources": {
+    "/stats/": {
+      "required_views": ["entities", "events"],
+      "required_entity_keys": [
+        "type",
+        "status",
+        "death_reason",
+        "launch_from",
+        "launch_to",
+        "death_from",
+        "death_to",
+        "official_url_status",
+        "archive_available",
+        "confidence",
+        "country_or_origin"
+      ],
+      "required_event_keys": [
+        "event_type",
+        "impact_level",
+        "event_status_effect"
+      ],
+      "required_compounds": [
+        ["archive_available", "status"],
+        ["country_or_origin", "status"],
+        ["country_or_origin", "type"]
+      ],
+      "required_ranges": [
+        ["launch_from", "launch_to"],
+        ["death_from", "death_to"]
+      ]
+    },
+    "/updates/": {
+      "required_views": ["events"],
+      "required_event_keys": []
+    },
+    "/incidents/": {
+      "required_views": ["events"],
+      "required_event_keys": ["event_type"]
+    },
+    "/monthly/": {
+      "required_views": ["events"],
+      "required_event_keys": ["date_from", "date_to"]
+    }
+  },
+  "dossier_sources": [
+    "/dead/",
+    "/active/",
+    "/updates/",
+    "/incidents/",
+    "/monthly/"
+  ],
+  "explorer_source_files": [
+    "src/components/explorer/entity-explorer-client.tsx",
+    "src/components/explorer/event-explorer-panel.tsx"
+  ],
+  "reviewed_public_only_sources": [
+    "/updates/",
+    "/incidents/",
+    "/monthly/"
+  ]
+}
