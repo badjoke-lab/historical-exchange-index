@@ -1,4 +1,5 @@
 import './globals.css'
+import './accessibility.css'
 import './home-recent-mobile-fix.css'
 import Link from 'next/link'
 import type { Metadata, Viewport } from 'next'
@@ -173,7 +174,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </div>
             </div>
 
-            <nav className="nav">
+            <nav className="nav" aria-label="Primary navigation">
               <Link className="nav-link" href="/">Home</Link>
               <Link className="nav-link" href="/dead">Dead</Link>
               <Link className="nav-link" href="/active">Active</Link>
