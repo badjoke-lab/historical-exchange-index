@@ -2,24 +2,25 @@
 
 Status: active execution source of truth  
 Repository: `badjoke-lab/historical-exchange-index`  
-Checkpoint: 2026-07-06
+Checkpoint: 2026-07-07
 
 Repository state is authoritative when this checkpoint and GitHub disagree.
 
-## 1. Required reading
+## 1. Required reading order
 
 Before implementation work, read:
 
 1. `AGENTS.md`;
-2. deployment policy and Cloudflare project policy;
-3. this roadmap;
-4. `docs/HEI_PRODUCT_SURFACES_SPEC.md` for public product behavior;
-5. `docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md` for localization;
-6. `docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md` for Phase G;
-7. Explorer contracts when changing Explorer behavior;
-8. task-specific data, monitoring, machine-readable, audit, or feed specifications.
+2. `docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md`;
+3. `config/cloudflare-pages-project.json`;
+4. this roadmap;
+5. `docs/HEI_PRODUCT_SURFACES_SPEC.md` for public product behavior;
+6. `docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md` for localization;
+7. `docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md` for Phase G;
+8. Explorer contracts when changing Explorer behavior;
+9. task-specific data, monitoring, machine-readable, audit, or feed specifications.
 
-Execution order comes from this roadmap. Completion gates come from the relevant specification.
+Execution order comes from this roadmap. Product behavior and completion gates come from the relevant specification.
 
 ## 2. Operating rules
 
@@ -32,18 +33,24 @@ Execution order comes from this roadmap. Completion gates come from the relevant
 - Explorer query keys and enum values remain locale-independent.
 - Full multilingual rollout is not a v1.0 requirement.
 - Data growth, operations, and machine-readable maintenance continue in parallel.
+- Phase G temporarily prioritizes integration correctness over adding major new public surfaces.
 - Update this checkpoint whenever phase, active item, order, or canonical counts materially change.
 
 ## 3. Current checkpoint
 
 ```text
-Last merged implementation PR: #552 Add Phase G accessibility baseline audit
+Last merged implementation PR: #553 Add Phase G URL safety audit
 G-1 Accessibility Audit: COMPLETE
+G-2 URL Safety Audit: COMPLETE
 Current phase: Phase G — v1.0 Integration Baseline
-Current PR: #553 Add Phase G URL safety audit
-Current item: G-2 URL Safety Audit
-Current G-2 final audit: 550 entity detail pages × 7 URL statuses; 0 critical / 0 high / 0 medium / 0 low findings
-Next item after G-2: G-3 Cross-surface Integration Audit
+Current PR: #554 Add Phase G cross-surface integration audit
+Current item: G-3 Cross-surface Integration Audit
+Current G-3 final audit before merge:
+  12 core surfaces
+  4 Explorer-link source routes
+  5 dossier-link source routes
+  0 findings
+Next item after G-3: G-4 Machine/Public Consistency Audit
 Next product feature after v1.0: H Compare v1
 Localization after Compare: L-1 Japanese Pilot -> L-2 Evaluation Gate
 ```
@@ -61,7 +68,7 @@ Maximum evidence ID: hei_src_011312
 
 Phase G work does not change canonical counts unless a separate reviewed data PR explicitly does so.
 
-## 5. Completed phases
+## 5. Completed product/foundation phases
 
 ```text
 Phase C   Registry milestone                 COMPLETE
@@ -70,9 +77,10 @@ Phase E   Discovery foundation               COMPLETE
 Phase E.5 Explorer v1                        COMPLETE
 Phase F-1 Multilingual Foundation            COMPLETE
 G-1       Accessibility Audit                COMPLETE
+G-2       URL Safety Audit                   COMPLETE
 ```
 
-### Explorer v1 completion
+### Explorer v1
 
 ```text
 E5-1 query contract                         COMPLETE
@@ -83,7 +91,7 @@ E5-5 Change -> Explorer cross-links         COMPLETE
 E5-6 accessibility/URL/crawl regression     COMPLETE
 ```
 
-Final Explorer contract:
+Final Explorer route/crawl contract:
 
 ```text
 base route:              /explore/
@@ -95,7 +103,7 @@ exchange routes:         550
 total sitemap URLs:      562
 ```
 
-### F-1 Multilingual Foundation completion
+### F-1 Multilingual Foundation
 
 Source:
 
@@ -121,26 +129,6 @@ public regression integration
 ```
 
 Public Japanese full-site rollout remains intentionally deferred.
-
-### G-1 Accessibility Audit completion
-
-Report:
-
-```text
-docs/audits/HEI_G1_ACCESSIBILITY_AUDIT_2026-07-06.md
-```
-
-Final result:
-
-```text
-routes covered: 13
-critical: 0
-high:     0
-medium:   0
-low:      0
-```
-
-Repairs included Home search accessible naming, global and Explorer focus-visible treatment, reduced-motion handling, and primary-navigation accessible naming.
 
 ## 6. Parallel execution lanes
 
@@ -203,9 +191,9 @@ Fixed order:
 
 ```text
 G-1 Accessibility Audit                         COMPLETE
-G-2 URL Safety Audit                            ACTIVE / COMPLETE AFTER #553 MERGE
-G-3 Cross-surface Integration Audit             NEXT
-G-4 Machine/Public Consistency Audit
+G-2 URL Safety Audit                            COMPLETE
+G-3 Cross-surface Integration Audit             ACTIVE / COMPLETE AFTER #554 MERGE
+G-4 Machine/Public Consistency Audit             NEXT
 G-5 Production Verification
 G-6 Maintainer Runbook and Recovery Validation
 G-7 v1.0 Baseline Checkpoint
@@ -213,81 +201,25 @@ G-7 v1.0 Baseline Checkpoint
 
 ### G-1 Accessibility Audit
 
-Final gate:
+Report:
 
 ```text
-13 generated routes covered
+docs/audits/HEI_G1_ACCESSIBILITY_AUDIT_2026-07-06.md
+```
+
+Final result:
+
+```text
+13 generated routes
 critical findings: 0
 high findings:     0
 medium findings:   0
 low findings:      0
-self-test:          pass
-public regression: pass
 ```
+
+Repairs included Home search accessible naming, global and Explorer focus-visible treatment, reduced-motion handling, and primary-navigation accessible naming.
 
 ### G-2 URL Safety Audit
-
-Machine-readable policy:
-
-```text
-config/url-display-policy.json
-```
-
-Policy:
-
-```text
-clickable original URL:
-  live_verified
-  live_unverified
-
-plain-text original URL:
-  dead_domain
-  redirected
-  repurposed
-  unsafe
-  unknown
-
-archive-first:
-  dead_domain
-  redirected
-  repurposed
-  unsafe
-```
-
-Coverage:
-
-```text
-550 reviewed public entity records
-550 generated exchange detail pages
-7 official_url_status values
-Methodology URL-safety explanation
-About archive-safety explanation
-Dead browse source contract
-Active browse source contract
-Entity Explorer source contract
-```
-
-First audit result:
-
-```text
-critical: 12
-high:     128
-medium:   0
-low:      0
-```
-
-All 140 initial findings were caused by page-wide `href` scanning: Evidence and other historical-source sections may legitimately link to a URL equal to the entity's historical Original URL. The audit parser was corrected to scope clickability checks to the generated `URL handling` block only. This was a parser correction, not a policy weakening.
-
-Final G-2 result:
-
-```text
-entity detail pages: 550
-URL status values:    7
-critical:             0
-high:                 0
-medium:               0
-low:                  0
-```
 
 Report:
 
@@ -295,51 +227,126 @@ Report:
 docs/audits/HEI_G2_URL_SAFETY_AUDIT_2026-07-06.md
 ```
 
-G-2 is complete after PR #553 final workflows pass and the PR merges.
+Machine policy:
+
+```text
+config/url-display-policy.json
+```
+
+Final result:
+
+```text
+550 reviewed public entities
+550 generated exchange detail pages
+7 official_url_status values
+critical findings: 0
+high findings:     0
+medium findings:   0
+low findings:      0
+```
+
+Original URL behavior remains separate from Evidence/source links elsewhere on a dossier.
 
 ### G-3 Cross-surface Integration Audit
 
-Next work:
-
-- audit the complete core-surface graph;
-- reuse and extend the E-4 navigation graph audit rather than creating a competing route model;
-- validate Stats -> Explorer deep links against the fixed Explorer query contract;
-- validate Updates/Incidents/Monthly -> Explorer cross-links;
-- validate browse/Explorer/Change contexts can reach exchange dossiers where applicable;
-- verify no unintended orphan core surface;
-- verify contextual links preserve reviewed-public-only boundaries;
-- add a persistent report and reusable regression gate.
-
-Core graph:
+Report:
 
 ```text
-Home
-Dead
-Active
-Explorer
-Stats
-Quality
-Updates
-Incidents
-Monthly
-Methodology
-About
-Donate
-Exchange Detail
+docs/audits/HEI_G3_CROSS_SURFACE_INTEGRATION_AUDIT_2026-07-07.md
 ```
 
-Completion gate:
+Machine integration contract:
 
 ```text
-unintended orphan core surfaces: 0
-required contextual edges:       pass
-Explorer query-link contract:     pass
-broken core cross-links:          0
+config/cross-surface-integration-contract.json
 ```
+
+The G-3 audit reuses:
+
+```text
+config/public-navigation-surfaces.json
+config/explorer-query-contract.json
+config/stats-explorer-deep-link-map.json
+```
+
+It does not create a competing route graph.
+
+Coverage:
+
+```text
+12 core public surfaces
+4 Explorer-link source routes
+5 dossier-link source routes
+Stats -> Explorer
+Updates -> Explorer
+Incidents -> Explorer
+Monthly -> Explorer
+Dead/Active/Change -> exchange dossier
+Explorer -> exchange dossier source contracts
+reviewed-public-only link boundary
+broken core cross-links
+```
+
+Stats deep-link coverage validated:
+
+```text
+Entity direct:
+  type
+  status
+  death_reason
+  official_url_status
+  confidence
+  country_or_origin
+
+Entity ranges:
+  launch_from + launch_to
+  death_from + death_to
+
+Entity compounds:
+  archive_available + status
+  country_or_origin + status
+  country_or_origin + type
+
+Event direct:
+  event_type
+  impact_level
+  event_status_effect
+```
+
+Final G-3 result:
+
+```text
+Public navigation:
+  surfaces:          12
+  header routes:     10
+  footer routes:      8
+  contextual edges:   8
+  findings:            0
+
+Cross-surface integration:
+  core surfaces:          12
+  Explorer-link sources:   4
+  dossier-link sources:    5
+  findings:                0
+```
+
+G-3 is complete after PR #554 final workflows pass and the PR merges.
 
 ### G-4 Machine/Public Consistency Audit
 
-Audit:
+Next work:
+
+- consolidate existing public-output, sitemap, feed, machine-layer, and count checks into one Phase G consistency contract;
+- verify HTML route state against version/manifest route discovery;
+- verify count agreement across HTML summaries and machine-readable outputs where comparable;
+- verify sitemap exact set and robots behavior;
+- verify `entities.json`, `events.json`, and `evidence.json` remain canonical-only;
+- verify update JSON/RSS feeds contain reviewed Registry Updates only;
+- verify `llms.txt` and `ai.txt` describe current route/count state;
+- verify no staging, monitoring, watchlist, private-note, or unreviewed-candidate leakage;
+- add reusable audit, self-test, dedicated gate, diagnostic artifact, and persistent report.
+
+Audit surfaces:
 
 ```text
 HTML
@@ -560,20 +567,19 @@ reviewed feeds
 ## 14. Immediate execution order
 
 ```text
-1. Complete G-2 URL Safety Audit                       CURRENT
-2. G-3 Cross-surface Integration Audit                 NEXT
-3. G-4 Machine/Public Consistency Audit
-4. G-5 Production Verification
-5. G-6 Maintainer Runbook and Recovery Validation
-6. G-7 v1.0 Baseline Checkpoint
-7. H Compare v1
-8. L-1 Japanese Pilot
-9. L-2 Localization Evaluation Gate
-10. Execute GO / HOLD / PIVOT decision
-11. I Discovery Log Trial
-12. Language Selection Gate when evidence exists
-13. J NL Filter Translator only if justified
-14. K API Expansion only if justified
+1. Complete G-3 Cross-surface Integration Audit       CURRENT
+2. G-4 Machine/Public Consistency Audit               NEXT
+3. G-5 Production Verification
+4. G-6 Maintainer Runbook and Recovery Validation
+5. G-7 v1.0 Baseline Checkpoint
+6. H Compare v1
+7. L-1 Japanese Pilot
+8. L-2 Localization Evaluation Gate
+9. Execute GO / HOLD / PIVOT decision
+10. I Discovery Log Trial
+11. Language Selection Gate when evidence exists
+12. J NL Filter Translator only if justified
+13. K API Expansion only if justified
 ```
 
 ## 15. Recovery procedure
