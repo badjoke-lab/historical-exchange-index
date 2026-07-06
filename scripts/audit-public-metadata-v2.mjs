@@ -4,6 +4,8 @@ import path from 'node:path'
 const root = process.cwd()
 const outDir = path.join(root, 'out')
 const origin = 'https://hei.badjoke-lab.com'
+const artifactDir = path.join(root, 'artifacts')
+const artifactPath = path.join(artifactDir, 'public-metadata-audit.json')
 
 function fail(message) {
   throw new Error(`metadata audit failed: ${message}`)
@@ -61,7 +63,7 @@ function sameRoute(a, b) {
 
 function requireOne(findings, route, field, values) {
   if (values.length !== 1 || !values[0]?.trim()) {
-    findings.push({ type: 'metadata_count_or_empty', route, field, count: values.length })
+    findings.push({ type: 'metadata_count_or_empty', route, field, count: values.length, values })
     return false
   }
   return true
@@ -126,6 +128,15 @@ for (const file of pages) {
 for (const [canonical, routes] of canonicalOwners) {
   if (routes.length > 1) findings.push({ type: 'duplicate_canonical_owner', canonical, routes })
 }
+
+const report = {
+  generated_at: new Date().toISOString(),
+  page_count: pages.length,
+  finding_count: findings.length,
+  findings,
+}
+fs.mkdirSync(artifactDir, { recursive: true })
+fs.writeFileSync(artifactPath, `${JSON.stringify(report, null, 2)}\n`)
 
 console.log(`Public metadata audit: ${pages.length} HTML pages.`)
 if (findings.length > 0) {
