@@ -1,0 +1,4 @@
+.related{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px;padding:10px 12px;border:1px solid var(--line);background:var(--panel)}
+.label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+@media(max-width:640px){.related{align-items:flex-start;flex-direction:column}.links{justify-content:flex-start}}
