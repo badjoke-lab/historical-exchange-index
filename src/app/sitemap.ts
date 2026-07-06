@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/quality/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/updates/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/incidents/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${SITE_URL}/monthly/`, lastModified: registryLastModified, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/methodology/`, lastModified: registryLastModified, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/about/`, lastModified: registryLastModified, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/donate/`, lastModified: registryLastModified, changeFrequency: 'monthly', priority: 0.4 },
