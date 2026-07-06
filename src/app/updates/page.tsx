@@ -68,6 +68,7 @@ export default function RegistryUpdatesPage() {
             </p>
           </div>
           <div className={styles.headerActions}>
+            <Link className="btn btn-primary" href="/explore/?view=events">Explore reviewed events</Link>
             <a className="btn" href="/feeds/updates.xml">RSS</a>
             <a className="btn" href="/feeds/updates.json">JSON Feed</a>
             <Link className="btn" href="/methodology">Methodology</Link>
