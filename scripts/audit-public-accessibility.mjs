@@ -82,9 +82,8 @@ function controlHasName(html, tag, index) {
 }
 
 function findDuplicateIds(html) {
-  const ids = openingTags(html, '[a-zA-Z][a-zA-Z0-9:-]*')
-    .map((tag) => attr(tag, 'id'))
-    .filter(Boolean)
+  const tags = [...html.matchAll(/<[a-zA-Z][a-zA-Z0-9:-]*\b[^>]*>/g)].map((match) => match[0])
+  const ids = tags.map((tag) => attr(tag, 'id')).filter(Boolean)
   const seen = new Set()
   const duplicates = new Set()
   for (const id of ids) {
@@ -153,12 +152,15 @@ function auditSourceContracts(rootDir = root) {
   const add = (severity, type, detail = '') => findings.push({ severity, route: 'source-contract', type, detail })
 
   const globals = readRequired(path.join(rootDir, 'src', 'app', 'globals.css'))
+  const accessibilityCss = readRequired(path.join(rootDir, 'src', 'app', 'accessibility.css'))
+  const globalInteractionCss = `${globals}\n${accessibilityCss}`
   const explorerCss = readRequired(path.join(rootDir, 'src', 'components', 'explorer', 'entity-explorer-client.module.css'))
   const entityExplorer = readRequired(path.join(rootDir, 'src', 'components', 'explorer', 'entity-explorer-client.tsx'))
   const eventExplorer = readRequired(path.join(rootDir, 'src', 'components', 'explorer', 'event-explorer-panel.tsx'))
   const layout = readRequired(path.join(rootDir, 'src', 'app', 'layout.tsx'))
 
-  if (!globals.includes(':focus-visible')) add('high', 'global_focus_visible_contract_missing')
+  if (!globalInteractionCss.includes(':focus-visible')) add('high', 'global_focus_visible_contract_missing')
+  if (!accessibilityCss.includes('prefers-reduced-motion')) add('medium', 'reduced_motion_contract_missing')
   if (!explorerCss.includes(':focus-visible')) add('high', 'explorer_focus_visible_contract_missing')
   if (!explorerCss.includes('@media(max-width:1023px)')) add('medium', 'explorer_tablet_breakpoint_missing')
   if (!explorerCss.includes('@media(max-width:720px)')) add('high', 'explorer_mobile_breakpoint_missing')
@@ -252,7 +254,8 @@ function runSelfTest() {
     fs.mkdirSync(path.join(outDir, 'data'), { recursive: true })
     fs.writeFileSync(path.join(outDir, 'data', 'entities.json'), JSON.stringify({ records: [] }))
 
-    writeFixture(fixtureRoot, 'src/app/globals.css', 'a:focus-visible{outline:2px solid} .chip{display:inline-flex}')
+    writeFixture(fixtureRoot, 'src/app/globals.css', '.chip{display:inline-flex}')
+    writeFixture(fixtureRoot, 'src/app/accessibility.css', 'a:focus-visible{outline:2px solid}@media(prefers-reduced-motion:reduce){}')
     writeFixture(fixtureRoot, 'src/components/explorer/entity-explorer-client.module.css', '.viewTab:focus-visible{outline:2px solid}@media(max-width:1023px){}@media(max-width:720px){}')
     writeFixture(fixtureRoot, 'src/components/explorer/entity-explorer-client.tsx', '<nav aria-label="Explorer views"></nav><input aria-label="Search reviewed entities"/><select aria-label="Archive availability"></select><select aria-label="Sort entities"></select><select aria-label="Country or origin values"></select><input type="checkbox"/><input type="date"/><button type="button"></button><details><summary>Filter</summary></details>')
     writeFixture(fixtureRoot, 'src/components/explorer/event-explorer-panel.tsx', '<input aria-label="Search reviewed events"/><select aria-label="Sort events"></select><input type="checkbox"/><input type="date"/><button type="button"></button>')
