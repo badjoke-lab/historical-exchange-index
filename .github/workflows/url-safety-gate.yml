@@ -1,0 +1,49 @@
+name: URL safety gate
+
+on:
+  pull_request:
+    paths:
+      - 'data/**'
+      - 'records/**'
+      - 'src/app/exchange/**'
+      - 'src/app/methodology/**'
+      - 'src/app/about/**'
+      - 'src/components/registry/**'
+      - 'src/components/explorer/**'
+      - 'config/url-display-policy.json'
+      - 'scripts/audit-public-url-safety.mjs'
+      - 'docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md'
+      - 'package.json'
+      - '.github/workflows/url-safety-gate.yml'
+  workflow_dispatch:
+
+jobs:
+  url-safety:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run machine:build
+      - run: npm run build
+      - name: URL safety audit self-test
+        run: npm run url-safety:test
+      - name: Public URL safety audit
+        id: url_safety_audit
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run url-safety:audit 2>&1 | tee url-safety-audit.log
+      - name: Upload URL safety audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: url-safety-audit-report
+          path: url-safety-audit.log
+      - name: Fail when URL safety audit failed
+        if: steps.url_safety_audit.outcome == 'failure'
+        run: exit 1
