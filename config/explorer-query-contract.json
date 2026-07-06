@@ -12,13 +12,14 @@
     "same_key_multiple_values": "or",
     "different_keys": "and",
     "repeated_parameter_encoding": true,
-    "deduplicate_repeated_values": true
+    "deduplicate_repeated_values": true,
+    "repeated_single_value_parameter": "first_valid_value"
   },
   "invalid_input": {
     "unknown_parameter": "ignore",
     "invalid_enum_value": "ignore_value",
-    "invalid_boolean_value": "ignore_parameter",
-    "invalid_date_value": "ignore_parameter",
+    "invalid_boolean_value": "ignore_value",
+    "invalid_date_value": "ignore_value",
     "cross_view_parameter": "ignore",
     "inverted_valid_range": "preserve_and_return_empty_results"
   },
