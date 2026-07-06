@@ -74,12 +74,28 @@ const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event')
 const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence')
 const deadSideStatuses = new Set(['dead', 'merged', 'acquired', 'rebranded'])
 const activeSideStatuses = new Set(['active', 'limited', 'inactive'])
+const incidentEventTypes = new Set([
+  'hack',
+  'exploit',
+  'withdrawal_suspended',
+  'deposit_suspended',
+  'trading_halted',
+  'service_outage',
+  'regulatory_action',
+  'lawsuit',
+  'bankruptcy_filed',
+  'insolvency_declared',
+  'shutdown_announced',
+  'shutdown_effective',
+  'chain_shutdown_impact',
+])
 const expected = {
   total: entities.length,
   deadSide: entities.filter((entity) => deadSideStatuses.has(entity.status)).length,
   activeSide: entities.filter((entity) => activeSideStatuses.has(entity.status)).length,
   events: events.length,
   evidence: evidence.length,
+  incidents: events.filter((event) => event.event_date && incidentEventTypes.has(event.event_type)).length,
 }
 
 assert(expected.deadSide + expected.activeSide === expected.total, 'active/dead-side counts do not cover all reviewed entities')
@@ -89,6 +105,7 @@ const dead = readOut(path.join('dead', 'index.html'))
 const active = readOut(path.join('active', 'index.html'))
 const stats = readOut(path.join('stats', 'index.html'))
 const updates = readOut(path.join('updates', 'index.html'))
+const incidents = readOut(path.join('incidents', 'index.html'))
 const firstEntity = entities[0]
 const detail = readOut(path.join('exchange', firstEntity.slug, 'index.html'))
 
@@ -103,6 +120,8 @@ assertTextCount(stats, 'Active-side', expected.activeSide, '/stats/')
 assertTextCount(stats, 'Total events', expected.events, '/stats/')
 assertTextCount(stats, 'Total evidence', expected.evidence, '/stats/')
 assert(stripHtml(updates).includes('Registry Updates'), '/updates/ does not expose Registry Updates heading')
+assert(stripHtml(incidents).includes('Exchange Incident Timeline'), '/incidents/ does not expose Exchange Incident Timeline heading')
+assertTextCount(incidents, 'Timeline events', expected.incidents, '/incidents/')
 
 for (const [route, html, canonical] of [
   ['/', home, `${origin}/`],
@@ -110,6 +129,7 @@ for (const [route, html, canonical] of [
   ['/active/', active, `${origin}/active/`],
   ['/stats/', stats, `${origin}/stats/`],
   ['/updates/', updates, `${origin}/updates/`],
+  ['/incidents/', incidents, `${origin}/incidents/`],
   [`/exchange/${firstEntity.slug}/`, detail, `${origin}/exchange/${firstEntity.slug}/`],
 ]) {
   assertCanonical(html, canonical, route)
@@ -135,9 +155,11 @@ assert(version.data.record_counts.events === expected.events, 'version event cou
 assert(version.data.record_counts.evidence === expected.evidence, 'version evidence count mismatch')
 assert(version.data.record_count_breakdown.dead_side === expected.deadSide, 'version dead-side mismatch')
 assert(version.data.record_count_breakdown.active_side === expected.activeSide, 'version active-side mismatch')
+assert(version.routes.incidents === '/incidents/', 'version route map is missing incidents')
 assert(manifest.record_counts.primary_records === expected.total, 'manifest entity count mismatch')
 assert(manifest.record_count_breakdown.dead_side === expected.deadSide, 'manifest dead-side mismatch')
 assert(manifest.record_count_breakdown.active_side === expected.activeSide, 'manifest active-side mismatch')
+assert(manifest.main_routes.includes('/incidents/'), 'manifest main_routes is missing incidents')
 assert(manifest.data_safety.canonical_only === true, 'manifest canonical_only must be true')
 assert(manifest.data_safety.includes_unreviewed_candidates === false, 'manifest must exclude unreviewed candidates')
 
@@ -179,8 +201,9 @@ for (const [label, count] of [
 
 const sitemap = readOut('sitemap.xml')
 const sitemapLocations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1])
-assert(sitemapLocations.length === entities.length + 8, `sitemap URL count mismatch: ${sitemapLocations.length}`)
+assert(sitemapLocations.length === entities.length + 9, `sitemap URL count mismatch: ${sitemapLocations.length}`)
 assert(sitemapLocations.includes(`${origin}/updates/`), 'sitemap is missing /updates/')
+assert(sitemapLocations.includes(`${origin}/incidents/`), 'sitemap is missing /incidents/')
 for (const entity of entities) {
   assert(sitemapLocations.includes(`${origin}/exchange/${entity.slug}/`), `sitemap missing ${entity.slug}`)
 }
@@ -206,4 +229,4 @@ for (const obsoleteDir of ['all', 'registry', 'exchanges']) {
   assert(!fs.existsSync(path.join(outDir, obsoleteDir, 'index.html')), `obsolete route output still exists: /${obsoleteDir}/`)
 }
 
-console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence.`)
+console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence, ${expected.incidents} incident timeline events.`)
