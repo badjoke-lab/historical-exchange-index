@@ -39,7 +39,7 @@
     "machine:validate": "node scripts/validate-machine-readable-layer.mjs",
     "links:audit": "node scripts/audit-internal-links.mjs",
     "links:test": "node scripts/audit-internal-links.mjs --self-test",
-    "public:validate": "node scripts/validate-public-output-consistency.mjs && node scripts/validate-reviewed-update-feed-export.mjs && node scripts/audit-internal-links.mjs",
+    "public:validate": "node scripts/validate-public-output-consistency.mjs && node scripts/validate-reviewed-update-feed-export.mjs && node scripts/audit-internal-links.mjs --self-test && node scripts/audit-internal-links.mjs",
     "public:audit": "node scripts/audit-public-count-consistency.mjs",
     "production:check": "node scripts/check-machine-readable-production.mjs",
     "data:audit-country-or-origin": "node scripts/audit-country-or-origin.mjs",
