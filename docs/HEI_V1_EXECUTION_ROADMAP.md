@@ -34,26 +34,30 @@ Execution order comes from this roadmap. Product behavior and completion gates c
 - Full multilingual rollout is not a v1.0 requirement.
 - Data growth, operations, and machine-readable maintenance continue in parallel.
 - Phase G prioritizes integration correctness over adding major new public surfaces.
-- Update this checkpoint whenever phase, active item, order, or canonical counts materially change.
+- Production diagnosis starts with deployed commit verification, not route speculation.
+- Update this checkpoint whenever phase, active item, execution order, production state, or canonical counts materially change.
 
 ## 3. Current checkpoint
 
 ```text
-Last merged implementation PR: #554 Add Phase G cross-surface integration audit
+Last merged implementation PR: #555 Add Phase G machine/public consistency audit
 G-1 Accessibility Audit: COMPLETE
 G-2 URL Safety Audit: COMPLETE
 G-3 Cross-surface Integration Audit: COMPLETE
+G-4 Machine/Public Consistency Audit: COMPLETE
 Current phase: Phase G — v1.0 Integration Baseline
-Current PR: #555 Add Phase G machine/public consistency audit
-Current item: G-4 Machine/Public Consistency Audit
-Current G-4 final audit before merge:
-  550 entities
-  1004 events
-  2621 evidence
-  2 reviewed updates
-  562 sitemap URLs
-  0 findings across all six consistency categories
-Next item after G-4: G-5 Production Integration and Verification
+Current PR: #556 Add Phase G production verification gate
+Current item: G-5 Production Integration and Verification
+Current G-5 production result before merge: PASS
+  expected commit: daed55da7673dbd16faf8c69bcd2274a546c463f
+  deployed commit: daed55da7673dbd16faf8c69bcd2274a546c463f
+  core routes: 12 / 12
+  Explorer queries: 2 / 2
+  representative deep links: 3 / 3
+  public machine files: 11 / 11
+  sitemap URLs: 562
+  representative dossier: /exchange/mt-gox/
+Next item after G-5: G-6 Maintainer Runbook and Recovery Validation
 Next product feature after v1.0: H Compare v1
 Localization after Compare: L-1 Japanese Pilot -> L-2 Evaluation Gate
 ```
@@ -74,14 +78,15 @@ Phase G work does not change canonical counts unless a separate reviewed data PR
 ## 5. Completed foundation and product phases
 
 ```text
-Phase C   Registry milestone                 COMPLETE
-Phase D   Change layer                       COMPLETE
-Phase E   Discovery foundation               COMPLETE
-Phase E.5 Explorer v1                        COMPLETE
-Phase F-1 Multilingual Foundation            COMPLETE
-G-1       Accessibility Audit                COMPLETE
-G-2       URL Safety Audit                   COMPLETE
-G-3       Cross-surface Integration Audit    COMPLETE
+Phase C    Registry milestone                  COMPLETE
+Phase D    Change layer                        COMPLETE
+Phase E    Discovery foundation                COMPLETE
+Phase E.5  Explorer v1                         COMPLETE
+Phase F-1  Multilingual Foundation             COMPLETE
+G-1        Accessibility Audit                 COMPLETE
+G-2        URL Safety Audit                    COMPLETE
+G-3        Cross-surface Integration Audit     COMPLETE
+G-4        Machine/Public Consistency Audit    COMPLETE
 ```
 
 ### Explorer v1 contract
@@ -139,14 +144,14 @@ archive and evidence improvements
 ### Lane B — Product sequence
 
 ```text
-Phase G   v1.0 Integration Baseline          ACTIVE
-Phase H   Compare v1
-Phase L-1 Japanese Pilot
-Phase L-2 Localization Evaluation Gate
-Phase I   Discovery Log Trial
+Phase G    v1.0 Integration Baseline          ACTIVE
+Phase H    Compare v1
+Phase L-1  Japanese Pilot
+Phase L-2  Localization Evaluation Gate
+Phase I    Discovery Log Trial
 Language Selection Gate
-Phase J   NL Filter Translator               CONDITIONAL
-Phase K   API Expansion                      CONDITIONAL
+Phase J    NL Filter Translator               CONDITIONAL
+Phase K    API Expansion                      CONDITIONAL
 ```
 
 ### Lane C — Operations
@@ -186,9 +191,9 @@ Fixed order:
 G-1 Accessibility Audit                         COMPLETE
 G-2 URL Safety Audit                            COMPLETE
 G-3 Cross-surface Integration Audit             COMPLETE
-G-4 Machine/Public Consistency Audit            ACTIVE / COMPLETE AFTER #555 MERGE
-G-5 Production Integration and Verification     NEXT
-G-6 Maintainer Runbook and Recovery Validation
+G-4 Machine/Public Consistency Audit            COMPLETE
+G-5 Production Integration and Verification     ACTIVE / COMPLETE AFTER #556 MERGE
+G-6 Maintainer Runbook and Recovery Validation  NEXT
 G-7 v1.0 Baseline Checkpoint
 ```
 
@@ -254,11 +259,11 @@ Final result:
 
 ```text
 Public navigation:
-  surfaces:          12
-  header routes:     10
-  footer routes:      8
-  contextual edges:   8
-  findings:            0
+  surfaces:           12
+  header routes:      10
+  footer routes:       8
+  contextual edges:    8
+  findings:             0
 
 Cross-surface integration:
   core surfaces:          12
@@ -281,23 +286,6 @@ Machine contract:
 config/machine-public-consistency-contract.json
 ```
 
-Audit surfaces:
-
-```text
-HTML count surfaces
-sitemap.xml
-robots.txt
-version.json
-manifest.json
-entities.json
-events.json
-evidence.json
-feeds/updates.json
-feeds/updates.xml
-llms.txt
-ai.txt
-```
-
 Final result:
 
 ```text
@@ -315,39 +303,71 @@ timestamp_mismatch:             0
 sitemap_robots:                 0
 ```
 
-G-4 is complete after PR #555 final workflows pass and the PR merges.
-
 ### G-5 Production Integration and Verification
+
+Report:
+
+```text
+docs/audits/HEI_G5_PRODUCTION_VERIFICATION_2026-07-07.md
+```
+
+Production contract:
+
+```text
+config/production-verification-contract.json
+```
+
+Verification commands:
+
+```text
+npm run production:check
+npm run production:verify-integration
+```
+
+Dedicated workflow:
+
+```text
+.github/workflows/production-verification-gate.yml
+```
+
+Final verified production state:
+
+```text
+origin: https://hei.badjoke-lab.com
+expected commit: daed55da7673dbd16faf8c69bcd2274a546c463f
+deployed commit: daed55da7673dbd16faf8c69bcd2274a546c463f
+commit propagation: MATCH
+
+machine layer:
+  records: 550
+  events: 1004
+  evidence: 2621
+  reviewed update feed items: 2
+
+integration:
+  core routes: 12 / 12 PASS
+  Explorer queries: 2 / 2 PASS
+  representative deep links: 3 / 3 PASS
+  public machine files: 11 / 11 PASS
+  sitemap URLs: 562 PASS
+  robots contract: PASS
+  representative dossier: /exchange/mt-gox/ PASS
+```
+
+G-5 is complete after PR #556 final workflows pass and the PR merges.
+
+### G-6 Maintainer Runbook and Recovery Validation
 
 Next work:
 
-1. determine expected merge commit from current `main` after G-4 merge;
-2. read deployed `/version.json` first;
-3. compare deployed commit with expected commit before diagnosing route behavior;
-4. verify production Home and all core routes;
-5. verify Explorer Entity and Event views;
-6. verify a representative Stats -> Explorer deep link;
-7. verify representative Change -> Explorer deep links;
-8. verify sitemap and robots;
-9. verify version/manifest and three public datasets;
-10. verify update JSON/RSS feeds;
-11. verify a representative exchange dossier;
-12. record dated production verification result and known limitations.
-
-Required record:
-
-```text
-expected commit
-deployed commit
-checked routes
-checked machine files
-result
-known limitations
-```
-
-Before diagnosing production behavior, compare deployed `/version.json` commit with the expected merge commit.
-
-### G-6 Maintainer Runbook and Recovery
+1. create one maintainer recovery runbook that points to existing authoritative repository documents rather than duplicating every specification;
+2. make repository-only recovery deterministic;
+3. add a machine-readable recovery checkpoint contract;
+4. add a validator that confirms every referenced source-of-truth path exists;
+5. verify the runbook can recover current main state, counts, current phase/item, next item, active specs, deployment policy, production verification report, validation commands, and recovery sequence;
+6. document open-PR inspection procedure without hard-coding transient PR numbers as permanent truth;
+7. run a clean-room recovery exercise from repository files only;
+8. record a dated recovery validation report.
 
 Repository-only recovery must determine:
 
@@ -365,7 +385,16 @@ validation commands
 recovery sequence
 ```
 
-### G-7 v1.0 Baseline
+Completion gate:
+
+```text
+required recovery fields resolvable: 100%
+missing authoritative paths:          0
+contradictory recovery instructions:  0
+clean-room recovery exercise:         PASS
+```
+
+### G-7 v1.0 Baseline Checkpoint
 
 Record:
 
@@ -524,18 +553,17 @@ reviewed feeds
 ## 14. Immediate execution order
 
 ```text
-1. Complete G-4 Machine/Public Consistency Audit       CURRENT
-2. G-5 Production Integration and Verification         NEXT
-3. G-6 Maintainer Runbook and Recovery Validation
-4. G-7 v1.0 Baseline Checkpoint
-5. H Compare v1
-6. L-1 Japanese Pilot
-7. L-2 Localization Evaluation Gate
-8. Execute GO / HOLD / PIVOT decision
-9. I Discovery Log Trial
-10. Language Selection Gate when evidence exists
-11. J NL Filter Translator only if justified
-12. K API Expansion only if justified
+1. Complete G-5 Production Integration and Verification    CURRENT
+2. G-6 Maintainer Runbook and Recovery Validation          NEXT
+3. G-7 v1.0 Baseline Checkpoint
+4. H Compare v1
+5. L-1 Japanese Pilot
+6. L-2 Localization Evaluation Gate
+7. Execute GO / HOLD / PIVOT decision
+8. I Discovery Log Trial
+9. Language Selection Gate when evidence exists
+10. J NL Filter Translator only if justified
+11. K API Expansion only if justified
 ```
 
 ## 15. Recovery procedure
@@ -547,8 +575,9 @@ reviewed feeds
 5. For Phase G, read the integration baseline specification.
 6. For localization, read the localization strategy specification.
 7. For Explorer changes, read Product Surfaces, Stats handoff, Query Contract, and query config.
-8. Resume the first incomplete item in the active phase.
-9. Cite roadmap item and specification in the PR body.
-10. Update this checkpoint when phase status, execution order, or counts materially change.
+8. Read the latest dated production verification report before diagnosing production state.
+9. Resume the first incomplete item in the active phase.
+10. Cite roadmap item and specification in the PR body.
+11. Update this checkpoint when phase status, execution order, production state, or counts materially change.
 
 Do not use remembered chat history as the execution source of truth when repository documents and current GitHub state can be inspected directly.
