@@ -1,0 +1,59 @@
+name: Maintainer recovery gate
+
+on:
+  pull_request:
+    paths:
+      - 'AGENTS.md'
+      - 'docs/HEI_V1_EXECUTION_ROADMAP.md'
+      - 'docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md'
+      - 'docs/operations/**'
+      - 'docs/audits/HEI_G5_PRODUCTION_VERIFICATION_*.md'
+      - 'config/maintainer-recovery-contract.json'
+      - 'config/cloudflare-pages-project.json'
+      - 'config/production-verification-contract.json'
+      - 'scripts/validate-maintainer-recovery.mjs'
+      - 'scripts/test-maintainer-recovery-validator.mjs'
+      - 'package.json'
+      - '.github/workflows/maintainer-recovery-gate.yml'
+  workflow_dispatch:
+
+jobs:
+  recovery:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      - name: Maintainer recovery validator self-test
+        id: recovery_self_test
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run recovery:test 2>&1 | tee maintainer-recovery-self-test.log
+
+      - name: Repository-only recovery validation
+        id: recovery_validation
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run recovery:validate 2>&1 | tee maintainer-recovery-validation.log
+
+      - name: Upload recovery validation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: maintainer-recovery-validation-report
+          path: |
+            maintainer-recovery-self-test.log
+            maintainer-recovery-validation.log
+          if-no-files-found: warn
+
+      - name: Fail when recovery validation failed
+        if: steps.recovery_self_test.outcome == 'failure' || steps.recovery_validation.outcome == 'failure'
+        run: exit 1

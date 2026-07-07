@@ -308,3 +308,32 @@ Next roadmap item after merge:
 ```text
 G-6 Maintainer Runbook and Recovery Validation
 ```
+
+## 14. Post-G5 production baseline refresh
+
+After PR #556 merged, the production deployment advanced normally to the G-5 merge commit:
+
+```text
+846533b6981b0e4ee0117a25987d10eee13411f3
+```
+
+During the G-6 final regression cycle, `config/production-verification-contract.json` was advanced to this deployed baseline and the dedicated production verification gate was rerun.
+
+Refresh result:
+
+```text
+Expected commit:          846533b6981b0e4ee0117a25987d10eee13411f3
+Deployed commit:          846533b6981b0e4ee0117a25987d10eee13411f3
+Commit propagation:       MATCH
+Machine layer:            PASS
+Core routes:              12 / 12 PASS
+Explorer queries:          2 / 2 PASS
+Representative deep links: 3 / 3 PASS
+Machine files:            11 / 11 PASS
+Sitemap URLs:             562 PASS
+Robots contract:          PASS
+Representative dossier:   PASS
+Overall result:           PASS
+```
+
+This refresh preserves the original G-5 verification record while moving the live production verification baseline to the actual deployed G-5 merge commit.

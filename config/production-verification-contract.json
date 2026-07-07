@@ -1,7 +1,7 @@
 {
   "version": 1,
   "origin": "https://hei.badjoke-lab.com",
-  "expected_commit": "daed55da7673dbd16faf8c69bcd2274a546c463f",
+  "expected_commit": "846533b6981b0e4ee0117a25987d10eee13411f3",
   "core_routes": [
     "/",
     "/dead/",
