@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "status": "fixed_for_compare_v1_implementation",
+  "route": "/compare/",
+  "selection": {
+    "parameter": "exchange",
+    "encoding": "repeated_parameter",
+    "minimum_meaningful_selection": 2,
+    "maximum_selection": 4,
+    "order_semantics": "preserve_first_valid_url_order",
+    "duplicate_semantics": "keep_first_occurrence",
+    "unknown_slug_semantics": "ignore_and_report_invalid_selection",
+    "one_selection_state_allowed": true,
+    "empty_state_has_no_default_selection": true
+  },
+  "serialization": {
+    "encoding": "URLSearchParams",
+    "emit_only_parameter": "exchange",
+    "preserve_selection_order": true,
+    "omit_duplicates": true,
+    "omit_unknown_slugs": true,
+    "max_valid_values": 4
+  },
+  "crawl_policy": {
+    "base_route_indexable": true,
+    "canonical_for_all_query_variants": "/compare/",
+    "query_variants_in_sitemap": false,
+    "base_route_in_sitemap_exact_count": 1
+  },
+  "data_authority": {
+    "entities": "loadEntities()",
+    "events": "loadEvents()",
+    "evidence": "loadEvidence()",
+    "reviewed_public_only": true,
+    "forbidden_inputs": [
+      "monitoring reports",
+      "staging records",
+      "candidate manifests",
+      "watchlists as factual input",
+      "private notes"
+    ]
+  },
+  "comparison_fields": [
+    "canonical_name",
+    "type",
+    "status",
+    "death_reason",
+    "country_or_origin",
+    "launch_date",
+    "death_date",
+    "lifespan_days",
+    "official_url_status",
+    "archive_available",
+    "confidence",
+    "last_verified_at",
+    "event_count",
+    "evidence_count",
+    "major_events",
+    "dossier_href"
+  ],
+  "lifespan": {
+    "terminal_date_source": "entity.death_date",
+    "full_date_difference": "UTC_day_difference_death_minus_launch",
+    "ongoing_value": null,
+    "ongoing_display": "Ongoing",
+    "current_clock_dependency": false
+  },
+  "major_events": {
+    "maximum_per_entity": 3,
+    "impact_rank": ["critical", "high", "medium", "low"],
+    "tie_breakers": [
+      "event_date_desc_null_last",
+      "sort_order_asc",
+      "event_id_asc"
+    ],
+    "generated_summary_allowed": false
+  },
+  "non_goals": [
+    "synthetic risk score",
+    "safety ranking",
+    "investment recommendation",
+    "winner or loser badge",
+    "AI-generated factual comparison",
+    "unreviewed monitoring comparison"
+  ],
+  "implementation_order": [
+    "H-1 Compare contract and deterministic data view",
+    "H-2 Compare route and UI",
+    "H-3 Discovery and dossier handoff",
+    "H-4 Final audit and production verification"
+  ]
+}
