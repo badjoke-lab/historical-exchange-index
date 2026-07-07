@@ -126,9 +126,9 @@ async function verifySitemapAndRobots() {
   assert(new Set(locations).size === locations.length, 'production sitemap contains duplicate URLs')
   assert(locations.filter((url) => url === contract.explorer_canonical).length === 1, 'Explorer base route must appear exactly once in sitemap')
   assert(!locations.some((url) => new URL(url).search), 'production sitemap contains query variants')
-  assert(robots.text.includes('User-agent: *'), 'robots.txt missing User-agent: *')
-  assert(robots.text.includes('Allow: /'), 'robots.txt missing Allow: /')
-  assert(robots.text.includes(`Sitemap: ${contract.sitemap_url}`), 'robots.txt missing canonical sitemap declaration')
+  assert(/^User-agent:\s*\*\s*$/im.test(robots.text), 'robots.txt missing User-agent: *')
+  assert(/^Allow:\s*\/\s*$/im.test(robots.text), 'robots.txt missing Allow: /')
+  assert(new RegExp(`^Sitemap:\\s*${contract.sitemap_url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'im').test(robots.text), 'robots.txt missing canonical sitemap declaration')
   return { sitemap_url_count: locations.length, explorer_base_count: 1, robots_ok: true }
 }
 
