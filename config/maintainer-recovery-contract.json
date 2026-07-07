@@ -44,7 +44,7 @@
     "confirm repository identity and default branch",
     "fetch current remote state and record origin/main SHA",
     "inspect open PRs and branch state",
-    "read AGENTS and deployment policy plus Cloudflare project policy",
+    "read AGENTS + deployment policy + Cloudflare project policy",
     "read roadmap current checkpoint and execution order",
     "read active phase specification and task-specific contracts",
     "derive canonical counts from the three canonical JSON arrays",
