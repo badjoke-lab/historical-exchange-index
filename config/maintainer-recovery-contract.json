@@ -20,7 +20,7 @@
     "deployment_policy": "docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md",
     "cloudflare_project_policy": "config/cloudflare-pages-project.json",
     "production_verification_contract": "config/production-verification-contract.json",
-    "production_verification_report": "docs/audits/HEI_G5_PRODUCTION_VERIFICATION_2026-07-07.md",
+    "production_verification_report": "docs/audits/HEI_G7_V1_BASELINE_CHECKPOINT_2026-07-07.md",
     "runbook": "docs/operations/HEI_MAINTAINER_RECOVERY_RUNBOOK.md",
     "v1_baseline_contract": "config/v1-baseline-contract.json",
     "v1_baseline_validator": "scripts/validate-v1-baseline.mjs"
