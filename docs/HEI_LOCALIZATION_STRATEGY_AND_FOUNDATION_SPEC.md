@@ -3,15 +3,25 @@
 Status: active localization source of truth  
 Project: Historical Exchange Index (HEI)  
 Repository: `badjoke-lab/historical-exchange-index`  
-Checkpoint: 2026-07-06
+Checkpoint: 2026-07-07
 
 ## 1. Authority and scope
 
-This document controls HEI localization architecture, rollout gates, locale safety rules, and the F-1 Multilingual Foundation implementation.
+This document controls HEI localization architecture, rollout gates, locale safety rules, Japanese Pilot scope, evaluation, and additional-language selection.
 
-Execution order comes from `docs/HEI_V1_EXECUTION_ROADMAP.md`.
+Execution order comes from:
 
-This specification supersedes earlier assumptions that HEI must complete a full Japanese site before v1.0. The fixed strategy is now:
+```text
+docs/HEI_V1_EXECUTION_ROADMAP.md
+```
+
+Data milestone gates come from:
+
+```text
+docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md
+```
+
+The fixed strategy is:
 
 ```text
 F-1 localization foundation
@@ -20,12 +30,20 @@ G v1.0 integration baseline
         ↓
 H Compare v1
         ↓
+D-750 reviewed entity milestone
+        ↓
 L-1 Japanese Pilot
         ↓
-L-2 evaluation gate
+L-2 Localization Evaluation Gate
         ↓
-GO / HOLD / PIVOT
+D-1000 reviewed entity milestone
+        ↓
+Language Selection Gate
+        ↓
+zero or one evidence-selected third-language pilot
 ```
+
+Data growth continues in parallel. The sequence above controls public rollout gates and priority focus.
 
 Full multilingual rollout is not a v1.0 requirement.
 
@@ -39,14 +57,14 @@ The following remain one reviewed factual source of truth:
 data/entities.json
 data/events.json
 data/evidence.json
-reviewed record bundles
+reviewed records/exchanges bundles
 reviewed Registry Update data
 public machine-readable exports derived from reviewed data
 ```
 
 Localization must not create parallel factual registries.
 
-### 2.2 Localization is presentation overlay
+### 2.2 Localization is a presentation overlay
 
 Localized content may provide:
 
@@ -59,32 +77,50 @@ Localized content may provide:
 
 Localized content must not redefine canonical facts.
 
-### 2.3 English remains canonical public root
+### 2.3 English remains the canonical public root
 
 Fixed locale model:
 
 ```text
 default locale: en
+fallback locale: en
 canonical root: /
-pilot locale: ja
+first pilot locale: ja
 pilot path prefix: /ja/
 ```
 
 English is the fallback presentation language.
 
-### 2.4 Japanese is a pilot locale, not an assumed full rollout
+### 2.4 Japanese is a pilot, not an assumed full translation program
 
-Japanese is registered first because the operator can directly review translation quality and HEI has meaningful Japanese exchange-history subject matter.
+Japanese is first because:
 
-This does not mean Japanese is guaranteed to receive full-site coverage.
+- the operator can directly review Japanese quality;
+- HEI has meaningful Japanese exchange-history subject matter;
+- the pilot can be evaluated without committing to permanent full-record translation.
 
-After the pilot, expansion requires the Localization Evaluation Gate.
+Japanese Pilot does not mean every entity summary, event description, or evidence title must be translated.
 
-### 2.5 Additional languages are evidence-gated
+### 2.5 Data growth has priority over broad translation coverage
+
+Canonical corpus growth benefits every locale and every machine/public surface.
+
+Fixed release gates:
+
+```text
+Japanese public pilot: not before 750 reviewed entities
+third-language pilot: not before 1000 reviewed entities
+```
+
+Localization work must not become a reason to stop reviewed data growth.
+
+### 2.6 Additional languages are evidence-gated
 
 No third language is fixed in advance.
 
-Potential candidates include Spanish, Portuguese, Korean, Vietnamese, Indonesian, and others. Actual selection must use HEI-specific evidence and QA capacity.
+Potential candidates may include Spanish, Portuguese, Korean, Vietnamese, Indonesian, Chinese variants, or others.
+
+Selection must use HEI-specific evidence and QA capacity.
 
 ## 3. What may be localized
 
@@ -103,13 +139,17 @@ May be localized:
 - disclaimers;
 - section headings;
 - helper text;
-- common accessibility labels.
+- accessibility labels;
+- URL-safety explanatory labels;
+- Explorer controls;
+- Stats/Quality labels;
+- Change-layer interface copy.
 
 ### 3.2 Display labels for canonical enums
 
 Internal enum values remain unchanged while display labels may be localized.
 
-Examples:
+Example:
 
 ```text
 internal: status=dead
@@ -121,7 +161,7 @@ English label: Regulatory action
 Japanese label: 規制措置
 ```
 
-The localized label never replaces the internal value in canonical data, URLs, or Explorer query state.
+Localized labels never replace internal values in canonical data, URLs, or Explorer query state.
 
 ### 3.3 Page copy
 
@@ -130,13 +170,14 @@ May be localized:
 - Home explanatory copy;
 - About;
 - Methodology;
-- later Stats/Quality explanatory copy;
-- later Change-layer explanatory copy;
-- later Explorer labels and helper text.
+- Stats/Quality explanatory copy;
+- Change-layer explanatory copy;
+- Explorer labels and helper text;
+- exchange-detail interface labels.
 
 ### 3.4 Optional record-copy overlays
 
-May be localized as separate optional presentation copy:
+May be localized separately as optional presentation copy:
 
 ```text
 entity summary
@@ -181,7 +222,7 @@ Reasons:
 
 ## 5. Repository architecture
 
-F-1 uses this architecture:
+The localization foundation uses this separation:
 
 ```text
 src/
@@ -211,6 +252,7 @@ data-i18n/
     events-copy.json
 
 config/
+  i18n-locales.json
   i18n-overlay-schema.json
 
 scripts/
@@ -218,58 +260,59 @@ scripts/
   test-i18n-foundation.mjs
 ```
 
-F-1 may adjust exact filenames if implementation evidence requires it, but the separation between canonical facts, UI dictionaries, and record-copy overlays is mandatory.
+Separation between canonical facts, UI dictionaries, and record-copy overlays is mandatory.
 
 ## 6. Locale configuration contract
 
-Required conceptual configuration:
+Required conceptual state:
 
-```ts
-export const defaultLocale = 'en'
-export const locales = ['en', 'ja'] as const
-export const publicPilotLocales = [] as const
+```text
+default locale: en
+fallback locale: en
+supported locales: en, ja
+public locales before L-1: en
+pilot locale: ja
 ```
-
-During F-1, Japanese may be registered as a supported/pilot-capable locale while public Japanese routes remain disabled.
 
 The implementation must distinguish:
 
 - supported locale definitions;
 - publicly routed locales;
+- pilot locales;
 - fallback locale.
 
-This prevents registration of a locale from accidentally publishing incomplete routes.
+Registering a locale must not accidentally publish incomplete routes.
 
 ## 7. Dictionary contract
 
 ### 7.1 Common dictionary
 
-Common dictionary keys should use stable semantic identifiers, for example:
+Dictionary keys use stable semantic identifiers.
 
-```json
-{
-  "nav.home": "Home",
-  "nav.dead": "Dead",
-  "nav.active": "Active",
-  "nav.explorer": "Explorer",
-  "nav.stats": "Stats",
-  "nav.updates": "Updates",
-  "nav.incidents": "Incidents",
-  "nav.methodology": "Methodology",
-  "nav.about": "About",
-  "action.submitCorrection": "Submit correction",
-  "action.clearFilters": "Clear all filters",
-  "label.lastUpdated": "Last updated"
-}
+Examples:
+
+```text
+nav.home
+nav.dead
+nav.active
+nav.explorer
+nav.stats
+nav.updates
+nav.incidents
+nav.methodology
+nav.about
+action.submitCorrection
+action.clearFilters
+label.lastUpdated
 ```
 
-Japanese dictionary keys must match the English key set for the F-1 common/enums foundation scope.
+Japanese dictionary keys must remain structurally compatible with English foundation keys.
 
 ### 7.2 Enum-label dictionary
 
 Enum dictionaries provide display labels only.
 
-Suggested key namespaces:
+Namespaces may include:
 
 ```text
 status.*
@@ -282,7 +325,7 @@ impactLevel.*
 eventStatusEffect.*
 ```
 
-All enum keys must map back to currently supported canonical values.
+All enum keys must map to supported canonical values.
 
 ### 7.3 Key stability
 
@@ -307,7 +350,7 @@ Conceptual shape:
 }
 ```
 
-Allowed keys per entity record:
+Allowed entity copy fields:
 
 ```text
 summary
@@ -345,7 +388,7 @@ Conceptual shape:
 }
 ```
 
-Allowed keys:
+Allowed event copy fields:
 
 ```text
 title
@@ -358,14 +401,13 @@ All factual event fields remain canonical.
 
 - entity overlays are keyed by canonical slug;
 - event overlays are keyed by canonical event ID;
-- overlay identifiers must resolve to reviewed canonical records when non-empty;
-- unknown identifiers are validation errors;
-- duplicate identifiers are impossible in JSON object form and must remain so;
-- overlay locale metadata must match the containing locale directory.
+- non-empty overlay IDs must resolve to reviewed canonical records;
+- overlay locale metadata must match the locale directory;
+- unknown identifiers are validation errors.
 
 ## 9. Merge and fallback behavior
 
-### 9.1 Entity display merge
+### Entity display merge
 
 ```text
 canonical entity
@@ -375,11 +417,9 @@ optional locale entity copy
 display entity
 ```
 
-Only `summary` and `notes` may be replaced by overlay copy in F-1 utilities.
+Only approved presentation-copy fields may be replaced.
 
-All other fields remain canonical.
-
-### 9.2 Event display merge
+### Event display merge
 
 ```text
 canonical event
@@ -389,11 +429,9 @@ optional locale event copy
 display event
 ```
 
-Only `title` and `description` may be replaced by overlay copy.
+Only approved presentation-copy fields may be replaced.
 
-### 9.3 Fallback
-
-Fixed fallback behavior:
+### Fallback
 
 ```text
 requested dictionary exists
@@ -403,225 +441,159 @@ requested dictionary missing/unsupported
     -> use English dictionary
 
 record overlay exists
-    -> use allowed localized copy fields
+    -> use allowed localized copy
 
 record overlay missing
-    -> use canonical English record text
+    -> use canonical English record copy
 ```
 
-Missing optional record-copy translation must not block canonical publication or English builds.
+Missing optional translation must not block canonical publication or English builds.
 
-## 10. Locale route helper contract
+## 10. Locale route contract
 
 Route helpers must preserve record identity and page type.
 
 Examples:
 
 ```text
-English: /exchange/mt-gox/
-Japanese pilot-capable route: /ja/exchange/mt-gox/
+/exchange/mt-gox/
+/ja/exchange/mt-gox/
 
-English: /methodology/
-Japanese: /ja/methodology/
+/methodology/
+/ja/methodology/
 ```
 
 Rules:
 
 - do not translate slugs;
-- remove default `en` prefix from canonical English routes;
-- add `/ja/` prefix only for public Japanese routes;
-- preserve search/query state when a future locale switcher supports Explorer;
-- locale helper output must not silently create public routes that are outside the active rollout phase.
+- do not add `/en/` to canonical English routes;
+- add `/ja/` only when the corresponding Japanese route is deliberately public;
+- preserve query state for locale switching;
+- Explorer query keys and enum values remain locale-independent;
+- locale helpers must not silently create routes outside the active rollout phase.
 
-## 11. F-1 implementation scope
+## 11. F-1 completion state
 
-F-1 is architecture work only.
+F-1 foundation is complete.
 
-Required:
+Completed foundation includes:
 
 ```text
 locale config
-common dictionaries
-enum dictionaries
+English/Japanese common dictionaries
+English/Japanese enum dictionaries
 dictionary loader
 English fallback
-entity-copy overlay schema and empty seed files
-event-copy overlay schema and empty seed files
-entity merge utility
-event merge utility
+entity/event copy overlay schema
+empty/controlled overlay files
+entity/event merge utilities
 locale route helpers
 foundation validator
-foundation self-tests
-package/CI integration
-documentation checkpoint sync
+foundation tests
+CI integration
 ```
 
-Not required in F-1:
+F-1 completion does not itself publish Japanese routes.
+
+## 12. Japanese Pilot prerequisites
+
+L-1 may begin only after:
 
 ```text
-public /ja/ routes
-language switcher
-Japanese About translation
-Japanese Methodology translation
-Japanese list routes
-Japanese detail routes
-Japanese Stats/Quality/Change routes
-Japanese Explorer
-hreflang publication
-locale sitemap expansion
-bulk record translation
-additional languages
-```
-
-## 12. F-1 safety validator
-
-The validator must check at least:
-
-- locale config includes `en` and `ja` exactly as intended;
-- default locale is `en`;
-- English/Japanese common dictionary key sets match for foundation keys;
-- English/Japanese enum dictionary key sets match;
-- enum dictionary keys correspond to supported canonical enum values;
-- overlay schema version is supported;
-- overlay locale metadata matches directory locale;
-- entity overlay records contain only allowed copy keys;
-- event overlay records contain only allowed copy keys;
-- non-empty entity overlay IDs resolve to canonical slugs;
-- non-empty event overlay IDs resolve to canonical event IDs;
-- no URL-like canonical fields appear in overlay records;
-- no ID/status/death_reason/confidence fields appear in entity overlays;
-- no date/type/impact/status-effect/confidence fields appear in event overlays;
-- existing canonical data files remain outside the localization directories.
-
-## 13. F-1 self-test contract
-
-Tests must demonstrate:
-
-- Japanese dictionary lookup returns Japanese value;
-- unsupported locale falls back to English;
-- English lookup remains stable;
-- entity copy overrides only summary/notes;
-- missing entity copy returns canonical text;
-- event copy overrides only title/description;
-- missing event copy returns canonical text;
-- English root route has no `/en/` prefix;
-- Japanese route helper produces `/ja/` prefix;
-- slug is preserved across locale route generation;
-- invalid overlay fixture is rejected by validator or schema helper.
-
-## 14. CI integration
-
-F-1 must add stable package scripts, for example:
-
-```text
-i18n:validate
-i18n:test
-```
-
-These must run in the normal validation path before F-1 is marked complete.
-
-F-1 must not add localization requirements to canonical ingest/promotion logic.
-
-Canonical data PRs must remain publishable without new Japanese record copy.
-
-## 15. Japanese Pilot scope after Compare
-
-Japanese public rollout occurs only after:
-
-```text
-F-1 foundation COMPLETE
-G v1.0 baseline COMPLETE
+F-1 localization foundation COMPLETE
+Phase G v1.0 baseline COMPLETE
 H Compare v1 COMPLETE
+D-750 reviewed entity milestone COMPLETE
 ```
 
-Initial pilot scope:
+The reviewed-entity count must use public build aggregation semantics defined by `docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md`.
+
+## 13. L-1 Japanese Pilot scope
+
+The pilot is intentionally broad in UI coverage but limited in translated factual copy.
+
+### 13.1 Public Japanese route shell
+
+Pilot target surfaces:
 
 ```text
 /ja/
+/ja/dead/
+/ja/active/
 /ja/about/
 /ja/methodology/
-common navigation/footer labels
+/ja/stats/
+/ja/quality/
+/ja/explore/
+/ja/updates/
+/ja/incidents/
+/ja/monthly/
+/ja/exchange/[slug]/
+```
+
+The route shell may use English fallback for untranslated record copy.
+
+### 13.2 Required Japanese UI coverage
+
+```text
+header
+navigation
+footer
+Home copy
+About copy
+Methodology copy
+filter labels
+status labels
+death-reason labels
+Explorer controls and helper text
+Stats labels and explanation
+Quality labels and explanation
+Updates/Incidents/Monthly UI copy
+exchange-detail section headings and field labels
+URL-safety labels
+Timeline labels
+Evidence section labels
+disclaimers
+correction UI
 language switcher
-basic enum display labels
-locale metadata
-hreflang/alternate links
-pilot sitemap entries
 ```
 
-The pilot deliberately does not begin with a complete translated registry.
+### 13.3 Record-copy pilot sample
 
-## 16. Japanese Pilot evaluation
-
-Evaluation categories:
-
-### Search
-
-- impressions;
-- clicks;
-- Japanese queries;
-- indexing state.
-
-### Usage
-
-- entry rate;
-- language switch use;
-- navigation from localized About/Methodology;
-- return behavior where measurable.
-
-### Maintenance quality
-
-- correction requests;
-- fallback frequency;
-- broken locale links;
-- translation synchronization burden;
-- operator QA burden.
-
-Decision outcomes:
+The initial pilot may include reviewed optional overlays for approximately:
 
 ```text
-GO
-  expand Japanese coverage in staged order
-
-HOLD
-  retain pilot only; continue core roadmap
-
-PIVOT
-  keep useful foundation/pilot work; evaluate another language later
+dead-side priority set: up to 100 entities
+active-side priority set: up to 50 entities
+selected major events where useful
 ```
 
-## 17. Japanese Expansion order after GO
+This is a controlled sample, not a requirement to translate all 750+ entities.
+
+Selection should prioritize:
+
+- historically important exchanges;
+- records likely to receive Japanese search demand;
+- records useful for comparing Japanese and global exchange history;
+- records whose English summary can be safely translated without factual reinterpretation.
+
+### 13.4 Explicit non-goals of L-1
+
+Not required:
 
 ```text
-JA-1 /ja/dead/ and /ja/active/
-JA-2 /ja/exchange/[slug]/
-JA-3 /ja/stats/ and /ja/quality/
-JA-4 /ja/updates/, /ja/incidents/, /ja/monthly/
-JA-5 /ja/explore/
-JA-6 multilingual final audit
+translation of every entity summary
+translation of every event description
+translation of evidence titles
+translation of publisher names
+translation of canonical names by default
+new Japanese factual registry
+third-language launch
 ```
 
-Record-copy overlays may grow incrementally. Missing optional copy continues to fall back to canonical English.
+## 14. L-1 SEO and metadata requirements
 
-## 18. Additional-language gate
-
-No fixed third language exists.
-
-Candidates must be selected from HEI evidence, not generic market ranking alone.
-
-Decision inputs:
-
-- traffic language and geography;
-- Search Console queries;
-- pilot behavior;
-- subject relevance to exchange history;
-- translation QA capacity;
-- maintenance cost.
-
-Only one new language pilot should be introduced at a time unless operating capacity changes materially.
-
-## 19. SEO and metadata rules for future public locale routes
-
-When a locale route becomes public, require:
+When Japanese routes become public, require:
 
 - correct HTML `lang`;
 - locale-specific title and description;
@@ -630,9 +602,127 @@ When a locale route becomes public, require:
 - appropriate Open Graph locale metadata;
 - deliberate sitemap inclusion;
 - no query-variant sitemap explosion;
-- no locale route pointing canonically to a different factual record identity.
+- no locale route pointing canonically to a different factual identity.
 
-These requirements are pilot/public-rollout work, not F-1 foundation requirements.
+## 15. L-2 Localization Evaluation Gate
+
+L-2 evaluates whether Japanese coverage is useful and maintainable.
+
+### Search evidence
+
+- impressions;
+- clicks;
+- Japanese queries;
+- indexing state;
+- landing-page distribution.
+
+### Usage evidence
+
+- entry rate;
+- language-switch use;
+- localized navigation depth;
+- Explorer usage;
+- Stats/Quality usage;
+- dossier transitions;
+- return behavior where measurable.
+
+### Maintenance evidence
+
+- correction requests;
+- fallback frequency;
+- broken locale links;
+- translation synchronization burden;
+- stale overlay backlog;
+- operator QA burden;
+- CI/localization failure rate.
+
+Decision outcomes:
+
+```text
+GO
+  keep Japanese pilot and expand useful Japanese coverage in stages
+
+HOLD
+  keep pilot scope stable; prioritize core roadmap and D-1000 growth
+
+PIVOT
+  retain useful foundation/pilot work; do not expand Japanese aggressively;
+  continue D-1000 growth and wait for the Language Selection Gate
+```
+
+L-2 does not authorize a third language.
+
+## 16. Japanese expansion after GO
+
+If L-2 returns GO, expansion should prioritize copy depth rather than multiplying route families that already exist in the pilot shell.
+
+Suggested order:
+
+```text
+JA-1 expand dead-side entity summary overlays
+JA-2 expand active-side entity summary overlays
+JA-3 expand selected major event copy
+JA-4 improve Stats/Quality/Change explanatory copy
+JA-5 improve Explorer helper copy and search guidance
+JA-6 multilingual quality/SEO/fallback audit
+```
+
+Record-copy overlays may grow incrementally. Missing optional copy continues to fall back to canonical English.
+
+Japanese expansion must not stop D-1000 data growth.
+
+## 17. D-1000 prerequisite for additional-language selection
+
+No third-language pilot may be launched before:
+
+```text
+D-1000 reviewed entity milestone COMPLETE
+Japanese Pilot evidence exists
+L-2 decision is recorded
+Language Selection Gate is executed
+```
+
+The 1000-entity rule is a release prerequisite, not a claim that every one of 1000 entities must have Japanese copy.
+
+## 18. Language Selection Gate
+
+No third language is preselected.
+
+Decision inputs:
+
+- HEI traffic language and geography;
+- Search Console queries;
+- Japanese pilot behavior;
+- exchange-history subject relevance;
+- translation QA capability;
+- maintenance cost;
+- correction/support language patterns;
+- operator ability to verify longform quality.
+
+Decision outcomes:
+
+```text
+NO LAUNCH
+  no evidence supports another locale yet
+
+PILOT ONE LANGUAGE
+  select one language and define a separate pilot scope
+```
+
+Only one new language pilot should be introduced at a time unless operating capacity changes materially.
+
+## 19. Additional-language safety rules
+
+A third-language pilot must:
+
+- reuse canonical facts;
+- reuse locale-independent slugs and Explorer query state;
+- use English fallback;
+- have a defined QA owner/process;
+- have explicit route and sitemap scope;
+- have a measurement gate;
+- not copy raw machine translation directly into canonical records;
+- not block English or Japanese canonical publication when optional copy is missing.
 
 ## 20. UI and design rules
 
@@ -640,19 +730,17 @@ Localization must preserve HEI's quiet-registry direction.
 
 Rules:
 
-- do not convert dense lists/tables into oversized cards merely because labels become longer;
+- do not replace dense tables/lists with oversized cards merely because labels are longer;
 - allow wrapping before deleting information;
-- keep chips short where possible;
+- keep chips concise;
 - longform locale pages may use slightly more line height;
 - mobile remains information-dense but usable;
-- URL safety meaning must remain clear across locales;
+- URL-safety meaning must remain clear across locales;
 - no color-only status semantics.
 
 ## 21. Workflow separation
 
-Canonical workflow and localization workflow remain separate.
-
-Canonical flow:
+Canonical workflow:
 
 ```text
 discovery
@@ -664,7 +752,7 @@ manual merge
 public output
 ```
 
-Localization flow:
+Localization workflow:
 
 ```text
 dictionary or overlay change
@@ -677,39 +765,50 @@ localized presentation
 
 Do not combine broad canonical factual changes with bulk translation changes in one PR.
 
-## 22. Change control
+Canonical data PRs remain publishable without new Japanese record copy.
 
-Review this specification and the roadmap together before changing:
+## 22. Validation requirements
+
+Localization validation must continue to check:
+
+- locale config contract;
+- default/fallback locale;
+- dictionary key compatibility;
+- enum-label key validity;
+- overlay schema version;
+- overlay locale metadata;
+- allowed copy-only fields;
+- entity/event overlay identifier resolution;
+- prohibition of canonical factual fields in overlays;
+- prohibition of URL/state/date/type facts in copy overlays;
+- route prefix behavior;
+- English fallback;
+- locale-independent slugs and query state.
+
+Public L-1 work must additionally validate:
+
+- hreflang reciprocity;
+- locale canonical URLs;
+- sitemap scope;
+- broken locale links;
+- fallback behavior on untranslated dossiers/events;
+- no canonical data duplication.
+
+## 23. Change control
+
+Review this specification, the roadmap, and the data-growth milestone specification together before changing:
 
 - default locale;
 - public locale prefix model;
 - canonical/fallback language;
 - overlay allowed fields;
-- Japanese pilot scope;
-- localization evaluation gate;
+- 750-entity Japanese Pilot gate;
+- L-1 pilot scope;
+- L-2 evaluation gate;
+- 1000-entity third-language prerequisite;
 - additional-language selection rules;
-- locale-specific Explorer query semantics;
-- decision to make full multilingual rollout a v1.0 requirement.
+- locale-specific Explorer query semantics.
 
 Implementation PRs must cite the relevant section of this specification.
 
-## 23. F-1 completion definition
-
-F-1 is complete when:
-
-```text
-localization architecture documented                 pass
-locale config fixed                                  pass
-common/enums dictionary schemas fixed                pass
-English fallback tested                              pass
-entity/event overlay schemas fixed                   pass
-merge utilities tested                               pass
-locale route helpers tested                          pass
-overlay safety validator                             pass
-CI/package integration                               pass
-canonical data regression                            pass
-English public output regression                     pass
-Japanese full-route rollout                          intentionally not included
-```
-
-After F-1 completion, execution moves directly to Phase G v1.0 Integration Baseline.
+Do not change localization rollout order through chat memory alone. Update repository authorities first.
