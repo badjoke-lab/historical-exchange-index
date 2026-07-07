@@ -1,5 +1,4 @@
 import fs from 'node:fs'
-import os from 'node:os'
 import path from 'node:path'
 
 const root = process.cwd()
@@ -22,29 +21,6 @@ function finding(category, type, detail = {}) {
   return { category, type, ...detail }
 }
 
-function commandScriptName(command) {
-  return command.match(/^npm run ([^\s]+)$/)?.[1] ?? null
-}
-
-function validateAuthoritativePaths(rootDir, contract) {
-  const findings = []
-  for (const [name, relativePath] of Object.entries(contract.authoritative_paths ?? {})) {
-    if (!fs.existsSync(path.join(rootDir, relativePath))) {
-      findings.push(finding('missing_authoritative_path', 'path_missing', { name, path: relativePath }))
-    }
-  }
-  for (const relativePath of contract.canonical_data_paths ?? []) {
-    if (!fs.existsSync(path.join(rootDir, relativePath))) {
-      findings.push(finding('missing_authoritative_path', 'canonical_path_missing', { path: relativePath }))
-    }
-  }
-  const bundleDir = path.join(rootDir, 'records', 'exchanges')
-  if (!fs.existsSync(bundleDir)) {
-    findings.push(finding('missing_authoritative_path', 'record_bundle_directory_missing', { path: 'records/exchanges' }))
-  }
-  return findings
-}
-
 function addIds(target, records, label, source) {
   assert(Array.isArray(records), `${source}: ${label} must be an array`)
   for (const record of records) {
@@ -57,12 +33,12 @@ function deriveReviewedCounts(rootDir, contract) {
   const [entityPath, eventPath, evidencePath] = contract.canonical_data_paths ?? []
   assert(entityPath && eventPath && evidencePath, 'canonical_data_paths must contain entity/event/evidence paths')
 
-  const entityIds = new Set()
-  const eventIds = new Set()
-  const evidenceIds = new Set()
   const entities = readJson(path.join(rootDir, entityPath))
   const events = readJson(path.join(rootDir, eventPath))
   const evidence = readJson(path.join(rootDir, evidencePath))
+  const entityIds = new Set()
+  const eventIds = new Set()
+  const evidenceIds = new Set()
 
   addIds(entityIds, entities, 'entities', entityPath)
   addIds(eventIds, events, 'events', eventPath)
@@ -72,16 +48,24 @@ function deriveReviewedCounts(rootDir, contract) {
   const bundleFiles = fs.existsSync(bundleDir)
     ? fs.readdirSync(bundleDir).filter((name) => name.endsWith('.json')).sort()
     : []
+  let correctionBundleCount = 0
 
   for (const fileName of bundleFiles) {
-    const relativePath = `records/exchanges/${fileName}`
+    const source = `records/exchanges/${fileName}`
     const bundle = readJson(path.join(bundleDir, fileName))
-    assert(bundle?.entity?.id, `${relativePath}: missing entity.id`)
-    assert(Array.isArray(bundle.events), `${relativePath}: events must be array`)
-    assert(Array.isArray(bundle.evidence), `${relativePath}: evidence must be array`)
-    entityIds.add(bundle.entity.id)
-    addIds(eventIds, bundle.events, 'events', relativePath)
-    addIds(evidenceIds, bundle.evidence, 'evidence', relativePath)
+    assert(bundle?.entity?.id, `${source}: missing entity.id`)
+    assert(Array.isArray(bundle.events), `${source}: events must be array`)
+    assert(Array.isArray(bundle.evidence), `${source}: evidence must be array`)
+
+    // Match scripts/build-data-from-records.mjs: correction bundle entities
+    // replace guarded entity content and are not added to entityById.
+    if (bundle.entity_correction) {
+      correctionBundleCount += 1
+    } else {
+      entityIds.add(bundle.entity.id)
+    }
+    addIds(eventIds, bundle.events, 'events', source)
+    addIds(evidenceIds, bundle.evidence, 'evidence', source)
   }
 
   return {
@@ -96,12 +80,31 @@ function deriveReviewedCounts(rootDir, contract) {
       evidence: evidence.length,
     },
     bundleCount: bundleFiles.length,
+    correctionBundleCount,
   }
 }
 
-function validateCounts(rootDir, contract) {
+function validatePaths(rootDir, contract) {
   const findings = []
+  for (const [name, relativePath] of Object.entries(contract.authoritative_paths ?? {})) {
+    if (!fs.existsSync(path.join(rootDir, relativePath))) {
+      findings.push(finding('missing_authoritative_path', 'path_missing', { name, path: relativePath }))
+    }
+  }
+  for (const relativePath of contract.canonical_data_paths ?? []) {
+    if (!fs.existsSync(path.join(rootDir, relativePath))) {
+      findings.push(finding('missing_authoritative_path', 'canonical_path_missing', { path: relativePath }))
+    }
+  }
+  if (!fs.existsSync(path.join(rootDir, 'records', 'exchanges'))) {
+    findings.push(finding('missing_authoritative_path', 'record_bundle_directory_missing', { path: 'records/exchanges' }))
+  }
+  return findings
+}
+
+function validateCounts(rootDir, contract) {
   const derived = deriveReviewedCounts(rootDir, contract)
+  const findings = []
   for (const [key, actual] of Object.entries(derived.counts)) {
     if (contract.reviewed_counts?.[key] !== actual) {
       findings.push(finding('stale_checkpoint', 'reviewed_count_mismatch', {
@@ -111,22 +114,22 @@ function validateCounts(rootDir, contract) {
       }))
     }
   }
-  return { findings, derived }
+  return { derived, findings }
 }
 
 function validateRoadmap(rootDir, contract) {
   const roadmap = readText(path.join(rootDir, contract.authoritative_paths.roadmap))
   if (roadmap === null) return [finding('missing_authoritative_path', 'roadmap_missing')]
   const findings = []
-  for (const [type, value] of [
+  for (const [type, expected] of [
     ['current_phase_missing', contract.current_phase],
     ['current_item_missing', contract.current_item],
     ['next_item_missing', contract.next_item],
   ]) {
-    if (!value || !roadmap.includes(value)) findings.push(finding('stale_checkpoint', type, { expected: value }))
+    if (!expected || !roadmap.includes(expected)) findings.push(finding('stale_checkpoint', type, { expected }))
   }
-  for (const [key, value] of Object.entries(contract.reviewed_counts ?? {})) {
-    if (!roadmap.includes(String(value))) findings.push(finding('stale_checkpoint', 'roadmap_count_missing', { key, expected: value }))
+  for (const [key, expected] of Object.entries(contract.reviewed_counts ?? {})) {
+    if (!roadmap.includes(String(expected))) findings.push(finding('stale_checkpoint', 'roadmap_count_missing', { key, expected }))
   }
   return findings
 }
@@ -134,7 +137,6 @@ function validateRoadmap(rootDir, contract) {
 function validateRunbook(rootDir, contract) {
   const runbook = readText(path.join(rootDir, contract.authoritative_paths.runbook))
   if (runbook === null) return [finding('missing_authoritative_path', 'runbook_missing')]
-
   const findings = []
   const concepts = [
     'repository and default branch',
@@ -150,7 +152,6 @@ function validateRunbook(rootDir, contract) {
     'validation commands',
     'recovery sequence',
   ]
-
   for (const concept of concepts) {
     if (!runbook.toLowerCase().includes(concept.toLowerCase())) {
       findings.push(finding('runbook_incomplete', 'required_concept_missing', { concept }))
@@ -172,12 +173,12 @@ function validateRunbook(rootDir, contract) {
   return findings
 }
 
-function validatePackageCommands(rootDir, contract) {
+function validateCommands(rootDir, contract) {
   const pkg = readJson(path.join(rootDir, 'package.json'))
   if (!pkg) return [finding('command_reference_incomplete', 'package_json_missing')]
   const findings = []
   for (const command of contract.required_validation_commands ?? []) {
-    const script = commandScriptName(command)
+    const script = command.match(/^npm run ([^\s]+)$/)?.[1]
     if (!script) {
       findings.push(finding('command_reference_incomplete', 'unsupported_command_shape', { command }))
     } else if (!pkg.scripts?.[script]) {
@@ -187,28 +188,24 @@ function validatePackageCommands(rootDir, contract) {
   return findings
 }
 
-function validateDeploymentAuthority(rootDir, contract) {
-  const deploymentPolicy = readText(path.join(rootDir, contract.authoritative_paths.deployment_policy))
-  const projectPolicy = readJson(path.join(rootDir, contract.authoritative_paths.cloudflare_project_policy))
-  if (deploymentPolicy === null) return [finding('deployment_authority_incomplete', 'deployment_policy_missing')]
-  if (projectPolicy === null) return [finding('deployment_authority_incomplete', 'cloudflare_project_policy_missing')]
-
+function validateDeployment(rootDir, contract) {
+  const deployment = readText(path.join(rootDir, contract.authoritative_paths.deployment_policy))
+  const project = readJson(path.join(rootDir, contract.authoritative_paths.cloudflare_project_policy))
+  if (deployment === null) return [finding('deployment_authority_incomplete', 'deployment_policy_missing')]
+  if (project === null) return [finding('deployment_authority_incomplete', 'cloudflare_project_policy_missing')]
   const findings = []
-  if (projectPolicy.production_branch !== contract.default_branch) {
-    findings.push(finding('deployment_authority_incomplete', 'production_branch_mismatch', { expected: contract.default_branch, actual: projectPolicy.production_branch }))
-  }
-  if (projectPolicy.source_config?.production_deployments_enabled !== true) findings.push(finding('deployment_authority_incomplete', 'production_deployments_not_enabled'))
-  if (projectPolicy.source_config?.preview_deployment_setting !== 'none') findings.push(finding('deployment_authority_incomplete', 'preview_deployment_setting_mismatch', { actual: projectPolicy.source_config?.preview_deployment_setting }))
-  if (!deploymentPolicy.includes('/version.json') || !deploymentPolicy.includes('expected')) findings.push(finding('deployment_authority_incomplete', 'commit_first_production_rule_missing'))
+  if (project.production_branch !== contract.default_branch) findings.push(finding('deployment_authority_incomplete', 'production_branch_mismatch', { expected: contract.default_branch, actual: project.production_branch }))
+  if (project.source_config?.production_deployments_enabled !== true) findings.push(finding('deployment_authority_incomplete', 'production_deployments_not_enabled'))
+  if (project.source_config?.preview_deployment_setting !== 'none') findings.push(finding('deployment_authority_incomplete', 'preview_deployment_setting_mismatch', { actual: project.source_config?.preview_deployment_setting }))
+  if (!deployment.includes('/version.json') || !deployment.includes('expected')) findings.push(finding('deployment_authority_incomplete', 'commit_first_production_rule_missing'))
   return findings
 }
 
-function validateProductionState(rootDir, contract) {
+function validateProduction(rootDir, contract) {
   const report = readText(path.join(rootDir, contract.authoritative_paths.production_verification_report))
   const productionContract = readJson(path.join(rootDir, contract.authoritative_paths.production_verification_contract))
   if (report === null) return [finding('production_state_incomplete', 'production_report_missing')]
   if (productionContract === null) return [finding('production_state_incomplete', 'production_contract_missing')]
-
   const findings = []
   if (!report.includes('Overall result:           PASS')) findings.push(finding('production_state_incomplete', 'production_pass_marker_missing'))
   if (!productionContract.expected_commit || !report.includes(productionContract.expected_commit)) findings.push(finding('production_state_incomplete', 'verified_commit_reference_missing', { expected_commit: productionContract.expected_commit }))
@@ -216,7 +213,7 @@ function validateProductionState(rootDir, contract) {
   return findings
 }
 
-function validateAgentAuthorityChain(rootDir, contract) {
+function validateAgents(rootDir, contract) {
   const agents = readText(path.join(rootDir, contract.authoritative_paths.agent_instructions))
   if (agents === null) return [finding('authority_chain_incomplete', 'agents_missing')]
   const findings = []
@@ -247,18 +244,17 @@ export function validateMaintainerRecovery(rootDir = root, contractPath = defaul
 
   const countResult = validateCounts(rootDir, contract)
   const findings = [
-    ...validateAuthoritativePaths(rootDir, contract),
+    ...validatePaths(rootDir, contract),
     ...countResult.findings,
     ...validateRoadmap(rootDir, contract),
     ...validateRunbook(rootDir, contract),
-    ...validatePackageCommands(rootDir, contract),
-    ...validateDeploymentAuthority(rootDir, contract),
-    ...validateProductionState(rootDir, contract),
-    ...validateAgentAuthorityChain(rootDir, contract),
+    ...validateCommands(rootDir, contract),
+    ...validateDeployment(rootDir, contract),
+    ...validateProduction(rootDir, contract),
+    ...validateAgents(rootDir, contract),
     ...validateDynamicRules(contract),
   ]
-
-  const categoryNames = [
+  const categories = [
     'missing_authoritative_path',
     'stale_checkpoint',
     'recovery_state_mismatch',
@@ -278,118 +274,25 @@ export function validateMaintainerRecovery(rootDir = root, contractPath = defaul
     reviewedCounts: countResult.derived.counts,
     baseDataCounts: countResult.derived.baseCounts,
     recordBundleCount: countResult.derived.bundleCount,
+    correctionBundleCount: countResult.derived.correctionBundleCount,
     authoritativePathCount: Object.keys(contract.authoritative_paths ?? {}).length + (contract.canonical_data_paths ?? []).length + 1,
     requiredCommandCount: (contract.required_validation_commands ?? []).length,
     recoveryStepCount: (contract.recovery_sequence ?? []).length,
-    categories: Object.fromEntries(categoryNames.map((category) => [category, findings.filter((item) => item.category === category).length])),
+    categories: Object.fromEntries(categories.map((category) => [category, findings.filter((item) => item.category === category).length])),
     findings,
   }
 }
 
-function writeFixtureFile(rootDir, relativePath, content) {
-  const target = path.join(rootDir, relativePath)
-  fs.mkdirSync(path.dirname(target), { recursive: true })
-  fs.writeFileSync(target, content)
-}
-
-function makeSelfTestFixture() {
-  const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hei-recovery-test-'))
-  const contract = {
-    version: 1,
-    repository: 'badjoke-lab/historical-exchange-index',
-    default_branch: 'main',
-    current_phase: 'Phase G',
-    current_item: 'G-6 Recovery',
-    next_item: 'G-7 Baseline',
-    reviewed_counts: { entities: 2, events: 2, evidence: 2 },
-    authoritative_paths: {
-      agent_instructions: 'AGENTS.md',
-      roadmap: 'docs/roadmap.md',
-      phase_g_spec: 'docs/g.md',
-      product_spec: 'docs/product.md',
-      localization_spec: 'docs/i18n.md',
-      deployment_policy: 'docs/deployment.md',
-      cloudflare_project_policy: 'config/cloudflare.json',
-      production_verification_contract: 'config/production.json',
-      production_verification_report: 'docs/production.md',
-      runbook: 'docs/runbook.md',
-    },
-    canonical_data_paths: ['data/entities.json', 'data/events.json', 'data/evidence.json'],
-    required_validation_commands: ['npm run recovery:test', 'npm run recovery:validate'],
-    dynamic_state_rules: {
-      main_sha: 'derive dynamically; never hard-code',
-      open_product_prs: 'derive dynamically; never hard-code',
-      production_state: 'read production verification report',
-    },
-    recovery_sequence: [
-      'confirm repository identity',
-      'fetch current remote',
-      'inspect open PRs',
-      'read AGENTS + deployment',
-      'read roadmap current',
-      'read active phase',
-      'derive canonical counts',
-      'read latest production',
-      'run recovery validator',
-      'resume first incomplete',
-      'repair stale checkpoint',
-    ],
-  }
-
-  writeFixtureFile(rootDir, 'config/contract.json', JSON.stringify(contract))
-  writeFixtureFile(rootDir, 'data/entities.json', JSON.stringify([{ id: 'e1' }]))
-  writeFixtureFile(rootDir, 'data/events.json', JSON.stringify([{ id: 'v1' }]))
-  writeFixtureFile(rootDir, 'data/evidence.json', JSON.stringify([{ id: 's1' }]))
-  writeFixtureFile(rootDir, 'records/exchanges/extra.json', JSON.stringify({ entity: { id: 'e2' }, events: [{ id: 'v2' }], evidence: [{ id: 's2' }] }))
-  writeFixtureFile(rootDir, 'docs/roadmap.md', 'Phase G\nG-6 Recovery\nG-7 Baseline\n2 2 2')
-  const concepts = 'repository and default branch current origin/main SHA reviewed counts current phase current work item next work item active specifications open product PRs deployment policy production verification state validation commands recovery sequence'
-  const sequenceText = contract.recovery_sequence.join('\n')
-  writeFixtureFile(rootDir, 'docs/runbook.md', `${concepts}\n${sequenceText}\nrecords/exchanges build semantics\ngh pr list --state open\ngit rev-parse origin/main\nnpm run recovery:test\nnpm run recovery:validate`)
-  writeFixtureFile(rootDir, 'package.json', JSON.stringify({ scripts: { 'recovery:test': 'node x --self-test', 'recovery:validate': 'node x' } }))
-  writeFixtureFile(rootDir, 'config/cloudflare.json', JSON.stringify({ production_branch: 'main', source_config: { production_deployments_enabled: true, preview_deployment_setting: 'none' } }))
-  writeFixtureFile(rootDir, 'docs/deployment.md', 'compare /version.json with expected commit')
-  writeFixtureFile(rootDir, 'config/production.json', JSON.stringify({ expected_commit: 'abc123' }))
-  writeFixtureFile(rootDir, 'docs/production.md', 'abc123\nCommit propagation:       MATCH\nOverall result:           PASS')
-  writeFixtureFile(rootDir, 'AGENTS.md', 'docs/roadmap.md docs/g.md docs/deployment.md config/cloudflare.json Repository state is authoritative')
-  for (const file of ['docs/g.md', 'docs/product.md', 'docs/i18n.md']) writeFixtureFile(rootDir, file, 'spec')
-
-  return { rootDir, contractPath: path.join(rootDir, 'config', 'contract.json') }
-}
-
-function runSelfTest() {
-  const fixture = makeSelfTestFixture()
-  try {
-    const clean = validateMaintainerRecovery(fixture.rootDir, fixture.contractPath)
-    assert(clean.findings.length === 0, `clean recovery fixture failed: ${JSON.stringify(clean.findings)}`)
-
-    fs.writeFileSync(path.join(fixture.rootDir, 'records', 'exchanges', 'extra.json'), JSON.stringify({ entity: { id: 'e3' }, events: [{ id: 'v2' }], evidence: [{ id: 's2' }] }))
-    const countBroken = validateMaintainerRecovery(fixture.rootDir, fixture.contractPath)
-    assert(countBroken.findings.some((item) => item.type === 'reviewed_count_mismatch'), 'self-test did not detect reviewed count mismatch')
-
-    fs.writeFileSync(path.join(fixture.rootDir, 'records', 'exchanges', 'extra.json'), JSON.stringify({ entity: { id: 'e2' }, events: [{ id: 'v2' }], evidence: [{ id: 's2' }] }))
-    fs.writeFileSync(path.join(fixture.rootDir, 'docs', 'roadmap.md'), 'Phase G\nG-7 Baseline\n2 2 2')
-    const roadmapBroken = validateMaintainerRecovery(fixture.rootDir, fixture.contractPath)
-    assert(roadmapBroken.findings.some((item) => item.type === 'current_item_missing'), 'self-test did not detect stale roadmap current item')
-
-    fs.writeFileSync(path.join(fixture.rootDir, 'docs', 'roadmap.md'), 'Phase G\nG-6 Recovery\nG-7 Baseline\n2 2 2')
-    fs.writeFileSync(path.join(fixture.rootDir, 'package.json'), JSON.stringify({ scripts: { 'recovery:test': 'node x --self-test' } }))
-    const commandBroken = validateMaintainerRecovery(fixture.rootDir, fixture.contractPath)
-    assert(commandBroken.findings.some((item) => item.type === 'package_script_missing'), 'self-test did not detect missing package command')
-  } finally {
-    fs.rmSync(fixture.rootDir, { recursive: true, force: true })
-  }
-  console.log('Maintainer recovery validator self-test passed.')
-}
-
 if (process.argv.includes('--self-test')) {
-  runSelfTest()
-} else {
-  const result = validateMaintainerRecovery()
-  console.log(`Maintainer recovery validation: ${result.authoritativePathCount} authoritative/canonical paths, ${result.requiredCommandCount} required commands, ${result.recoveryStepCount} recovery steps.`)
-  console.log(`Current: ${result.currentPhase} -> ${result.currentItem}; next=${result.nextItem}`)
-  console.log(`Reviewed counts: ${JSON.stringify(result.reviewedCounts)} (base data ${JSON.stringify(result.baseDataCounts)} + ${result.recordBundleCount} record bundle files under build semantics)`)
-  console.log(`Categories: ${JSON.stringify(result.categories)}`)
-  for (const item of result.findings) console.log(JSON.stringify(item))
-  if (result.findings.length > 0) throw new Error(`maintainer recovery validation found ${result.findings.length} findings`)
-  console.log('Maintainer recovery validation passed with 0 findings.')
+  console.error('Use npm run recovery:test for black-box validator tests.')
+  process.exit(2)
 }
+
+const result = validateMaintainerRecovery()
+console.log(`Maintainer recovery validation: ${result.authoritativePathCount} authoritative/canonical paths, ${result.requiredCommandCount} required commands, ${result.recoveryStepCount} recovery steps.`)
+console.log(`Current: ${result.currentPhase} -> ${result.currentItem}; next=${result.nextItem}`)
+console.log(`Reviewed counts: ${JSON.stringify(result.reviewedCounts)} (base data ${JSON.stringify(result.baseDataCounts)} + ${result.recordBundleCount} record bundle files, including ${result.correctionBundleCount} entity correction bundle(s), under build semantics)`)
+console.log(`Categories: ${JSON.stringify(result.categories)}`)
+for (const item of result.findings) console.log(JSON.stringify(item))
+if (result.findings.length > 0) throw new Error(`maintainer recovery validation found ${result.findings.length} findings`)
+console.log('Maintainer recovery validation passed with 0 findings.')
