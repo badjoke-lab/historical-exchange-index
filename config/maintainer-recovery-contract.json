@@ -43,14 +43,14 @@
   "recovery_sequence": [
     "confirm repository identity and default branch",
     "fetch current remote state and record origin/main SHA",
-    "inspect open pull requests and branch state",
-    "read AGENTS.md and deployment policy",
+    "inspect open PRs and branch state",
+    "read AGENTS and deployment policy plus Cloudflare project policy",
     "read roadmap current checkpoint and execution order",
-    "read the active phase specification and task-specific contracts",
+    "read active phase specification and task-specific contracts",
     "derive canonical counts from the three canonical JSON arrays",
-    "read the latest production verification report before production diagnosis",
-    "run recovery validation and relevant project validation commands",
+    "read latest production verification report before production diagnosis",
+    "run recovery validator and relevant project validation commands",
     "resume the first incomplete roadmap item",
-    "repair any stale checkpoint in the next appropriate reviewed PR"
+    "repair stale checkpoint in the next appropriate reviewed PR"
   ]
 }
