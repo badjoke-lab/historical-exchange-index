@@ -1,5 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { applyReviewedEntityCorrections } from './lib/entity-corrections.mjs'
+import { loadReviewedBundles, mergeRecords } from './lib/reviewed-bundle-aggregation.mjs'
 
 const root = process.cwd()
 const defaultContractPath = path.join(root, 'config', 'maintainer-recovery-contract.json')
@@ -21,66 +23,40 @@ function finding(category, type, detail = {}) {
   return { category, type, ...detail }
 }
 
-function addIds(target, records, label, source) {
-  assert(Array.isArray(records), `${source}: ${label} must be an array`)
-  for (const record of records) {
-    assert(record && typeof record.id === 'string', `${source}: ${label} record missing id`)
-    target.add(record.id)
-  }
-}
-
 function deriveReviewedCounts(rootDir, contract) {
   const [entityPath, eventPath, evidencePath] = contract.canonical_data_paths ?? []
   assert(entityPath && eventPath && evidencePath, 'canonical_data_paths must contain entity/event/evidence paths')
 
-  const entities = readJson(path.join(rootDir, entityPath))
-  const events = readJson(path.join(rootDir, eventPath))
-  const evidence = readJson(path.join(rootDir, evidencePath))
-  const entityIds = new Set()
-  const eventIds = new Set()
-  const evidenceIds = new Set()
+  const canonicalEntities = readJson(path.join(rootDir, entityPath))
+  const canonicalEvents = readJson(path.join(rootDir, eventPath))
+  const canonicalEvidence = readJson(path.join(rootDir, evidencePath))
+  assert(Array.isArray(canonicalEntities), `${entityPath} must be an array`)
+  assert(Array.isArray(canonicalEvents), `${eventPath} must be an array`)
+  assert(Array.isArray(canonicalEvidence), `${evidencePath} must be an array`)
 
-  addIds(entityIds, entities, 'entities', entityPath)
-  addIds(eventIds, events, 'events', eventPath)
-  addIds(evidenceIds, evidence, 'evidence', evidencePath)
-
-  const bundleDir = path.join(rootDir, 'records', 'exchanges')
-  const bundleFiles = fs.existsSync(bundleDir)
-    ? fs.readdirSync(bundleDir).filter((name) => name.endsWith('.json')).sort()
-    : []
-  let correctionBundleCount = 0
-
-  for (const fileName of bundleFiles) {
-    const source = `records/exchanges/${fileName}`
-    const bundle = readJson(path.join(bundleDir, fileName))
-    assert(bundle?.entity?.id, `${source}: missing entity.id`)
-    assert(Array.isArray(bundle.events), `${source}: events must be array`)
-    assert(Array.isArray(bundle.evidence), `${source}: evidence must be array`)
-
-    // Match scripts/build-data-from-records.mjs: correction bundle entities
-    // replace guarded entity content and are not added to entityById.
-    if (bundle.entity_correction) {
-      correctionBundleCount += 1
-    } else {
-      entityIds.add(bundle.entity.id)
-    }
-    addIds(eventIds, bundle.events, 'events', source)
-    addIds(evidenceIds, bundle.evidence, 'evidence', source)
-  }
+  const { all: reviewedBundles, newEntityBundles } = loadReviewedBundles(rootDir, canonicalEntities)
+  const correctedCanonicalEntities = applyReviewedEntityCorrections(canonicalEntities, reviewedBundles)
+  const entities = [
+    ...correctedCanonicalEntities,
+    ...newEntityBundles.map(({ bundle }) => bundle.entity),
+  ]
+  const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event')
+  const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence')
 
   return {
     counts: {
-      entities: entityIds.size,
-      events: eventIds.size,
-      evidence: evidenceIds.size,
-    },
-    baseCounts: {
       entities: entities.length,
       events: events.length,
       evidence: evidence.length,
     },
-    bundleCount: bundleFiles.length,
-    correctionBundleCount,
+    baseCounts: {
+      entities: canonicalEntities.length,
+      events: canonicalEvents.length,
+      evidence: canonicalEvidence.length,
+    },
+    bundleCount: reviewedBundles.length,
+    newEntityBundleCount: newEntityBundles.length,
+    correctionBundleCount: reviewedBundles.filter(({ bundle }) => bundle.entity_correction !== undefined).length,
   }
 }
 
@@ -274,6 +250,7 @@ export function validateMaintainerRecovery(rootDir = root, contractPath = defaul
     reviewedCounts: countResult.derived.counts,
     baseDataCounts: countResult.derived.baseCounts,
     recordBundleCount: countResult.derived.bundleCount,
+    newEntityBundleCount: countResult.derived.newEntityBundleCount,
     correctionBundleCount: countResult.derived.correctionBundleCount,
     authoritativePathCount: Object.keys(contract.authoritative_paths ?? {}).length + (contract.canonical_data_paths ?? []).length + 1,
     requiredCommandCount: (contract.required_validation_commands ?? []).length,
@@ -291,7 +268,7 @@ if (process.argv.includes('--self-test')) {
 const result = validateMaintainerRecovery()
 console.log(`Maintainer recovery validation: ${result.authoritativePathCount} authoritative/canonical paths, ${result.requiredCommandCount} required commands, ${result.recoveryStepCount} recovery steps.`)
 console.log(`Current: ${result.currentPhase} -> ${result.currentItem}; next=${result.nextItem}`)
-console.log(`Reviewed counts: ${JSON.stringify(result.reviewedCounts)} (base data ${JSON.stringify(result.baseDataCounts)} + ${result.recordBundleCount} record bundle files, including ${result.correctionBundleCount} entity correction bundle(s), under build semantics)`)
+console.log(`Reviewed counts: ${JSON.stringify(result.reviewedCounts)} (base data ${JSON.stringify(result.baseDataCounts)} + ${result.recordBundleCount} reviewed bundle files, ${result.newEntityBundleCount} genuinely new entity bundles, ${result.correctionBundleCount} correction bundle(s), using public build aggregation semantics)`)
 console.log(`Categories: ${JSON.stringify(result.categories)}`)
 for (const item of result.findings) console.log(JSON.stringify(item))
 if (result.findings.length > 0) throw new Error(`maintainer recovery validation found ${result.findings.length} findings`)
