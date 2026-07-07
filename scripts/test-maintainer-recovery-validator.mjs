@@ -1,4 +1,4 @@
-import { execFileSync, spawnSync } from 'node:child_process'
+import { spawnSync } from 'node:child_process'
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
@@ -40,6 +40,8 @@ try {
     'data',
     'records/exchanges',
     'scripts/validate-maintainer-recovery.mjs',
+    'scripts/lib/entity-corrections.mjs',
+    'scripts/lib/reviewed-bundle-aggregation.mjs',
   ]) {
     copy(relativePath)
   }
