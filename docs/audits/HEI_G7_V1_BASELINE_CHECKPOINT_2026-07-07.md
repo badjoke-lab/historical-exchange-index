@@ -131,18 +131,18 @@ Monitoring, staging, and reviewed public data remain separate.
 Checked production state:
 
 ```text
-Expected commit:           9c1c0e9d7d327c61479a049ea498de7ec893a322
-Deployed commit:           9c1c0e9d7d327c61479a049ea498de7ec893a322
-Commit propagation:        MATCH
-Machine layer:             PASS
-Core routes:               12 / 12 PASS
-Explorer queries:           2 / 2 PASS
-Representative deep links:  3 / 3 PASS
-Machine files:             11 / 11 PASS
-Sitemap URLs:              562 PASS
-Robots contract:           PASS
-Representative dossier:    /exchange/mt-gox/ PASS
-Overall result:            PASS
+Expected commit:          9c1c0e9d7d327c61479a049ea498de7ec893a322
+Deployed commit:          9c1c0e9d7d327c61479a049ea498de7ec893a322
+Commit propagation:       MATCH
+Machine layer:            PASS
+Core routes:              12 / 12 PASS
+Explorer queries:          2 / 2 PASS
+Representative deep links: 3 / 3 PASS
+Machine files:            11 / 11 PASS
+Sitemap URLs:             562 PASS
+Robots contract:          PASS
+Representative dossier:   /exchange/mt-gox/ PASS
+Overall result:           PASS
 ```
 
 The independent Production verification gate also passed on the final G-7 validation cycle before this report finalization.
@@ -182,19 +182,19 @@ Result:
 PASS
 ```
 
-The dedicated v1 baseline checkpoint gate passed with:
+The dedicated v1 baseline checkpoint gate validates:
 
 ```text
-machine-readable build:        PASS
-Next production build:         PASS
-baseline validator self-test:  PASS
-repository recovery validation: PASS
-v1 baseline validation:        PASS
+machine-readable build
+Next production build
+baseline validator self-test
+repository recovery validation
+v1 baseline validation
 ```
 
 ## 10. Recovery validation result
 
-After the G-7 authority update, repository-only recovery resolved:
+After the G-7 authority update, repository-only recovery resolves:
 
 ```text
 Current phase: Phase G — v1.0 Integration Baseline
@@ -220,11 +220,7 @@ production_state_incomplete:     0
 authority_chain_incomplete:      0
 ```
 
-Both the recovery black-box self-test and repository-only recovery validation passed in the final G-7 validation cycle before this report finalization.
-
 ## 11. Post-v1 priority sequence
-
-The fixed sequence after G-7 is:
 
 ```text
 Phase H — Compare v1
@@ -306,7 +302,7 @@ PR #558 final head required workflows: PASS required
 PR #558 merge: required
 ```
 
-G-7 is complete when PR #558 merges. The merge itself records that the final-head workflow condition was satisfied.
+G-7 is complete when PR #558 merges. The merge records satisfaction of the final-head workflow condition.
 
 After merge:
 
