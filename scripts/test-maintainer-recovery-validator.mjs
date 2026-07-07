@@ -40,6 +40,7 @@ try {
     'data',
     'records/exchanges',
     'scripts/validate-maintainer-recovery.mjs',
+    'scripts/validate-v1-baseline.mjs',
     'scripts/lib/entity-corrections.mjs',
     'scripts/lib/reviewed-bundle-aggregation.mjs',
   ]) {
@@ -63,7 +64,7 @@ try {
   fs.writeFileSync(contractPath, originalContract)
 
   const currentItem = JSON.parse(originalContract).current_item
-  fs.writeFileSync(roadmapPath, originalRoadmap.replaceAll(currentItem, 'G-6 REMOVED FOR SELF-TEST'))
+  fs.writeFileSync(roadmapPath, originalRoadmap.replaceAll(currentItem, 'G-7 REMOVED FOR SELF-TEST'))
   runValidator(false, 'current_item_missing')
   fs.writeFileSync(roadmapPath, originalRoadmap)
 

@@ -1,0 +1,84 @@
+name: v1 baseline checkpoint gate
+
+on:
+  pull_request:
+    paths:
+      - 'AGENTS.md'
+      - 'docs/HEI_V1_EXECUTION_ROADMAP.md'
+      - 'docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md'
+      - 'docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md'
+      - 'docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md'
+      - 'docs/operations/HEI_MAINTAINER_RECOVERY_RUNBOOK.md'
+      - 'config/v1-baseline-contract.json'
+      - 'config/maintainer-recovery-contract.json'
+      - 'config/production-verification-contract.json'
+      - 'config/explorer-query-contract.json'
+      - 'config/i18n-locales.json'
+      - 'scripts/validate-v1-baseline.mjs'
+      - 'scripts/test-v1-baseline-validator.mjs'
+      - 'scripts/validate-maintainer-recovery.mjs'
+      - 'scripts/lib/entity-corrections.mjs'
+      - 'scripts/lib/reviewed-bundle-aggregation.mjs'
+      - 'package.json'
+      - '.github/workflows/v1-baseline-gate.yml'
+  workflow_dispatch:
+
+jobs:
+  baseline:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build machine-readable public layer
+        run: npm run machine:build
+
+      - name: Build generated public output
+        run: npm run build
+
+      - name: Baseline validator self-test
+        id: baseline_self_test
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run baseline:test 2>&1 | tee v1-baseline-self-test.log
+
+      - name: Repository recovery validation
+        id: recovery_validation
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run recovery:validate 2>&1 | tee v1-baseline-recovery-validation.log
+
+      - name: v1 baseline validation
+        id: baseline_validation
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run baseline:validate 2>&1 | tee v1-baseline-validation.log
+
+      - name: Upload baseline checkpoint diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v1-baseline-checkpoint-report
+          path: |
+            v1-baseline-self-test.log
+            v1-baseline-recovery-validation.log
+            v1-baseline-validation.log
+          if-no-files-found: warn
+
+      - name: Fail when baseline checkpoint validation failed
+        if: steps.baseline_self_test.outcome == 'failure' || steps.recovery_validation.outcome == 'failure' || steps.baseline_validation.outcome == 'failure'
+        run: exit 1
