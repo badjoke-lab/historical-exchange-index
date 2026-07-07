@@ -56,7 +56,11 @@
     "pilot_locales": ["ja"],
     "full_public_japanese_rollout_in_v1": false,
     "canonical_facts_single_source": true,
-    "localized_record_copy_is_overlay_only": true
+    "localized_record_copy_is_overlay_only": true,
+    "japanese_public_pilot_min_reviewed_entities": 750,
+    "third_language_gate_min_reviewed_entities": 1000,
+    "third_language_preselected": false,
+    "max_new_language_pilots_at_once": 1
   },
   "monitoring_operations_separation": {
     "monitoring_runner": "scripts/monitoring/run.mjs",
@@ -87,6 +91,15 @@
     "g5": "docs/audits/HEI_G5_PRODUCTION_VERIFICATION_2026-07-07.md",
     "g6": "docs/audits/HEI_G6_MAINTAINER_RECOVERY_VALIDATION_2026-07-07.md"
   },
+  "post_v1_priority_sequence": [
+    "Phase H — Compare v1",
+    "D-750 Reviewed Entity Milestone",
+    "L-1 Japanese Pilot",
+    "L-2 Localization Evaluation Gate",
+    "D-1000 Reviewed Entity Milestone",
+    "Language Selection Gate",
+    "Phase I — Discovery Log Trial"
+  ],
   "known_deferred_items": [
     "Compare v1",
     "Japanese public pilot",
@@ -95,6 +108,8 @@
     "NL Filter Translator",
     "API expansion"
   ],
+  "data_growth_authority": "docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md",
+  "localization_authority": "docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md",
   "next_phase": "Phase H — Compare v1",
   "compare_authority": "docs/HEI_PRODUCT_SURFACES_SPEC.md#7-compare-v1"
 }
