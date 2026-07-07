@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "repository": "badjoke-lab/historical-exchange-index",
+  "default_branch": "main",
+  "current_phase": "Phase G — v1.0 Integration Baseline",
+  "current_item": "G-6 Maintainer Runbook and Recovery Validation",
+  "next_item": "G-7 v1.0 Baseline Checkpoint",
+  "reviewed_counts": {
+    "entities": 550,
+    "events": 1004,
+    "evidence": 2621
+  },
+  "authoritative_paths": {
+    "agent_instructions": "AGENTS.md",
+    "roadmap": "docs/HEI_V1_EXECUTION_ROADMAP.md",
+    "phase_g_spec": "docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md",
+    "product_spec": "docs/HEI_PRODUCT_SURFACES_SPEC.md",
+    "localization_spec": "docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md",
+    "deployment_policy": "docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md",
+    "cloudflare_project_policy": "config/cloudflare-pages-project.json",
+    "production_verification_contract": "config/production-verification-contract.json",
+    "production_verification_report": "docs/audits/HEI_G5_PRODUCTION_VERIFICATION_2026-07-07.md",
+    "runbook": "docs/operations/HEI_MAINTAINER_RECOVERY_RUNBOOK.md"
+  },
+  "canonical_data_paths": [
+    "data/entities.json",
+    "data/events.json",
+    "data/evidence.json"
+  ],
+  "required_validation_commands": [
+    "npm run policy:check",
+    "npm run records:validate",
+    "npm run machine:validate",
+    "npm run public:validate",
+    "npm run recovery:test",
+    "npm run recovery:validate"
+  ],
+  "dynamic_state_rules": {
+    "main_sha": "derive from current origin/main or GitHub repository state; never hard-code as permanent truth",
+    "open_product_prs": "derive from current GitHub pull-request state; never hard-code transient PR numbers as permanent truth",
+    "production_state": "read the latest dated production verification report and compare its expected/deployed commits before diagnosing production"
+  },
+  "recovery_sequence": [
+    "confirm repository identity and default branch",
+    "fetch current remote state and record origin/main SHA",
+    "inspect open pull requests and branch state",
+    "read AGENTS.md and deployment policy",
+    "read roadmap current checkpoint and execution order",
+    "read the active phase specification and task-specific contracts",
+    "derive canonical counts from the three canonical JSON arrays",
+    "read the latest production verification report before production diagnosis",
+    "run recovery validation and relevant project validation commands",
+    "resume the first incomplete roadmap item",
+    "repair any stale checkpoint in the next appropriate reviewed PR"
+  ]
+}
