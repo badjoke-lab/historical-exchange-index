@@ -4,7 +4,7 @@ Status: active execution source of truth
 Repository: `badjoke-lab/historical-exchange-index`  
 Checkpoint: 2026-07-07
 
-Repository state is authoritative when this checkpoint and GitHub disagree.
+Repository state is authoritative when this checkpoint and current GitHub state disagree.
 
 ## 1. Required reading order
 
@@ -20,7 +20,7 @@ Before implementation work, read:
 8. Explorer contracts when changing Explorer behavior;
 9. task-specific data, monitoring, machine-readable, audit, or feed specifications.
 
-Execution order comes from this roadmap. Product behavior and completion gates come from the relevant specification.
+Execution order comes from this roadmap. Completion gates come from the relevant specification.
 
 ## 2. Operating rules
 
@@ -35,29 +35,21 @@ Execution order comes from this roadmap. Product behavior and completion gates c
 - Data growth, operations, and machine-readable maintenance continue in parallel.
 - Phase G prioritizes integration correctness over adding major new public surfaces.
 - Production diagnosis starts with deployed commit verification, not route speculation.
+- Recovery must derive dynamic state such as current main SHA and open PRs from current repository/GitHub state.
 - Update this checkpoint whenever phase, active item, execution order, production state, or canonical counts materially change.
 
 ## 3. Current checkpoint
 
 ```text
-Last merged implementation PR: #555 Add Phase G machine/public consistency audit
+Last merged implementation PR: #556 Add Phase G production verification gate
 G-1 Accessibility Audit: COMPLETE
 G-2 URL Safety Audit: COMPLETE
 G-3 Cross-surface Integration Audit: COMPLETE
 G-4 Machine/Public Consistency Audit: COMPLETE
+G-5 Production Integration and Verification: COMPLETE
 Current phase: Phase G — v1.0 Integration Baseline
-Current PR: #556 Add Phase G production verification gate
-Current item: G-5 Production Integration and Verification
-Current G-5 production result before merge: PASS
-  expected commit: daed55da7673dbd16faf8c69bcd2274a546c463f
-  deployed commit: daed55da7673dbd16faf8c69bcd2274a546c463f
-  core routes: 12 / 12
-  Explorer queries: 2 / 2
-  representative deep links: 3 / 3
-  public machine files: 11 / 11
-  sitemap URLs: 562
-  representative dossier: /exchange/mt-gox/
-Next item after G-5: G-6 Maintainer Runbook and Recovery Validation
+Current item: G-6 Maintainer Runbook and Recovery Validation
+Next item: G-7 v1.0 Baseline Checkpoint
 Next product feature after v1.0: H Compare v1
 Localization after Compare: L-1 Japanese Pilot -> L-2 Evaluation Gate
 ```
@@ -87,6 +79,7 @@ G-1        Accessibility Audit                 COMPLETE
 G-2        URL Safety Audit                    COMPLETE
 G-3        Cross-surface Integration Audit     COMPLETE
 G-4        Machine/Public Consistency Audit    COMPLETE
+G-5        Production Integration/Verification COMPLETE
 ```
 
 ### Explorer v1 contract
@@ -192,9 +185,9 @@ G-1 Accessibility Audit                         COMPLETE
 G-2 URL Safety Audit                            COMPLETE
 G-3 Cross-surface Integration Audit             COMPLETE
 G-4 Machine/Public Consistency Audit            COMPLETE
-G-5 Production Integration and Verification     ACTIVE / COMPLETE AFTER #556 MERGE
-G-6 Maintainer Runbook and Recovery Validation  NEXT
-G-7 v1.0 Baseline Checkpoint
+G-5 Production Integration and Verification     COMPLETE
+G-6 Maintainer Runbook and Recovery Validation  ACTIVE
+G-7 v1.0 Baseline Checkpoint                    NEXT
 ```
 
 ### G-1 Accessibility Audit
@@ -223,7 +216,7 @@ Report:
 docs/audits/HEI_G2_URL_SAFETY_AUDIT_2026-07-06.md
 ```
 
-Machine policy:
+Policy:
 
 ```text
 config/url-display-policy.json
@@ -249,7 +242,7 @@ Report:
 docs/audits/HEI_G3_CROSS_SURFACE_INTEGRATION_AUDIT_2026-07-07.md
 ```
 
-Machine integration contract:
+Contract:
 
 ```text
 config/cross-surface-integration-contract.json
@@ -280,7 +273,7 @@ Report:
 docs/audits/HEI_G4_MACHINE_PUBLIC_CONSISTENCY_AUDIT_2026-07-07.md
 ```
 
-Machine contract:
+Contract:
 
 ```text
 config/machine-public-consistency-contract.json
@@ -311,23 +304,10 @@ Report:
 docs/audits/HEI_G5_PRODUCTION_VERIFICATION_2026-07-07.md
 ```
 
-Production contract:
+Contract:
 
 ```text
 config/production-verification-contract.json
-```
-
-Verification commands:
-
-```text
-npm run production:check
-npm run production:verify-integration
-```
-
-Dedicated workflow:
-
-```text
-.github/workflows/production-verification-gate.yml
 ```
 
 Final verified production state:
@@ -354,65 +334,90 @@ integration:
   representative dossier: /exchange/mt-gox/ PASS
 ```
 
-G-5 is complete after PR #556 final workflows pass and the PR merges.
-
 ### G-6 Maintainer Runbook and Recovery Validation
 
-Next work:
-
-1. create one maintainer recovery runbook that points to existing authoritative repository documents rather than duplicating every specification;
-2. make repository-only recovery deterministic;
-3. add a machine-readable recovery checkpoint contract;
-4. add a validator that confirms every referenced source-of-truth path exists;
-5. verify the runbook can recover current main state, counts, current phase/item, next item, active specs, deployment policy, production verification report, validation commands, and recovery sequence;
-6. document open-PR inspection procedure without hard-coding transient PR numbers as permanent truth;
-7. run a clean-room recovery exercise from repository files only;
-8. record a dated recovery validation report.
-
-Repository-only recovery must determine:
+Active files:
 
 ```text
-main SHA
+docs/operations/HEI_MAINTAINER_RECOVERY_RUNBOOK.md
+config/maintainer-recovery-contract.json
+scripts/validate-maintainer-recovery.mjs
+.github/workflows/maintainer-recovery-gate.yml
+```
+
+Recovery must determine from repository/current GitHub state:
+
+```text
+repository and default branch
+current origin/main SHA
 canonical counts
 current phase
 current item
 next item
 active specifications
-open product PRs
+open product PR state
 deployment policy
 production verification state
 validation commands
 recovery sequence
 ```
 
+G-6 implementation order:
+
+1. keep one human-readable recovery runbook;
+2. keep one machine-readable recovery contract;
+3. validate all authoritative paths;
+4. derive canonical counts from canonical arrays;
+5. verify roadmap current/next state visibility;
+6. verify package command references;
+7. verify deployment policy and Cloudflare project policy agreement;
+8. verify latest production PASS reference;
+9. keep main SHA and open PRs dynamic rather than permanently hard-coded;
+10. run self-test and repository-only recovery validation;
+11. record a dated clean-room recovery exercise report;
+12. merge only after final-head workflow success.
+
 Completion gate:
 
 ```text
-required recovery fields resolvable: 100%
+repository-only recovery:             PASS required
+stale checkpoint findings:            0
 missing authoritative paths:          0
+required command references:          complete
+production-state reference:           complete
 contradictory recovery instructions:  0
 clean-room recovery exercise:         PASS
 ```
 
 ### G-7 v1.0 Baseline Checkpoint
 
-Record:
+Next work after G-6:
 
 ```text
-baseline SHA/tag
-canonical counts
-schema versions
-public route contract
-sitemap URL count
-machine-readable file contract
-Explorer query contract version
-localization foundation state
-monitoring/operations separation
-production verification record
-known deferred items
+record baseline main SHA/tag
+record canonical counts
+record schema versions
+record public route contract
+record sitemap URL count
+record machine-readable file contract
+record Explorer query contract version
+record localization foundation state
+record monitoring/operations separation
+record production verification report
+record known deferred items
+advance roadmap to H Compare v1
 ```
 
-After G-7, move to Phase H Compare v1.
+Allowed post-v1 deferred items:
+
+```text
+Compare v1
+Japanese public pilot
+additional languages
+Discovery Log trial
+NL Filter Translator
+API expansion
+```
 
 ## 8. Phase H — Compare v1
 
@@ -553,31 +558,44 @@ reviewed feeds
 ## 14. Immediate execution order
 
 ```text
-1. Complete G-5 Production Integration and Verification    CURRENT
-2. G-6 Maintainer Runbook and Recovery Validation          NEXT
-3. G-7 v1.0 Baseline Checkpoint
-4. H Compare v1
-5. L-1 Japanese Pilot
-6. L-2 Localization Evaluation Gate
-7. Execute GO / HOLD / PIVOT decision
-8. I Discovery Log Trial
-9. Language Selection Gate when evidence exists
-10. J NL Filter Translator only if justified
-11. K API Expansion only if justified
+1. Complete G-6 Maintainer Runbook and Recovery Validation   CURRENT
+2. G-7 v1.0 Baseline Checkpoint                              NEXT
+3. H Compare v1
+4. L-1 Japanese Pilot
+5. L-2 Localization Evaluation Gate
+6. Execute GO / HOLD / PIVOT decision
+7. I Discovery Log Trial
+8. Language Selection Gate when evidence exists
+9. J NL Filter Translator only if justified
+10. K API Expansion only if justified
 ```
 
 ## 15. Recovery procedure
 
-1. Confirm current `main`, open product PRs, and reviewed counts.
-2. Read `AGENTS.md` and deployment policy.
-3. Read this roadmap.
-4. Read the specification for the active item.
-5. For Phase G, read the integration baseline specification.
-6. For localization, read the localization strategy specification.
-7. For Explorer changes, read Product Surfaces, Stats handoff, Query Contract, and query config.
-8. Read the latest dated production verification report before diagnosing production state.
-9. Resume the first incomplete item in the active phase.
-10. Cite roadmap item and specification in the PR body.
-11. Update this checkpoint when phase status, execution order, production state, or counts materially change.
+Primary runbook:
+
+```text
+docs/operations/HEI_MAINTAINER_RECOVERY_RUNBOOK.md
+```
+
+Machine contract:
+
+```text
+config/maintainer-recovery-contract.json
+```
+
+Summary sequence:
+
+1. confirm repository identity and default branch;
+2. fetch current remote state and record current origin/main SHA;
+3. inspect current open PRs and branch state;
+4. read AGENTS, deployment policy, and Cloudflare project policy;
+5. read roadmap current checkpoint and execution order;
+6. read active phase specification and task-specific contracts;
+7. derive canonical counts from canonical JSON arrays;
+8. read latest production verification report before production diagnosis;
+9. run recovery validator and relevant project validation commands;
+10. resume the first incomplete roadmap item;
+11. repair stale checkpoints through an appropriate reviewed PR.
 
 Do not use remembered chat history as the execution source of truth when repository documents and current GitHub state can be inspected directly.
