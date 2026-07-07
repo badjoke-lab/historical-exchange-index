@@ -5,7 +5,7 @@ Scope: repository-only recovery after an interrupted thread, session, handoff, o
 
 ## 1. Purpose
 
-This runbook must let a new maintainer or agent reconstruct the current HEI development state from repository and current GitHub state alone.
+This runbook lets a new maintainer or agent reconstruct the current HEI development state from repository and current GitHub state alone.
 
 Do not use remembered chat history as authority.
 
@@ -14,7 +14,7 @@ The recovery target is to determine:
 ```text
 repository and default branch
 current origin/main SHA
-reviewed entity/event/evidence counts
+reviewed counts
 current phase
 current work item
 next work item
@@ -50,10 +50,10 @@ Read in this order:
 Rules:
 
 - repository/GitHub state wins when a checkpoint is stale;
-- the deployment policy wins on Cloudflare deployment behavior;
+- deployment policy wins on Cloudflare behavior;
 - the roadmap controls execution order;
-- product, localization, Explorer, monitoring, and Phase G specifications control their respective behavior/completion gates;
-- current GitHub PR state is dynamic and must not be replaced by a permanently hard-coded PR number list.
+- specifications and machine contracts control their own scopes;
+- open PR state and main SHA are dynamic and must be inspected, not permanently hard-coded.
 
 ## 3. Step 1 — Confirm repository identity and default branch
 
@@ -77,15 +77,11 @@ git branch --show-current
 git remote show origin
 ```
 
-GitHub-side recovery should inspect the repository metadata directly.
-
 Stop if you are in the wrong repository.
 
-## 4. Step 2 — Fetch and record current main SHA
+## 4. Step 2 — Fetch current remote state and record origin/main SHA
 
 Do not copy a SHA from an old handoff.
-
-Local recovery:
 
 ```bash
 git fetch origin --prune
@@ -94,7 +90,7 @@ git rev-parse origin/main
 
 Record the returned SHA as the recovery input commit.
 
-If current work is on a feature branch, also record:
+For feature-branch recovery, also record:
 
 ```bash
 git rev-parse HEAD
@@ -105,28 +101,27 @@ Never treat a stale local `main` as current without fetching remote state first.
 
 ## 5. Step 3 — Inspect open PRs and branch state
 
-Open product PR state is dynamic.
-
-With GitHub CLI:
+Open product PRs are dynamic.
 
 ```bash
 gh pr list --state open --limit 100
 ```
 
-Also inspect:
+Inspect:
 
 ```text
 PR title
 head branch
 base branch
 mergeability
+head SHA
 workflow state
-whether the PR advances the roadmap item currently marked active
+roadmap item advanced by the PR
 ```
 
-Do not permanently encode transient open PR numbers into this runbook or the recovery contract.
+Do not permanently encode transient open PR numbers into this runbook or recovery contract.
 
-## 6. Step 4 — Read mandatory operating instructions
+## 6. Step 4 — Read AGENTS + deployment policy + Cloudflare project policy
 
 Read:
 
@@ -136,7 +131,7 @@ docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md
 config/cloudflare-pages-project.json
 ```
 
-Before touching deployment-sensitive paths, confirm:
+Confirm:
 
 ```text
 production branch: main
@@ -145,9 +140,9 @@ preview deployment setting: none
 PR deployment comments: disabled
 ```
 
-Never expose Cloudflare credentials in files, issues, PRs, or logs.
+Never expose Cloudflare credentials in repository files, issues, PRs, or logs.
 
-## 7. Step 5 — Read roadmap current checkpoint
+## 7. Step 5 — Read roadmap current checkpoint and execution order
 
 Read:
 
@@ -159,9 +154,8 @@ Extract:
 
 ```text
 current phase
-current item
-current PR if recorded
-next item
+current work item
+next work item
 reviewed counts
 immediate execution order
 ```
@@ -169,35 +163,49 @@ immediate execution order
 If roadmap and current GitHub state disagree:
 
 1. inspect current main and open PRs;
-2. determine the actual repository state;
+2. determine actual repository state;
 3. continue from repository truth;
-4. repair the stale roadmap checkpoint in the next appropriate reviewed PR.
+4. repair the stale checkpoint in the next appropriate reviewed PR.
 
-For the current G-6 checkpoint, the contract expects:
+Current G-6 contract expects:
 
 ```text
 current phase: Phase G — v1.0 Integration Baseline
-current item:  G-6 Maintainer Runbook and Recovery Validation
-next item:     G-7 v1.0 Baseline Checkpoint
+current work item: G-6 Maintainer Runbook and Recovery Validation
+next work item: G-7 v1.0 Baseline Checkpoint
 ```
 
-## 8. Step 6 — Derive reviewed counts from canonical data
+## 8. Step 6 — Derive reviewed counts using record build semantics
 
-Canonical public data:
+This repository has two reviewed record inputs:
 
 ```text
-data/entities.json
-data/events.json
-data/evidence.json
+base data arrays:
+  data/entities.json
+  data/events.json
+  data/evidence.json
+
+reviewed record bundles:
+  records/exchanges/*.json
 ```
 
-Derive counts directly:
+Do **not** treat base-array lengths alone as the current reviewed counts.
 
-```bash
-node -e "const e=require('./data/entities.json'); const v=require('./data/events.json'); const s=require('./data/evidence.json'); console.log({entities:e.length,events:v.length,evidence:s.length})"
+The production build semantics are defined by:
+
+```text
+scripts/build-data-from-records.mjs
 ```
 
-Current expected reviewed counts for this checkpoint:
+That build starts from the base arrays and adds or verifies IDs from every reviewed bundle under `records/exchanges/`. Recovery counts must therefore be derived as the unique-ID union of:
+
+```text
+base entity IDs + bundle entity IDs
+base event IDs + bundle event IDs
+base evidence IDs + bundle evidence IDs
+```
+
+Current expected reviewed counts:
 
 ```text
 Entities:  550
@@ -205,11 +213,25 @@ Events:    1004
 Evidence: 2621
 ```
 
-If actual canonical array lengths differ, repository data wins and the recovery contract/roadmap must be updated in the same appropriate PR.
+Run:
 
-## 9. Step 7 — Resolve active specifications
+```bash
+npm run recovery:validate
+```
 
-Always read the active phase specification.
+The validator reports both:
+
+```text
+base data counts
+reviewed counts after record build semantics
+record bundle file count
+```
+
+This distinction is required because base arrays can legitimately be smaller than the reviewed production state represented by base data plus reviewed bundles.
+
+If the derived unique-ID union differs from the roadmap/recovery contract, repository build inputs are authoritative and the stale checkpoint must be repaired in a reviewed PR.
+
+## 9. Step 7 — Read active phase specification and task-specific contracts
 
 For Phase G:
 
@@ -217,14 +239,14 @@ For Phase G:
 docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md
 ```
 
-Other primary specifications:
+Primary specifications:
 
 ```text
 docs/HEI_PRODUCT_SURFACES_SPEC.md
 docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md
 ```
 
-Task-specific contracts currently relevant to completed Phase G work:
+Current Phase G contracts:
 
 ```text
 config/url-display-policy.json
@@ -234,7 +256,7 @@ config/production-verification-contract.json
 config/maintainer-recovery-contract.json
 ```
 
-Explorer work additionally requires:
+Explorer work also requires:
 
 ```text
 config/explorer-query-contract.json
@@ -242,34 +264,29 @@ config/stats-explorer-deep-link-map.json
 docs/HEI_STATS_EXPLORER_HANDOFF.md
 ```
 
-Do not infer behavior from old conversation text when these repository contracts exist.
+Do not infer behavior from old conversation text when repository contracts exist.
 
-## 10. Step 8 — Recover production verification state
+## 10. Step 8 — Read latest production verification report before production diagnosis
 
-Read the latest dated production verification report:
+Read:
 
 ```text
 docs/audits/HEI_G5_PRODUCTION_VERIFICATION_2026-07-07.md
-```
-
-Also inspect:
-
-```text
 config/production-verification-contract.json
 scripts/check-machine-readable-production.mjs
 scripts/verify-production-integration.mjs
 .github/workflows/production-verification-gate.yml
 ```
 
-G-5 authority rule:
+Production authority rule:
 
 ```text
 check deployed /version.json commit first
 compare with expected commit
-only diagnose route behavior after commit equality
+only diagnose route/output behavior after commit equality
 ```
 
-The G-5 report records a PASS for:
+The G-5 report records PASS for:
 
 ```text
 expected/deployed commit equality
@@ -277,43 +294,40 @@ machine-readable production layer
 12 core routes
 2 Explorer query routes
 3 representative deep links
-11 machine/public files
+11 public machine files
 562 sitemap URLs
 robots contract
-representative Mt. Gox dossier
+representative /exchange/mt-gox/ dossier
 ```
 
 A stale deployment is not evidence of a code defect.
 
-## 11. Step 9 — Run recovery validation
+## 11. Step 9 — Run recovery validator and relevant project validation commands
 
-Run:
+Minimum recovery validation commands:
 
 ```bash
 npm run recovery:test
 npm run recovery:validate
 ```
 
-`recovery:test` verifies the recovery validator can detect broken fixtures.
+`recovery:test` verifies the validator detects broken fixtures.
 
-`recovery:validate` verifies current repository recovery completeness, including:
+`recovery:validate` verifies:
 
 ```text
 authoritative path existence
-canonical count agreement
-roadmap current/next item visibility
+reviewed count derivation under record build semantics
+roadmap current/next visibility
 runbook required information coverage
 package command references
 deployment policy/config agreement
-production verification reference and PASS state
-AGENTS recovery authority chain
+production PASS reference
+AGENTS authority chain
+dynamic-state rules
 ```
 
-Do not continue from a contradictory recovery state without resolving or explicitly documenting the contradiction.
-
-## 12. Step 10 — Run project validation appropriate to the task
-
-Minimum recovery command references:
+Required command references:
 
 ```bash
 npm run policy:check
@@ -324,15 +338,17 @@ npm run recovery:test
 npm run recovery:validate
 ```
 
-For data changes, also run the relevant strict data/quality gates.
+For data changes, also run relevant strict data/quality gates.
 
 For Explorer work, run Explorer contract and handoff checks.
 
-For Phase G public-output work, preserve the dedicated accessibility, URL safety, cross-surface integration, machine/public consistency, i18n, and production verification gates.
+For Phase G public-output work, preserve accessibility, URL safety, cross-surface integration, machine/public consistency, i18n, and production verification gates.
 
-## 13. Step 11 — Resume the first incomplete roadmap item
+## 12. Step 10 — Resume the first incomplete roadmap item
 
-Recovery sequence:
+Do not skip to a remembered task. Resume the first incomplete item shown by repository/current GitHub state and the roadmap authority chain.
+
+## 13. Recovery sequence
 
 ```text
 confirm repository identity and default branch
@@ -345,32 +361,30 @@ read AGENTS + deployment policy + Cloudflare project policy
         ↓
 read roadmap current checkpoint and execution order
         ↓
-read active phase spec and task-specific contracts
+read active phase specification and task-specific contracts
         ↓
-derive canonical counts from canonical JSON arrays
+derive canonical counts under record build semantics
         ↓
 read latest production verification report before production diagnosis
         ↓
-run recovery validator and relevant project validation
+run recovery validator and relevant project validation commands
         ↓
 resume the first incomplete roadmap item
         ↓
-repair stale checkpoints in the next appropriate reviewed PR
+repair stale checkpoint in the next appropriate reviewed PR
 ```
-
-Do not skip directly to a remembered next task.
 
 ## 14. Interrupted PR recovery
 
-When a thread/session ended with an open PR:
+When a session ended with an open PR:
 
 1. inspect PR metadata and head SHA;
-2. compare the PR base SHA with current main;
+2. compare PR base SHA with current main;
 3. inspect changed files;
-4. inspect all workflow runs associated with the current PR head SHA;
+4. inspect all workflow runs for the current PR head SHA;
 5. read PR body for roadmap/spec traceability;
-6. inspect any diagnostic artifacts for failed audit gates;
-7. repair only verified findings;
+6. inspect diagnostic artifacts from failed audit gates;
+7. repair verified findings only;
 8. rerun final-head workflows;
 9. merge only after required gates pass;
 10. update roadmap/checkpoint in the same or next appropriate PR.
@@ -379,7 +393,7 @@ Do not assume a PR is ready because an older head passed CI.
 
 ## 15. Production incident recovery
 
-Before diagnosing a reported production problem:
+Before diagnosing a production problem:
 
 ```text
 1. read deployed /version.json
@@ -387,31 +401,32 @@ Before diagnosing a reported production problem:
 3. if stale, classify as deployment lag/state mismatch
 4. if equal, reproduce the affected route/file
 5. inspect the relevant production verification/audit contract
-6. diagnose code or output only after commit equality
+6. diagnose code/output only after commit equality
 ```
 
-Production commands:
+Commands:
 
 ```bash
 EXPECTED_COMMIT=<reviewed-main-sha> npm run production:check
 npm run production:verify-integration
 ```
 
-The integration verifier contract currently remains pinned to the G-5 verified production baseline until a later reviewed production verification deliberately advances it.
+The integration contract remains pinned to the G-5 verified baseline until a later reviewed production verification deliberately advances it.
 
 ## 16. Canonical data incident recovery
 
-If canonical data appears damaged:
+If reviewed data appears damaged:
 
 1. stop automated promotion/merge work;
-2. inspect `origin/main` and the suspected introducing PR;
+2. inspect `origin/main` and suspected introducing PR;
 3. run `npm run records:validate`;
-4. run ID collision, overlap, duplicate, enum, reference, and count-semantic checks;
-5. do not copy raw monitoring/staging candidates into canonical data;
-6. repair through a reviewed canonical PR;
-7. rebuild machine-readable output;
-8. run public consistency validation;
-9. verify production only after deployment commit equality.
+4. inspect base arrays and reviewed `records/exchanges` bundles;
+5. run ID collision, overlap, duplicate, enum, reference, and count-semantic checks;
+6. never copy raw monitoring/staging candidates directly into canonical inputs;
+7. repair through a reviewed PR;
+8. rebuild machine-readable/public output;
+9. run public consistency validation;
+10. verify production only after deployment commit equality.
 
 ## 17. Recovery completion checklist
 
@@ -420,16 +435,16 @@ A repository-only recovery is complete only when the maintainer can state, with 
 ```text
 [ ] repository and default branch
 [ ] current origin/main SHA
-[ ] reviewed counts
+[ ] reviewed counts under record build semantics
 [ ] current phase
 [ ] current work item
 [ ] next work item
 [ ] active specifications
-[ ] current open PR state
+[ ] current open product PRs state
 [ ] deployment policy and project state
 [ ] latest production verification state
 [ ] required validation commands
-[ ] exact recovery/resume sequence
+[ ] exact recovery sequence
 ```
 
-The G-6 validator and dated recovery exercise report are the completion evidence for this runbook.
+The G-6 validator and dated clean-room recovery report are completion evidence for this runbook.
