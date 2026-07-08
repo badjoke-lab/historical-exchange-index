@@ -14,10 +14,10 @@ function sameOrder(a, b) {
   return JSON.stringify(a) === JSON.stringify(b)
 }
 
-function sitemapFindings(xml, expectedCount, queryVariantsAllowed) {
+function sitemapFindings(xml, baselineCount, queryVariantsAllowed) {
   const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])
   const findings = []
-  if (urls.length !== expectedCount) findings.push('count')
+  if (urls.length < baselineCount) findings.push('below_baseline')
   if (new Set(urls).size !== urls.length) findings.push('duplicate')
   if (!queryVariantsAllowed && urls.some((url) => new URL(url).search)) findings.push('query')
   return findings
@@ -30,6 +30,12 @@ assert(!sameOrder(['H', 'L1', '750'], ['H', '750', 'L1']), 'sameOrder must rejec
 
 const cleanSitemap = '<urlset><url><loc>https://example.test/</loc></url><url><loc>https://example.test/explore/</loc></url></urlset>'
 assert(sitemapFindings(cleanSitemap, 2, false).length === 0, 'clean sitemap fixture failed')
+
+const expandedSitemap = '<urlset><url><loc>https://example.test/</loc></url><url><loc>https://example.test/explore/</loc></url><url><loc>https://example.test/compare/</loc></url></urlset>'
+assert(sitemapFindings(expandedSitemap, 2, false).length === 0, 'post-v1 sitemap expansion should remain above baseline floor')
+
+const belowBaselineSitemap = '<urlset><url><loc>https://example.test/</loc></url></urlset>'
+assert(sitemapFindings(belowBaselineSitemap, 2, false).includes('below_baseline'), 'below-baseline sitemap fixture was not detected')
 
 const querySitemap = '<urlset><url><loc>https://example.test/</loc></url><url><loc>https://example.test/explore/?view=events</loc></url></urlset>'
 assert(sitemapFindings(querySitemap, 2, false).includes('query'), 'query sitemap fixture was not detected')
