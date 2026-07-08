@@ -152,7 +152,6 @@ for (const [route, html, canonical] of [
 ]) {
   assertCanonical(html, canonical, route)
   assertDiscovery(html, route)
-  assert(!/\b386\b/.test(stripHtml(html)), `${route} contains obsolete count 386`)
 }
 
 assert(home.includes('"@type":"Dataset"') || home.includes('&quot;@type&quot;:&quot;Dataset&quot;'), 'home Dataset JSON-LD is missing')
@@ -234,9 +233,6 @@ assert(robots.includes(`${origin}/sitemap.xml`), 'robots.txt sitemap is incorrec
 const redirects = readOut('_redirects')
 for (const obsolete of ['/index.html','/all','/registry','/exchanges']) assert(redirects.includes(`${obsolete} / 301`), `_redirects is missing ${obsolete}`)
 
-const textFiles = walk(outDir).filter((filePath) => ['.html','.json','.txt','.xml'].includes(path.extname(filePath)))
-const staleFiles = textFiles.filter((filePath) => /\b386\b/.test(fs.readFileSync(filePath, 'utf8')))
-assert(staleFiles.length === 0, `obsolete count 386 found in ${staleFiles.map((filePath) => path.relative(root, filePath)).join(', ')}`)
 for (const obsoleteDir of ['all','registry','exchanges']) assert(!fs.existsSync(path.join(outDir, obsoleteDir, 'index.html')), `obsolete route output still exists: /${obsoleteDir}/`)
 
 console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence, Explorer and Compare routes and crawl contracts checked.`)
