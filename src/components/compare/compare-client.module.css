@@ -97,6 +97,29 @@
   outline: none;
 }
 
+.shareRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 2px;
+}
+
+.shareActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.shareStatus {
+  min-height: 18px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: right;
+}
+
 .stateBar {
   display: flex;
   justify-content: space-between;
@@ -259,6 +282,15 @@
 
   .addRow button {
     justify-content: center;
+  }
+
+  .shareRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .shareStatus {
+    text-align: left;
   }
 
   .stateBar {

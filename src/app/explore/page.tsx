@@ -1,4 +1,5 @@
 import { Suspense } from 'react'
+import Link from 'next/link'
 import type { Metadata } from 'next'
 import EntityExplorerClient from '../../components/explorer/entity-explorer-client'
 import { loadEntities } from '../../lib/data/load-entities'
@@ -64,6 +65,9 @@ export default function ExplorePage() {
             </p>
           </div>
         </div>
+        <nav aria-label="Related HEI surfaces" style={{ marginTop: '16px' }}>
+          <Link className="subtle-link" href="/compare/">Open Compare</Link>
+        </nav>
       </section>
 
       <Suspense fallback={<section className="panel table-panel"><div className="results-meta"><div>Loading Explorer query state…</div></div></section>}>

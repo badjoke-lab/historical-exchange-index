@@ -1,4 +1,5 @@
 import { Suspense } from 'react'
+import Link from 'next/link'
 import type { Metadata } from 'next'
 import CompareClient from '../../components/compare/compare-client'
 import { buildCompareContext } from '../../lib/compare/compare-context'
@@ -62,6 +63,9 @@ export default function ComparePage() {
             </p>
           </div>
         </div>
+        <nav aria-label="Related HEI surfaces" style={{ marginTop: '16px' }}>
+          <Link className="subtle-link" href="/explore/?view=entities">Open Entity Explorer</Link>
+        </nav>
       </section>
 
       <Suspense fallback={<section className="panel table-panel"><div className="results-meta"><div>Loading comparison state…</div></div></section>}>

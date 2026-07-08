@@ -5,6 +5,7 @@ import Link from 'next/link'
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import GoogleAnalytics from '../components/analytics/google-analytics'
+import ExchangeCompareContextLink from '../components/navigation/exchange-compare-context-link'
 import {
   CONTACT_HREF,
   DONATE_HREF,
@@ -179,6 +180,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <Link className="nav-link" href="/dead">Dead</Link>
               <Link className="nav-link" href="/active">Active</Link>
               <Link className="nav-link" href="/explore">Explorer</Link>
+              <Link className="nav-link" href="/compare">Compare</Link>
               <Link className="nav-link" href="/stats">Stats</Link>
               <Link className="nav-link" href="/updates">Updates</Link>
               <Link className="nav-link" href="/incidents">Incidents</Link>
@@ -188,6 +190,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </nav>
           </header>
 
+          <ExchangeCompareContextLink />
           {children}
 
           <footer className="footer">
@@ -202,6 +205,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </a>
               <span className="muted footer-sep"> · </span>
               <Link className="archive-link" href="/explore">Explorer</Link>
+              <span className="muted footer-sep"> · </span>
+              <Link className="archive-link" href="/compare">Compare</Link>
               <span className="muted footer-sep"> · </span>
               <Link className="archive-link" href="/updates">Updates</Link>
               <span className="muted footer-sep"> · </span>
