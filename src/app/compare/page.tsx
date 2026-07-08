@@ -1,7 +1,10 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import CompareClient from '../../components/compare/compare-client'
+import { buildCompareContext } from '../../lib/compare/compare-context'
 import { loadEntities } from '../../lib/data/load-entities'
+import { loadEvents } from '../../lib/data/load-events'
+import { loadEvidence } from '../../lib/data/load-evidence'
 import { SITE_NAME, SITE_URL } from '../../lib/site-constants'
 
 export function generateMetadata(): Metadata {
@@ -31,6 +34,9 @@ export function generateMetadata(): Metadata {
 
 export default function ComparePage() {
   const entities = loadEntities()
+  const events = loadEvents()
+  const evidence = loadEvidence()
+  const context = buildCompareContext(entities, events, evidence)
 
   const collectionJsonLd = {
     '@context': 'https://schema.org',
@@ -52,14 +58,14 @@ export default function ComparePage() {
             <p className="muted" style={{ margin: '0 0 8px', fontSize: '12px' }}>Research layer</p>
             <h2 style={{ margin: '0 0 10px', fontSize: '34px', letterSpacing: '-0.04em' }}>Compare</h2>
             <p className="muted" style={{ lineHeight: 1.7, margin: 0, maxWidth: '72ch' }}>
-              Inspect reviewed exchange identity and lifecycle facts side by side. Compare uses reviewed public records and deterministic derived values only.
+              Inspect reviewed exchange identity, lifecycle, archive state, coverage, and major events side by side. Compare uses reviewed public records and deterministic derived values only.
             </p>
           </div>
         </div>
       </section>
 
       <Suspense fallback={<section className="panel table-panel"><div className="results-meta"><div>Loading comparison state…</div></div></section>}>
-        <CompareClient entities={entities} />
+        <CompareClient entities={entities} context={context} />
       </Suspense>
     </main>
   )
