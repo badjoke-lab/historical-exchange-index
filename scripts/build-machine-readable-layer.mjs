@@ -7,7 +7,7 @@ import { buildReviewedUpdateFeeds } from './lib/reviewed-update-feeds.mjs'
 const root = process.cwd()
 const publicDir = path.join(root, 'public')
 const canonicalOrigin = 'https://hei.badjoke-lab.com'
-const mainRoutes = ['/', '/dead/', '/active/', '/exchange/{slug}/', '/explore/', '/stats/', '/quality/', '/updates/', '/incidents/', '/monthly/', '/methodology/', '/about/', '/donate/']
+const mainRoutes = ['/', '/dead/', '/active/', '/exchange/{slug}/', '/explore/', '/compare/', '/stats/', '/quality/', '/updates/', '/incidents/', '/monthly/', '/methodology/', '/about/', '/donate/']
 
 function readJson(relativePath, fallback = []) {
   const filePath = path.join(root, relativePath)
@@ -141,7 +141,7 @@ writeJson('version.json', {
     record_count_breakdown: recordCountBreakdown,
   },
   routes: {
-    home: '/', dead: '/dead/', active: '/active/', exchange_detail: '/exchange/{slug}/', explorer: '/explore/',
+    home: '/', dead: '/dead/', active: '/active/', exchange_detail: '/exchange/{slug}/', explorer: '/explore/', compare: '/compare/',
     stats: '/stats/', quality: '/quality/', updates: '/updates/', incidents: '/incidents/', monthly: '/monthly/', methodology: '/methodology/', about: '/about/', donate: '/donate/',
   },
   public_files: publicFiles,

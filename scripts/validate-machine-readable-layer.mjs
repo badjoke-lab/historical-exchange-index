@@ -122,6 +122,7 @@ assert(version.data?.canonical_only === true, 'version canonical_only must be tr
 deepEqual(version.data?.record_counts, expectedCounts, 'version record_counts')
 deepEqual(version.data?.record_count_breakdown, expectedBreakdown, 'version record_count_breakdown')
 deepEqual(version.public_files, expectedPublicFiles, 'version public_files')
+assert(version.routes?.compare === '/compare/', 'version routes is missing compare')
 assert(version.routes?.quality === '/quality/', 'version routes is missing quality')
 assert(version.routes?.updates === '/updates/', 'version routes is missing updates')
 assert(version.routes?.incidents === '/incidents/', 'version routes is missing incidents')
@@ -198,7 +199,7 @@ for (const forbidden of ['candidate_class', 'data-staging', 'internal monitoring
   assert(!feedText.includes(forbidden), `reviewed update feeds contain forbidden internal marker: ${forbidden}`)
 }
 
-const requiredRoutes = ['/', '/dead/', '/active/', '/exchange/{slug}/', '/stats/', '/quality/', '/updates/', '/incidents/', '/monthly/', '/methodology/', '/about/', '/donate/']
+const requiredRoutes = ['/', '/dead/', '/active/', '/exchange/{slug}/', '/explore/', '/compare/', '/stats/', '/quality/', '/updates/', '/incidents/', '/monthly/', '/methodology/', '/about/', '/donate/']
 for (const route of requiredRoutes) {
   assert(manifest.main_routes?.includes(route), `manifest is missing route ${route}`)
   assert(llms.includes(route), `llms.txt is missing route ${route}`)

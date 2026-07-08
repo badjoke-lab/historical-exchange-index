@@ -98,6 +98,7 @@ const home = readOut('index.html')
 const dead = readOut(path.join('dead', 'index.html'))
 const active = readOut(path.join('active', 'index.html'))
 const explore = readOut(path.join('explore', 'index.html'))
+const compare = readOut(path.join('compare', 'index.html'))
 const stats = readOut(path.join('stats', 'index.html'))
 const quality = readOut(path.join('quality', 'index.html'))
 const updates = readOut(path.join('updates', 'index.html'))
@@ -112,6 +113,7 @@ assertTextCount(home, 'Active-side', expected.activeSide, '/')
 assertTextCount(dead, 'Dead-side total:', expected.deadSide, '/dead/')
 assertTextCount(active, 'Active-side total:', expected.activeSide, '/active/')
 assert(stripHtml(explore).includes('Explorer'), '/explore/ does not expose Explorer heading')
+assert(stripHtml(compare).includes('Compare'), '/compare/ does not expose Compare heading')
 assertTextCount(stats, 'Total entities', expected.total, '/stats/')
 assertTextCount(stats, 'Dead-side', expected.deadSide, '/stats/')
 assertTextCount(stats, 'Active-side', expected.activeSide, '/stats/')
@@ -140,6 +142,7 @@ for (const [route, html, canonical] of [
   ['/dead/', dead, `${origin}/dead/`],
   ['/active/', active, `${origin}/active/`],
   ['/explore/', explore, `${origin}/explore/`],
+  ['/compare/', compare, `${origin}/compare/`],
   ['/stats/', stats, `${origin}/stats/`],
   ['/quality/', quality, `${origin}/quality/`],
   ['/updates/', updates, `${origin}/updates/`],
@@ -154,6 +157,7 @@ for (const [route, html, canonical] of [
 
 assert(home.includes('"@type":"Dataset"') || home.includes('&quot;@type&quot;:&quot;Dataset&quot;'), 'home Dataset JSON-LD is missing')
 assert(explore.includes('application/ld+json'), 'Explorer JSON-LD is missing')
+assert(compare.includes('application/ld+json'), 'Compare JSON-LD is missing')
 assert(detail.includes('application/ld+json'), 'detail JSON-LD is missing')
 
 const version = JSON.parse(readOut('version.json'))
@@ -170,6 +174,7 @@ assert(version.data.record_counts.evidence === expected.evidence, 'version evide
 assert(version.data.record_count_breakdown.dead_side === expected.deadSide, 'version dead-side mismatch')
 assert(version.data.record_count_breakdown.active_side === expected.activeSide, 'version active-side mismatch')
 assert(version.routes.explorer === '/explore/', 'version route map is missing Explorer')
+assert(version.routes.compare === '/compare/', 'version route map is missing Compare')
 assert(version.routes.quality === '/quality/', 'version route map is missing quality')
 assert(version.routes.incidents === '/incidents/', 'version route map is missing incidents')
 assert(version.routes.monthly === '/monthly/', 'version route map is missing monthly')
@@ -177,6 +182,7 @@ assert(manifest.record_counts.primary_records === expected.total, 'manifest enti
 assert(manifest.record_count_breakdown.dead_side === expected.deadSide, 'manifest dead-side mismatch')
 assert(manifest.record_count_breakdown.active_side === expected.activeSide, 'manifest active-side mismatch')
 assert(manifest.main_routes.includes('/explore/'), 'manifest main_routes is missing Explorer')
+assert(manifest.main_routes.includes('/compare/'), 'manifest main_routes is missing Compare')
 assert(manifest.main_routes.includes('/quality/'), 'manifest main_routes is missing quality')
 assert(manifest.main_routes.includes('/incidents/'), 'manifest main_routes is missing incidents')
 assert(manifest.main_routes.includes('/monthly/'), 'manifest main_routes is missing monthly')
@@ -210,8 +216,9 @@ for (const [label, count] of [['Total records', expected.total],['Dead-side', ex
 
 const sitemap = readOut('sitemap.xml')
 const sitemapLocations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1])
-assert(sitemapLocations.length === entities.length + 12, `sitemap URL count mismatch: ${sitemapLocations.length}`)
+assert(sitemapLocations.length === entities.length + 13, `sitemap URL count mismatch: ${sitemapLocations.length}`)
 assert(sitemapLocations.includes(`${origin}/explore/`), 'sitemap is missing /explore/')
+assert(sitemapLocations.includes(`${origin}/compare/`), 'sitemap is missing /compare/')
 assert(!sitemapLocations.some((url) => url.includes('?')), 'sitemap contains query variants')
 assert(sitemapLocations.includes(`${origin}/quality/`), 'sitemap is missing /quality/')
 assert(sitemapLocations.includes(`${origin}/updates/`), 'sitemap is missing /updates/')
@@ -232,4 +239,4 @@ const staleFiles = textFiles.filter((filePath) => /\b386\b/.test(fs.readFileSync
 assert(staleFiles.length === 0, `obsolete count 386 found in ${staleFiles.map((filePath) => path.relative(root, filePath)).join(', ')}`)
 for (const obsoleteDir of ['all','registry','exchanges']) assert(!fs.existsSync(path.join(outDir, obsoleteDir, 'index.html')), `obsolete route output still exists: /${obsoleteDir}/`)
 
-console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence, Explorer route and crawl contract checked.`)
+console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence, Explorer and Compare routes and crawl contracts checked.`)

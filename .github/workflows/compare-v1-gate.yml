@@ -1,0 +1,57 @@
+name: Compare v1 gate
+
+on:
+  pull_request:
+    paths:
+      - 'config/compare-v1-contract.json'
+      - 'config/public-navigation-surfaces.json'
+      - 'config/machine-public-consistency-contract.json'
+      - 'src/app/compare/**'
+      - 'src/app/explore/page.tsx'
+      - 'src/app/sitemap.ts'
+      - 'src/components/compare/**'
+      - 'src/components/navigation/exchange-compare-context-link.tsx'
+      - 'src/components/navigation/exchange-compare-context-link.module.css'
+      - 'src/components/explorer/entity-explorer-client.tsx'
+      - 'src/lib/compare/**'
+      - 'scripts/audit-compare-v1.mjs'
+      - 'scripts/audit-sitemap-canonical-routes.mjs'
+      - 'scripts/build-machine-readable-layer.mjs'
+      - 'scripts/validate-machine-readable-layer.mjs'
+      - 'package.json'
+      - '.github/workflows/compare-v1-gate.yml'
+  workflow_dispatch:
+
+jobs:
+  compare-v1:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build machine-readable public layer
+        run: npm run machine:build
+
+      - name: Build generated public output
+        run: npm run build
+
+      - name: Compare contract self-test
+        run: npm run compare:test
+
+      - name: Sitemap and canonical audit
+        run: npm run sitemap:audit
+
+      - name: Navigation discovery audit
+        run: npm run navigation:audit
+
+      - name: Compare v1 final audit
+        run: npm run compare:audit
+
+      - name: Machine/public consistency audit
+        run: npm run consistency:audit

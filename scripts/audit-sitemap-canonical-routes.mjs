@@ -11,6 +11,7 @@ const STATIC_ROUTES = [
   '/dead/',
   '/active/',
   '/explore/',
+  '/compare/',
   '/stats/',
   '/quality/',
   '/updates/',

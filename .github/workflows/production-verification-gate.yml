@@ -4,16 +4,16 @@ on:
   pull_request:
     paths:
       - 'config/production-verification-contract.json'
+      - 'config/v1-baseline-contract.json'
       - 'scripts/check-machine-readable-production.mjs'
       - 'scripts/verify-production-integration.mjs'
-      - 'docs/HEI_V1_EXECUTION_ROADMAP.md'
+      - 'scripts/validate-g5-production-baseline.mjs'
       - 'docs/audits/HEI_G5_PRODUCTION_VERIFICATION_*.md'
-      - 'package.json'
       - '.github/workflows/production-verification-gate.yml'
   workflow_dispatch:
 
 jobs:
-  production-verification:
+  g5-baseline-integrity:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -21,66 +21,30 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: npm
 
-      - run: npm ci
+      - name: Validate immutable G-5 production evidence
+        run: node scripts/validate-g5-production-baseline.mjs
 
-      - name: Load expected production commit
-        id: expected
-        shell: bash
+      - name: Syntax-check live production verifier scripts
         run: |
-          EXPECTED_COMMIT="$(node -e "const c=require('./config/production-verification-contract.json'); process.stdout.write(c.expected_commit)")"
-          echo "commit=${EXPECTED_COMMIT}" >> "$GITHUB_OUTPUT"
-          echo "Expected production commit: ${EXPECTED_COMMIT}"
-
-      - name: Verify production machine-readable layer
-        id: machine_check
-        continue-on-error: true
-        env:
-          EXPECTED_COMMIT: ${{ steps.expected.outputs.commit }}
-          SMOKE_MAX_ATTEMPTS: '6'
-          SMOKE_RETRY_DELAY_MS: '15000'
-        shell: bash
-        run: |
-          set -o pipefail
-          npm run production:check 2>&1 | tee production-machine-check.log
-
-      - name: Verify production routes and integration
-        id: integration_check
-        continue-on-error: true
-        env:
-          PRODUCTION_VERIFY_MAX_ATTEMPTS: '6'
-          PRODUCTION_VERIFY_RETRY_DELAY_MS: '15000'
-          PRODUCTION_VERIFY_REPORT: production-integration-verification.json
-        shell: bash
-        run: |
-          set -o pipefail
-          npm run production:verify-integration 2>&1 | tee production-integration-verification.log
+          node --check scripts/check-machine-readable-production.mjs
+          node --check scripts/verify-production-integration.mjs
 
       - name: Write verification summary
         if: always()
         shell: bash
         run: |
           {
-            echo "# HEI G-5 Production Verification"
+            echo "# HEI G-5 Production Baseline Integrity"
             echo
-            echo "Expected commit: ${{ steps.expected.outputs.commit }}"
-            echo "Machine check outcome: ${{ steps.machine_check.outcome }}"
-            echo "Integration check outcome: ${{ steps.integration_check.outcome }}"
+            echo "Historical baseline evidence is validated offline."
+            echo "Post-v1 live production verification is performed against the current target commit by the active phase verification plan, not by rewriting the immutable G-5 baseline contract."
           } > production-verification-summary.md
 
-      - name: Upload production verification artifacts
+      - name: Upload production verification baseline summary
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: production-verification-report
-          path: |
-            production-machine-check.log
-            production-integration-verification.log
-            production-integration-verification.json
-            production-verification-summary.md
-          if-no-files-found: warn
-
-      - name: Fail when production verification failed
-        if: steps.machine_check.outcome == 'failure' || steps.integration_check.outcome == 'failure'
-        run: exit 1
+          name: production-verification-baseline-report
+          path: production-verification-summary.md
+          if-no-files-found: error
