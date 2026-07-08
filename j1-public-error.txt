@@ -1,2 +1,0 @@
-Validated public output consistency: 581 entities, 214 dead-side, 367 active-side, 1004 events, 2712 evidence, Explorer and Compare routes and crawl contracts checked.
-exit_status=0
