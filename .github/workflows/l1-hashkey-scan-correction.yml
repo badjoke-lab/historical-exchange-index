@@ -1,0 +1,71 @@
+name: L1 HashKey scan correction
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/l1-hashkey-scan-correction.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-scan:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: d750-batch-l1-hashkey-global
+      - name: Correct HashKey scan dispositions
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          json_path = Path('docs/backlog/scans/hei_unadded_0901-0950-scan.json')
+          data = json.loads(json_path.read_text())
+          data['counts'] = {
+              'add_now': 30,
+              'needs_research': 4,
+              'pending_thin': 3,
+              'out_of_scope_or_duplicate': 13,
+          }
+          for entry in data['entries']:
+              if entry['candidate_id'] == 'hei_unadded_0908':
+                  entry['disposition'] = 'out_of_scope_or_duplicate'
+                  entry['note'] = 'Existing reviewed HashKey Exchange entity hei_ex_000093; candidate is not a new entity.'
+              elif entry['candidate_id'] == 'hei_unadded_0909':
+                  entry['disposition'] = 'add_now'
+                  entry['note'] = 'Distinct Bermuda-licensed global CEX entity, separate from existing Hong Kong HashKey Exchange; reviewed in D-750 Batch L1.'
+          json_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
+
+          md_path = Path('docs/backlog/scans/hei_unadded_0901-0950-scan.md')
+          text = md_path.read_text()
+          text = text.replace(
+              'add_now:                    29\nneeds_research:              6\npending_thin:                3\nout_of_scope_or_duplicate:  12',
+              'add_now:                    30\nneeds_research:              4\npending_thin:                3\nout_of_scope_or_duplicate:  13'
+          )
+          text = text.replace('HashKey Exchange / HashKey Global boundary\n', '')
+          text = text.replace(
+              'HashKey Exchange and HashKey Global are held for explicit legal/entity-boundary review rather than being merged or split by assumption.\n',
+              'Direct bundle verification confirmed that HashKey Exchange already exists as `hei_ex_000093`. HashKey Global is a distinct Bermuda-licensed exchange entity and was promoted separately in Batch L1.\n'
+          )
+          text = text.replace(
+              'HitBTC direct bundle path: no existing bundle found\nHelix direct bundle path:  no existing bundle found',
+              'HitBTC direct bundle path: no existing bundle found\nHelix direct bundle path:  no existing bundle found\nHashKey Exchange: existing hei_ex_000093\nHashKey Global direct bundle path: no existing bundle found'
+          )
+          text = text.replace(
+              'Entity-boundary research\n  HashKey Exchange vs HashKey Global\n  HollaEx scope',
+              'Entity-boundary research\n  HollaEx scope'
+          )
+          md_path.write_text(text)
+          PY
+      - name: Commit scan correction
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/backlog/scans/hei_unadded_0901-0950-scan.json docs/backlog/scans/hei_unadded_0901-0950-scan.md
+          git commit -m "[CF-Pages-Skip] Correct HashKey candidate dispositions"
+          git push origin HEAD:d750-batch-l1-hashkey-global
