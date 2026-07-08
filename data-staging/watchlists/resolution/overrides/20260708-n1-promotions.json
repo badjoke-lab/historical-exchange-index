@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "candidate_key": "candidate:frax-swap",
+      "canonical_name": "Frax Swap",
+      "aliases": ["Fraxswap"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-08",
+      "target_entity_id": "hei_ex_000703",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/fraxswap.json"
+      ],
+      "notes": "Frax Swap was reviewed with current first-party protocol, technical, and deployment documentation and promoted as hei_ex_000703, consolidating Frax Swap, Fraxswap, and chain-specific source rows into one entity."
+    },
+    {
+      "candidate_key": "candidate:fulcrom-perps",
+      "canonical_name": "Fulcrom Perps",
+      "aliases": ["Fulcrom", "Fulcrom Finance", "Fulcrom AMM"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-08",
+      "target_entity_id": "hei_ex_000704",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/fulcrom.json"
+      ],
+      "notes": "Fulcrom Perps was reviewed with current first-party exchange, trading-module, and platform evidence and promoted under the Fulcrom entity hei_ex_000704."
+    }
+  ]
+}
