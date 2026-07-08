@@ -1,0 +1,34 @@
+name: Compare production verification
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/verify-compare-production.mjs'
+      - '.github/workflows/compare-production-verification.yml'
+      - 'docs/audits/HEI_H5_COMPARE_PRODUCTION_VERIFICATION_*.md'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Verify deployed H-5 Compare integration
+        env:
+          HEI_EXPECTED_PRODUCTION_COMMIT: 9fb3e1a3bda0c51ce59af364402a98a86736bcb1
+          HEI_PRODUCTION_ORIGIN: https://hei.badjoke-lab.com
+        run: node scripts/verify-compare-production.mjs | tee compare-production-verification.json
+
+      - name: Upload Compare production verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: compare-production-verification-report
+          path: compare-production-verification.json
+          if-no-files-found: warn
