@@ -38,7 +38,9 @@ function checkBaselineSha() {
 function checkCounts() {
   const actual = deriveCounts()
   for (const key of ['entities', 'events', 'evidence']) {
-    if (actual[key] !== contract.reviewed_counts[key]) add('count_mismatch', 'reviewed_count_mismatch', { key, actual: actual[key], expected: contract.reviewed_counts[key] })
+    if (actual[key] < contract.reviewed_counts[key]) {
+      add('count_mismatch', 'reviewed_count_below_v1_baseline', { key, actual: actual[key], baseline: contract.reviewed_counts[key] })
+    }
   }
   return actual
 }
@@ -49,8 +51,19 @@ function checkGeneratedPublic() {
   const feed = readJson('public/feeds/updates.json')
   if (version.schema_version !== contract.schema_versions.machine_schema_version) add('schema_mismatch', 'machine_schema_version_mismatch')
   if (version.data?.data_schema_version !== contract.schema_versions.data_schema_version) add('schema_mismatch', 'data_schema_version_mismatch')
-  if (!sameSet(manifest.main_routes ?? [], contract.public_route_contract.routes)) add('route_contract_mismatch', 'manifest_route_set_mismatch')
-  if ((feed.items ?? []).length !== contract.reviewed_counts.reviewed_update_feed_items) add('count_mismatch', 'reviewed_update_feed_count_mismatch')
+
+  const currentRoutes = manifest.main_routes ?? []
+  for (const route of contract.public_route_contract.routes) {
+    if (!currentRoutes.includes(route)) add('route_contract_mismatch', 'baseline_route_missing', { route })
+  }
+  if (new Set(currentRoutes).size !== currentRoutes.length) add('route_contract_mismatch', 'duplicate_current_routes')
+
+  if ((feed.items ?? []).length < contract.reviewed_counts.reviewed_update_feed_items) {
+    add('count_mismatch', 'reviewed_update_feed_below_v1_baseline', {
+      actual: (feed.items ?? []).length,
+      baseline: contract.reviewed_counts.reviewed_update_feed_items,
+    })
+  }
   for (const publicPath of contract.machine_readable_file_contract) {
     if (!fs.existsSync(path.join(root, 'public', publicPath.replace(/^\//, '')))) add('machine_file_contract', 'machine_file_missing', { path: publicPath })
   }
@@ -59,9 +72,20 @@ function checkGeneratedPublic() {
 function checkSitemap() {
   const xml = readText('out/sitemap.xml')
   const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])
-  if (urls.length !== contract.public_route_contract.sitemap_url_count) add('route_contract_mismatch', 'sitemap_url_count_mismatch', { actual: urls.length })
+  if (urls.length < contract.public_route_contract.sitemap_url_count) {
+    add('route_contract_mismatch', 'sitemap_url_count_below_v1_baseline', {
+      actual: urls.length,
+      baseline: contract.public_route_contract.sitemap_url_count,
+    })
+  }
   if (new Set(urls).size !== urls.length) add('route_contract_mismatch', 'sitemap_duplicate_urls')
   if (!contract.public_route_contract.explorer_query_variants_in_sitemap && urls.some((url) => new URL(url).search)) add('route_contract_mismatch', 'query_variant_in_sitemap')
+
+  const origin = 'https://hei.badjoke-lab.com'
+  for (const route of contract.public_route_contract.routes.filter((route) => !route.includes('{slug}'))) {
+    const expectedUrl = `${origin}${route}`
+    if (!urls.includes(expectedUrl)) add('route_contract_mismatch', 'baseline_sitemap_route_missing', { route, expectedUrl })
+  }
 }
 
 function checkExplorerAndI18n() {
@@ -165,8 +189,8 @@ const categories = [
 
 console.log(`HEI v1 baseline validation: ${contract.baseline_id}`)
 console.log(`Baseline SHA: ${contract.baseline_main_sha}`)
-console.log(`Reviewed counts: ${JSON.stringify(reviewedCounts)}`)
-console.log(`Routes=${contract.public_route_contract.routes.length}, sitemap=${contract.public_route_contract.sitemap_url_count}, machine_files=${contract.machine_readable_file_contract.length}, deferred=${contract.known_deferred_items.length}`)
+console.log(`Current reviewed counts: ${JSON.stringify(reviewedCounts)}`)
+console.log(`Baseline routes=${contract.public_route_contract.routes.length}, baseline sitemap=${contract.public_route_contract.sitemap_url_count}, machine_files=${contract.machine_readable_file_contract.length}, deferred=${contract.known_deferred_items.length}`)
 console.log(`Post-v1 sequence=${contract.post_v1_priority_sequence.join(' -> ')}`)
 console.log(`Categories: ${JSON.stringify(Object.fromEntries(categories.map((category) => [category, findings.filter((item) => item.category === category).length])))}`)
 for (const item of findings) console.log(JSON.stringify(item))
