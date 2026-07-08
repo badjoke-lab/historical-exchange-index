@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "status": "fixed_for_compare_v1_implementation",
+  "route": "/compare/",
+  "selection_parameter": {
+    "key": "exchange",
+    "kind": "reviewed_slug",
+    "cardinality": "multi",
+    "comparison_ready_min": 2,
+    "comparison_ready_max": 4,
+    "encoding": "repeated_parameter",
+    "deduplicate": true,
+    "duplicate_policy": "first_occurrence_wins",
+    "selection_order": "preserve_input_order",
+    "reviewed_public_only": true
+  },
+  "invalid_input": {
+    "unknown_parameter": "ignore",
+    "empty_slug": "ignore_value",
+    "invalid_slug_syntax": "ignore_value",
+    "unknown_reviewed_slug": "ignore_value",
+    "duplicate_slug": "deduplicate_preserve_first",
+    "over_limit": "truncate_after_4_reviewed_unique_slugs"
+  },
+  "slug_syntax": {
+    "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+    "case": "lowercase",
+    "normalization": "trim_then_lowercase",
+    "max_code_points": 120
+  },
+  "serialization": {
+    "encoding": "URLSearchParams",
+    "stable_parameter_order": [
+      "exchange"
+    ],
+    "repeated_parameter_encoding": true,
+    "multi_value_order": "selection_order",
+    "omit_empty": true,
+    "omit_unknown_reviewed_slugs": true
+  },
+  "resolution": {
+    "entity_source": "reviewed_public_aggregation",
+    "ready_state": "2_to_4_resolved_entities",
+    "zero_or_one_resolved_entity": "selector_state_no_comparison_claims",
+    "unreviewed_candidates": "excluded",
+    "missing_values": "display_explicit_unknown_without_inference"
+  },
+  "comparison_sections": [
+    {
+      "id": "identity",
+      "fields": [
+        "canonical_name",
+        "type",
+        "dossier_link"
+      ]
+    },
+    {
+      "id": "lifecycle",
+      "fields": [
+        "launch_date",
+        "terminal_date",
+        "lifespan_days"
+      ]
+    },
+    {
+      "id": "status_origin",
+      "fields": [
+        "status",
+        "death_reason",
+        "country_or_origin",
+        "confidence"
+      ]
+    },
+    {
+      "id": "url_archive",
+      "fields": [
+        "official_domain_original",
+        "official_url_status",
+        "archive_available",
+        "archive_link"
+      ]
+    },
+    {
+      "id": "record_coverage",
+      "fields": [
+        "event_count",
+        "evidence_count"
+      ]
+    },
+    {
+      "id": "major_events",
+      "fields": [
+        "selected_major_events"
+      ]
+    }
+  ],
+  "derived_values": {
+    "terminal_date": {
+      "source": "entity.death_date",
+      "fallback": null,
+      "event_inference": false
+    },
+    "lifespan_days": {
+      "requires": [
+        "launch_date",
+        "death_date"
+      ],
+      "calculation": "floor_utc_day_difference",
+      "invalid_or_negative": null,
+      "stored_in_canonical_data": false
+    },
+    "archive_available": {
+      "calculation": "Boolean(entity.archived_url)",
+      "stored_in_canonical_data": false
+    },
+    "event_count": {
+      "calculation": "count_reviewed_events_for_entity",
+      "stored_in_canonical_data": false
+    },
+    "evidence_count": {
+      "calculation": "count_reviewed_evidence_for_entity",
+      "stored_in_canonical_data": false
+    }
+  },
+  "major_event_selection": {
+    "candidate_rule": "is_major_event_true_or_impact_level_critical_or_high",
+    "priority_order": [
+      "is_major_event true first",
+      "impact critical before high",
+      "event_date known first newest",
+      "sort_order desc",
+      "id asc"
+    ],
+    "limit_per_entity": 5,
+    "display_order": [
+      "event_date known first asc",
+      "sort_order asc",
+      "id asc"
+    ],
+    "reviewed_events_only": true,
+    "ai_selection": false
+  },
+  "url_safety": {
+    "original_url_behavior": "follow_existing_dossier_url_safety_policy",
+    "dead_side_archive_priority": true,
+    "unsafe_repurposed_dead_domain_original_url": "no_direct_primary_action",
+    "archive_link_source": "entity.archived_url"
+  },
+  "crawl_policy": {
+    "base_route_indexable": true,
+    "canonical_for_all_query_variants": "/compare/",
+    "query_variants_in_sitemap": false,
+    "generated_comparison_landing_pages": false
+  },
+  "localization": {
+    "query_key_locale_independent": true,
+    "slug_values_locale_independent": true,
+    "canonical_facts_single_source": true,
+    "labels_dictionary_ready": true,
+    "public_locale_rollout": "separate_localization_phase"
+  },
+  "non_goals": [
+    "synthetic_risk_score",
+    "investment_ranking",
+    "safety_ranking",
+    "ai_generated_factual_claims",
+    "unreviewed_candidate_comparison",
+    "live_market_metrics",
+    "price_tvl_orderbook_comparison"
+  ],
+  "compatibility": {
+    "parameter_rename_after_v1": "requires_spec_change_and_migration_plan",
+    "selection_semantics_change_after_v1": "requires_compatibility_review",
+    "field_set_expansion": "allowed_only_for_reviewed_or_deterministic_values"
+  }
+}
