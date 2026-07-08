@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "candidate_key": "candidate:figure-markets-exchange",
+      "canonical_name": "Figure Markets Exchange",
+      "aliases": ["Figure Markets", "Figure Exchange"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-08",
+      "target_entity_id": "hei_ex_000689",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json",
+        "records/exchanges/figure-markets.json"
+      ],
+      "notes": "Figure Markets Exchange was reviewed with current first-party exchange and corporate evidence and promoted to the reviewed public registry as hei_ex_000689 in D-750 batch G1."
+    },
+    {
+      "candidate_key": "candidate:fluid-dex",
+      "canonical_name": "Fluid DEX",
+      "aliases": ["Fluid", "Fluid DEX Lite"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-08",
+      "target_entity_id": "hei_ex_000691",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json",
+        "records/exchanges/fluid-dex.json"
+      ],
+      "notes": "Fluid DEX was reviewed with current first-party technical documentation and promoted as hei_ex_000691, consolidating chain, DEX, and DEX Lite source rows into one entity."
+    }
+  ]
+}
