@@ -1,7 +1,8 @@
-import { readJsonFile } from './fs-utils.mjs';
+import { listJsonFiles, pathExists, readJsonFile } from './fs-utils.mjs';
 import { candidateIdentityKeys, candidateKeyFor, candidateKeyFromName } from './candidate-identity.mjs';
 
 export const RESOLUTION_INDEX_PATH = 'data-staging/watchlists/resolution/index.json';
+export const RESOLUTION_OVERRIDE_ROOT = 'data-staging/watchlists/resolution/overrides';
 export const ALLOWED_RESOLUTION_STATES = [
   'promoted',
   'held',
@@ -130,9 +131,30 @@ export function buildResolutionState(index) {
   };
 }
 
+async function loadResolutionOverrides() {
+  if (!(await pathExists(RESOLUTION_OVERRIDE_ROOT))) return { entries: [], errors: [] };
+
+  const files = (await listJsonFiles(RESOLUTION_OVERRIDE_ROOT)).sort();
+  const entries = [];
+  const errors = [];
+
+  for (const filePath of files) {
+    const overlay = await readJsonFile(filePath, null);
+    if (!overlay) {
+      errors.push(`invalid resolution override: ${filePath}`);
+      continue;
+    }
+    const overlayErrors = validateResolutionIndex(overlay);
+    for (const error of overlayErrors) errors.push(`${filePath}: ${error}`);
+    if (overlayErrors.length === 0) entries.push(...overlay.entries);
+  }
+
+  return { entries, errors };
+}
+
 export async function loadResolutionIndex() {
-  const index = await readJsonFile(RESOLUTION_INDEX_PATH, null);
-  if (!index) {
+  const baseIndex = await readJsonFile(RESOLUTION_INDEX_PATH, null);
+  if (!baseIndex) {
     return {
       path: RESOLUTION_INDEX_PATH,
       index: { version: 1, entries: [] },
@@ -140,7 +162,20 @@ export async function loadResolutionIndex() {
       ...buildResolutionState({ version: 1, entries: [] }),
     };
   }
-  const errors = validateResolutionIndex(index);
+
+  const baseErrors = validateResolutionIndex(baseIndex);
+  const overrides = await loadResolutionOverrides();
+  const byKey = new Map((baseIndex.entries || []).map((entry) => [entry.candidate_key, entry]));
+  for (const entry of overrides.entries) byKey.set(entry.candidate_key, entry);
+
+  const index = {
+    ...baseIndex,
+    updated_at: baseIndex.updated_at,
+    entries: [...byKey.values()].sort((left, right) => left.candidate_key.localeCompare(right.candidate_key)),
+  };
+  const mergedErrors = validateResolutionIndex(index);
+  const errors = [...baseErrors, ...overrides.errors, ...mergedErrors];
+
   return {
     path: RESOLUTION_INDEX_PATH,
     index,

@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "candidate_key": "candidate:extended",
+      "canonical_name": "Extended",
+      "aliases": ["Extended Exchange"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-08",
+      "target_entity_id": "hei_ex_000688",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json",
+        "records/exchanges/extended.json"
+      ],
+      "notes": "Extended was reviewed with current first-party website and architecture documentation and promoted to the reviewed public registry as hei_ex_000688 in the D-750 F1 batch."
+    }
+  ]
+}

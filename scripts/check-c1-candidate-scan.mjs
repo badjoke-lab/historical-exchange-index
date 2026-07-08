@@ -3,10 +3,10 @@ import path from 'node:path'
 import process from 'node:process'
 import { loadCanonicalData } from './monitoring/core/load-canonical-data.mjs'
 import { normalizeCandidateName } from './monitoring/core/candidate-identity.mjs'
+import { loadResolutionIndex } from './monitoring/core/resolution-store.mjs'
 
 const root = process.cwd()
 const scanPath = path.join(root, 'data-staging/candidate-scans/c1-scan-01.json')
-const resolutionPath = path.join(root, 'data-staging/watchlists/resolution/index.json')
 const outputArg = process.argv.find((arg) => arg.startsWith('--output='))
 const selfTest = process.argv.includes('--self-test')
 const allowedDispositions = new Set(['add_now', 'needs_research', 'pending_thin', 'out_of_scope_or_duplicate'])
@@ -198,17 +198,20 @@ if (selfTest) {
 
 if (!fs.existsSync(scanPath)) throw new Error('missing data-staging/candidate-scans/c1-scan-01.json')
 const scan = JSON.parse(fs.readFileSync(scanPath, 'utf8'))
-const resolution = JSON.parse(fs.readFileSync(resolutionPath, 'utf8'))
-const projected = await loadCanonicalData()
-const result = validate(scan, resolution, projected.entities)
+const [canonical, resolutionState] = await Promise.all([
+  loadCanonicalData(),
+  loadResolutionIndex(),
+])
+const result = validate(scan, resolutionState.index, canonical.entities)
 const report = {
   generated_at: new Date().toISOString(),
   scan_id: scan.scan_id,
   counts: result.derivedCounts,
   first_growth_batch_size: scan.first_growth_batch?.length || 0,
-  projected_entities: projected.entities.length,
-  failures: result.failures,
-  status: result.failures.length === 0 ? 'pass' : 'fail',
+  projected_entities: canonical.entities.length,
+  resolution_errors: resolutionState.errors,
+  failures: [...resolutionState.errors, ...result.failures],
+  status: resolutionState.errors.length === 0 && result.failures.length === 0 ? 'pass' : 'fail',
 }
 if (outputArg) {
   const outputPath = path.resolve(root, outputArg.slice('--output='.length))
@@ -219,8 +222,8 @@ console.log(`C1 scan candidates: ${report.counts.total}`)
 console.log(`Dispositions: ${JSON.stringify(report.counts)}`)
 console.log(`First growth batch: ${report.first_growth_batch_size}`)
 console.log(`Projected entities checked: ${report.projected_entities}`)
-if (result.failures.length > 0) {
-  for (const failure of result.failures) console.error(`- ${failure}`)
+if (report.failures.length > 0) {
+  for (const failure of report.failures) console.error(`- ${failure}`)
   process.exit(1)
 }
 console.log('C1 candidate scan gate: pass')
