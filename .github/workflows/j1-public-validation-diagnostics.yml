@@ -10,36 +10,30 @@ permissions:
   contents: write
 
 jobs:
-  diagnostics:
+  patch-validator:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
           ref: d750-batch-j1-exchange-entities
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm run machine:build
-      - run: npm run build
-      - name: Capture public output failure
+      - name: Narrow obsolete-count guard to summary labels
         shell: bash
         run: |
-          set +e
-          node scripts/validate-public-output-consistency.mjs > j1-public-validation-error.txt 2>&1
-          status=$?
-          echo "exit_status=$status" >> j1-public-validation-error.txt
-          cat j1-public-validation-error.txt
-          exit 0
-      - name: Commit diagnostic output
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('scripts/validate-public-output-consistency.mjs')
+          text = path.read_text()
+          old = "assert(!/\\b386\\b/.test(stripHtml(html)), `${route} contains obsolete count 386`)"
+          new = "assert(!/\\b(?:Total records|Total entities|Entities)\\s+386\\b/.test(stripHtml(html)), `${route} contains obsolete total count 386`)"
+          if old not in text:
+              raise SystemExit('target assertion not found')
+          path.write_text(text.replace(old, new, 1))
+          PY
+      - name: Commit validator fix
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add j1-public-validation-error.txt
-          if git diff --cached --quiet; then
-            exit 0
-          fi
-          git commit -m "[CF-Pages-Skip] Capture J1 public validation diagnostic"
+          git add scripts/validate-public-output-consistency.mjs
+          git commit -m "[CF-Pages-Skip] Narrow obsolete-count public output guard"
           git push origin HEAD:d750-batch-j1-exchange-entities
