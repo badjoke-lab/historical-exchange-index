@@ -1,0 +1,41 @@
+name: J1 public error capture
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/j1-public-error-capture.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: d750-batch-j1-exchange-entities
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run machine:build
+      - run: npm run build
+      - name: Capture validator output
+        shell: bash
+        run: |
+          set +e
+          node scripts/validate-public-output-consistency.mjs > j1-public-error.txt 2>&1
+          status=$?
+          echo "exit_status=$status" >> j1-public-error.txt
+          exit 0
+      - name: Commit diagnostic output
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add j1-public-error.txt
+          git commit -m "[CF-Pages-Skip] Capture J1 public validation error"
+          git push origin HEAD:d750-batch-j1-exchange-entities
