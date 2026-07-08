@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "candidate_key": "candidate:hydration-dex",
+      "canonical_name": "Hydration DEX",
+      "aliases": ["Hydration", "HydraDX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-08",
+      "target_entity_id": "hei_ex_000699",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/hydration.json"
+      ],
+      "notes": "Hydration DEX was reviewed with current first-party website and documentation evidence and promoted as hei_ex_000699, consolidating Hydration DEX and HydraDX/Hydration identity continuity into one entity."
+    }
+  ]
+}
