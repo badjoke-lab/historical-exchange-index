@@ -124,7 +124,7 @@ G-7        v1.0 Baseline Checkpoint             COMPLETE
 Phase H    Compare v1                           COMPLETE
 ```
 
-G-7 evidence:
+G-7 v1.0 Baseline Checkpoint evidence:
 
 ```text
 docs/audits/HEI_G7_V1_BASELINE_CHECKPOINT_2026-07-07.md
