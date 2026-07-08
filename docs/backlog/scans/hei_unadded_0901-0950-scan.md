@@ -7,10 +7,10 @@ Machine-readable authority: `docs/backlog/scans/hei_unadded_0901-0950-scan.json`
 ## Summary
 
 ```text
-add_now:                    29
-needs_research:              6
+add_now:                    30
+needs_research:              4
 pending_thin:                3
-out_of_scope_or_duplicate:  12
+out_of_scope_or_duplicate:  13
 --------------------------------
 total:                      50
 ```
@@ -81,13 +81,12 @@ HorizonDEX duplicate rows -> one entity
 
 ```text
 Hanbitco
-HashKey Exchange / HashKey Global boundary
 HCoin
 HollaEx scope
 Hubi
 ```
 
-HashKey Exchange and HashKey Global are held for explicit legal/entity-boundary review rather than being merged or split by assumption.
+Direct bundle verification confirmed that HashKey Exchange already exists as `hei_ex_000093`. HashKey Global is a distinct Bermuda-licensed exchange entity and was promoted separately in Batch L1.
 
 ## Pending-thin queue
 
@@ -111,6 +110,8 @@ These remain too thin for immediate public record work.
 ```text
 HitBTC direct bundle path: no existing bundle found
 Helix direct bundle path:  no existing bundle found
+HashKey Exchange: existing hei_ex_000093
+HashKey Global direct bundle path: no existing bundle found
 ```
 
 Direct checks supplement the permanent overlap and duplicate gates.
@@ -135,7 +136,6 @@ Batch D750-J1
   strongest official/regulatory candidates from Hashflow / Hata / Helix / HitBTC / Honeyswap / HorizonDEX
 
 Entity-boundary research
-  HashKey Exchange vs HashKey Global
   HollaEx scope
 
 Historical research
