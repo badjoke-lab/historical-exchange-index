@@ -1,0 +1,194 @@
+.shell {
+  overflow: hidden;
+  margin-top: 22px;
+}
+
+.controls {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+  border-bottom: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.controlCopy {
+  display: grid;
+  gap: 6px;
+}
+
+.controlTitle {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.controlHint {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  max-width: 78ch;
+}
+
+.addRow {
+  display: grid;
+  grid-template-columns: minmax(240px, 520px) auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.selectLabel {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.selectionStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-height: 34px;
+  align-items: center;
+}
+
+.emptySelection {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.selectionItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 6px 8px 6px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-2);
+  font-size: 13px;
+}
+
+.selectionOrder {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: #efd8b7;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.removeButton {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+
+.removeButton:hover,
+.removeButton:focus-visible {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  outline: none;
+}
+
+.stateBar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 18px;
+  color: var(--muted);
+  font-size: 12px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.matrixScroller {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.matrix {
+  min-width: 680px;
+  table-layout: fixed;
+}
+
+.matrix th:first-child {
+  width: 150px;
+}
+
+.matrix tbody th {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.matrix td,
+.matrix th {
+  vertical-align: top;
+}
+
+.entityHeading {
+  display: grid;
+  gap: 5px;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 14px;
+}
+
+.entityHeading span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.emptyState {
+  display: grid;
+  gap: 8px;
+  padding: 34px 20px;
+}
+
+.emptyState strong {
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+
+.emptyState span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  max-width: 72ch;
+}
+
+@media (max-width: 720px) {
+  .controls {
+    padding: 16px;
+  }
+
+  .addRow {
+    grid-template-columns: 1fr;
+  }
+
+  .addRow button {
+    justify-content: center;
+  }
+
+  .stateBar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .matrix {
+    min-width: 620px;
+  }
+
+  .matrix th:first-child {
+    width: 128px;
+  }
+}
