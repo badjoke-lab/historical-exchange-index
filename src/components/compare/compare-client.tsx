@@ -119,6 +119,7 @@ export default function CompareClient({ entities, context }: Props) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const [candidateSlug, setCandidateSlug] = useState('')
+  const [shareStatus, setShareStatus] = useState('')
 
   const sortedEntities = useMemo(
     () => [...entities].sort((a, b) => a.canonical_name.localeCompare(b.canonical_name) || a.id.localeCompare(b.id)),
@@ -135,6 +136,7 @@ export default function CompareClient({ entities, context }: Props) {
   const ready = isComparisonReady(state)
 
   const replaceState = (next: CompareState) => {
+    setShareStatus('')
     router.replace(buildUrl(pathname, next), { scroll: false })
   }
 
@@ -146,6 +148,20 @@ export default function CompareClient({ entities, context }: Props) {
 
   const removeSlug = (slug: string) => {
     replaceState({ slugs: state.slugs.filter((value) => value !== slug) })
+  }
+
+  const copyShareLink = async () => {
+    if (!ready) return
+
+    const normalizedPath = buildUrl(pathname, state)
+    const shareUrl = new URL(normalizedPath, window.location.origin).toString()
+
+    try {
+      await navigator.clipboard.writeText(shareUrl)
+      setShareStatus('Share link copied.')
+    } catch {
+      setShareStatus('Could not copy automatically. Copy the current address from your browser.')
+    }
   }
 
   return (
@@ -199,6 +215,14 @@ export default function CompareClient({ entities, context }: Props) {
               </button>
             </div>
           ))}
+        </div>
+
+        <div className={styles.shareRow}>
+          <div className={styles.shareActions}>
+            <Link className="btn btn-ghost" href="/explore/?view=entities">Open Entity Explorer</Link>
+            <button type="button" className="btn" onClick={copyShareLink} disabled={!ready}>Copy share link</button>
+          </div>
+          <span className={styles.shareStatus} role="status" aria-live="polite">{shareStatus}</span>
         </div>
       </div>
 
