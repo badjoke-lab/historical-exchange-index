@@ -7,15 +7,15 @@ Machine-readable authority: `docs/backlog/scans/hei_unadded_0601-0650-scan.json`
 ## Summary
 
 ```text
-add_now:                    22
+add_now:                    21
 needs_research:              4
 pending_thin:                4
-out_of_scope_or_duplicate:  20
+out_of_scope_or_duplicate:  21
 --------------------------------
 total:                      50
 ```
 
-This range contains several strong DEX/protocol candidates and a large number of version, chain, product, and duplicate rows. Entity-first consolidation is applied before record drafting.
+This range contains several strong DEX/protocol candidates and a large number of version, chain, product, existing-entity, and duplicate rows. Entity-first consolidation and direct-bundle verification are applied before record drafting.
 
 ## Add-now queue
 
@@ -30,7 +30,6 @@ DuckyDeFi
 Durianfun AMM
 Dusa
 DX25
-dYdX
 DYORSwap
 Dystopia
 E3
@@ -47,15 +46,14 @@ Ekubo
 Recommended first research group:
 
 ```text
-dYdX
-Drift
-Econia
-Ekubo
 DragonSwap
+Ekubo
 DX25
+Econia
+Drift
 ```
 
-These candidates have comparatively high historical relevance or strong official protocol-documentation potential.
+dYdX was removed from the add-now queue after direct bundle verification found the existing reviewed entity `hei_ex_000517` in `records/exchanges/dydx.json`.
 
 ## Consolidation groups
 
@@ -69,6 +67,7 @@ Ebisu's Bay duplicate rows -> one entity
 EchoDEX V2/V3 -> one entity
 EddyFinance + AMM row -> one entity
 Ekubo + Ethereum V3 row -> one entity
+dYdX source row -> existing hei_ex_000517
 ```
 
 ## Needs-research queue
@@ -100,25 +99,28 @@ These remain too thin for immediate public record work.
 - DTrade is categorized as Telegram Bot.
 - Ducata is categorized as Yield.
 - Durianfun Launchpad and DYORSwap Launchpad are product rows and are not separate exchange entities.
+- dYdX is already represented by reviewed entity `hei_ex_000517` and is not a new D-750 entity.
 
 ## D-750 impact
 
-This scan itself does not change reviewed counts. At scan creation, the merged reviewed state is:
+This scan itself does not change reviewed counts. The current merged reviewed state after C1 is:
 
 ```text
-Entities:  561
+Entities:  564
 Events:    1004
-Evidence:  2652
-Remaining to D-750: 189
+Evidence:  2661
+Remaining to D-750: 186
 ```
-
-The separate open C1 batch may change counts independently after review and merge.
 
 Recommended next execution:
 
 ```text
 Batch D750-D1
-  strongest official-source candidates from dYdX / Drift / Econia / Ekubo / DragonSwap / DX25
+  strongest official-source candidates from DragonSwap / Ekubo / DX25
+
+Lifecycle research
+  Econia archived repository and current protocol state
+  Drift post-incident current state
 
 Batch D750-D2
   next strong add-now group
