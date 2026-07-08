@@ -7,6 +7,7 @@
     "/active/",
     "/exchange/{slug}/",
     "/explore/",
+    "/compare/",
     "/stats/",
     "/quality/",
     "/updates/",
@@ -28,10 +29,11 @@
     "/ai.txt"
   ],
   "sitemap": {
-    "static_route_count": 12,
+    "static_route_count": 13,
     "query_variants_allowed": false,
     "feeds_in_page_sitemap": false,
-    "explorer_base_route_exact_count": 1
+    "explorer_base_route_exact_count": 1,
+    "compare_base_route_exact_count": 1
   },
   "robots": {
     "required_user_agent": "*",
