@@ -5,6 +5,7 @@ import Link from 'next/link'
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import GoogleAnalytics from '../components/analytics/google-analytics'
+import ExchangeCompareContextLink from '../components/navigation/exchange-compare-context-link'
 import {
   CONTACT_HREF,
   DONATE_HREF,
@@ -189,6 +190,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </nav>
           </header>
 
+          <ExchangeCompareContextLink />
           {children}
 
           <footer className="footer">
