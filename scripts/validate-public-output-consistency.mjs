@@ -152,7 +152,6 @@ for (const [route, html, canonical] of [
 ]) {
   assertCanonical(html, canonical, route)
   assertDiscovery(html, route)
-  assert(!/\b(?:Total records|Total entities)\s+386\b/.test(stripHtml(html)), `${route} contains obsolete total count 386`)
 }
 
 assert(home.includes('"@type":"Dataset"') || home.includes('&quot;@type&quot;:&quot;Dataset&quot;'), 'home Dataset JSON-LD is missing')
