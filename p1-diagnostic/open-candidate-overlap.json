@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-07-09T03:24:23.317Z",
+  "projected_entities": 594,
+  "open_resolution_entries": 22,
+  "overlap_count": 1,
+  "unique_overlapping_candidates": 1,
+  "overlaps": [
+    {
+      "candidate_key": "candidate:gala-swap",
+      "candidate_name": "Gala Swap",
+      "candidate_state": "held",
+      "matched_identity": "gala swap",
+      "entity_id": "hei_ex_000709",
+      "entity_slug": "galaswap",
+      "entity_name": "GalaSwap"
+    }
+  ],
+  "status": "fail"
+}

@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-07-09T03:24:23.629Z",
+  "scan_id": "c1-scan-01",
+  "counts": {
+    "total": 42,
+    "needs_research": 0,
+    "pending_thin": 28,
+    "add_now": 1,
+    "out_of_scope_or_duplicate": 13
+  },
+  "first_growth_batch_size": 1,
+  "projected_entities": 594,
+  "resolution_errors": [],
+  "failures": [
+    "candidate:gala-swap: open candidate overlaps projected entity hei_ex_000709"
+  ],
+  "status": "fail"
+}
