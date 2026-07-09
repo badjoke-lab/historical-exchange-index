@@ -4,7 +4,7 @@ Reviewed at: 2026-07-09
 
 ## Results
 
-- `0672` Elys DEX -> `hei_ex_000741`, active DEX
+- `0663` Elys DEX -> `hei_ex_000741`, active DEX
 
 ## Consolidation and classification
 
