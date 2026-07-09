@@ -1,11 +1,12 @@
-# D-750 Batch AM1 — Gala Swap, Etherex, Emirex, FameEX, and Energiswap
+# D-750 Batch AM1 — Fenix Finance, Etherex, Emirex, FameEX, and Energiswap
 
 Reviewed at: 2026-07-09
 
 ## Results
 
-- `0825` Gala Swap -> `hei_ex_000747`, active DEX
-- `0826` Gala Swap duplicate source row -> consolidated under `hei_ex_000747`
+- `0744` Fenix Finance -> `hei_ex_000747`, inactive DEX
+- `0743` Fenix Concentrated Liquidity -> consolidated under `hei_ex_000747`
+- `0745` Fenix Standard Pools -> consolidated under `hei_ex_000747`
 - `0690` Etherex -> `hei_ex_000748`, active DEX
 - `0691` Etherex duplicate source row -> consolidated under `hei_ex_000748`
 - `0692` Etherex CL -> consolidated under `hei_ex_000748`
@@ -20,7 +21,7 @@ Reviewed at: 2026-07-09
 
 ## Entity-first consolidation
 
-- GalaSwap API, trading-bot, swap creation, and swap acceptance surfaces remain under one Gala Swap exchange entity.
+- Fenix Finance standard pools, concentrated-liquidity pools, SDK, and historical Blast deployment are modeled as one Fenix Finance entity.
 - Etherex base, duplicate, concentrated-liquidity, and legacy source rows are modeled as one Etherex entity.
 - Emirex duplicate source rows are modeled as one centralized exchange entity.
 - FameEX spot and derivatives product rows are modeled as one centralized exchange entity.
@@ -28,9 +29,9 @@ Reviewed at: 2026-07-09
 
 ## Evidence decisions
 
-### Gala Swap
+### Fenix Finance
 
-The official GalaChain organization publishes a GalaSwap trading-bot implementation that explicitly identifies GalaSwap as an exchange and documents API-driven swap creation, swap acceptance, market-rate comparison, liquidity offering, trading-pair controls, and GalaChain wallet authentication. The repository links the GalaSwap API documentation used for exchange interaction.
+The current first-party retrospective site states that Fenix operated on Blast in 2024–2025, processed swap-pool volume and fees, and that the team stopped working on Fenix before the next chapter became `nest`, launched in 2026. Exact terminal date is not asserted, so HEI uses `inactive` with `death_date` and `death_reason` left null. The official Fenix Finance SDK repository supports the exchange implementation identity.
 
 ### Etherex
 
@@ -48,11 +49,11 @@ The current first-party platform exposes Markets, Trade, Futures, TradFi, Predic
 
 The current first-party application endpoint is reachable. Official Energi developer documentation identifies Energiswap as a decentralized protocol for automated token exchange and publishes SDK, smart-contract, token-list, and default-token-list packages for building on and interacting with the exchange.
 
-## Excluded after current-state review
+## Overlap and current-state findings
 
-### Fenix Finance
+### GalaSwap
 
-Fenix Finance was not included as an active record. Its current official website states that the protocol ran in 2024–2025, that work on Fenix stopped, and that the next chapter became `nest`, with the new protocol launching in 2026. This is a lifecycle/rebrand or successor research case rather than a routine active-growth addition.
+An initial Gala Swap draft was blocked by permanent overlap validation because current main already contains `hei_ex_000709` (`galaswap.json`) with `Gala Swap` as an alias. The draft was removed and no duplicate entity is added.
 
 ### FXDX
 
