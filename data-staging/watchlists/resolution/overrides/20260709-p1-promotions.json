@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "candidate_key": "candidate:gala-swap",
+      "canonical_name": "Gala Swap",
+      "aliases": ["GalaSwap"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-09",
+      "target_entity_id": "hei_ex_000709",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/galaswap.json"
+      ],
+      "notes": "Gala Swap was reviewed with current first-party GalaSwap exchange and GalaChain documentation and promoted as hei_ex_000709, consolidating duplicate Gala Swap discovery rows into one entity."
+    }
+  ]
+}
