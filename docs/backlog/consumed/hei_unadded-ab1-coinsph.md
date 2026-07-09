@@ -1,35 +1,38 @@
-# D-750 Batch AB1 — Coins.ph
+# D-750 AB1 correction — Coins.ph duplicate disposition
 
 Reviewed at: 2026-07-09
 
-## Results
+## Result
 
-- `0424` coinsph -> `hei_ex_000733`, active CEX
+- `0424` coinsph / Coins.ph -> existing `hei_ex_000043`
+- no new entity created
+- attempted `hei_ex_000733` record removed before merge
 
-## Consolidation and classification
+## Correction reason
 
-- Coins.ph is modeled as one centralized exchange entity despite also providing wallet, payments, remittance, and broader financial-service surfaces.
-- Coins Pro is treated as a professional trading product/alias under the same Coins.ph exchange entity rather than a separate HEI entity.
-- The launch date is stored as `2014-01-01` because the first-party About page gives January 2014 rather than an exact day.
+The 0401-0450 JSON scan still classified candidate `0424` as `add_now`, but the companion closed-range Markdown authority already records Coins.ph as an existing duplicate consumed under `hei_ex_000043`.
 
-## Decision notes
+A new `coinsph` bundle was initially drafted from strong current first-party evidence. Permanent overlap validation correctly blocked the draft because the same Coins.ph identity already exists in both canonical data and the reviewed `records/exchanges/coins-ph.json` bundle.
 
-Coins.ph is promoted from current first-party About, trading-platform, and developer documentation.
+Blocking overlap keys were:
 
-The first-party About page states that Coins.ph launched in 2014, identifies it as an established Philippine crypto brand, and states Bangko Sentral ng Pilipinas regulation. The current platform exposes Spot trading with live order books, Markets, institutional OTC/FX, Coins Pro professional exchange access, crypto exchange services, login, and signup flows.
+- normalized slug: `coinsph`
+- normalized name/alias: `coinsph`
+- official domain: `coins.ph`
 
-The current Coins.ph developer hub publishes API documentation, reference material, product and service documentation, integration guides, and a changelog.
+The duplicate draft is removed. The machine-readable scan is corrected from `add_now` to `out_of_scope_or_duplicate` so future growth work does not attempt to recreate the existing entity.
 
-The completed 0401-0450 scan classifies candidate `0424` as `add_now`. Exact bundle-path checks on current main found no existing `records/exchanges/coinsph.json`.
+## Canonical count impact
 
-## Batch output
+```text
+New entities: 0
+New events:   0
+New evidence: 0
+Reviewed public state remains:
+Entities: 616
+Events:   1004
+Evidence: 2817
+Remaining to D-750: 134 entities
+```
 
-- new entities: 1
-- new events: 0
-- new evidence: 3
-- projected entity count: 617
-- projected event count: 1004
-- projected evidence count: 2820
-- remaining to D-750 after projected merge: 133
-
-No Cloudflare configuration changes are included. Preview deployment is not required for reviewed record-only additions. All reviewed public-data validation gates must pass before merge.
+No Cloudflare configuration changes or public-record changes are included. Preview deployment is not required. The correction must pass candidate scan, backlog dedupe, and unchanged-public-state validation gates before merge.
