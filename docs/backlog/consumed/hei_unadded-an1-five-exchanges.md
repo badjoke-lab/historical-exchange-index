@@ -1,10 +1,11 @@
-# D-750 Batch AN1 — GMO Coin, GOPAX, Globiance, Globe Exchange, and Glue Hub
+# D-750 Batch AN1 — GLEEC Wallet & DEX, GOPAX, Globiance, Globe Exchange, and Glue Hub
 
 Reviewed at: 2026-07-09
 
 ## Results
 
-- `0866` GMO Coin Japan -> `hei_ex_000752`, active CEX
+- `0852` Gleec Wallet -> `hei_ex_000752`, active DEX
+- `0853` Gleec Wallet / `komodo-wallet` domain row -> consolidated under `hei_ex_000752`
 - `0878` GoPax -> `hei_ex_000753`, active CEX
 - `0879` GOPAX duplicate source row -> consolidated under `hei_ex_000753`
 - `0861` Globiance -> `hei_ex_000754`, active hybrid exchange
@@ -13,7 +14,7 @@ Reviewed at: 2026-07-09
 
 ## Entity-first consolidation
 
-- GMO Coin exchange spot, leveraged exchange, crypto FX, WebTrader, and API surfaces remain under one GMO Coin entity.
+- GLEEC Wallet, Gleec Wallet, Gleec DEX, the dex.gleec.com application, and the `komodo-wallet` source row are modeled as one GLEEC Wallet & DEX entity.
 - GoPax/GOPAX duplicate source rows remain one GOPAX entity.
 - Globiance regional centralized exchange services and branded GlobianceDEX are modeled as one hybrid exchange entity.
 - Globe spot, perpetual, unified-margin, wallet, and API surfaces remain one Globe Exchange entity.
@@ -21,9 +22,9 @@ Reviewed at: 2026-07-09
 
 ## Evidence decisions
 
-### GMO Coin
+### GLEEC Wallet & DEX
 
-Current first-party pages expose order-book spot trading, leveraged exchange trading, crypto FX, WebTrader, deposits and withdrawals, market data, and public and private API services. The official site identifies GMO Coin, Inc. and registration as a Japanese crypto-asset exchange service provider under Kanto Local Finance Bureau registration No. 00006.
+The current first-party dex.gleec.com endpoint is reachable. The official `GLEECBTC/gleec-wallet` repository explicitly identifies the product as `Gleec Wallet & DEX`, links the web application, and documents web, Windows, macOS, Linux, Android, and iOS builds. Confidence is `medium` because the public product documentation does not deeply expose current exchange mechanics; the June 2026 exchange candidate corpus independently corroborates the dex.gleec.com exchange identity.
 
 ### GOPAX
 
@@ -43,12 +44,15 @@ Current first-party Glue Hub market and Buy & Sell Crypto surfaces are reachable
 
 ## Current-main overlap findings
 
-Direct current-main checks found several stale add-now assumptions and prevented duplicate drafting:
+Direct current-main checks found stale add-now assumptions and prevented duplicate drafting:
 
+- GMO Coin Japan -> existing `hei_ex_000692`
 - Glide Finance -> existing `hei_ex_000693`
 - GooseFX -> existing `hei_ex_000694`
 - GRVT -> existing `hei_ex_000711`
 - H2 Finance -> existing `hei_ex_000706`
+
+The initial GMO Coin draft in AN1 was blocked by permanent overlap validation because current main already contains `hei_ex_000692` with `GMO Coin` and `GMOコイン` aliases and the `coin.z.com` domain. The duplicate draft was removed and replaced by GLEEC Wallet & DEX while preserving the five-entity batch size.
 
 Gliquid and Gravity Finance were not forced into AN1 because current public first-party evidence was not strong enough during this review pass.
 
