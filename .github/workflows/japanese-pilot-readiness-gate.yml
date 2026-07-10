@@ -47,5 +47,56 @@ jobs:
       - name: Build public site
         run: npm run build
 
+      - name: Diagnose internal links
+        continue-on-error: true
+        run: npm run links:audit
+
+      - name: Diagnose public metadata
+        continue-on-error: true
+        run: npm run metadata:audit
+
+      - name: Diagnose sitemap
+        continue-on-error: true
+        run: npm run sitemap:audit
+
+      - name: Diagnose navigation discovery
+        continue-on-error: true
+        run: npm run navigation:audit
+
+      - name: Diagnose Stats Explorer handoff
+        continue-on-error: true
+        run: npm run explorer:handoff:validate
+
+      - name: Diagnose Explorer query contract
+        continue-on-error: true
+        run: npm run explorer:contract:validate
+
+      - name: Diagnose Compare v1
+        continue-on-error: true
+        run: npm run compare:audit
+
+      - name: Diagnose i18n foundation
+        continue-on-error: true
+        run: npm run i18n:validate
+
+      - name: Diagnose accessibility
+        continue-on-error: true
+        run: npm run accessibility:audit
+
+      - name: Diagnose URL safety
+        continue-on-error: true
+        run: npm run url-safety:audit
+
+      - name: Diagnose cross-surface integration
+        continue-on-error: true
+        run: npm run integration:audit
+
+      - name: Diagnose machine/public consistency
+        continue-on-error: true
+        run: npm run consistency:audit
+
+      - name: Run full public validation gate
+        run: npm run public:validate
+
       - name: Validate Japanese Pilot readiness and activation safety
         run: node scripts/validate-japanese-pilot-readiness.mjs
