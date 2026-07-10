@@ -1,7 +1,7 @@
 import localeConfig from '../../config/i18n-locales.json'
 
 export type SupportedLocale = 'en' | 'ja'
-export type PublicLocale = 'en'
+export type PublicLocale = 'en' | 'ja'
 export type PilotLocale = 'ja'
 
 export const defaultLocale: SupportedLocale = localeConfig.default_locale as SupportedLocale
