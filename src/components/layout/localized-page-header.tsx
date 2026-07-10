@@ -5,17 +5,15 @@ type LocalizedPageHeaderProps = {
   presentation: PagePresentation
   actions?: ReactNode
   footer?: ReactNode
-  compact?: boolean
 }
 
 export default function LocalizedPageHeader({
   presentation,
   actions,
   footer,
-  compact = false,
 }: LocalizedPageHeaderProps) {
   return (
-    <section className={compact ? 'panel longform-panel' : 'panel longform-panel'}>
+    <section className="panel longform-panel">
       <div className={actions ? 'detail-header' : undefined}>
         <div>
           <p className="muted" style={{ margin: '0 0 8px', fontSize: '12px' }}>
