@@ -6,14 +6,20 @@ import {
   incidentEventTypeLabel,
   type IncidentTimelineItem,
 } from '../../lib/data/build-incident-timeline'
+import {
+  buildLocalizedPageMetadata,
+  getPagePresentation,
+} from '../../lib/i18n/page-presentations'
 import { CONTACT_HREF } from '../../lib/site-constants'
 import { formatDate } from '../../lib/utils/format-date'
 import styles from './incidents.module.css'
 
-export const metadata: Metadata = {
-  title: 'Exchange Incident Timeline',
-  description: 'Reviewed exchange incidents and shutdown milestones recorded in the Historical Exchange Index.',
-  alternates: { canonical: '/incidents' },
+export function generateMetadata(): Metadata {
+  return buildLocalizedPageMetadata({
+    locale: 'en',
+    page: 'incidents',
+    pathname: '/incidents/',
+  })
 }
 
 function groupByYear(items: IncidentTimelineItem[]) {
@@ -43,6 +49,7 @@ function allIncidentEventsHref() {
 
 export default function ExchangeIncidentTimelinePage() {
   const incidents = buildIncidentTimeline()
+  const presentation = getPagePresentation('en', 'incidents')
   const groups = groupByYear(incidents)
   const affectedExchanges = new Set(incidents.map((item) => item.entity.id)).size
   const criticalEvents = incidents.filter((item) => item.event.impact_level === 'critical').length
@@ -62,11 +69,9 @@ export default function ExchangeIncidentTimelinePage() {
       <section className="panel longform-panel">
         <div className={styles.headerRow}>
           <div>
-            <p className="muted">Reviewed historical incidents</p>
-            <h2 className={styles.pageTitle}>Exchange Incident Timeline</h2>
-            <p className={styles.lead}>
-              A chronological view of reviewed disruptions, enforcement actions, insolvency events, and shutdown milestones already present in HEI public records. Raw monitoring signals and unmerged candidates are not included.
-            </p>
+            <p className="muted">{presentation.eyebrow}</p>
+            <h2 className={styles.pageTitle}>{presentation.heading}</h2>
+            <p className={styles.lead}>{presentation.intro}</p>
           </div>
           <div className={styles.headerActions}>
             <Link className="btn btn-primary" href={allIncidentEventsHref()}>Explore incident events</Link>
