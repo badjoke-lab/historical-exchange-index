@@ -1,10 +1,10 @@
-# D-750 Batch BB1 — HbarSuite, HumanFi, BisonFi, Beralis V3, and HumidiFi
+# D-750 Batch BB1 — HARD Swap, HumanFi, BisonFi, Beralis V3, and HumidiFi
 
 Reviewed at: 2026-07-10
 
 ## Results
 
-- `0913` HbarSuite -> `hei_ex_000822`, active DEX
+- `0905` HARD Swap -> `hei_ex_000822`, active DEX
 - `0952` HumanFi -> `hei_ex_000823`, active DEX aggregator
 - `0184` BisonFi -> `hei_ex_000824`, active DEX
 - `0157` Beralis V3 -> `hei_ex_000825`, limited DEX
@@ -12,7 +12,7 @@ Reviewed at: 2026-07-10
 
 ## Entity-first consolidation
 
-- HbarSuite and HSuite source representations remain one Hedera DEX and liquidity-protocol entity.
+- HARD Swap remains one Kava DEX entity under the HARD ecosystem rather than being split by product integration.
 - HumanFi remains one World Chain swap-aggregation entity rather than being split by Mini App or route surface.
 - BisonFi remains one Solana Prop AMM DEX entity.
 - Beralis V3 remains one Berachain CLMM entity; low activity is expressed through status rather than creating version/deployment splits.
@@ -20,9 +20,9 @@ Reviewed at: 2026-07-10
 
 ## Evidence decisions
 
-### HbarSuite
+### HARD Swap
 
-The current first-party HSuite platform domain remains reachable. DefiLlama identifies HbarSuite as a Hedera AMM DEX and reports substantial current TVL plus non-zero 30-day, 7-day, and 24-hour DEX volume. Confidence is `high`.
+DefiLlama identifies HARD Swap as a Kava CLMM DEX and reports substantial current TVL plus non-zero 30-day, 7-day, and 24-hour DEX volume. The dedicated first-party swap endpoint is linked from the current protocol registry but could not be fully fetched during this review pass, so URL status is `live_unverified`. Confidence is `medium`.
 
 ### HumanFi
 
@@ -61,6 +61,7 @@ Direct current-main checks, repository searches, and permanent overlap validatio
 - Bitinka -> existing `hei_ex_000587`
 - Bitypreço -> existing `hei_ex_000589`
 - BitShares DEX -> existing `hei_ex_000590`
+- HbarSuite -> existing HSuite DEX entity `hei_ex_000758`
 - Huckleberry AMM -> existing Huckleberry entity `hei_ex_000763`
 - Hydra DEX -> existing Hydra DEX entity `hei_ex_000764`
 - HyperBrick -> existing `hei_ex_000769`
@@ -68,7 +69,9 @@ Direct current-main checks, repository searches, and permanent overlap validatio
 
 The initial BitcoinVN and BIT.TEAM drafts were blocked by permanent overlap validation because current main already represents those identities. Both drafts were removed.
 
-The first replacements, Huckleberry AMM and Hydra DEX, were also blocked by permanent overlap validation because current main already contains the same underlying identities under entity-first slugs. Those drafts were removed and replaced by HbarSuite and HumanFi.
+The first replacements, Huckleberry AMM and Hydra DEX, were also blocked by permanent overlap validation because current main already contains the same underlying identities under entity-first slugs. Those drafts were removed.
+
+HbarSuite was then blocked as the existing HSuite DEX identity `hei_ex_000758`; that draft was removed and replaced by HARD Swap.
 
 The initial Bitypreço replacement candidate was separately blocked by a path collision and direct main review confirmed the existing `hei_ex_000589` entity. It was replaced by HumidiFi.
 
