@@ -2,7 +2,7 @@
   "version": 1,
   "default_locale": "en",
   "supported_locales": ["en", "ja"],
-  "public_locales": ["en"],
+  "public_locales": ["en", "ja"],
   "fallback_locale": "en",
   "entity_overlay": {
     "identifier": "slug",
