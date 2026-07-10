@@ -1,7 +1,12 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
+import LocalizedPageHeader from '../../components/layout/localized-page-header'
 import DeadExplorerClient from '../../components/registry/dead-explorer-client'
 import { loadEntities } from '../../lib/data/load-entities'
+import {
+  buildLocalizedPageMetadata,
+  getPagePresentation,
+} from '../../lib/i18n/page-presentations'
 import { CONTACT_HREF, SITE_NAME, SITE_URL } from '../../lib/site-constants'
 
 const DEAD_SIDE = new Set<string>(['dead', 'merged', 'acquired', 'rebranded'])
@@ -19,31 +24,18 @@ function loadDeadEntities() {
 
 export function generateMetadata(): Metadata {
   const total = loadDeadEntities().length
-  const description = `Browse ${total} dead-side crypto exchange records, including dead, merged, acquired, and rebranded exchanges with archive-aware handling.`
-
-  return {
-    title: 'Dead exchanges',
-    description,
-    alternates: { canonical: '/dead' },
-    openGraph: {
-      type: 'website',
-      url: `${SITE_URL}/dead/`,
-      title: `Dead exchanges | ${SITE_NAME}`,
-      description,
-      siteName: SITE_NAME,
-      images: ['/opengraph-image'],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `Dead exchanges | ${SITE_NAME}`,
-      description,
-      images: ['/twitter-image'],
-    },
-  }
+  const presentation = getPagePresentation('en', 'dead')
+  return buildLocalizedPageMetadata({
+    locale: 'en',
+    page: 'dead',
+    pathname: '/dead/',
+    descriptionOverride: `${presentation.description} Current reviewed dead-side records: ${total}.`,
+  })
 }
 
 export default function DeadPage() {
   const entities = loadDeadEntities()
+  const presentation = getPagePresentation('en', 'dead')
   const summary = {
     total: entities.length,
     dead: entities.filter((item) => item.status === 'dead').length,
@@ -59,8 +51,8 @@ export default function DeadPage() {
     '@type': 'CollectionPage',
     '@id': `${SITE_URL}/dead/`,
     url: `${SITE_URL}/dead/`,
-    name: 'Dead-side exchange registry',
-    description: `Collection of ${summary.total} dead-side crypto exchange records.`,
+    name: presentation.heading,
+    description: presentation.description,
     numberOfItems: summary.total,
     isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
   }
@@ -71,36 +63,28 @@ export default function DeadPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
       />
-      <section className="panel longform-panel">
-        <div className="detail-header">
-          <div>
-            <p className="muted" style={{ margin: '0 0 8px', fontSize: '12px' }}>Dead Exchanges</p>
-            <h2 style={{ margin: '0 0 10px', fontSize: '34px', letterSpacing: '-0.04em' }}>Dead-side registry</h2>
-            <p className="muted" style={{ lineHeight: 1.7, margin: 0, maxWidth: '64ch' }}>
-              Closed, absorbed, rebranded, or otherwise gone exchanges. This page emphasizes death reason,
-              archive access, and dense graveyard browsing.
-            </p>
-            <p style={{ margin: '12px 0 0', fontWeight: 700 }}>
-              Dead-side total: {summary.total}
-            </p>
-          </div>
-
-          <div className="hero-actions" style={{ marginTop: 0 }}>
-            <a className="btn" href={CONTACT_HREF} target="_blank" rel="noreferrer">
-              Contact / corrections
-            </a>
-          </div>
-        </div>
-      </section>
+      <LocalizedPageHeader
+        presentation={presentation}
+        footer={(
+          <p style={{ margin: '12px 0 0', fontWeight: 700 }}>
+            Dead-side total: {summary.total}
+          </p>
+        )}
+        actions={(
+          <a className="btn" href={CONTACT_HREF} target="_blank" rel="noreferrer">
+            Contact / corrections
+          </a>
+        )}
+      />
 
       <Suspense
-        fallback={
+        fallback={(
           <section className="panel table-panel">
             <div className="results-meta">
               <div>Loading registry…</div>
             </div>
           </section>
-        }
+        )}
       >
         <DeadExplorerClient entities={entities} summary={summary} />
       </Suspense>
