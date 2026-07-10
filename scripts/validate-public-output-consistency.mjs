@@ -44,17 +44,11 @@ function assertDiscovery(html, route) {
   assert(html.includes('/data/manifest.json'), `${route} is missing JSON discovery link`)
   assert(html.includes('/llms.txt'), `${route} is missing text discovery link`)
 }
-function walk(dir) {
-  if (!fs.existsSync(dir)) return []
-  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-    const fullPath = path.join(dir, entry.name)
-    return entry.isDirectory() ? walk(fullPath) : [fullPath]
-  })
-}
 
 const canonicalEntities = readJson('data/entities.json')
 const canonicalEvents = readJson('data/events.json')
 const canonicalEvidence = readJson('data/evidence.json')
+const enCommon = readJson('src/i18n/locales/en/common.json')
 const { all: reviewedBundles, newEntityBundles, entityIdMap } = loadReviewedBundles(root, canonicalEntities)
 const entities = [...applyReviewedEntityCorrections(canonicalEntities, reviewedBundles), ...newEntityBundles.map(({ bundle }) => bundle.entity)]
 const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event', entityIdMap)
@@ -106,20 +100,22 @@ const incidents = readOut(path.join('incidents', 'index.html'))
 const monthly = readOut(path.join('monthly', 'index.html'))
 const firstEntity = entities[0]
 const detail = readOut(path.join('exchange', firstEntity.slug, 'index.html'))
+const jaHome = readOut(path.join('ja', 'index.html'))
+const jaDetail = readOut(path.join('ja', 'exchange', firstEntity.slug, 'index.html'))
 
 assertTextCount(home, 'Total records', expected.total, '/')
 assertTextCount(home, 'Dead-side', expected.deadSide, '/')
 assertTextCount(home, 'Active-side', expected.activeSide, '/')
 assertTextCount(dead, 'Dead-side total:', expected.deadSide, '/dead/')
 assertTextCount(active, 'Active-side total:', expected.activeSide, '/active/')
-assert(stripHtml(explore).includes('Explorer'), '/explore/ does not expose Explorer heading')
+assert(stripHtml(explore).includes(enCommon['page.explore.heading']), '/explore/ does not expose dictionary-backed Explorer heading')
 assert(stripHtml(compare).includes('Compare'), '/compare/ does not expose Compare heading')
 assertTextCount(stats, 'Total entities', expected.total, '/stats/')
 assertTextCount(stats, 'Dead-side', expected.deadSide, '/stats/')
 assertTextCount(stats, 'Active-side', expected.activeSide, '/stats/')
 assertTextCount(stats, 'Total events', expected.events, '/stats/')
 assertTextCount(stats, 'Total evidence', expected.evidence, '/stats/')
-assert(stripHtml(quality).includes('Evidence Health & Data Quality'), '/quality/ does not expose Evidence Health & Data Quality heading')
+assert(stripHtml(quality).includes(enCommon['page.quality.heading']), '/quality/ does not expose dictionary-backed Quality heading')
 assertTextCount(quality, 'Entities', expected.total, '/quality/')
 assertTextCount(quality, 'Events', expected.events, '/quality/')
 assertTextCount(quality, 'Evidence', expected.evidence, '/quality/')
@@ -127,15 +123,17 @@ assertTextValue(quality, 'Entity archive coverage', `${expected.archiveCoverage}
 assertTextValue(quality, 'High-confidence entities', `${expected.highConfidenceShare}%`, '/quality/')
 assertTextValue(quality, 'High-reliability evidence', `${expected.highReliabilityEvidenceShare}%`, '/quality/')
 assertTextCount(quality, 'Entities with 0 evidence', expected.zeroEvidenceEntities, '/quality/')
-assert(stripHtml(updates).includes('Registry Updates'), '/updates/ does not expose Registry Updates heading')
-assert(stripHtml(incidents).includes('Exchange Incident Timeline'), '/incidents/ does not expose Exchange Incident Timeline heading')
+assert(stripHtml(updates).includes(enCommon['page.updates.heading']), '/updates/ does not expose dictionary-backed Updates heading')
+assert(stripHtml(incidents).includes(enCommon['page.incidents.heading']), '/incidents/ does not expose dictionary-backed Incidents heading')
 assertTextCount(incidents, 'Timeline events', expected.incidents, '/incidents/')
-assert(stripHtml(monthly).includes('Monthly Historical Exchange Snapshot'), '/monthly/ does not expose Monthly Historical Exchange Snapshot heading')
+assert(stripHtml(monthly).includes(enCommon['page.monthly.heading']), '/monthly/ does not expose dictionary-backed Monthly heading')
 assert(stripHtml(monthly).includes(expected.monthlyMonth), `/monthly/ does not expose review month ${expected.monthlyMonth}`)
 assertTextCount(monthly, 'Recorded events', expected.monthlyEvents, '/monthly/')
 assertTextCount(monthly, 'Affected exchanges', expected.monthlyAffectedExchanges, '/monthly/')
 assertTextCount(monthly, 'Critical / high', expected.monthlyCriticalOrHigh, '/monthly/')
 assertTextCount(monthly, 'Event-linked evidence', expected.monthlyEventLinkedEvidence, '/monthly/')
+assert(stripHtml(jaHome).includes('日本語パイロット'), '/ja/ does not expose Japanese Pilot context')
+assert(stripHtml(jaDetail).includes(firstEntity.canonical_name), '/ja/exchange/[slug]/ does not expose canonical entity identity')
 
 for (const [route, html, canonical] of [
   ['/', home, `${origin}/`],
@@ -149,6 +147,8 @@ for (const [route, html, canonical] of [
   ['/incidents/', incidents, `${origin}/incidents/`],
   ['/monthly/', monthly, `${origin}/monthly/`],
   [`/exchange/${firstEntity.slug}/`, detail, `${origin}/exchange/${firstEntity.slug}/`],
+  ['/ja/', jaHome, `${origin}/ja/`],
+  [`/ja/exchange/${firstEntity.slug}/`, jaDetail, `${origin}/ja/exchange/${firstEntity.slug}/`],
 ]) {
   assertCanonical(html, canonical, route)
   assertDiscovery(html, route)
@@ -215,15 +215,18 @@ for (const [label, count] of [['Total records', expected.total],['Dead-side', ex
 
 const sitemap = readOut('sitemap.xml')
 const sitemapLocations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1])
-assert(sitemapLocations.length === entities.length + 13, `sitemap URL count mismatch: ${sitemapLocations.length}`)
+const expectedSitemapCount = entities.length * 2 + 24
+assert(sitemapLocations.length === expectedSitemapCount, `bilingual sitemap URL count mismatch: ${sitemapLocations.length} != ${expectedSitemapCount}`)
 assert(sitemapLocations.includes(`${origin}/explore/`), 'sitemap is missing /explore/')
 assert(sitemapLocations.includes(`${origin}/compare/`), 'sitemap is missing /compare/')
 assert(!sitemapLocations.some((url) => url.includes('?')), 'sitemap contains query variants')
-assert(sitemapLocations.includes(`${origin}/quality/`), 'sitemap is missing /quality/')
-assert(sitemapLocations.includes(`${origin}/updates/`), 'sitemap is missing /updates/')
-assert(sitemapLocations.includes(`${origin}/incidents/`), 'sitemap is missing /incidents/')
-assert(sitemapLocations.includes(`${origin}/monthly/`), 'sitemap is missing /monthly/')
-for (const entity of entities) assert(sitemapLocations.includes(`${origin}/exchange/${entity.slug}/`), `sitemap missing ${entity.slug}`)
+for (const route of ['/ja/','/ja/dead/','/ja/active/','/ja/explore/','/ja/stats/','/ja/quality/','/ja/updates/','/ja/incidents/','/ja/monthly/','/ja/methodology/','/ja/about/']) {
+  assert(sitemapLocations.includes(`${origin}${route}`), `sitemap is missing ${route}`)
+}
+for (const entity of entities) {
+  assert(sitemapLocations.includes(`${origin}/exchange/${entity.slug}/`), `sitemap missing English dossier ${entity.slug}`)
+  assert(sitemapLocations.includes(`${origin}/ja/exchange/${entity.slug}/`), `sitemap missing Japanese dossier ${entity.slug}`)
+}
 assert(!sitemap.includes('/all/'), 'sitemap includes obsolete /all/ route')
 assert(!sitemap.includes('/registry/'), 'sitemap includes obsolete /registry/ route')
 assert(!sitemap.includes('/exchanges/'), 'sitemap includes obsolete /exchanges/ route')
@@ -232,7 +235,6 @@ const robots = readOut('robots.txt')
 assert(robots.includes(`${origin}/sitemap.xml`), 'robots.txt sitemap is incorrect')
 const redirects = readOut('_redirects')
 for (const obsolete of ['/index.html','/all','/registry','/exchanges']) assert(redirects.includes(`${obsolete} / 301`), `_redirects is missing ${obsolete}`)
-
 for (const obsoleteDir of ['all','registry','exchanges']) assert(!fs.existsSync(path.join(outDir, obsoleteDir, 'index.html')), `obsolete route output still exists: /${obsoleteDir}/`)
 
-console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence, Explorer and Compare routes and crawl contracts checked.`)
+console.log(`Validated L1 bilingual public output: ${expected.total} entities, ${expected.events} events, ${expected.evidence} evidence, ${expectedSitemapCount} sitemap routes, bilingual dossier coverage, and dictionary-backed headings.`)
