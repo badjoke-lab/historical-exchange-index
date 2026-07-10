@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type { ReactNode } from 'react'
+import { Suspense, type ReactNode } from 'react'
 import type { SupportedLocale } from '../../i18n/config'
 import { getDictionary, translate } from '../../lib/i18n/get-dictionary'
 import { buildLocalePath } from '../../lib/i18n/locale-routes'
@@ -60,11 +60,13 @@ export default function SiteChrome({ locale, children }: SiteChromeProps) {
             {t('nav.about')}
           </Link>
           <Link className="utility" href={DONATE_HREF}>{t('nav.donate')}</Link>
-          <LocaleSwitcher
-            ariaLabel={t('language.switcherLabel')}
-            englishLabel={t('language.english')}
-            japaneseLabel={t('language.japanese')}
-          />
+          <Suspense fallback={null}>
+            <LocaleSwitcher
+              ariaLabel={t('language.switcherLabel')}
+              englishLabel={t('language.english')}
+              japaneseLabel={t('language.japanese')}
+            />
+          </Suspense>
         </nav>
       </header>
 
