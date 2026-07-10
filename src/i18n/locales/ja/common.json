@@ -3,6 +3,7 @@
   "nav.dead": "終了済み",
   "nav.active": "稼働中",
   "nav.explorer": "エクスプローラー",
+  "nav.compare": "比較（英語）",
   "nav.stats": "統計",
   "nav.quality": "品質",
   "nav.updates": "更新履歴",
@@ -21,5 +22,19 @@
   "label.matchingEvents": "該当するイベント",
   "label.sort": "並び順",
   "label.archiveAvailable": "アーカイブあり",
-  "label.noArchive": "アーカイブなし"
+  "label.noArchive": "アーカイブなし",
+  "brand.title": "Historical Exchange Index",
+  "brand.tagline": "稼働中と終了済みの暗号資産取引所を静かに記録する台帳。",
+  "footer.registryTagline": "Historical Exchange Index — 静かな台帳 / アーカイブ優先 / 歴史優先",
+  "footer.contactCorrections": "連絡・訂正",
+  "footer.githubIssues": "GitHub Issues",
+  "footer.supportHei": "HEIを支援",
+  "language.switcherLabel": "言語",
+  "language.english": "English",
+  "language.japanese": "日本語",
+  "research.exchangeActions": "取引所レコードの調査操作",
+  "research.prompt": "このレコードをHEI内で調査します。",
+  "research.compareExchange": "この取引所を比較",
+  "research.compareExchangeEnglish": "この取引所を比較（英語）",
+  "research.openInExplorer": "エクスプローラーで開く"
 }

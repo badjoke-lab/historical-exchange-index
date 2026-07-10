@@ -3,6 +3,7 @@
   "nav.dead": "Dead",
   "nav.active": "Active",
   "nav.explorer": "Explorer",
+  "nav.compare": "Compare",
   "nav.stats": "Stats",
   "nav.quality": "Quality",
   "nav.updates": "Updates",
@@ -21,5 +22,19 @@
   "label.matchingEvents": "Matching events",
   "label.sort": "Sort",
   "label.archiveAvailable": "Archive available",
-  "label.noArchive": "No archive"
+  "label.noArchive": "No archive",
+  "brand.title": "Historical Exchange Index",
+  "brand.tagline": "A quiet registry of crypto exchanges, active and gone.",
+  "footer.registryTagline": "Historical Exchange Index — quiet registry / archive-first / history-first",
+  "footer.contactCorrections": "Contact / Corrections",
+  "footer.githubIssues": "GitHub Issues",
+  "footer.supportHei": "Support HEI",
+  "language.switcherLabel": "Language",
+  "language.english": "English",
+  "language.japanese": "日本語",
+  "research.exchangeActions": "Exchange research actions",
+  "research.prompt": "Research this record across HEI.",
+  "research.compareExchange": "Compare this exchange",
+  "research.compareExchangeEnglish": "Compare this exchange (English)",
+  "research.openInExplorer": "Open in Explorer"
 }

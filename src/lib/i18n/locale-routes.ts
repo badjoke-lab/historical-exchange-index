@@ -5,11 +5,32 @@ import {
   type SupportedLocale,
 } from '../../i18n/config'
 
+const JAPANESE_PILOT_STATIC_PATHS = new Set([
+  '/',
+  '/dead/',
+  '/active/',
+  '/about/',
+  '/methodology/',
+  '/stats/',
+  '/quality/',
+  '/explore/',
+  '/updates/',
+  '/incidents/',
+  '/monthly/',
+])
+
+const EXCHANGE_DOSSIER_PATH = /^\/exchange\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/
+
 function normalizePathname(pathname: string): string {
   const withoutQuery = pathname.split('?')[0] || '/'
   const leading = withoutQuery.startsWith('/') ? withoutQuery : `/${withoutQuery}`
   if (leading === '/') return '/'
   return leading.endsWith('/') ? leading : `${leading}/`
+}
+
+export function isJapanesePilotPath(pathname: string): boolean {
+  const normalized = normalizePathname(pathname)
+  return JAPANESE_PILOT_STATIC_PATHS.has(normalized) || EXCHANGE_DOSSIER_PATH.test(normalized)
 }
 
 export function buildLocalePath(pathname: string, locale: SupportedLocale): string {
