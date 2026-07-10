@@ -4,36 +4,27 @@ import type { Metadata } from 'next'
 import EntityExplorerClient from '../../components/explorer/entity-explorer-client'
 import { loadEntities } from '../../lib/data/load-entities'
 import { loadEvents } from '../../lib/data/load-events'
+import {
+  buildLocalizedPageMetadata,
+  getPagePresentation,
+} from '../../lib/i18n/page-presentations'
 import { SITE_NAME, SITE_URL } from '../../lib/site-constants'
 
 export function generateMetadata(): Metadata {
   const entities = loadEntities()
-  const description = `Filter and research ${entities.length} reviewed crypto exchange entities and their reviewed lifecycle events through deterministic, shareable query state.`
-
-  return {
-    title: 'Explorer',
-    description,
-    alternates: { canonical: '/explore' },
-    openGraph: {
-      type: 'website',
-      url: `${SITE_URL}/explore/`,
-      title: `Explorer | ${SITE_NAME}`,
-      description,
-      siteName: SITE_NAME,
-      images: ['/opengraph-image'],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `Explorer | ${SITE_NAME}`,
-      description,
-      images: ['/twitter-image'],
-    },
-  }
+  const presentation = getPagePresentation('en', 'explore')
+  return buildLocalizedPageMetadata({
+    locale: 'en',
+    page: 'explore',
+    pathname: '/explore/',
+    descriptionOverride: `${presentation.description} Current reviewed entity count: ${entities.length}.`,
+  })
 }
 
 export default function ExplorePage() {
   const entities = loadEntities()
   const events = loadEvents()
+  const presentation = getPagePresentation('en', 'explore')
   const reviewedOrigins = [...new Set(
     entities
       .map((entity) => entity.country_or_origin)
@@ -45,8 +36,8 @@ export default function ExplorePage() {
     '@type': 'CollectionPage',
     '@id': `${SITE_URL}/explore/`,
     url: `${SITE_URL}/explore/`,
-    name: 'HEI Explorer',
-    description: `Research interface for reviewed Historical Exchange Index entity and event records.`,
+    name: presentation.heading,
+    description: presentation.description,
     numberOfItems: entities.length + events.length,
     isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
   }
@@ -58,10 +49,10 @@ export default function ExplorePage() {
       <section className="panel longform-panel">
         <div className="detail-header">
           <div>
-            <p className="muted" style={{ margin: '0 0 8px', fontSize: '12px' }}>Research layer</p>
-            <h2 style={{ margin: '0 0 10px', fontSize: '34px', letterSpacing: '-0.04em' }}>Explorer</h2>
+            <p className="muted" style={{ margin: '0 0 8px', fontSize: '12px' }}>{presentation.eyebrow}</p>
+            <h2 style={{ margin: '0 0 10px', fontSize: '34px', letterSpacing: '-0.04em' }}>{presentation.heading}</h2>
             <p className="muted" style={{ lineHeight: 1.7, margin: 0, maxWidth: '72ch' }}>
-              Build deterministic, shareable queries over reviewed HEI entity and event records.
+              {presentation.intro}
             </p>
           </div>
         </div>
