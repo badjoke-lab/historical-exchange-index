@@ -1,17 +1,13 @@
 import './globals.css'
 import './accessibility.css'
 import './home-recent-mobile-fix.css'
-import Link from 'next/link'
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import GoogleAnalytics from '../components/analytics/google-analytics'
-import ExchangeCompareContextLink from '../components/navigation/exchange-compare-context-link'
+import SiteChrome from '../components/layout/site-chrome'
 import {
-  CONTACT_HREF,
-  DONATE_HREF,
   GA_MEASUREMENT_ID,
   GSC_VERIFICATION_TOKEN,
-  ISSUES_HREF,
   SITE_DESCRIPTION,
   SITE_NAME,
   SITE_SHORT_NAME,
@@ -165,65 +161,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 }
         `}</style>
 
-        <div className="page">
-          <header className="topbar">
-            <div className="brand">
-              <div className="brand-mark">HEI</div>
-              <div className="brand-copy">
-                <h1>Historical Exchange Index</h1>
-                <p>A quiet registry of crypto exchanges, active and gone.</p>
-              </div>
-            </div>
-
-            <nav className="nav" aria-label="Primary navigation">
-              <Link className="nav-link" href="/">Home</Link>
-              <Link className="nav-link" href="/dead">Dead</Link>
-              <Link className="nav-link" href="/active">Active</Link>
-              <Link className="nav-link" href="/explore">Explorer</Link>
-              <Link className="nav-link" href="/compare">Compare</Link>
-              <Link className="nav-link" href="/stats">Stats</Link>
-              <Link className="nav-link" href="/updates">Updates</Link>
-              <Link className="nav-link" href="/incidents">Incidents</Link>
-              <Link className="nav-link nav-secondary" href="/methodology">Methodology</Link>
-              <Link className="nav-link nav-secondary" href="/about">About</Link>
-              <Link className="utility" href={DONATE_HREF}>Donate</Link>
-            </nav>
-          </header>
-
-          <ExchangeCompareContextLink />
-          {children}
-
-          <footer className="footer">
-            <div className="footer-copy">Historical Exchange Index — quiet registry / archive-first / history-first</div>
-            <div className="footer-links">
-              <a className="archive-link" href={CONTACT_HREF} target="_blank" rel="noreferrer">
-                Contact / Corrections
-              </a>
-              <span className="muted footer-sep"> · </span>
-              <a className="archive-link" href={ISSUES_HREF} target="_blank" rel="noreferrer">
-                GitHub Issues
-              </a>
-              <span className="muted footer-sep"> · </span>
-              <Link className="archive-link" href="/explore">Explorer</Link>
-              <span className="muted footer-sep"> · </span>
-              <Link className="archive-link" href="/compare">Compare</Link>
-              <span className="muted footer-sep"> · </span>
-              <Link className="archive-link" href="/updates">Updates</Link>
-              <span className="muted footer-sep"> · </span>
-              <Link className="archive-link" href="/incidents">Incidents</Link>
-              <span className="muted footer-sep"> · </span>
-              <Link className="archive-link" href="/monthly">Monthly</Link>
-              <span className="muted footer-sep"> · </span>
-              <Link className="archive-link" href="/quality">Quality</Link>
-              <span className="muted footer-sep"> · </span>
-              <Link className="archive-link" href="/stats">Stats</Link>
-              <span className="muted footer-sep"> · </span>
-              <Link className="archive-link" href={DONATE_HREF}>Support HEI</Link>
-              <span className="muted footer-sep"> · </span>
-              <Link href="/about">About</Link>
-            </div>
-          </footer>
-        </div>
+        <SiteChrome locale="en">{children}</SiteChrome>
       </body>
     </html>
   )
