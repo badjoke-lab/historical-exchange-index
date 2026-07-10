@@ -61,6 +61,10 @@ function validateCopyFields(copy, allowed) {
   }
 }
 
+assert(config.public_locales.includes('en'), 'English must remain public')
+assert(config.public_locales.includes('ja'), 'Japanese Pilot must be public in L1')
+assert(config.pilot_locales.includes('ja'), 'Japanese must remain marked as a pilot locale')
+
 const japanese = dictionaryFor('ja')
 assert(japanese.locale === 'ja', 'Japanese dictionary must resolve to ja')
 assert(japanese.fallbackUsed === false, 'Japanese dictionary must not use fallback')
@@ -139,9 +143,9 @@ const entityMergeSource = fs.readFileSync(path.join(root, 'src/lib/i18n/merge-en
 const eventMergeSource = fs.readFileSync(path.join(root, 'src/lib/i18n/merge-event-copy.ts'), 'utf8')
 
 assert(routeSource.includes('buildPublicLocalePath'), 'public-route guard helper missing')
-assert(routeSource.includes('Locale is not publicly routed yet'), 'pilot locale public-route guard missing')
+assert(routeSource.includes('Locale is not publicly routed yet'), 'public-route guard failure contract missing')
 assert(dictionarySource.includes('fallbackUsed'), 'dictionary fallback state missing')
 assert(entityMergeSource.includes('summary: localized.summary ?? entity.summary'), 'entity fallback implementation mismatch')
 assert(eventMergeSource.includes('title: localized.title ?? event.title'), 'event fallback implementation mismatch')
 
-console.log('i18n foundation behavior tests passed: dictionary fallback, safe copy merge, route identity, and invalid overlay rejection verified.')
+console.log('L1 i18n behavior tests passed: public Japanese route state, dictionary fallback, safe copy merge, route identity, and invalid overlay rejection verified.')
