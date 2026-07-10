@@ -53,7 +53,7 @@ assert(dossier.includes('entity.archived_url'), 'Japanese dossier route lacks ar
 assert(sitemap.includes('japaneseStaticPaths'), 'Japanese static sitemap routes missing')
 assert(sitemap.includes('japaneseEntityRoutes'), 'Japanese dossier sitemap routes missing')
 assert(packageJson.scripts.build.includes('localize-static-html.mjs'), 'build does not run Japanese HTML language postprocessor')
-assert(staticHtml.includes('out', 'ja'), 'static HTML postprocessor does not target Japanese output')
+assert(staticHtml.includes("path.join(root, 'out', 'ja')"), 'static HTML postprocessor does not target out/ja')
 assert(staticHtml.includes('lang="ja"'), 'static HTML postprocessor lacks Japanese language output contract')
 
 console.log(`Japanese route shell source tests passed: ${staticRoutes.length} static routes, dynamic dossier family, public locale activation, sitemap, chrome, and static HTML contract verified.`)
