@@ -1,31 +1,22 @@
 import type { Metadata } from 'next'
 import HomeHubClient from '../components/home/home-hub-client'
 import { buildRegistryView } from '../lib/data/build-registry-view'
+import {
+  buildLocalizedPageMetadata,
+  getPagePresentation,
+} from '../lib/i18n/page-presentations'
 import { SITE_NAME, SITE_URL } from '../lib/site-constants'
 
 export function generateMetadata(): Metadata {
   const { summary } = buildRegistryView()
-  const description = `Historical registry of ${summary.total} crypto exchanges: ${summary.deadSide} dead-side and ${summary.activeSide} active-side records, with timeline events and evidence.`
-
-  return {
-    title: SITE_NAME,
-    description,
-    alternates: { canonical: '/' },
-    openGraph: {
-      type: 'website',
-      url: SITE_URL,
-      title: SITE_NAME,
-      description,
-      siteName: SITE_NAME,
-      images: ['/opengraph-image'],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: SITE_NAME,
-      description,
-      images: ['/twitter-image'],
-    },
-  }
+  const presentation = getPagePresentation('en', 'home')
+  return buildLocalizedPageMetadata({
+    locale: 'en',
+    page: 'home',
+    pathname: '/',
+    titleOverride: SITE_NAME,
+    descriptionOverride: `${presentation.description} Current reviewed registry: ${summary.total} entities, ${summary.deadSide} dead-side and ${summary.activeSide} active-side.`,
+  })
 }
 
 export default function HomePage() {
