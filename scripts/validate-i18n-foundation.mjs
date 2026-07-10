@@ -98,15 +98,17 @@ assert(localeConfig.version === 1, 'locale config version must be 1')
 assert(localeConfig.default_locale === 'en', 'default locale must be en')
 assert(localeConfig.fallback_locale === 'en', 'fallback locale must be en')
 sameStringSet(localeConfig.supported_locales, ['en', 'ja'], 'supported locales')
-sameStringSet(localeConfig.public_locales, ['en'], 'public locales in F-1')
-sameStringSet(localeConfig.pilot_locales, ['ja'], 'pilot locales in F-1')
+sameStringSet(localeConfig.public_locales, ['en', 'ja'], 'public locales in L1')
+sameStringSet(localeConfig.pilot_locales, ['ja'], 'pilot locales in L1')
+assert(localeConfig.public_locales.includes(localeConfig.default_locale), 'default locale must remain public')
+assert(localeConfig.public_locales.includes('ja'), 'Japanese Pilot must be public in L1')
 
 for (const locale of localeConfig.public_locales) {
   assert(localeConfig.supported_locales.includes(locale), `public locale is not supported: ${locale}`)
 }
 for (const locale of localeConfig.pilot_locales) {
   assert(localeConfig.supported_locales.includes(locale), `pilot locale is not supported: ${locale}`)
-  assert(!localeConfig.public_locales.includes(locale), `pilot locale must not be public during F-1: ${locale}`)
+  assert(localeConfig.public_locales.includes(locale), `L1 pilot locale must be public: ${locale}`)
 }
 
 assert(overlaySchema.version === 1, 'overlay schema version must be 1')
@@ -157,4 +159,4 @@ for (const forbidden of overlaySchema.event_overlay.forbidden_fields) {
   assert(!eventMergeSource.includes(`localized.${forbidden}`), `event merge utility may override forbidden field: ${forbidden}`)
 }
 
-console.log(`Validated i18n foundation: ${localeConfig.supported_locales.length} supported locales, ${localeConfig.public_locales.length} public locale, ${localeConfig.pilot_locales.length} pilot locale, ${expectedEnums.length} enum labels, safe empty overlay seeds.`)
+console.log(`Validated L1 i18n foundation: ${localeConfig.supported_locales.length} supported locales, ${localeConfig.public_locales.length} public locales, ${localeConfig.pilot_locales.length} public pilot locale, ${expectedEnums.length} enum labels, safe overlay boundaries.`)
