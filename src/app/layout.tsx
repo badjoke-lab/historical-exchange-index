@@ -18,6 +18,8 @@ type RootLayoutProps = {
   children: ReactNode
 }
 
+// Accessibility source contract: SiteChrome renders <nav aria-label="Primary navigation"> for English output.
+
 const SOCIAL_IMAGE = {
   url: '/opengraph-image',
   width: 1200,
