@@ -32,6 +32,9 @@ jobs:
       - name: Test localized site chrome
         run: node scripts/test-localized-site-chrome.mjs
 
+      - name: Test page presentation foundation
+        run: node scripts/test-page-presentation-foundation.mjs
+
       - name: Build machine-readable layer
         run: npm run machine:build
 
