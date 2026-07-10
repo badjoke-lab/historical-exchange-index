@@ -3,7 +3,11 @@
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { publicLocales, type SupportedLocale } from '../../i18n/config'
-import { buildLocalePath, stripLocalePrefix } from '../../lib/i18n/locale-routes'
+import {
+  buildLocalePath,
+  isJapanesePilotPath,
+  stripLocalePrefix,
+} from '../../lib/i18n/locale-routes'
 
 type LocaleSwitcherProps = {
   ariaLabel: string
@@ -18,11 +22,13 @@ export default function LocaleSwitcher({
 }: LocaleSwitcherProps) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const locales = publicLocales as SupportedLocale[]
+  const current = stripLocalePrefix(pathname)
+  const locales = (publicLocales as SupportedLocale[]).filter((locale) => {
+    return locale !== 'ja' || isJapanesePilotPath(current.pathname)
+  })
 
   if (locales.length < 2) return null
 
-  const current = stripLocalePrefix(pathname)
   const query = searchParams.toString()
 
   function labelFor(locale: SupportedLocale) {
