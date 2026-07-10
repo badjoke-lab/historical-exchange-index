@@ -44,13 +44,6 @@ function assertDiscovery(html, route) {
   assert(html.includes('/data/manifest.json'), `${route} is missing JSON discovery link`)
   assert(html.includes('/llms.txt'), `${route} is missing text discovery link`)
 }
-function walk(dir) {
-  if (!fs.existsSync(dir)) return []
-  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-    const fullPath = path.join(dir, entry.name)
-    return entry.isDirectory() ? walk(fullPath) : [fullPath]
-  })
-}
 
 const canonicalEntities = readJson('data/entities.json')
 const canonicalEvents = readJson('data/events.json')
@@ -107,6 +100,8 @@ const incidents = readOut(path.join('incidents', 'index.html'))
 const monthly = readOut(path.join('monthly', 'index.html'))
 const firstEntity = entities[0]
 const detail = readOut(path.join('exchange', firstEntity.slug, 'index.html'))
+const jaHome = readOut(path.join('ja', 'index.html'))
+const jaDetail = readOut(path.join('ja', 'exchange', firstEntity.slug, 'index.html'))
 
 assertTextCount(home, 'Total records', expected.total, '/')
 assertTextCount(home, 'Dead-side', expected.deadSide, '/')
@@ -137,6 +132,8 @@ assertTextCount(monthly, 'Recorded events', expected.monthlyEvents, '/monthly/')
 assertTextCount(monthly, 'Affected exchanges', expected.monthlyAffectedExchanges, '/monthly/')
 assertTextCount(monthly, 'Critical / high', expected.monthlyCriticalOrHigh, '/monthly/')
 assertTextCount(monthly, 'Event-linked evidence', expected.monthlyEventLinkedEvidence, '/monthly/')
+assert(stripHtml(jaHome).includes('日本語パイロット'), '/ja/ does not expose Japanese Pilot context')
+assert(stripHtml(jaDetail).includes(firstEntity.canonical_name), '/ja/exchange/[slug]/ does not expose canonical entity identity')
 
 for (const [route, html, canonical] of [
   ['/', home, `${origin}/`],
@@ -150,6 +147,8 @@ for (const [route, html, canonical] of [
   ['/incidents/', incidents, `${origin}/incidents/`],
   ['/monthly/', monthly, `${origin}/monthly/`],
   [`/exchange/${firstEntity.slug}/`, detail, `${origin}/exchange/${firstEntity.slug}/`],
+  ['/ja/', jaHome, `${origin}/ja/`],
+  [`/ja/exchange/${firstEntity.slug}/`, jaDetail, `${origin}/ja/exchange/${firstEntity.slug}/`],
 ]) {
   assertCanonical(html, canonical, route)
   assertDiscovery(html, route)
@@ -216,15 +215,18 @@ for (const [label, count] of [['Total records', expected.total],['Dead-side', ex
 
 const sitemap = readOut('sitemap.xml')
 const sitemapLocations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1])
-assert(sitemapLocations.length === entities.length + 13, `sitemap URL count mismatch: ${sitemapLocations.length}`)
+const expectedSitemapCount = entities.length * 2 + 24
+assert(sitemapLocations.length === expectedSitemapCount, `bilingual sitemap URL count mismatch: ${sitemapLocations.length} != ${expectedSitemapCount}`)
 assert(sitemapLocations.includes(`${origin}/explore/`), 'sitemap is missing /explore/')
 assert(sitemapLocations.includes(`${origin}/compare/`), 'sitemap is missing /compare/')
 assert(!sitemapLocations.some((url) => url.includes('?')), 'sitemap contains query variants')
-assert(sitemapLocations.includes(`${origin}/quality/`), 'sitemap is missing /quality/')
-assert(sitemapLocations.includes(`${origin}/updates/`), 'sitemap is missing /updates/')
-assert(sitemapLocations.includes(`${origin}/incidents/`), 'sitemap is missing /incidents/')
-assert(sitemapLocations.includes(`${origin}/monthly/`), 'sitemap is missing /monthly/')
-for (const entity of entities) assert(sitemapLocations.includes(`${origin}/exchange/${entity.slug}/`), `sitemap missing ${entity.slug}`)
+for (const route of ['/ja/','/ja/dead/','/ja/active/','/ja/explore/','/ja/stats/','/ja/quality/','/ja/updates/','/ja/incidents/','/ja/monthly/','/ja/methodology/','/ja/about/']) {
+  assert(sitemapLocations.includes(`${origin}${route}`), `sitemap is missing ${route}`)
+}
+for (const entity of entities) {
+  assert(sitemapLocations.includes(`${origin}/exchange/${entity.slug}/`), `sitemap missing English dossier ${entity.slug}`)
+  assert(sitemapLocations.includes(`${origin}/ja/exchange/${entity.slug}/`), `sitemap missing Japanese dossier ${entity.slug}`)
+}
 assert(!sitemap.includes('/all/'), 'sitemap includes obsolete /all/ route')
 assert(!sitemap.includes('/registry/'), 'sitemap includes obsolete /registry/ route')
 assert(!sitemap.includes('/exchanges/'), 'sitemap includes obsolete /exchanges/ route')
@@ -233,7 +235,6 @@ const robots = readOut('robots.txt')
 assert(robots.includes(`${origin}/sitemap.xml`), 'robots.txt sitemap is incorrect')
 const redirects = readOut('_redirects')
 for (const obsolete of ['/index.html','/all','/registry','/exchanges']) assert(redirects.includes(`${obsolete} / 301`), `_redirects is missing ${obsolete}`)
-
 for (const obsoleteDir of ['all','registry','exchanges']) assert(!fs.existsSync(path.join(outDir, obsoleteDir, 'index.html')), `obsolete route output still exists: /${obsoleteDir}/`)
 
-console.log(`Validated public output consistency: ${expected.total} entities, ${expected.deadSide} dead-side, ${expected.activeSide} active-side, ${expected.events} events, ${expected.evidence} evidence, presentation-backed headings, Explorer and Compare routes, and crawl contracts checked.`)
+console.log(`Validated L1 bilingual public output: ${expected.total} entities, ${expected.events} events, ${expected.evidence} evidence, ${expectedSitemapCount} sitemap routes, bilingual dossier coverage, and dictionary-backed headings.`)
