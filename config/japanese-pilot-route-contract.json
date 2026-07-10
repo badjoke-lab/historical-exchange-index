@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "locale": "ja",
+  "path_prefix": "/ja/",
+  "minimum_reviewed_entities": 750,
+  "completion_audit_path": "docs/audits/HEI_D750_MILESTONE_COMPLETION_2026-07-10.md",
+  "required_static_routes": [
+    "/ja/",
+    "/ja/dead/",
+    "/ja/active/",
+    "/ja/about/",
+    "/ja/methodology/",
+    "/ja/stats/",
+    "/ja/quality/",
+    "/ja/explore/",
+    "/ja/updates/",
+    "/ja/incidents/",
+    "/ja/monthly/"
+  ],
+  "required_dynamic_route": "/ja/exchange/[slug]/",
+  "representative_exchange_slug": "mt-gox",
+  "required_metadata": {
+    "html_lang": "ja",
+    "canonical_prefix": "https://hei.badjoke-lab.com/ja/",
+    "alternate_locales": ["en", "ja"],
+    "og_locale": "ja_JP"
+  },
+  "sitemap": {
+    "include_static_routes": true,
+    "include_all_reviewed_exchange_routes": true,
+    "exclude_query_variants": true
+  },
+  "fallback": {
+    "default_locale": "en",
+    "record_copy_fallback": "en",
+    "canonical_facts_single_source": true
+  }
+}
