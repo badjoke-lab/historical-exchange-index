@@ -38,6 +38,9 @@ jobs:
       - name: Test page presentation connections
         run: node scripts/test-page-presentation-connections.mjs
 
+      - name: Test secondary page presentation connections
+        run: node scripts/test-secondary-page-presentation-connections.mjs
+
       - name: Build machine-readable layer
         run: npm run machine:build
 
