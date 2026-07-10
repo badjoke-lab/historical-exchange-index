@@ -1,14 +1,20 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { buildQualitySummary } from '../../lib/data/build-quality-summary'
+import {
+  buildLocalizedPageMetadata,
+  getPagePresentation,
+} from '../../lib/i18n/page-presentations'
 import type { StatsBreakdownItem, StatsMetricItem } from '../../lib/types/stats'
 import { CONTACT_HREF } from '../../lib/site-constants'
 import styles from './quality.module.css'
 
-export const metadata: Metadata = {
-  title: 'Evidence Health & Data Quality',
-  description: 'Public evidence-health, coverage, confidence, completeness, and review-freshness metrics for the Historical Exchange Index.',
-  alternates: { canonical: '/quality' },
+export function generateMetadata(): Metadata {
+  return buildLocalizedPageMetadata({
+    locale: 'en',
+    page: 'quality',
+    pathname: '/quality/',
+  })
 }
 
 function Breakdown({ items }: { items: StatsBreakdownItem[] }) {
@@ -52,17 +58,16 @@ function MetricTable({ items }: { items: StatsMetricItem[] }) {
 
 export default function EvidenceHealthDataQualityPage() {
   const summary = buildQualitySummary()
+  const presentation = getPagePresentation('en', 'quality')
 
   return (
     <main className={styles.page}>
       <section className="panel longform-panel">
         <div className={styles.headerRow}>
           <div>
-            <p className="muted">Reviewed public metrics</p>
-            <h2 className={styles.pageTitle}>Evidence Health &amp; Data Quality</h2>
-            <p className={styles.lead}>
-              A public summary of evidence depth, reliability, archive coverage, field coverage, confidence, and review freshness across the reviewed HEI registry. This page reports observable coverage; it does not certify that the registry is complete.
-            </p>
+            <p className="muted">{presentation.eyebrow}</p>
+            <h2 className={styles.pageTitle}>{presentation.heading}</h2>
+            <p className={styles.lead}>{presentation.intro}</p>
           </div>
           <div className={styles.headerActions}>
             <Link className="btn" href="/stats">Full Stats</Link>
