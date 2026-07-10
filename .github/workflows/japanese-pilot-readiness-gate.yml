@@ -29,6 +29,9 @@ jobs:
       - name: Test Japanese Pilot readiness validator
         run: node scripts/validate-japanese-pilot-readiness.mjs --self-test
 
+      - name: Test localized site chrome
+        run: node scripts/test-localized-site-chrome.mjs
+
       - name: Build machine-readable layer
         run: npm run machine:build
 
