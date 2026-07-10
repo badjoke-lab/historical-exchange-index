@@ -1,4 +1,4 @@
-# D-750 Batch AS1 — Futarchy AMM, FWX DEX, FXDX, GalaSwap, and Gaming DEX
+# D-750 Batch AS1 — Futarchy AMM, FWX DEX, FXDX, Gin Finance, and Gaming DEX
 
 Reviewed at: 2026-07-10
 
@@ -7,8 +7,7 @@ Reviewed at: 2026-07-10
 - `0816` Futarchy AMM -> `hei_ex_000777`, active DEX
 - `0819` FWX DEX -> `hei_ex_000778`, active DEX
 - `0820` FXDX -> `hei_ex_000779`, limited DEX
-- `0825` Gala Swap -> `hei_ex_000780`, active DEX
-- `0826` Gala Swap duplicate row -> consolidated under `hei_ex_000780`
+- `0847` Gin Finance -> `hei_ex_000780`, active DEX
 - `0827` Gaming DEX -> `hei_ex_000781`, active DEX
 - `0828` Gaming DEX (Oasys) -> consolidated under `hei_ex_000781`
 
@@ -17,7 +16,7 @@ Reviewed at: 2026-07-10
 - Futarchy AMM remains one Solana AMM exchange entity within the broader MetaDAO ecosystem.
 - FWX spot AMM, leveraged exchange, lending-market creation, and futures surfaces remain one FWX DEX entity.
 - FXDX protocol identity remains one exchange entity across Base and OP Mainnet.
-- Gala Swap and GalaSwap naming remain one GalaChain DEX entity.
+- Gin Finance remains one Boba Network AMM exchange entity.
 - Gaming DEX chain-specific discovery rows remain one weighted-pool AMM exchange entity.
 
 ## Evidence decisions
@@ -34,9 +33,9 @@ The current first-party FWX application endpoint remains reachable as a JavaScri
 
 The current first-party FXDX website is reachable but presents `V2` and a `Join waitlist` action rather than a live public trading interface. DefiLlama continues to report protocol TVL across Base and OP Mainnet and cumulative DEX volume. HEI therefore classifies FXDX as `limited` instead of `active` pending evidence of reopened public trading. Confidence is `medium`.
 
-### GalaSwap
+### Gin Finance
 
-The current first-party GalaSwap application identifies itself as the native GalaChain DEX and documents self-custodial token swaps, concentrated-liquidity pools, LP fee earning, market tracking, portfolio history, and wallet-signed on-chain settlement. DefiLlama independently reports current GalaChain TVL, fees, and DEX volume. Confidence is `high`.
+The current first-party Gin Finance application endpoint remains reachable as a JavaScript application. DefiLlama independently identifies Gin Finance as an open-source Boba Network AMM DEX for ERC-20 trading and liquidity and reports current TVL plus recent and cumulative DEX volume. Confidence is `medium` because detailed first-party documentation is limited in this review pass.
 
 ### Gaming DEX
 
@@ -44,7 +43,7 @@ The current first-party Gaming DEX application endpoint remains reachable as a J
 
 ## Current-main overlap findings
 
-Direct current-main checks prevented stale scan assumptions from creating duplicate drafts:
+Direct current-main checks and permanent overlap validation prevented stale scan assumptions from creating duplicate drafts:
 
 - Fraxswap -> existing `hei_ex_000703`
 - FreiExchange -> existing `hei_ex_000702`
@@ -52,8 +51,9 @@ Direct current-main checks prevented stale scan assumptions from creating duplic
 - Full Sail -> existing `hei_ex_000708`
 - FusionX -> existing `hei_ex_000705`
 - Giottus -> existing `hei_ex_000713`
+- GalaSwap -> existing `hei_ex_000709`
 
-AS1 was assembled only from candidates confirmed absent from current main and suitable for reviewed growth.
+The initial GalaSwap draft was blocked by permanent overlap validation because current main already contains the GalaSwap identity and swap.gala.com domain. The duplicate draft was removed and replaced by Gin Finance while preserving the five-entity batch size.
 
 ## Batch output
 
