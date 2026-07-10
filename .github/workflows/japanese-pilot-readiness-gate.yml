@@ -35,6 +35,9 @@ jobs:
       - name: Test page presentation foundation
         run: node scripts/test-page-presentation-foundation.mjs
 
+      - name: Test page presentation connections
+        run: node scripts/test-page-presentation-connections.mjs
+
       - name: Build machine-readable layer
         run: npm run machine:build
 
