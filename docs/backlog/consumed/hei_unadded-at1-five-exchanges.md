@@ -1,4 +1,4 @@
-# D-750 Batch AT1 — FlowSwap, Fluid DEX, Firefly, Flashnet, and Fluxion Network
+# D-750 Batch AT1 — FlowSwap, ForkDelta, Firefly, Flashnet, and Fluxion Network
 
 Reviewed at: 2026-07-10
 
@@ -8,12 +8,7 @@ Reviewed at: 2026-07-10
 - `0773` FlowSwap duplicate row -> consolidated under `hei_ex_000782`
 - `0774` FlowSwap V2 -> consolidated under `hei_ex_000782`
 - `0775` FlowSwap V3 -> consolidated under `hei_ex_000782`
-- `0779` Fluid (Arbitrum) -> `hei_ex_000783`, active DEX represented as Fluid DEX
-- `0780` Fluid (Ethereum) -> consolidated under `hei_ex_000783`
-- `0781` Fluid alternate row -> consolidated under `hei_ex_000783`
-- `0782` Fluid (Plasma) -> consolidated under `hei_ex_000783`
-- `0783` Fluid DEX -> consolidated under `hei_ex_000783`
-- `0784` Fluid DEX Lite -> consolidated under `hei_ex_000783`
+- `0797` ForkDelta -> `hei_ex_000783`, dead DEX with voluntary shutdown
 - `0758` firefly -> `hei_ex_000784`, active DEX represented as Firefly
 - `0759` Firefly duplicate row -> consolidated under `hei_ex_000784`
 - `0768` Flashnet -> `hei_ex_000785`, active DEX
@@ -23,7 +18,7 @@ Reviewed at: 2026-07-10
 ## Entity-first consolidation
 
 - FlowSwap V2 and V3 deployments remain one FlowSwap entity on Flow.
-- Fluid chain-specific, DEX, and DEX Lite source rows remain one Fluid DEX entity across supported EVM deployments.
+- ForkDelta remains one historical Ethereum DEX entity with shutdown and withdrawal surfaces modeled under the same entity.
 - Firefly duplicate exchange source rows remain one Manta DEX entity.
 - Flashnet Markets, Bitcoin liquidity routing, and Spark DEX activity remain one Flashnet exchange entity.
 - Fluxion and Fluxion Network source rows remain one Mantle-native hybrid DEX entity.
@@ -34,9 +29,9 @@ Reviewed at: 2026-07-10
 
 The current first-party FlowSwap application remains reachable as a JavaScript exchange interface. DefiLlama independently classifies FlowSwap as a Flow DEX and reports current TVL, fees, recent DEX volume, and cumulative DEX volume while presenting V2 and V3 implementations under the combined protocol identity. Confidence is `medium` because detailed first-party protocol documentation was not recovered in this review pass.
 
-### Fluid DEX
+### ForkDelta
 
-Current first-party Fluid website and technical documentation remain reachable. Official technical docs publish Fluid DEX V2, DEX liquidity-source integration, DEX Lite integration, DEX fee, resolver, liquidity, and oracle components. DefiLlama independently reports substantial current multichain TVL, fees, revenue, and DEX volume. Confidence is `high`.
+The current first-party root redirects to ForkDelta's shutdown notice. The notice states that ForkDelta stopped offering services on 2022-12-15, accepts no new orders or deposits, and no longer provides the trading interface. A first-party withdrawal tool remains available for deposited balances. HEI therefore classifies ForkDelta as `dead` with `voluntary_shutdown`, death date `2022-12-15`, and `high` confidence.
 
 ### Firefly
 
@@ -52,7 +47,7 @@ The current first-party Fluxion application identifies itself as a decentralized
 
 ## Current-main overlap findings
 
-Direct current-main checks prevented stale scan assumptions from creating duplicate drafts:
+Direct current-main checks and permanent overlap validation prevented stale scan assumptions from creating duplicate drafts:
 
 - Figure Markets -> existing `hei_ex_000689`
 - First Ledger -> existing `hei_ex_000690`
@@ -60,8 +55,11 @@ Direct current-main checks prevented stale scan assumptions from creating duplic
 - FlatQube -> existing `hei_ex_000715`
 - FlowX -> existing `hei_ex_000707`
 - FluxBeam -> existing `hei_ex_000716`
+- Fluid DEX -> existing `hei_ex_000691`
 
-FluxFlow V3 was not forced into AT1 because the current registry evidence is strong but a stable first-party website/documentation surface was not recovered in this pass. ForkDelta was also not placed in this routine active-growth batch because its first-party shutdown notice requires terminal-state lifecycle modeling rather than active classification.
+The initial Fluid DEX draft was blocked by permanent overlap validation because current main already contains the Fluid DEX identity, aliases, and fluid.io domain. The duplicate draft was removed and replaced by ForkDelta while preserving the five-entity batch size.
+
+FluxFlow V3 was not forced into AT1 because the current registry evidence is strong but a stable first-party website/documentation surface was not recovered in this pass.
 
 ## Batch output
 
