@@ -1,0 +1,39 @@
+import { Suspense } from 'react'
+import type { Metadata } from 'next'
+import JapanesePilotSurface from '../../../components/i18n/japanese-pilot-surface'
+import DeadExplorerClient from '../../../components/registry/dead-explorer-client'
+import { loadEntities } from '../../../lib/data/load-entities'
+import { buildLocalizedPageMetadata, getPagePresentation } from '../../../lib/i18n/page-presentations'
+
+const DEAD_SIDE = new Set<string>(['dead', 'merged', 'acquired', 'rebranded'])
+
+export function generateMetadata(): Metadata {
+  return buildLocalizedPageMetadata({ locale: 'ja', page: 'dead', pathname: '/dead/' })
+}
+
+export default function JapaneseDeadPage() {
+  const entities = loadEntities()
+    .filter((item) => DEAD_SIDE.has(item.status))
+    .sort((a, b) => {
+      const aDate = a.death_date ?? ''
+      const bDate = b.death_date ?? ''
+      if (aDate !== bDate) return aDate < bDate ? 1 : -1
+      return a.canonical_name.localeCompare(b.canonical_name)
+    })
+  const summary = {
+    total: entities.length,
+    dead: entities.filter((item) => item.status === 'dead').length,
+    merged: entities.filter((item) => item.status === 'merged').length,
+    acquired: entities.filter((item) => item.status === 'acquired').length,
+    rebranded: entities.filter((item) => item.status === 'rebranded').length,
+    archiveCoverage: entities.length > 0 ? Math.round((entities.filter((item) => item.archived_url).length / entities.length) * 100) : 0,
+  }
+
+  return (
+    <JapanesePilotSurface presentation={getPagePresentation('ja', 'dead')} englishHref="/dead/">
+      <Suspense fallback={<section className="panel table-panel"><div className="results-meta"><div>レジストリを読み込み中…</div></div></section>}>
+        <DeadExplorerClient entities={entities} summary={summary} />
+      </Suspense>
+    </JapanesePilotSurface>
+  )
+}
