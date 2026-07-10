@@ -1,10 +1,10 @@
-# D-750 Batch BC1 — Holdstation Swap, Honeypop DEX, Hotstuff Spot, GoonFi, and Gravis Finance
+# D-750 Batch BC1 — Goblins AMM, Honeypop DEX, Hotstuff Spot, GoonFi, and Gravis Finance
 
 Reviewed at: 2026-07-10
 
 ## Results
 
-- `0935` Holdstation Swap -> `hei_ex_000827`, limited DEX
+- `0872` Goblins AMM -> `hei_ex_000827`, active DEX
 - `0939` / `0940` Honeypop DEX -> `hei_ex_000828`, active DEX
 - `0948` Hotstuff Spot -> `hei_ex_000829`, active DEX
 - `0876` GoonFi -> `hei_ex_000830`, active DEX
@@ -12,7 +12,7 @@ Reviewed at: 2026-07-10
 
 ## Entity-first consolidation
 
-- Holdstation Swap remains one DEX entity across ZKsync Era and Berachain deployments.
+- Goblins AMM remains one multichain DEX entity across BNB Chain, Base, and smartBCH activity.
 - duplicate Honeypop DEX source rows remain one Scroll DEX entity.
 - Hotstuff Spot remains one native Hotstuff order-book spot exchange entity.
 - GoonFi remains one Solana Prop AMM DEX entity.
@@ -20,9 +20,9 @@ Reviewed at: 2026-07-10
 
 ## Evidence decisions
 
-### Holdstation Swap
+### Goblins AMM
 
-The current first-party Holdstation exchange application remains reachable. DefiLlama identifies Holdstation Swap as a ZKsync Era and Berachain CLMM DEX and reports residual TVL plus non-zero 30-day and 7-day DEX volume, but zero 24-hour volume and minimal recent fee activity. HEI therefore uses `limited`, not `active` or `dead`. Confidence is `medium`.
+DefiLlama identifies Goblins AMM as a decentralized exchange originating on smartBCH and reports current TVL plus non-zero 30-day, 7-day, and 24-hour DEX volume across BNB Chain, Base, and smartBCH. The dedicated application URL is preserved but could not be fully fetched in this review pass, so HEI uses `live_unverified`. Confidence is `medium`.
 
 ### Honeypop DEX
 
@@ -42,7 +42,7 @@ DefiLlama identifies Gravis Finance as a multichain AMM DEX and reports current 
 
 ## Current-main overlap findings
 
-Direct current-main checks and repository searches prevented stale candidate assumptions from creating duplicate drafts:
+Direct current-main checks, repository searches, and permanent overlap validation prevented stale candidate assumptions from creating duplicate drafts:
 
 - ATAIX -> existing `hei_ex_000551`
 - Atlantis Monad -> existing `hei_ex_000552`
@@ -60,6 +60,9 @@ Direct current-main checks and repository searches prevented stale candidate ass
 - HiveSwap -> existing `hei_ex_000732`
 - HorizonDEX -> existing `hei_ex_000719`
 - Horiza -> existing `hei_ex_000776`
+- Holdstation Swap -> existing Holdstation entity `hei_ex_000725`
+
+The initial Holdstation Swap draft was blocked by permanent overlap validation because current main already represents the same Holdstation identity. The draft was removed and replaced by Goblins AMM while preserving the five-entity batch size.
 
 Helix Markets was not promoted separately because its branding and helixapp.com identity overlap the existing Helix entity and stronger evidence for a separate entity boundary was not established.
 
