@@ -58,8 +58,8 @@ function assertNoConflictingDuplicateRecords(canonicalRecords, bundles, field, l
   }
 }
 
-function countDetailPages() {
-  const exchangeDir = path.join(root, 'out', 'exchange')
+function countDetailPages(relativeDir) {
+  const exchangeDir = path.join(root, 'out', ...relativeDir)
   if (!fs.existsSync(exchangeDir)) return 0
   return fs.readdirSync(exchangeDir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && fs.existsSync(path.join(exchangeDir, entry.name, 'index.html')))
@@ -179,14 +179,20 @@ equalIdSets(projectedEntities, outEntities.records, 'built entities')
 equalIdSets(projectedEvents, outEvents.records, 'built events')
 equalIdSets(projectedEvidence, outEvidence.records, 'built evidence')
 
-const detailPages = countDetailPages()
-assert(detailPages === expected.entities, `exchange detail page count mismatch: ${detailPages}`)
+const englishDetailPages = countDetailPages(['exchange'])
+const japaneseDetailPages = countDetailPages(['ja', 'exchange'])
+assert(englishDetailPages === expected.entities, `English exchange detail page count mismatch: ${englishDetailPages}`)
+assert(japaneseDetailPages === expected.entities, `Japanese exchange detail page count mismatch: ${japaneseDetailPages}`)
+
 const locations = sitemapLocations()
 assert(new Set(locations).size === locations.length, 'sitemap contains duplicate URLs')
-const entityLocations = locations.filter((location) => location.includes('/exchange/'))
-assert(entityLocations.length === expected.entities, `sitemap entity route count mismatch: ${entityLocations.length}`)
+const englishEntityLocations = locations.filter((location) => new URL(location).pathname.startsWith('/exchange/'))
+const japaneseEntityLocations = locations.filter((location) => new URL(location).pathname.startsWith('/ja/exchange/'))
+assert(englishEntityLocations.length === expected.entities, `English sitemap entity route count mismatch: ${englishEntityLocations.length}`)
+assert(japaneseEntityLocations.length === expected.entities, `Japanese sitemap entity route count mismatch: ${japaneseEntityLocations.length}`)
 for (const entity of projectedEntities) {
-  assert(entityLocations.includes(`https://hei.badjoke-lab.com/exchange/${entity.slug}/`), `sitemap missing entity route: ${entity.slug}`)
+  assert(englishEntityLocations.includes(`https://hei.badjoke-lab.com/exchange/${entity.slug}/`), `English sitemap missing entity route: ${entity.slug}`)
+  assert(japaneseEntityLocations.includes(`https://hei.badjoke-lab.com/ja/exchange/${entity.slug}/`), `Japanese sitemap missing entity route: ${entity.slug}`)
 }
 
 const report = {
@@ -216,8 +222,10 @@ const report = {
     entities: outEntities.records.length,
     events: outEvents.records.length,
     evidence: outEvidence.records.length,
-    exchange_detail_pages: detailPages,
-    sitemap_entity_routes: entityLocations.length,
+    english_exchange_detail_pages: englishDetailPages,
+    japanese_exchange_detail_pages: japaneseDetailPages,
+    english_sitemap_entity_routes: englishEntityLocations.length,
+    japanese_sitemap_entity_routes: japaneseEntityLocations.length,
     sitemap_total_routes: locations.length,
   },
   status: 'pass',
@@ -231,4 +239,4 @@ if (outputArg) {
 
 console.log(`Count semantics regression: ${expected.entities} entities, ${expected.events} events, ${expected.evidence} evidence`)
 console.log(`Reviewed bundles: ${reviewedBundles.length} total, ${newEntityBundles.length} new entities, ${repairBundles.length} repairs`)
-console.log(`Built routes: ${detailPages} exchange pages, ${entityLocations.length} sitemap exchange routes`)
+console.log(`Built bilingual routes: ${englishDetailPages} English + ${japaneseDetailPages} Japanese exchange pages; ${englishEntityLocations.length} English + ${japaneseEntityLocations.length} Japanese sitemap dossier routes`)
