@@ -1,4 +1,4 @@
-# D-750 Batch AO1 — Greenhouse, HSuite DEX, GT3, Gull Network, and Holdstation DEX
+# D-750 Batch AO1 — Greenhouse, HSuite DEX, GT3, Gull Network, and HiBT
 
 Reviewed at: 2026-07-10
 
@@ -9,7 +9,7 @@ Reviewed at: 2026-07-10
 - `0890` GT3 -> `hei_ex_000759`, active DEX
 - `0891` GT3 duplicate DEX source row -> consolidated under `hei_ex_000759`
 - `0895` Gull Network -> `hei_ex_000760`, active DEX
-- `0935` Holdstation Swap -> `hei_ex_000761`, active DEX represented as Holdstation DEX
+- `0930` Hibt -> `hei_ex_000761`, active CEX represented as HiBT
 
 ## Entity-first consolidation
 
@@ -17,7 +17,7 @@ Reviewed at: 2026-07-10
 - HbarSuite and the HSuite V1 DEX application lineage are modeled as one HSuite DEX entity; the wider HSuite infrastructure platform is not split into a second exchange entity.
 - CoinGecko and DefiLlama GT3 source rows remain one GT3 entity.
 - Gull Network swap, liquidity, bridge, reward, launcher, and related trading surfaces remain one entity.
-- Holdstation Swap and Holdstation DEX Aggregator are modeled as one Holdstation DEX entity rather than separate aggregator and wallet-integrated swap entities.
+- HiBT spot, futures, copy-trading, buy-crypto, earn, mobile, and API surfaces remain one centralized exchange entity.
 
 ## Evidence decisions
 
@@ -37,9 +37,9 @@ The dedicated dapp.gt3.finance endpoint is reachable. CoinGecko and DefiLlama ca
 
 Current first-party application surfaces expose wallet-connected swaps, token selection, slippage controls, liquidity management, bridging, rewards, launcher navigation, and related trading functions. The June 2026 exchange candidate corpus independently corroborates the app.gullnetwork.com exchange identity. Confidence is `medium` because public protocol documentation is limited.
 
-### Holdstation DEX
+### HiBT
 
-Current first-party documentation explicitly identifies Holdstation DEX Aggregator as a multichain decentralized exchange aggregator providing best-price routing across multiple liquidity sources, cross-chain support, direct website swaps, and Holdstation Wallet integration. The official hold.so swap application remains reachable. Confidence is `high`.
+The current first-party HiBT platform exposes spot and futures trading, copy trading, crypto purchases, earn products, mobile access, and active account entry points. The official About page identifies HIBT as a digital-asset trading service platform registered in Canada in 2021, while first-party OpenAPI documentation covers spot and perpetual trading, market data, account balances, order management, and authenticated trading interfaces. Confidence is `high`.
 
 ## Current-main overlap findings
 
@@ -51,8 +51,9 @@ Direct current-main checks found stale add-now assumptions and prevented duplica
 - Extended -> existing `hei_ex_000688`
 - EverySwap -> existing `hei_ex_000746`
 - Hercules -> existing `hei_ex_000714`
+- Holdstation / Holdstation Swap -> existing `hei_ex_000725`
 
-These candidates were not redrafted. AO1 was assembled only from candidates confirmed absent from current main.
+The initial Holdstation DEX draft was blocked by permanent overlap validation because current main already contains the Holdstation identity and Holdstation Swap / Holdstation DEX Aggregator aliases. The duplicate draft was removed and replaced by HiBT while preserving the five-entity batch size.
 
 ## Batch output
 
