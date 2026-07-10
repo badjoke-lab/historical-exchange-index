@@ -1,32 +1,32 @@
-# D-750 Batch BB1 — BitcoinVN, BIT.TEAM, BisonFi, Beralis V3, and HumidiFi
+# D-750 Batch BB1 — Huckleberry AMM, Hydra DEX, BisonFi, Beralis V3, and HumidiFi
 
 Reviewed at: 2026-07-10
 
 ## Results
 
-- `0194` BitcoinVN -> `hei_ex_000822`, active CEX
-- `0187` BIT.TEAM -> `hei_ex_000823`, active CEX
+- `0951` Huckleberry AMM -> `hei_ex_000822`, active DEX
+- `0966` / `0967` / `0968` Hydra DEX / Hydradex V2 / Hydradex V3 -> `hei_ex_000823`, limited DEX represented as Hydra DEX
 - `0184` BisonFi -> `hei_ex_000824`, active DEX
 - `0157` Beralis V3 -> `hei_ex_000825`, limited DEX
 - `0954` / `0955` Humidifi / HumidiFi -> `hei_ex_000826`, active DEX
 
 ## Entity-first consolidation
 
-- BitcoinVN remains one Vietnam-origin exchange and direct-swap platform entity across crypto/crypto and crypto/VND settlement routes.
-- BIT.TEAM remains one centralized exchange entity across spot, OTC, API, and P2P surfaces.
+- Huckleberry AMM, Huckleberry, and Huckleberry Finance source representations remain one Moonriver/CLV DEX entity.
+- Hydra DEX, Hydradex V2, and Hydradex V3 source rows remain one Hydra Chain DEX entity.
 - BisonFi remains one Solana Prop AMM DEX entity.
 - Beralis V3 remains one Berachain CLMM entity; low activity is expressed through status rather than creating version/deployment splits.
 - Humidifi and HumidiFi source spellings remain one Solana Prop AMM entity.
 
 ## Evidence decisions
 
-### BitcoinVN
+### Huckleberry AMM
 
-Current first-party BitcoinVN website exposes an active multi-asset swap application, crypto-to-VND routes, bank-transfer and cash settlement methods, staking navigation, account access, and current service activity. The site also states that the company was founded in 2013 and has operated without interruption since 2014. HEI leaves `launch_date` null because this review did not reconcile company founding with a precise exchange-service launch marker. Confidence is `high`.
+Current first-party Huckleberry website exposes Swap, Farm, Stake, Lend, Vote, Bridge, and Launch App surfaces and describes the project as a community DEX and lending platform on Moonriver and Clover. DefiLlama independently reports current TVL, fees, and non-zero 30-day, 7-day, and 24-hour DEX volume. Confidence is `high`.
 
-### BIT.TEAM
+### Hydra DEX
 
-Current first-party BIT.TEAM website exposes live exchange and P2P surfaces, account creation and login, OTC services, trading API access, KYC user and market statistics, current 24-hour volume, and support services. Confidence is `high`.
+The current first-party HydraGon DEX application remains reachable. DefiLlama identifies Hydra DEX as the native decentralized exchange of Hydra Chain and reports residual TVL and non-zero 30-day DEX volume, but minimal 7-day activity and zero 24-hour volume in the reviewed snapshot. HEI uses `limited`, not `active` or `dead`, and consolidates V2/V3 source rows into one entity. Confidence is `medium`.
 
 ### BisonFi
 
@@ -42,17 +42,19 @@ Current first-party HumidiFi site exposes a live liquidity leaderboard and links
 
 ## Current-main overlap findings
 
-Direct current-main checks and repository searches prevented stale candidate assumptions from creating duplicate drafts:
+Direct current-main checks, repository searches, and permanent overlap validation prevented stale candidate assumptions from creating duplicate drafts:
 
 - BHEX -> existing `hei_ex_000566`
 - Bidesk -> existing `hei_ex_000567`
 - Bilaxy -> existing `hei_ex_000568`
 - Binance DEX -> existing `hei_ex_000569`
 - BitcoinTrade -> existing `hei_ex_000571`
+- BitcoinVN -> existing VBTC identity `hei_ex_000572`
 - Bibox -> existing `hei_ex_000573`
 - BitcoinToYou -> existing `hei_ex_000574`
 - BenSwap -> existing `hei_ex_000575`
 - BetterSwap -> existing `hei_ex_000576`
+- BIT.TEAM -> existing `hei_ex_000577`
 - BEVMSwap -> existing `hei_ex_000578`
 - Bitpanda Pro -> existing `hei_ex_000585`
 - BL3P -> existing `hei_ex_000586`
@@ -60,9 +62,11 @@ Direct current-main checks and repository searches prevented stale candidate ass
 - Bitypreço -> existing `hei_ex_000589`
 - BitShares DEX -> existing `hei_ex_000590`
 
-The initial Bitypreço replacement candidate was blocked by a path collision and direct main review confirmed the existing `hei_ex_000589` entity. It was replaced by HumidiFi while preserving the five-entity batch size.
+The initial BitcoinVN and BIT.TEAM drafts were blocked by permanent overlap validation because current main already represents those identities. Both drafts were removed and replaced by Huckleberry AMM and Hydra DEX while preserving the five-entity batch size.
 
-Binance JEX, Bitex.la, Bitocto Exchange, BitPreço legacy spelling, and other lifecycle-sensitive candidates remain separate research work and were not forced into this routine batch.
+The initial Bitypreço replacement candidate was separately blocked by a path collision and direct main review confirmed the existing `hei_ex_000589` entity. It was replaced by HumidiFi.
+
+Binance JEX, Bitex.la, Bitocto Exchange, and other lifecycle-sensitive candidates remain separate research work and were not forced into this routine batch.
 
 ## Batch output
 
