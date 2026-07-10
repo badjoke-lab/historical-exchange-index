@@ -1,31 +1,25 @@
 import type { Metadata } from 'next'
+import LocalizedPageHeader from '../../components/layout/localized-page-header'
+import {
+  buildLocalizedPageMetadata,
+  getPagePresentation,
+} from '../../lib/i18n/page-presentations'
 import { CONTACT_HREF, ISSUES_HREF } from '../../lib/site-constants'
 
-export const metadata: Metadata = {
-  title: 'About',
-  description:
-    'About Historical Exchange Index, a historical registry of crypto exchanges covering active, dead, merged, acquired, and rebranded exchange records.',
-  alternates: {
-    canonical: '/about',
-  },
+export function generateMetadata(): Metadata {
+  return buildLocalizedPageMetadata({
+    locale: 'en',
+    page: 'about',
+    pathname: '/about/',
+  })
 }
 
 export default function AboutPage() {
+  const presentation = getPagePresentation('en', 'about')
+
   return (
     <main className="longform">
-      <section className="panel longform-panel">
-        <p className="muted">About</p>
-        <h2 style={{ marginTop: 0, fontSize: '34px' }}>Why Historical Exchange Index exists</h2>
-        <p className="muted" style={{ lineHeight: 1.75, maxWidth: '82ch' }}>
-          Historical Exchange Index exists to keep crypto exchange identity, status shifts, major lifecycle events,
-          archived URLs, and supporting evidence in one place. The goal is not to hype current winners, but to
-          preserve a readable historical registry of crypto exchange history.
-        </p>
-        <p className="muted" style={{ lineHeight: 1.75, maxWidth: '82ch' }}>
-          Existing information is often split across live exchange lists, DEX trackers, news articles, shutdown notices,
-          archived pages, and exchange graveyards. HEI tries to bring those fragments into one structured registry view.
-        </p>
-      </section>
+      <LocalizedPageHeader presentation={presentation} />
 
       <section className="panel longform-panel">
         <div className="section" style={{ borderTop: 'none', paddingTop: 0 }}>
