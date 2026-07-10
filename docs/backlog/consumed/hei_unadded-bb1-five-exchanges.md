@@ -1,32 +1,32 @@
-# D-750 Batch BB1 — Huckleberry AMM, Hydra DEX, BisonFi, Beralis V3, and HumidiFi
+# D-750 Batch BB1 — HbarSuite, HumanFi, BisonFi, Beralis V3, and HumidiFi
 
 Reviewed at: 2026-07-10
 
 ## Results
 
-- `0951` Huckleberry AMM -> `hei_ex_000822`, active DEX
-- `0966` / `0967` / `0968` Hydra DEX / Hydradex V2 / Hydradex V3 -> `hei_ex_000823`, limited DEX represented as Hydra DEX
+- `0913` HbarSuite -> `hei_ex_000822`, active DEX
+- `0952` HumanFi -> `hei_ex_000823`, active DEX aggregator
 - `0184` BisonFi -> `hei_ex_000824`, active DEX
 - `0157` Beralis V3 -> `hei_ex_000825`, limited DEX
 - `0954` / `0955` Humidifi / HumidiFi -> `hei_ex_000826`, active DEX
 
 ## Entity-first consolidation
 
-- Huckleberry AMM, Huckleberry, and Huckleberry Finance source representations remain one Moonriver/CLV DEX entity.
-- Hydra DEX, Hydradex V2, and Hydradex V3 source rows remain one Hydra Chain DEX entity.
+- HbarSuite and HSuite source representations remain one Hedera DEX and liquidity-protocol entity.
+- HumanFi remains one World Chain swap-aggregation entity rather than being split by Mini App or route surface.
 - BisonFi remains one Solana Prop AMM DEX entity.
 - Beralis V3 remains one Berachain CLMM entity; low activity is expressed through status rather than creating version/deployment splits.
 - Humidifi and HumidiFi source spellings remain one Solana Prop AMM entity.
 
 ## Evidence decisions
 
-### Huckleberry AMM
+### HbarSuite
 
-Current first-party Huckleberry website exposes Swap, Farm, Stake, Lend, Vote, Bridge, and Launch App surfaces and describes the project as a community DEX and lending platform on Moonriver and Clover. DefiLlama independently reports current TVL, fees, and non-zero 30-day, 7-day, and 24-hour DEX volume. Confidence is `high`.
+The current first-party HSuite platform domain remains reachable. DefiLlama identifies HbarSuite as a Hedera AMM DEX and reports substantial current TVL plus non-zero 30-day, 7-day, and 24-hour DEX volume. Confidence is `high`.
 
-### Hydra DEX
+### HumanFi
 
-The current first-party HydraGon DEX application remains reachable. DefiLlama identifies Hydra DEX as the native decentralized exchange of Hydra Chain and reports residual TVL and non-zero 30-day DEX volume, but minimal 7-day activity and zero 24-hour volume in the reviewed snapshot. HEI uses `limited`, not `active` or `dead`, and consolidates V2/V3 source rows into one entity. Confidence is `medium`.
+DefiLlama identifies HumanFi as a World Chain DEX aggregator and reports non-zero current 30-day, 7-day, and 24-hour swap volume plus fees and revenue. A stable standalone first-party product website was not recovered, so URL fields remain unset. The project social identity is preserved for corroboration. Confidence is `medium`.
 
 ### BisonFi
 
@@ -61,8 +61,14 @@ Direct current-main checks, repository searches, and permanent overlap validatio
 - Bitinka -> existing `hei_ex_000587`
 - Bitypreço -> existing `hei_ex_000589`
 - BitShares DEX -> existing `hei_ex_000590`
+- Huckleberry AMM -> existing Huckleberry entity `hei_ex_000763`
+- Hydra DEX -> existing Hydra DEX entity `hei_ex_000764`
+- HyperBrick -> existing `hei_ex_000769`
+- HunnySwap -> existing `hei_ex_000770`
 
-The initial BitcoinVN and BIT.TEAM drafts were blocked by permanent overlap validation because current main already represents those identities. Both drafts were removed and replaced by Huckleberry AMM and Hydra DEX while preserving the five-entity batch size.
+The initial BitcoinVN and BIT.TEAM drafts were blocked by permanent overlap validation because current main already represents those identities. Both drafts were removed.
+
+The first replacements, Huckleberry AMM and Hydra DEX, were also blocked by permanent overlap validation because current main already contains the same underlying identities under entity-first slugs. Those drafts were removed and replaced by HbarSuite and HumanFi.
 
 The initial Bitypreço replacement candidate was separately blocked by a path collision and direct main review confirmed the existing `hei_ex_000589` entity. It was replaced by HumidiFi.
 
