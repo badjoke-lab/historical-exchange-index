@@ -2,13 +2,13 @@
   "version": 1,
   "repository": "badjoke-lab/historical-exchange-index",
   "default_branch": "main",
-  "current_phase": "D-750 Reviewed Entity Milestone",
-  "current_item": "grow reviewed public entities from 550 to >=750",
-  "next_item": "L-1 Japanese Pilot",
+  "current_phase": "L-1 Japanese Pilot",
+  "current_item": "L1-4 — Route shell, metadata, sitemap, and activation",
+  "next_item": "L1-5 — Controlled optional record-copy sample",
   "reviewed_counts": {
-    "entities": 550,
+    "entities": 750,
     "events": 1004,
-    "evidence": 2621
+    "evidence": 3219
   },
   "authoritative_paths": {
     "agent_instructions": "AGENTS.md",
@@ -18,6 +18,8 @@
     "compare_spec": "docs/HEI_COMPARE_V1_SPEC.md",
     "data_growth_spec": "docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md",
     "localization_spec": "docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md",
+    "l1_implementation_plan": "docs/HEI_L1_JAPANESE_PILOT_IMPLEMENTATION_PLAN.md",
+    "d750_completion_report": "docs/audits/HEI_D750_MILESTONE_COMPLETION_2026-07-10.md",
     "deployment_policy": "docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md",
     "cloudflare_project_policy": "config/cloudflare-pages-project.json",
     "production_verification_contract": "config/production-verification-contract.json",

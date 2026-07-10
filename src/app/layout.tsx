@@ -4,7 +4,7 @@ import './home-recent-mobile-fix.css'
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import GoogleAnalytics from '../components/analytics/google-analytics'
-import SiteChrome from '../components/layout/site-chrome'
+import LocaleAwareSiteChrome from '../components/layout/locale-aware-site-chrome'
 import {
   GA_MEASUREMENT_ID,
   GSC_VERIFICATION_TOKEN,
@@ -163,7 +163,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 }
         `}</style>
 
-        <SiteChrome locale="en">{children}</SiteChrome>
+        <LocaleAwareSiteChrome>{children}</LocaleAwareSiteChrome>
       </body>
     </html>
   )

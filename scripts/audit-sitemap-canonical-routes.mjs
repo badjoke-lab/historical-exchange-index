@@ -22,6 +22,20 @@ const STATIC_ROUTES = [
   '/donate/',
 ]
 
+const JAPANESE_STATIC_ROUTES = [
+  '/ja/',
+  '/ja/dead/',
+  '/ja/active/',
+  '/ja/explore/',
+  '/ja/stats/',
+  '/ja/quality/',
+  '/ja/updates/',
+  '/ja/incidents/',
+  '/ja/monthly/',
+  '/ja/methodology/',
+  '/ja/about/',
+]
+
 const OBSOLETE_PREFIXES = ['/all', '/registry', '/exchanges']
 const FEED_URLS = [`${origin}/feeds/updates.json`, `${origin}/feeds/updates.xml`]
 
@@ -64,7 +78,9 @@ function routeOutputFile(url, outDir) {
 function expectedUrls(publicEntities) {
   const staticUrls = STATIC_ROUTES.map((route) => `${origin}${route}`)
   const entityUrls = publicEntities.records.map((entity) => `${origin}/exchange/${entity.slug}/`)
-  return [...staticUrls, ...entityUrls]
+  const japaneseStaticUrls = JAPANESE_STATIC_ROUTES.map((route) => `${origin}${route}`)
+  const japaneseEntityUrls = publicEntities.records.map((entity) => `${origin}/ja/exchange/${entity.slug}/`)
+  return [...staticUrls, ...entityUrls, ...japaneseStaticUrls, ...japaneseEntityUrls]
 }
 
 function sorted(values) {
@@ -141,11 +157,20 @@ export function auditSitemapCanonicalRoutes(outDir = defaultOutDir) {
     findings.push({ type: 'obsolete_redirect_contract', message: error instanceof Error ? error.message : String(error) })
   }
 
-  const entityUrls = actual.filter((url) => new URL(url).pathname.startsWith('/exchange/'))
-  if (entityUrls.length !== publicEntities.records.length) {
+  const englishEntityUrls = actual.filter((url) => new URL(url).pathname.startsWith('/exchange/'))
+  if (englishEntityUrls.length !== publicEntities.records.length) {
     findings.push({
-      type: 'entity_route_count_mismatch',
-      sitemap_entity_routes: entityUrls.length,
+      type: 'english_entity_route_count_mismatch',
+      sitemap_entity_routes: englishEntityUrls.length,
+      public_entities: publicEntities.records.length,
+    })
+  }
+
+  const japaneseEntityUrls = actual.filter((url) => new URL(url).pathname.startsWith('/ja/exchange/'))
+  if (japaneseEntityUrls.length !== publicEntities.records.length) {
+    findings.push({
+      type: 'japanese_entity_route_count_mismatch',
+      sitemap_entity_routes: japaneseEntityUrls.length,
       public_entities: publicEntities.records.length,
     })
   }
@@ -155,6 +180,7 @@ export function auditSitemapCanonicalRoutes(outDir = defaultOutDir) {
     expectedUrlCount: expected.length,
     publicEntityCount: publicEntities.records.length,
     staticRouteCount: STATIC_ROUTES.length,
+    japaneseStaticRouteCount: JAPANESE_STATIC_ROUTES.length,
     findings,
   }
 }
@@ -178,6 +204,9 @@ function runSelfTest() {
       ...STATIC_ROUTES.map((route) => `${origin}${route}`),
       `${origin}/exchange/alpha/`,
       `${origin}/exchange/beta/`,
+      ...JAPANESE_STATIC_ROUTES.map((route) => `${origin}${route}`),
+      `${origin}/ja/exchange/alpha/`,
+      `${origin}/ja/exchange/beta/`,
     ]
     fs.writeFileSync(path.join(outDir, 'sitemap.xml'), `<urlset>${urls.map((url) => `<url><loc>${url}</loc></url>`).join('')}</urlset>`)
     fs.writeFileSync(path.join(outDir, '_redirects'), [
@@ -199,17 +228,17 @@ function runSelfTest() {
     fs.rmSync(outDir, { recursive: true, force: true })
   }
 
-  console.log('Sitemap and canonical route audit self-test passed.')
+  console.log('L1 sitemap and canonical route audit self-test passed.')
 }
 
 if (process.argv.includes('--self-test')) {
   runSelfTest()
 } else {
   const result = auditSitemapCanonicalRoutes()
-  console.log(`Sitemap route audit: ${result.sitemapUrlCount} URLs = ${result.staticRouteCount} static + ${result.publicEntityCount} exchange routes.`)
+  console.log(`L1 sitemap route audit: ${result.sitemapUrlCount} URLs = ${result.staticRouteCount} English static + ${result.japaneseStaticRouteCount} Japanese static + ${result.publicEntityCount * 2} bilingual exchange routes.`)
   if (result.findings.length > 0) {
     for (const finding of result.findings) console.error(JSON.stringify(finding))
-    throw new Error(`sitemap and canonical route audit found ${result.findings.length} findings`)
+    throw new Error(`L1 sitemap and canonical route audit found ${result.findings.length} findings`)
   }
-  console.log('Sitemap and canonical route audit passed with 0 findings.')
+  console.log('L1 sitemap and canonical route audit passed with 0 findings.')
 }

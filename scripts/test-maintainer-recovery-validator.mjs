@@ -48,11 +48,11 @@ try {
   }
 
   const contractPath = path.join(tempRoot, 'config', 'maintainer-recovery-contract.json')
-  const roadmapPath = path.join(tempRoot, 'docs', 'HEI_V1_EXECUTION_ROADMAP.md')
+  const l1PlanPath = path.join(tempRoot, 'docs', 'HEI_L1_JAPANESE_PILOT_IMPLEMENTATION_PLAN.md')
   const packagePath = path.join(tempRoot, 'package.json')
 
   const originalContract = fs.readFileSync(contractPath, 'utf8')
-  const originalRoadmap = fs.readFileSync(roadmapPath, 'utf8')
+  const originalL1Plan = fs.readFileSync(l1PlanPath, 'utf8')
   const originalPackage = fs.readFileSync(packagePath, 'utf8')
 
   runValidator(true)
@@ -64,9 +64,9 @@ try {
   fs.writeFileSync(contractPath, originalContract)
 
   const currentItem = JSON.parse(originalContract).current_item
-  fs.writeFileSync(roadmapPath, originalRoadmap.replaceAll(currentItem, 'G-7 REMOVED FOR SELF-TEST'))
+  fs.writeFileSync(l1PlanPath, originalL1Plan.replaceAll(currentItem, 'L1 CURRENT ITEM REMOVED FOR SELF-TEST'))
   runValidator(false, 'current_item_missing')
-  fs.writeFileSync(roadmapPath, originalRoadmap)
+  fs.writeFileSync(l1PlanPath, originalL1Plan)
 
   const commandBroken = JSON.parse(originalPackage)
   delete commandBroken.scripts['recovery:validate']

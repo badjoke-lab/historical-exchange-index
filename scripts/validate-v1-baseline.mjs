@@ -12,6 +12,7 @@ const readJson = (relative) => JSON.parse(fs.readFileSync(path.join(root, relati
 const readText = (relative) => fs.readFileSync(path.join(root, relative), 'utf8')
 const sameSet = (a, b) => JSON.stringify([...new Set(a)].sort()) === JSON.stringify([...new Set(b)].sort())
 const sameOrder = (a, b) => JSON.stringify(a) === JSON.stringify(b)
+const containsAll = (actual, required) => required.every((value) => actual.includes(value))
 
 function deriveCounts() {
   const entities = readJson('data/entities.json')
@@ -88,7 +89,7 @@ function checkSitemap() {
   }
 }
 
-function checkExplorerAndI18n() {
+function checkExplorerAndI18n(reviewedCounts) {
   const explorer = readJson('config/explorer-query-contract.json')
   const i18n = readJson('config/i18n-locales.json')
   if (explorer.version !== contract.schema_versions.explorer_query_contract_version) add('explorer_contract_mismatch', 'explorer_version_mismatch')
@@ -96,7 +97,31 @@ function checkExplorerAndI18n() {
   const expected = contract.localization_foundation
   if (i18n.version !== contract.schema_versions.i18n_locale_contract_version) add('localization_mismatch', 'i18n_version_mismatch')
   for (const key of ['default_locale', 'fallback_locale']) if (i18n[key] !== expected[key]) add('localization_mismatch', `${key}_mismatch`)
-  for (const key of ['supported_locales', 'public_locales', 'pilot_locales']) if (!sameSet(i18n[key], expected[key])) add('localization_mismatch', `${key}_mismatch`)
+
+  if (!sameSet(i18n.supported_locales, expected.supported_locales)) add('localization_mismatch', 'supported_locales_mismatch')
+  if (!sameSet(i18n.pilot_locales, expected.pilot_locales)) add('localization_mismatch', 'pilot_locales_mismatch')
+
+  if (!containsAll(i18n.public_locales, expected.public_locales)) {
+    add('localization_mismatch', 'baseline_public_locale_missing', { actual: i18n.public_locales, baseline: expected.public_locales })
+  }
+  const unexpectedPublicLocales = i18n.public_locales.filter((locale) => !i18n.supported_locales.includes(locale))
+  if (unexpectedPublicLocales.length > 0) add('localization_mismatch', 'unsupported_public_locale', { locales: unexpectedPublicLocales })
+
+  const addedPublicLocales = i18n.public_locales.filter((locale) => !expected.public_locales.includes(locale))
+  const allowedJapanesePilot = addedPublicLocales.length === 1
+    && addedPublicLocales[0] === 'ja'
+    && i18n.pilot_locales.includes('ja')
+    && reviewedCounts.entities >= expected.japanese_public_pilot_min_reviewed_entities
+  if (addedPublicLocales.length > 0 && !allowedJapanesePilot) {
+    add('localization_mismatch', 'post_v1_public_locale_progression_invalid', {
+      addedPublicLocales,
+      reviewedEntities: reviewedCounts.entities,
+      japanesePilotMinimum: expected.japanese_public_pilot_min_reviewed_entities,
+    })
+  }
+  if (addedPublicLocales.length > expected.max_new_language_pilots_at_once) {
+    add('localization_mismatch', 'language_pilot_concurrency_exceeded', { addedPublicLocales })
+  }
 
   if (expected.japanese_public_pilot_min_reviewed_entities !== 750) add('localization_mismatch', 'japanese_pilot_gate_mismatch', { actual: expected.japanese_public_pilot_min_reviewed_entities })
   if (expected.third_language_gate_min_reviewed_entities !== 1000) add('localization_mismatch', 'third_language_gate_mismatch', { actual: expected.third_language_gate_min_reviewed_entities })
@@ -166,7 +191,7 @@ checkBaselineSha()
 const reviewedCounts = checkCounts()
 checkGeneratedPublic()
 checkSitemap()
-checkExplorerAndI18n()
+checkExplorerAndI18n(reviewedCounts)
 checkSafetyAndReports()
 checkProductionAndRoadmap()
 checkDeferredAndPriorityOrder()

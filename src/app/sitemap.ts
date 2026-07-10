@@ -38,5 +38,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticRoutes, ...entityRoutes]
+  const japaneseStaticPaths = [
+    '/ja/',
+    '/ja/dead/',
+    '/ja/active/',
+    '/ja/explore/',
+    '/ja/stats/',
+    '/ja/quality/',
+    '/ja/updates/',
+    '/ja/incidents/',
+    '/ja/monthly/',
+    '/ja/methodology/',
+    '/ja/about/',
+  ] as const
+
+  const japaneseStaticRoutes: MetadataRoute.Sitemap = japaneseStaticPaths.map((pathname) => ({
+    url: `${SITE_URL}${pathname}`,
+    lastModified: registryLastModified,
+    changeFrequency: pathname === '/ja/monthly/' ? 'monthly' : 'weekly',
+    priority: pathname === '/ja/' ? 0.9 : 0.7,
+  }))
+
+  const japaneseEntityRoutes: MetadataRoute.Sitemap = entities.map((entity) => ({
+    url: `${SITE_URL}/ja/exchange/${entity.slug}/`,
+    lastModified: entity.last_verified_at ? new Date(`${entity.last_verified_at}T00:00:00.000Z`) : registryLastModified,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
+  return [...staticRoutes, ...entityRoutes, ...japaneseStaticRoutes, ...japaneseEntityRoutes]
 }

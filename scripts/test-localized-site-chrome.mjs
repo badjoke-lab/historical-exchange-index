@@ -53,6 +53,7 @@ assert(ja['nav.compare'].includes('英語'), 'Japanese Compare label must disclo
 assert(ja['research.compareExchangeEnglish'].includes('英語'), 'Japanese dossier Compare action must disclose English route boundary')
 
 const chromeSource = readText('src/components/layout/site-chrome.tsx')
+const localeAwareChromeSource = readText('src/components/layout/locale-aware-site-chrome.tsx')
 const layoutSource = readText('src/app/layout.tsx')
 const switcherSource = readText('src/components/navigation/locale-switcher.tsx')
 const routeSource = readText('src/lib/i18n/locale-routes.ts')
@@ -61,8 +62,10 @@ const researchSource = readText('src/components/navigation/exchange-compare-cont
 assert(chromeSource.includes("getDictionary(locale).common"), 'shared chrome does not use locale dictionary')
 assert(chromeSource.includes('<Suspense fallback={null}>'), 'locale switcher lacks Suspense boundary')
 assert(chromeSource.includes("href: '/compare'"), 'shared chrome must keep Compare on English route during L-1')
-assert(layoutSource.includes('<SiteChrome locale="en">'), 'English root layout is not using shared chrome')
-assert(layoutSource.includes('<html lang="en">'), 'English root document language changed unexpectedly')
+assert(layoutSource.includes('<LocaleAwareSiteChrome>'), 'root layout is not using locale-aware shared chrome wrapper')
+assert(localeAwareChromeSource.includes('stripLocalePrefix(pathname)'), 'locale-aware shared chrome does not derive locale from pathname')
+assert(localeAwareChromeSource.includes('<SiteChrome locale={locale}>'), 'locale-aware wrapper does not pass resolved locale to shared chrome')
+assert(layoutSource.includes('<html lang="en">'), 'root document language baseline changed unexpectedly')
 assert(switcherSource.includes('isJapanesePilotPath(current.pathname)'), 'locale switcher does not guard Japanese Pilot route scope')
 assert(switcherSource.includes('searchParams.toString()'), 'locale switcher does not preserve query state')
 assert(routeSource.includes("'/ja/exchange/[slug]/") === false, 'runtime route helper must use pathname matching, not route-template literals')
@@ -91,4 +94,4 @@ for (const pathname of requiredStaticPaths) {
 assert(!requiredStaticPaths.includes('/compare/'), 'Compare must not be part of L-1 Japanese route scope')
 assert(!requiredStaticPaths.includes('/donate/'), 'Donate must not be part of L-1 Japanese route scope')
 
-console.log(`Localized site chrome tests passed: ${enKeys.length} shared dictionary keys, pilot route guard, query preservation, English Compare boundary, and root-layout stability verified.`)
+console.log(`Localized site chrome tests passed: ${enKeys.length} shared dictionary keys, locale-aware root wrapper, pilot route guard, query preservation, English Compare boundary, and root-layout stability verified.`)

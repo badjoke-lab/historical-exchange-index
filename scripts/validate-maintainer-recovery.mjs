@@ -96,16 +96,25 @@ function validateCounts(rootDir, contract) {
 function validateRoadmap(rootDir, contract) {
   const roadmap = readText(path.join(rootDir, contract.authoritative_paths.roadmap))
   if (roadmap === null) return [finding('missing_authoritative_path', 'roadmap_missing')]
+
+  const milestoneReport = contract.authoritative_paths.d750_completion_report
+    ? readText(path.join(rootDir, contract.authoritative_paths.d750_completion_report))
+    : ''
+  const l1Plan = contract.authoritative_paths.l1_implementation_plan
+    ? readText(path.join(rootDir, contract.authoritative_paths.l1_implementation_plan))
+    : ''
+  const authorityText = [roadmap, milestoneReport ?? '', l1Plan ?? ''].join('\n')
   const findings = []
+
   for (const [type, expected] of [
     ['current_phase_missing', contract.current_phase],
     ['current_item_missing', contract.current_item],
     ['next_item_missing', contract.next_item],
   ]) {
-    if (!expected || !roadmap.includes(expected)) findings.push(finding('stale_checkpoint', type, { expected }))
+    if (!expected || !authorityText.includes(expected)) findings.push(finding('stale_checkpoint', type, { expected }))
   }
   for (const [key, expected] of Object.entries(contract.reviewed_counts ?? {})) {
-    if (!roadmap.includes(String(expected))) findings.push(finding('stale_checkpoint', 'roadmap_count_missing', { key, expected }))
+    if (!authorityText.includes(String(expected))) findings.push(finding('stale_checkpoint', 'authority_count_missing', { key, expected }))
   }
   return findings
 }
