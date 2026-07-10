@@ -1,20 +1,31 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { loadRegistryUpdates } from '../../lib/data/load-registry-updates'
+import {
+  buildLocalizedPageMetadata,
+  getPagePresentation,
+} from '../../lib/i18n/page-presentations'
 import type { RegistryUpdateCounts } from '../../lib/types/registry-update'
 import { CONTACT_HREF } from '../../lib/site-constants'
 import styles from './updates.module.css'
 
-export const metadata: Metadata = {
-  title: 'Registry Updates',
-  description: 'Reviewed additions, corrections, and milestone updates from the Historical Exchange Index registry.',
-  alternates: {
-    canonical: '/updates',
-    types: {
-      'application/feed+json': '/feeds/updates.json',
-      'application/rss+xml': '/feeds/updates.xml',
+export function generateMetadata(): Metadata {
+  const base = buildLocalizedPageMetadata({
+    locale: 'en',
+    page: 'updates',
+    pathname: '/updates/',
+  })
+
+  return {
+    ...base,
+    alternates: {
+      ...base.alternates,
+      types: {
+        'application/feed+json': '/feeds/updates.json',
+        'application/rss+xml': '/feeds/updates.xml',
+      },
     },
-  },
+  }
 }
 
 function delta(after: number, before: number): string {
@@ -52,6 +63,7 @@ function UpdateTypeLabel({ type }: { type: 'registry_growth' | 'quality_audit' }
 
 export default function RegistryUpdatesPage() {
   const updates = loadRegistryUpdates()
+  const presentation = getPagePresentation('en', 'updates')
   const totalAdded = updates.reduce((sum, update) => sum + update.added_entities.length, 0)
   const totalEvidenceAdded = updates.reduce((sum, update) => sum + update.evidence_added, 0)
 
@@ -60,12 +72,9 @@ export default function RegistryUpdatesPage() {
       <section className="panel longform-panel">
         <div className={styles.headerRow}>
           <div>
-            <p className="muted">Reviewed changelog</p>
-            <h2 className={styles.pageTitle}>Registry Updates</h2>
-            <p className={styles.lead}>
-              Canonical additions and reviewed corrections that have already passed HEI review and repository validation.
-              Internal monitoring signals and unmerged candidates are not published here.
-            </p>
+            <p className="muted">{presentation.eyebrow}</p>
+            <h2 className={styles.pageTitle}>{presentation.heading}</h2>
+            <p className={styles.lead}>{presentation.intro}</p>
           </div>
           <div className={styles.headerActions}>
             <Link className="btn btn-primary" href="/explore/?view=events">Explore reviewed events</Link>

@@ -2,14 +2,20 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { buildMonthlyHistoricalSnapshot } from '../../lib/data/build-monthly-historical-snapshot'
 import { incidentEventTypeLabel } from '../../lib/data/build-incident-timeline'
+import {
+  buildLocalizedPageMetadata,
+  getPagePresentation,
+} from '../../lib/i18n/page-presentations'
 import { CONTACT_HREF } from '../../lib/site-constants'
 import { formatDate } from '../../lib/utils/format-date'
 import styles from './monthly.module.css'
 
-export const metadata: Metadata = {
-  title: 'Monthly Historical Exchange Snapshot',
-  description: 'A reviewed monthly snapshot of significant exchange lifecycle and incident events recorded in the Historical Exchange Index.',
-  alternates: { canonical: '/monthly' },
+export function generateMetadata(): Metadata {
+  return buildLocalizedPageMetadata({
+    locale: 'en',
+    page: 'monthly',
+    pathname: '/monthly/',
+  })
 }
 
 function monthlyExplorerHref(periodStart: string, periodEnd: string) {
@@ -40,6 +46,7 @@ function monthlyImpactHref(periodStart: string, periodEnd: string, impact: strin
 
 export default function MonthlyHistoricalExchangeSnapshotPage() {
   const snapshot = buildMonthlyHistoricalSnapshot()
+  const presentation = getPagePresentation('en', 'monthly')
   const allMonthEventsHref = monthlyExplorerHref(snapshot.periodStart, snapshot.periodEnd)
 
   return (
@@ -47,12 +54,10 @@ export default function MonthlyHistoricalExchangeSnapshotPage() {
       <section className="panel longform-panel">
         <div className={styles.headerRow}>
           <div>
-            <p className="muted">Reviewed monthly historical snapshot</p>
+            <p className="muted">{presentation.eyebrow}</p>
             <h2 className={styles.pageTitle}>{snapshot.monthLabel}</h2>
-            <p className={styles.subtitle}>Monthly Historical Exchange Snapshot</p>
-            <p className={styles.lead}>
-              Significant lifecycle and incident events whose reviewed event dates fall within the latest completed UTC month. This is a historical registry view, not a breaking-news digest or a publication of raw monitoring findings.
-            </p>
+            <p className={styles.subtitle}>{presentation.heading}</p>
+            <p className={styles.lead}>{presentation.intro}</p>
           </div>
           <div className={styles.headerActions}>
             <Link className="btn btn-primary" href={allMonthEventsHref}>Explore this month</Link>
