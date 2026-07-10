@@ -1,10 +1,12 @@
-# D-750 Batch AP1 — Hotcoin, Huckleberry, Hydra DEX, Humble DeFi, and Hummus
+# D-750 Batch AP1 — HyperSwap, Huckleberry, Hydra DEX, Humble DeFi, and Hummus
 
 Reviewed at: 2026-07-10
 
 ## Results
 
-- `0946` Hotcoin -> `hei_ex_000762`, active CEX
+- `0984` HyperSwap V2 -> `hei_ex_000762`, active DEX represented as HyperSwap
+- `0985` HyperSwap V3 -> consolidated under `hei_ex_000762`
+- `0986` HyperSwap V3 duplicate/domain row -> consolidated under `hei_ex_000762`
 - `0950` Huckleberry -> `hei_ex_000763`, active DEX
 - `0951` Huckleberry AMM -> consolidated under `hei_ex_000763`
 - `0966` Hydra DEX -> `hei_ex_000764`, active DEX
@@ -15,7 +17,7 @@ Reviewed at: 2026-07-10
 
 ## Entity-first consolidation
 
-- Hotcoin spot, margin, futures, copy-trading, buy-crypto, earn, mobile, and API surfaces remain one centralized exchange entity.
+- HyperSwap V2/V3 and current HyperEVM AMM application surfaces remain one HyperSwap entity.
 - Huckleberry and Huckleberry AMM source rows remain one Huckleberry entity across Moonriver and CLV deployments.
 - Hydra DEX and Hydradex V2/V3 source rows remain one exchange entity rather than version-specific entities.
 - Humble DeFi and the HumbleSwap application remain one exchange entity.
@@ -23,9 +25,9 @@ Reviewed at: 2026-07-10
 
 ## Evidence decisions
 
-### Hotcoin
+### HyperSwap
 
-Current first-party Hotcoin pages expose spot, margin, futures, copy trading, buy-crypto, earn, order-book trading, mobile applications, and API access. The first-party platform introduction identifies Hotcoin as a global crypto exchange and the current API surface documents spot/leverage, perpetual futures, market data, account services, trading actions, and WebSocket feeds. Confidence is `high`.
+Current first-party HyperSwap documentation identifies the protocol as the liquidity hub of HyperEVM and documents swaps, AMM liquidity, cross-chain swaps, multi-token routing, liquidity provision, fee earning, and staking incentives. The live app and official website are reachable. Confidence is `high`.
 
 ### Huckleberry
 
@@ -45,8 +47,9 @@ Current first-party Hummus application exposes Swap, Pool, veHUM, Gauge, Rewards
 
 ## Current-main overlap findings
 
-Direct current-main checks found stale add-now assumptions and prevented duplicate drafting:
+Direct current-main checks and permanent overlap validation prevented stale scan assumptions from creating duplicates:
 
+- Hotcoin -> existing `hei_ex_000712`
 - HorizonDEX -> existing `hei_ex_000719`
 - Hydrex Integral -> existing `hei_ex_000723`
 - Hypertrade -> existing `hei_ex_000724`
@@ -58,7 +61,7 @@ Direct current-main checks found stale add-now assumptions and prevented duplica
 - Hydration -> existing `hei_ex_000699`
 - Hyperion -> existing `hei_ex_000701`
 
-AP1 was assembled only from candidates confirmed absent from current main.
+The initial Hotcoin draft was blocked by permanent overlap validation because current main already contains the Hotcoin identity, aliases, and hotcoin.com domain. The duplicate draft was removed and replaced by HyperSwap while preserving the five-entity batch size.
 
 ## Batch output
 
