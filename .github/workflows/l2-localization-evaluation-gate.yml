@@ -1,0 +1,51 @@
+name: L2 localization evaluation gate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build machine-readable layer
+        run: npm run machine:build
+
+      - name: Test GO HOLD PIVOT evaluation logic
+        run: npm run localization:evaluate:test
+
+      - name: Test localization telemetry source contract
+        run: npm run localization:telemetry:test
+
+      - name: Verify current evidence decision is HOLD
+        run: npm run localization:evaluate -- --expect=HOLD
+
+      - name: Validate localization foundation
+        run: npm run i18n:validate
+
+      - name: Build public site
+        run: npm run build
+
+      - name: Validate public output
+        run: npm run public:validate
+
+      - name: Re-evaluate current evidence after build
+        run: npm run localization:evaluate -- --expect=HOLD
