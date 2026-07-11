@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "phase": "L-2 Localization Evaluation Gate",
+  "window": {
+    "start_date": "2026-07-11",
+    "end_date": "2026-07-11",
+    "observation_days": 0
+  },
+  "external_metrics": {
+    "japanese_search_impressions": null,
+    "japanese_search_clicks": null,
+    "indexed_route_sample_pass_rate": null,
+    "japanese_pageviews": null,
+    "language_switch_events": null
+  },
+  "operational_metrics": {
+    "broken_locale_links": 0,
+    "critical_locale_failure": false,
+    "translation_sync_incidents": 0,
+    "operator_qa_minutes_per_batch": null,
+    "localization_ci_failures": null,
+    "localization_ci_runs": null
+  },
+  "signals": {
+    "search_visibility": "unknown",
+    "usage": "unknown",
+    "quality": "positive",
+    "operations": "unknown"
+  },
+  "evidence_notes": [
+    "Japanese public routes and 750 Japanese dossier routes passed the activation gate.",
+    "The first reviewed optional entity-copy overlay sample contains 5 Japanese summaries and 0 event overlays.",
+    "The pilot is newly activated, so search, usage, indexing, and operator-burden evidence are not yet mature enough for GO or PIVOT.",
+    "Current decision must remain HOLD until the minimum observation window and required external metrics are satisfied."
+  ]
+}
