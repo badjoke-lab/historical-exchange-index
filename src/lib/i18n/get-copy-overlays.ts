@@ -3,37 +3,25 @@ import jaEntities from '../../../data-i18n/ja/entities-copy.json'
 import enEvents from '../../../data-i18n/en/events-copy.json'
 import jaEvents from '../../../data-i18n/ja/events-copy.json'
 import type { SupportedLocale } from '../../i18n/config'
-import type { EntityLocalizedCopy } from './merge-entity-copy'
-import type { EventLocalizedCopy } from './merge-event-copy'
+import type { EntityCopyOverlay } from './merge-entity-copy'
+import type { EventCopyOverlay } from './merge-event-copy'
 
-type EntityOverlayDocument = {
-  schema_version: number
-  locale: string
-  records: Record<string, EntityLocalizedCopy>
+const entityDocuments: Record<SupportedLocale, EntityCopyOverlay> = {
+  en: enEntities as EntityCopyOverlay,
+  ja: jaEntities as EntityCopyOverlay,
 }
 
-type EventOverlayDocument = {
-  schema_version: number
-  locale: string
-  records: Record<string, EventLocalizedCopy>
+const eventDocuments: Record<SupportedLocale, EventCopyOverlay> = {
+  en: enEvents as EventCopyOverlay,
+  ja: jaEvents as EventCopyOverlay,
 }
 
-const entityDocuments: Record<SupportedLocale, EntityOverlayDocument> = {
-  en: enEntities,
-  ja: jaEntities,
+export function getEntityCopyOverlay(locale: SupportedLocale): EntityCopyOverlay {
+  return entityDocuments[locale]
 }
 
-const eventDocuments: Record<SupportedLocale, EventOverlayDocument> = {
-  en: enEvents,
-  ja: jaEvents,
-}
-
-export function getEntityCopy(locale: SupportedLocale, slug: string): EntityLocalizedCopy | undefined {
-  return entityDocuments[locale].records[slug]
-}
-
-export function getEventCopy(locale: SupportedLocale, eventId: string): EventLocalizedCopy | undefined {
-  return eventDocuments[locale].records[eventId]
+export function getEventCopyOverlay(locale: SupportedLocale): EventCopyOverlay {
+  return eventDocuments[locale]
 }
 
 export function getCopyOverlayCounts(locale: SupportedLocale) {
