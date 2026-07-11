@@ -150,6 +150,7 @@ Read:
 
 ```text
 docs/HEI_V1_EXECUTION_ROADMAP.md
+config/maintainer-recovery-contract.json
 ```
 
 Extract:
@@ -170,12 +171,12 @@ If roadmap and current GitHub state disagree:
 3. continue from repository truth;
 4. repair the stale checkpoint in the next appropriate reviewed PR.
 
-At the 2026-07-08 post-Compare checkpoint, repository authorities expect:
+Current reviewed checkpoint after D-750 and L-1 completion:
 
 ```text
-current phase: D-750 Reviewed Entity Milestone
-current work item: grow reviewed public entities from 550 to >=750
-next work item: L-1 Japanese Pilot
+current phase: L-2 Localization Evaluation Gate
+current work item: L2-1 — Evaluation contract, telemetry, and evidence capture
+next work item: D-1000 Reviewed Entity Milestone
 ```
 
 Phase state:
@@ -183,17 +184,19 @@ Phase state:
 ```text
 Phase G — v1.0 Integration Baseline: COMPLETE
 Phase H — Compare v1:                 COMPLETE
-D-750 Reviewed Entity Milestone:      CURRENT
+D-750 Reviewed Entity Milestone:      COMPLETE
+L-1 Japanese Pilot:                   COMPLETE
+L-2 Localization Evaluation Gate:     CURRENT
 ```
 
 The fixed post-v1 priority sequence remains:
 
 ```text
 Phase H — Compare v1                 COMPLETE
-D-750 Reviewed Entity Milestone      CURRENT
-L-1 Japanese Pilot
-L-2 Localization Evaluation Gate
-D-1000 Reviewed Entity Milestone
+D-750 Reviewed Entity Milestone      COMPLETE
+L-1 Japanese Pilot                   COMPLETE
+L-2 Localization Evaluation Gate     CURRENT
+D-1000 Reviewed Entity Milestone     NEXT AFTER L-2 DECISION
 Language Selection Gate
 ```
 
@@ -229,19 +232,12 @@ scripts/lib/reviewed-bundle-aggregation.mjs
 scripts/lib/entity-corrections.mjs
 ```
 
-Current expected reviewed counts at the D-750 start checkpoint:
+Current expected reviewed counts:
 
 ```text
-Entities:  550
+Entities:  750
 Events:    1004
-Evidence:  2621
-```
-
-D-750 target:
-
-```text
-reviewed public entities >= 750
-remaining from checkpoint: +200 reviewed entities
+Evidence:  3219
 ```
 
 Run:
@@ -268,11 +264,26 @@ The milestone count rules explicitly reject:
 
 ## 9. Step 7 — Read active phase specification and task-specific contracts
 
-For the current D-750 phase, read:
+For the current L-2 phase, read:
+
+```text
+docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md
+docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
+config/l2-localization-evaluation-contract.json
+data-evaluation/l2-localization-evidence.json
+```
+
+For Japanese Pilot maintenance, also read:
+
+```text
+docs/HEI_L1_JAPANESE_PILOT_IMPLEMENTATION_PLAN.md
+config/japanese-pilot-route-contract.json
+```
+
+For data-growth planning after L-2, read:
 
 ```text
 docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md
-docs/HEI_V1_EXECUTION_ROADMAP.md
 ```
 
 For Compare maintenance, also read:
@@ -282,13 +293,7 @@ docs/HEI_COMPARE_V1_SPEC.md
 config/compare-v1-contract.json
 ```
 
-For localization gates, read:
-
-```text
-docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md
-```
-
-The first incomplete roadmap item after Phase H is D-750. Do not begin the public L-1 Japanese Pilot before D-750 is complete.
+L-2 decides GO / HOLD / PIVOT for the Japanese Pilot. It does not authorize a third language.
 
 ## 10. Step 8 — Read latest production verification report before production diagnosis
 
@@ -321,8 +326,20 @@ npm run policy:check
 npm run records:validate
 npm run machine:validate
 npm run public:validate
+npm run localization:evaluate:test
+npm run localization:telemetry:test
+npm run localization:evaluate
 npm run recovery:test
 npm run recovery:validate
+```
+
+For L-2 evaluation changes, confirm:
+
+```text
+GO/HOLD/PIVOT self-test passes
+telemetry source test passes
+current evidence snapshot evaluates reproducibly
+third_language_authorized remains false
 ```
 
 For data-growth changes, run the relevant overlap, duplicate, ID-collision, count-semantics, and quality gates already wired into GitHub Actions.
@@ -340,13 +357,16 @@ At this checkpoint:
 
 ```text
 Phase H COMPLETE
-D-750 CURRENT
-L-1 BLOCKED UNTIL D-750 COMPLETE
+D-750 COMPLETE
+L-1 COMPLETE
+L-2 CURRENT
 ```
 
-Resume reviewed entity growth under the D-750 milestone rules.
+Resume L2-1 evaluation evidence capture and keep the current decision at HOLD until the minimum observation window and required evidence are complete.
 
-Do not substitute raw candidates, staging records, aliases, deployment splits, or relaxed evidence requirements for reviewed public entities.
+Do not fabricate Search Console or GA4 values. Do not infer demand from route existence alone.
+
+After the L-2 decision, resume the D-1000 Reviewed Entity Milestone according to roadmap order.
 
 ## 13. Step 11 — Repair stale checkpoint in the next appropriate reviewed PR
 
