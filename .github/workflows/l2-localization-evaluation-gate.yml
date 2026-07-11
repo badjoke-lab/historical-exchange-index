@@ -39,7 +39,7 @@ jobs:
         run: npm run localization:evaluate -- --expect=HOLD
 
       - name: Write current evaluation report
-        run: npm run localization:evaluate -- --json > l2-localization-evaluation-report.json
+        run: node scripts/evaluate-l2-localization-gate.mjs --json > l2-localization-evaluation-report.json
 
       - name: Upload current evaluation report
         uses: actions/upload-artifact@v4
