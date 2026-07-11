@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { buildDetailView } from '../../../../lib/data/build-detail-view'
 import { loadEntities } from '../../../../lib/data/load-entities'
-import { getEntityCopy, getEventCopy } from '../../../../lib/i18n/get-copy-overlays'
+import { getEntityCopyOverlay, getEventCopyOverlay } from '../../../../lib/i18n/get-copy-overlays'
 import { mergeEntityCopy } from '../../../../lib/i18n/merge-entity-copy'
 import { mergeEventCopy } from '../../../../lib/i18n/merge-event-copy'
 import { buildLocalizedPageMetadata, getPagePresentation } from '../../../../lib/i18n/page-presentations'
@@ -63,8 +63,10 @@ export default async function JapaneseExchangeDetailPage({ params }: JapaneseDet
   }
 
   const { entity, events, evidence, relatedEntities, prefersArchive } = detail
-  const localizedEntity = mergeEntityCopy(entity, getEntityCopy('ja', entity.slug))
-  const localizedEvents = events.map((event) => mergeEventCopy(event, getEventCopy('ja', event.id)))
+  const entityOverlay = getEntityCopyOverlay('ja')
+  const eventOverlay = getEventCopyOverlay('ja')
+  const localizedEntity = mergeEntityCopy(entity, entityOverlay)
+  const localizedEvents = events.map((event) => mergeEventCopy(event, eventOverlay))
   const originalClickable = safeOriginalUrl(entity.official_url_status)
 
   return (
