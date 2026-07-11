@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "phase": "L-2 Localization Evaluation Gate",
+  "decision_values": ["GO", "HOLD", "PIVOT"],
+  "minimum_observation_days": 28,
+  "required_external_metrics": [
+    "japanese_search_impressions",
+    "japanese_search_clicks",
+    "indexed_route_sample_pass_rate",
+    "japanese_pageviews",
+    "language_switch_events"
+  ],
+  "required_signal_groups": [
+    "search_visibility",
+    "usage",
+    "quality",
+    "operations"
+  ],
+  "signal_values": ["positive", "neutral", "negative", "unknown"],
+  "go_rule": {
+    "require_complete_external_metrics": true,
+    "require_no_negative_signals": true,
+    "require_search_or_usage_positive": true,
+    "allow_neutral_quality": true,
+    "allow_neutral_operations": true
+  },
+  "pivot_rule": {
+    "critical_locale_failure_immediate": true,
+    "quality_negative_immediate": true,
+    "negative_signal_count_at_least": 2
+  },
+  "hold_rule": {
+    "insufficient_observation_window": true,
+    "missing_required_external_metrics": true,
+    "unknown_required_signal": true,
+    "search_and_usage_without_positive_signal": true
+  },
+  "third_language_authorization": false,
+  "notes": [
+    "L-2 evaluates the Japanese Pilot only.",
+    "GO does not authorize a third language.",
+    "HOLD is the required default while the observation window is too short or evidence is incomplete.",
+    "PIVOT is reserved for material quality, operations, or adoption problems rather than ordinary low-volume early data."
+  ]
+}
