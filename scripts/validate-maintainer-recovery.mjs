@@ -103,7 +103,10 @@ function validateRoadmap(rootDir, contract) {
   const l1Plan = contract.authoritative_paths.l1_implementation_plan
     ? readText(path.join(rootDir, contract.authoritative_paths.l1_implementation_plan))
     : ''
-  const authorityText = [roadmap, milestoneReport ?? '', l1Plan ?? ''].join('\n')
+  const l2Plan = contract.authoritative_paths.l2_evaluation_plan
+    ? readText(path.join(rootDir, contract.authoritative_paths.l2_evaluation_plan))
+    : ''
+  const authorityText = [roadmap, milestoneReport ?? '', l1Plan ?? '', l2Plan ?? ''].join('\n')
   const findings = []
 
   for (const [type, expected] of [
