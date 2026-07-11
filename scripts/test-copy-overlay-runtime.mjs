@@ -46,21 +46,21 @@ const dossierSource = readText('src/app/ja/exchange/[slug]/page.tsx')
 const loaderSource = readText('src/lib/i18n/get-copy-overlays.ts')
 const localeTypeSource = readText('src/i18n/config.ts')
 
-assert(dossierSource.includes("getEntityCopy('ja', entity.slug)"), 'Japanese dossier does not load entity overlay copy')
-assert(dossierSource.includes("getEventCopy('ja', event.id)"), 'Japanese dossier does not load event overlay copy')
-assert(dossierSource.includes('mergeEntityCopy(entity'), 'Japanese dossier does not apply safe entity copy merge')
-assert(dossierSource.includes('mergeEventCopy(event'), 'Japanese dossier does not apply safe event copy merge')
+assert(dossierSource.includes("getEntityCopyOverlay('ja')"), 'Japanese dossier does not load entity overlay document')
+assert(dossierSource.includes("getEventCopyOverlay('ja')"), 'Japanese dossier does not load event overlay document')
+assert(dossierSource.includes('mergeEntityCopy(entity, entityOverlay)'), 'Japanese dossier does not pass entity overlay document to safe merge utility')
+assert(dossierSource.includes('mergeEventCopy(event, eventOverlay)'), 'Japanese dossier does not pass event overlay document to safe merge utility')
 assert(dossierSource.includes('localizedEntity.summary'), 'Japanese dossier does not render localized entity summary')
 assert(dossierSource.includes('localizedEvents.map'), 'Japanese dossier does not render localized event collection')
 
 assert(loaderSource.includes('data-i18n/ja/entities-copy.json'), 'static Japanese entity overlay import missing')
 assert(loaderSource.includes('data-i18n/ja/events-copy.json'), 'static Japanese event overlay import missing')
-assert(loaderSource.includes('getEntityCopy'), 'entity copy loader missing')
-assert(loaderSource.includes('getEventCopy'), 'event copy loader missing')
+assert(loaderSource.includes('getEntityCopyOverlay'), 'entity overlay document loader missing')
+assert(loaderSource.includes('getEventCopyOverlay'), 'event overlay document loader missing')
 assert(localeTypeSource.includes("export type PublicLocale = 'en' | 'ja'"), 'PublicLocale type is stale')
 
 const untranslatedSlug = canonicalEntities.find((entity) => !expectedSampleSlugs.includes(entity.slug))?.slug
 assert(untranslatedSlug, 'could not find fallback sample entity')
 assert(japaneseEntities.records[untranslatedSlug] === undefined, 'fallback sample unexpectedly has localized copy')
 
-console.log(`L1-5 copy overlay runtime tests passed: ${expectedSampleSlugs.length} reviewed entity summaries, 0 event overlays, canonical-field isolation, static loader wiring, and fallback sample verified.`)
+console.log(`L1-5 copy overlay runtime tests passed: ${expectedSampleSlugs.length} reviewed entity summaries, 0 event overlays, document-level loader wiring, canonical-field isolation, and fallback sample verified.`)
