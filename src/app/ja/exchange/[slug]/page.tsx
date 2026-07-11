@@ -2,6 +2,9 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { buildDetailView } from '../../../../lib/data/build-detail-view'
 import { loadEntities } from '../../../../lib/data/load-entities'
+import { getEntityCopyOverlay, getEventCopyOverlay } from '../../../../lib/i18n/get-copy-overlays'
+import { mergeEntityCopy } from '../../../../lib/i18n/merge-entity-copy'
+import { mergeEventCopy } from '../../../../lib/i18n/merge-event-copy'
 import { buildLocalizedPageMetadata, getPagePresentation } from '../../../../lib/i18n/page-presentations'
 import { formatDate } from '../../../../lib/utils/format-date'
 import { formatYears } from '../../../../lib/utils/format-years'
@@ -60,6 +63,10 @@ export default async function JapaneseExchangeDetailPage({ params }: JapaneseDet
   }
 
   const { entity, events, evidence, relatedEntities, prefersArchive } = detail
+  const entityOverlay = getEntityCopyOverlay('ja')
+  const eventOverlay = getEventCopyOverlay('ja')
+  const localizedEntity = mergeEntityCopy(entity, entityOverlay)
+  const localizedEvents = events.map((event) => mergeEventCopy(event, eventOverlay))
   const originalClickable = safeOriginalUrl(entity.official_url_status)
 
   return (
@@ -79,7 +86,7 @@ export default async function JapaneseExchangeDetailPage({ params }: JapaneseDet
           <div>
             <p className="muted" style={{ margin: '0 0 8px', fontSize: '12px' }}>{presentation.eyebrow}</p>
             <h2 style={{ margin: 0, fontSize: '34px', letterSpacing: '-0.04em' }}>{entity.canonical_name}</h2>
-            <p className="muted" style={{ marginTop: '10px', lineHeight: 1.7 }}>{entity.summary}</p>
+            <p className="muted" style={{ marginTop: '10px', lineHeight: 1.7 }}>{localizedEntity.summary}</p>
           </div>
           <div className="chips">
             <span className="chip type">{entity.type.toUpperCase()}</span>
@@ -120,9 +127,9 @@ export default async function JapaneseExchangeDetailPage({ params }: JapaneseDet
 
         <div className="section">
           <h3>Timeline</h3>
-          {events.length > 0 ? (
+          {localizedEvents.length > 0 ? (
             <div className="record-list">
-              {events.map((event) => (
+              {localizedEvents.map((event) => (
                 <article className="record-item" key={event.id}>
                   <div className="record-main">
                     <strong className="record-title">{event.title}</strong>

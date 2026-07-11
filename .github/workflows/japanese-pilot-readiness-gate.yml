@@ -47,6 +47,9 @@ jobs:
       - name: Test Japanese static HTML postprocessor
         run: npm run i18n:static-html:test
 
+      - name: Test L1-5 copy overlay runtime
+        run: node scripts/test-copy-overlay-runtime.mjs
+
       - name: Build machine-readable layer
         run: npm run machine:build
 

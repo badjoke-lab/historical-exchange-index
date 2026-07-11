@@ -3,8 +3,8 @@
   "repository": "badjoke-lab/historical-exchange-index",
   "default_branch": "main",
   "current_phase": "L-1 Japanese Pilot",
-  "current_item": "L1-4 — Route shell, metadata, sitemap, and activation",
-  "next_item": "L1-5 — Controlled optional record-copy sample",
+  "current_item": "L1-5 — Controlled optional record-copy sample",
+  "next_item": "L-2 Localization Evaluation Gate",
   "reviewed_counts": {
     "entities": 750,
     "events": 1004,
@@ -20,6 +20,7 @@
     "localization_spec": "docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md",
     "l1_implementation_plan": "docs/HEI_L1_JAPANESE_PILOT_IMPLEMENTATION_PLAN.md",
     "d750_completion_report": "docs/audits/HEI_D750_MILESTONE_COMPLETION_2026-07-10.md",
+    "l1_activation_completion_report": "docs/audits/HEI_L1_JAPANESE_PILOT_ROUTE_ACTIVATION_COMPLETION_2026-07-10.md",
     "deployment_policy": "docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md",
     "cloudflare_project_policy": "config/cloudflare-pages-project.json",
     "production_verification_contract": "config/production-verification-contract.json",
