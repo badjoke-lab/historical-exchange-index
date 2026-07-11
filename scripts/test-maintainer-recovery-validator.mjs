@@ -38,8 +38,10 @@ try {
     'docs',
     'config',
     'data',
+    'data-evaluation',
     'records/exchanges',
     'scripts/validate-maintainer-recovery.mjs',
+    'scripts/evaluate-l2-localization-gate.mjs',
     'scripts/validate-v1-baseline.mjs',
     'scripts/lib/entity-corrections.mjs',
     'scripts/lib/reviewed-bundle-aggregation.mjs',
@@ -48,11 +50,14 @@ try {
   }
 
   const contractPath = path.join(tempRoot, 'config', 'maintainer-recovery-contract.json')
-  const l1PlanPath = path.join(tempRoot, 'docs', 'HEI_L1_JAPANESE_PILOT_IMPLEMENTATION_PLAN.md')
   const packagePath = path.join(tempRoot, 'package.json')
 
   const originalContract = fs.readFileSync(contractPath, 'utf8')
-  const originalL1Plan = fs.readFileSync(l1PlanPath, 'utf8')
+  const parsedContract = JSON.parse(originalContract)
+  const activePlanRelative = parsedContract.authoritative_paths.l2_evaluation_plan
+    ?? parsedContract.authoritative_paths.l1_implementation_plan
+  const activePlanPath = path.join(tempRoot, activePlanRelative)
+  const originalActivePlan = fs.readFileSync(activePlanPath, 'utf8')
   const originalPackage = fs.readFileSync(packagePath, 'utf8')
 
   runValidator(true)
@@ -63,10 +68,10 @@ try {
   runValidator(false, 'reviewed_count_mismatch')
   fs.writeFileSync(contractPath, originalContract)
 
-  const currentItem = JSON.parse(originalContract).current_item
-  fs.writeFileSync(l1PlanPath, originalL1Plan.replaceAll(currentItem, 'L1 CURRENT ITEM REMOVED FOR SELF-TEST'))
+  const currentItem = parsedContract.current_item
+  fs.writeFileSync(activePlanPath, originalActivePlan.replaceAll(currentItem, 'CURRENT ITEM REMOVED FOR SELF-TEST'))
   runValidator(false, 'current_item_missing')
-  fs.writeFileSync(l1PlanPath, originalL1Plan)
+  fs.writeFileSync(activePlanPath, originalActivePlan)
 
   const commandBroken = JSON.parse(originalPackage)
   delete commandBroken.scripts['recovery:validate']

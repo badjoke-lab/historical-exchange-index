@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { publicLocales, type SupportedLocale } from '../../i18n/config'
+import { trackAnalyticsEvent } from '../../lib/analytics/track-event'
 import {
   buildLocalePath,
   isJapanesePilotPath,
@@ -35,6 +36,15 @@ export default function LocaleSwitcher({
     return locale === 'ja' ? japaneseLabel : englishLabel
   }
 
+  function trackSwitch(targetLocale: SupportedLocale) {
+    if (targetLocale === current.locale) return
+    trackAnalyticsEvent('hei_language_switch', {
+      from_locale: current.locale,
+      to_locale: targetLocale,
+      source_path: current.pathname,
+    })
+  }
+
   return (
     <div className="locale-switcher" aria-label={ariaLabel}>
       {locales.map((locale) => {
@@ -49,6 +59,7 @@ export default function LocaleSwitcher({
             href={href}
             hrefLang={locale}
             aria-current={isCurrent ? 'page' : undefined}
+            onClick={() => trackSwitch(locale)}
           >
             {labelFor(locale)}
           </Link>
