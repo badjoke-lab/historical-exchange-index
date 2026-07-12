@@ -15,17 +15,17 @@ BO1 is the fifth reviewed five-entity batch during the L-2 initial HOLD period a
 ## 2. Batch contents
 
 ```text
-AstroSwap        hei_ex_000887  limited
-BCSwap           hei_ex_000888  limited
-Beamex AMM       hei_ex_000889  limited
-Baseline (Base)  hei_ex_000890  active
-Blitz AMM        hei_ex_000891  limited
+AstroSwap       hei_ex_000887  limited
+BCSwap          hei_ex_000888  limited
+Beamex AMM      hei_ex_000889  limited
+BLEX            hei_ex_000890  active
+BMX Classic AMM hei_ex_000891  limited
 ```
 
 Repair:
 
 ```text
-AutoShark        hei_ex_000541  dead / official URL unsafe
+AutoShark       hei_ex_000541  dead / official URL unsafe
 ```
 
 ## 3. Projected reviewed state
@@ -52,8 +52,8 @@ Remaining to D-1000:
 
 ## 4. Status discipline
 
-- Baseline (Base) is active from a reachable first-party trading application and recently updated markets with material 24-hour volume.
-- AstroSwap, BCSwap, Beamex AMM, and Blitz AMM remain limited because identity or historical activity persists while strong recent exchange activity is insufficient.
+- BLEX is active from current Arbitrum TVL, fee generation, and perpetual-market history.
+- AstroSwap, BCSwap, Beamex AMM, and BMX Classic AMM remain limited because identity or historical activity persists while strong recent exchange activity is insufficient.
 - AutoShark remains dead because the first-party shutdown announcement is authoritative; residual metrics do not revive the entity.
 
 ## 5. URL safety finding
@@ -64,9 +64,18 @@ BO1 marks the domain `unsafe` while preserving the historical original URL and a
 
 ## 6. Backlog freshness finding
 
-The verified-unadded backlog contained extensive already-reviewed version, slug, and alias rows. Initial BO1 candidates AuraSwap, BarterSwap Superposition, Basin Exchange, and Beam Swap were rejected by the overlap gate and replaced before merge.
+The verified-unadded backlog contains extensive already-reviewed version, product, slug, and alias rows. Two successive BO1 overlap runs rejected six proposed additions before the final candidate set was reached:
 
-This confirms that every growth batch must trust current-main canonical and alias checks over the generated backlog's historical `hei_existing_check` field.
+```text
+AuraSwap
+BarterSwap Superposition
+Basin Exchange
+Beam Swap
+Baseline (Base)
+Blitz AMM
+```
+
+This confirms that current-main canonical and alias checks must override the generated backlog's historical `hei_existing_check` field.
 
 ## 7. Safety boundaries
 
@@ -107,7 +116,7 @@ docs/backlog/consumed/hei_unadded-bo1-five-exchanges.md
 records/exchanges/astroswap.json
 records/exchanges/bcswap.json
 records/exchanges/beamex-amm.json
-records/exchanges/baseline-base.json
-records/exchanges/blitz-amm.json
+records/exchanges/blex.json
+records/exchanges/bmx-classic-amm.json
 records/exchanges/autoshark.json
 ```
