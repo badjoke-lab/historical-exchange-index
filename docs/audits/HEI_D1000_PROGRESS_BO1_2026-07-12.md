@@ -15,17 +15,17 @@ BO1 is the fifth reviewed five-entity batch during the L-2 initial HOLD period a
 ## 2. Batch contents
 
 ```text
-AstroSwap                 hei_ex_000887  limited
-AuraSwap                  hei_ex_000888  limited
-BarterSwap Superposition  hei_ex_000889  active
-Basin Exchange            hei_ex_000890  active
-Beam Swap                 hei_ex_000891  active
+AstroSwap        hei_ex_000887  limited
+BCSwap           hei_ex_000888  limited
+Beamex AMM       hei_ex_000889  limited
+Baseline (Base)  hei_ex_000890  active
+Blitz AMM        hei_ex_000891  limited
 ```
 
 Repair:
 
 ```text
-AutoShark                 hei_ex_000541  dead / official URL unsafe
+AutoShark        hei_ex_000541  dead / official URL unsafe
 ```
 
 ## 3. Projected reviewed state
@@ -52,8 +52,8 @@ Remaining to D-1000:
 
 ## 4. Status discipline
 
-- AstroSwap and AuraSwap remain limited because residual identity or TVL persists while recent trading is negligible or zero.
-- BarterSwap Superposition, Basin Exchange, and Beam Swap are active from current first-party availability and recent market activity.
+- Baseline (Base) is active from a reachable first-party trading application and recently updated markets with material 24-hour volume.
+- AstroSwap, BCSwap, Beamex AMM, and Blitz AMM remain limited because identity or historical activity persists while strong recent exchange activity is insufficient.
 - AutoShark remains dead because the first-party shutdown announcement is authoritative; residual metrics do not revive the entity.
 
 ## 5. URL safety finding
@@ -64,9 +64,9 @@ BO1 marks the domain `unsafe` while preserving the historical original URL and a
 
 ## 6. Backlog freshness finding
 
-The verified-unadded backlog contained many already-reviewed version or alias rows, including Astroport, Astrovault, Atlantis, Atmos, Auragi, AuroraSwap, AutoShark, AUX Exchange, Axial, BabyDogeSwap, BabySwap, BaseX, and Bancor.
+The verified-unadded backlog contained extensive already-reviewed version, slug, and alias rows. Initial BO1 candidates AuraSwap, BarterSwap Superposition, Basin Exchange, and Beam Swap were rejected by the overlap gate and replaced before merge.
 
-BO1 excludes these duplicates and applies a repair where current URL evidence materially changed.
+This confirms that every growth batch must trust current-main canonical and alias checks over the generated backlog's historical `hei_existing_check` field.
 
 ## 7. Safety boundaries
 
@@ -105,9 +105,9 @@ docs/audits/HEI_L2_INITIAL_HOLD_CHECKPOINT_2026-07-11.md
 docs/audits/HEI_D1000_PROGRESS_BN1_2026-07-12.md
 docs/backlog/consumed/hei_unadded-bo1-five-exchanges.md
 records/exchanges/astroswap.json
-records/exchanges/auraswap.json
-records/exchanges/barterswap-superposition.json
-records/exchanges/basin-exchange.json
-records/exchanges/beam-swap.json
+records/exchanges/bcswap.json
+records/exchanges/beamex-amm.json
+records/exchanges/baseline-base.json
+records/exchanges/blitz-amm.json
 records/exchanges/autoshark.json
 ```
