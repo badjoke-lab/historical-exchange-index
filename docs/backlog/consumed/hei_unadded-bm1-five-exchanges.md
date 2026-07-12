@@ -1,4 +1,4 @@
-# D-1000 Batch BM1 — Amped Finance, Apex DeFi, Aquifer, Arbitrum Exchange, and Amaterasu Finance
+# D-1000 Batch BM1 — Amped Finance, Apex DeFi, Aquifer, Arch Swap, and Amaterasu Finance
 
 Reviewed at: 2026-07-12
 
@@ -7,7 +7,7 @@ Reviewed at: 2026-07-12
 - `0050` Amped Finance -> `hei_ex_000877`, limited DEX
 - `0065` Apex DeFi -> `hei_ex_000878`, active DEX
 - `0068` Aquifer -> `hei_ex_000879`, active DEX
-- `0071` Arbitrum Exchange V2 + `0072` Arbitrum Exchange V3 -> `hei_ex_000880`, limited DEX, canonicalized as Arbitrum Exchange
+- `0073` Arch Swap -> `hei_ex_000880`, limited DEX
 - `0046` Amaterasu Finance -> `hei_ex_000881`, active DEX
 
 ## Status decisions
@@ -15,13 +15,13 @@ Reviewed at: 2026-07-12
 - Amped Finance is `limited`, not `active` or `dead`, because the current first-party site has shifted to a coming-soon index-backed borrowing product while registry data still preserves residual DEX and perpetual-market activity.
 - Apex DeFi is `active` because its first-party site remains reachable and current protocol data preserves liquidity plus non-zero recent DEX volume.
 - Aquifer is `active` because its first-party application remains reachable and current Solana DEX data reports substantial recent volume.
-- Arbitrum Exchange is `limited`, not `active` or `dead`, because residual TVL and fee activity remain while 24-hour, 7-day, and 30-day DEX volume are zero.
+- Arch Swap is `limited`, not `active` or `dead`, because residual Botanix TVL and cumulative exchange history remain while 24-hour, 7-day, and 30-day DEX volume are zero.
 - Amaterasu Finance is `active` because current Aurora protocol data preserves continuing liquidity and exchange registries preserve the app.amaterasu.fi identity.
 
 ## Entity-first decisions
 
-- Arbitrum Exchange V2 and V3 are one exchange entity rather than separate version-specific entities.
 - Amped Finance remains one historical exchange entity while its current first-party product direction is changing.
+- Arch Swap is modeled as one Botanix CLMM entity.
 
 ## Stale-overlap findings
 
@@ -29,6 +29,7 @@ The verified-unadded backlog contained candidates that are no longer unadded:
 
 - `0053` Angstrom already exists as `hei_ex_000531` with a high-confidence active record.
 - `0062` and `0063` ApertureSwap already exist as `hei_ex_000534` with a high-confidence active record.
+- `0070` Arbidex and `0071` / `0072` Arbitrum Exchange V2 / V3 already resolve to `hei_ex_000539`, whose aliases and notes explicitly consolidate the Arbidex and Arbitrum Exchange identities.
 
 These stale rows were excluded from BM1 and were not duplicated.
 
@@ -46,9 +47,9 @@ The first-party site remains reachable. Current protocol data preserves liquidit
 
 The first-party JavaScript application remains reachable. Current Solana DEX data reports substantial 24-hour, 7-day, and 30-day volume. Confidence is `medium`.
 
-### Arbitrum Exchange
+### Arch Swap
 
-Current combined protocol data preserves V2 and V3 identity, residual liquidity, and small fee activity, but recent DEX-volume windows are zero. Confidence is `medium`.
+Current Botanix protocol data preserves the CLMM identity, residual TVL, and cumulative fees and volume. Recent DEX-volume windows are zero, so status is limited. Confidence is `medium`.
 
 ### Amaterasu Finance
 
