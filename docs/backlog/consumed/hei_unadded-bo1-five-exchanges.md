@@ -1,4 +1,4 @@
-# D-1000 Batch BO1 — AstroSwap, BCSwap, Beamex AMM, Baseline (Base), and Blitz AMM
+# D-1000 Batch BO1 — AstroSwap, BCSwap, Beamex AMM, BLEX, and BMX Classic AMM
 
 Reviewed at: 2026-07-12
 
@@ -7,8 +7,8 @@ Reviewed at: 2026-07-12
 - `0098` AstroSwap -> `hei_ex_000887`, limited DEX
 - `0147` BCSwap -> `hei_ex_000888`, limited DEX
 - `0149` Beamex AMM -> `hei_ex_000889`, limited DEX
-- `0139` Baseline (Base) -> `hei_ex_000890`, active DEX
-- `0246` Blitz AMM -> `hei_ex_000891`, limited DEX
+- `0245` BLEX -> `hei_ex_000890`, active DEX
+- `0261` BMX Classic AMM -> `hei_ex_000891`, limited DEX
 
 Additional repair:
 
@@ -16,18 +16,16 @@ Additional repair:
 
 ## Status decisions
 
-- AstroSwap is `limited`, not `active` or `dead`, because its first-party site and residual Velas TVL remain while recent trading is negligible or zero.
-- BCSwap is `limited`, not `active` or `dead`, because its BCHyper identity and reachable project domain remain while tracked TVL is zero and a functioning trading interface was not independently verified.
-- Beamex AMM is `limited`, not `active` or `dead`, because substantial cumulative Moonbeam volume remains documented while strong recent activity and a stable first-party application were not recovered.
-- Baseline (Base) is `active` because its first-party trading application remains reachable and current exchange data reports recently updated markets and material 24-hour volume.
-- Blitz AMM is `limited`, not `active` or `dead`, because substantial cumulative Blast exchange volume remains documented while recent activity evidence and a stable first-party application were not recovered.
-- AutoShark remains `dead` because the 2022 first-party shutdown announcement is authoritative. Residual third-party metrics do not override the terminal event.
+- AstroSwap is `limited` because its first-party site and residual Velas TVL remain while recent trading is negligible or zero.
+- BCSwap is `limited` because its BCHyper identity and reachable project domain remain while tracked TVL is zero and a functioning trading interface was not independently verified.
+- Beamex AMM is `limited` because substantial cumulative Moonbeam volume remains documented while strong recent activity and a stable first-party application were not recovered.
+- BLEX is `active` because current Arbitrum data reports non-zero TVL, fee generation, and substantial perpetual volume.
+- BMX Classic AMM is `limited` because substantial cumulative Base and Mode DEX volume remains documented while strong recent activity and first-party availability were not recovered.
+- AutoShark remains `dead` because the 2022 first-party shutdown announcement is authoritative.
 
 ## URL safety repair
 
 The former AutoShark official domain now serves unrelated gambling content.
-
-HEI therefore changes:
 
 ```text
 official_url_status: dead_domain -> unsafe
@@ -37,16 +35,19 @@ The canonical shutdown history and death date remain unchanged. The repair preve
 
 ## Stale-overlap findings
 
-The verified-unadded backlog contained rows that already resolve to reviewed entities. BO1 excluded, among others:
+The verified-unadded backlog contains extensive stale version, slug, product, and alias rows. During BO1, the overlap gate rejected:
 
-- Astroport variants, Astrovault, Atlantis, Atmos, Auragi, AuroraSwap, and AutoShark.
-- AuraSwap, already reviewed as `hei_ex_000554` under `auraswap-polygon`.
-- BarterSwap Superposition, already reviewed as `hei_ex_000560` under `barter`.
-- Basin Exchange, already reviewed as `hei_ex_000557` under `basin`.
-- Beam Swap, already represented by existing Beam network / Beamswap records.
-- AUX Exchange, Axial, BabyDogeSwap, BabySwap, BaseX, Bancor, Bean Exchange, BenSwap, Beralis V3, BetterSwap, BEVMSwap, and BisonFi.
+- AuraSwap -> existing `hei_ex_000554`
+- BarterSwap Superposition -> existing `hei_ex_000560`
+- Basin Exchange -> existing `hei_ex_000557`
+- Beam Swap -> existing Beam network / Beamswap records
+- Baseline (Base) -> existing `hei_ex_000556`
+- Blitz AMM -> existing `hei_ex_000596`
+- bopAMM -> existing Bebop `hei_ex_000609`
 
-These stale rows were not duplicated.
+Other reviewed overlaps include Astroport variants, Astrovault, Atlantis, Atmos, Auragi, AuroraSwap, AutoShark, AUX Exchange, Axial, BabyDogeSwap, BabySwap, BaseX, Bancor, Bean Exchange, BenSwap, Beralis V3, BetterSwap, BEVMSwap, BisonFi, Blue Planet, and BrownFi.
+
+These rows were not duplicated.
 
 ## Evidence decisions
 
@@ -62,13 +63,13 @@ The project domain remains reachable and current registry data preserves the BCH
 
 Current registry data preserves the Moonbeam exchange identity and roughly $75 million in cumulative volume, but does not establish strong recent activity. Confidence is `medium`.
 
-### Baseline (Base)
+### BLEX
 
-The first-party application remains reachable. Current exchange data reports four coins, five pairs, recently updated markets, and material non-zero 24-hour volume. Confidence is `medium`.
+Current Arbitrum protocol data reports non-zero TVL, annualized fees, cumulative fees, and roughly $40 million in cumulative perpetual volume. Confidence is `medium`.
 
-### Blitz AMM
+### BMX Classic AMM
 
-Current registry data preserves the Blast order-book exchange identity and roughly $140 million in cumulative volume, but recent activity evidence is insufficient. Confidence is `medium`.
+Current registry data preserves the Base and Mode AMM identity and roughly $690 million in cumulative DEX volume, but recent activity evidence is insufficient. Confidence is `medium`.
 
 ### AutoShark repair
 
