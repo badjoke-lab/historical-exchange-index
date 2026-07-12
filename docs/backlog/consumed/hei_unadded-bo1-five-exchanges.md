@@ -1,14 +1,14 @@
-# D-1000 Batch BO1 — AstroSwap, AuraSwap, BarterSwap Superposition, Basin Exchange, and Beam Swap
+# D-1000 Batch BO1 — AstroSwap, BCSwap, Beamex AMM, Baseline (Base), and Blitz AMM
 
 Reviewed at: 2026-07-12
 
 ## Results
 
 - `0098` AstroSwap -> `hei_ex_000887`, limited DEX
-- `0108` AuraSwap -> `hei_ex_000888`, limited DEX
-- `0137` BarterSwap Superposition -> `hei_ex_000889`, active DEX
-- `0141` Basin Exchange -> `hei_ex_000890`, active DEX
-- `0148` Beam Swap -> `hei_ex_000891`, active DEX
+- `0147` BCSwap -> `hei_ex_000888`, limited DEX
+- `0149` Beamex AMM -> `hei_ex_000889`, limited DEX
+- `0139` Baseline (Base) -> `hei_ex_000890`, active DEX
+- `0246` Blitz AMM -> `hei_ex_000891`, limited DEX
 
 Additional repair:
 
@@ -16,11 +16,11 @@ Additional repair:
 
 ## Status decisions
 
-- AstroSwap is `limited`, not `active` or `dead`, because its first-party site and residual Velas TVL remain while 7-day and 30-day DEX volume are zero and 24-hour volume is negligible.
-- AuraSwap is `limited`, not `active` or `dead`, because residual Polygon TVL and cumulative exchange history remain while all recent DEX-volume windows are zero.
-- BarterSwap Superposition is `active` because its first-party application remains reachable and current Ethereum volume is non-zero across 24-hour, 7-day, and 30-day windows.
-- Basin Exchange is `active` because its first-party domain remains reachable and current data preserves roughly $3 million in TVL plus non-zero 7-day and 30-day volume.
-- Beam Swap is `active` because its first-party application remains reachable and current exchange data reports recently updated markets and non-zero 24-hour volume.
+- AstroSwap is `limited`, not `active` or `dead`, because its first-party site and residual Velas TVL remain while recent trading is negligible or zero.
+- BCSwap is `limited`, not `active` or `dead`, because its BCHyper identity and reachable project domain remain while tracked TVL is zero and a functioning trading interface was not independently verified.
+- Beamex AMM is `limited`, not `active` or `dead`, because substantial cumulative Moonbeam volume remains documented while strong recent activity and a stable first-party application were not recovered.
+- Baseline (Base) is `active` because its first-party trading application remains reachable and current exchange data reports recently updated markets and material 24-hour volume.
+- Blitz AMM is `limited`, not `active` or `dead`, because substantial cumulative Blast exchange volume remains documented while recent activity evidence and a stable first-party application were not recovered.
 - AutoShark remains `dead` because the 2022 first-party shutdown announcement is authoritative. Residual third-party metrics do not override the terminal event.
 
 ## URL safety repair
@@ -37,18 +37,16 @@ The canonical shutdown history and death date remain unchanged. The repair preve
 
 ## Stale-overlap findings
 
-The verified-unadded backlog also contained rows that already resolve to reviewed entities:
+The verified-unadded backlog contained rows that already resolve to reviewed entities. BO1 excluded, among others:
 
-- Astroport Classic / Terra / Terra 2.0 variants already resolve to `hei_ex_000361`.
-- Astrovault already resolves to `hei_ex_000530`.
-- Atlantis Monad already resolves to `hei_ex_000552`.
-- Atmos DEX and Atmos Studio already resolve to `hei_ex_000553` under one ecosystem-level exchange record.
-- Auragi Finance already resolves to `hei_ex_000546`.
-- AuroraSwap already resolves to `hei_ex_000555`.
-- AutoShark already resolves to `hei_ex_000541` and was repaired rather than duplicated.
-- AUX Exchange, Axial, BabyDogeSwap, BabySwap, BaseX, and Bancor version rows already resolve to reviewed records.
+- Astroport variants, Astrovault, Atlantis, Atmos, Auragi, AuroraSwap, and AutoShark.
+- AuraSwap, already reviewed as `hei_ex_000554` under `auraswap-polygon`.
+- BarterSwap Superposition, already reviewed as `hei_ex_000560` under `barter`.
+- Basin Exchange, already reviewed as `hei_ex_000557` under `basin`.
+- Beam Swap, already represented by existing Beam network / Beamswap records.
+- AUX Exchange, Axial, BabyDogeSwap, BabySwap, BaseX, Bancor, Bean Exchange, BenSwap, Beralis V3, BetterSwap, BEVMSwap, and BisonFi.
 
-These stale rows were excluded from BO1 and were not duplicated.
+These stale rows were not duplicated.
 
 ## Evidence decisions
 
@@ -56,21 +54,21 @@ These stale rows were excluded from BO1 and were not duplicated.
 
 The first-party site remains reachable. Current protocol data preserves residual TVL and cumulative history but almost no recent trading. Confidence is `medium`.
 
-### AuraSwap
+### BCSwap
 
-Current registry data preserves residual TVL and historical exchange identity, but recent volume is zero. Confidence is `medium`.
+The project domain remains reachable and current registry data preserves the BCHyper AMM identity, but tracked TVL is zero. Confidence is `medium`.
 
-### BarterSwap Superposition
+### Beamex AMM
 
-The first-party application remains reachable. Current Ethereum volume is non-zero across all recent windows. Confidence is `medium`.
+Current registry data preserves the Moonbeam exchange identity and roughly $75 million in cumulative volume, but does not establish strong recent activity. Confidence is `medium`.
 
-### Basin Exchange
+### Baseline (Base)
 
-The first-party domain remains reachable. Current Arbitrum and Ethereum data preserves significant TVL and recent activity. Confidence is `medium`.
+The first-party application remains reachable. Current exchange data reports four coins, five pairs, recently updated markets, and material non-zero 24-hour volume. Confidence is `medium`.
 
-### Beam Swap
+### Blitz AMM
 
-The first-party JavaScript application remains reachable. Current exchange data reports seven coins, eight pairs, and non-zero 24-hour volume. Confidence is `medium`.
+Current registry data preserves the Blast order-book exchange identity and roughly $140 million in cumulative volume, but recent activity evidence is insufficient. Confidence is `medium`.
 
 ### AutoShark repair
 
