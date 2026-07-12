@@ -8,10 +8,10 @@ Validate the fifth five-entity D-1000 growth batch and AutoShark URL-safety repa
 
 ```text
 AstroSwap
-AuraSwap
-BarterSwap Superposition
-Basin Exchange
-Beam Swap
+BCSwap
+Beamex AMM
+Baseline (Base)
+Blitz AMM
 AutoShark URL repair
 ```
 
@@ -20,7 +20,7 @@ AutoShark URL repair
 ```text
 record schema validation
 overlap audit
-name/slug/domain duplicate audit
+name/slug/domain/alias duplicate audit
 entity/event/evidence ID collision audit
 verified-unadded scan integrity
 candidate consumption integrity
@@ -50,12 +50,12 @@ Sitemap routes:     1574
 ## Status expectations
 
 ```text
-AstroSwap                 limited
-AuraSwap                  limited
-BarterSwap Superposition  active
-Basin Exchange            active
-Beam Swap                 active
-AutoShark                 dead
+AstroSwap        limited
+BCSwap           limited
+Beamex AMM       limited
+Baseline (Base)  active
+Blitz AMM        limited
+AutoShark        dead
 ```
 
 ## URL-safety expectation
@@ -66,9 +66,9 @@ repurposed gambling domain is not presented as a safe public destination
 historical archive and shutdown evidence remain available
 ```
 
-## Freshness expectations
+## Overlap expectation
 
-The batch must preserve current-main overlap findings and must not duplicate Astroport, Astrovault, Atlantis, Atmos, Auragi, AuroraSwap, AutoShark, AUX Exchange, Axial, BabyDogeSwap, BabySwap, BaseX, or Bancor version rows.
+AuraSwap, BarterSwap Superposition, Basin Exchange, and Beam Swap were rejected by the first BO1 overlap run because they already resolved to reviewed canonical or alias records. The replacement head must report zero blocking overlaps.
 
 ## Merge rule
 
