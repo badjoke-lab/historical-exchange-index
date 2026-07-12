@@ -18,14 +18,8 @@ BM1 is the third reviewed five-entity batch during the L-2 initial HOLD period.
 Amped Finance       hei_ex_000877  limited
 Apex DeFi           hei_ex_000878  active
 Aquifer              hei_ex_000879  active
-Arbitrum Exchange    hei_ex_000880  limited
+Arch Swap            hei_ex_000880  limited
 Amaterasu Finance    hei_ex_000881  active
-```
-
-Entity-first consolidation:
-
-```text
-Arbitrum Exchange V2 + Arbitrum Exchange V3 -> Arbitrum Exchange
 ```
 
 ## 3. Projected reviewed state
@@ -56,12 +50,12 @@ BM1 distinguishes current exchange use from residual registry presence and produ
 
 - Amped Finance remains limited during a first-party shift away from the prior trading interface.
 - Apex DeFi and Aquifer are active from current recent trading activity.
-- Arbitrum Exchange remains limited because liquidity persists but recent DEX volume is zero.
+- Arch Swap remains limited because Botanix liquidity persists but recent DEX volume is zero.
 - Amaterasu Finance is active from current Aurora liquidity.
 
 ## 5. Backlog freshness finding
 
-The verified-unadded backlog contained already-reviewed Angstrom and ApertureSwap rows. BM1 excluded them instead of duplicating existing high-confidence records.
+The verified-unadded backlog contained already-reviewed Angstrom, ApertureSwap, and Arbidex / Arbitrum Exchange rows. BM1 excluded them instead of duplicating existing high-confidence or canonicalized records.
 
 This confirms that each candidate batch must re-run current-main overlap checks rather than trusting the original generated `hei_existing_check` field.
 
@@ -102,6 +96,6 @@ docs/backlog/consumed/hei_unadded-bm1-five-exchanges.md
 records/exchanges/amped-finance.json
 records/exchanges/apex-defi.json
 records/exchanges/aquifer.json
-records/exchanges/arbitrum-exchange.json
+records/exchanges/arch-swap.json
 records/exchanges/amaterasu-finance.json
 ```
