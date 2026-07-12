@@ -10,8 +10,8 @@ Validate the fifth five-entity D-1000 growth batch and AutoShark URL-safety repa
 AstroSwap
 BCSwap
 Beamex AMM
-Baseline (Base)
-Blitz AMM
+BLEX
+BMX Classic AMM
 AutoShark URL repair
 ```
 
@@ -50,12 +50,12 @@ Sitemap routes:     1574
 ## Status expectations
 
 ```text
-AstroSwap        limited
-BCSwap           limited
-Beamex AMM       limited
-Baseline (Base)  active
-Blitz AMM        limited
-AutoShark        dead
+AstroSwap       limited
+BCSwap          limited
+Beamex AMM      limited
+BLEX            active
+BMX Classic AMM limited
+AutoShark       dead
 ```
 
 ## URL-safety expectation
@@ -68,7 +68,7 @@ historical archive and shutdown evidence remain available
 
 ## Overlap expectation
 
-AuraSwap, BarterSwap Superposition, Basin Exchange, and Beam Swap were rejected by the first BO1 overlap run because they already resolved to reviewed canonical or alias records. The replacement head must report zero blocking overlaps.
+Two prior BO1 heads were correctly rejected for duplicate identities. The final head replaces AuraSwap, BarterSwap Superposition, Basin Exchange, Beam Swap, Baseline (Base), and Blitz AMM. The final Records validation must report zero blocking overlaps.
 
 ## Merge rule
 
