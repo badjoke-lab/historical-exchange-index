@@ -10,7 +10,7 @@ Validate the third five-entity D-1000 growth batch:
 Amped Finance
 Apex DeFi
 Aquifer
-Arbitrum Exchange
+Arch Swap
 Amaterasu Finance
 ```
 
@@ -51,13 +51,13 @@ Sitemap routes:     1554
 Amped Finance      limited
 Apex DeFi          active
 Aquifer             active
-Arbitrum Exchange   limited
+Arch Swap           limited
 Amaterasu Finance   active
 ```
 
 ## Freshness expectations
 
-The batch must preserve the current-main overlap finding that Angstrom and ApertureSwap are already reviewed and must not be duplicated.
+The batch must preserve the current-main overlap finding that Angstrom, ApertureSwap, and Arbidex / Arbitrum Exchange are already reviewed and must not be duplicated.
 
 ## Merge rule
 
