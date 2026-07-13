@@ -10,59 +10,68 @@ Project: Historical Exchange Index (HEI)
 D-1000 Reviewed Entity Milestone
 ```
 
-BQ1 is the seventh reviewed growth batch during the L-2 initial HOLD period. It adds five reviewed exchange entities without expanding localization scope.
+BQ1 is the seventh reviewed growth batch during the L-2 initial HOLD period. It adds one reviewed exchange entity and strengthens three existing entities with current evidence without expanding localization scope.
 
 ## 2. Batch contents
 
 ```text
-HbarSuite          hei_ex_000896  active
-Helix Markets      hei_ex_000897  limited
-Hydrometer Finance hei_ex_000898  inactive
-Hummus Finance     hei_ex_000899  active
-Hello DEX          hei_ex_000900  active
+new entity:
+  Hydrometer Finance hei_ex_000898 inactive
+
+existing enrichments:
+  HSuite DEX          hei_ex_000758 active
+  Hummus              hei_ex_000766 active
+  Hello DEX           hei_ex_000771 active
 ```
+
+Helix Markets was excluded after a blocking domain overlap with the existing Helix entity exposed conflicting ecosystem metadata.
 
 ## 3. Projected reviewed state
 
 ```text
-Entities: 784
+Entities: 780
 Events:   1004
-Evidence: 3315
+Evidence: 3313
 ```
 
 Batch delta:
 
 ```text
-Entities: +5
+Entities: +1
 Events:   +0
-Evidence: +10
+Evidence: +8
 ```
 
 Remaining to D-1000:
 
 ```text
-216 reviewed entities
+220 reviewed entities
 ```
 
 ## 4. Status discipline
 
-- HbarSuite is active because the current registry reports substantial Hedera TVL and non-zero 24-hour, 7-day, and 30-day DEX volume and links the dedicated first-party domain.
-- Helix Markets is limited because its exchange identity and cumulative trading history remain preserved, but current TVL is zero and no current recent-volume window is reported.
 - Hydrometer Finance is inactive because the current registry explicitly flags a rug pull involving user funds and a down website. No terminal date is guessed.
-- Hummus Finance is active because its first-party domain remains reachable and current registry data reports Metis TVL and non-zero recent DEX volume.
-- Hello DEX is active because its current exchange profile links the trading interface and reports a recently updated spot pair and non-zero 24-hour volume.
+- HSuite DEX remains active; current HbarSuite registry data adds substantial Hedera TVL and non-zero recent DEX volume to the existing first-party evidence.
+- Hummus remains active; current Metis TVL and 24-hour, 7-day, and 30-day DEX volume strengthen the existing application evidence.
+- Hello DEX remains active; its current exchange profile reports a recently updated spot pair and non-zero 24-hour volume while the trading endpoint remains live_unverified.
 
 ## 5. Backlog freshness and overlap finding
 
-BQ1 selection rejected the following candidate rows after alternate-path and entity-first checks:
+BQ1 identified these alternate-path or entity-first overlaps:
 
 ```text
-Fluid DEX    -> hei_ex_000691
-Holdstation  -> hei_ex_000725
-Haven1 hSwap -> hei_ex_000721
+Fluid DEX      -> hei_ex_000691
+Holdstation    -> hei_ex_000725
+Haven1 hSwap   -> hei_ex_000721
+HbarSuite      -> hei_ex_000758 / HSuite DEX
+Helix Markets  -> hei_ex_000697 domain overlap with Helix
+Hummus Finance -> hei_ex_000766 / Hummus
+Hello DEX      -> hei_ex_000771
 ```
 
-Drift was also deferred rather than added as a simple active entity because current evidence shows an incident and migration context that requires a dedicated lifecycle reconstruction.
+The four duplicate draft records were removed. HSuite, Hummus, and Hello evidence was merged into their existing entities. Helix Markets evidence was not merged because the candidate's ICP classification conflicts with the existing Injective Helix identity despite the shared domain.
+
+Drift was deferred because its incident and migration context requires a dedicated lifecycle reconstruction.
 
 ## 6. Safety boundaries
 
@@ -96,9 +105,8 @@ docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md
 docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
 docs/audits/HEI_D1000_PROGRESS_BP1_2026-07-13.md
 docs/backlog/consumed/hei_unadded-bq1-five-exchanges.md
-records/exchanges/hbarsuite.json
-records/exchanges/helix-markets.json
 records/exchanges/hydrometer-finance.json
-records/exchanges/hummus-finance.json
-records/exchanges/hello-dex.json
+records/exchanges/hsuite-dex.json
+records/exchanges/hummus-amm.json
+records/exchanges/hello-dex-ethereum.json
 ```
