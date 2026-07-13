@@ -4,14 +4,14 @@ Date: 2026-07-12
 
 ## Scope
 
-Validate the fifth five-entity D-1000 growth batch and AutoShark URL-safety repair:
+Validate the BO1 reviewed growth batch, BMX entity-first consolidation, and AutoShark URL-safety repair:
 
 ```text
 AstroSwap
 BCSwap
 Beamex AMM
 BLEX
-BMX Classic AMM
+BMX Classic AMM -> existing BMX Trade
 AutoShark URL repair
 ```
 
@@ -33,18 +33,18 @@ machine-readable build and validation
 public build and validation
 Japanese route count parity
 L-2 evaluation remains HOLD
-maintainer recovery counts == 775 / 1004 / 3295
+maintainer recovery counts == 774 / 1004 / 3295
 ```
 
 ## Expected projected state
 
 ```text
-Entities: 775
+Entities: 774
 Events:   1004
 Evidence: 3295
-English dossiers:  775
-Japanese dossiers: 775
-Sitemap routes:     1574
+English dossiers:  774
+Japanese dossiers: 774
+Sitemap routes:     1572
 ```
 
 ## Status expectations
@@ -54,7 +54,7 @@ AstroSwap       limited
 BCSwap          limited
 Beamex AMM      limited
 BLEX            active
-BMX Classic AMM limited
+BMX Trade       active, enriched with BMX Classic AMM aliases and evidence
 AutoShark       dead
 ```
 
@@ -68,7 +68,7 @@ historical archive and shutdown evidence remain available
 
 ## Overlap expectation
 
-Two prior BO1 heads were correctly rejected for duplicate identities. The final head replaces AuraSwap, BarterSwap Superposition, Basin Exchange, Beam Swap, Baseline (Base), and Blitz AMM. The final Records validation must report zero blocking overlaps.
+Prior BO1 heads were correctly rejected for duplicate identities. The final head removes the separate BMX Classic AMM entity and consolidates its aliases and evidence into existing BMX Trade because both resolve to the same `bmx.trade` identity. Records validation must report zero blocking overlaps.
 
 ## Merge rule
 
