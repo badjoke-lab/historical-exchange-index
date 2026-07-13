@@ -1,0 +1,866 @@
+# HEI Auto Monitoring Report - 20260713
+
+## Run
+
+- run_id: 20260713-062538
+- mode: scheduled-external
+- started_at: 2026-07-13T06:25:38.146Z
+- finished_at: 2026-07-13T06:26:39.548Z
+- meaningful_findings: yes
+
+## Noise control
+
+- total_findings_seen: 1020
+- visible_findings: 732
+- suppressed_repeated_backlog_findings: 288
+- new_findings: 732
+- repeated_findings: 288
+
+## Counts
+
+- monitors: 7
+- findings: 732
+- suppressed_findings: 288
+- candidates: 39
+- critical: 0
+- high: 2
+- medium: 313
+- low: 417
+
+## A candidates
+
+- FCA — review_and_stage_public_quality_record
+- Ukraine — review_and_stage_public_quality_record
+- Arkham — review_and_stage_public_quality_record
+- News UK — review_and_stage_public_quality_record
+- Revolut — review_and_stage_public_quality_record
+- Raises — review_and_stage_public_quality_record
+- CoinDesk — review_for_event_or_entity_staging
+- Algorand Value — review_and_stage_public_quality_record
+
+## B candidates
+
+- Extended Perps — hold_for_active_baseline_or_batch_add
+- RISEx — hold_for_active_baseline_or_batch_add
+- Exponent V2 — hold_for_active_baseline_or_batch_add
+- Hegic — hold_for_active_baseline_or_batch_add
+- Verus Market — hold_for_active_baseline_or_batch_add
+- MUX Perps — hold_for_active_baseline_or_batch_add
+- World Markets Spot — hold_for_active_baseline_or_batch_add
+- MetalX Swap — hold_for_active_baseline_or_batch_add
+- FlashTrade — hold_for_active_baseline_or_batch_add
+- Katana DEX — hold_for_active_baseline_or_batch_add
+- Contango V2 — hold_for_active_baseline_or_batch_add
+- Deri V4 — hold_for_active_baseline_or_batch_add
+- IntentX — hold_for_active_baseline_or_batch_add
+- Hypersurface — hold_for_active_baseline_or_batch_add
+- Arcus Perps — hold_for_active_baseline_or_batch_add
+- Storm Trade — hold_for_active_baseline_or_batch_add
+- Awaken Swap — hold_for_active_baseline_or_batch_add
+- SynFutures V3 — hold_for_active_baseline_or_batch_add
+- Waves Exchange — hold_for_active_baseline_or_batch_add
+- AnyHedge — hold_for_active_baseline_or_batch_add
+- Bumpin Trade — hold_for_active_baseline_or_batch_add
+- Perpl — hold_for_active_baseline_or_batch_add
+- MetalX Dex — hold_for_active_baseline_or_batch_add
+- Hakka Finance — hold_for_active_baseline_or_batch_add
+- TurboFlow Perps — hold_for_active_baseline_or_batch_add
+- Parcl V3 — hold_for_active_baseline_or_batch_add
+- Six — hold_for_regulatory_scope_review
+- Concluding CFTC — hold_for_regulatory_scope_review
+- Hong Kong — hold_for_regulatory_scope_review
+- CoinUnited.io — hold_for_regulatory_scope_review
+
+## Critical / high alerts
+
+- [high] Official site check dns_failure: Aborean Finance (active-status-watch) — investigate_active_to_inactive_candidate
+- [high] Official site check dns_failure: Amaterasu Finance (active-status-watch) — investigate_active_to_inactive_candidate
+
+## Regulatory watch
+
+- enabled: true
+- authorities_configured: 7
+- query_templates: 5
+- queries: 25
+- items: 1916
+- candidates: 5
+
+- [A] FCA — Financial Conduct Authority — review_and_stage_public_quality_record
+- [B] Six — Commodity Futures Trading Commission — hold_for_regulatory_scope_review
+- [B] Concluding CFTC — Commodity Futures Trading Commission — hold_for_regulatory_scope_review
+- [B] Hong Kong — Securities and Futures Commission — hold_for_regulatory_scope_review
+- [B] CoinUnited.io — Securities and Futures Commission — hold_for_regulatory_scope_review
+
+- [medium] New regulatory candidate: FCA — review_and_stage_public_quality_record
+
+## Data quality
+
+- [low] Possible successor/predecessor link missing: Binance — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: HTX — review_lineage_fields_when_record_is_touched
+- [medium] Provisional text found: Vaultoro — replace_provisional_notes_with_reviewed_text
+- [medium] Provisional text found: Poloniex — replace_provisional_notes_with_reviewed_text
+- [low] Possible successor/predecessor link missing: Poloniex — review_lineage_fields_when_record_is_touched
+- [medium] Provisional text found: Bitso — replace_provisional_notes_with_reviewed_text
+- [low] Possible successor/predecessor link missing: Phemex — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: Ripio — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: Bit2Me — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: Zaif — review_lineage_fields_when_record_is_touched
+- [medium] Provisional text found: CoinW — replace_provisional_notes_with_reviewed_text
+- [low] Possible successor/predecessor link missing: Trubit — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: Flipster — review_lineage_fields_when_record_is_touched
+- [medium] Provisional text found: Ourbit — replace_provisional_notes_with_reviewed_text
+- [medium] Provisional text found: Coinstore — replace_provisional_notes_with_reviewed_text
+- [low] Possible successor/predecessor link missing: BVOX — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: Drift Protocol — review_lineage_fields_when_record_is_touched
+- [medium] Provisional text found: BigONE — replace_provisional_notes_with_reviewed_text
+- [low] Possible successor/predecessor link missing: WOO X — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: 796 Exchange — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: BTCQuick — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: Stocks.exchange — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: Stocks.exchange — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: Qryptos — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: Allcoin — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: AgoraDesk — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: BarterDEX — review_lineage_fields_when_record_is_touched
+- [low] country_or_origin unknown: AidosMarket — add_origin_if_sourceable
+- [low] country_or_origin unknown: 55 Global Markets — add_origin_if_sourceable
+- [low] Possible successor/predecessor link missing: DEEX — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: BayBit.io — review_lineage_fields_when_record_is_touched
+- [low] country_or_origin unknown: BCC Exchange (BitConnect Coin) — add_origin_if_sourceable
+- [low] Possible successor/predecessor link missing: 247Exchange — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: 6x — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: ACDX Exchange — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: AlfaCashier — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: Aryana Exchange — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: Anyswap — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: Anyswap — review_lineage_fields_when_record_is_touched
+- [medium] Provisional text found: Thodex — replace_provisional_notes_with_reviewed_text
+- [low] country_or_origin unknown: Txbit — add_origin_if_sourceable
+- [low] Possible successor/predecessor link missing: Txbit — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: CoinFLEX — review_lineage_fields_when_record_is_touched
+- [medium] Entity has no event records: Aborean Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Aequinox — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Aequinox — review_official_url_status_when_available
+- [medium] Entity has no event records: AethonSwap — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: AethonSwap — review_official_url_status_when_available
+- [medium] Entity has no event records: Aldrin — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Aldrin — review_official_url_status_when_available
+- [medium] Entity has no event records: Alien Base — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Alita Finance — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Alita Finance — review_official_url_status_when_available
+- [medium] Entity has no event records: AlphaQ — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: AlphaQ — review_official_url_status_when_available
+- [medium] Entity has no event records: AlphaSec Spot — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: AlphaSec Spot — review_official_url_status_when_available
+- [medium] Entity has no event records: Alphix — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Alphix — review_official_url_status_when_available
+- [medium] Entity has no event records: Althea DEX — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Althea DEX — review_official_url_status_when_available
+- [medium] Entity has no event records: Amaterasu Finance — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Amaterasu Finance — review_official_url_status_when_available
+- [medium] Entity has no event records: Amped Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Apex DeFi — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: AquaSpace V3 — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Aquifer — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Arch Swap — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Arch Swap — review_official_url_status_when_available
+- [medium] Entity has no event records: Archer Exchange — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: ArtexSwap — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: ArtexSwap — review_official_url_status_when_available
+- [low] official_url_status unknown: Ascent Exchange — review_official_url_status_when_available
+- [medium] Entity has no event records: Asset Chain Swap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Astrolescent — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Astrolescent — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: Bankera Exchange — review_lineage_fields_when_record_is_touched
+- [medium] Entity has no event records: Bebop — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Beralis V3 — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Beralis V3 — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: BetterSwap — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: BHEX — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: Binance DEX — review_lineage_fields_when_record_is_touched
+- [medium] Entity has no event records: BisonFi — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: BisonFi — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: BitcoinTrade — review_lineage_fields_when_record_is_touched
+- [medium] Provisional text found: Bitcointry — replace_provisional_notes_with_reviewed_text
+- [medium] Provisional text found: BitDelta — replace_provisional_notes_with_reviewed_text
+- [medium] Provisional text found: Bitexlive — replace_provisional_notes_with_reviewed_text
+- [low] official_url_status unknown: BitGlobal — review_official_url_status_when_available
+- [low] Possible successor/predecessor link missing: BitGlobal — review_lineage_fields_when_record_is_touched
+- [medium] Provisional text found: BitKan — replace_provisional_notes_with_reviewed_text
+- [medium] Provisional text found: Bitlo — replace_provisional_notes_with_reviewed_text
+- [low] Possible successor/predecessor link missing: Bitpanda Pro — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: Bitsdaq — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: BitTrade — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: Bitypreco — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: Blockchain.io — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: Blocktrade — review_lineage_fields_when_record_is_touched
+- [medium] Entity has no event records: Blue Planet — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: BMX Trade — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: BrownFi — add_minimum_event_or_review_record_shape
+- [low] Possible successor/predecessor link missing: BTC-Alpha — review_lineage_fields_when_record_is_touched
+- [low] Possible successor/predecessor link missing: BTCC — review_lineage_fields_when_record_is_touched
+- [medium] Entity has no event records: BurrBear — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: BurrBear — review_official_url_status_when_available
+- [medium] Entity has no event records: BXH — add_minimum_event_or_review_record_shape
+- [low] Possible successor/predecessor link missing: BYDFi — review_lineage_fields_when_record_is_touched
+- [medium] Entity has no event records: C-Patex — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cables Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Caliber — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Caliber — review_official_url_status_when_available
+- [medium] Entity has no event records: Canary — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: CandySwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Canonic — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Canto Dex — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Canto Dex — review_official_url_status_when_available
+- [medium] Entity has no event records: Capricorn Finance — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Capricorn Finance — review_official_url_status_when_available
+- [medium] Entity has no event records: Capricorn — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Capybara Dexs — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Carbon DeFi — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: CarbonSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Catalist DEX — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Catalist DEX — review_official_url_status_when_available
+- [medium] Entity has no event records: Catex — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cauldron — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: CaviarNine — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cellana Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: ChainEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Chainflip — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Chainge Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: ChampagneSwap — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: ChampagneSwap — review_official_url_status_when_available
+- [medium] Entity has no event records: Changelly PRO — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: CherrySwap — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: CherrySwap — review_official_url_status_when_available
+- [medium] Entity has no event records: ChimpX AI DEX — add_minimum_event_or_review_record_shape
+- [low] Possible successor/predecessor link missing: ChimpX AI DEX — review_lineage_fields_when_record_is_touched
+- [medium] Entity has no event records: Choice — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Chronos — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: CITEX — add_minimum_event_or_review_record_shape
+- [low] country_or_origin unknown: CITEX — add_origin_if_sourceable
+- [medium] Entity has no event records: ClaimSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cleopatra — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Cleopatra — review_official_url_status_when_available
+- [medium] Entity has no event records: Clipper — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Clober — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Clutch Anvil AMM — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Clutch Anvil AMM — review_official_url_status_when_available
+- [medium] Entity has no event records: CobaltX — add_minimum_event_or_review_record_shape
+- [medium] Provisional text found: CobaltX — replace_provisional_notes_with_reviewed_text
+- [medium] Entity has no event records: CoinCasso — add_minimum_event_or_review_record_shape
+- [low] country_or_origin unknown: CoinCasso — add_origin_if_sourceable
+- [medium] Entity has no event records: CoinCorner — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Coindelta — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Coindelta — review_official_url_status_when_available
+- [medium] Entity has no event records: CoinField — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: CoinField — review_official_url_status_when_available
+- [medium] Entity has no event records: Coinhain — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Coinhouse — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: CoinLoan — review_official_url_status_when_available
+- [medium] Entity has no event records: Coinmate — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Coinsbit — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: CoinSwap Space — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: CoinSwap Space — review_official_url_status_when_available
+- [medium] Entity has no event records: CoinTiger — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: CoinTiger — review_official_url_status_when_available
+- [medium] Entity has no event records: CoinTR — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: CoinUp.io — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: COINUT — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: CoinZest — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: CoinZest — review_official_url_status_when_available
+- [medium] Entity has no event records: CoinZoom — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: ColorPool — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Comet Swap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cometh — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: CommEX — review_official_url_status_when_available
+- [medium] Entity has no event records: Complus Network — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Complus Network — review_official_url_status_when_available
+- [medium] Entity has no event records: Concordex — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cone — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Convergence Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Counos — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: CPDAX — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: CPDAX — review_official_url_status_when_available
+- [low] official_url_status unknown: Crema Finance — review_official_url_status_when_available
+- [medium] Entity has no event records: CrescentSwap — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: CrescentSwap — review_official_url_status_when_available
+- [medium] Entity has no event records: Crodex — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: CronaSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cropper CLMM — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cryptal — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cryptomus — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cryptonex — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: CSWAP DEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cube Exchange — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: CUBISwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: CurrentX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cyberperp — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cypher — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Cytoswap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DackieSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Dano Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Darkness — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Darkness — review_official_url_status_when_available
+- [medium] Entity has no event records: DDEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DeDust — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DeepBook — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DeFi Kingdoms — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Defibox — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DeFiChain DEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DefiPlaza — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DefiTuna — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DeGate — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Delta Exchange — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DeltaDeFi — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DeltaSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DeltaTrade — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Demex — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Derive — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DerpDEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Dex-Trade — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Dexalot — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: dexie — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Dexlab — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DFX Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Dfyn — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: digitalexchange.id — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DPEX — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: DPEX — review_official_url_status_when_available
+- [medium] Entity has no event records: DragonSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Dswap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DTX DEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Duality — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DuckyDeFi — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: DuckyDeFi — review_official_url_status_when_available
+- [medium] Entity has no event records: Durian AMM — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Durian AMM — review_official_url_status_when_available
+- [medium] Entity has no event records: Dusa — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DX25 — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: DyorSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Dystopia — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: E3 — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: EagleFi — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Earnium — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Earnium — review_official_url_status_when_available
+- [medium] Entity has no event records: Ebisu's Bay — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: EchoDEX — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: EchoDEX — review_official_url_status_when_available
+- [medium] Entity has no event records: EddyFinance — add_minimum_event_or_review_record_shape
+- [low] Possible successor/predecessor link missing: EddyFinance — review_lineage_fields_when_record_is_touched
+- [medium] Entity has no event records: EGAS swap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Ekubo — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: El Dorado Exchange — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: El Dorado Exchange — review_official_url_status_when_available
+- [medium] Entity has no event records: ElectroSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Elektrik — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Elexium — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: ElfomoFi — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Elix.fi — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Elk Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Ellipsis Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Elys DEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Embr Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Emirex — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: EmpireDEX — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: EmpireDEX — review_official_url_status_when_available
+- [medium] Entity has no event records: Energiswap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Enosys — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Equalizer Exchange — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Equation V3 — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Equation V3 — review_official_url_status_when_available
+- [medium] Entity has no event records: Équilibre — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Equity — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: EtherDelta — review_official_url_status_when_available
+- [medium] Entity has no event records: Etherex — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Ethervista — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: EulerSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Everdex — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: EverySwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Excalibur — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: EXMO — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Extended — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Fairdesk — review_official_url_status_when_available
+- [medium] Entity has no event records: FairySwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: FameEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: FanX Protocol — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Fathom DEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: FCON DEX — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: FCON DEX — review_official_url_status_when_available
+- [medium] Entity has no event records: FeeFree — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Fenix Finance — add_minimum_event_or_review_record_shape
+- [low] Possible successor/predecessor link missing: Fenix Finance — review_lineage_fields_when_record_is_touched
+- [medium] Entity has no event records: FermiSwap — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: FermiSwap — review_official_url_status_when_available
+- [medium] Entity has no event records: Ferra — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Ferro — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Fibonacci Dex — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Fibonacci Dex — review_official_url_status_when_available
+- [medium] Entity has no event records: Figure Markets — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Firefly — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: First Ledger — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Flamingo Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Flashnet — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: FlatQube — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: FlowSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: FlowX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Fluid DEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: FluxBeam — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: FluxFlow — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: FluxFlow — review_official_url_status_when_available
+- [medium] Entity has no event records: Fluxion Network — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Forest — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Forest — review_official_url_status_when_available
+- [medium] Entity has no event records: Forge — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Forge — review_official_url_status_when_available
+- [medium] Entity has no event records: ForkDelta — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Fraxswap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: FreiExchange — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Fulcrom — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Full Sail — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Funnel — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: FusionX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Futarchy AMM — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: FWX DEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: FXDX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: GalaSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Gaming DEX — add_minimum_event_or_review_record_shape
+- [low] Possible successor/predecessor link missing: Garantex — review_lineage_fields_when_record_is_touched
+- [medium] Entity has no event records: Garuda DeFi — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Gin Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Ginseng Swap — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Ginseng Swap — review_official_url_status_when_available
+- [medium] Entity has no event records: Giottus — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: GLEEC Wallet & DEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Glide Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Gliquid — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Gliquid — review_official_url_status_when_available
+- [medium] Entity has no event records: Globe Exchange — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Globiance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Glue Hub — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: GMO Coin Japan — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Goblins AMM — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: GoonFi — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: GoonFi — review_official_url_status_when_available
+- [medium] Entity has no event records: GooseFX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: GOPAX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Gravis Finance — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Gravis Finance — review_official_url_status_when_available
+- [medium] Entity has no event records: Gravity Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Greenhouse — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Grizzly Trade AMM — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Grizzly Trade AMM — review_official_url_status_when_available
+- [medium] Entity has no event records: Grvt — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: GT3 — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Gull Network — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: H2 Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hadouken AMM — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Hadouken AMM — review_official_url_status_when_available
+- [medium] Entity has no event records: Haedal AMM Protocol — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HakuSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hanji Protocol — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HARD Swap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hashflow — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HashKey Global — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hashlock Markets — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hata — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: hSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Heaven — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HeliSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Helix — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hello DEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Heraswap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hercules — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hermes Protocol — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hibachi — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HiBT — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HitBTC — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HiveSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Holdstation — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Honeypop DEX — add_minimum_event_or_review_record_shape
+- [low] Possible successor/predecessor link missing: Honeypop DEX — review_lineage_fields_when_record_is_touched
+- [medium] Entity has no event records: Honeyswap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Horiza — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HorizonDEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hotcoin — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hotstuff Spot — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HSuite DEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Huckleberry — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HumanFi — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: HumanFi — review_official_url_status_when_available
+- [medium] Entity has no event records: Humble DeFi — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HumidiFi — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hummus — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HunnySwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hybra Finance — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hydra DEX — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hydration — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hydrex — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HyperBlast — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HyperBrick — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hyperion — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HyperJump — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hyperliquid — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: HyperSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: Hypertrade — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: ICDex — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: IceCreamSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: ICPSwap — add_minimum_event_or_review_record_shape
+- [medium] Entity has no event records: ICRYPEX — add_minimum_event_or_review_record_shape
+- [low] Possible successor/predecessor link missing: LFJ — review_lineage_fields_when_record_is_touched
+- [low] official_url_status unknown: ProBit Korea — review_official_url_status_when_available
+- [medium] Entity has no event records: Swapscanner — add_minimum_event_or_review_record_shape
+- [low] official_url_status unknown: Zipmex — review_official_url_status_when_available
+- [low] Evidence archived_url missing: hei_src_011912 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011913 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011917 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011918 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011919 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011920 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011921 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011922 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011923 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011924 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011925 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011915 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011916 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011926 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011927 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011928 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011929 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011930 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011931 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011932 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011933 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011934 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011935 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011936 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011937 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011938 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011939 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011940 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011953 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011954 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011955 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011942 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011943 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011945 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011946 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011969 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011970 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011948 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011949 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011950 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011951 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011952 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011957 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011958 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011959 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011960 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011961 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011963 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011964 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011965 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011966 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011967 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_010066 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011786 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011787 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011782 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011783 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011784 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011762 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011763 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011227 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011228 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011908 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011909 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011910 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011906 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011907 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011747 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011748 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011750 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011751 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011753 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011754 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011315 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011320 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011322 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011897 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011898 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011318 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011759 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011760 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011756 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011757 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011732 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011733 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011736 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011738 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011739 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011331 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011741 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011742 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011882 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011883 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011745 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011333 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011334 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011337 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011514 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011517 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011340 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011328 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011511 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011885 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011886 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011720 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011721 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011718 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011346 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011349 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011729 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011730 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011724 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011352 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011726 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011727 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011867 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011868 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011355 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011858 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011859 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011714 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011715 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011711 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011712 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011888 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011889 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011902 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011903 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011904 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011703 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011706 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011861 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011862 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011891 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011892 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011876 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011877 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011864 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011865 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011873 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011874 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011894 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011895 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011870 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011871 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011708 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011709 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011879 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011880 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011768 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011769 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011688 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011690 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011691 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011765 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011766 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011855 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011856 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011535 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011697 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011771 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011772 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011565 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011361 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011774 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011775 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011699 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011700 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011843 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011844 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011556 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011532 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011837 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011838 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011550 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011681 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011682 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011367 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011684 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011685 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011672 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011673 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011370 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011851 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011852 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011853 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011676 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011553 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011839 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011840 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011841 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011678 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011679 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011846 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011847 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011379 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011663 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011664 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011382 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011547 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011667 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011657 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011658 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011834 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011835 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011669 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011670 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011899 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011900 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011901 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011849 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011850 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011661 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011823 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011642 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011643 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011645 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011646 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011648 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011649 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011654 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011655 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011826 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011651 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011652 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011819 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011820 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011451 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011568 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011391 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011816 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011817 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011580 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011388 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011792 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011793 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011800 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011801 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011802 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011394 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011804 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011805 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011813 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011814 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011583 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011807 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011808 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011588 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011589 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011592 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011810 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011811 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011627 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011628 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011777 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011778 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011397 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011832 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011631 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011403 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011625 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011634 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011636 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011637 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011504 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011505 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011795 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011796 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011639 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011640 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011798 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011799 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011586 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011600 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011601 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011780 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011781 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011607 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011789 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011790 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011610 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011621 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011622 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011603 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011604 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011615 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011616 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011619 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011828 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011829 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_011598 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_010071 — add_archive_when_record_is_touched
+- [low] Evidence archived_url missing: hei_src_010076 — add_archive_when_record_is_touched
+
+## Evidence health
+
+- enabled: true
+- evidence_with_urls: 3279
+- checked: 25
+- findings: 0
+- without_archive_total: 293
+
+- None.
+
+## Watchlist state
+
+- candidate_queue_files: 9
+- raw_candidate_occurrences: 232
+- unique_candidate_identities: 187
+- repeated_occurrences_collapsed: 45
+- class_A: 18
+- class_B: 164
+- class_C: 5
+- manual_staging_packages: 9
+- historical_resolution_files: 12
+- resolution_index_entries: 66
+- resolution_coverage_errors: 0
+
+- [medium] Unresolved A candidate: Algorand Value — stage_downgrade_or_resolve_candidate
+- [medium] Unresolved A candidate: Arkham — stage_downgrade_or_resolve_candidate
+- [low] Projected candidate lacks terminal resolution: Beets DEX V3 — add_terminal_resolution
+- [low] Projected candidate lacks terminal resolution: Bifrost DEX — add_terminal_resolution
+- [medium] Unresolved A candidate: CoinDesk — stage_downgrade_or_resolve_candidate
+- [low] Projected candidate lacks terminal resolution: EGAS swap — add_terminal_resolution
+- [medium] Unresolved A candidate: FCA — stage_downgrade_or_resolve_candidate
+- [low] Projected candidate lacks terminal resolution: Hyperliquid — add_terminal_resolution
+- [medium] Unresolved A candidate: News UK — stage_downgrade_or_resolve_candidate
+- [medium] Unresolved A candidate: Raises — stage_downgrade_or_resolve_candidate
+- [medium] Unresolved A candidate: Revolut — stage_downgrade_or_resolve_candidate
+- [medium] Unresolved A candidate: Ukraine — stage_downgrade_or_resolve_candidate
+
+## Site / SEO
+
+- enabled: true
+- site_url: https://hei.badjoke-lab.com
+- routes_checked: 12
+- route_findings: 0
+- sitemap_checked: true
+- sitemap_status: ok
+- sitemap_exchange_routes_expected: 770
+- sitemap_exchange_routes_actual: 770
+- robots_checked: true
+- robots_status: ok
+
+- None.
+
+## Suggested operator actions
+
+1. Review critical/high alerts before accepting new staging work.
+2. Review A candidates and decide whether to promote them to manual staging packages.
+3. Keep B candidates in watchlist or downgrade/resolve them after review.
+4. Review regulatory-source candidates separately and avoid status/death_reason changes without source confirmation.
+5. Review watchlist-state findings and update staging or resolution files as needed.
