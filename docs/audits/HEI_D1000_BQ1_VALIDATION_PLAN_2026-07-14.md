@@ -4,15 +4,19 @@ Date: 2026-07-14
 
 ## Scope
 
-Validate the BQ1 reviewed growth batch:
+Validate the entity-first BQ1 batch:
 
 ```text
-HbarSuite
-Helix Markets
-Hydrometer Finance
-Hummus Finance
-Hello DEX
+new entity:
+  Hydrometer Finance
+
+existing entity enrichments:
+  HSuite DEX / HbarSuite
+  Hummus
+  Hello DEX
 ```
+
+Helix Markets is excluded because its `helixapp.com` domain overlaps the existing Helix entity while the candidate registry assigns conflicting ecosystem metadata.
 
 ## Required checks
 
@@ -32,35 +36,44 @@ machine-readable build and validation
 public build and validation
 Japanese route count parity
 L-2 evaluation remains HOLD
-maintainer recovery counts == 784 / 1004 / 3315
+maintainer recovery counts == 780 / 1004 / 3313
 ```
 
 ## Expected projected state
 
 ```text
-Entities: 784
+Entities: 780
 Events:   1004
-Evidence: 3315
-English dossiers:  784
-Japanese dossiers: 784
-Sitemap routes:     1592
+Evidence: 3313
+English dossiers:  780
+Japanese dossiers: 780
+Sitemap routes:     1584
 ```
 
 ## Status expectations
 
 ```text
-HbarSuite          active
-Helix Markets      limited
 Hydrometer Finance inactive
-Hummus Finance     active
-Hello DEX          active
+HSuite DEX           active, enriched
+Hummus               active, enriched
+Hello DEX            active, enriched
 ```
 
 ## Overlap expectation
 
-BQ1 was assembled only after checking exact slugs, alternate slugs, canonical names, aliases, and domains against current main. Fluid DEX, Holdstation, and Haven1 hSwap were rejected after alternate-path checks proved that they already exist as `hei_ex_000691`, `hei_ex_000725`, and `hei_ex_000721`.
+BQ1 candidate review found additional alternate-path overlaps after the initial draft:
 
-Records validation must report zero blocking overlaps.
+```text
+Fluid DEX      -> hei_ex_000691
+Holdstation    -> hei_ex_000725
+Haven1 hSwap   -> hei_ex_000721
+HbarSuite      -> hei_ex_000758 / HSuite DEX
+Helix Markets  -> hei_ex_000697 domain overlap with Helix
+Hummus Finance -> hei_ex_000766 / Hummus
+Hello DEX      -> hei_ex_000771
+```
+
+Duplicate draft files were removed. Current registry evidence was consolidated only where identity remained coherent. Records validation must report zero blocking overlaps.
 
 ## Hydrometer boundary
 
