@@ -1,14 +1,19 @@
-# D-1000 Batch BO1 — AstroSwap, BCSwap, Beamex AMM, BLEX, and BMX Classic AMM
+# D-1000 Batch BO1 — Four New Entities, BMX Trade Enrichment, and AutoShark Repair
 
 Reviewed at: 2026-07-12
 
 ## Results
 
+New entities:
+
 - `0098` AstroSwap -> `hei_ex_000887`, limited DEX
 - `0147` BCSwap -> `hei_ex_000888`, limited DEX
 - `0149` Beamex AMM -> `hei_ex_000889`, limited DEX
 - `0245` BLEX -> `hei_ex_000890`, active DEX
-- `0261` BMX Classic AMM -> `hei_ex_000891`, limited DEX
+
+Existing entity enrichment:
+
+- `0261` BMX Classic AMM -> existing `hei_ex_000610` BMX Trade, entity-first alias and evidence consolidation
 
 Additional repair:
 
@@ -20,7 +25,7 @@ Additional repair:
 - BCSwap is `limited` because its BCHyper identity and reachable project domain remain while tracked TVL is zero and a functioning trading interface was not independently verified.
 - Beamex AMM is `limited` because substantial cumulative Moonbeam volume remains documented while strong recent activity and a stable first-party application were not recovered.
 - BLEX is `active` because current Arbitrum data reports non-zero TVL, fee generation, and substantial perpetual volume.
-- BMX Classic AMM is `limited` because substantial cumulative Base and Mode DEX volume remains documented while strong recent activity and first-party availability were not recovered.
+- BMX Trade remains `active`. BMX Classic AMM is not a separate entity because it shares the `bmx.trade` domain and Morphex/BMX identity; its aliases, Base and Mode coverage, and cumulative-volume evidence are consolidated into BMX Trade.
 - AutoShark remains `dead` because the 2022 first-party shutdown announcement is authoritative.
 
 ## URL safety repair
@@ -35,7 +40,7 @@ The canonical shutdown history and death date remain unchanged. The repair preve
 
 ## Stale-overlap findings
 
-The verified-unadded backlog contains extensive stale version, slug, product, and alias rows. During BO1, the overlap gate rejected:
+The verified-unadded backlog contains extensive stale version, slug, product, domain, and alias rows. During BO1, the overlap gate rejected or consolidated:
 
 - AuraSwap -> existing `hei_ex_000554`
 - BarterSwap Superposition -> existing `hei_ex_000560`
@@ -44,6 +49,7 @@ The verified-unadded backlog contains extensive stale version, slug, product, an
 - Baseline (Base) -> existing `hei_ex_000556`
 - Blitz AMM -> existing `hei_ex_000596`
 - bopAMM -> existing Bebop `hei_ex_000609`
+- BMX Classic AMM -> existing BMX Trade `hei_ex_000610`
 
 Other reviewed overlaps include Astroport variants, Astrovault, Atlantis, Atmos, Auragi, AuroraSwap, AutoShark, AUX Exchange, Axial, BabyDogeSwap, BabySwap, BaseX, Bancor, Bean Exchange, BenSwap, Beralis V3, BetterSwap, BEVMSwap, BisonFi, Blue Planet, and BrownFi.
 
@@ -67,9 +73,9 @@ Current registry data preserves the Moonbeam exchange identity and roughly $75 m
 
 Current Arbitrum protocol data reports non-zero TVL, annualized fees, cumulative fees, and roughly $40 million in cumulative perpetual volume. Confidence is `medium`.
 
-### BMX Classic AMM
+### BMX Trade enrichment
 
-Current registry data preserves the Base and Mode AMM identity and roughly $690 million in cumulative DEX volume, but recent activity evidence is insufficient. Confidence is `medium`.
+Current registry data preserves the BMX Classic AMM product name, Base and Mode chain associations, and roughly $690 million in cumulative DEX volume. Because the product resolves to the same `bmx.trade` domain and Morphex/BMX identity as existing BMX Trade, the evidence is attached to `hei_ex_000610` rather than creating a second entity.
 
 ### AutoShark repair
 
@@ -77,15 +83,16 @@ The former project domain is currently repurposed into unrelated gambling conten
 
 ## Batch output
 
-- new entities: 5
+- new entities: 4
+- enriched entities: 1
 - repaired entities: 1
 - new events: 0
 - new evidence: 16
-- projected entity count: 775
+- projected entity count: 774
 - projected event count: 1004
 - projected evidence count: 3295
-- projected remaining to D-1000: 225
+- projected remaining to D-1000: 226
 
 ## Operating mode
 
-BO1 is the fifth five-entity D-1000 growth batch during the L-2 initial HOLD period. It also includes one safety-preserving repair. No localization breadth, third-language authorization, Cloudflare configuration, or canonical schema changes are included.
+BO1 is the fifth D-1000 growth batch during the L-2 initial HOLD period. It preserves entity-first counting, adds reviewed canonical data, enriches one existing record, and includes one safety repair. No localization breadth, third-language authorization, Cloudflare configuration, or canonical schema changes are included.
