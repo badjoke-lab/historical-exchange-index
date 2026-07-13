@@ -1,67 +1,73 @@
-# D-1000 Batch BQ1 — Five Reviewed Exchanges
+# D-1000 Batch BQ1 — Entity-First Review and Enrichment
 
 Reviewed at: 2026-07-14
 
 ## Results
 
-- `0913` HbarSuite -> `hei_ex_000896`, active DEX
-- `0918` Helix Markets -> `hei_ex_000897`, limited hybrid exchange
-- `0972` Hydrometer Finance -> `hei_ex_000898`, inactive DEX
-- `0956` Hummus AMM -> `hei_ex_000899`, active DEX under canonical Hummus Finance identity
-- `0920` Hello DEX (Ethereum) -> `hei_ex_000900`, active DEX
+- `0972` Hydrometer Finance -> new `hei_ex_000898`, inactive DEX
+- `0913` HbarSuite -> existing `hei_ex_000758` HSuite DEX, current metrics enrichment
+- `0956` Hummus AMM -> existing `hei_ex_000766` Hummus, current metrics enrichment
+- `0920` Hello DEX (Ethereum) -> existing `hei_ex_000771`, current market enrichment
+- `0918` Helix Markets -> rejected as a new entity because `helixapp.com` overlaps existing `hei_ex_000697` Helix while the candidate ecosystem metadata conflicts
 
 ## Status decisions
 
-- HbarSuite is `active` because current Hedera TVL and recent DEX volume remain non-zero and the dedicated first-party domain is linked from the current protocol registry.
-- Helix Markets is `limited` because the hybrid order-book exchange identity and cumulative volume remain preserved, while current TVL is zero and recent activity is not established.
 - Hydrometer Finance is `inactive` because the current protocol registry explicitly flags a rug pull involving user funds and states that the website is down. No dated terminal event is inferred.
-- Hummus Finance is `active` because the first-party domain remains reachable and current Metis TVL and recent DEX volume remain non-zero.
-- Hello DEX is `active` because the current exchange profile links the trading domain and reports a recently updated Ethereum spot pair with non-zero 24-hour volume.
+- HSuite DEX remains `active`; current registry data adds substantial Hedera TVL and recent DEX volume to the existing first-party evidence.
+- Hummus remains `active`; current Metis TVL and recent DEX volume strengthen the existing application evidence.
+- Hello DEX remains `active`; the current profile reports a recently updated Ethereum spot pair and non-zero 24-hour volume.
+- Helix Markets is not added or merged because the candidate registry's ICP classification conflicts with the existing Injective Helix identity despite the same official domain.
 
 ## Stale-overlap findings
 
-The following candidate rows were rejected after current-main alternate-slug and entity-first checks:
+The following candidate rows were rejected or consolidated after current-main alternate-slug and entity-first checks:
 
 ```text
-Fluid DEX    -> existing hei_ex_000691
-Holdstation  -> existing hei_ex_000725
-Haven1 hSwap -> existing hei_ex_000721
+Fluid DEX      -> existing hei_ex_000691
+Holdstation    -> existing hei_ex_000725
+Haven1 hSwap   -> existing hei_ex_000721
+HbarSuite      -> existing hei_ex_000758 / HSuite DEX
+Helix Markets  -> domain overlap with hei_ex_000697 / Helix
+Hummus Finance -> existing hei_ex_000766 / Hummus
+Hello DEX      -> existing hei_ex_000771
 ```
 
 Drift was deferred for a later incident and migration reconstruction rather than being added through a simplified current-state record.
 
 ## Evidence decisions
 
-### HbarSuite
-
-The current registry links the first-party domain and reports substantial Hedera TVL and active recent swap volume.
-
-### Helix Markets
-
-The current registry preserves the hybrid ICP order-book identity, official domain, and cumulative volume, but current TVL is zero; limited status avoids overstating current operation.
-
 ### Hydrometer Finance
 
 The registry explicitly reports a rug pull and down website. Inactive status records the terminal condition without inventing a date.
 
-### Hummus Finance
+### HSuite DEX / HbarSuite
 
-The first-party exchange domain remains reachable and registry metrics report current Metis liquidity and recent exchange volume.
+The current HbarSuite registry profile and first-party domain were attached to the existing HSuite DEX entity, adding current TVL and volume evidence without creating a duplicate.
+
+### Hummus
+
+Current protocol metrics and the first-party Hummus domain were added to the existing Hummus entity.
 
 ### Hello DEX
 
-The current exchange profile links the first-party trading domain and reports an active Ethereum spot pair and recent volume.
+The current CoinGecko exchange profile and market status were added to the existing Hello DEX entity.
+
+### Helix Markets
+
+The candidate was excluded because its registry metadata conflicts with the existing canonical Helix record. No contradictory evidence was attached.
 
 ## Batch output
 
-- new entities: 5
+- new entities: 1
+- enriched existing entities: 3
+- rejected conflicting candidate: 1
 - new events: 0
-- new evidence: 10
-- projected entity count: 784
+- new evidence: 8
+- projected entity count: 780
 - projected event count: 1004
-- projected evidence count: 3315
-- projected remaining to D-1000: 216
+- projected evidence count: 3313
+- projected remaining to D-1000: 220
 
 ## Operating mode
 
-BQ1 is the seventh D-1000 growth batch during the L-2 initial HOLD period. It adds reviewed canonical data only. No localization breadth, third-language authorization, Cloudflare configuration, or canonical schema changes are included.
+BQ1 is the seventh D-1000 growth batch during the L-2 initial HOLD period. It applies entity-first consolidation and adds reviewed canonical data only. No localization breadth, third-language authorization, Cloudflare configuration, or canonical schema changes are included.
