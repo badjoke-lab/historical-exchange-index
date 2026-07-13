@@ -41,7 +41,7 @@ HOLD keeps the Japanese Pilot public but does not block reviewed canonical data 
 After D-1000 batch BO1, the projected reviewed state is:
 
 ```text
-Entities: 775
+Entities: 774
 Events:   1004
 Evidence: 3295
 ```
