@@ -41,9 +41,9 @@ HOLD keeps the Japanese Pilot public but does not block reviewed canonical data 
 After D-1000 batch BV1, the projected reviewed state is:
 
 ```text
-Entities: 797
+Entities: 796
 Events:   1004
-Evidence: 3348
+Evidence: 3347
 ```
 
 The localization decision remains HOLD. Translation breadth is not expanded by BV1, and third-language authorization remains false.
