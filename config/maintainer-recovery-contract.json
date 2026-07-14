@@ -6,9 +6,9 @@
   "current_item": "L2-1 — Evaluation contract, telemetry, and evidence capture",
   "next_item": "D-1000 Reviewed Entity Milestone",
   "reviewed_counts": {
-    "entities": 796,
+    "entities": 795,
     "events": 1004,
-    "evidence": 3345
+    "evidence": 3344
   },
   "authoritative_paths": {
     "agent_instructions": "AGENTS.md",
