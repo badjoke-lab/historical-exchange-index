@@ -10,12 +10,11 @@ Project: Historical Exchange Index (HEI)
 D-1000 Reviewed Entity Milestone
 ```
 
-BT1 is the tenth reviewed growth batch during the L-2 initial HOLD period. It adds five exchange records after current-main overlap checks and replaces one rejected duplicate candidate before PR creation.
+BT1 is the tenth reviewed growth batch during the L-2 initial HOLD period. It adds four exchange records after current-main overlap checks. Two apparent candidates were rejected as existing entities rather than forcing the batch to five.
 
 ## 2. Batch contents
 
 ```text
-Durianfun AMM hei_ex_000909 active
 Econia        hei_ex_000910 inactive
 edgeX         hei_ex_000911 active
 ExinSwap      hei_ex_000912 active
@@ -25,28 +24,26 @@ FVM Exchange  hei_ex_000913 active
 ## 3. Projected reviewed state
 
 ```text
-Entities: 795
+Entities: 794
 Events:   1004
-Evidence: 3343
+Evidence: 3341
 ```
 
 Batch delta:
 
 ```text
-Entities: +5
+Entities: +4
 Events:   +0
-Evidence: +10
+Evidence: +8
 ```
 
 Remaining to D-1000:
 
 ```text
-205 reviewed entities
+206 reviewed entities
 ```
 
 ## 4. Status discipline
-
-Durianfun AMM is active because current adapters track 2026 production factories, graduated AMM pools, swaps, fees, revenue, and liquidity.
 
 Econia is inactive because its first-party repository preserves the Aptos order-book protocol but notes inactive maintenance, while current registry infrastructure places Econia in the dead-adapter corpus. No exact shutdown date or cause is asserted.
 
@@ -58,9 +55,11 @@ FVM Exchange is active because a June 2026 adapter directly enumerates its Fanto
 
 ## 5. Overlap finding
 
-Fathom AMM / Fathom DEX initially appeared unlisted through partial file checks. Creation was stopped when GitHub reported an existing target path, revealing current-main Fathom DEX `hei_ex_000686`, which already consolidates both names. FVM Exchange replaced it.
+Fathom AMM / Fathom DEX initially appeared unlisted through partial file checks. Creation was stopped when GitHub reported an existing target path, revealing current-main Fathom DEX `hei_ex_000686`, which already consolidates both names.
 
-The final five entities have no exact file, alternate slug, canonical-name, alias, or repository text overlap on current main.
+Durianfun AMM was then drafted, but records validation detected canonical-name and alias overlap with existing Durian AMM `hei_ex_000864`. The duplicate record was removed.
+
+The final four entities have no blocking overlap on current main. BT1 deliberately remains a four-record batch rather than forcing a weaker fifth candidate.
 
 ## 6. Safety boundaries
 
@@ -93,8 +92,7 @@ Language Selection:  blocked until later gate
 docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md
 docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
 docs/audits/HEI_D1000_PROGRESS_BS1_2026-07-14.md
-docs/backlog/consumed/hei_unadded-bt1-five-exchange-records.md
-records/exchanges/durianfun-amm.json
+docs/backlog/consumed/hei_unadded-bt1-four-exchange-records.md
 records/exchanges/econia.json
 records/exchanges/edgex.json
 records/exchanges/exinswap.json
