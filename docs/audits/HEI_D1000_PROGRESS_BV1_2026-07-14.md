@@ -10,46 +10,48 @@ Project: Historical Exchange Index (HEI)
 D-1000 Reviewed Entity Milestone
 ```
 
-BV1 is the twelfth reviewed growth batch during the L-2 initial HOLD period. It adds two exchange entities after current-main overlap checks.
+BV1 is the twelfth reviewed growth batch during the L-2 initial HOLD period. It adds one new exchange entity and refreshes one existing exchange with current first-party implementation evidence after current-main overlap checks.
 
 ## 2. Batch contents
 
 ```text
-HollaEx  hei_ex_000916 active
-GalaSwap hei_ex_000917 active
+HollaEx  hei_ex_000916 active — new entity
+GalaSwap hei_ex_000709 active — implementation evidence refresh
 ```
 
 ## 3. Projected reviewed state
 
 ```text
-Entities: 797
+Entities: 796
 Events:   1004
-Evidence: 3348
+Evidence: 3347
 ```
 
 Batch delta:
 
 ```text
-Entities: +2
+Entities: +1
 Events:   +0
-Evidence: +4
+Evidence: +3
 ```
 
 Remaining to D-1000:
 
 ```text
-203 reviewed entities
+204 reviewed entities
 ```
 
 ## 4. Status discipline
 
 HollaEx is active because its current first-party platform exposes the HollaEx Pro exchange and its current API documentation covers public market data, order books, trades and charts together with authenticated balances, deposits, withdrawals, orders, conversions, WebSocket feeds, and administrative exchange interfaces.
 
-GalaSwap is active because its current first-party application describes live self-custodial swaps, concentrated-liquidity pools, market and pool analytics, portfolio history, wallet signing, and on-chain GalaChain settlement. The official GalaChain organization maintains the DEX chaincode repository and related tooling.
+GalaSwap remains active. Its existing record already establishes the native self-custodial GalaChain DEX, concentrated-liquidity pools, market and pool analytics, portfolio history, wallet signing, and on-chain settlement. BV1 adds the official GalaChain DEX chaincode repository, updated in July 2026, as current implementation evidence.
 
 ## 5. Overlap findings
 
-The final two entities have no exact file, alternate slug, canonical-name, alias, domain, or repository text overlap on current main.
+Records validation identified the proposed new GalaSwap entity as a duplicate of existing GalaSwap `hei_ex_000709` through normalized slug, canonical name, and `swap.gala.com`. The duplicate file was removed and its strongest additive source was consolidated into the existing record.
+
+HollaEx has no exact file, alternate slug, canonical-name, alias, domain, or repository text overlap on current main.
 
 The candidate corpus remains a historical snapshot. Numerous nearby candidates were already represented by current records and were excluded rather than duplicated.
 
@@ -101,5 +103,5 @@ docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
 docs/audits/HEI_D1000_PROGRESS_BU1_2026-07-14.md
 docs/backlog/consumed/hei_unadded-bv1-two-exchange-records.md
 records/exchanges/hollaex.json
-records/exchanges/gala-swap.json
+records/exchanges/galaswap.json
 ```
