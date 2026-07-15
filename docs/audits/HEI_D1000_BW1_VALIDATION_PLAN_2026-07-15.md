@@ -4,11 +4,12 @@ Date: 2026-07-15
 
 ## Scope
 
-Validate two new reviewed exchange entities:
+Validate one new reviewed exchange entity and two existing-entity evidence/status refreshes:
 
 ```text
-HydraDEX   hei_ex_000917 active
-FluxFlow V3 hei_ex_000918 active
+HSuite    hei_ex_000917 active — new entity
+Hydra DEX hei_ex_000764 active — V2/V3 evidence refresh
+FluxFlow  hei_ex_000841 active — current metric re-verification
 ```
 
 ## Required checks
@@ -29,30 +30,30 @@ machine-readable build and validation
 public build and validation
 Japanese route count parity
 L-2 evaluation remains HOLD
-maintainer recovery counts == 798 / 1004 / 3352
+maintainer recovery counts == 797 / 1004 / 3352
 ```
 
 ## Expected projected state
 
 ```text
-Entities: 798
+Entities: 797
 Events:   1004
 Evidence: 3352
-English dossiers:  798
-Japanese dossiers: 798
-Sitemap routes:     1620
+English dossiers:  797
+Japanese dossiers: 797
+Sitemap routes:     1618
 ```
 
 ## Evidence boundary
 
-- HydraDEX is supported by the current first-party hydradex.org application and current HydraDEX V2/V3 protocol metrics. V3 reports non-zero recent volume and fees.
-- FluxFlow V3 is supported by current Fluent-chain CLMM registry and metric evidence showing current liquidity, fees, revenue, and recent DEX volume.
-- FluxFlow V3 has no stable first-party public URL recovered in this pass; URL fields remain unset and confidence remains medium.
-- Neither record invents a launch date, jurisdiction, legal entity, terminal date, shutdown cause, predecessor, or successor.
+- HSuite is supported by its current first-party application, current Hedera AMM metrics, and an open-source adapter querying dedicated HbarSuite network nodes and DEX analytics endpoints.
+- Hydra DEX already exists as `hei_ex_000764`; BW1 adds direct current V2 and V3 protocol pages, including recent V3 volume and fees.
+- FluxFlow already exists as `hei_ex_000841`; BW1 refreshes the verification date and current metric description without creating a duplicate entity.
+- No record invents a launch date, jurisdiction, legal entity, terminal date, shutdown cause, predecessor, or successor.
 
-## Overlap expectation
+## Overlap findings
 
-Repository-wide name and domain searches found no current-main record for HydraDEX, hydradex.org, FluxFlow, or FluxFlow V3. HydraDEX is distinct from the existing Polkadot ecosystem Hydration record. V2 and V3 discovery rows are consolidated under one HydraDEX entity rather than split.
+Initial proposed HydraDEX and FluxFlow V3 records were rejected by Records validation because existing `hydra.json` and `fluxflow.json` already own their names, aliases, and domain identity. Both duplicate files were deleted. Repository-wide searches found no existing HSuite, HbarSuite, or hsuite.app entity.
 
 ## Merge rule
 
