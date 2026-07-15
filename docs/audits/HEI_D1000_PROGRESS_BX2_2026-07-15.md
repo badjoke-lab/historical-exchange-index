@@ -68,7 +68,7 @@ Records validation remains authoritative. Any normalized overlap found by CI mus
 
 ## 6. Checkpoint repair
 
-BX2 repairs the stale BX1 progress state from `validation pending` to `COMPLETE` and advances the maintainer recovery and L-2 count references to BX2.
+BX2 repairs the stale BX1 progress state from `validation pending` to `COMPLETE` and advances the maintainer recovery reference to BX2.
 
 ## 7. Safety boundaries
 
