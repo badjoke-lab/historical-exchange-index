@@ -8,7 +8,7 @@ Reviewed at: 2026-07-15
 Maverick Protocol -> hei_ex_000922 active
 Merchant Moe      -> hei_ex_000923 active
 Meteora           -> hei_ex_000924 active
-Minswap           -> hei_ex_000925 active
+NILE              -> hei_ex_000925 active
 ```
 
 ## Selection basis
@@ -29,7 +29,7 @@ at least two high-reliability first-party evidence items
 
 All four records are `active`.
 
-Maverick Protocol documents a live V2 DEX interface, spot swaps, liquidity positions, voting, incentives, and pool creation. Merchant Moe documents current Mantle trading, Liquidity Book and classic AMM functions, plus a current contract registry. Meteora documents current Solana pool, swap, liquidity, launch, SDK, API, DLMM, and DAMM functions. Minswap exposes a current Cardano trading interface and documentation for permissionless swaps and liquidity provision.
+Maverick Protocol documents a live V2 DEX interface, spot swaps, liquidity positions, voting, incentives, and pool creation. Merchant Moe documents current Mantle trading, Liquidity Book and classic AMM functions, plus a current contract registry. Meteora documents current Solana pool, swap, liquidity, launch, SDK, API, DLMM, and DAMM functions. NILE documents current Linea swaps, classic and concentrated pools, LP staking, gauges, voting, incentives, a public dApp, and deployed exchange contracts.
 
 ## Evidence decisions
 
@@ -37,7 +37,9 @@ No record receives an invented launch date, legal jurisdiction, legal entity, pr
 
 ## Overlap controls
 
-Repository-wide pre-draft searches returned no current-main record or official-domain match for the four selected entities. Records validation remains authoritative and any normalized collision must be repaired before merge.
+Repository-wide pre-draft searches returned no current-main record or official-domain match for the final four selected entities. Records validation remains authoritative and any normalized collision must be repaired before merge.
+
+The initial Minswap proposal was removed after CI correctly detected the unresolved internal `candidate:minswap-dex` watchlist entry. NILE replaced it rather than bypassing or weakening the candidate-resolution gate.
 
 ## Batch output
 
