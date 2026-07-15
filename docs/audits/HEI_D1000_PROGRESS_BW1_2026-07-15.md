@@ -10,19 +10,20 @@ Project: Historical Exchange Index (HEI)
 D-1000 Reviewed Entity Milestone
 ```
 
-BW1 is the thirteenth reviewed growth batch during the L-2 initial HOLD period. It adds two exchange entities after current-main overlap checks.
+BW1 is the thirteenth reviewed growth batch during the L-2 initial HOLD period. It adds one exchange entity and strengthens two existing exchange records after authoritative overlap validation.
 
 ## 2. Batch contents
 
 ```text
-HydraDEX    hei_ex_000917 active
-FluxFlow V3 hei_ex_000918 active
+HSuite    hei_ex_000917 active — new entity
+Hydra DEX hei_ex_000764 active — V2/V3 evidence refresh
+FluxFlow  hei_ex_000841 active — current metric re-verification
 ```
 
 ## 3. Projected reviewed state
 
 ```text
-Entities: 798
+Entities: 797
 Events:   1004
 Evidence: 3352
 ```
@@ -30,7 +31,7 @@ Evidence: 3352
 Batch delta:
 
 ```text
-Entities: +2
+Entities: +1
 Events:   +0
 Evidence: +5
 ```
@@ -38,35 +39,36 @@ Evidence: +5
 Remaining to D-1000:
 
 ```text
-202 reviewed entities
+203 reviewed entities
 ```
 
 ## 4. Status discipline
 
-HydraDEX is active because its current first-party application remains reachable and its V3 protocol profile reports current TVL and non-zero 24-hour, 7-day, and 30-day volume and fees. V2 and V3 are consolidated under one HydraDEX entity.
+HSuite is active because its current first-party application remains reachable, its current Hedera protocol profile reports TVL and non-zero 24-hour, 7-day, and 30-day DEX volume, and an open-source adapter queries dedicated HbarSuite network nodes and DEX analytics endpoints.
 
-FluxFlow V3 is active because its current Fluent-chain protocol profile reports current liquidity and non-zero recent fees, revenue, and exchange volume. Confidence remains medium and official URL fields remain unset because stable first-party public documentation was not recovered.
+Hydra DEX remains active. BW1 adds direct V2 and V3 protocol profiles; V3 reports current liquidity and non-zero recent volume and fees, while V2 preserves the version and liquidity context.
+
+FluxFlow remains active. Its existing current protocol source was re-verified against current Fluent-chain liquidity, fees, revenue, and exchange volume. No duplicate FluxFlow V3 entity is created.
 
 ## 5. Overlap findings
 
-No current-main entity matched HydraDEX, Hydra DEX, hydradex.org, FluxFlow, or FluxFlow V3 through exact path and repository-wide name/domain searches. HydraDEX is not the same entity as Hydration, the existing Polkadot ecosystem DEX.
+Records validation found that the initial proposed HydraDEX and FluxFlow V3 records duplicated existing `hydra.json` (`hei_ex_000764`) and `fluxflow.json` (`hei_ex_000841`). The duplicate files were removed and the useful evidence was folded into the existing records.
+
+Repository-wide name and domain searches found no current-main entity for HSuite, HbarSuite, HbarSuite DEX, or hsuite.app.
 
 The candidate corpus remains a historical snapshot; nearby H-I candidates are heavily represented already and were excluded rather than duplicated.
 
 ## 6. Deferred candidates
 
 ```text
-HbarSuite, Helix Markets
+Helix Markets
   exchange identity exists but current public status remains insufficiently resolved
 
 Hanbitco, HCoin, Hubi, Hashfort, HeraldEX, HOTDEX, IDCM
   stale registry-only evidence or unresolved current lifecycle
-
-FluxFlow first-party surface
-  not recovered; record remains medium-confidence and registry-backed
 ```
 
-BW1 does not use weak candidates merely to increase batch size.
+BW1 does not use weak candidates merely to increase the batch size.
 
 ## 7. Safety boundaries
 
@@ -100,6 +102,7 @@ docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md
 docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
 docs/audits/HEI_D1000_PROGRESS_BV1_2026-07-14.md
 docs/backlog/consumed/hei_unadded-bw1-two-exchange-records.md
-records/exchanges/hydradex.json
-records/exchanges/fluxflow-v3.json
+records/exchanges/hbarsuite.json
+records/exchanges/hydra.json
+records/exchanges/fluxflow.json
 ```
