@@ -1,7 +1,7 @@
 # HEI D-1000 Progress Checkpoint — BX1
 
 Date: 2026-07-15  
-Status: IN PROGRESS  
+Status: COMPLETE  
 Project: Historical Exchange Index (HEI)
 
 ## 1. Current milestone
@@ -10,7 +10,7 @@ Project: Historical Exchange Index (HEI)
 D-1000 Reviewed Entity Milestone
 ```
 
-BX1 is the fourteenth reviewed growth batch during the L-2 initial HOLD period. It adds four current active DEX entities using first-party protocol and trading documentation.
+BX1 is the fourteenth reviewed growth batch during the L-2 initial HOLD period. It added four current active DEX entities using first-party protocol and trading documentation and merged through PR #665 after all required workflows passed.
 
 ## 2. Batch contents
 
@@ -21,7 +21,7 @@ Kinetix Finance hei_ex_000920 active
 Lynex           hei_ex_000921 active
 ```
 
-## 3. Projected reviewed state
+## 3. Reviewed state after merge
 
 ```text
 Entities: 801
@@ -37,7 +37,7 @@ Events:   +0
 Evidence: +8
 ```
 
-Remaining to D-1000:
+Remaining to D-1000 after merge:
 
 ```text
 199 reviewed entities
@@ -64,7 +64,7 @@ Kinetix Finance / kinetix.finance
 Lynex / lynex.fi
 ```
 
-Records validation remains authoritative. Any normalized overlap found by CI must be resolved before merge.
+Records validation passed on the final PR head.
 
 ## 6. Deferred candidates
 
@@ -76,11 +76,11 @@ Hanbitco, HCoin, Hubi, Hashfort, HeraldEX, HOTDEX, IDCM
   stale registry-only evidence or unresolved current lifecycle
 ```
 
-BX1 does not use weak candidates merely to increase the batch size.
+BX1 did not use weak candidates merely to increase the batch size.
 
 ## 7. Safety boundaries
 
-BX1 does not change:
+BX1 did not change:
 
 ```text
 Cloudflare configuration
@@ -91,14 +91,15 @@ canonical schema
 public machine-readable safety rules
 ```
 
-## 8. Current execution state
+## 8. Completion state
 
 ```text
 L-2 initial decision: HOLD
 D-1000 growth:        CURRENT
 D-1000 BW1:           COMPLETE
-D-1000 BX1:           validation pending
-Language Selection:  blocked until later gate
+D-1000 BX1:           COMPLETE
+Merged PR:            #665
+Language Selection:   blocked until later gate
 ```
 
 ## 9. Authority references
