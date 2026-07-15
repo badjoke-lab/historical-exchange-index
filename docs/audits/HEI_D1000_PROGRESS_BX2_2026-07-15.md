@@ -18,7 +18,7 @@ BX2 is the fifteenth reviewed growth batch during the L-2 initial HOLD period. I
 Maverick Protocol hei_ex_000922 active
 Merchant Moe      hei_ex_000923 active
 Meteora           hei_ex_000924 active
-Minswap           hei_ex_000925 active
+NILE              hei_ex_000925 active
 ```
 
 ## 3. Projected reviewed state
@@ -51,7 +51,7 @@ Merchant Moe is active because current first-party documentation identifies a Ma
 
 Meteora is active because current first-party documentation exposes a live Solana application and current DLMM, DAMM v2, bonding-curve, pool, swap, liquidity, API, SDK, and launch infrastructure.
 
-Minswap is active because its current first-party site exposes live Cardano swaps, aggregation, liquidity, farming, staking, launch, governance, analytics, and wallet functions, supported by current protocol documentation.
+NILE is active because current first-party documentation identifies a Linea concentrated-liquidity DEX with swaps, classic and concentrated pools, LP staking, gauges, voting, incentives, a public dApp, and deployed router, pair-factory, quoter, and liquidity contracts.
 
 ## 5. Overlap findings
 
@@ -61,10 +61,12 @@ Repository-wide name and domain searches found no current-main records for:
 Maverick Protocol / mav.xyz
 Merchant Moe / merchantmoe.com
 Meteora / meteora.ag
-Minswap / minswap.org
+NILE / nile.build
 ```
 
 Records validation remains authoritative. Any normalized overlap found by CI must be resolved before merge.
+
+The initial Minswap proposal was removed after the open-candidate overlap gate correctly detected `candidate:minswap-dex` as unresolved internal work. NILE replaced it without changing projected counts.
 
 ## 6. Checkpoint repair
 
@@ -103,5 +105,5 @@ docs/backlog/consumed/hei_unadded-bx2-four-active-dex-records.md
 records/exchanges/maverick-protocol.json
 records/exchanges/merchant-moe.json
 records/exchanges/meteora.json
-records/exchanges/minswap.json
+records/exchanges/nile.json
 ```
