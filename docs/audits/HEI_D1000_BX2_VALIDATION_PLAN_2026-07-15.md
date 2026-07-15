@@ -17,7 +17,7 @@ Minswap           hei_ex_000925
 
 No events, schema changes, localization expansion, third-language authorization, or Cloudflare changes are included.
 
-BX2 also repairs the stale post-merge BX1 checkpoint and advances the maintainer recovery and L-2 count references.
+BX2 also repairs the stale post-merge BX1 checkpoint and advances the maintainer recovery reference.
 
 ## 2. Projected canonical delta
 
