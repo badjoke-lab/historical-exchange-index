@@ -4,12 +4,13 @@ Date: 2026-07-15
 
 ## Scope
 
-Validate one new reviewed exchange entity and two existing-entity evidence/status refreshes:
+Validate one new reviewed exchange entity and three existing-entity evidence/status refreshes:
 
 ```text
-HSuite    hei_ex_000917 active — new entity
-Hydra DEX hei_ex_000764 active — V2/V3 evidence refresh
-FluxFlow  hei_ex_000841 active — current metric re-verification
+Kuru       hei_ex_000917 active — new entity
+Hydra DEX  hei_ex_000764 active — V2/V3 evidence refresh
+HSuite DEX hei_ex_000758 active — adapter evidence refresh
+FluxFlow   hei_ex_000841 active — current metric re-verification
 ```
 
 ## Required checks
@@ -19,7 +20,6 @@ record schema validation
 overlap audit
 name/slug/domain/alias duplicate audit
 entity/event/evidence ID collision audit
-verified-unadded scan integrity
 candidate consumption integrity
 country/origin strict gate
 projected enum validation
@@ -30,7 +30,7 @@ machine-readable build and validation
 public build and validation
 Japanese route count parity
 L-2 evaluation remains HOLD
-maintainer recovery counts == 797 / 1004 / 3352
+maintainer recovery counts == 797 / 1004 / 3353
 ```
 
 ## Expected projected state
@@ -38,7 +38,7 @@ maintainer recovery counts == 797 / 1004 / 3352
 ```text
 Entities: 797
 Events:   1004
-Evidence: 3352
+Evidence: 3353
 English dossiers:  797
 Japanese dossiers: 797
 Sitemap routes:     1618
@@ -46,14 +46,17 @@ Sitemap routes:     1618
 
 ## Evidence boundary
 
-- HSuite is supported by its current first-party application, current Hedera AMM metrics, and an open-source adapter querying dedicated HbarSuite network nodes and DEX analytics endpoints.
+- Kuru is supported by current first-party documentation, the official public DEX-contract repository, and current Monad DEX and aggregator metrics.
 - Hydra DEX already exists as `hei_ex_000764`; BW1 adds direct current V2 and V3 protocol pages, including recent V3 volume and fees.
-- FluxFlow already exists as `hei_ex_000841`; BW1 refreshes the verification date and current metric description without creating a duplicate entity.
+- HSuite DEX already exists as `hei_ex_000758`; BW1 adds the dedicated open-source adapter that queries HbarSuite mainnet services and DEX analytics endpoints.
+- FluxFlow already exists as `hei_ex_000841`; BW1 refreshes the verification date and current metric description without creating a duplicate entity or evidence row.
 - No record invents a launch date, jurisdiction, legal entity, terminal date, shutdown cause, predecessor, or successor.
 
 ## Overlap findings
 
-Initial proposed HydraDEX and FluxFlow V3 records were rejected by Records validation because existing `hydra.json` and `fluxflow.json` already own their names, aliases, and domain identity. Both duplicate files were deleted. Repository-wide searches found no existing HSuite, HbarSuite, or hsuite.app entity.
+Initial proposed HydraDEX, FluxFlow V3, and HSuite records were rejected by authoritative Records validation because existing `hydra.json`, `fluxflow.json`, and `hsuite-dex.json` already own those identities. All three duplicate files were removed and useful evidence was folded into existing records.
+
+Repository-wide exact-path, name, alias, and domain searches found no existing Kuru or kuru.io record.
 
 ## Merge rule
 
