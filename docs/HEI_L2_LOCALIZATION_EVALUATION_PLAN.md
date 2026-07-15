@@ -43,7 +43,7 @@ After D-1000 batch BW1, the projected reviewed state is:
 ```text
 Entities: 797
 Events:   1004
-Evidence: 3352
+Evidence: 3353
 ```
 
 The localization decision remains HOLD. Translation breadth is not expanded by BW1, and third-language authorization remains false.
