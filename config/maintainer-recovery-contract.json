@@ -8,7 +8,7 @@
   "reviewed_counts": {
     "entities": 797,
     "events": 1004,
-    "evidence": 3352
+    "evidence": 3353
   },
   "authoritative_paths": {
     "agent_instructions": "AGENTS.md",
