@@ -12,7 +12,7 @@ BX2 adds four reviewed active DEX entities:
 Maverick Protocol hei_ex_000922
 Merchant Moe      hei_ex_000923
 Meteora           hei_ex_000924
-Minswap           hei_ex_000925
+NILE              hei_ex_000925
 ```
 
 No events, schema changes, localization expansion, third-language authorization, or Cloudflare changes are included.
@@ -60,10 +60,12 @@ Expected domains:
 mav.xyz
 merchantmoe.com
 meteora.ag
-minswap.org
+nile.build
 ```
 
 Repository searches before drafting found no current-main name or official-domain matches. Records validation remains authoritative. Any normalized overlap requires deleting the duplicate proposal and folding useful evidence into the existing record.
+
+The initial Minswap proposal was removed after the open-candidate overlap gate correctly detected `candidate:minswap-dex` as unresolved internal work. NILE replaced it without changing the projected count delta.
 
 ## 4. Evidence boundary
 
@@ -82,9 +84,9 @@ Meteora:
   current product and protocol documentation
   current token-swap guide
 
-Minswap:
-  official DEX introduction
-  current live trading interface
+NILE:
+  official Linea liquidity and DEX overview
+  current deployed contract registry
 ```
 
 No exact launch date, legal jurisdiction, legal entity, predecessor, successor, terminal date, or shutdown cause is inferred.
