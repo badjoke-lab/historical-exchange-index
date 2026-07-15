@@ -10,14 +10,15 @@ Project: Historical Exchange Index (HEI)
 D-1000 Reviewed Entity Milestone
 ```
 
-BW1 is the thirteenth reviewed growth batch during the L-2 initial HOLD period. It adds one exchange entity and strengthens two existing exchange records after authoritative overlap validation.
+BW1 is the thirteenth reviewed growth batch during the L-2 initial HOLD period. It adds one exchange entity and strengthens three existing exchange records after authoritative overlap validation.
 
 ## 2. Batch contents
 
 ```text
-HSuite    hei_ex_000917 active — new entity
-Hydra DEX hei_ex_000764 active — V2/V3 evidence refresh
-FluxFlow  hei_ex_000841 active — current metric re-verification
+Kuru       hei_ex_000917 active — new entity
+Hydra DEX  hei_ex_000764 active — V2/V3 evidence refresh
+HSuite DEX hei_ex_000758 active — adapter evidence refresh
+FluxFlow   hei_ex_000841 active — current metric re-verification
 ```
 
 ## 3. Projected reviewed state
@@ -25,7 +26,7 @@ FluxFlow  hei_ex_000841 active — current metric re-verification
 ```text
 Entities: 797
 Events:   1004
-Evidence: 3352
+Evidence: 3353
 ```
 
 Batch delta:
@@ -33,7 +34,7 @@ Batch delta:
 ```text
 Entities: +1
 Events:   +0
-Evidence: +5
+Evidence: +6
 ```
 
 Remaining to D-1000:
@@ -44,19 +45,21 @@ Remaining to D-1000:
 
 ## 4. Status discipline
 
-HSuite is active because its current first-party application remains reachable, its current Hedera protocol profile reports TVL and non-zero 24-hour, 7-day, and 30-day DEX volume, and an open-source adapter queries dedicated HbarSuite network nodes and DEX analytics endpoints.
+Kuru is active because current first-party documentation identifies a fully on-chain Monad order-book DEX and smart aggregator with swaps, trading, liquidity provisioning, vaults, SDKs, and APIs. Its official organization publishes public DEX contracts, and current metrics report non-zero recent DEX and aggregator volume.
 
-Hydra DEX remains active. BW1 adds direct V2 and V3 protocol profiles; V3 reports current liquidity and non-zero recent volume and fees, while V2 preserves the version and liquidity context.
+Hydra DEX remains active. BW1 adds direct V2 and V3 protocol profiles; V3 reports current liquidity and non-zero recent volume and fees, while V2 preserves the deployment and liquidity context.
 
-FluxFlow remains active. Its existing current protocol source was re-verified against current Fluent-chain liquidity, fees, revenue, and exchange volume. No duplicate FluxFlow V3 entity is created.
+HSuite DEX remains active. BW1 adds open-source adapter evidence that queries dedicated HbarSuite network nodes and the DEX analytics ticker endpoint.
+
+FluxFlow remains active. Its current Fluent-chain liquidity, fee, revenue, and exchange-volume evidence was re-verified without adding a redundant evidence row.
 
 ## 5. Overlap findings
 
-Records validation found that the initial proposed HydraDEX and FluxFlow V3 records duplicated existing `hydra.json` (`hei_ex_000764`) and `fluxflow.json` (`hei_ex_000841`). The duplicate files were removed and the useful evidence was folded into the existing records.
+Records validation found that the initial proposed HydraDEX, FluxFlow V3, and HSuite records duplicated existing `hydra.json` (`hei_ex_000764`), `fluxflow.json` (`hei_ex_000841`), and `hsuite-dex.json` (`hei_ex_000758`). All duplicate files were removed and useful evidence was folded into the existing records.
 
-Repository-wide name and domain searches found no current-main entity for HSuite, HbarSuite, HbarSuite DEX, or hsuite.app.
+Repository-wide exact-path, name, alias, and domain searches found no current-main entity for Kuru or kuru.io.
 
-The candidate corpus remains a historical snapshot; nearby H-I candidates are heavily represented already and were excluded rather than duplicated.
+The original verified-unadded corpus ends around the I range and therefore did not comprehensively cover Kuru. BW1 extends evidence-first review into the later alphabetic range rather than relying only on the stale capped corpus.
 
 ## 6. Deferred candidates
 
@@ -102,7 +105,8 @@ docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md
 docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
 docs/audits/HEI_D1000_PROGRESS_BV1_2026-07-14.md
 docs/backlog/consumed/hei_unadded-bw1-two-exchange-records.md
-records/exchanges/hbarsuite.json
+records/exchanges/kuru.json
 records/exchanges/hydra.json
+records/exchanges/hsuite-dex.json
 records/exchanges/fluxflow.json
 ```
