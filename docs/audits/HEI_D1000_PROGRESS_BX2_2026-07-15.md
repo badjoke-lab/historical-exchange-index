@@ -1,7 +1,7 @@
 # HEI D-1000 Progress Checkpoint — BX2
 
 Date: 2026-07-15  
-Status: IN PROGRESS  
+Status: COMPLETE  
 Project: Historical Exchange Index (HEI)
 
 ## 1. Current milestone
@@ -10,7 +10,7 @@ Project: Historical Exchange Index (HEI)
 D-1000 Reviewed Entity Milestone
 ```
 
-BX2 is the fifteenth reviewed growth batch during the L-2 initial HOLD period. It adds four current active DEX entities using current first-party protocol, interface, contract, and trading documentation.
+BX2 is the fifteenth reviewed growth batch during the L-2 initial HOLD period. It added four current active DEX entities using current first-party protocol, interface, contract, and trading documentation and merged through PR #666 after all required workflows passed.
 
 ## 2. Batch contents
 
@@ -21,7 +21,7 @@ Meteora           hei_ex_000924 active
 NILE              hei_ex_000925 active
 ```
 
-## 3. Projected reviewed state
+## 3. Reviewed state after merge
 
 ```text
 Entities: 805
@@ -37,7 +37,7 @@ Events:   +0
 Evidence: +8
 ```
 
-Remaining to D-1000:
+Remaining to D-1000 after merge:
 
 ```text
 195 reviewed entities
@@ -64,17 +64,17 @@ Meteora / meteora.ag
 NILE / nile.build
 ```
 
-Records validation remains authoritative. Any normalized overlap found by CI must be resolved before merge.
+Records validation, Candidate scan, and Watchlist resolution passed on the final PR head.
 
-The initial Minswap proposal was removed after the open-candidate overlap gate correctly detected `candidate:minswap-dex` as unresolved internal work. NILE replaced it without changing projected counts.
+The initial Minswap proposal was removed after the open-candidate overlap gate correctly detected `candidate:minswap-dex` as unresolved internal work. NILE replaced it without changing reviewed counts.
 
 ## 6. Checkpoint repair
 
-BX2 repairs the stale BX1 progress state from `validation pending` to `COMPLETE` and advances the maintainer recovery reference to BX2.
+BX2 repaired the stale BX1 progress state from `validation pending` to `COMPLETE` and advanced the maintainer recovery reference to BX2.
 
 ## 7. Safety boundaries
 
-BX2 does not change:
+BX2 did not change:
 
 ```text
 Cloudflare configuration
@@ -85,14 +85,15 @@ canonical schema
 public machine-readable safety rules
 ```
 
-## 8. Current execution state
+## 8. Completion state
 
 ```text
 L-2 initial decision: HOLD
 D-1000 growth:        CURRENT
 D-1000 BX1:           COMPLETE
-D-1000 BX2:           validation pending
-Language Selection:  blocked until later gate
+D-1000 BX2:           COMPLETE
+Merged PR:            #666
+Language Selection:   blocked until later gate
 ```
 
 ## 9. Authority references
