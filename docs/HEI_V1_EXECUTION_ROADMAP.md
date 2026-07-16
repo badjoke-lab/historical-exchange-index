@@ -43,8 +43,7 @@ Phase G — v1.0 Integration Baseline: COMPLETE
 Phase H — Compare v1:                 COMPLETE
 D-750 Reviewed Entity Milestone:      COMPLETE
 L-1 Japanese Pilot:                   COMPLETE / PUBLIC
-L-2 Localization Evaluation Gate:     HOLD
-Current item:                         L2-1 — Evaluation contract, telemetry, and evidence capture
+L-2 Localization Evaluation Gate:     HOLD / EVIDENCE CAPTURE
 D-1000 Reviewed Entity Milestone:     CURRENT
 Language Selection Gate:              BLOCKED UNTIL D-1000 + L-2 EVIDENCE
 ```
