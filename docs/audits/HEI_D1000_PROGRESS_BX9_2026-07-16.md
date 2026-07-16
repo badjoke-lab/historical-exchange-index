@@ -1,7 +1,7 @@
 # HEI D-1000 Progress Checkpoint — BX9
 
 Date: 2026-07-16  
-Status: IN PROGRESS  
+Status: COMPLETE  
 Project: Historical Exchange Index (HEI)
 
 ## 1. Current milestone
@@ -10,7 +10,7 @@ Project: Historical Exchange Index (HEI)
 D-1000 Reviewed Entity Milestone
 ```
 
-BX9 is the twenty-second reviewed growth batch during the L-2 HOLD period. It adds four current active decentralized exchanges using current first-party applications, documentation, official mainnet tooling, public APIs, and independently maintained on-chain event tracking.
+BX9 is the twenty-second reviewed growth batch during the L-2 HOLD period. It added four current active decentralized exchanges using current first-party applications, documentation, official mainnet tooling, public APIs, and independently maintained on-chain event tracking.
 
 ## 2. Batch contents
 
@@ -21,7 +21,7 @@ Rubin        hei_ex_000952 active
 LiquidLaunch hei_ex_000953 active
 ```
 
-## 3. Projected reviewed state
+## 3. Reviewed state
 
 ```text
 Entities: 833
@@ -70,15 +70,15 @@ Angstrom, Full Sail, DipCoin, HARD Swap, EagleFi, CobaltX, and BrownFi were also
 
 Flowr was excluded because its tracked value transfer belongs to an on-chain game economy rather than an exchange venue. Interest Protocol DEX was held because current first-party positioning and current activity evidence did not support a routine active-growth classification.
 
-Records validation, Candidate scan, and Watchlist resolution remain authoritative. Any overlap found by CI must be resolved before merge.
+Records validation, Candidate scan, and Watchlist resolution remained authoritative and all required gates passed on the final merged head.
 
 ## 6. Checkpoint repair
 
-BX9 marks the merged BX8 checkpoint complete and advances the maintainer recovery reference, L-2 parallel-growth count text, reviewed counts, and execution-roadmap checkpoint to BX9.
+BX9 marked the merged BX8 checkpoint complete and advanced the maintainer recovery reference, L-2 parallel-growth count text, reviewed counts, and execution-roadmap checkpoint to BX9.
 
 ## 7. Safety boundaries
 
-BX9 does not change:
+BX9 did not change:
 
 ```text
 Cloudflare configuration
@@ -95,7 +95,7 @@ public machine-readable safety rules
 L-2 decision:       HOLD
 D-1000 growth:      CURRENT
 D-1000 BX8:         COMPLETE
-D-1000 BX9:         validation pending
+D-1000 BX9:         COMPLETE
 Language Selection: blocked until later gate
 ```
 
