@@ -16,7 +16,7 @@ BX9 is the twenty-second reviewed growth batch during the L-2 HOLD period. It ad
 
 ```text
 PunchSwap    hei_ex_000950 active
-1DEX         hei_ex_000951 active
+DropSwap     hei_ex_000951 active
 Rubin        hei_ex_000952 active
 LiquidLaunch hei_ex_000953 active
 ```
@@ -47,7 +47,7 @@ Remaining to D-1000:
 
 PunchSwap is active because current KittyPunch documentation identifies the V2/V3 decentralized exchange on Flow EVM and the dedicated first-party application exposes trade, swap, pool, and liquidity routes.
 
-1DEX is active because its current first-party site explicitly identifies an order-book-based decentralized exchange and exposes current markets, trading, and liquidity surfaces.
+DropSwap is active because its first-party multi-chain swap application remains available and its current public API reports daily integrator fees and revenue components across supported chains.
 
 Rubin is active because its official organization publishes a current mainnet spot and perpetual trading server covering markets, order books, accounts, positions, and order management, while its first-party indexer exposes live perpetual-market data.
 
@@ -59,12 +59,14 @@ Repository-wide name and domain searches plus direct normal, alternate, and lega
 
 ```text
 PunchSwap / swap.kittypunch.xyz
-1DEX / 1dex.com
+DropSwap / dropswap.finance
 Rubin / rubin.trade
 LiquidLaunch / liquidlaunch.app
 ```
 
-Angstrom, Full Sail, DipCoin, HARD Swap, EagleFi, CobaltX, and BrownFi were excluded after direct canonical-path inspection found existing reviewed records. This again confirms that repository search indexing alone is not sufficient for dedupe.
+1DEX was removed after Records validation identified the existing legacy nested record `records/exchanges/records/exchanges/one-dex.json` (`hei_ex_000349`). This confirms that direct alternate-slug and legacy nested checks remain necessary even when repository search returns no match.
+
+Angstrom, Full Sail, DipCoin, HARD Swap, EagleFi, CobaltX, and BrownFi were also excluded after direct canonical-path inspection found existing reviewed records.
 
 Flowr was excluded because its tracked value transfer belongs to an on-chain game economy rather than an exchange venue. Interest Protocol DEX was held because current first-party positioning and current activity evidence did not support a routine active-growth classification.
 
@@ -107,7 +109,7 @@ docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
 docs/audits/HEI_D1000_PROGRESS_BX8_2026-07-16.md
 docs/backlog/consumed/hei_unadded-bx9-four-active-dex-records.md
 records/exchanges/punchswap.json
-records/exchanges/1dex.json
+records/exchanges/dropswap.json
 records/exchanges/rubin.json
 records/exchanges/liquidlaunch.json
 ```
