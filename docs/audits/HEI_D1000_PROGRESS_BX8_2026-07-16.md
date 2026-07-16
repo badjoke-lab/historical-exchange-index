@@ -1,7 +1,7 @@
 # HEI D-1000 Progress Checkpoint — BX8
 
 Date: 2026-07-16  
-Status: IN PROGRESS  
+Status: COMPLETE  
 Project: Historical Exchange Index (HEI)
 
 ## 1. Current milestone
@@ -10,7 +10,7 @@ Project: Historical Exchange Index (HEI)
 D-1000 Reviewed Entity Milestone
 ```
 
-BX8 is the twenty-first reviewed growth batch during the L-2 HOLD period. It adds four current active decentralized exchanges using current first-party application, documentation, code, and independent protocol-metric evidence.
+BX8 is the twenty-first reviewed growth batch during the L-2 HOLD period. It added four current active decentralized exchanges using current first-party application, documentation, code, and independent protocol-metric evidence.
 
 ## 2. Batch contents
 
@@ -21,7 +21,7 @@ Sour     hei_ex_000948 active
 Metric   hei_ex_000949 active
 ```
 
-## 3. Projected reviewed state
+## 3. Reviewed state
 
 ```text
 Entities: 829
@@ -68,15 +68,15 @@ BrownFi was excluded after direct canonical-path inspection found existing recor
 
 HyperLynx remains undrafted because a distinct official domain was not confirmed beyond its official GitHub organization. This avoids using a generic `github.com` identity as the canonical official domain in a routine growth batch.
 
-Records validation, Candidate scan, and Watchlist resolution remain authoritative. Any overlap found by CI must be resolved before merge.
+Records validation, Candidate scan, and Watchlist resolution remained authoritative and all required gates passed on the final merged head.
 
 ## 6. Checkpoint repair
 
-BX8 marks the merged BX7 checkpoint complete and advances the maintainer recovery reference, L-2 parallel-growth count text, reviewed counts, and execution-roadmap checkpoint to BX8.
+BX8 marked the merged BX7 checkpoint complete and advanced the maintainer recovery reference, L-2 parallel-growth count text, reviewed counts, and execution-roadmap checkpoint to BX8.
 
 ## 7. Safety boundaries
 
-BX8 does not change:
+BX8 did not change:
 
 ```text
 Cloudflare configuration
@@ -93,7 +93,7 @@ public machine-readable safety rules
 L-2 decision:       HOLD
 D-1000 growth:      CURRENT
 D-1000 BX7:         COMPLETE
-D-1000 BX8:         validation pending
+D-1000 BX8:         COMPLETE
 Language Selection: blocked until later gate
 ```
 
