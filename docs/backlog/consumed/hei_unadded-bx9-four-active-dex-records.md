@@ -6,7 +6,7 @@ Reviewed at: 2026-07-16
 
 ```text
 PunchSwap    -> hei_ex_000950 active
-1DEX         -> hei_ex_000951 active
+DropSwap     -> hei_ex_000951 active
 Rubin        -> hei_ex_000952 active
 LiquidLaunch -> hei_ex_000953 active
 ```
@@ -20,9 +20,9 @@ Each selected entity has:
 ```text
 a distinct current-main identity
 no normal, alternate, or legacy nested canonical path
-no normalized name or official-domain overlap found before PR validation
+no normalized name or official-domain overlap found before final validation
 a current first-party application, documentation, API, or official repository
-a clearly described exchange, order-book, swap, bonding, spot, or perpetual function
+a clearly described exchange, aggregation, swap, bonding, spot, or perpetual function
 at least two evidence items appropriate to the confidence level
 ```
 
@@ -30,13 +30,14 @@ at least two evidence items appropriate to the confidence level
 
 All four records are `active`.
 
-PunchSwap has current first-party V2/V3 documentation and a dedicated Flow EVM trade and liquidity application. 1DEX exposes a current order-book exchange, markets, and liquidity surface. Rubin publishes official current mainnet spot/perpetual trading tooling and a live first-party indexer. LiquidLaunch remains publicly available and has current contract-event tracking for purchases, sales, bonding, LP fees, and staking distributions.
+PunchSwap has current first-party V2/V3 documentation and a dedicated Flow EVM trade and liquidity application. DropSwap exposes a current multi-chain swap-routing application and a first-party daily fee API by chain. Rubin publishes official current mainnet spot/perpetual trading tooling and a live first-party indexer. LiquidLaunch remains publicly available and has current contract-event tracking for purchases, sales, bonding, LP fees, and staking distributions.
 
 LiquidLaunch confidence is `medium` because current technical detail is primarily supported by independently maintained on-chain tracking rather than broad first-party documentation.
 
-## Exclusions and holds
+## Exclusions, replacement, and holds
 
 ```text
+1DEX           existing legacy nested record hei_ex_000349; draft removed
 Angstrom       existing hei_ex_000531
 BrownFi        existing hei_ex_000606
 CobaltX        existing hei_ex_000634
@@ -48,6 +49,8 @@ Flowr          excluded: on-chain game economy, not an exchange venue
 Interest DEX   held: current active-product evidence insufficient
 HyperLynx      held: distinct official domain unresolved
 ```
+
+Records validation identified 1DEX under `records/exchanges/records/exchanges/one-dex.json` after the initial draft. The draft was removed and replaced with DropSwap while preserving the BX9 entity and evidence ID ranges.
 
 Direct canonical-path inspection overrode empty repository-search results whenever the two disagreed.
 
