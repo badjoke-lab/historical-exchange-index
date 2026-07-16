@@ -10,7 +10,7 @@ BX9 adds four reviewed active decentralized exchange entities:
 
 ```text
 PunchSwap    hei_ex_000950
-1DEX         hei_ex_000951
+DropSwap     hei_ex_000951
 Rubin        hei_ex_000952
 LiquidLaunch hei_ex_000953
 ```
@@ -62,14 +62,16 @@ Expected domains:
 
 ```text
 swap.kittypunch.xyz
-1dex.com
+dropswap.finance
 rubin.trade
 liquidlaunch.app
 ```
 
 Repository searches and direct normal, alternate, and legacy nested canonical-path checks found no current-main identity or domain match for the final records.
 
-Existing records found and excluded during screening included Angstrom, Full Sail, DipCoin, HARD Swap, EagleFi, CobaltX, and BrownFi. Flowr was excluded because its tracked activity is an on-chain game economy rather than an exchange venue. Interest Protocol DEX was held because current first-party material places the relevant product among older products and current volume evidence was insufficient.
+1DEX was initially drafted but Records validation identified the existing legacy nested record `records/exchanges/records/exchanges/one-dex.json` (`hei_ex_000349`). The draft was removed and replaced with DropSwap before final validation.
+
+Other existing records found and excluded during screening included Angstrom, Full Sail, DipCoin, HARD Swap, EagleFi, CobaltX, and BrownFi. Flowr was excluded because its tracked activity is an on-chain game economy rather than an exchange venue. Interest Protocol DEX was held because current first-party material places the relevant product among older products and current volume evidence was insufficient.
 
 ## 4. Evidence boundary
 
@@ -78,9 +80,9 @@ PunchSwap:
   current official KittyPunch product documentation
   current first-party PunchSwap trade and liquidity application
 
-1DEX:
-  current first-party order-book exchange application
-  current first-party markets route
+DropSwap:
+  current first-party multi-chain swap application
+  current first-party daily fees and revenue API by chain
 
 Rubin:
   current official organization mainnet trading repository
@@ -91,7 +93,7 @@ LiquidLaunch:
   current independently maintained on-chain purchase, sale, bond, LP-fee, and staking adapter
 ```
 
-LiquidLaunch confidence remains `medium` because public first-party technical documentation is limited. PunchSwap, 1DEX, and Rubin use two current first-party surfaces.
+LiquidLaunch confidence remains `medium` because public first-party technical documentation is limited. PunchSwap, DropSwap, and Rubin use two current first-party surfaces.
 
 No exact launch date, legal jurisdiction, legal entity, predecessor, successor, terminal date, or shutdown cause is inferred.
 
