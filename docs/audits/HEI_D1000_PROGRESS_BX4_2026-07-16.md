@@ -1,7 +1,7 @@
 # HEI D-1000 Progress Checkpoint — BX4
 
 Date: 2026-07-16  
-Status: IN PROGRESS  
+Status: COMPLETE  
 Project: Historical Exchange Index (HEI)
 
 ## 1. Current milestone
@@ -21,7 +21,7 @@ Metropolis      hei_ex_000932 active
 Momentum        hei_ex_000933 active
 ```
 
-## 3. Projected reviewed state
+## 3. Reviewed state
 
 ```text
 Entities: 813
@@ -68,15 +68,15 @@ Blackhole and Kodiak were initially reviewed but excluded when direct path reads
 
 Equalizer was initially drafted but removed after Records validation detected the existing reviewed identity `hei_ex_000684`. Kittenswap replaced it without changing the projected count delta.
 
-Records validation, Candidate scan, and Watchlist resolution remain authoritative. Any normalized overlap found by CI must be resolved before merge.
+Records validation, Candidate scan, and Watchlist resolution remained authoritative and all required gates passed on the final merged head.
 
 ## 6. Checkpoint repair
 
-BX4 marks the merged BX3 checkpoint complete and advances the maintainer recovery reference and reviewed counts to BX4.
+BX4 marked the merged BX3 checkpoint complete, advanced the maintainer recovery reference and reviewed counts to BX4, and refreshed the execution roadmap while preserving the frozen v1 baseline checkpoint.
 
 ## 7. Safety boundaries
 
-BX4 does not change:
+BX4 did not change:
 
 ```text
 Cloudflare configuration
@@ -90,11 +90,11 @@ public machine-readable safety rules
 ## 8. Current execution state
 
 ```text
-L-2 initial decision: HOLD
-D-1000 growth:        CURRENT
-D-1000 BX3:           COMPLETE
-D-1000 BX4:           validation pending
-Language Selection:  blocked until later gate
+L-2 decision:       HOLD
+D-1000 growth:      CURRENT
+D-1000 BX3:         COMPLETE
+D-1000 BX4:         COMPLETE
+Language Selection: blocked until later gate
 ```
 
 ## 9. Authority references
