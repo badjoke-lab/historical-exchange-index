@@ -29,11 +29,10 @@ Execution order comes from this roadmap. Detailed behavior and completion gates 
 - Raw monitoring and unreviewed candidates remain internal.
 - Canonical facts remain single-source across locales.
 - Explorer query keys, Compare selection keys, enum values, and reviewed slugs remain locale-independent.
-- Data growth, product work, operations, localization evaluation, and machine-readable maintenance run as separate parallel lanes.
 - Reviewed milestone counts use public build aggregation semantics, not base-array lengths or candidate counts.
 - No third-language pilot may launch before 1000 reviewed entities, Japanese Pilot evidence, an L-2 decision, and a Language Selection Gate decision.
 - No third language is preselected.
-- Only one additional language pilot should run at a time under current operating capacity.
+- Only one additional language pilot should run at a time.
 - Production diagnosis starts with deployed commit verification.
 - Dynamic main SHA and open PR state must come from current GitHub state.
 
@@ -45,11 +44,12 @@ Phase H — Compare v1:                 COMPLETE
 D-750 Reviewed Entity Milestone:      COMPLETE
 L-1 Japanese Pilot:                   COMPLETE / PUBLIC
 L-2 Localization Evaluation Gate:     HOLD
+Current item:                         L2-1 — Evaluation contract, telemetry, and evidence capture
 D-1000 Reviewed Entity Milestone:     CURRENT
 Language Selection Gate:              BLOCKED UNTIL D-1000 + L-2 EVIDENCE
 ```
 
-BX4 reviewed state on the current growth branch:
+BX4 reviewed state:
 
 ```text
 Entities: 813
@@ -70,7 +70,7 @@ docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
 data-evaluation/l2-localization-evidence.json
 ```
 
-L-2 remains HOLD because the minimum observation window and required external evidence are not yet complete. HOLD keeps the Japanese Pilot public and permits reviewed canonical growth toward D-1000.
+L-2 remains HOLD because the minimum observation window and required external evidence are not complete. HOLD keeps the Japanese Pilot public and permits reviewed canonical growth toward D-1000.
 
 ## 4. Reviewed-count semantics
 
@@ -94,13 +94,9 @@ Maximum event ID:          hei_ev_010080
 Maximum added evidence ID: hei_src_012081
 ```
 
-The D-1000 milestone is:
+The D-1000 milestone is `reviewed public entities >= 1000`.
 
-```text
-reviewed public entities >= 1000
-```
-
-## 5. Completed phases and gates
+## 5. Completed phases and frozen baseline evidence
 
 ```text
 Phase C    Registry milestone                  COMPLETE
@@ -114,20 +110,24 @@ G-3        Cross-surface Integration Audit     COMPLETE
 G-4        Machine/Public Consistency Audit    COMPLETE
 G-5        Production Integration/Verification COMPLETE
 G-6        Maintainer Recovery Validation      COMPLETE
-G-7        v1.0 Baseline Checkpoint             COMPLETE
+G-7 v1.0 Baseline Checkpoint                   COMPLETE
 Phase H    Compare v1                           COMPLETE
 D-750      Reviewed Entity Milestone            COMPLETE
 L-1        Japanese Pilot                       COMPLETE / PUBLIC
 ```
 
-Completion evidence includes:
+Frozen and phase-completion evidence:
 
 ```text
 docs/audits/HEI_G7_V1_BASELINE_CHECKPOINT_2026-07-07.md
+config/v1-baseline-contract.json
+scripts/validate-v1-baseline.mjs
 docs/audits/HEI_H5_COMPARE_V1_COMPLETION_2026-07-08.md
 docs/audits/HEI_D750_MILESTONE_COMPLETION_2026-07-10.md
 docs/audits/HEI_L1_JAPANESE_PILOT_ROUTE_ACTIVATION_COMPLETION_2026-07-10.md
 ```
+
+The frozen v1 baseline remains historical evidence. Current reviewed counts may grow without changing its baseline SHA, route contract, schema contract, or safety boundaries.
 
 ## 6. Parallel lanes
 
@@ -141,7 +141,7 @@ record strengthening
 status / lifecycle updates
 quality repair
 archive / evidence improvement
-D-1000 milestone                         CURRENT
+D-1000 Reviewed Entity Milestone       CURRENT
 ```
 
 ### Lane B — Product and localization
@@ -202,11 +202,7 @@ Data growth continues during L-2 HOLD, but public rollout gates remain fixed.
 
 ## 8. Phase H — Compare v1
 
-State:
-
-```text
-COMPLETE
-```
+State: `COMPLETE`
 
 Authority:
 
@@ -221,13 +217,7 @@ Compare remains reviewed-facts-only and must not introduce synthetic risk scores
 
 ## 9. D-750 Reviewed Entity Milestone
 
-State:
-
-```text
-COMPLETE
-```
-
-Completion state:
+State: `COMPLETE`
 
 ```text
 Entities: 750
@@ -242,26 +232,11 @@ docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md
 docs/audits/HEI_D750_MILESTONE_COMPLETION_2026-07-10.md
 ```
 
-D-750 completion authorized the L-1 Japanese Pilot implementation sequence.
-
 ## 10. L-1 Japanese Pilot
 
-State:
+State: `COMPLETE / PUBLIC`
 
-```text
-COMPLETE / PUBLIC
-```
-
-The public pilot preserves:
-
-```text
-broad Japanese UI shell
-localized Home/About/Methodology and major controls
-English fallback for untranslated record copy
-canonical facts single-source
-all reviewed Japanese dossier routes
-locale-safe metadata and sitemap coverage
-```
+The pilot preserves a broad Japanese UI shell, localized major controls, English fallback, canonical facts single-source, all reviewed Japanese dossier routes, and locale-safe metadata and sitemap coverage.
 
 Authority:
 
@@ -273,13 +248,7 @@ docs/audits/HEI_L1_JAPANESE_PILOT_ROUTE_ACTIVATION_COMPLETION_2026-07-10.md
 
 ## 11. L-2 Localization Evaluation Gate
 
-State:
-
-```text
-HOLD
-```
-
-L-2 evaluates search evidence, Japanese entry behavior, language-switch use, Explorer/Stats/Compare usage, dossier transitions, correction requests, fallback frequency, stale overlays, synchronization burden, and operator QA burden.
+State: `HOLD`
 
 Decision semantics:
 
@@ -301,28 +270,15 @@ data-evaluation/l2-localization-evidence.json
 
 ## 12. D-1000 Reviewed Entity Milestone
 
-State:
+State: `CURRENT`
 
 ```text
-CURRENT
-```
-
-Target:
-
-```text
-reviewed public entities >= 1000
-```
-
-Current BX4 branch state:
-
-```text
+Target:   reviewed public entities >= 1000
 Entities: 813
 Events:   1004
 Evidence: 3385
 Remaining: 187 reviewed entities
 ```
-
-D-1000 is a prerequisite for the Language Selection Gate.
 
 Work categories:
 
@@ -336,13 +292,11 @@ archive and evidence improvements
 count validation under public build semantics
 ```
 
+D-1000 is a prerequisite for the Language Selection Gate.
+
 ## 13. Language Selection Gate
 
-State:
-
-```text
-BLOCKED
-```
+State: `BLOCKED`
 
 Prerequisites:
 
@@ -364,8 +318,6 @@ PILOT ONE LANGUAGE
   select exactly one evidence-supported third language
 ```
 
-Inputs include HEI traffic geography and language, Search Console queries, Japanese Pilot behavior, subject relevance, QA capacity, maintenance cost, and correction/support patterns.
-
 ## 14. Phase I — Discovery Log Trial
 
 ```text
@@ -386,15 +338,9 @@ Automatic publication of raw monitoring findings remains prohibited.
 
 Activate only if Explorer usage demonstrates need.
 
-```text
-natural language -> validated Explorer parameters -> deterministic Explorer results
-```
-
 ### Phase K — API Expansion
 
 Activate only after real external consumer need that static files cannot satisfy.
-
-Existing public machine layer includes version, manifest, three datasets, reviewed feeds, `llms.txt`, and `ai.txt`.
 
 ## 16. Immediate execution order
 
@@ -409,13 +355,6 @@ Existing public machine layer includes version, manifest, three datasets, review
 8. Phase K only if justified
 ```
 
-Parallel rule:
-
-```text
-reviewed data growth continues during localization evaluation
-but public rollout gates remain fixed
-```
-
 ## 17. Recovery
 
 Primary runbook:
@@ -424,7 +363,7 @@ Primary runbook:
 docs/operations/HEI_MAINTAINER_RECOVERY_RUNBOOK.md
 ```
 
-Recovery must determine repository identity, current main SHA, open PRs, deployment policy, roadmap checkpoint, active specifications, reviewed counts under build semantics, current production/baseline verification state, required validation commands, and the first incomplete roadmap item.
+Recovery must determine repository identity, current main SHA, open PRs, deployment policy, roadmap checkpoint, active specifications, reviewed counts under build semantics, production/baseline verification state, required validation commands, and the first incomplete roadmap item.
 
 At the BX4 checkpoint, recovery should resolve:
 
@@ -455,22 +394,8 @@ Update this roadmap together with relevant specifications before changing:
 - Discovery Log order;
 - conditional activation of Phase J or K.
 
-Fixed priority after G-7:
+Fixed priority:
 
 ```text
 Compare -> 750 -> Japanese Pilot/evaluation -> 1000 -> language selection
-```
-
-Current progress:
-
-```text
-Compare COMPLETE
-        ↓
-750 COMPLETE
-        ↓
-Japanese Pilot COMPLETE / L-2 HOLD
-        ↓
-1000 CURRENT
-        ↓
-language selection
 ```
