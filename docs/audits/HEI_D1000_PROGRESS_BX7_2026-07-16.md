@@ -1,7 +1,7 @@
 # HEI D-1000 Progress Checkpoint — BX7
 
 Date: 2026-07-16  
-Status: IN PROGRESS  
+Status: COMPLETE  
 Project: Historical Exchange Index (HEI)
 
 ## 1. Current milestone
@@ -10,7 +10,7 @@ Project: Historical Exchange Index (HEI)
 D-1000 Reviewed Entity Milestone
 ```
 
-BX7 is the twentieth reviewed growth batch during the L-2 HOLD period. It adds four current active decentralized exchange or protocol-native AMM entities using current first-party documentation, application, API, and source-repository evidence.
+BX7 is the twentieth reviewed growth batch during the L-2 HOLD period. It added four current active decentralized exchange or protocol-native AMM entities using current first-party documentation, application, API, and source-repository evidence.
 
 ## 2. Batch contents
 
@@ -21,7 +21,7 @@ Tempo Fee AMM     hei_ex_000944 active
 Temple Lightspeed hei_ex_000945 active
 ```
 
-## 3. Projected reviewed state
+## 3. Reviewed state
 
 ```text
 Entities: 825
@@ -66,15 +66,15 @@ Temple Lightspeed / templedigitalgroup.com
 
 The records distinguish the protocol identities from unrelated products sharing generic words such as Dream, Pool Party, Tempo, or Lightspeed.
 
-Records validation, Candidate scan, and Watchlist resolution remain authoritative. Any normalized overlap found by CI must be resolved before merge.
+Records validation, Candidate scan, and Watchlist resolution remained authoritative and all required gates passed on the final merged head.
 
 ## 6. Checkpoint repair
 
-BX7 marks the merged BX6 checkpoint complete and advances the maintainer recovery reference, L-2 parallel-growth count text, and reviewed counts to BX7.
+BX7 marked the merged BX6 checkpoint complete and advanced the maintainer recovery reference, L-2 parallel-growth count text, and reviewed counts to BX7.
 
 ## 7. Safety boundaries
 
-BX7 does not change:
+BX7 did not change:
 
 ```text
 Cloudflare configuration
@@ -91,7 +91,7 @@ public machine-readable safety rules
 L-2 decision:       HOLD
 D-1000 growth:      CURRENT
 D-1000 BX6:         COMPLETE
-D-1000 BX7:         validation pending
+D-1000 BX7:         COMPLETE
 Language Selection: blocked until later gate
 ```
 
