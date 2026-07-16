@@ -1,7 +1,7 @@
 # HEI D-1000 Progress Checkpoint — BX6
 
 Date: 2026-07-16  
-Status: IN PROGRESS  
+Status: COMPLETE  
 Project: Historical Exchange Index (HEI)
 
 ## 1. Current milestone
@@ -10,7 +10,7 @@ Project: Historical Exchange Index (HEI)
 D-1000 Reviewed Entity Milestone
 ```
 
-BX6 is the nineteenth reviewed growth batch during the L-2 HOLD period. It adds four current active decentralized exchange or swap-aggregator entities using current first-party application, protocol, deployment, and source-repository evidence.
+BX6 is the nineteenth reviewed growth batch during the L-2 HOLD period. It added four current active decentralized exchange or swap-aggregator entities using current first-party application, protocol, deployment, and source-repository evidence.
 
 ## 2. Batch contents
 
@@ -21,7 +21,7 @@ Reactor DEX      hei_ex_000940 active
 Doma DEX         hei_ex_000941 active
 ```
 
-## 3. Projected reviewed state
+## 3. Reviewed state
 
 ```text
 Entities: 821
@@ -68,15 +68,15 @@ Existing reviewed records found and excluded during candidate screening included
 
 A separate Sei project using the DragonSwap name was not drafted because the normalized-name collision requires dedicated identity review rather than bypassing the growth-batch overlap controls.
 
-Records validation, Candidate scan, and Watchlist resolution remain authoritative. Any normalized overlap found by CI must be resolved before merge.
+Records validation, Candidate scan, and Watchlist resolution remained authoritative and all required gates passed on the final merged head.
 
 ## 6. Checkpoint repair
 
-BX6 marks the merged BX5 checkpoint complete and advances the maintainer recovery reference, L-2 parallel-growth count text, and reviewed counts to BX6.
+BX6 marked the merged BX5 checkpoint complete and advanced the maintainer recovery reference, L-2 parallel-growth count text, and reviewed counts to BX6.
 
 ## 7. Safety boundaries
 
-BX6 does not change:
+BX6 did not change:
 
 ```text
 Cloudflare configuration
@@ -93,7 +93,7 @@ public machine-readable safety rules
 L-2 decision:       HOLD
 D-1000 growth:      CURRENT
 D-1000 BX5:         COMPLETE
-D-1000 BX6:         validation pending
+D-1000 BX6:         COMPLETE
 Language Selection: blocked until later gate
 ```
 
