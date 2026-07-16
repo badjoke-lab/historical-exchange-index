@@ -10,7 +10,7 @@ BX4 adds four reviewed active DEX entities:
 
 ```text
 Shadow Exchange hei_ex_000930
-Equalizer       hei_ex_000931
+Kittenswap      hei_ex_000931
 Metropolis      hei_ex_000932
 Momentum        hei_ex_000933
 ```
@@ -60,14 +60,16 @@ Expected domains:
 
 ```text
 shadow.so
-equalizer.exchange
+kittenswap.finance
 metropolis.exchange
 mmt.finance
 ```
 
-Repository searches found no current-main name/domain matches for the final records. Direct canonical-path checks were also used because repository search indexing did not surface two existing candidates during research.
+Repository searches found no current-main name/domain matches for the final records. Direct canonical-path checks were also used because repository search indexing did not surface existing candidates during research.
 
-Blackhole and Kodiak were excluded after direct canonical-path reads confirmed existing reviewed records `hei_ex_000399` and `hei_ex_000918`. No duplicate proposal was retained.
+Blackhole and Kodiak were excluded after direct canonical-path reads confirmed existing reviewed records `hei_ex_000399` and `hei_ex_000918`.
+
+Equalizer was removed after the first Records validation run detected the existing reviewed record `hei_ex_000684`. Kittenswap replaced it rather than bypassing the overlap gate.
 
 ## 4. Evidence boundary
 
@@ -78,9 +80,9 @@ Shadow Exchange:
   official Sonic exchange documentation
   current deployed contract registry
 
-Equalizer:
-  official exchange documentation
-  current Sonic deployed contract registry
+Kittenswap:
+  official HyperEVM DEX introduction
+  current active deployed contract registry
 
 Metropolis:
   official Sonic DLMM DEX documentation
