@@ -1,7 +1,7 @@
 # HEI D-1000 Progress Checkpoint — BX3
 
 Date: 2026-07-15  
-Status: IN PROGRESS  
+Status: COMPLETE  
 Project: Historical Exchange Index (HEI)
 
 ## 1. Current milestone
@@ -10,7 +10,7 @@ Project: Historical Exchange Index (HEI)
 D-1000 Reviewed Entity Milestone
 ```
 
-BX3 is the sixteenth reviewed growth batch during the L-2 initial HOLD period. It adds four current active DEX and DEX-aggregator entities using current first-party protocol, application, API, and deployed-contract documentation.
+BX3 is the sixteenth reviewed growth batch during the L-2 initial HOLD period. It added four current active DEX and DEX-aggregator entities using current first-party protocol, application, API, and deployed-contract documentation and merged through PR #667 after all required workflows passed.
 
 ## 2. Batch contents
 
@@ -21,7 +21,7 @@ Ramses    hei_ex_000928 active
 Odos      hei_ex_000929 active
 ```
 
-## 3. Projected reviewed state
+## 3. Reviewed state after merge
 
 ```text
 Entities: 809
@@ -37,7 +37,7 @@ Events:   +0
 Evidence: +8
 ```
 
-Remaining to D-1000:
+Remaining to D-1000 after merge:
 
 ```text
 191 reviewed entities
@@ -64,17 +64,17 @@ Ramses / ramses.xyz
 Odos / odos.xyz
 ```
 
-Records validation, Candidate scan, and Watchlist resolution remain authoritative. Any normalized overlap found by CI must be resolved before merge.
+Records validation, Candidate scan, and Watchlist resolution passed on the final PR head.
 
-Pearl Exchange was reviewed as a possible fourth record but excluded before drafting because its former public domain currently resolves to unrelated gambling and SEO-spam content. Stale protocol documentation alone was not treated as sufficient evidence of current active status.
+Pearl Exchange was reviewed as a possible fourth record but excluded before drafting because its former public domain resolved to unrelated gambling and SEO-spam content. Stale protocol documentation alone was not treated as sufficient evidence of current active status.
 
 ## 6. Checkpoint repair
 
-BX3 marks the merged BX2 checkpoint complete and advances the maintainer recovery reference and reviewed counts to BX3.
+BX3 marked the merged BX2 checkpoint complete and advanced the maintainer recovery reference and reviewed counts to BX3.
 
 ## 7. Safety boundaries
 
-BX3 does not change:
+BX3 did not change:
 
 ```text
 Cloudflare configuration
@@ -85,14 +85,15 @@ canonical schema
 public machine-readable safety rules
 ```
 
-## 8. Current execution state
+## 8. Completion state
 
 ```text
 L-2 initial decision: HOLD
 D-1000 growth:        CURRENT
 D-1000 BX2:           COMPLETE
-D-1000 BX3:           validation pending
-Language Selection:  blocked until later gate
+D-1000 BX3:           COMPLETE
+Merged PR:            #667
+Language Selection:   blocked until later gate
 ```
 
 ## 9. Authority references
