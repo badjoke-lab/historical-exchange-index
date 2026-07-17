@@ -6,9 +6,9 @@
   "current_item": "L2-1 — Evaluation contract, telemetry, and evidence capture",
   "next_item": "D-1000 Reviewed Entity Milestone",
   "reviewed_counts": {
-    "entities": 845,
+    "entities": 849,
     "events": 1004,
-    "evidence": 3449
+    "evidence": 3457
   },
   "authoritative_paths": {
     "agent_instructions": "AGENTS.md",
@@ -24,7 +24,7 @@
     "l2_evidence_snapshot": "data-evaluation/l2-localization-evidence.json",
     "l2_evaluator": "scripts/evaluate-l2-localization-gate.mjs",
     "d750_completion_report": "docs/audits/HEI_D750_MILESTONE_COMPLETION_2026-07-10.md",
-    "d1000_progress_report": "docs/audits/HEI_D1000_PROGRESS_BX12_2026-07-17.md",
+    "d1000_progress_report": "docs/audits/HEI_D1000_PROGRESS_BX13_2026-07-17.md",
     "l1_activation_completion_report": "docs/audits/HEI_L1_JAPANESE_PILOT_ROUTE_ACTIVATION_COMPLETION_2026-07-10.md",
     "deployment_policy": "docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md",
     "cloudflare_project_policy": "config/cloudflare-pages-project.json",
