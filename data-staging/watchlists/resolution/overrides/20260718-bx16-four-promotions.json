@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-18",
+  "purpose": "Close four reviewed held candidates after promotion through D-1000 BX16 without rewriting the historical base resolution index.",
+  "entries": [
+    {
+      "candidate_key": "candidate:avantis",
+      "canonical_name": "Avantis",
+      "aliases": ["Avantis Finance", "Avantis Protocol"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-18",
+      "target_entity_id": "hei_ex_000978",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json",
+        "records/exchanges/avantis.json"
+      ],
+      "notes": "D-1000 BX16 completed current first-party and independent evidence review and promoted the held Avantis candidate as canonical entity hei_ex_000978. The candidate must not remain open or return as new growth work."
+    },
+    {
+      "candidate_key": "candidate:ostium",
+      "canonical_name": "Ostium",
+      "aliases": ["Ostium Protocol", "Ostium Exchange"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-18",
+      "target_entity_id": "hei_ex_000979",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json",
+        "records/exchanges/ostium.json"
+      ],
+      "notes": "D-1000 BX16 completed current first-party and independent evidence review and promoted the held Ostium candidate as canonical entity hei_ex_000979. The candidate must not remain open or return as new growth work."
+    },
+    {
+      "candidate_key": "candidate:pacifica-perps",
+      "canonical_name": "Pacifica Perps",
+      "aliases": ["Pacifica", "Pacifica Exchange"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-18",
+      "target_entity_id": "hei_ex_000980",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/pacifica.json"
+      ],
+      "notes": "D-1000 BX16 completed current first-party and independent evidence review and promoted the held Pacifica Perps candidate as canonical Pacifica entity hei_ex_000980. The candidate must not remain open or return as new growth work."
+    },
+    {
+      "candidate_key": "candidate:manifest-trade",
+      "canonical_name": "Manifest Trade",
+      "aliases": ["Manifest", "Manifest DEX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-18",
+      "target_entity_id": "hei_ex_000981",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/manifest-trade.json"
+      ],
+      "notes": "D-1000 BX16 completed current first-party and independent evidence review and promoted the held Manifest Trade candidate as canonical entity hei_ex_000981. The candidate must not remain open or return as new growth work."
+    }
+  ]
+}
