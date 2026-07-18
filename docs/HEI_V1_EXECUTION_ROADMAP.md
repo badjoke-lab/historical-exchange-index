@@ -48,23 +48,23 @@ D-1000 Reviewed Entity Milestone:     CURRENT
 Language Selection Gate:              BLOCKED UNTIL D-1000 + L-2 EVIDENCE
 ```
 
-BX14 reviewed state:
+BX15 reviewed state:
 
 ```text
-Entities: 853
+Entities: 857
 Events:   1004
-Evidence: 3465
-English dossiers:  853
-Japanese dossiers: 853
-Sitemap routes:     1730
-Remaining to D-1000: 147
+Evidence: 3473
+English dossiers:  857
+Japanese dossiers: 857
+Sitemap routes:     1738
+Remaining to D-1000: 143
 ```
 
 Current authority:
 
 ```text
 config/maintainer-recovery-contract.json
-docs/audits/HEI_D1000_PROGRESS_BX14_2026-07-18.md
+docs/audits/HEI_D1000_PROGRESS_BX15_2026-07-18.md
 docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
 data-evaluation/l2-localization-evidence.json
 ```
@@ -85,12 +85,12 @@ scripts/lib/entity-corrections.mjs
 
 Milestones count reviewed public state after reviewed bundle aggregation, entity correction, identity resolution, and event/evidence merge semantics.
 
-Current BX14 identifiers:
+Current BX15 identifiers:
 
 ```text
-Maximum added entity ID:   hei_ex_000973
+Maximum added entity ID:   hei_ex_000977
 Maximum event ID:          hei_ev_010080
-Maximum added evidence ID: hei_src_012161
+Maximum added evidence ID: hei_src_012169
 ```
 
 The D-1000 milestone is `reviewed public entities >= 1000`.
@@ -273,10 +273,10 @@ State: `CURRENT`
 
 ```text
 Target:   reviewed public entities >= 1000
-Entities: 853
+Entities: 857
 Events:   1004
-Evidence: 3465
-Remaining: 147 reviewed entities
+Evidence: 3473
+Remaining: 143 reviewed entities
 ```
 
 Work categories:
@@ -364,7 +364,7 @@ docs/operations/HEI_MAINTAINER_RECOVERY_RUNBOOK.md
 
 Recovery must determine repository identity, current main SHA, open PRs, deployment policy, roadmap checkpoint, active specifications, reviewed counts under build semantics, production/baseline verification state, required validation commands, and the first incomplete roadmap item.
 
-At the BX14 checkpoint, recovery should resolve:
+At the BX15 checkpoint, recovery should resolve:
 
 ```text
 Phase H COMPLETE
@@ -372,10 +372,10 @@ D-750 COMPLETE
 L-1 COMPLETE / PUBLIC
 L-2 HOLD
 D-1000 CURRENT
-Entities: 853
+Entities: 857
 Events: 1004
-Evidence: 3465
-Remaining to D-1000: 147
+Evidence: 3473
+Remaining to D-1000: 143
 ```
 
 Dynamic main SHA and open PR state must still be read from current GitHub state.
