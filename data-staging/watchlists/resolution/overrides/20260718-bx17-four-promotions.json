@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-18",
+  "purpose": "Close four reviewed held candidates after promotion through D-1000 BX17 without rewriting the historical base resolution index.",
+  "entries": [
+    {
+      "candidate_key": "candidate:ethereal-dex",
+      "canonical_name": "Ethereal DEX",
+      "aliases": ["Ethereal", "Ethereal Exchange"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-18",
+      "target_entity_id": "hei_ex_000982",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/ethereal.json"
+      ],
+      "notes": "D-1000 BX17 completed current first-party and independent evidence review and promoted the held Ethereal DEX candidate as canonical entity hei_ex_000982. The candidate must not remain open or return as new growth work."
+    },
+    {
+      "candidate_key": "candidate:boros",
+      "canonical_name": "Boros",
+      "aliases": ["Pendle Boros", "Boros by Pendle"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-18",
+      "target_entity_id": "hei_ex_000983",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/boros.json"
+      ],
+      "notes": "D-1000 BX17 completed current first-party and independent evidence review and promoted the held Boros candidate as canonical entity hei_ex_000983. The candidate must not remain open or return as new growth work."
+    },
+    {
+      "candidate_key": "candidate:moonlander",
+      "canonical_name": "Moonlander",
+      "aliases": ["Moonlander Trade", "Moonlander Perps"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-18",
+      "target_entity_id": "hei_ex_000984",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/moonlander.json"
+      ],
+      "notes": "D-1000 BX17 completed current first-party and independent evidence review and promoted the held Moonlander candidate as canonical entity hei_ex_000984. The candidate must not remain open or return as new growth work."
+    },
+    {
+      "candidate_key": "candidate:reya-perps",
+      "canonical_name": "Reya Perps",
+      "aliases": ["Reya", "Reya DEX", "Reya Network"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-18",
+      "target_entity_id": "hei_ex_000985",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/reya.json"
+      ],
+      "notes": "D-1000 BX17 completed current first-party and independent evidence review and promoted the held Reya Perps candidate as canonical Reya entity hei_ex_000985. The candidate must not remain open or return as new growth work."
+    }
+  ]
+}
