@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-19",
+  "purpose": "Close four reviewed held candidates after promotion through D-1000 BX18 without rewriting the historical base resolution index.",
+  "entries": [
+    {
+      "candidate_key": "candidate:decibel",
+      "canonical_name": "Decibel",
+      "aliases": ["Decibel DEX", "Decibel Exchange"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-19",
+      "target_entity_id": "hei_ex_000986",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json",
+        "records/exchanges/decibel.json"
+      ],
+      "notes": "D-1000 BX18 completed current first-party and independent evidence review and promoted the held Decibel candidate as canonical entity hei_ex_000986. The candidate must not remain open or return as new growth work."
+    },
+    {
+      "candidate_key": "candidate:lista-dex",
+      "canonical_name": "Lista DEX",
+      "aliases": ["Lista Smart Swap", "Lista Swap"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-19",
+      "target_entity_id": "hei_ex_000987",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json",
+        "records/exchanges/lista-dex.json"
+      ],
+      "notes": "D-1000 BX18 completed current first-party and independent evidence review and promoted the held Lista DEX candidate as canonical entity hei_ex_000987. The candidate must not remain open or return as new growth work."
+    },
+    {
+      "candidate_key": "candidate:sovryn-dex",
+      "canonical_name": "Sovryn Dex",
+      "aliases": ["Sovryn", "Sovryn DEX", "Sovryn Trading"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-19",
+      "target_entity_id": "hei_ex_000988",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/sovryn.json"
+      ],
+      "notes": "D-1000 BX18 completed current first-party and independent evidence review and promoted the held Sovryn Dex candidate as canonical Sovryn entity hei_ex_000988. The candidate must not remain open or return as new growth work."
+    },
+    {
+      "candidate_key": "candidate:gmtrade",
+      "canonical_name": "GMTrade",
+      "aliases": ["GM Trade", "GMTrade DEX", "GMTrade Perps"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-19",
+      "target_entity_id": "hei_ex_000989",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json",
+        "records/exchanges/gmtrade.json"
+      ],
+      "notes": "D-1000 BX18 completed current first-party and independent evidence review and promoted the held GMTrade candidate as canonical entity hei_ex_000989. The candidate must not remain open or return as new growth work."
+    }
+  ]
+}
