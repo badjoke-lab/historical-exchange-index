@@ -2,7 +2,7 @@
 
 Status: active execution source of truth  
 Repository: `badjoke-lab/historical-exchange-index`  
-Checkpoint: 2026-07-17
+Checkpoint: 2026-07-18
 
 Repository state, reviewed build output, and current GitHub state are authoritative. Dynamic values such as the current main SHA and open pull requests must be read at recovery time rather than treated as permanent roadmap text.
 
@@ -48,23 +48,23 @@ D-1000 Reviewed Entity Milestone:     CURRENT
 Language Selection Gate:              BLOCKED UNTIL D-1000 + L-2 EVIDENCE
 ```
 
-BX13 reviewed state:
+BX14 reviewed state:
 
 ```text
-Entities: 849
+Entities: 853
 Events:   1004
-Evidence: 3457
-English dossiers:  849
-Japanese dossiers: 849
-Sitemap routes:     1722
-Remaining to D-1000: 151
+Evidence: 3465
+English dossiers:  853
+Japanese dossiers: 853
+Sitemap routes:     1730
+Remaining to D-1000: 147
 ```
 
 Current authority:
 
 ```text
 config/maintainer-recovery-contract.json
-docs/audits/HEI_D1000_PROGRESS_BX13_2026-07-17.md
+docs/audits/HEI_D1000_PROGRESS_BX14_2026-07-18.md
 docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
 data-evaluation/l2-localization-evidence.json
 ```
@@ -85,12 +85,12 @@ scripts/lib/entity-corrections.mjs
 
 Milestones count reviewed public state after reviewed bundle aggregation, entity correction, identity resolution, and event/evidence merge semantics.
 
-Current BX13 identifiers:
+Current BX14 identifiers:
 
 ```text
-Maximum added entity ID:   hei_ex_000969
+Maximum added entity ID:   hei_ex_000973
 Maximum event ID:          hei_ev_010080
-Maximum added evidence ID: hei_src_012153
+Maximum added evidence ID: hei_src_012161
 ```
 
 The D-1000 milestone is `reviewed public entities >= 1000`.
@@ -273,10 +273,10 @@ State: `CURRENT`
 
 ```text
 Target:   reviewed public entities >= 1000
-Entities: 849
+Entities: 853
 Events:   1004
-Evidence: 3457
-Remaining: 151 reviewed entities
+Evidence: 3465
+Remaining: 147 reviewed entities
 ```
 
 Work categories:
@@ -364,7 +364,7 @@ docs/operations/HEI_MAINTAINER_RECOVERY_RUNBOOK.md
 
 Recovery must determine repository identity, current main SHA, open PRs, deployment policy, roadmap checkpoint, active specifications, reviewed counts under build semantics, production/baseline verification state, required validation commands, and the first incomplete roadmap item.
 
-At the BX13 checkpoint, recovery should resolve:
+At the BX14 checkpoint, recovery should resolve:
 
 ```text
 Phase H COMPLETE
@@ -372,10 +372,10 @@ D-750 COMPLETE
 L-1 COMPLETE / PUBLIC
 L-2 HOLD
 D-1000 CURRENT
-Entities: 849
+Entities: 853
 Events: 1004
-Evidence: 3457
-Remaining to D-1000: 151
+Evidence: 3465
+Remaining to D-1000: 147
 ```
 
 Dynamic main SHA and open PR state must still be read from current GitHub state.
