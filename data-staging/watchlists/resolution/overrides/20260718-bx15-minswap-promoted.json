@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-18",
+  "purpose": "Close the reviewed Minswap DEX watchlist candidate after promotion through D-1000 BX15 without rewriting the historical base resolution index.",
+  "entries": [
+    {
+      "candidate_key": "candidate:minswap-dex",
+      "canonical_name": "Minswap DEX",
+      "aliases": [
+        "Minswap"
+      ],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-18",
+      "target_entity_id": "hei_ex_000976",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/minswap.json"
+      ],
+      "notes": "D-1000 BX15 completed current first-party and independent evidence review and promoted the Minswap DEX candidate as canonical Minswap entity hei_ex_000976. The candidate must not remain open or return as new growth work."
+    }
+  ]
+}
