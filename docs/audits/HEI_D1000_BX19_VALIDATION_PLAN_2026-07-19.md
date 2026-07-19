@@ -6,13 +6,13 @@ Branch: `agent/d1000-bx19-four-held-active-exchange-records`
 
 ## 1. Scope
 
-BX19 promotes four previously held active exchange candidates:
+BX19 promotes four previously held exchange candidates:
 
 ```text
-ApeX Omni  hei_ex_000990
-Rysk V12   hei_ex_000991
-AFX        hei_ex_000992
-Antarctic  hei_ex_000993
+BULK       hei_ex_000990 limited
+Rysk V12   hei_ex_000991 active
+AFX        hei_ex_000992 active
+Antarctic  hei_ex_000993 active
 ```
 
 No events, schema changes, localization expansion, third-language authorization, deployment behavior, or Cloudflare changes are included.
@@ -61,24 +61,26 @@ Records validation output
 Expected identity surfaces:
 
 ```text
-apex.exchange
+bulk.trade
 app.rysk.finance
 app.afx.xyz
 antarctic.exchange
 ```
 
-Repository searches, reviewed `data/entities.json`, and direct normal and alternate canonical-path checks found no current-main identity or domain match for the final four records.
+The initial BX19 head proposed ApeX Omni as `hei_ex_000990`. Records validation correctly rejected it because `records/exchanges/apex-protocol.json` already models ApeX Protocol, ApeX Pro, and ApeX Omni as canonical entity `hei_ex_000537` on `apex.exchange`. The duplicate record was removed and the ID slot was reassigned to BULK.
 
-Byte Exchange was excluded after direct canonical inspection found existing entity `hei_ex_000416`. BULK was deferred because current independent TVL is based on Season 1 pre-deposits and does not yet provide evidence equivalent to current exchange trading activity.
+Byte Exchange was also excluded after direct canonical inspection found existing entity `hei_ex_000416`.
 
-ApeX Protocol, ApeX Omni, Omni Perps, spot, vault, prediction, stock-contract, and API surfaces remain one exchange entity. Rysk, Rysk Finance, and Rysk V12 remain one current options-exchange entity. AFX chain, application, explorer, vault, and exchange surfaces remain one entity. Antarctic, Antarctic Exchange, AX, AMLP, AHLP, and supported-chain account surfaces remain one hybrid exchange entity.
+Repository searches, reviewed `data/entities.json`, and direct normal and alternate canonical-path checks found no current-main identity or domain match for BULK, Rysk V12, AFX, or Antarctic.
+
+BULK, BULK Exchange, the execution layer, vault, testnet, and pre-deposit surfaces remain one entity. Rysk, Rysk Finance, and Rysk V12 remain one current options-exchange entity. AFX chain, application, explorer, vault, and exchange surfaces remain one entity. Antarctic, Antarctic Exchange, AX, AMLP, AHLP, and supported-chain account surfaces remain one hybrid exchange entity.
 
 ## 4. Watchlist resolution validation
 
 The dated resolution override must close all four held candidates:
 
 ```text
-candidate:apex-omni promoted -> hei_ex_000990
+candidate:bulk      promoted -> hei_ex_000990
 candidate:rysk-v12  promoted -> hei_ex_000991
 candidate:afx       promoted -> hei_ex_000992
 candidate:antarctic promoted -> hei_ex_000993
@@ -86,12 +88,13 @@ candidate:antarctic promoted -> hei_ex_000993
 
 The historical base resolution index remains unchanged. Candidate scan and Watchlist resolution must both pass on the projected public entity set.
 
-## 5. Evidence boundary
+## 5. Evidence and status boundary
 
 ```text
-ApeX Omni:
-  current first-party exchange and roadmap surface
-  current independent perpetual volume, TVL, fee, revenue, and open-interest metrics
+BULK:
+  current first-party exchange architecture, testnet, and staged-access documentation
+  current independent Season 1 pre-deposit TVL
+  limited because pre-deposits do not establish broadly available live mainnet trading
 
 Rysk V12:
   current first-party live HyperEVM RFQ options documentation
@@ -106,7 +109,7 @@ Antarctic:
   current independent perpetual volume, TVL, fee, revenue, and open-interest metrics
 ```
 
-All four records are classified `active` with `high` confidence.
+BULK is classified `limited` with `high` confidence. Rysk V12, AFX, and Antarctic are classified `active` with `high` confidence.
 
 Antarctic is classified `hybrid` because current first-party material describes off-chain order matching with on-chain settlement. The other three are classified `dex`.
 
