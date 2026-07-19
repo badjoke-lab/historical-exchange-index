@@ -4,9 +4,9 @@
   "purpose": "Close four reviewed held candidates after promotion through D-1000 BX19 without rewriting the historical base resolution index.",
   "entries": [
     {
-      "candidate_key": "candidate:apex-omni",
-      "canonical_name": "Apex Omni",
-      "aliases": ["ApeX Omni", "ApeX Protocol", "ApeX Exchange"],
+      "candidate_key": "candidate:bulk",
+      "canonical_name": "BULK",
+      "aliases": ["BULK Exchange", "Bulk Trade"],
       "candidate_class": "B",
       "state": "promoted",
       "first_seen_at": "2026-06-14",
@@ -14,9 +14,9 @@
       "target_entity_id": "hei_ex_000990",
       "source_files": [
         "data-staging/watchlists/review/20260614-active-later-01.json",
-        "records/exchanges/apex-omni.json"
+        "records/exchanges/bulk.json"
       ],
-      "notes": "D-1000 BX19 completed current first-party and independent evidence review and promoted the held Apex Omni candidate as canonical ApeX Omni entity hei_ex_000990. The candidate must not remain open or return as new growth work."
+      "notes": "D-1000 BX19 promoted the held BULK candidate as canonical entity hei_ex_000990 with limited status. Current evidence establishes testnet, staged access, and Season 1 pre-deposits but not equivalent proof of broadly available live mainnet trading. The candidate must not remain open or return as new growth work."
     },
     {
       "candidate_key": "candidate:rysk-v12",
