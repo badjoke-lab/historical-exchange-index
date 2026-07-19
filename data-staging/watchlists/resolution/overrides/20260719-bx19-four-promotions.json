@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-19",
+  "purpose": "Close four reviewed held candidates after promotion through D-1000 BX19 without rewriting the historical base resolution index.",
+  "entries": [
+    {
+      "candidate_key": "candidate:bulk",
+      "canonical_name": "BULK",
+      "aliases": ["BULK Exchange", "Bulk Trade"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-19",
+      "target_entity_id": "hei_ex_000990",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json",
+        "records/exchanges/bulk.json"
+      ],
+      "notes": "D-1000 BX19 promoted the held BULK candidate as canonical entity hei_ex_000990 with limited status. Current evidence establishes testnet, staged access, and Season 1 pre-deposits but not equivalent proof of broadly available live mainnet trading. The candidate must not remain open or return as new growth work."
+    },
+    {
+      "candidate_key": "candidate:rysk-v12",
+      "canonical_name": "Rysk V12",
+      "aliases": ["Rysk", "Rysk Finance"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-19",
+      "target_entity_id": "hei_ex_000991",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-01.json",
+        "records/exchanges/rysk-v12.json"
+      ],
+      "notes": "D-1000 BX19 completed current first-party and independent evidence review and promoted the held Rysk V12 candidate as canonical entity hei_ex_000991. The candidate must not remain open or return as new growth work."
+    },
+    {
+      "candidate_key": "candidate:afx",
+      "canonical_name": "AFX",
+      "aliases": ["AFX Trade", "AFX Perp DEX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-19",
+      "target_entity_id": "hei_ex_000992",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/afx.json"
+      ],
+      "notes": "D-1000 BX19 completed current first-party and independent evidence review and promoted the held AFX candidate as canonical entity hei_ex_000992. The candidate must not remain open or return as new growth work."
+    },
+    {
+      "candidate_key": "candidate:antarctic",
+      "canonical_name": "Antarctic",
+      "aliases": ["Antarctic Exchange", "AX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-19",
+      "target_entity_id": "hei_ex_000993",
+      "source_files": [
+        "data-staging/watchlists/review/20260614-active-later-02.json",
+        "records/exchanges/antarctic.json"
+      ],
+      "notes": "D-1000 BX19 completed current first-party and independent evidence review and promoted the held Antarctic candidate as canonical entity hei_ex_000993. The candidate must not remain open or return as new growth work."
+    }
+  ]
+}
