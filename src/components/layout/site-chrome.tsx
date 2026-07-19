@@ -76,6 +76,10 @@ export default function SiteChrome({ locale, children }: SiteChromeProps) {
       <footer className="footer">
         <div className="footer-copy">{t('footer.registryTagline')}</div>
         <div className="footer-links">
+          <a className="archive-link" href="https://badjoke-lab.com/">
+            BadJoke-Lab project hub
+          </a>
+          <span className="muted footer-sep"> · </span>
           <a className="archive-link" href={CONTACT_HREF} target="_blank" rel="noreferrer">
             {t('footer.contactCorrections')}
           </a>
