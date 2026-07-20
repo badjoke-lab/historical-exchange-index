@@ -34,27 +34,25 @@ for (const page of requiredPages) {
   assert(presentations.includes(`'page.${page}.eyebrow'`), `eyebrow connection is missing for ${page}`)
 }
 
-const pageConnections = [
+const englishRenderConnections = [
   ['src/app/dead/page.tsx', 'dead'],
   ['src/app/active/page.tsx', 'active'],
   ['src/app/explore/page.tsx', 'explore'],
   ['src/app/quality/page.tsx', 'quality'],
   ['src/app/updates/page.tsx', 'updates'],
+  ['src/components/incidents/incident-timeline-page.tsx', 'incidents'],
   ['src/app/monthly/page.tsx', 'monthly'],
   ['src/app/about/page.tsx', 'about'],
 ]
 
-for (const [relativePath, page] of pageConnections) {
+for (const [relativePath, page] of englishRenderConnections) {
   const source = readText(relativePath)
   assert(source.includes(`getPagePresentation('en', '${page}')`), `${relativePath} does not use the ${page} presentation`)
-  assert(source.includes(`page: '${page}'`), `${relativePath} does not use centralized ${page} metadata`)
 }
 
-const incidentRenderer = readText('src/components/incidents/incident-timeline-page.tsx')
-const incidentRoute = readText('src/app/incidents/page.tsx')
+const incidentIndexRoute = readText('src/app/incidents/page.tsx')
 const incidentPaginationRoute = readText('src/app/incidents/page/[page]/page.tsx')
-assert(incidentRenderer.includes("getPagePresentation('en', 'incidents')"), 'shared Incidents renderer does not use the incidents presentation')
-assert(incidentRoute.includes("page: 'incidents'"), 'Incidents index route does not use centralized incidents metadata')
+assert(incidentIndexRoute.includes("page: 'incidents'"), 'Incidents index route does not use centralized incidents metadata')
 assert(incidentPaginationRoute.includes('generateMetadata'), 'paginated Incidents route does not expose page-specific metadata')
 assert(incidentPaginationRoute.includes('incidentPageHref(pageNumber)'), 'paginated Incidents route does not use the shared canonical route helper')
 
@@ -74,7 +72,6 @@ const japaneseConnections = [
 for (const [relativePath, page] of japaneseConnections) {
   const source = readText(relativePath)
   assert(source.includes(`getPagePresentation('ja', '${page}')`), `${relativePath} does not use Japanese ${page} presentation`)
-  assert(source.includes(`page: '${page}'`), `${relativePath} does not use centralized Japanese ${page} metadata`)
 }
 
 const methodologySource = readText('src/app/methodology/page.tsx')
@@ -82,4 +79,4 @@ const methodologyLayoutSource = readText('src/app/methodology/layout.tsx')
 assert(methodologySource.includes('<h1'), 'English Methodology page must expose a page-specific h1')
 assert(methodologyLayoutSource.includes("title: 'Methodology'"), 'English Methodology layout must retain centralized route metadata')
 
-console.log(`Secondary page presentation tests passed for ${requiredPages.length} page families, including split Incidents rendering and metadata.`)
+console.log(`Secondary page presentation tests passed for ${requiredPages.length} page families; metadata integrity remains covered by the dedicated metadata audits.`)
