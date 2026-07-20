@@ -55,7 +55,7 @@ export default function MonthlyHistoricalExchangeSnapshotPage() {
         <div className={styles.headerRow}>
           <div>
             <p className="muted">{presentation.eyebrow}</p>
-            <h2 className={styles.pageTitle}>{snapshot.monthLabel}</h2>
+            <h1 className={styles.pageTitle}>{snapshot.monthLabel}</h1>
             <p className={styles.subtitle}>{presentation.heading}</p>
             <p className={styles.lead}>{presentation.intro}</p>
           </div>
@@ -82,7 +82,7 @@ export default function MonthlyHistoricalExchangeSnapshotPage() {
 
       <section className={styles.mixGrid}>
         <article className={`panel ${styles.mixPanel}`}>
-          <div><p className="muted">Recorded event types</p><h3>Monthly event mix</h3></div>
+          <div><p className="muted">Recorded event types</p><h2>Monthly event mix</h2></div>
           <div className={styles.pillList}>
             {snapshot.byEventType.length > 0 ? snapshot.byEventType.map((item) => (
               <Link className={styles.pill} href={monthlyEventTypeHref(snapshot.periodStart, snapshot.periodEnd, item.key)} key={item.key}><span>{item.label}</span><strong>{item.count}</strong></Link>
@@ -91,7 +91,7 @@ export default function MonthlyHistoricalExchangeSnapshotPage() {
         </article>
 
         <article className={`panel ${styles.mixPanel}`}>
-          <div><p className="muted">Recorded impact levels</p><h3>Impact mix</h3></div>
+          <div><p className="muted">Recorded impact levels</p><h2>Impact mix</h2></div>
           <div className={styles.pillList}>
             {snapshot.byImpact.length > 0 ? snapshot.byImpact.map((item) => (
               <Link className={styles.pill} href={monthlyImpactHref(snapshot.periodStart, snapshot.periodEnd, item.key)} key={item.key}><span>{item.label}</span><strong>{item.count}</strong></Link>
@@ -101,7 +101,7 @@ export default function MonthlyHistoricalExchangeSnapshotPage() {
       </section>
 
       <section className={`panel ${styles.registryPanel}`}>
-        <div><p className="muted">Registry state at snapshot generation</p><h3>Current reviewed registry context</h3></div>
+        <div><p className="muted">Registry state at snapshot generation</p><h2>Current reviewed registry context</h2></div>
         <div className={styles.registryCounts}><span>Entities <strong>{snapshot.registryState.entities}</strong></span><span>Events <strong>{snapshot.registryState.events}</strong></span><span>Evidence <strong>{snapshot.registryState.evidence}</strong></span></div>
       </section>
 
@@ -114,7 +114,7 @@ export default function MonthlyHistoricalExchangeSnapshotPage() {
             <div className={styles.factRow}><span>Status effect: <strong>{event.event_status_effect}</strong></span><span>Confidence: <strong>{event.confidence}</strong></span><span>Direct event-linked evidence: <strong>{evidenceCount}</strong></span></div>
             <div className={styles.linkRow}><Link href={`/exchange/${entity.slug}`}>Open exchange dossier</Link><Link href={monthlyEventTypeHref(snapshot.periodStart, snapshot.periodEnd, event.event_type)}>Explore this type in month</Link><a href={`#${event.id}`}>Permalink</a></div>
           </article>
-        )) : <section className={`panel ${styles.emptyPanel}`}><h3>No qualifying reviewed events recorded for {snapshot.monthLabel}</h3><p>The public snapshot remains explicit about an empty month rather than filling the page with monitoring signals or unreviewed candidates.</p></section>}
+        )) : <section className={`panel ${styles.emptyPanel}`}><h2>No qualifying reviewed events recorded for {snapshot.monthLabel}</h2><p>The public snapshot remains explicit about an empty month rather than filling the page with monitoring signals or unreviewed candidates.</p></section>}
       </section>
 
       <section className="callout">
