@@ -191,16 +191,17 @@ export default function SiteNavigation({
         >
           {donateLabel}
         </Link>
-        <div className={styles.desktopLocale}>
-          <Suspense fallback={null}>
-            <LocaleSwitcher
-              ariaLabel={languageAriaLabel}
-              englishLabel={englishLabel}
-              japaneseLabel={japaneseLabel}
-            />
-          </Suspense>
-        </div>
       </nav>
+
+      <div className={styles.desktopLocale}>
+        <Suspense fallback={null}>
+          <LocaleSwitcher
+            ariaLabel={languageAriaLabel}
+            englishLabel={englishLabel}
+            japaneseLabel={japaneseLabel}
+          />
+        </Suspense>
+      </div>
     </div>
   )
 }
