@@ -1,350 +1,356 @@
 # TEMPORARY: HEI UI remediation and core-development resume memo
 
-> Temporary internal working document. This file is the source of truth for PR #685 while the UI remediation is in progress.
+> Temporary internal working document. This file is the source of truth for PR #685 while UI remediation is in progress.
 >
-> Do not treat this as public methodology or product documentation. Keep it in the repository until the UI work is merged and the core record-growth work has been safely resumed.
+> Do not treat this as public methodology or product documentation. Keep it until the UI work is merged and D-1000 BX20 has been safely resumed.
 
 ## 1. Current operating state
 
 - Repository: `badjoke-lab/historical-exchange-index`
 - UI remediation PR: **#685**
-- UI remediation branch: `agent/all-page-visual-audit-20260720`
+- Branch: `agent/all-page-visual-audit-20260720`
 - PR state: draft
-- Work blocked by this remediation: **D-1000 BX20 and later record-growth batches**
-- Rule: do not mix canonical entity/event/evidence changes into PR #685.
+- Core work paused by this remediation: **D-1000 BX20 and later batches**
+- Hard boundary: do not add or modify canonical entity/event/evidence records in PR #685.
+- Resume rule: after UI closure, return directly to BX20 from a fresh branch based on post-UI `main`.
 
-The UI remediation is a temporary interruption of the record-growth sequence. After this document's closure conditions are met, development must return directly to BX20 rather than starting a new unrelated initiative.
+## 2. Confirmed production baseline
 
-## 2. Why this work exists
+The first exhaustive production audit found:
 
-The production-wide visual audit and the permanent representative-page screenshot audit confirmed several structural UI defects. The most serious confirmed defects are:
-
-1. `/stats/` renders a large filter/deep-link panel before the actual page hero.
-2. Client navigation to `/stats/` retains `scrollY=1363` and lands with the title clipped.
-3. The mobile global navigation pushes several links and the locale switcher outside the viewport.
-4. `/incidents/` renders about 485 entries in one unbounded page with a document height around 95,333px.
-5. `/ja/donate/` is present in the route/sitemap surface but returns 404.
-6. Related-view navigation appears before the page title on several routes.
-7. The global site name is the H1 on nearly every page while the actual page title is an H2.
-8. Desktop header height changes between page families and locales.
-9. The original representative screenshot matrix omitted Compare, Incidents, and Monthly.
-10. Some detected mobile clipping was recorded but did not fail the Action.
-
-## 3. Audit baseline that must remain reproducible
-
-### Exhaustive production audit
-
-- Public HTML routes discovered: **1,775**
-- English exchange dossier routes: **873**
-- Japanese exchange dossier routes: **873**
-- Non-200 routes: **1** (`/ja/donate/`)
+- Public HTML routes: **1,775**
+- English exchange dossiers: **873**
+- Japanese exchange dossiers: **873**
+- Non-200 routes: **1** — `/ja/donate/`
 - Capture errors: **0**
-- Desktop global horizontal overflow failures: **0**
+- Desktop global horizontal overflow: **0**
 - Direct-load initial-scroll failures: **0**
-- Navigation scroll-retention failures: **1** (`/stats/`, `scrollY=1363`)
+- Navigation scroll-retention failures: **1** — `/stats/`, `scrollY=1363`
 - Artifact size: about **340 MB**
 
-### Representative-page audit
+The original representative audit covered 18 states and confirmed:
 
-Original matrix:
-
-- 9 representative templates
-- desktop/mobile
-- 18 states
-- untouched initial viewport plus full-page capture
-
-Confirmed failures:
-
-- `stats-desktop`: primary page heading not visible in the initial viewport
-- `stats-mobile`: primary page heading not visible in the initial viewport
+- `stats-desktop`: page heading outside the initial viewport
+- `stats-mobile`: page heading outside the initial viewport
 - navigation to `/stats/`: retained `scrollY=1363`
+
+The strengthened audit now covers **24 states / 48 screenshots**. Run `29728552354` successfully captured and uploaded the entire review package, then intentionally failed with **69 findings**, proving that the new gates reproduce the current H1, mobile-navigation, Stats, Related views, and Incidents defects.
+
+## 3. Confirmed defect set
+
+1. Stats controls and drilldowns preceded the actual page title.
+2. Client navigation to Stats retained a 1,363px scroll offset.
+3. Mobile global navigation pushed links and locale controls outside the viewport.
+4. Incidents rendered about 485 records in one 95,000px+ page.
+5. `/ja/donate/` returned 404.
+6. Related views appeared before page titles on several routes.
+7. The global brand was the H1 while page titles were H2.
+8. Desktop header height changed across page families and locales.
+9. Compare, Incidents, and Monthly were missing from representative screenshots.
+10. Some mobile clipping was recorded but did not fail CI.
+11. The screenshot workflow watched obsolete root paths instead of actual `src/**` UI files.
+12. The public-navigation audit depended on the legacy global `nav` class.
 
 ## 4. Scope boundaries
 
 ### In scope
 
-- Global site chrome and navigation
-- Page-title hierarchy
-- Stats page structure and filters
-- Related-view placement
-- Incidents list bounding/pagination
+- Site chrome, responsive navigation, and locale access
+- Page-specific H1 hierarchy
+- Stats structure and drilldowns
+- Related views placement
+- Bounded, static Incidents pagination
 - Japanese Donate route
 - Compare, Incidents, and Monthly representative coverage
-- Visual-audit failure gates and review artifacts
-- Sitemap/route checks needed to prevent another published 404
+- Visual-audit gates, reports, and owner-review artifacts
+- Sitemap and locale-route safety needed by the confirmed defects
 
 ### Out of scope
 
-- New canonical exchanges
-- New canonical events
-- New evidence records
+- New exchanges, events, or evidence
 - Status changes to existing records
 - Evidence-policy changes
 - D-1000 BX20 data work
-- Unrelated design redesigns
-- New product features unrelated to the confirmed defects
+- Unrelated redesigns or product features
 
-## 5. Master remediation checklist
-
-Status values:
+## 5. Status notation
 
 - `[ ]` not started
-- `[~]` in progress
-- `[x]` completed and locally/CI validated
-- `[!]` blocked, with the blocker recorded in the decision log
+- `[~]` implemented or actively changing, final CI/visual validation pending
+- `[x]` implemented and validated by the relevant automated check
+- `[!]` blocked, with the blocker recorded below
+
+## 6. Master remediation checklist
 
 ### A. Stats structure and navigation
 
-- [ ] Move the Stats page hero/title before all Stats Explorer controls.
-- [ ] Move `RelatedSurfaceLinks` below the page-specific content hierarchy.
-- [ ] Replace the permanently expanded Stats Explorer wall with grouped disclosure sections.
-- [ ] Keep all existing Stats deep links and URL semantics usable.
-- [ ] Default the large filter groups to collapsed on mobile.
-- [ ] Ensure direct load of `/stats/` begins at `scrollY=0`.
-- [ ] Ensure normal client navigation to `/stats/` begins at `scrollY=0`.
-- [ ] Preserve expected browser restoration for Back/Forward navigation.
-- [ ] Preserve explicit anchor navigation when a URL contains a fragment.
-- [ ] Confirm the Stats H1 is fully visible below the site header on desktop and mobile.
-- [ ] Reduce the mobile Stats page height substantially from the current ~12,860px baseline.
+- [~] Render the Stats page H1 before all Stats Explorer controls.
+- [~] Place `StatsExplorerDeepLinks` after the main Stats analysis.
+- [~] Place `RelatedSurfaceLinks` after Stats content and drilldowns.
+- [~] Replace the permanently expanded drilldown wall with grouped disclosure sections.
+- [~] Preserve existing Stats Explorer URLs and query semantics.
+- [~] Keep large groups collapsed by default, including mobile.
+- [~] Verify direct `/stats/` load begins at `scrollY=0`.
+- [~] Verify normal client navigation to `/stats/` begins at `scrollY=0`.
+- [ ] Verify Back/Forward restoration remains browser-native.
+- [ ] Verify explicit fragment navigation remains intact.
+- [~] Verify the Stats H1 is visible below the site header on desktop/mobile.
+- [~] Measure the new mobile Stats page height against the ~12,860px baseline.
 
 ### B. Mobile navigation and site chrome
 
-- [ ] Add a real mobile navigation mechanism rather than relying on wrapped desktop links.
-- [ ] Keep Home, Dead, Active, Explorer, Compare, Stats, Updates, Incidents, Methodology, About, and Donate reachable.
-- [ ] Keep English/Japanese locale switching reachable.
-- [ ] Mark the current route with `aria-current="page"`.
-- [ ] Expose menu state with `aria-expanded`.
-- [ ] Support keyboard activation and Escape-to-close.
-- [ ] Close the menu after a destination is selected.
-- [ ] Prevent focus from becoming lost behind an open menu.
-- [ ] Provide a no-JavaScript-accessible fallback where practical.
-- [ ] Ensure no header/nav interactive element is outside a 360px viewport.
-- [ ] Ensure the page itself never gains global horizontal scrolling.
-- [ ] Stabilize desktop header height across page families.
-- [ ] Stabilize header height between English and Japanese pages.
-- [ ] Switch to the compact/mobile shell before desktop navigation begins wrapping.
+- [~] Replace wrapped desktop links with a real compact mobile navigation.
+- [~] Keep Home, Dead, Active, Explorer, Compare, Stats, Updates, Incidents, Methodology, About, and Donate reachable.
+- [~] Keep English/Japanese switching reachable where both routes exist.
+- [~] Mark the current route with `aria-current="page"`.
+- [~] Expose menu state through `aria-expanded` and `aria-controls`.
+- [~] Support keyboard activation and Escape-to-close.
+- [~] Close the menu after selecting a destination.
+- [~] Move focus to the first item when opened and return it to the trigger on Escape.
+- [~] Keep a native `<details>/<summary>` fallback without JavaScript.
+- [~] Verify no header interactive element is outside a 360px viewport.
+- [~] Verify no new global horizontal scrolling.
+- [~] Stabilize desktop header height across routes and locales.
+- [~] Switch to compact navigation before desktop links wrap.
+- [x] Preserve the public-navigation discovery contract through the global `nav` class.
 
 ### C. Page hierarchy and semantics
 
-- [ ] Change the site brand in `SiteChrome` from an H1 to a neutral branded link/container.
-- [ ] Give every public page one page-specific H1.
-- [ ] Make exchange names the H1 on dossier pages.
-- [ ] Use H2 for major page sections and H3 for their subsections.
-- [ ] Remove avoidable heading-level jumps.
-- [ ] Place Related views after the page hero on Stats.
-- [ ] Place Related views after the page hero on Updates.
-- [ ] Place Related views after the page hero on Incidents.
-- [ ] Audit all other `RelatedSurfaceLinks` uses and apply the same rule.
+- [x] Replace the global brand H1 with a neutral branded home link.
+- [~] Give every public route one meaningful page-specific H1.
+- [~] Make English and Japanese exchange names the dossier H1.
+- [~] Use H2 for major sections and H3 for subsections on modified pages.
+- [~] Remove heading-level jumps on Home, Compare, Explorer, Incidents, Monthly, Donate, and Japanese dossier pages.
+- [~] Move Related views below the Stats hero/content.
+- [~] Move Related views below the Updates hero/content.
+- [~] Move Related views below the Incidents hero/content.
+- [ ] Audit every remaining `RelatedSurfaceLinks` use.
 
 ### D. Incidents rendering
 
-- [ ] Replace the single unbounded Incidents list with bounded rendering.
-- [ ] Use a stable page size, initially 20 or 25 records.
-- [ ] Provide crawlable URL-based pagination.
-- [ ] Provide Previous/Next and useful page-position information.
-- [ ] Keep all incidents reachable without requiring client-side JavaScript.
-- [ ] Preserve chronological ordering.
-- [ ] Preserve existing incident metadata and evidence links.
-- [ ] Generate valid canonical metadata for paginated pages.
-- [ ] Prevent duplicate aliases for page 1.
-- [ ] Confirm page 2 and the final page return 200.
-- [ ] Confirm the initial Incidents document height is bounded.
-- [ ] Confirm mobile Incidents remains usable.
+- [~] Replace the unbounded list with **25 records per page**.
+- [~] Generate crawlable static routes `/incidents/page/2/` through the final page.
+- [~] Provide Previous/Next, page numbers, current-page state, and displayed record range.
+- [~] Keep pagination usable without client-side JavaScript.
+- [~] Preserve reverse-chronological event ordering.
+- [~] Preserve event, entity, impact, status-effect, confidence, and evidence information.
+- [~] Give every page its own canonical metadata.
+- [~] Keep page 1 canonical only at `/incidents/`.
+- [~] Add all page 2+ routes to the sitemap.
+- [~] Verify page 2 and the final page return 200.
+- [~] Verify the first page stays below the 16,000px audit ceiling.
+- [~] Verify desktop and mobile pagination screenshots.
 
-### E. Japanese Donate route
+### E. Japanese Donate
 
-- [ ] Add a real `/ja/donate/` route rather than leaving a sitemap-visible 404.
-- [ ] Provide Japanese metadata.
-- [ ] Provide the Japanese explanation of donation purpose and editorial independence.
-- [ ] Keep the payment destination consistent with the English page.
-- [ ] Link to the applicable contact, refund, privacy, terms, and disclosure surfaces.
-- [ ] Add correct canonical and hreflang relationships.
-- [ ] Confirm English-to-Japanese and Japanese-to-English switching works.
-- [ ] Confirm every sitemap URL returns 200 after the change.
+- [~] Add a real `/ja/donate/` page.
+- [~] Add Japanese title, description, canonical, Open Graph, and Twitter metadata.
+- [~] Explain donation purpose and editorial independence in Japanese.
+- [~] Reuse the exact English wallet component and payment destinations.
+- [~] Link to English Donate and the existing contact/correction form.
+- [~] Add English/Japanese hreflang relationships.
+- [~] Localize header/footer Donate links by current locale.
+- [~] Add `/ja/donate/` to the Japanese route guard and sitemap.
+- [~] Verify English-to-Japanese and Japanese-to-English switching.
+- [~] Verify `/ja/donate/` and every sitemap URL return 200.
+- [ ] Do not invent refund/privacy/terms routes; link additional legal surfaces only if they actually exist in HEI.
 
-### F. Compare and Monthly mobile behavior
+### F. Compare and Monthly
 
-- [ ] Add Compare desktop/mobile to the representative visual matrix.
-- [ ] Add Monthly desktop/mobile to the representative visual matrix.
-- [ ] Validate Compare controls before and after two entities are selected.
+- [x] Add Compare desktop/mobile to the representative matrix.
+- [x] Add Monthly desktop/mobile to the representative matrix.
+- [~] Validate Compare with two selected entities.
 - [ ] Validate long exchange names, missing values, status badges, and evidence links.
-- [ ] Use a deliberate mobile comparison layout rather than accidental clipping.
-- [ ] Validate Monthly year/month navigation.
-- [ ] Validate empty-month handling if applicable.
-- [ ] Validate long event titles and mobile chronological order.
-- [ ] Validate Previous/Next month navigation and canonical metadata.
+- [~] Verify the Compare mobile layout does not clip.
+- [~] Validate Monthly heading hierarchy and mobile ordering.
+- [ ] Validate empty-month handling.
+- [ ] Validate long event titles.
+- [ ] Validate month navigation/canonical behavior if month navigation is introduced.
 
 ### G. Representative screenshot Action
 
-- [ ] Expand the matrix from 18 to **24 states** by adding Compare, Incidents, and Monthly for desktop/mobile.
-- [ ] Continue to capture untouched initial viewport screenshots.
-- [ ] Continue to capture full-page screenshots.
-- [ ] Fail when the primary H1 is absent.
-- [ ] Fail when more than one H1 exists.
-- [ ] Fail when the H1 is outside the initial viewport.
-- [ ] Fail when the H1 is hidden by a fixed/sticky element.
-- [ ] Fail when page controls or Related views incorrectly precede the H1.
-- [ ] Fail when normal navigation retains a nonzero scroll position beyond tolerance.
-- [ ] Add `headerClippedElements` failure output.
-- [ ] Add `inaccessibleNavigationItems` failure output.
-- [ ] Add `missingMobileMenu` failure output where applicable.
-- [ ] Add `localeSwitcherUnavailable` failure output.
-- [ ] Add an Incidents-specific bounded-list/pagination assertion.
-- [ ] Confirm a failing audit still uploads all screenshots and reports.
+- [x] Expand from 18 to **24 states**.
+- [x] Capture untouched initial viewport and full-page screenshots.
+- [x] Require exactly one visible H1.
+- [x] Fail when the H1 is outside the initial viewport.
+- [x] Fail when fixed/sticky UI overlaps the H1.
+- [x] Fail when controls or Related views precede the H1.
+- [x] Fail when normal navigation retains an invalid scroll offset.
+- [x] Fail for clipped header interactive elements.
+- [x] Fail when the mobile menu is missing.
+- [x] Fail when the required mobile locale switcher is unavailable.
+- [x] Add Incidents item-count, page-height, and pagination assertions.
+- [x] Upload screenshots and reports even when the gate fails.
+- [x] Watch actual `src/**` UI changes rather than obsolete root paths.
+- [~] Run the final 24-state workflow until it has zero failures.
 
 ### H. Audit report usability
 
-- [ ] Add a concise GitHub Step Summary.
-- [ ] Include page/state name, viewport, failure reason, scrollY, body height, H1 geometry, and overflowed element names.
-- [ ] Include the matching screenshot filename for each failure.
-- [ ] Keep `manifest.json` machine-readable.
-- [ ] Keep `contact-sheet.html` human-reviewable.
-- [ ] Keep `contact-sheet.json` machine-readable.
-- [ ] Keep `owner-review.json` separate from automated PASS/FAIL.
-- [ ] Place desktop/mobile states next to each other in the contact sheet.
-- [ ] Clearly distinguish initial-viewport and full-page images.
-- [ ] Never record automated capture success as owner approval.
+- [x] Add a GitHub Step Summary.
+- [x] Record page/state, viewport, failure reason, scrollY, body height, H1 geometry, and overflow details.
+- [x] Record matching viewport/full screenshot filenames.
+- [x] Keep `manifest.json` and `contact-sheet.json` machine-readable.
+- [x] Keep `contact-sheet.html` human-reviewable.
+- [x] Keep `owner-review.json` separate from automated PASS/FAIL.
+- [x] Distinguish viewport and full-page images.
+- [x] Never convert automated rendering success into owner approval.
+- [ ] Improve desktop/mobile adjacency in the contact sheet if the final review remains cumbersome.
 
 ### I. Sitemap and route safety
 
-- [ ] Add or strengthen a lightweight normal-CI check for sitemap routes.
-- [ ] Fail when a sitemap URL lacks a generated HTML route.
-- [ ] Fail when a canonical URL points to a missing route.
-- [ ] Fail when an hreflang target points to a missing route.
-- [ ] Fail when an internal locale switch points to a missing route.
-- [ ] Keep the exhaustive screenshot workflow manual because of its cost.
-- [ ] Keep exhaustive artifacts available even when an audit fails.
+- [~] Add Incidents page 2+ and Japanese Donate to the sitemap.
+- [~] Verify every sitemap URL has generated HTML.
+- [~] Verify canonical targets exist.
+- [~] Verify hreflang targets exist.
+- [~] Verify locale-switch destinations exist.
+- [x] Keep the exhaustive screenshot workflow manual because of cost.
+- [x] Upload exhaustive artifacts even on audit failure.
+- [ ] Add or strengthen a lightweight dedicated route gate if existing public validation does not cover the new routes sufficiently.
 
 ### J. Final regression closure
 
-- [ ] Run the 24-state representative screenshot workflow on the final UI head.
-- [ ] Resolve all automated representative failures.
-- [ ] Review the final representative contact sheet manually.
-- [ ] Run the exhaustive 1,775+ route audit after the UI stabilizes.
+- [ ] Run representative screenshots on the final UI head.
+- [ ] Resolve all representative failures.
+- [ ] Review the final contact sheet manually.
+- [ ] Run the exhaustive route audit after UI stabilization.
 - [ ] Confirm all sitemap routes return 200.
-- [ ] Confirm all 873 English dossier pages remain structurally valid.
-- [ ] Confirm all 873 Japanese dossier pages remain structurally valid.
-- [ ] Confirm no new global horizontal overflow.
-- [ ] Confirm no new fixed/sticky H1 overlap.
-- [ ] Run every existing HEI validation workflow.
-- [ ] Confirm record counts and machine-readable outputs remain unchanged by the UI-only work.
-- [ ] Keep PR #685 draft until automated checks and owner visual review are complete.
+- [ ] Confirm all 873 English dossiers remain structurally valid.
+- [ ] Confirm all 873 Japanese dossiers remain structurally valid.
+- [ ] Confirm no global horizontal overflow.
+- [ ] Confirm no fixed/sticky H1 overlap.
+- [ ] Run all normal HEI workflows.
+- [ ] Confirm canonical record counts and machine-readable record counts are unchanged.
+- [x] Keep PR #685 in draft state pending automated and owner review.
 
-## 6. Required implementation order
+## 7. Required implementation order
 
-Do not randomly pick tasks from the checklist. Use this order unless the decision log explains a dependency-driven exception.
-
-1. Strengthen the representative test matrix and failure gates so the current defects are reproducibly red.
-2. Fix Stats structure and navigation scroll behavior.
-3. Implement the mobile navigation and stabilize site chrome.
-4. Correct the global/page H1 hierarchy.
-5. Move Related views below each page hero.
-6. Bound and paginate Incidents.
-7. Add `/ja/donate/`.
-8. Validate and repair Compare and Monthly mobile behavior.
-9. Improve Action summaries and contact-sheet review output.
-10. Add the lightweight sitemap/locale route gate.
-11. Run the representative workflow until green.
-12. Run the exhaustive route audit.
+1. Strengthen representative gates so defects reproduce as red. **Done.**
+2. Fix Stats structure and scroll behavior. **Implemented; final validation pending.**
+3. Implement mobile navigation and stabilize site chrome. **Implemented; final validation pending.**
+4. Correct page H1 hierarchy. **Implemented across known templates; exhaustive validation pending.**
+5. Move Related views below heroes. **Implemented for confirmed affected routes.**
+6. Bound and paginate Incidents. **Implemented; build/route validation pending.**
+7. Add `/ja/donate/`. **Implemented; build/route validation pending.**
+8. Validate Compare and Monthly mobile behavior. **Next after current CI.**
+9. Improve reports/contact sheet where required.
+10. Confirm lightweight sitemap/locale-route gates.
+11. Run representative workflow until green.
+12. Run exhaustive route audit.
 13. Run all standard HEI workflows.
 14. Perform owner visual review.
-15. Merge PR #685 only after all closure conditions pass.
-16. Resume BX20 from a fresh branch based on the new `main`.
+15. Merge PR #685 only after closure.
+16. Resume BX20 from fresh post-UI `main`.
 
-## 7. UI remediation closure conditions
+## 8. UI closure conditions
 
-The UI remediation is complete only when all of the following are true:
+UI remediation is complete only when:
 
-- The master checklist has no `[ ]`, `[~]`, or `[!]` item that affects the confirmed defect set.
-- Representative screenshots cover 24 states and pass all automated gates.
-- The owner has reviewed the final contact sheet; automated PASS is not owner approval.
-- The exhaustive route audit completes without capture errors or unexpected non-200 routes.
+- The confirmed defect checklist contains no unresolved `[ ]`, `[~]`, or `[!]` item.
+- Representative screenshots cover 24 states and pass every automated gate.
+- The owner reviews the final contact sheet; automated PASS is not approval.
+- The exhaustive audit has no capture errors or unexpected non-200 routes.
 - `/ja/donate/` returns 200.
-- Navigation to `/stats/` starts at the top and shows the H1.
-- Mobile navigation exposes every top-level destination and the locale switcher.
-- Incidents no longer renders hundreds of entries in one unbounded page.
-- Every page has one meaningful page-specific H1.
-- All normal HEI workflows pass.
-- Canonical record data and record counts have not changed in PR #685.
+- Stats opens at the top with its H1 visible.
+- Mobile navigation exposes all destinations and locale controls.
+- Incidents renders bounded static pages.
+- Every public page has one meaningful H1.
+- All normal workflows pass.
+- Canonical entity/event/evidence data and counts remain unchanged.
 
-## 8. Core-development resume checkpoint
+## 9. Core-development resume checkpoint
 
-This section prevents the UI interruption from losing the record-growth sequence.
-
-### Last completed record batch before the UI interruption
+### Last completed record batch before UI interruption
 
 - Program: **D-1000**
 - Last completed batch: **BX19**
 - Merged PR: **#683**
 - Main SHA immediately after BX19: `20090a6d14be85aa301f9bc8430d67f71dc4c7e4`
 
-### Reviewed public counts after BX19
+### Reviewed counts after BX19
 
 - Entities: **873**
 - Events: **1,004**
 - Evidence: **3,505**
 - English dossiers: **873**
 - Japanese dossiers: **873**
-- Sitemap routes: **1,770**
+- Sitemap routes at the interruption point: **1,770**
 - ID conflicts: **0**
 - Remaining to D-1000: **127 entities**
 
-### Next reserved identifiers at the interruption point
+UI pagination and the Japanese Donate page intentionally increase non-record route counts. They must not change the entity, event, evidence, or dossier counts above.
 
-- Next entity ID: `hei_ex_000994`
-- Next evidence ID: `hei_src_012202`
+### Identifier checkpoint
 
-These identifiers are a checkpoint, not an unconditional reservation. Before BX20 begins, regenerate and verify the next IDs against the post-merge `main` branch so concurrent work cannot create a collision.
+- Next entity ID at interruption: `hei_ex_000994`
+- Next evidence ID at interruption: `hei_src_012202`
 
-### Exact development continuation
+These are checkpoints, not unconditional reservations. Regenerate and verify them against post-UI `main` before BX20.
 
-After PR #685 is merged:
+### Exact BX20 continuation
 
-1. Fetch the new `main` and verify the merge SHA.
-2. Confirm there are no open record-growth PRs or conflicting branches.
-3. Regenerate entity/event/evidence counts from the repository.
-4. Regenerate the next available entity and evidence IDs.
-5. Confirm the machine-readable, monitoring, built-output, sitemap, English dossier, and Japanese dossier counts agree.
-6. Start **D-1000 BX20** on a fresh branch.
-7. Continue the existing reviewed-batch policy; do not lower evidence or status standards to compensate for the UI delay.
-8. Update the D-1000 progress record with the post-BX20 counts.
+After PR #685 merges:
+
+1. Fetch the new `main` and record the merge SHA.
+2. Confirm no competing record-growth PR or branch has consumed IDs.
+3. Regenerate entity/event/evidence and dossier counts.
+4. Regenerate the next entity and evidence IDs.
+5. Confirm machine-readable, monitoring, built output, sitemap, English dossier, and Japanese dossier counts agree.
+6. Create a fresh BX20 branch from post-UI `main`.
+7. Continue the existing evidence/status policy without lowering standards.
+8. Copy this checkpoint into the BX20 PR description.
+9. Delete this temporary memo in the BX20 PR only after the handoff is preserved.
 
 ### Forbidden resume behavior
 
-- Do not restart at BX19.
-- Do not skip directly to BX21.
-- Do not assume the checkpoint IDs are still free without validation.
-- Do not mix BX20 into PR #685.
-- Do not begin another large feature before BX20 unless the user explicitly changes priority.
+- Do not restart BX19.
+- Do not skip to BX21.
+- Do not assume checkpoint IDs remain free.
+- Do not mix BX20 records into PR #685.
+- Do not start another large feature before BX20 unless the user changes priority.
 
-## 9. Temporary-file lifecycle
+## 10. Temporary-file lifecycle
 
-This file must remain in the branch and merged repository while it is needed as the active UI-remediation and resume handoff.
+Delete this file only after:
 
-Delete this file only after both conditions are met:
+1. PR #685 has merged and final Action/contact-sheet references remain in PR history; and
+2. a fresh BX20 branch exists from post-UI `main`, with regenerated counts and IDs recorded in its work log or PR description.
 
-1. PR #685 has merged and its final workflow/contact-sheet references are preserved in the PR history; and
-2. A fresh BX20 branch has been created from the post-UI `main`, with regenerated counts and next IDs recorded in that branch's work log or PR description.
+## 11. Working rules
 
-The preferred deletion point is the first BX20 PR, after the resume checkpoint has been copied into the BX20 PR description. This makes the file genuinely temporary without losing the handoff.
+For every meaningful PR #685 change:
 
-## 10. Working rules for every subsequent UI commit
-
-For every meaningful implementation commit on PR #685:
-
-1. Read this file before selecting the next task.
-2. Update the affected checklist items in the same commit or the immediately following bookkeeping commit.
-3. Add a dated decision-log entry for any scope change, changed implementation choice, or blocker.
-4. Record the validation performed; do not mark `[x]` based on code changes alone.
+1. Read this memo before selecting the next task.
+2. Update affected checklist items and the progress log.
+3. Record scope or implementation decisions.
+4. Do not mark `[x]` from code changes alone.
 5. Keep canonical record files out of the diff.
-6. Keep the PR draft until the closure conditions are satisfied.
+6. Keep the PR draft until all closure conditions pass.
 
-## 11. Decision and progress log
+## 12. Decision and progress log
 
 ### 2026-07-20 — memo created
 
-- Established this file as the temporary source of truth for PR #685.
-- Preserved the confirmed production-audit baseline.
-- Converted the remediation plan into executable checklist items.
-- Recorded the exact D-1000 BX20 resume checkpoint.
-- No UI implementation item is marked complete yet; existing audit automation alone does not close any product defect.
+- Established this file as PR #685's temporary source of truth.
+- Preserved the production-audit baseline and BX20 checkpoint.
+
+### 2026-07-20 — representative audit strengthened
+
+- Expanded the matrix to 24 states and 48 screenshots.
+- Added H1, mobile navigation, locale, clipping, scroll, and Incidents gates.
+- Fixed workflow path filters to watch `src/**`.
+- Run `29728552354` captured all states and reported 69 expected defects while still uploading the review package.
+
+### 2026-07-20 — Stats, chrome, hierarchy, and Related views implemented
+
+- Reordered Stats content and converted drilldowns to disclosures.
+- Added responsive desktop/mobile navigation with keyboard behavior and locale access.
+- Removed the global brand H1 and promoted page-specific titles.
+- Moved Related views below Stats, Updates, and Incidents content.
+- Preserved the existing public-navigation source contract through a global `nav` class.
+
+### 2026-07-20 — Incidents and Japanese Donate implemented
+
+- Replaced the 485-item Incidents page with 25-item static pages.
+- Added page metadata, canonical URLs, pagination controls, and sitemap routes.
+- Added `/ja/donate/`, Japanese metadata, shared wallet destinations, editorial-independence copy, locale switching, and sitemap registration.
+- Final CI, screenshot, and exhaustive validation remain pending; none of these implementation items is considered closed until those checks pass.
