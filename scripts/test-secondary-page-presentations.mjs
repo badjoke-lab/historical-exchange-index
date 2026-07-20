@@ -11,6 +11,11 @@ function readText(relativePath) {
   return fs.readFileSync(path.join(root, relativePath), 'utf8')
 }
 
+function hasPresentationConnection(source, locale, page) {
+  const pattern = new RegExp(`getPagePresentation\\(\\s*['"]${locale}['"]\\s*,\\s*['"]${page}['"]\\s*\\)`)
+  return pattern.test(source)
+}
+
 const presentations = readText('src/lib/i18n/page-presentations.ts')
 const requiredPages = [
   'dead',
@@ -47,14 +52,14 @@ const englishRenderConnections = [
 
 for (const [relativePath, page] of englishRenderConnections) {
   const source = readText(relativePath)
-  assert(source.includes(`getPagePresentation('en', '${page}')`), `${relativePath} does not use the ${page} presentation`)
+  assert(hasPresentationConnection(source, 'en', page), `${relativePath} does not use the ${page} presentation`)
 }
 
 const incidentIndexRoute = readText('src/app/incidents/page.tsx')
 const incidentPaginationRoute = readText('src/app/incidents/page/[page]/page.tsx')
-assert(incidentIndexRoute.includes("page: 'incidents'"), 'Incidents index route does not use centralized incidents metadata')
-assert(incidentPaginationRoute.includes('generateMetadata'), 'paginated Incidents route does not expose page-specific metadata')
-assert(incidentPaginationRoute.includes('incidentPageHref(pageNumber)'), 'paginated Incidents route does not use the shared canonical route helper')
+assert(/page:\s*['"]incidents['"]/.test(incidentIndexRoute), 'Incidents index route does not use centralized incidents metadata')
+assert(/export\s+async\s+function\s+generateMetadata/.test(incidentPaginationRoute), 'paginated Incidents route does not expose page-specific metadata')
+assert(/incidentPageHref\(\s*pageNumber\s*\)/.test(incidentPaginationRoute), 'paginated Incidents route does not use the shared canonical route helper')
 
 const japaneseConnections = [
   ['src/app/ja/dead/page.tsx', 'dead'],
@@ -71,12 +76,12 @@ const japaneseConnections = [
 
 for (const [relativePath, page] of japaneseConnections) {
   const source = readText(relativePath)
-  assert(source.includes(`getPagePresentation('ja', '${page}')`), `${relativePath} does not use Japanese ${page} presentation`)
+  assert(hasPresentationConnection(source, 'ja', page), `${relativePath} does not use Japanese ${page} presentation`)
 }
 
 const methodologySource = readText('src/app/methodology/page.tsx')
 const methodologyLayoutSource = readText('src/app/methodology/layout.tsx')
-assert(methodologySource.includes('<h1'), 'English Methodology page must expose a page-specific h1')
-assert(methodologyLayoutSource.includes("title: 'Methodology'"), 'English Methodology layout must retain centralized route metadata')
+assert(/<h1(?:\s|>)/.test(methodologySource), 'English Methodology page must expose a page-specific h1')
+assert(/title:\s*['"]Methodology['"]/.test(methodologyLayoutSource), 'English Methodology layout must retain centralized route metadata')
 
 console.log(`Secondary page presentation tests passed for ${requiredPages.length} page families; metadata integrity remains covered by the dedicated metadata audits.`)
