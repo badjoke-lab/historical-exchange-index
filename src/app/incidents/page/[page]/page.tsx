@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import IncidentTimelinePage, {
+import IncidentTimelinePage from '../../../../components/incidents/incident-timeline-page'
+import {
   incidentPageCount,
   incidentPageHref,
-} from '../../../../components/incidents/incident-timeline-page'
+} from '../../../../lib/incidents/incident-pagination'
 import { SITE_NAME, SITE_URL } from '../../../../lib/site-constants'
 
 type IncidentPageProps = {
