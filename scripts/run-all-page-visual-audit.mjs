@@ -184,6 +184,10 @@ async function runPool(items, workerCount, worker) {
   return results
 }
 
+function visibleRouteLink(page, route) {
+  return page.locator(`a[href="${route}"]:visible`).first()
+}
+
 async function captureNavigationFlows(browser) {
   const results = []
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, colorScheme: 'dark', deviceScaleFactor: 1 })
@@ -194,25 +198,24 @@ async function captureNavigationFlows(browser) {
     try {
       await page.goto(`${origin}/`, { waitUntil: 'networkidle' })
       await page.evaluate(() => window.scrollTo(0, 0))
-      const topLink = page.locator(`a[href="${route}"]`).first()
-      if (await topLink.count()) {
-        await topLink.click()
-        await page.waitForLoadState('networkidle')
-        await page.waitForTimeout(200)
-        item.topStart = { scrollY: await page.evaluate(() => Math.round(window.scrollY)), url: page.url() }
-        await page.screenshot({ path: path.join(outputRoot, 'navigation', `${routeKey(`${route}?flow=top`)}.jpg`), type: 'jpeg', quality: 60 })
-      }
+      const topLink = visibleRouteLink(page, route)
+      if ((await topLink.count()) === 0) throw new Error(`visible navigation link not found for ${route} from top`)
+      await topLink.click()
+      await page.waitForLoadState('networkidle')
+      await page.waitForTimeout(200)
+      item.topStart = { scrollY: await page.evaluate(() => Math.round(window.scrollY)), url: page.url() }
+      await page.screenshot({ path: path.join(outputRoot, 'navigation', `${routeKey(`${route}?flow=top`)}.jpg`), type: 'jpeg', quality: 60 })
+
       await page.goto(`${origin}/`, { waitUntil: 'networkidle' })
       await page.evaluate(() => window.scrollTo(0, Math.min(900, document.documentElement.scrollHeight - innerHeight)))
       const before = await page.evaluate(() => Math.round(window.scrollY))
-      const scrolledLink = page.locator(`a[href="${route}"]`).first()
-      if (await scrolledLink.count()) {
-        await scrolledLink.click()
-        await page.waitForLoadState('networkidle')
-        await page.waitForTimeout(200)
-        item.scrolledStart = { before, scrollY: await page.evaluate(() => Math.round(window.scrollY)), url: page.url() }
-        await page.screenshot({ path: path.join(outputRoot, 'navigation', `${routeKey(`${route}?flow=scrolled`)}.jpg`), type: 'jpeg', quality: 60 })
-      }
+      const scrolledLink = visibleRouteLink(page, route)
+      if ((await scrolledLink.count()) === 0) throw new Error(`visible navigation link not found for ${route} from scrolled state`)
+      await scrolledLink.click()
+      await page.waitForLoadState('networkidle')
+      await page.waitForTimeout(200)
+      item.scrolledStart = { before, scrollY: await page.evaluate(() => Math.round(window.scrollY)), url: page.url() }
+      await page.screenshot({ path: path.join(outputRoot, 'navigation', `${routeKey(`${route}?flow=scrolled`)}.jpg`), type: 'jpeg', quality: 60 })
     } catch (error) {
       item.error = error instanceof Error ? error.message : String(error)
     }
@@ -247,6 +250,7 @@ const findings = {
   initialScroll: results.filter((item) => Number(item.initialScrollY) > 0),
   horizontalOverflow: results.filter((item) => Number(item.horizontalOverflowPx) > 1),
   mainOverlaps: results.filter((item) => Array.isArray(item.overlaps) && item.overlaps.length > 0),
+  navigationErrors: navigationFlows.filter((item) => item.error),
   navigationScrollRetention: navigationFlows.filter((item) => Number(item.topStart?.scrollY) > 0 || Number(item.scrolledStart?.scrollY) > 0),
 }
 
@@ -255,4 +259,4 @@ await writeFile(path.join(outputRoot, 'summary.json'), JSON.stringify({ routeCou
 await writeGallery(results)
 
 console.log(JSON.stringify({ routeCount: routes.length, findings: Object.fromEntries(Object.entries(findings).map(([key, value]) => [key, value.length])) }, null, 2))
-if (findings.errors.length > 0 || findings.non200.length > 0) process.exitCode = 1
+if (findings.errors.length > 0 || findings.non200.length > 0 || findings.navigationErrors.length > 0) process.exitCode = 1
