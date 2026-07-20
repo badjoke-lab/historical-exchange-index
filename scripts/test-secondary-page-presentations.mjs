@@ -32,12 +32,11 @@ const requiredPages = [
 
 for (const page of requiredPages) {
   assert(presentations.includes(`'${page}'`), `presentation registry is missing ${page}`)
-  assert(presentations.includes(`'page.${page}.title'`), `metadata title connection is missing for ${page}`)
-  assert(presentations.includes(`'page.${page}.description'`), `metadata description connection is missing for ${page}`)
-  assert(presentations.includes(`'page.${page}.heading'`), `heading connection is missing for ${page}`)
-  assert(presentations.includes(`'page.${page}.intro'`), `intro connection is missing for ${page}`)
-  assert(presentations.includes(`'page.${page}.eyebrow'`), `eyebrow connection is missing for ${page}`)
 }
+for (const field of ['title', 'description', 'heading', 'intro', 'eyebrow']) {
+  assert(presentations.includes(`'${field}'`), `presentation field registry is missing ${field}`)
+}
+assert(presentations.includes('`page.${page}.${field}`'), 'presentation keys are not generated from page and field')
 
 const englishRenderConnections = [
   ['src/app/dead/page.tsx', 'dead'],
@@ -84,4 +83,4 @@ const methodologyLayoutSource = readText('src/app/methodology/layout.tsx')
 assert(/<h1(?:\s|>)/.test(methodologySource), 'English Methodology page must expose a page-specific h1')
 assert(/title:\s*['"]Methodology['"]/.test(methodologyLayoutSource), 'English Methodology layout must retain centralized route metadata')
 
-console.log(`Secondary page presentation tests passed for ${requiredPages.length} page families; metadata integrity remains covered by the dedicated metadata audits.`)
+console.log(`Secondary page presentation tests passed for ${requiredPages.length} page families; dictionary keys and metadata remain covered by their dedicated validators.`)
