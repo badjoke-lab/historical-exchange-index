@@ -1,9 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { Suspense, useEffect, useRef, useState } from 'react'
+import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import type { SupportedLocale } from '../../i18n/config'
 import LocaleSwitcher from './locale-switcher'
 import styles from '../layout/site-chrome.module.css'
 
@@ -14,7 +13,6 @@ export type SiteNavigationItem = {
 }
 
 type Props = {
-  locale: SupportedLocale
   primaryAriaLabel: string
   items: SiteNavigationItem[]
   donateHref: string
@@ -42,7 +40,6 @@ function isCurrentPath(pathname: string, href: string): boolean {
 }
 
 export default function SiteNavigation({
-  locale,
   primaryAriaLabel,
   items,
   donateHref,
@@ -59,15 +56,15 @@ export default function SiteNavigation({
   const firstLinkRef = useRef<HTMLAnchorElement>(null)
   const [open, setOpen] = useState(false)
 
-  function closeMenu(returnFocus = false) {
+  const closeMenu = useCallback((returnFocus = false) => {
     if (detailsRef.current) detailsRef.current.open = false
     setOpen(false)
     if (returnFocus) summaryRef.current?.focus()
-  }
+  }, [])
 
   useEffect(() => {
     closeMenu(false)
-  }, [pathname])
+  }, [closeMenu, pathname])
 
   useEffect(() => {
     if (!open) return
@@ -84,14 +81,11 @@ export default function SiteNavigation({
 
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [])
+  }, [closeMenu])
 
   const renderItem = (item: SiteNavigationItem, mobile = false, index = 0) => {
     const active = isCurrentPath(pathname, item.href)
-    const className = [
-      styles.navLink,
-      active ? styles.activeLink : '',
-    ].filter(Boolean).join(' ')
+    const className = [styles.navLink, active ? styles.activeLink : ''].filter(Boolean).join(' ')
 
     return (
       <Link
