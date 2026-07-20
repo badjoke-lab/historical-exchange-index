@@ -70,7 +70,7 @@ export default function ExchangeIncidentTimelinePage() {
         <div className={styles.headerRow}>
           <div>
             <p className="muted">{presentation.eyebrow}</p>
-            <h2 className={styles.pageTitle}>{presentation.heading}</h2>
+            <h1 className={styles.pageTitle}>{presentation.heading}</h1>
             <p className={styles.lead}>{presentation.intro}</p>
           </div>
           <div className={styles.headerActions}>
@@ -92,7 +92,7 @@ export default function ExchangeIncidentTimelinePage() {
       <section className={`panel ${styles.breakdownPanel}`} aria-label="Leading incident types">
         <div>
           <p className="muted">Leading recorded types</p>
-          <h3>Incident mix</h3>
+          <h2>Incident mix</h2>
         </div>
         <div className={styles.breakdownList}>
           {leadingTypes.map(([label, value]) => (
@@ -107,7 +107,7 @@ export default function ExchangeIncidentTimelinePage() {
       <section className={styles.timeline} aria-label="Exchange incident history">
         {groups.map(([year, items]) => (
           <section className={styles.yearGroup} key={year} aria-labelledby={`incident-year-${year}`}>
-            <div className={styles.yearHeader}><h3 id={`incident-year-${year}`}>{year}</h3><span>{items.length} event{items.length === 1 ? '' : 's'}</span></div>
+            <div className={styles.yearHeader}><h2 id={`incident-year-${year}`}>{year}</h2><span>{items.length} event{items.length === 1 ? '' : 's'}</span></div>
             <div className={styles.timelineList}>
               {items.map(({ event, entity, evidence }) => (
                 <article className={`panel ${styles.eventCard}`} key={event.id} id={event.id}>
