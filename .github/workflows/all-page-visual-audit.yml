@@ -1,12 +1,6 @@
 name: All-page visual audit
 
 on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - '.github/workflows/all-page-visual-audit.yml'
-      - 'scripts/run-all-page-visual-audit.mjs'
   workflow_dispatch:
     inputs:
       origin:
@@ -20,6 +14,10 @@ on:
 
 permissions:
   contents: read
+
+concurrency:
+  group: hei-all-page-visual-audit
+  cancel-in-progress: true
 
 jobs:
   capture-all-routes:
@@ -51,7 +49,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: hei-all-page-visual-audit-${{ github.sha }}
+          name: hei-all-page-visual-audit-${{ github.run_id }}
           path: artifacts/all-page-visual-audit/
           if-no-files-found: error
           retention-days: 7
