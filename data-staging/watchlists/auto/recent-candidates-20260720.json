@@ -1,0 +1,1678 @@
+{
+  "watchlist_type": "auto_candidate_discovery",
+  "version": 2,
+  "created_at": "2026-07-20T06:23:10.505Z",
+  "purpose": "Auto-generated candidate state keyed by stable candidate identity. Not canonical. Requires review before staging or canonical append.",
+  "source_summary": {
+    "static_sources": 2,
+    "remote_sources": 1,
+    "remote_enabled": 1
+  },
+  "candidates": [
+    {
+      "candidate_id": "candidate:extended-perps",
+      "candidate_key": "candidate:extended-perps",
+      "canonical_name": "Extended Perps",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Extended Perps appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.extended.exchange"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-07-20T06:23:10.505Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "lifecycle_state": "new",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:arcus-perps",
+      "candidate_key": "candidate:arcus-perps",
+      "canonical_name": "Arcus Perps",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Arcus Perps appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://arcus.xyz/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-07-20T06:23:10.505Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "lifecycle_state": "new",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:risex",
+      "candidate_key": "candidate:risex",
+      "canonical_name": "RISEx",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "RISEx appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.rise.trade/en"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-07-20T06:23:10.505Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "lifecycle_state": "new",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:verus-market",
+      "candidate_key": "candidate:verus-market",
+      "canonical_name": "Verus Market",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Verus Market appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://eth.verusbridge.io/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:hegic",
+      "candidate_key": "candidate:hegic",
+      "canonical_name": "Hegic",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Hegic appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.hegic.co"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:metalx-swap",
+      "candidate_key": "candidate:metalx-swap",
+      "canonical_name": "MetalX Swap",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "MetalX Swap appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.metalx.com/swap"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:mux-perps",
+      "candidate_key": "candidate:mux-perps",
+      "canonical_name": "MUX Perps",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "MUX Perps appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://mux.network/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:katana-dex",
+      "candidate_key": "candidate:katana-dex",
+      "canonical_name": "Katana DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Katana DEX appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.roninchain.com/swap#/swap"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:flashtrade",
+      "candidate_key": "candidate:flashtrade",
+      "canonical_name": "FlashTrade",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "FlashTrade appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.flash.trade"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:deri-v4",
+      "candidate_key": "candidate:deri-v4",
+      "canonical_name": "Deri V4",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Deri V4 appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://deri.io/#/trade/options"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:contango-v2",
+      "candidate_key": "candidate:contango-v2",
+      "canonical_name": "Contango V2",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Contango V2 appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://contango.xyz"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:intentx",
+      "candidate_key": "candidate:intentx",
+      "canonical_name": "IntentX",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "IntentX appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://intentx.io"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:world-markets-spot",
+      "candidate_key": "candidate:world-markets-spot",
+      "canonical_name": "World Markets Spot",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "World Markets Spot appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://world.inc/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:storm-trade",
+      "candidate_key": "candidate:storm-trade",
+      "canonical_name": "Storm Trade",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Storm Trade appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://storm.tg"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:perpl",
+      "candidate_key": "candidate:perpl",
+      "canonical_name": "Perpl",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Perpl appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://perpl.xyz/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-07-20T06:23:10.505Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "lifecycle_state": "new",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:awaken-swap",
+      "candidate_key": "candidate:awaken-swap",
+      "canonical_name": "Awaken Swap",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Awaken Swap appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.awaken.finance"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:waves-exchange",
+      "candidate_key": "candidate:waves-exchange",
+      "canonical_name": "Waves Exchange",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Waves Exchange appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://wx.network"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-07-20T06:23:10.505Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "lifecycle_state": "new",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:anyhedge",
+      "candidate_key": "candidate:anyhedge",
+      "canonical_name": "AnyHedge",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "AnyHedge appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://anyhedge.com/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-07-20T06:23:10.505Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "lifecycle_state": "new",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:metalx-dex",
+      "candidate_key": "candidate:metalx-dex",
+      "canonical_name": "MetalX Dex",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "MetalX Dex appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.metalx.com/dex"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:hakka-finance",
+      "candidate_key": "candidate:hakka-finance",
+      "canonical_name": "Hakka Finance",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Hakka Finance appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://hakka.finance/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-05-02T11:06:57.442Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "recurring_unresolved",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:turboflow-perps",
+      "candidate_key": "candidate:turboflow-perps",
+      "canonical_name": "TurboFlow Perps",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "TurboFlow Perps appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.tf.xyz/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-07-20T06:23:10.505Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "lifecycle_state": "new",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:bumpin-trade",
+      "candidate_key": "candidate:bumpin-trade",
+      "canonical_name": "Bumpin Trade",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Bumpin Trade appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.bumpin.trade/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-07-20T06:23:10.505Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "lifecycle_state": "new",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:ribbon",
+      "candidate_key": "candidate:ribbon",
+      "canonical_name": "Ribbon",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Ribbon appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.ribbon.finance/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-07-20T06:23:10.505Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "lifecycle_state": "new",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:synfutures-v3",
+      "candidate_key": "candidate:synfutures-v3",
+      "canonical_name": "SynFutures V3",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "SynFutures V3 appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://trade.synfutures.com/#/trade"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-07-20T06:23:10.505Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "lifecycle_state": "new",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    },
+    {
+      "candidate_id": "candidate:hypersurface",
+      "candidate_key": "candidate:hypersurface",
+      "canonical_name": "Hypersurface",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Hypersurface appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.hypersurface.io"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-07-20T06:23:10.505Z",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "lifecycle_state": "new",
+      "resolution_state": null,
+      "resolution_candidate_key": null
+    }
+  ],
+  "tracked_candidates": [
+    {
+      "candidate_id": "candidate:derive-v2",
+      "candidate_key": "candidate:derive-v2",
+      "canonical_name": "Derive V2",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Derive V2 appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.derive.xyz"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-06-14",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 3,
+      "is_new_candidate": false,
+      "lifecycle_state": "held",
+      "resolution_state": "held",
+      "resolution_candidate_key": "candidate:derive-v2"
+    },
+    {
+      "candidate_id": "candidate:xrpl-dex",
+      "candidate_key": "candidate:xrpl-dex",
+      "canonical_name": "XRPL DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "XRPL DEX appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://xrpl.org/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-06-14",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 3,
+      "is_new_candidate": false,
+      "lifecycle_state": "held",
+      "resolution_state": "held",
+      "resolution_candidate_key": "candidate:xrpl-dex"
+    },
+    {
+      "candidate_id": "candidate:rhea-dex",
+      "candidate_key": "candidate:rhea-dex",
+      "canonical_name": "Rhea Dex",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Rhea Dex appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://dex.rhea.finance/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-06-14",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 3,
+      "is_new_candidate": false,
+      "lifecycle_state": "held",
+      "resolution_state": "held",
+      "resolution_candidate_key": "candidate:rhea-dex"
+    },
+    {
+      "candidate_id": "candidate:stellar-dex",
+      "candidate_key": "candidate:stellar-dex",
+      "canonical_name": "Stellar DEX",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Stellar DEX appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://developers.stellar.org/docs/learn/fundamentals/liquidity-on-stellar-sdex-liquidity-pools"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-06-14",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 3,
+      "is_new_candidate": false,
+      "lifecycle_state": "held",
+      "resolution_state": "held",
+      "resolution_candidate_key": "candidate:stellar-dex"
+    }
+  ],
+  "excluded_resolved_candidates": [
+    {
+      "candidate_id": "candidate:hyperliquid-hlp",
+      "candidate_key": "candidate:hyperliquid-hlp",
+      "canonical_name": "Hyperliquid HLP",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Hyperliquid HLP appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.hyperliquid.xyz"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-06-14",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 3,
+      "is_new_candidate": false,
+      "lifecycle_state": "terminally_resolved",
+      "resolution_state": "out_of_scope",
+      "resolution_candidate_key": "candidate:hyperliquid-hlp"
+    },
+    {
+      "candidate_id": "candidate:solv-basis-trading",
+      "candidate_key": "candidate:solv-basis-trading",
+      "canonical_name": "Solv Basis Trading",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Solv Basis Trading appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://solv.finance/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-06-14",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "terminally_resolved",
+      "resolution_state": "out_of_scope",
+      "resolution_candidate_key": "candidate:solv-basis-trading"
+    },
+    {
+      "candidate_id": "candidate:alchemix-v3",
+      "candidate_key": "candidate:alchemix-v3",
+      "canonical_name": "Alchemix V3",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Alchemix V3 appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://alchemix.fi/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-06-14",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 3,
+      "is_new_candidate": false,
+      "lifecycle_state": "terminally_resolved",
+      "resolution_state": "out_of_scope",
+      "resolution_candidate_key": "candidate:alchemix-v3"
+    },
+    {
+      "candidate_id": "candidate:youves",
+      "candidate_key": "candidate:youves",
+      "canonical_name": "Youves",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Youves appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://app.youves.com"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-06-14",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 3,
+      "is_new_candidate": false,
+      "lifecycle_state": "terminally_resolved",
+      "resolution_state": "out_of_scope",
+      "resolution_candidate_key": "candidate:youves"
+    },
+    {
+      "candidate_id": "candidate:metronome-synth",
+      "candidate_key": "candidate:metronome-synth",
+      "canonical_name": "Metronome Synth",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "dex",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Metronome Synth appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.metronome.io/synth"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-06-14",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 3,
+      "is_new_candidate": false,
+      "lifecycle_state": "terminally_resolved",
+      "resolution_state": "out_of_scope",
+      "resolution_candidate_key": "candidate:metronome-synth"
+    },
+    {
+      "candidate_id": "candidate:neutral-trade",
+      "candidate_key": "candidate:neutral-trade",
+      "canonical_name": "Neutral Trade",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "hybrid",
+      "likely_status": "active",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Neutral Trade appears in a remote trading-venue directory",
+      "hei_relevance": "Potential active exchange motherlist candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://www.neutral.trade/"
+      ],
+      "source_quality": "medium",
+      "source_name": "defillama-protocols-dexlike",
+      "source_names": [
+        "defillama-protocols-dexlike"
+      ],
+      "source_category": "active_trading_venue_motherlist",
+      "next_action": "hold_for_active_baseline_or_batch_add",
+      "historical_dead_score": 0,
+      "historical_dead_strength": "none",
+      "historical_dead_tags": [],
+      "first_seen_at": "2026-06-14",
+      "last_seen_at": "2026-07-20T06:23:10.505Z",
+      "seen_count": 2,
+      "is_new_candidate": false,
+      "lifecycle_state": "terminally_resolved",
+      "resolution_state": "out_of_scope",
+      "resolution_candidate_key": "candidate:neutral-trade"
+    }
+  ],
+  "excluded_existing_entities": [
+    {
+      "candidate_key": "candidate:figure-markets-exchange",
+      "canonical_name": "Figure Markets Exchange",
+      "matched_id": "hei_ex_000689",
+      "matched_slug": "figure-markets",
+      "method": "domain"
+    },
+    {
+      "candidate_key": "candidate:hashkey-exchange",
+      "canonical_name": "HashKey Exchange",
+      "matched_id": "hei_ex_000093",
+      "matched_slug": "hashkey-exchange",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:curve-dex",
+      "canonical_name": "Curve DEX",
+      "matched_id": "hei_ex_000511",
+      "matched_slug": "curve-finance",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:jupiter-perpetual-exchange",
+      "canonical_name": "Jupiter Perpetual Exchange",
+      "matched_id": "hei_ex_000518",
+      "matched_slug": "jupiter",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:fluid-dex",
+      "canonical_name": "Fluid DEX",
+      "matched_id": "hei_ex_000691",
+      "matched_slug": "fluid-dex",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:quickswap-dex",
+      "canonical_name": "Quickswap Dex",
+      "matched_id": "hei_ex_000512",
+      "matched_slug": "quickswap",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:orca-dex",
+      "canonical_name": "Orca DEX",
+      "matched_id": "hei_ex_000513",
+      "matched_slug": "orca",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:gmx-v2-perps",
+      "canonical_name": "GMX V2 Perps",
+      "matched_id": "hei_ex_000244",
+      "matched_slug": "gmx",
+      "method": "domain"
+    },
+    {
+      "candidate_key": "candidate:dydx-v4",
+      "canonical_name": "dYdX V4",
+      "matched_id": "hei_ex_000517",
+      "matched_slug": "dydx",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:thorchain-dex",
+      "canonical_name": "Thorchain DEX",
+      "matched_id": "hei_ex_000516",
+      "matched_slug": "thorchain",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:lista-dex",
+      "canonical_name": "Lista DEX",
+      "matched_id": "hei_ex_000987",
+      "matched_slug": "lista-dex",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:rysk-v12",
+      "canonical_name": "Rysk V12",
+      "matched_id": "hei_ex_000991",
+      "matched_slug": "rysk-v12",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:dydx-v3",
+      "canonical_name": "dYdX V3",
+      "matched_id": "hei_ex_000517",
+      "matched_slug": "dydx",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:ostium",
+      "canonical_name": "Ostium",
+      "matched_id": "hei_ex_000979",
+      "matched_slug": "ostium",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:byte-exchange",
+      "canonical_name": "Byte Exchange",
+      "matched_id": "hei_ex_000416",
+      "matched_slug": "byte-exchange",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:gmtrade",
+      "canonical_name": "GMTrade",
+      "matched_id": "hei_ex_000989",
+      "matched_slug": "gmtrade",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:apex-omni",
+      "canonical_name": "Apex Omni",
+      "matched_id": "hei_ex_000537",
+      "matched_slug": "apex-protocol",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:bulk",
+      "canonical_name": "BULK",
+      "matched_id": "hei_ex_000990",
+      "matched_slug": "bulk",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:decibel",
+      "canonical_name": "Decibel",
+      "matched_id": "hei_ex_000986",
+      "matched_slug": "decibel",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:pacifica-perps",
+      "canonical_name": "Pacifica Perps",
+      "matched_id": "hei_ex_000980",
+      "matched_slug": "pacifica",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:hydration-dex",
+      "canonical_name": "Hydration DEX",
+      "matched_id": "hei_ex_000699",
+      "matched_slug": "hydration",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:afx-lp",
+      "canonical_name": "AFX LP",
+      "matched_id": "hei_ex_000992",
+      "matched_slug": "afx",
+      "method": "domain"
+    },
+    {
+      "candidate_key": "candidate:avantis",
+      "canonical_name": "Avantis",
+      "matched_id": "hei_ex_000978",
+      "matched_slug": "avantis",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:ethereal-dex",
+      "canonical_name": "Ethereal DEX",
+      "matched_id": "hei_ex_000982",
+      "matched_slug": "ethereal",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:moonlander",
+      "canonical_name": "Moonlander",
+      "matched_id": "hei_ex_000984",
+      "matched_slug": "moonlander",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:minswap-dex",
+      "canonical_name": "Minswap DEX",
+      "matched_id": "hei_ex_000976",
+      "matched_slug": "minswap",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:manifest-trade",
+      "canonical_name": "Manifest Trade",
+      "matched_id": "hei_ex_000981",
+      "matched_slug": "manifest-trade",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:aevo-perps",
+      "canonical_name": "Aevo Perps",
+      "matched_id": "hei_ex_000519",
+      "matched_slug": "aevo",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:osmosis-dex",
+      "canonical_name": "Osmosis DEX",
+      "matched_id": "hei_ex_000514",
+      "matched_slug": "osmosis",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:gains-network",
+      "canonical_name": "Gains Network",
+      "matched_id": "hei_ex_000515",
+      "matched_slug": "gtrade",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:reya-perps",
+      "canonical_name": "Reya Perps",
+      "matched_id": "hei_ex_000985",
+      "matched_slug": "reya",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:fulcrom-perps",
+      "canonical_name": "Fulcrom Perps",
+      "matched_id": "hei_ex_000704",
+      "matched_slug": "fulcrom",
+      "method": "domain"
+    },
+    {
+      "candidate_key": "candidate:antarctic",
+      "canonical_name": "Antarctic",
+      "matched_id": "hei_ex_000993",
+      "matched_slug": "antarctic",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:frax-swap",
+      "canonical_name": "Frax Swap",
+      "matched_id": "hei_ex_000703",
+      "matched_slug": "fraxswap",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:joe-dex",
+      "canonical_name": "Joe DEX",
+      "matched_id": "hei_ex_000520",
+      "matched_slug": "lfj",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:sovryn-dex",
+      "canonical_name": "Sovryn Dex",
+      "matched_id": "hei_ex_000988",
+      "matched_slug": "sovryn",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:boros",
+      "canonical_name": "Boros",
+      "matched_id": "hei_ex_000983",
+      "matched_slug": "boros",
+      "method": "slug"
+    },
+    {
+      "candidate_key": "candidate:tempo-stablecoin-dex",
+      "canonical_name": "Tempo Stablecoin Dex",
+      "matched_id": "hei_ex_000944",
+      "matched_slug": "tempo-fee-amm",
+      "method": "domain"
+    },
+    {
+      "candidate_key": "candidate:polynomial-trade",
+      "canonical_name": "Polynomial Trade",
+      "matched_id": "hei_ex_000229",
+      "matched_slug": "polynomial-protocol",
+      "method": "canonical_name"
+    },
+    {
+      "candidate_key": "candidate:gala-swap",
+      "canonical_name": "Gala Swap",
+      "matched_id": "hei_ex_000709",
+      "matched_slug": "galaswap",
+      "method": "canonical_name"
+    }
+  ],
+  "summary": {
+    "raw_items": 75,
+    "discovered_unique": 75,
+    "review_candidates": 25,
+    "new_candidates": 11,
+    "recurring_unresolved": 14,
+    "tracked_open_resolutions": 4,
+    "terminal_resolutions_excluded": 6,
+    "matched_existing_excluded": 40,
+    "historical_dead_or_continuity": 0,
+    "A": 0,
+    "B": 25,
+    "C": 0
+  }
+}
