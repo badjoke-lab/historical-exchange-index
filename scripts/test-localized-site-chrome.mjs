@@ -85,6 +85,7 @@ const requiredStaticPaths = [
   '/updates/',
   '/incidents/',
   '/monthly/',
+  '/donate/',
 ]
 
 for (const pathname of requiredStaticPaths) {
@@ -92,6 +93,5 @@ for (const pathname of requiredStaticPaths) {
 }
 
 assert(!requiredStaticPaths.includes('/compare/'), 'Compare must not be part of L-1 Japanese route scope')
-assert(!requiredStaticPaths.includes('/donate/'), 'Donate must not be part of L-1 Japanese route scope')
 
-console.log(`Localized site chrome tests passed: ${enKeys.length} shared dictionary keys, locale-aware root wrapper, pilot route guard, query preservation, English Compare boundary, and root-layout stability verified.`)
+console.log(`Localized site chrome tests passed: ${enKeys.length} shared dictionary keys, locale-aware root wrapper, pilot route guard, query preservation, English Compare boundary, Japanese Donate, and root-layout stability verified.`)
