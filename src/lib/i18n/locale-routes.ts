@@ -17,6 +17,7 @@ const JAPANESE_PILOT_STATIC_PATHS = new Set([
   '/updates/',
   '/incidents/',
   '/monthly/',
+  '/donate/',
 ])
 
 const EXCHANGE_DOSSIER_PATH = /^\/exchange\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/
