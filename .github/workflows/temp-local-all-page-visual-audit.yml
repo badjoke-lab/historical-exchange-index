@@ -42,6 +42,17 @@ jobs:
       - name: Build static HEI output
         run: npm run build
 
+      - name: Point the generated sitemap at the local audit server
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const sitemapPath = 'out/sitemap.xml'
+          const before = fs.readFileSync(sitemapPath, 'utf8')
+          const after = before.replaceAll('https://hei.badjoke-lab.com', 'http://127.0.0.1:4322')
+          if (before === after) throw new Error('sitemap origin replacement made no changes')
+          fs.writeFileSync(sitemapPath, after)
+          NODE
+
       - name: Start local static server
         run: |
           python3 -m http.server 4322 --bind 127.0.0.1 --directory out > /tmp/hei-all-page-server.log 2>&1 &
