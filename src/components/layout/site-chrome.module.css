@@ -42,6 +42,7 @@
 }
 
 .brandTitle {
+  display: block;
   margin: 0;
   font-size: 15px;
   font-weight: 650;
@@ -50,6 +51,7 @@
 }
 
 .brandTagline {
+  display: block;
   margin: 2px 0 0;
   color: var(--muted);
   font-size: 12px;
@@ -64,6 +66,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  flex-wrap: nowrap;
   gap: 4px;
   min-width: 0;
   white-space: nowrap;
@@ -251,11 +254,17 @@
   }
 }
 
-@media (max-width: 359px) {
+@media (max-width: 420px) {
   .brandTitle {
-    max-width: 132px;
+    max-width: 108px;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 359px) {
+  .brandTitle {
+    max-width: 92px;
   }
 
   .mobileLocale :global(.nav-link) {
