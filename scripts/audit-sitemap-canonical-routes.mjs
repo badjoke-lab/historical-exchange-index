@@ -5,6 +5,22 @@ import os from 'node:os'
 const root = process.cwd()
 const defaultOutDir = path.join(root, 'out')
 const origin = 'https://hei.badjoke-lab.com'
+const INCIDENT_PAGE_SIZE = 25
+const INCIDENT_EVENT_TYPES = new Set([
+  'hack',
+  'exploit',
+  'withdrawal_suspended',
+  'deposit_suspended',
+  'trading_halted',
+  'service_outage',
+  'regulatory_action',
+  'lawsuit',
+  'bankruptcy_filed',
+  'insolvency_declared',
+  'shutdown_announced',
+  'shutdown_effective',
+  'chain_shutdown_impact',
+])
 
 const STATIC_ROUTES = [
   '/',
@@ -34,6 +50,7 @@ const JAPANESE_STATIC_ROUTES = [
   '/ja/monthly/',
   '/ja/methodology/',
   '/ja/about/',
+  '/ja/donate/',
 ]
 
 const OBSOLETE_PREFIXES = ['/all', '/registry', '/exchanges']
@@ -75,12 +92,22 @@ function routeOutputFile(url, outDir) {
   return path.join(outDir, pathname.replace(/^\/+|\/+$/g, ''), 'index.html')
 }
 
-function expectedUrls(publicEntities) {
+function incidentPaginationRoutes(publicEvents) {
+  const records = Array.isArray(publicEvents?.records) ? publicEvents.records : []
+  const incidentCount = records.filter((event) => {
+    return typeof event?.event_date === 'string' && INCIDENT_EVENT_TYPES.has(event?.event_type)
+  }).length
+  const totalPages = Math.max(1, Math.ceil(incidentCount / INCIDENT_PAGE_SIZE))
+  return Array.from({ length: Math.max(totalPages - 1, 0) }, (_, index) => `/incidents/page/${index + 2}/`)
+}
+
+function expectedUrls(publicEntities, publicEvents) {
   const staticUrls = STATIC_ROUTES.map((route) => `${origin}${route}`)
+  const incidentPageUrls = incidentPaginationRoutes(publicEvents).map((route) => `${origin}${route}`)
   const entityUrls = publicEntities.records.map((entity) => `${origin}/exchange/${entity.slug}/`)
   const japaneseStaticUrls = JAPANESE_STATIC_ROUTES.map((route) => `${origin}${route}`)
   const japaneseEntityUrls = publicEntities.records.map((entity) => `${origin}/ja/exchange/${entity.slug}/`)
-  return [...staticUrls, ...entityUrls, ...japaneseStaticUrls, ...japaneseEntityUrls]
+  return [...staticUrls, ...incidentPageUrls, ...entityUrls, ...japaneseStaticUrls, ...japaneseEntityUrls]
 }
 
 function sorted(values) {
@@ -114,8 +141,10 @@ export function auditSitemapCanonicalRoutes(outDir = defaultOutDir) {
   const sitemap = readText(path.join(outDir, 'sitemap.xml'))
   const redirects = readText(path.join(outDir, '_redirects'))
   const publicEntities = readJson(path.join(outDir, 'data', 'entities.json'))
+  const publicEvents = readJson(path.join(outDir, 'data', 'events.json'))
   const actual = sitemapLocations(sitemap)
-  const expected = expectedUrls(publicEntities)
+  const expected = expectedUrls(publicEntities, publicEvents)
+  const incidentRoutes = incidentPaginationRoutes(publicEvents)
   const findings = []
 
   const duplicates = sorted([...new Set(actual.filter((url, index) => actual.indexOf(url) !== index))])
@@ -180,6 +209,7 @@ export function auditSitemapCanonicalRoutes(outDir = defaultOutDir) {
     expectedUrlCount: expected.length,
     publicEntityCount: publicEntities.records.length,
     staticRouteCount: STATIC_ROUTES.length,
+    incidentPaginationRouteCount: incidentRoutes.length,
     japaneseStaticRouteCount: JAPANESE_STATIC_ROUTES.length,
     findings,
   }
@@ -198,10 +228,20 @@ function runSelfTest() {
   try {
     fs.mkdirSync(path.join(outDir, 'data'), { recursive: true })
     const records = [{ slug: 'alpha' }, { slug: 'beta' }]
+    const events = Array.from({ length: 26 }, (_, index) => ({
+      id: `event-${index + 1}`,
+      event_date: '2026-01-01',
+      event_type: 'hack',
+    }))
     fs.writeFileSync(path.join(outDir, 'data', 'entities.json'), JSON.stringify({ records }))
+    fs.writeFileSync(path.join(outDir, 'data', 'events.json'), JSON.stringify({ records: events }))
+
+    const incidentRoutes = incidentPaginationRoutes({ records: events })
+    assert(JSON.stringify(incidentRoutes) === JSON.stringify(['/incidents/page/2/']), 'incident pagination self-test route mismatch')
 
     const urls = [
       ...STATIC_ROUTES.map((route) => `${origin}${route}`),
+      ...incidentRoutes.map((route) => `${origin}${route}`),
       `${origin}/exchange/alpha/`,
       `${origin}/exchange/beta/`,
       ...JAPANESE_STATIC_ROUTES.map((route) => `${origin}${route}`),
@@ -228,17 +268,17 @@ function runSelfTest() {
     fs.rmSync(outDir, { recursive: true, force: true })
   }
 
-  console.log('L1 sitemap and canonical route audit self-test passed.')
+  console.log('Sitemap and canonical route audit self-test passed with incident pagination and Japanese Donate coverage.')
 }
 
 if (process.argv.includes('--self-test')) {
   runSelfTest()
 } else {
   const result = auditSitemapCanonicalRoutes()
-  console.log(`L1 sitemap route audit: ${result.sitemapUrlCount} URLs = ${result.staticRouteCount} English static + ${result.japaneseStaticRouteCount} Japanese static + ${result.publicEntityCount * 2} bilingual exchange routes.`)
+  console.log(`Sitemap route audit: ${result.sitemapUrlCount} URLs = ${result.staticRouteCount} English static + ${result.incidentPaginationRouteCount} incident pagination + ${result.japaneseStaticRouteCount} Japanese static + ${result.publicEntityCount * 2} bilingual exchange routes.`)
   if (result.findings.length > 0) {
     for (const finding of result.findings) console.error(JSON.stringify(finding))
-    throw new Error(`L1 sitemap and canonical route audit found ${result.findings.length} findings`)
+    throw new Error(`sitemap and canonical route audit found ${result.findings.length} findings`)
   }
-  console.log('L1 sitemap and canonical route audit passed with 0 findings.')
+  console.log('Sitemap and canonical route audit passed with 0 findings.')
 }
