@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "hei_representative_visual_review_v1_2026_07_20",
+  "status": "active_specification",
+  "public_output": false,
+  "principles": [
+    "desktop and mobile are first-class review targets",
+    "initial viewport and full-page captures are both required",
+    "automated capture is review evidence, not owner approval",
+    "page navigation must reset to the top",
+    "page-level controls must not be hidden above the primary page heading",
+    "horizontal page overflow is prohibited"
+  ],
+  "visual_review_matrix": [
+    {"id":"home-desktop","template":"home","route":"/","viewport":{"width":1440,"height":1000},"state":"default"},
+    {"id":"home-mobile","template":"home","route":"/","viewport":{"width":390,"height":844},"state":"default"},
+    {"id":"dead-desktop","template":"dead_register","route":"/dead/","viewport":{"width":1440,"height":1000},"state":"default"},
+    {"id":"dead-mobile","template":"dead_register","route":"/dead/","viewport":{"width":390,"height":844},"state":"default"},
+    {"id":"active-desktop","template":"active_register","route":"/active/","viewport":{"width":1440,"height":1000},"state":"default"},
+    {"id":"active-mobile","template":"active_register","route":"/active/","viewport":{"width":390,"height":844},"state":"default"},
+    {"id":"explore-desktop-filtered","template":"explorer","route":"/explore/?view=entities&status=dead&status=merged&archive_available=true","viewport":{"width":1440,"height":1000},"state":"filters_selected"},
+    {"id":"explore-mobile-filtered","template":"explorer","route":"/explore/?view=events&event_type=hack","viewport":{"width":390,"height":844},"state":"filters_selected"},
+    {"id":"dossier-desktop","template":"exchange_dossier","route":"/exchange/mt-gox/","viewport":{"width":1440,"height":1000},"state":"representative_dead_record"},
+    {"id":"dossier-mobile","template":"exchange_dossier","route":"/exchange/mt-gox/","viewport":{"width":390,"height":844},"state":"representative_dead_record"},
+    {"id":"stats-desktop","template":"stats","route":"/stats/","viewport":{"width":1440,"height":1000},"state":"default"},
+    {"id":"stats-mobile","template":"stats","route":"/stats/","viewport":{"width":390,"height":844},"state":"default"},
+    {"id":"quality-desktop","template":"quality","route":"/quality/","viewport":{"width":1440,"height":1000},"state":"default"},
+    {"id":"quality-mobile","template":"quality","route":"/quality/","viewport":{"width":390,"height":844},"state":"default"},
+    {"id":"updates-desktop","template":"updates","route":"/updates/","viewport":{"width":1440,"height":1000},"state":"default"},
+    {"id":"updates-mobile","template":"updates","route":"/updates/","viewport":{"width":390,"height":844},"state":"default"},
+    {"id":"methodology-desktop","template":"longform","route":"/methodology/","viewport":{"width":1280,"height":1000},"state":"longform"},
+    {"id":"methodology-mobile","template":"longform","route":"/methodology/","viewport":{"width":390,"height":844},"state":"longform"}
+  ],
+  "navigation_targets": [
+    "/dead/",
+    "/active/",
+    "/explore/",
+    "/stats/",
+    "/quality/",
+    "/updates/",
+    "/methodology/",
+    "/about/"
+  ],
+  "failure_gates": {
+    "expected_state_count": 18,
+    "initial_scroll_y_max": 1,
+    "navigation_scroll_y_max": 1,
+    "horizontal_page_overflow_prohibited": true,
+    "controls_before_primary_heading_prohibited": true,
+    "main_content_overlap_prohibited": true,
+    "screenshot_artifact_required": true,
+    "contact_sheet_required": true,
+    "automated_rendering_counts_as_approval": false
+  }
+}
