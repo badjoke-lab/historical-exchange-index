@@ -40,7 +40,6 @@ const pageConnections = [
   ['src/app/explore/page.tsx', 'explore'],
   ['src/app/quality/page.tsx', 'quality'],
   ['src/app/updates/page.tsx', 'updates'],
-  ['src/components/incidents/incident-timeline-page.tsx', 'incidents'],
   ['src/app/monthly/page.tsx', 'monthly'],
   ['src/app/about/page.tsx', 'about'],
 ]
@@ -50,6 +49,14 @@ for (const [relativePath, page] of pageConnections) {
   assert(source.includes(`getPagePresentation('en', '${page}')`), `${relativePath} does not use the ${page} presentation`)
   assert(source.includes(`page: '${page}'`), `${relativePath} does not use centralized ${page} metadata`)
 }
+
+const incidentRenderer = readText('src/components/incidents/incident-timeline-page.tsx')
+const incidentRoute = readText('src/app/incidents/page.tsx')
+const incidentPaginationRoute = readText('src/app/incidents/page/[page]/page.tsx')
+assert(incidentRenderer.includes("getPagePresentation('en', 'incidents')"), 'shared Incidents renderer does not use the incidents presentation')
+assert(incidentRoute.includes("page: 'incidents'"), 'Incidents index route does not use centralized incidents metadata')
+assert(incidentPaginationRoute.includes('generateMetadata'), 'paginated Incidents route does not expose page-specific metadata')
+assert(incidentPaginationRoute.includes('incidentPageHref(pageNumber)'), 'paginated Incidents route does not use the shared canonical route helper')
 
 const japaneseConnections = [
   ['src/app/ja/dead/page.tsx', 'dead'],
@@ -75,4 +82,4 @@ const methodologyLayoutSource = readText('src/app/methodology/layout.tsx')
 assert(methodologySource.includes('<h1'), 'English Methodology page must expose a page-specific h1')
 assert(methodologyLayoutSource.includes("title: 'Methodology'"), 'English Methodology layout must retain centralized route metadata')
 
-console.log(`Secondary page presentation tests passed for ${requiredPages.length} page families, including shared Incidents rendering.`)
+console.log(`Secondary page presentation tests passed for ${requiredPages.length} page families, including split Incidents rendering and metadata.`)
