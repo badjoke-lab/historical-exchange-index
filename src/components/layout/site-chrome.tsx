@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type { ReactNode } from 'react'
+import { Suspense, type ReactNode } from 'react'
 import type { SupportedLocale } from '../../i18n/config'
 import { getDictionary, translate } from '../../lib/i18n/get-dictionary'
 import { buildLocalePath } from '../../lib/i18n/locale-routes'
@@ -57,17 +57,19 @@ export default function SiteChrome({ locale, children }: SiteChromeProps) {
           </span>
         </Link>
 
-        <SiteNavigation
-          primaryAriaLabel={primaryAriaLabel}
-          items={navItems}
-          donateHref={DONATE_HREF}
-          donateLabel={t('nav.donate')}
-          menuLabel={locale === 'ja' ? 'メニュー' : 'Menu'}
-          closeLabel={locale === 'ja' ? '閉じる' : 'Close'}
-          languageAriaLabel={t('language.switcherLabel')}
-          englishLabel={t('language.english')}
-          japaneseLabel={t('language.japanese')}
-        />
+        <Suspense fallback={null}>
+          <SiteNavigation
+            primaryAriaLabel={primaryAriaLabel}
+            items={navItems}
+            donateHref={DONATE_HREF}
+            donateLabel={t('nav.donate')}
+            menuLabel={locale === 'ja' ? 'メニュー' : 'Menu'}
+            closeLabel={locale === 'ja' ? '閉じる' : 'Close'}
+            languageAriaLabel={t('language.switcherLabel')}
+            englishLabel={t('language.english')}
+            japaneseLabel={t('language.japanese')}
+          />
+        </Suspense>
       </header>
 
       <ExchangeCompareContextLink />
