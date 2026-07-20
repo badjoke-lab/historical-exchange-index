@@ -1,0 +1,98 @@
+name: Temporary local all-page visual audit
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/temp-local-all-page-visual-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hei-temp-local-all-page-visual-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  capture-all-local-routes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out PR head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.60.0
+          npx playwright install --with-deps chromium
+
+      - name: Build static HEI output
+        run: npm run build
+
+      - name: Start local static server
+        run: |
+          python3 -m http.server 4322 --bind 127.0.0.1 --directory out > /tmp/hei-all-page-server.log 2>&1 &
+          echo $! > /tmp/hei-all-page-server.pid
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent http://127.0.0.1:4322/sitemap.xml > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/hei-all-page-server.log
+          exit 1
+
+      - name: Capture every local sitemap route and navigation flow
+        id: audit
+        continue-on-error: true
+        env:
+          AUDIT_ORIGIN: http://127.0.0.1:4322
+          AUDIT_CONCURRENCY: '6'
+          AUDIT_TIMEOUT_MS: '45000'
+          AUDIT_OUTPUT: artifacts/local-all-page-visual-audit
+        run: node scripts/run-all-page-visual-audit.mjs
+
+      - name: Upload local all-page audit package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hei-local-all-page-visual-audit-${{ github.run_id }}
+          path: |
+            artifacts/local-all-page-visual-audit/
+            /tmp/hei-all-page-server.log
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0
+
+      - name: Enforce exhaustive visual geometry gates
+        if: always()
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const reportPath = 'artifacts/local-all-page-visual-audit/report.json'
+          if (!fs.existsSync(reportPath)) throw new Error('all-page report missing')
+          const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'))
+          const counts = Object.fromEntries(Object.entries(report.findings).map(([key, value]) => [key, value.length]))
+          console.log(JSON.stringify({ routeCount: report.routeCount, counts }, null, 2))
+          if (report.routeCount < 1790) throw new Error(`expected at least 1790 routes, found ${report.routeCount}`)
+          const failures = Object.entries(counts).filter(([, count]) => count > 0)
+          if (failures.length) throw new Error(`all-page findings remain: ${JSON.stringify(Object.fromEntries(failures))}`)
+          NODE
+
+      - name: Stop local server
+        if: always()
+        run: |
+          if test -f /tmp/hei-all-page-server.pid; then
+            kill "$(cat /tmp/hei-all-page-server.pid)" || true
+          fi
