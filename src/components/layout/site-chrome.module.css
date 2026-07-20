@@ -198,7 +198,7 @@
   margin-top: 6px;
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1279px) {
   .topbar {
     grid-template-columns: minmax(0, 1fr) auto;
     min-height: 68px;
