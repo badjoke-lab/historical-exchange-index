@@ -50,7 +50,7 @@ export default function ExplorePage() {
         <div className="detail-header">
           <div>
             <p className="muted" style={{ margin: '0 0 8px', fontSize: '12px' }}>{presentation.eyebrow}</p>
-            <h2 style={{ margin: '0 0 10px', fontSize: '34px', letterSpacing: '-0.04em' }}>{presentation.heading}</h2>
+            <h1 style={{ margin: '0 0 10px', fontSize: '34px', letterSpacing: '-0.04em' }}>{presentation.heading}</h1>
             <p className="muted" style={{ lineHeight: 1.7, margin: 0, maxWidth: '72ch' }}>
               {presentation.intro}
             </p>
