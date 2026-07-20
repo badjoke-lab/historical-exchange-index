@@ -245,10 +245,10 @@ function auditChangeLayerSourceContracts(rootDir) {
   const contracts = [
     {
       file: 'src/app/updates/page.tsx',
-      markers: ["href=\"/explore/?view=events\"", '/exchange/${entity.slug}'],
+      markers: ['href="/explore/?view=events"', '/exchange/${entity.slug}'],
     },
     {
-      file: 'src/app/incidents/page.tsx',
+      file: 'src/components/incidents/incident-timeline-page.tsx',
       markers: ["params.set('view', 'events')", "params.set('event_type', eventType)", '/exchange/${entity.slug}'],
     },
     {
@@ -348,21 +348,22 @@ function runSelfTest() {
     assert(clean.length === 0, `self-test clean core link failed: ${JSON.stringify(clean)}`)
     fs.rmSync(target)
     const broken = auditBrokenCoreLinks(new Map([['/', '<a href="/about/">About</a>']]), ['/', '/about/'], tempDir)
-    assert(broken.some((item) => item.type === 'broken_core_cross_link'), 'self-test did not detect broken core cross-link')
+    assert(broken.some((item) => item.type === 'broken_core_cross_link'), 'self-test did not detect broken core link')
   } finally {
     fs.rmSync(tempDir, { recursive: true, force: true })
   }
 
-  console.log('Cross-surface integration audit self-test passed.')
+  console.log('Cross-surface integration self-test passed.')
 }
 
 if (process.argv.includes('--self-test')) {
   runSelfTest()
 } else {
   const result = auditCrossSurfaceIntegration()
-  console.log(`Cross-surface integration audit: ${result.coreSurfaces} core surfaces, ${result.explorerSourceRoutes} Explorer-link sources, ${result.dossierSourceRoutes} dossier-link sources.`)
-  console.log(`Findings: ${result.findings.length}`)
-  for (const finding of result.findings) console.log(JSON.stringify(finding))
-  if (result.findings.length > 0) throw new Error(`cross-surface integration audit found ${result.findings.length} findings`)
+  console.log(`Cross-surface integration audit: ${result.coreSurfaces} core surfaces, ${result.explorerSourceRoutes} Explorer source routes, ${result.dossierSourceRoutes} dossier source routes.`)
+  if (result.findings.length > 0) {
+    for (const finding of result.findings) console.error(JSON.stringify(finding))
+    throw new Error(`cross-surface integration audit found ${result.findings.length} findings`)
+  }
   console.log('Cross-surface integration audit passed with 0 findings.')
 }
