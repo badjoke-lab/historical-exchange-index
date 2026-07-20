@@ -340,6 +340,12 @@ try {
         const selector = await navigationPage.evaluate((pathname) => {
           const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`
           const link = [...document.querySelectorAll('a[href]')].find((node) => {
+            if (!(node instanceof HTMLAnchorElement)) return false
+            const style = getComputedStyle(node)
+            const rect = node.getBoundingClientRect()
+            if (style.display === 'none' || style.visibility === 'hidden' || rect.width <= 0 || rect.height <= 0) {
+              return false
+            }
             try {
               const url = new URL(node.href)
               const candidate = url.pathname.endsWith('/') ? url.pathname : `${url.pathname}/`
@@ -355,7 +361,7 @@ try {
 
         if (!selector) {
           record.status = 'skipped_no_link'
-          record.failure = 'navigation target link not found on the home page'
+          record.failure = 'visible navigation target link not found on the home page'
           failures.push(`navigation ${target}: ${record.failure}`)
           navigationRecords.push(record)
           continue
