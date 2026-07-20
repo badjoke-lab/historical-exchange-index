@@ -55,7 +55,7 @@ export default async function JapaneseExchangeDetailPage({ params }: JapaneseDet
       <main className="longform">
         <section className="panel longform-panel">
           <p className="muted">{presentation.eyebrow}</p>
-          <h2>レコードが見つかりません</h2>
+          <h1>レコードが見つかりません</h1>
           <p className="muted">このslugに対応するレビュー済みHEIレコードはありません。</p>
         </section>
       </main>
@@ -85,7 +85,7 @@ export default async function JapaneseExchangeDetailPage({ params }: JapaneseDet
         <div className="detail-header">
           <div>
             <p className="muted" style={{ margin: '0 0 8px', fontSize: '12px' }}>{presentation.eyebrow}</p>
-            <h2 style={{ margin: 0, fontSize: '34px', letterSpacing: '-0.04em' }}>{entity.canonical_name}</h2>
+            <h1 style={{ margin: 0, fontSize: '34px', letterSpacing: '-0.04em' }}>{entity.canonical_name}</h1>
             <p className="muted" style={{ marginTop: '10px', lineHeight: 1.7 }}>{localizedEntity.summary}</p>
           </div>
           <div className="chips">
@@ -102,7 +102,7 @@ export default async function JapaneseExchangeDetailPage({ params }: JapaneseDet
 
       <section className="panel longform-panel">
         <div className="section" style={{ borderTop: 'none', paddingTop: 0 }}>
-          <h3>基本情報</h3>
+          <h2>基本情報</h2>
           <div className="fact-grid">
             <div className="fact"><div className="k">期間</div><div className="v">{formatYears(entity.launch_date, entity.death_date)}</div></div>
             <div className="fact"><div className="k">Origin</div><div className="v">{entity.country_or_origin ?? 'Unknown'}</div></div>
@@ -112,7 +112,7 @@ export default async function JapaneseExchangeDetailPage({ params }: JapaneseDet
         </div>
 
         <div className="section">
-          <h3>URL履歴</h3>
+          <h2>URL履歴</h2>
           <div className="fact-grid">
             <div className="fact"><div className="k">Original domain</div><div className="v">{entity.official_domain_original ?? 'Unknown'}</div></div>
             <div className="fact"><div className="k">URL status</div><div className="v">{entity.official_url_status ?? 'unknown'}</div></div>
@@ -126,7 +126,7 @@ export default async function JapaneseExchangeDetailPage({ params }: JapaneseDet
         </div>
 
         <div className="section">
-          <h3>Timeline</h3>
+          <h2>Timeline</h2>
           {localizedEvents.length > 0 ? (
             <div className="record-list">
               {localizedEvents.map((event) => (
@@ -143,7 +143,7 @@ export default async function JapaneseExchangeDetailPage({ params }: JapaneseDet
         </div>
 
         <div className="section">
-          <h3>Evidence</h3>
+          <h2>Evidence</h2>
           {evidence.length > 0 ? (
             <div className="record-list">
               {evidence.map((source) => (
@@ -160,7 +160,7 @@ export default async function JapaneseExchangeDetailPage({ params }: JapaneseDet
 
         {relatedEntities.length > 0 ? (
           <div className="section">
-            <h3>関連entity</h3>
+            <h2>関連entity</h2>
             <div className="hero-actions">
               {relatedEntities.map((related) => <Link className="btn" href={`/ja/exchange/${related.slug}/`} key={related.id}>{related.canonical_name}</Link>)}
             </div>
