@@ -24,7 +24,7 @@ export default function JapaneseIncidentsPage() {
 
       <section className="panel longform-panel">
         <div className="section" style={{ borderTop: 'none', paddingTop: 0 }}>
-          <h3>最近のレビュー済みインシデント</h3>
+          <h2>最近のレビュー済みインシデント</h2>
           <div className="record-list">
             {incidents.slice(0, 12).map(({ event, entity }) => (
               <article className="record-item" key={event.id}>
