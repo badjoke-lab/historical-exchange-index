@@ -24,6 +24,11 @@ type Props = {
   japaneseLabel: string
 }
 
+type MenuState = {
+  pathname: string
+  open: boolean
+}
+
 function normalizePathname(value: string): string {
   const pathname = value.split('?')[0]?.split('#')[0] || '/'
   if (pathname === '/') return '/'
@@ -54,13 +59,14 @@ export default function SiteNavigation({
   const detailsRef = useRef<HTMLDetailsElement>(null)
   const summaryRef = useRef<HTMLElement>(null)
   const firstLinkRef = useRef<HTMLAnchorElement>(null)
-  const [open, setOpen] = useState(false)
+  const [menuState, setMenuState] = useState<MenuState>({ pathname, open: false })
+  const open = menuState.pathname === pathname && menuState.open
 
   const closeMenu = useCallback((returnFocus = false) => {
     if (detailsRef.current) detailsRef.current.open = false
-    setOpen(false)
+    setMenuState({ pathname, open: false })
     if (returnFocus) summaryRef.current?.focus()
-  }, [])
+  }, [pathname])
 
   useEffect(() => {
     if (!open) return
@@ -69,15 +75,48 @@ export default function SiteNavigation({
   }, [open])
 
   useEffect(() => {
-    function handleKeyDown(event: KeyboardEvent) {
-      if (event.key !== 'Escape' || !detailsRef.current?.open) return
-      event.preventDefault()
-      closeMenu(true)
+    if (!open) return
+
+    function handlePointerDown(event: PointerEvent) {
+      const target = event.target
+      if (!(target instanceof Node) || detailsRef.current?.contains(target)) return
+      closeMenu(false)
     }
 
+    function handleKeyDown(event: KeyboardEvent) {
+      const details = detailsRef.current
+      if (!details?.open) return
+
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        closeMenu(true)
+        return
+      }
+
+      if (event.key !== 'Tab') return
+      const focusable = [...details.querySelectorAll<HTMLElement>(
+        'summary, a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      )].filter((element) => element.getClientRects().length > 0)
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener('pointerdown', handlePointerDown)
     document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [closeMenu])
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [closeMenu, open])
 
   const renderItem = (item: SiteNavigationItem, mobile = false, index = 0) => {
     const active = isCurrentPath(pathname, item.href)
@@ -116,7 +155,7 @@ export default function SiteNavigation({
           key={pathname}
           ref={detailsRef}
           className={styles.mobileNav}
-          onToggle={(event) => setOpen(event.currentTarget.open)}
+          onToggle={(event) => setMenuState({ pathname, open: event.currentTarget.open })}
         >
           <summary
             ref={summaryRef}
