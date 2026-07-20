@@ -11,8 +11,8 @@ export const metadata = buildRouteSocialMetadata({
 export default function IncidentsLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <RelatedSurfaceLinks links={[{ href: '/monthly', label: 'Monthly Snapshot' }]} />
       {children}
+      <RelatedSurfaceLinks links={[{ href: '/monthly', label: 'Monthly Snapshot' }]} />
     </>
   )
 }
