@@ -6,11 +6,14 @@ import {
   type IncidentTimelineItem,
 } from '../../lib/data/build-incident-timeline'
 import { getPagePresentation } from '../../lib/i18n/page-presentations'
+import {
+  INCIDENT_PAGE_SIZE,
+  incidentPageCount,
+  incidentPageHref,
+} from '../../lib/incidents/incident-pagination'
 import { CONTACT_HREF } from '../../lib/site-constants'
 import { formatDate } from '../../lib/utils/format-date'
 import styles from '../../app/incidents/incidents.module.css'
-
-export const INCIDENT_PAGE_SIZE = 25
 
 function groupByYear(items: IncidentTimelineItem[]) {
   const grouped = new Map<string, IncidentTimelineItem[]>()
@@ -37,14 +40,6 @@ function allIncidentEventsHref() {
   return `/explore/?${params.toString()}`
 }
 
-export function incidentPageHref(pageNumber: number) {
-  return pageNumber <= 1 ? '/incidents/' : `/incidents/page/${pageNumber}/`
-}
-
-export function incidentPageCount() {
-  return Math.max(1, Math.ceil(buildIncidentTimeline().length / INCIDENT_PAGE_SIZE))
-}
-
 function pageNumbers(currentPage: number, totalPages: number) {
   const values = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1])
   return [...values].filter((value) => value >= 1 && value <= totalPages).sort((a, b) => a - b)
@@ -52,7 +47,7 @@ function pageNumbers(currentPage: number, totalPages: number) {
 
 export default function IncidentTimelinePage({ pageNumber }: { pageNumber: number }) {
   const incidents = buildIncidentTimeline()
-  const totalPages = Math.max(1, Math.ceil(incidents.length / INCIDENT_PAGE_SIZE))
+  const totalPages = incidentPageCount()
   const startIndex = (pageNumber - 1) * INCIDENT_PAGE_SIZE
   const pageItems = incidents.slice(startIndex, startIndex + INCIDENT_PAGE_SIZE)
   const groups = groupByYear(pageItems)
