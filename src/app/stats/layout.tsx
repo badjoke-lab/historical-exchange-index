@@ -12,9 +12,9 @@ export const metadata = buildRouteSocialMetadata({
 export default function StatsLayout({ children }: { children: ReactNode }) {
   return (
     <div>
-      <RelatedSurfaceLinks links={[{ href: '/quality', label: 'Evidence Health & Data Quality' }]} />
-      <StatsExplorerDeepLinks />
       {children}
+      <StatsExplorerDeepLinks />
+      <RelatedSurfaceLinks links={[{ href: '/quality', label: 'Evidence Health & Data Quality' }]} />
     </div>
   )
 }
