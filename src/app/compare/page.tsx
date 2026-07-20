@@ -57,7 +57,7 @@ export default function ComparePage() {
         <div className="detail-header">
           <div>
             <p className="muted" style={{ margin: '0 0 8px', fontSize: '12px' }}>Research layer</p>
-            <h2 style={{ margin: '0 0 10px', fontSize: '34px', letterSpacing: '-0.04em' }}>Compare</h2>
+            <h1 style={{ margin: '0 0 10px', fontSize: '34px', letterSpacing: '-0.04em' }}>Compare</h1>
             <p className="muted" style={{ lineHeight: 1.7, margin: 0, maxWidth: '72ch' }}>
               Inspect reviewed exchange identity, lifecycle, archive state, coverage, and major events side by side. Compare uses reviewed public records and deterministic derived values only.
             </p>
