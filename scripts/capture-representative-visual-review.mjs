@@ -52,22 +52,17 @@ try {
         const body = document.body
         const main = document.querySelector('main')
         const header = document.querySelector('header.topbar, header')
-        const primaryHeading = main?.querySelector('h1, h2') ?? null
-        const mainH1 = main?.querySelector('h1') ?? null
-        const visibleH1s = [...document.querySelectorAll('h1')].filter((node) => {
-          if (!(node instanceof HTMLElement)) return false
-          const style = getComputedStyle(node)
-          const rect = node.getBoundingClientRect()
-          return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0
-        })
-        const headingRect = primaryHeading?.getBoundingClientRect() ?? null
-        const mainRect = main?.getBoundingClientRect() ?? null
         const isVisible = (node) => {
           if (!(node instanceof HTMLElement)) return false
           const style = getComputedStyle(node)
           const rect = node.getBoundingClientRect()
           return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0
         }
+        const visibleH1s = [...document.querySelectorAll('h1')].filter(isVisible)
+        const primaryHeading = visibleH1s[0] ?? main?.querySelector('h2') ?? null
+        const mainH1 = main?.querySelector('h1') ?? null
+        const headingRect = primaryHeading?.getBoundingClientRect() ?? null
+        const mainRect = main?.getBoundingClientRect() ?? null
         const describe = (node) => {
           if (!(node instanceof HTMLElement)) return null
           const rect = node.getBoundingClientRect()
@@ -167,13 +162,15 @@ try {
           .map(describe)
           .filter(Boolean)
 
-        const localeSwitcher = header?.querySelector('.locale-switcher') ?? null
+        const localeSwitchers = header
+          ? [...header.querySelectorAll('.locale-switcher')].filter(isVisible)
+          : []
+        const localeSwitcher = localeSwitchers[0] ?? null
         const localeLinks = localeSwitcher
           ? [...localeSwitcher.querySelectorAll('a[hrefLang]')].filter(isVisible)
           : []
         const localeSwitcherAvailable = Boolean(
           localeSwitcher
-          && isVisible(localeSwitcher)
           && localeLinks.length >= 2
           && localeLinks.every(withinViewport),
         )
