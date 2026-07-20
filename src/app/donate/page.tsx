@@ -7,6 +7,10 @@ export const metadata: Metadata = {
     'Support Historical Exchange Index with the published wallet addresses for BTC, ETH, USDT, USDC, SOL, BNB, DOGE, AVAX, and XRP.',
   alternates: {
     canonical: '/donate',
+    languages: {
+      en: '/donate/',
+      ja: '/ja/donate/',
+    },
   },
 }
 
@@ -15,7 +19,7 @@ export default function DonatePage() {
     <main className="longform">
       <section className="panel longform-panel">
         <p className="muted">Donate</p>
-        <h2 style={{ marginTop: 0, fontSize: '34px' }}>Support HEI</h2>
+        <h1 style={{ marginTop: 0, fontSize: '34px' }}>Support HEI</h1>
         <p className="muted" style={{ lineHeight: 1.75, maxWidth: '80ch' }}>
           HEI includes a public support page for people who want to help maintain and expand the registry.
           Donation support is optional, but it can help sustain the slow work of record building, cleanup,
@@ -25,7 +29,7 @@ export default function DonatePage() {
 
       <section className="panel longform-panel">
         <div className="section" style={{ borderTop: 'none', paddingTop: 0 }}>
-          <h4>What donations support</h4>
+          <h2>What donations support</h2>
           <div className="fact-grid">
             <div className="fact">
               <div className="k">Record expansion</div>
@@ -47,7 +51,7 @@ export default function DonatePage() {
         </div>
 
         <div className="section">
-          <h4>Wallet addresses</h4>
+          <h2>Wallet addresses</h2>
           <p className="muted" style={{ marginTop: 0, lineHeight: 1.75 }}>
             Send only the named asset on the listed network. Double-check address and network before sending.
             Wallet cards below include a copy button for each address.
@@ -57,7 +61,7 @@ export default function DonatePage() {
         </div>
 
         <div className="section">
-          <h4>Notes</h4>
+          <h2>Notes</h2>
           <div className="fact-grid">
             <div className="fact">
               <div className="k">Network caution</div>
@@ -76,7 +80,8 @@ export default function DonatePage() {
       </section>
 
       <section className="callout">
-        Support is optional. HEI is intended to remain usable as a public registry regardless of whether you donate.
+        Support is optional. Donations do not affect record selection, status classification, evidence standards,
+        or editorial decisions. HEI remains a public registry regardless of whether you donate.
       </section>
     </main>
   )
