@@ -5,7 +5,6 @@ import { getDictionary, translate } from '../../lib/i18n/get-dictionary'
 import { buildLocalePath } from '../../lib/i18n/locale-routes'
 import {
   CONTACT_HREF,
-  DONATE_HREF,
   ISSUES_HREF,
 } from '../../lib/site-constants'
 import ExchangeCompareContextLink from '../navigation/exchange-compare-context-link'
@@ -26,6 +25,7 @@ function localHref(pathname: string, locale: SupportedLocale) {
 export default function SiteChrome({ locale, children }: SiteChromeProps) {
   const dictionary = getDictionary(locale).common
   const t = (key: string, fallback?: string) => translate(dictionary, key, fallback)
+  const donateHref = localHref('/donate', locale)
 
   const navItems: SiteNavigationItem[] = [
     { label: t('nav.home'), href: localHref('/', locale) },
@@ -62,7 +62,7 @@ export default function SiteChrome({ locale, children }: SiteChromeProps) {
           <SiteNavigation
             primaryAriaLabel={primaryAriaLabel}
             items={navItems}
-            donateHref={DONATE_HREF}
+            donateHref={donateHref}
             donateLabel={t('nav.donate')}
             menuLabel={locale === 'ja' ? 'メニュー' : 'Menu'}
             closeLabel={locale === 'ja' ? '閉じる' : 'Close'}
@@ -105,7 +105,7 @@ export default function SiteChrome({ locale, children }: SiteChromeProps) {
           <span className="muted footer-sep"> · </span>
           <Link className="archive-link" href={localHref('/stats', locale)}>{t('nav.stats')}</Link>
           <span className="muted footer-sep"> · </span>
-          <Link className="archive-link" href={DONATE_HREF}>{t('footer.supportHei')}</Link>
+          <Link className="archive-link" href={donateHref}>{t('footer.supportHei')}</Link>
           <span className="muted footer-sep"> · </span>
           <Link href={localHref('/about', locale)}>{t('nav.about')}</Link>
         </div>
