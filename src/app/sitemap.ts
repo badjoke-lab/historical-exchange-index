@@ -2,6 +2,7 @@ export const dynamic = 'force-static'
 
 import type { MetadataRoute } from 'next'
 import { loadEntities } from '../lib/data/load-entities'
+import { incidentPageCount, incidentPageHref } from '../lib/incidents/incident-pagination'
 import { SITE_URL } from '../lib/site-constants'
 
 function latestReviewedDate(entities: ReturnType<typeof loadEntities>) {
@@ -31,6 +32,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/donate/`, lastModified: registryLastModified, changeFrequency: 'monthly', priority: 0.4 },
   ]
 
+  const incidentPaginationRoutes: MetadataRoute.Sitemap = Array.from(
+    { length: Math.max(incidentPageCount() - 1, 0) },
+    (_, index) => ({
+      url: `${SITE_URL}${incidentPageHref(index + 2)}`,
+      lastModified: registryLastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.65,
+    }),
+  )
+
   const entityRoutes: MetadataRoute.Sitemap = entities.map((entity) => ({
     url: `${SITE_URL}/exchange/${entity.slug}/`,
     lastModified: entity.last_verified_at ? new Date(`${entity.last_verified_at}T00:00:00.000Z`) : registryLastModified,
@@ -50,13 +61,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/ja/monthly/',
     '/ja/methodology/',
     '/ja/about/',
+    '/ja/donate/',
   ] as const
 
   const japaneseStaticRoutes: MetadataRoute.Sitemap = japaneseStaticPaths.map((pathname) => ({
     url: `${SITE_URL}${pathname}`,
     lastModified: registryLastModified,
     changeFrequency: pathname === '/ja/monthly/' ? 'monthly' : 'weekly',
-    priority: pathname === '/ja/' ? 0.9 : 0.7,
+    priority: pathname === '/ja/' ? 0.9 : pathname === '/ja/donate/' ? 0.4 : 0.7,
   }))
 
   const japaneseEntityRoutes: MetadataRoute.Sitemap = entities.map((entity) => ({
@@ -66,5 +78,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticRoutes, ...entityRoutes, ...japaneseStaticRoutes, ...japaneseEntityRoutes]
+  return [
+    ...staticRoutes,
+    ...incidentPaginationRoutes,
+    ...entityRoutes,
+    ...japaneseStaticRoutes,
+    ...japaneseEntityRoutes,
+  ]
 }
