@@ -59,6 +59,10 @@
 }
 
 .navigationShell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
   min-width: 0;
 }
 
@@ -70,6 +74,10 @@
   gap: 4px;
   min-width: 0;
   white-space: nowrap;
+}
+
+.desktopLocale {
+  flex: 0 0 auto;
 }
 
 .navLink,
@@ -206,7 +214,8 @@
     padding: 10px 0;
   }
 
-  .desktopNav {
+  .desktopNav,
+  .desktopLocale {
     display: none;
   }
 
