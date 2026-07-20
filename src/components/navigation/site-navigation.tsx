@@ -63,10 +63,6 @@ export default function SiteNavigation({
   }, [])
 
   useEffect(() => {
-    closeMenu(false)
-  }, [closeMenu, pathname])
-
-  useEffect(() => {
     if (!open) return
     const frame = window.requestAnimationFrame(() => firstLinkRef.current?.focus())
     return () => window.cancelAnimationFrame(frame)
@@ -117,6 +113,7 @@ export default function SiteNavigation({
         </div>
 
         <details
+          key={pathname}
           ref={detailsRef}
           className={styles.mobileNav}
           onToggle={(event) => setOpen(event.currentTarget.open)}
