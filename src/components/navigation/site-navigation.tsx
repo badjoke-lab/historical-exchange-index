@@ -143,7 +143,7 @@ export default function SiteNavigation({
         </details>
       </div>
 
-      <nav className={styles.desktopNav} aria-label={primaryAriaLabel}>
+      <nav className={`nav ${styles.desktopNav}`} aria-label={primaryAriaLabel}>
         {items.map((item, index) => renderItem(item, false, index))}
         <Link
           className={`${styles.utilityLink} ${donateActive ? styles.activeLink : ''}`}
