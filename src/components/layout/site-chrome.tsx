@@ -10,6 +10,7 @@ import {
 } from '../../lib/site-constants'
 import ExchangeCompareContextLink from '../navigation/exchange-compare-context-link'
 import SiteNavigation, { type SiteNavigationItem } from '../navigation/site-navigation'
+import headingStyles from './semantic-heading-compat.module.css'
 import styles from './site-chrome.module.css'
 
 type SiteChromeProps = {
@@ -43,7 +44,7 @@ export default function SiteChrome({ locale, children }: SiteChromeProps) {
   const brandTitle = t('brand.title', 'Historical Exchange Index')
 
   return (
-    <div className="page">
+    <div className={`page ${headingStyles.scope}`}>
       <header className={styles.topbar}>
         <Link
           className={styles.brandLink}
