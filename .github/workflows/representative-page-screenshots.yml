@@ -4,9 +4,10 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - 'app/**'
-      - 'components/**'
-      - 'lib/**'
+      - 'src/app/**'
+      - 'src/components/**'
+      - 'src/lib/**'
+      - 'src/i18n/**'
       - 'public/**'
       - 'data-i18n/**'
       - 'config/representative-visual-review-matrix.json'
@@ -71,6 +72,34 @@ jobs:
       - name: Build contact sheet and owner-review worksheet
         if: always()
         run: node scripts/build-representative-visual-review.mjs
+
+      - name: Write representative review summary
+        if: always()
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const summaryPath = process.env.GITHUB_STEP_SUMMARY
+          const manifestPath = 'artifacts/representative-visual-review/manifest.json'
+          const lines = ['# HEI representative visual review', '']
+          if (!fs.existsSync(manifestPath)) {
+            lines.push('- Manifest: missing', '- Status: failed before report generation')
+          } else {
+            const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+            lines.push(`- States: ${manifest.state_count}/${manifest.expected_state_count}`)
+            lines.push(`- Screenshots: ${manifest.screenshot_count}/${manifest.expected_state_count * 2}`)
+            lines.push(`- Failures: ${manifest.failure_count}`)
+            lines.push(`- Automated status: ${manifest.status}`)
+            lines.push('- Owner approval: pending (automation never approves UI)')
+            lines.push('')
+            if (manifest.failures.length) {
+              lines.push('## Failures', '')
+              for (const failure of manifest.failures) lines.push(`- ${failure}`)
+            } else {
+              lines.push('## Automated findings', '', '- No automated failures.')
+            }
+          }
+          fs.appendFileSync(summaryPath, `${lines.join('\n')}\n`)
+          NODE
 
       - name: Upload representative visual review package
         if: always()
