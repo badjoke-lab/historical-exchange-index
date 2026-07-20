@@ -1,0 +1,115 @@
+name: Representative page screenshots
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'public/**'
+      - 'data-i18n/**'
+      - 'config/representative-visual-review-matrix.json'
+      - 'scripts/capture-representative-visual-review.mjs'
+      - 'scripts/build-representative-visual-review.mjs'
+      - '.github/workflows/representative-page-screenshots.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hei-representative-page-screenshots-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  capture-representative-pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install project dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.60.0
+          npx playwright install --with-deps chromium
+
+      - name: Build static HEI output
+        run: npm run build
+
+      - name: Start local static server
+        run: |
+          python3 -m http.server 4321 --bind 127.0.0.1 --directory out > /tmp/hei-representative-server.log 2>&1 &
+          echo $! > /tmp/hei-representative-server.pid
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent http://127.0.0.1:4321/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/hei-representative-server.log
+          exit 1
+
+      - name: Capture representative desktop and mobile states
+        id: capture
+        continue-on-error: true
+        env:
+          HEI_SCREENSHOT_BASE_URL: http://127.0.0.1:4321
+        run: node scripts/capture-representative-visual-review.mjs
+
+      - name: Build contact sheet and owner-review worksheet
+        if: always()
+        run: node scripts/build-representative-visual-review.mjs
+
+      - name: Upload representative visual review package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hei-representative-page-screenshots-${{ github.run_id }}
+          path: |
+            artifacts/representative-visual-review/
+            /tmp/hei-representative-server.log
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
+
+      - name: Enforce representative visual gates
+        if: always()
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const manifestPath = 'artifacts/representative-visual-review/manifest.json'
+          if (!fs.existsSync(manifestPath)) throw new Error('representative visual manifest missing')
+          const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+          if (manifest.state_count !== manifest.expected_state_count) {
+            throw new Error(`captured ${manifest.state_count}/${manifest.expected_state_count} representative states`)
+          }
+          if (manifest.screenshot_count !== manifest.expected_state_count * 2) {
+            throw new Error(`captured ${manifest.screenshot_count}/${manifest.expected_state_count * 2} screenshots`)
+          }
+          if (manifest.automated_capture_counts_as_approval !== false || manifest.owner_approval !== false) {
+            throw new Error('automated capture incorrectly records owner approval')
+          }
+          if (manifest.failure_count !== 0) {
+            console.error(JSON.stringify(manifest.failures, null, 2))
+            throw new Error(`${manifest.failure_count} representative visual failures detected`)
+          }
+          NODE
+
+      - name: Stop local server
+        if: always()
+        run: |
+          if test -f /tmp/hei-representative-server.pid; then
+            kill "$(cat /tmp/hei-representative-server.pid)" || true
+          fi
