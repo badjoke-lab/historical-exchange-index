@@ -58,7 +58,6 @@ export default function SiteChrome({ locale, children }: SiteChromeProps) {
         </Link>
 
         <SiteNavigation
-          locale={locale}
           primaryAriaLabel={primaryAriaLabel}
           items={navItems}
           donateHref={DONATE_HREF}
