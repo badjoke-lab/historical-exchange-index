@@ -35,150 +35,27 @@ jobs:
       - name: Build public site
         run: npm run build
 
-      - name: Public output consistency
-        id: public_output
+      - name: Capture public validation log
+        id: validation
         continue-on-error: true
-        run: node scripts/validate-public-output-consistency.mjs
-
-      - name: Reviewed update feed export
-        id: reviewed_feed
-        continue-on-error: true
-        run: node scripts/validate-reviewed-update-feed-export.mjs
-
-      - name: Internal links self-test
-        id: links_self_test
-        continue-on-error: true
-        run: node scripts/audit-internal-links.mjs --self-test
-
-      - name: Internal links
-        id: links
-        continue-on-error: true
-        run: node scripts/audit-internal-links.mjs
-
-      - name: Public metadata self-test
-        id: metadata_self_test
-        continue-on-error: true
-        run: node scripts/audit-public-metadata.mjs --self-test
-
-      - name: Public metadata v2
-        id: metadata_v2
-        continue-on-error: true
-        run: node scripts/audit-public-metadata-v2.mjs
-
-      - name: Sitemap canonical self-test
-        id: sitemap_self_test
-        continue-on-error: true
-        run: node scripts/audit-sitemap-canonical-routes.mjs --self-test
-
-      - name: Sitemap canonical routes
-        id: sitemap
-        continue-on-error: true
-        run: node scripts/audit-sitemap-canonical-routes.mjs
-
-      - name: Navigation discovery self-test
-        id: navigation_self_test
-        continue-on-error: true
-        run: node scripts/audit-public-navigation-discovery.mjs --self-test
-
-      - name: Navigation discovery
-        id: navigation
-        continue-on-error: true
-        run: node scripts/audit-public-navigation-discovery.mjs
-
-      - name: Stats Explorer handoff
-        id: stats_handoff
-        continue-on-error: true
-        run: node scripts/validate-stats-explorer-handoff.mjs
-
-      - name: Explorer query contract
-        id: explorer_contract
-        continue-on-error: true
-        run: node scripts/validate-explorer-query-contract.mjs
-
-      - name: Explorer query contract self-test
-        id: explorer_contract_test
-        continue-on-error: true
-        run: node scripts/test-explorer-query-contract.mjs
-
-      - name: Compare v1 self-test
-        id: compare_self_test
-        continue-on-error: true
-        run: node scripts/audit-compare-v1.mjs --self-test
-
-      - name: Compare v1
-        id: compare
-        continue-on-error: true
-        run: node scripts/audit-compare-v1.mjs
-
-      - name: I18n foundation validation
-        id: i18n_validation
-        continue-on-error: true
-        run: node scripts/validate-i18n-foundation.mjs
-
-      - name: I18n foundation test
-        id: i18n_test
-        continue-on-error: true
-        run: node scripts/test-i18n-foundation.mjs
-
-      - name: Accessibility self-test
-        id: accessibility_self_test
-        continue-on-error: true
-        run: node scripts/audit-public-accessibility.mjs --self-test
-
-      - name: Accessibility
-        id: accessibility
-        continue-on-error: true
-        run: node scripts/audit-public-accessibility.mjs
-
-      - name: URL safety self-test
-        id: url_safety_self_test
-        continue-on-error: true
-        run: node scripts/audit-public-url-safety.mjs --self-test
-
-      - name: URL safety
-        id: url_safety
-        continue-on-error: true
-        run: node scripts/audit-public-url-safety.mjs
-
-      - name: Cross-surface integration self-test
-        id: integration_self_test
-        continue-on-error: true
-        run: node scripts/audit-cross-surface-integration.mjs --self-test
-
-      - name: Cross-surface integration
-        id: integration
-        continue-on-error: true
-        run: node scripts/audit-cross-surface-integration.mjs
-
-      - name: Machine/public consistency self-test
-        id: consistency_self_test
-        continue-on-error: true
-        run: node scripts/audit-machine-public-consistency.mjs --self-test
-
-      - name: Machine/public consistency
-        id: consistency
-        continue-on-error: true
-        run: node scripts/audit-machine-public-consistency.mjs
-
-      - name: Fail when any diagnostic failed
-        if: always()
-        env:
-          RESULTS: >-
-            ${{ steps.public_output.outcome }} ${{ steps.reviewed_feed.outcome }}
-            ${{ steps.links_self_test.outcome }} ${{ steps.links.outcome }}
-            ${{ steps.metadata_self_test.outcome }} ${{ steps.metadata_v2.outcome }}
-            ${{ steps.sitemap_self_test.outcome }} ${{ steps.sitemap.outcome }}
-            ${{ steps.navigation_self_test.outcome }} ${{ steps.navigation.outcome }}
-            ${{ steps.stats_handoff.outcome }} ${{ steps.explorer_contract.outcome }}
-            ${{ steps.explorer_contract_test.outcome }} ${{ steps.compare_self_test.outcome }}
-            ${{ steps.compare.outcome }} ${{ steps.i18n_validation.outcome }}
-            ${{ steps.i18n_test.outcome }} ${{ steps.accessibility_self_test.outcome }}
-            ${{ steps.accessibility.outcome }} ${{ steps.url_safety_self_test.outcome }}
-            ${{ steps.url_safety.outcome }} ${{ steps.integration_self_test.outcome }}
-            ${{ steps.integration.outcome }} ${{ steps.consistency_self_test.outcome }}
-            ${{ steps.consistency.outcome }}
         run: |
-          echo "$RESULTS"
-          if echo "$RESULTS" | grep -q failure; then
-            exit 1
-          fi
+          mkdir -p artifacts/public-validation-diagnostics
+          set +e
+          npm run public:validate > artifacts/public-validation-diagnostics/public-validation.log 2>&1
+          status=$?
+          echo "$status" > artifacts/public-validation-diagnostics/exit-code.txt
+          cat artifacts/public-validation-diagnostics/public-validation.log
+          exit "$status"
+
+      - name: Upload public validation diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hei-public-validation-diagnostics-${{ github.run_id }}
+          path: artifacts/public-validation-diagnostics
+          retention-days: 7
+          if-no-files-found: error
+
+      - name: Enforce public validation
+        if: always()
+        run: test '${{ steps.validation.outcome }}' = 'success'
