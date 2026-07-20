@@ -51,7 +51,15 @@ try {
         const html = document.documentElement
         const body = document.body
         const main = document.querySelector('main')
+        const header = document.querySelector('header.topbar, header')
         const primaryHeading = main?.querySelector('h1, h2') ?? null
+        const mainH1 = main?.querySelector('h1') ?? null
+        const visibleH1s = [...document.querySelectorAll('h1')].filter((node) => {
+          if (!(node instanceof HTMLElement)) return false
+          const style = getComputedStyle(node)
+          const rect = node.getBoundingClientRect()
+          return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0
+        })
         const headingRect = primaryHeading?.getBoundingClientRect() ?? null
         const mainRect = main?.getBoundingClientRect() ?? null
         const isVisible = (node) => {
@@ -62,21 +70,43 @@ try {
         }
         const describe = (node) => {
           if (!(node instanceof HTMLElement)) return null
+          const rect = node.getBoundingClientRect()
           return {
             tag: node.tagName.toLowerCase(),
             id: node.id || null,
             className: typeof node.className === 'string' ? node.className : '',
+            ariaLabel: node.getAttribute('aria-label'),
             text: (node.getAttribute('aria-label') || node.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 140),
-            top: Math.round(node.getBoundingClientRect().top),
-            bottom: Math.round(node.getBoundingClientRect().bottom),
+            left: Math.round(rect.left),
+            right: Math.round(rect.right),
+            top: Math.round(rect.top),
+            bottom: Math.round(rect.bottom),
           }
         }
+        const withinViewport = (node) => {
+          if (!(node instanceof HTMLElement) || !isVisible(node)) return false
+          const rect = node.getBoundingClientRect()
+          return rect.left >= -1
+            && rect.right <= html.clientWidth + 1
+            && rect.top >= -1
+            && rect.bottom <= window.innerHeight + 1
+        }
 
-        const controls = main
-          ? [...main.querySelectorAll('input, select, textarea, form, [data-filter], [data-filters], [class*="filter" i], [class*="control" i]')]
-              .filter(isVisible)
-              .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)
-          : []
+        const pageControlSelectors = [
+          'nav[aria-label="Stats Explorer drilldowns"]',
+          'nav[aria-label="Related HEI surfaces"]',
+          'main input',
+          'main select',
+          'main textarea',
+          'main form',
+          'main [data-filter]',
+          'main [data-filters]',
+          'main [class*="filter" i]',
+          'main [class*="control" i]',
+        ]
+        const controls = [...document.querySelectorAll(pageControlSelectors.join(', '))]
+          .filter((node) => isVisible(node) && !node.closest('header'))
+          .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)
         const firstControl = controls[0] ?? null
         const firstControlRect = firstControl?.getBoundingClientRect() ?? null
         const controlsBeforeHeading = Boolean(
@@ -129,6 +159,35 @@ try {
           .slice(0, 30)
           .map(describe)
 
+        const headerInteractiveElements = header
+          ? [...header.querySelectorAll('a, button, input, select, [role="button"]')].filter(isVisible)
+          : []
+        const headerClippedInteractiveElements = headerInteractiveElements
+          .filter((node) => !withinViewport(node))
+          .map(describe)
+          .filter(Boolean)
+
+        const localeSwitcher = header?.querySelector('.locale-switcher') ?? null
+        const localeLinks = localeSwitcher
+          ? [...localeSwitcher.querySelectorAll('a[hrefLang]')].filter(isVisible)
+          : []
+        const localeSwitcherAvailable = Boolean(
+          localeSwitcher
+          && isVisible(localeSwitcher)
+          && localeLinks.length >= 2
+          && localeLinks.every(withinViewport),
+        )
+
+        const mobileMenuControl = header?.querySelector(
+          'button[aria-controls][aria-expanded], summary[aria-controls], [data-mobile-menu-trigger]',
+        ) ?? null
+
+        const incidentHistory = main?.querySelector('section[aria-label="Exchange incident history"]') ?? null
+        const incidentItems = incidentHistory ? [...incidentHistory.querySelectorAll('article')] : []
+        const incidentPagination = main?.querySelector(
+          '[data-incident-pagination], nav[aria-label*="Incident pagination" i]',
+        ) ?? null
+
         return {
           documentTitle: document.title,
           lang: html.lang,
@@ -140,6 +199,9 @@ try {
           horizontalOverflow: Math.max(html.scrollWidth, body.scrollWidth) > html.clientWidth + 1,
           mainPresent: Boolean(main),
           mainTop: mainRect ? Math.round(mainRect.top) : null,
+          pageH1Count: visibleH1s.length,
+          pageH1s: visibleH1s.map(describe).filter(Boolean),
+          mainH1Present: Boolean(mainH1),
           primaryHeadingPresent: Boolean(primaryHeading),
           primaryHeadingTag: primaryHeading?.tagName.toLowerCase() ?? null,
           primaryHeadingText: primaryHeading?.textContent?.trim().replace(/\s+/g, ' ').slice(0, 180) ?? '',
@@ -156,12 +218,28 @@ try {
           fixedOrSticky,
           stickyHeadingOverlaps,
           overflowElements,
+          headerInteractiveCount: headerInteractiveElements.length,
+          headerClippedInteractiveElements,
+          localeSwitcherPresent: Boolean(localeSwitcher),
+          localeSwitcherAvailable,
+          localeLinkCount: localeLinks.length,
+          mobileMenuControlPresent: Boolean(mobileMenuControl && isVisible(mobileMenuControl)),
+          mobileMenuControl: describe(mobileMenuControl),
+          incidentItemCount: incidentItems.length,
+          incidentPaginationPresent: Boolean(incidentPagination && isVisible(incidentPagination)),
+          incidentPagination: describe(incidentPagination),
         }
       })
 
       if (!metrics.mainPresent) stateFailures.push('main landmark missing')
       if (!metrics.primaryHeadingPresent) stateFailures.push('primary page heading missing')
       if (!metrics.primaryHeadingVisibleInInitialViewport) stateFailures.push('primary page heading is not visible in the initial viewport')
+      if (config.failure_gates.single_page_h1_required && metrics.pageH1Count !== 1) {
+        stateFailures.push(`expected exactly one visible h1, found ${metrics.pageH1Count}: ${JSON.stringify(metrics.pageH1s)}`)
+      }
+      if (config.failure_gates.primary_heading_must_be_h1 && metrics.primaryHeadingTag !== 'h1') {
+        stateFailures.push(`primary page heading must be h1, found ${metrics.primaryHeadingTag ?? 'none'}`)
+      }
       if (metrics.initialScrollY > config.failure_gates.initial_scroll_y_max) {
         stateFailures.push(`initial scrollY ${metrics.initialScrollY} exceeds ${config.failure_gates.initial_scroll_y_max}`)
       }
@@ -169,13 +247,41 @@ try {
         stateFailures.push(`horizontal overflow ${metrics.scrollWidth}px > ${metrics.viewportWidth}px`)
       }
       if (metrics.controlsBeforeHeading && config.failure_gates.controls_before_primary_heading_prohibited) {
-        stateFailures.push(`page controls appear above the primary heading: ${JSON.stringify(metrics.firstControl)}`)
+        stateFailures.push(`page controls or related navigation appear above the primary heading: ${JSON.stringify(metrics.firstControl)}`)
       }
       if (metrics.topLevelOverlaps.length > 0 && config.failure_gates.main_content_overlap_prohibited) {
         stateFailures.push(`overlapping main sections: ${JSON.stringify(metrics.topLevelOverlaps)}`)
       }
       if (metrics.stickyHeadingOverlaps.length > 0 && config.failure_gates.main_content_overlap_prohibited) {
         stateFailures.push(`fixed/sticky element overlaps primary heading: ${JSON.stringify(metrics.stickyHeadingOverlaps)}`)
+      }
+      if (
+        config.failure_gates.header_clipped_interactive_elements_prohibited
+        && metrics.headerClippedInteractiveElements.length > 0
+      ) {
+        stateFailures.push(`header interactive elements are outside the viewport: ${JSON.stringify(metrics.headerClippedInteractiveElements)}`)
+      }
+      if (state.viewport.width <= 480 && config.failure_gates.mobile_menu_required && !metrics.mobileMenuControlPresent) {
+        stateFailures.push('mobile navigation control missing')
+      }
+      if (
+        state.viewport.width <= 480
+        && state.locale_switcher_required === true
+        && config.failure_gates.mobile_locale_switcher_required
+        && !metrics.localeSwitcherAvailable
+      ) {
+        stateFailures.push(`mobile locale switcher unavailable: present=${metrics.localeSwitcherPresent} links=${metrics.localeLinkCount}`)
+      }
+      if (state.template === 'incidents') {
+        if (metrics.incidentItemCount > config.failure_gates.incidents_max_initial_items) {
+          stateFailures.push(`incidents initial item count ${metrics.incidentItemCount} exceeds ${config.failure_gates.incidents_max_initial_items}`)
+        }
+        if (metrics.bodyHeight > config.failure_gates.incidents_max_body_height) {
+          stateFailures.push(`incidents body height ${metrics.bodyHeight}px exceeds ${config.failure_gates.incidents_max_body_height}px`)
+        }
+        if (config.failure_gates.incidents_pagination_required && !metrics.incidentPaginationPresent) {
+          stateFailures.push('incidents pagination missing')
+        }
       }
 
       const baseName = fileSafe(state.id)
@@ -252,6 +358,8 @@ try {
 
         if (!selector) {
           record.status = 'skipped_no_link'
+          record.failure = 'navigation target link not found on the home page'
+          failures.push(`navigation ${target}: ${record.failure}`)
           navigationRecords.push(record)
           continue
         }
@@ -286,7 +394,7 @@ if (records.length !== config.failure_gates.expected_state_count) {
 }
 
 const manifest = {
-  schema_version: '1.0',
+  schema_version: '1.1',
   generated_at: new Date().toISOString(),
   contract_id: config.contract_id,
   status: failures.length ? 'failed' : 'awaiting_owner_review',
