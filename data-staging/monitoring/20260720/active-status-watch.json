@@ -1,0 +1,564 @@
+{
+  "monitor": "active-status-watch",
+  "status": "ok",
+  "started_at": "2026-07-20T06:23:26.635Z",
+  "finished_at": "2026-07-20T06:23:50.196Z",
+  "findings": [
+    {
+      "finding_id": "finding_1784528616660_eva6q3",
+      "monitor": "active-status-watch",
+      "severity": "high",
+      "category": "official_site_dns_failure",
+      "title": "Official site check dns_failure: 10KSwap",
+      "summary": "hei_ex_000345 https://10kswap.com/ -> dns_failure error=fetch failed",
+      "affected_entity": {
+        "matched_existing_entity": true,
+        "id": "hei_ex_000345",
+        "slug": "10kswap",
+        "canonical_name": "10KSwap"
+      },
+      "recommended_action": "investigate_active_to_inactive_candidate",
+      "source_urls": [
+        "https://10kswap.com/"
+      ],
+      "confidence": "medium",
+      "dedupe_key": "active-status-watch:official_site_dns_failure:hei_ex_000345",
+      "first_seen_at": "2026-07-20T06:24:31.456Z",
+      "last_seen_at": "2026-07-20T06:24:31.456Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    },
+    {
+      "finding_id": "finding_1784528617067_c0gxt1",
+      "monitor": "active-status-watch",
+      "severity": "high",
+      "category": "official_site_dns_failure",
+      "title": "Official site check dns_failure: Aborean Finance",
+      "summary": "hei_ex_000867 https://app.aborean.finance/ -> dns_failure error=fetch failed",
+      "affected_entity": {
+        "matched_existing_entity": true,
+        "id": "hei_ex_000867",
+        "slug": "aborean-finance",
+        "canonical_name": "Aborean Finance"
+      },
+      "recommended_action": "investigate_active_to_inactive_candidate",
+      "source_urls": [
+        "https://app.aborean.finance/"
+      ],
+      "confidence": "medium",
+      "dedupe_key": "active-status-watch:official_site_dns_failure:hei_ex_000867",
+      "first_seen_at": "2026-07-20T06:24:31.456Z",
+      "last_seen_at": "2026-07-20T06:24:31.456Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    },
+    {
+      "finding_id": "finding_1784528626941_h15aib",
+      "monitor": "active-status-watch",
+      "severity": "high",
+      "category": "official_site_dns_failure",
+      "title": "Official site check dns_failure: Amaterasu Finance",
+      "summary": "hei_ex_000881 https://app.amaterasu.fi/ -> dns_failure error=fetch failed",
+      "affected_entity": {
+        "matched_existing_entity": true,
+        "id": "hei_ex_000881",
+        "slug": "amaterasu-finance",
+        "canonical_name": "Amaterasu Finance"
+      },
+      "recommended_action": "investigate_active_to_inactive_candidate",
+      "source_urls": [
+        "https://app.amaterasu.fi/"
+      ],
+      "confidence": "medium",
+      "dedupe_key": "active-status-watch:official_site_dns_failure:hei_ex_000881",
+      "first_seen_at": "2026-07-20T06:24:31.456Z",
+      "last_seen_at": "2026-07-20T06:24:31.456Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    },
+    {
+      "finding_id": "finding_1784528629246_xzn9m0",
+      "monitor": "active-status-watch",
+      "severity": "medium",
+      "category": "official_site_server_error",
+      "title": "Official site check server_error: ApertureSwap",
+      "summary": "hei_ex_000534 https://app.aperture.finance/ -> server_error HTTP 530",
+      "affected_entity": {
+        "matched_existing_entity": true,
+        "id": "hei_ex_000534",
+        "slug": "apertureswap",
+        "canonical_name": "ApertureSwap"
+      },
+      "recommended_action": "recheck_before_status_change",
+      "source_urls": [
+        "https://app.aperture.finance/"
+      ],
+      "confidence": "low",
+      "dedupe_key": "active-status-watch:official_site_server_error:hei_ex_000534",
+      "first_seen_at": "2026-07-20T06:24:31.456Z",
+      "last_seen_at": "2026-07-20T06:24:31.456Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    }
+  ],
+  "candidates": [],
+  "errors": [],
+  "summary": {
+    "findings_count": 4,
+    "visible_findings_count": 4,
+    "candidate_count": 0,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 3,
+    "medium": 1,
+    "low": 0
+  },
+  "active_status_summary": {
+    "enabled": true,
+    "active_side_entities_with_urls": 602,
+    "checked": 25,
+    "findings": 4,
+    "access_control_noise": 1,
+    "healthy_redirects": 5,
+    "inactive_dns_noise": 0
+  },
+  "official_site_checks": [
+    {
+      "entity_id": "hei_ex_000345",
+      "slug": "10kswap",
+      "canonical_name": "10KSwap",
+      "status": "active",
+      "official_url": "https://10kswap.com/",
+      "check": {
+        "input_url": "https://10kswap.com/",
+        "normalized_url": "https://10kswap.com/",
+        "status": "dns_failure",
+        "http_status": null,
+        "final_url": null,
+        "content_type": null,
+        "error": "fetch failed"
+      },
+      "finding_created": true
+    },
+    {
+      "entity_id": "hei_ex_000253",
+      "slug": "796-exchange",
+      "canonical_name": "796 Exchange",
+      "status": "inactive",
+      "official_url": "https://796.com/",
+      "check": {
+        "input_url": "https://796.com/",
+        "normalized_url": "https://796.com/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://796.com/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000867",
+      "slug": "aborean-finance",
+      "canonical_name": "Aborean Finance",
+      "status": "active",
+      "official_url": "https://app.aborean.finance/",
+      "check": {
+        "input_url": "https://app.aborean.finance/",
+        "normalized_url": "https://app.aborean.finance/",
+        "status": "dns_failure",
+        "http_status": null,
+        "final_url": null,
+        "content_type": null,
+        "error": "fetch failed"
+      },
+      "finding_created": true
+    },
+    {
+      "entity_id": "hei_ex_000347",
+      "slug": "acala-swap",
+      "canonical_name": "Acala Swap",
+      "status": "active",
+      "official_url": "https://apps.acala.network/",
+      "check": {
+        "input_url": "https://apps.acala.network/",
+        "normalized_url": "https://apps.acala.network/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://apps.acala.network/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000348",
+      "slug": "aerodrome",
+      "canonical_name": "Aerodrome",
+      "status": "active",
+      "official_url": "https://aerodrome.finance/",
+      "check": {
+        "input_url": "https://aerodrome.finance/",
+        "normalized_url": "https://aerodrome.finance/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://aerodrome.finance/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000519",
+      "slug": "aevo",
+      "canonical_name": "Aevo",
+      "status": "active",
+      "official_url": "https://www.aevo.xyz/",
+      "check": {
+        "input_url": "https://www.aevo.xyz/",
+        "normalized_url": "https://www.aevo.xyz/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.aevo.xyz/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000352",
+      "slug": "aftermath-finance",
+      "canonical_name": "Aftermath Finance",
+      "status": "active",
+      "official_url": "https://aftermath.finance/",
+      "check": {
+        "input_url": "https://aftermath.finance/",
+        "normalized_url": "https://aftermath.finance/",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://aftermath.finance/trade",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000992",
+      "slug": "afx",
+      "canonical_name": "AFX",
+      "status": "active",
+      "official_url": "https://app.afx.xyz/trade",
+      "check": {
+        "input_url": "https://app.afx.xyz/trade",
+        "normalized_url": "https://app.afx.xyz/trade",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://app.afx.xyz/trade",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000353",
+      "slug": "agni-finance",
+      "canonical_name": "Agni Finance",
+      "status": "active",
+      "official_url": "https://agni.finance/",
+      "check": {
+        "input_url": "https://agni.finance/",
+        "normalized_url": "https://agni.finance/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://agni.finance/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000096",
+      "slug": "aibit",
+      "canonical_name": "Aibit",
+      "status": "active",
+      "official_url": "https://www.aibit.com/",
+      "check": {
+        "input_url": "https://www.aibit.com/",
+        "normalized_url": "https://www.aibit.com/",
+        "status": "http_error",
+        "http_status": 403,
+        "final_url": "https://www.aibit.com/",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000354",
+      "slug": "airswap",
+      "canonical_name": "AirSwap",
+      "status": "active",
+      "official_url": "https://www.airswap.io/",
+      "check": {
+        "input_url": "https://www.airswap.io/",
+        "normalized_url": "https://www.airswap.io/",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://www.airswap.xyz/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000355",
+      "slug": "aivora-exchange",
+      "canonical_name": "Aivora Exchange",
+      "status": "active",
+      "official_url": "https://www.aivora.com/",
+      "check": {
+        "input_url": "https://www.aivora.com/",
+        "normalized_url": "https://www.aivora.com/",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://www.aivora.com/en-us",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000356",
+      "slug": "alcor-exchange",
+      "canonical_name": "Alcor Exchange",
+      "status": "active",
+      "official_url": "https://alcor.exchange/",
+      "check": {
+        "input_url": "https://alcor.exchange/",
+        "normalized_url": "https://alcor.exchange/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://alcor.exchange/",
+        "content_type": "text/html;charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000360",
+      "slug": "alex",
+      "canonical_name": "ALEX",
+      "status": "active",
+      "official_url": "https://alexlab.co/",
+      "check": {
+        "input_url": "https://alexlab.co/",
+        "normalized_url": "https://alexlab.co/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://alexlab.co/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000868",
+      "slug": "alien-base",
+      "canonical_name": "Alien Base",
+      "status": "active",
+      "official_url": "https://app.alienbase.xyz/",
+      "check": {
+        "input_url": "https://app.alienbase.xyz/",
+        "normalized_url": "https://app.alienbase.xyz/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://app.alienbase.xyz/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000960",
+      "slug": "alt-fun",
+      "canonical_name": "Alt Fun",
+      "status": "active",
+      "official_url": "https://alt.fun/",
+      "check": {
+        "input_url": "https://alt.fun/",
+        "normalized_url": "https://alt.fun/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://alt.fun/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000274",
+      "slug": "altilly",
+      "canonical_name": "Altilly",
+      "status": "inactive",
+      "official_url": "https://www.altilly.com/",
+      "check": {
+        "input_url": "https://www.altilly.com/",
+        "normalized_url": "https://www.altilly.com/",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://altilly.com/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000881",
+      "slug": "amaterasu-finance",
+      "canonical_name": "Amaterasu Finance",
+      "status": "active",
+      "official_url": "https://app.amaterasu.fi/",
+      "check": {
+        "input_url": "https://app.amaterasu.fi/",
+        "normalized_url": "https://app.amaterasu.fi/",
+        "status": "dns_failure",
+        "http_status": null,
+        "final_url": null,
+        "content_type": null,
+        "error": "fetch failed"
+      },
+      "finding_created": true
+    },
+    {
+      "entity_id": "hei_ex_000877",
+      "slug": "amped-finance",
+      "canonical_name": "Amped Finance",
+      "status": "limited",
+      "official_url": "https://amped.finance/",
+      "check": {
+        "input_url": "https://amped.finance/",
+        "normalized_url": "https://amped.finance/",
+        "status": "redirected",
+        "http_status": 200,
+        "final_url": "https://www.amped.finance/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000531",
+      "slug": "angstrom",
+      "canonical_name": "Angstrom",
+      "status": "active",
+      "official_url": "https://angstrom.xyz/",
+      "check": {
+        "input_url": "https://angstrom.xyz/",
+        "normalized_url": "https://angstrom.xyz/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://angstrom.xyz/",
+        "content_type": "text/html",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000993",
+      "slug": "antarctic",
+      "canonical_name": "Antarctic",
+      "status": "active",
+      "official_url": "https://www.antarctic.exchange/",
+      "check": {
+        "input_url": "https://www.antarctic.exchange/",
+        "normalized_url": "https://www.antarctic.exchange/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://www.antarctic.exchange/",
+        "content_type": "text/html;charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000536",
+      "slug": "antfarm",
+      "canonical_name": "Antfarm",
+      "status": "active",
+      "official_url": "https://antfarm.finance/",
+      "check": {
+        "input_url": "https://antfarm.finance/",
+        "normalized_url": "https://antfarm.finance/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://antfarm.finance/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000534",
+      "slug": "apertureswap",
+      "canonical_name": "ApertureSwap",
+      "status": "active",
+      "official_url": "https://app.aperture.finance/",
+      "check": {
+        "input_url": "https://app.aperture.finance/",
+        "normalized_url": "https://app.aperture.finance/",
+        "status": "server_error",
+        "http_status": 530,
+        "final_url": "https://app.aperture.finance/",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "finding_created": true
+    },
+    {
+      "entity_id": "hei_ex_000362",
+      "slug": "apeswap",
+      "canonical_name": "ApeSwap",
+      "status": "active",
+      "official_url": "https://apeswap.finance/",
+      "check": {
+        "input_url": "https://apeswap.finance/",
+        "normalized_url": "https://apeswap.finance/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://apeswap.finance/",
+        "content_type": "text/html; charset=utf-8",
+        "error": null
+      },
+      "finding_created": false
+    },
+    {
+      "entity_id": "hei_ex_000878",
+      "slug": "apex-defi",
+      "canonical_name": "Apex DeFi",
+      "status": "active",
+      "official_url": "https://apexdefi.xyz/",
+      "check": {
+        "input_url": "https://apexdefi.xyz/",
+        "normalized_url": "https://apexdefi.xyz/",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://apexdefi.xyz/",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null
+      },
+      "finding_created": false
+    }
+  ]
+}
