@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-21",
+  "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX20.",
+  "entries": [
+    {
+      "candidate_key": "candidate:rhea-dex",
+      "canonical_name": "RHEA Finance",
+      "aliases": ["Rhea DEX", "RHEA DEX", "Rhea Finance"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-21",
+      "target_entity_id": "hei_ex_000994",
+      "source_files": ["data-staging/watchlists/review/20260614-active-later-02.json", "records/exchanges/rhea-finance.json"],
+      "notes": "BX20 promoted the held Rhea DEX candidate as the current RHEA Finance entity after identity, first-party product, and independent activity review."
+    },
+    {
+      "candidate_key": "candidate:stellar-dex",
+      "canonical_name": "Stellar DEX",
+      "aliases": ["SDEX", "Stellar Decentralized Exchange"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-21",
+      "target_entity_id": "hei_ex_000995",
+      "source_files": ["data-staging/watchlists/review/20260614-active-later-02.json", "records/exchanges/stellar-dex.json"],
+      "notes": "BX20 promoted the protocol-native Stellar DEX as one entity covering ledger order books, offers, path payments, and liquidity-pool exchange mechanics."
+    },
+    {
+      "candidate_key": "candidate:xrpl-dex",
+      "canonical_name": "XRPL DEX",
+      "aliases": ["XRP Ledger DEX", "XRPL decentralized exchange"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-14",
+      "last_reviewed_at": "2026-07-21",
+      "target_entity_id": "hei_ex_000996",
+      "source_files": ["data-staging/watchlists/review/20260614-active-later-01.json", "records/exchanges/xrpl-dex.json"],
+      "notes": "BX20 promoted the protocol-native XRP Ledger DEX as one entity covering order books, Offers, autobridging, cross-currency paths, and AMM liquidity."
+    },
+    {
+      "candidate_key": "candidate:1inch-liquidity-protocol",
+      "canonical_name": "1inch",
+      "aliases": ["1inch Network", "1inch Swap", "1inch DEX Aggregator"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-11",
+      "last_reviewed_at": "2026-07-21",
+      "target_entity_id": "hei_ex_000997",
+      "source_files": ["docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl", "records/exchanges/1inch.json"],
+      "notes": "BX20 consolidates 1inch Network, Swap, aggregation, liquidity-protocol, intent-based, and chain-specific discovery surfaces into one active DEX-aggregator entity."
+    }
+  ]
+}
