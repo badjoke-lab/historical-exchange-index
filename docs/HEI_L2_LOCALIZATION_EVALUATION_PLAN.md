@@ -38,15 +38,15 @@ The initial L2 state is expected to be HOLD because the public Japanese Pilot ha
 
 HOLD keeps the Japanese Pilot public but does not block reviewed canonical data growth.
 
-After D-1000 batch BX19, the projected reviewed state is:
+After D-1000 batch BX20, the projected reviewed state is:
 
 ```text
-Entities: 873
+Entities: 877
 Events:   1004
-Evidence: 3505
+Evidence: 3513
 ```
 
-The localization decision remains HOLD. Translation breadth is not expanded by BX19, and third-language authorization remains false.
+The localization decision remains HOLD. Translation breadth is not expanded by BX20, and third-language authorization remains false.
 
 ## 3. Evidence categories
 
