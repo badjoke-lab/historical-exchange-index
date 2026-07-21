@@ -22,40 +22,49 @@ Next evidence ID:   hei_src_012202
 ## Reviewed additions
 
 ```text
-RHEA Finance  hei_ex_000994 active
-Stellar DEX   hei_ex_000995 active
-XRPL DEX      hei_ex_000996 active
-1inch         hei_ex_000997 active
+2THICK       hei_ex_000994 active
+Stellar DEX  hei_ex_000995 active
+XRPL DEX     hei_ex_000996 active
+WannaSwap    hei_ex_000997 active
 ```
 
 ## Source candidate rows
 
 ```text
+docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl
+  2THICK
+
 data-staging/watchlists/review/20260614-active-later-02.json
-  Rhea Dex
   Stellar DEX
 
 data-staging/watchlists/review/20260614-active-later-01.json
   XRPL DEX
 
-docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl
-  1inch Liquidity Protocol
+current external discovery review
+  WannaSwap
 ```
 
 ## Duplicate controls
 
-THORChain was rejected because existing canonical record `records/exchanges/thorchain.json` already models it as `hei_ex_000516`.
+The following proposed candidates were rejected before final review:
 
-LFJ / Trader Joe was rejected because existing canonical record `records/exchanges/lfj.json` already models the continuous identity as `hei_ex_000520`.
+```text
+THORChain    -> existing hei_ex_000516
+LFJ          -> existing hei_ex_000520
+RHEA Finance -> existing hei_ex_000224
+1inch        -> existing hei_ex_000344
+```
 
-Direct canonical path checks, `data/entities.json` review, name/alias review, and official-domain review found no existing canonical entity for RHEA Finance, Stellar DEX, XRPL DEX, or 1inch.
+Records validation caught RHEA Finance and 1inch on the initial BX20 head. Their proposed files were removed, the IDs were reassigned, and the validation gate was not bypassed.
+
+Direct canonical path checks, `data/entities.json` review, name/alias review, and official-domain review found no existing canonical entity for 2THICK, Stellar DEX, XRPL DEX, or WannaSwap.
 
 ## Entity-first boundaries
 
-- RHEA Finance consolidates the Rhea DEX surface and current RHEA brand. Ref Finance/Burrow lineage is noted but not linked through invented IDs.
+- 2THICK remains distinct from other Eliteness exchange products such as E3 and THICK; chain deployments remain one 2THICK entity.
 - Stellar DEX is the protocol-native ledger exchange, not each wallet or frontend.
 - XRPL DEX is the protocol-native ledger exchange, including order books and AMM functionality, not each wallet or frontend.
-- 1inch consolidates aggregation, Swap, liquidity-protocol, intent-based, and chain-specific surfaces into one entity.
+- WannaSwap consolidates the Aurora protocol, contracts, pools, and exchange activity under one entity.
 
 ## Projected reviewed delta
 
