@@ -13,10 +13,17 @@ function LinkGroup({
   children: React.ReactNode
 }) {
   return (
-    <div className="panel" style={{ padding: '14px' }}>
-      <h3 style={{ marginTop: 0 }}>{title}</h3>
-      <div className="record-meta">{children}</div>
-    </div>
+    <details className="panel" style={{ padding: '0' }}>
+      <summary style={{ cursor: 'pointer', listStyle: 'none', padding: '14px' }}>
+        <strong>{title}</strong>
+        <span className="muted" style={{ display: 'block', marginTop: '4px', fontSize: '12px' }}>
+          Open reviewed Explorer links
+        </span>
+      </summary>
+      <div className="record-meta" style={{ borderTop: '1px solid var(--border)', padding: '14px' }}>
+        {children}
+      </div>
+    </details>
   )
 }
 
@@ -28,12 +35,19 @@ export default function StatsExplorerDeepLinks() {
   const topCountry = topCountries[0]?.key
 
   return (
-    <nav className="panel" aria-label="Stats Explorer drilldowns" style={{ padding: '18px', marginBottom: '18px' }}>
+    <nav
+      className="panel"
+      aria-label="Stats Explorer drilldowns"
+      id="stats-explorer-drilldowns"
+      style={{ padding: '18px', marginTop: '18px', marginBottom: '18px' }}
+    >
       <div className="detail-header" style={{ marginBottom: '14px' }}>
         <div>
+          <p className="muted" style={{ margin: '0 0 4px', fontSize: '12px' }}>Optional drilldowns</p>
           <h2 style={{ margin: '0 0 6px', fontSize: '20px' }}>Explore these distributions</h2>
           <p className="muted" style={{ margin: 0, lineHeight: 1.6 }}>
             Open deterministic Entity or Event Explorer queries for direct, range, and reviewed compound Stats dimensions.
+            Groups stay collapsed until needed so the page summary and analysis remain primary.
           </p>
         </div>
       </div>

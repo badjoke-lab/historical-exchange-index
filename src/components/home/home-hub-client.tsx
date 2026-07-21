@@ -128,7 +128,7 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
       <section className="hero compact-hero">
         <div className="panel hero-main">
           <div className="eyebrow">Archive-first · History-first · Quiet registry</div>
-          <h2>Historical Exchange Index</h2>
+          <h1>Historical Exchange Index</h1>
           <p>
             A quiet registry of crypto exchanges, active and gone. Use home to search the registry and
             choose whether to browse the dead-side or active-side history views.
@@ -165,7 +165,7 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
 
       <section className="panel home-search-panel">
         <div className="home-section-copy">
-          <h3>Search all records</h3>
+          <h2>Search all records</h2>
           <p>Search across the registry by exchange name, alias, domain, origin, or summary.</p>
         </div>
         <div className="search">
@@ -182,7 +182,7 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
       <section className="home-entry-grid">
         <section className="panel home-entry-card">
           <div className="home-section-copy">
-            <h3>Dead-side registry</h3>
+            <h2>Dead-side registry</h2>
             <p>Closed, merged, acquired, or rebranded exchanges. Default browse path: newest death first.</p>
           </div>
           <div className="home-inline-meta">
@@ -194,7 +194,7 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
 
         <section className="panel home-entry-card">
           <div className="home-section-copy">
-            <h3>Active-side registry</h3>
+            <h2>Active-side registry</h2>
             <p>Active, limited, or inactive exchanges. Default browse path: stable scan order for current records.</p>
           </div>
           <div className="home-inline-meta">
@@ -208,14 +208,14 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
       {trimmedQuery ? (
         <section className="panel home-preview-panel">
           <div className="home-section-copy">
-            <h3>Search preview</h3>
+            <h2>Search preview</h2>
             <p>{searchState.total} matches · {searchState.deadCount} dead-side · {searchState.activeCount} active-side</p>
           </div>
           <div className="home-preview-grid">
             <section className="home-preview-side">
               <div className="home-preview-side-head">
                 <div className="home-preview-side-copy">
-                  <h4>Dead-side matches</h4>
+                  <h3>Dead-side matches</h3>
                   <p>{searchState.deadCount} matched records</p>
                 </div>
                 <span className="chip dead">{searchState.deadCount}</span>
@@ -229,7 +229,7 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
             <section className="home-preview-side">
               <div className="home-preview-side-head">
                 <div className="home-preview-side-copy">
-                  <h4>Active-side matches</h4>
+                  <h3>Active-side matches</h3>
                   <p>{searchState.activeCount} matched records</p>
                 </div>
                 <span className="chip active">{searchState.activeCount}</span>
@@ -245,7 +245,7 @@ export default function HomeHubClient({ entities, summary, archiveCoverage }: Pr
 
       <section className="panel home-recent-panel">
         <div className="home-section-copy">
-          <h3>Recently updated</h3>
+          <h2>Recently updated</h2>
           <p>Latest verified or revised records in the registry.</p>
         </div>
         <div className="record-list">

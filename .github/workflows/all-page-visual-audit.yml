@@ -1,0 +1,56 @@
+name: All-page visual audit
+
+on:
+  workflow_dispatch:
+    inputs:
+      origin:
+        description: Site origin to audit
+        required: false
+        default: https://hei.badjoke-lab.com
+      concurrency:
+        description: Parallel browser pages
+        required: false
+        default: '6'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hei-all-page-visual-audit
+  cancel-in-progress: true
+
+jobs:
+  capture-all-routes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.60.0
+          npx playwright install --with-deps chromium
+
+      - name: Capture every sitemap route and navigation flow
+        continue-on-error: true
+        env:
+          AUDIT_ORIGIN: ${{ inputs.origin || 'https://hei.badjoke-lab.com' }}
+          AUDIT_CONCURRENCY: ${{ inputs.concurrency || '6' }}
+          AUDIT_TIMEOUT_MS: '45000'
+        run: node scripts/run-all-page-visual-audit.mjs
+
+      - name: Upload all-page screenshot artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hei-all-page-visual-audit-${{ github.run_id }}
+          path: artifacts/all-page-visual-audit/
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0

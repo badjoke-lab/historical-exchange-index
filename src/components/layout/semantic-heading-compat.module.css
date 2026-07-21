@@ -1,0 +1,43 @@
+.scope :global(.hero-main h1) {
+  margin: 18px 0 10px;
+  max-width: 12ch;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.03;
+  letter-spacing: -0.05em;
+}
+
+.scope :global(.compact-hero .hero-main h1) {
+  margin: 14px 0 8px;
+  max-width: 18ch;
+  font-size: clamp(26px, 3.3vw, 34px);
+}
+
+.scope :global(.home-section-copy h2) {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 599px) {
+  .scope :global(.compact-hero .hero-main h1) {
+    margin: 0 0 6px;
+    max-width: none;
+    font-size: 20px;
+    line-height: 1.08;
+  }
+
+  .scope :global(.detail-header h1) {
+    font-size: 24px !important;
+  }
+}
+
+@media (max-width: 389px) {
+  .scope :global(.compact-hero .hero-main h1) {
+    margin-bottom: 4px;
+    font-size: 18px;
+  }
+
+  .scope :global(.detail-header h1) {
+    font-size: 22px !important;
+  }
+}

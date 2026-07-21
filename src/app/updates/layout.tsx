@@ -11,13 +11,13 @@ export const metadata = buildRouteSocialMetadata({
 export default function UpdatesLayout({ children }: { children: ReactNode }) {
   return (
     <>
+      {children}
       <RelatedSurfaceLinks
         links={[
           { href: '/incidents', label: 'Incident Timeline' },
           { href: '/monthly', label: 'Monthly Snapshot' },
         ]}
       />
-      {children}
     </>
   )
 }

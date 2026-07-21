@@ -73,7 +73,7 @@ export default function RegistryUpdatesPage() {
         <div className={styles.headerRow}>
           <div>
             <p className="muted">{presentation.eyebrow}</p>
-            <h2 className={styles.pageTitle}>{presentation.heading}</h2>
+            <h1 className={styles.pageTitle}>{presentation.heading}</h1>
             <p className={styles.lead}>{presentation.intro}</p>
           </div>
           <div className={styles.headerActions}>

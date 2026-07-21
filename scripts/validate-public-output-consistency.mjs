@@ -215,13 +215,20 @@ for (const [label, count] of [['Total records', expected.total],['Dead-side', ex
 
 const sitemap = readOut('sitemap.xml')
 const sitemapLocations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1])
-const expectedSitemapCount = entities.length * 2 + 24
+const incidentPageSize = 25
+const englishStaticRouteCount = 13
+const japaneseStaticRouteCount = 12
+const incidentPaginationRouteCount = Math.max(Math.ceil(expected.incidents / incidentPageSize) - 1, 0)
+const expectedSitemapCount = entities.length * 2 + englishStaticRouteCount + japaneseStaticRouteCount + incidentPaginationRouteCount
 assert(sitemapLocations.length === expectedSitemapCount, `bilingual sitemap URL count mismatch: ${sitemapLocations.length} != ${expectedSitemapCount}`)
 assert(sitemapLocations.includes(`${origin}/explore/`), 'sitemap is missing /explore/')
 assert(sitemapLocations.includes(`${origin}/compare/`), 'sitemap is missing /compare/')
 assert(!sitemapLocations.some((url) => url.includes('?')), 'sitemap contains query variants')
-for (const route of ['/ja/','/ja/dead/','/ja/active/','/ja/explore/','/ja/stats/','/ja/quality/','/ja/updates/','/ja/incidents/','/ja/monthly/','/ja/methodology/','/ja/about/']) {
+for (const route of ['/ja/','/ja/dead/','/ja/active/','/ja/explore/','/ja/stats/','/ja/quality/','/ja/updates/','/ja/incidents/','/ja/monthly/','/ja/methodology/','/ja/about/','/ja/donate/']) {
   assert(sitemapLocations.includes(`${origin}${route}`), `sitemap is missing ${route}`)
+}
+for (let pageNumber = 2; pageNumber <= incidentPaginationRouteCount + 1; pageNumber += 1) {
+  assert(sitemapLocations.includes(`${origin}/incidents/page/${pageNumber}/`), `sitemap is missing /incidents/page/${pageNumber}/`)
 }
 for (const entity of entities) {
   assert(sitemapLocations.includes(`${origin}/exchange/${entity.slug}/`), `sitemap missing English dossier ${entity.slug}`)
@@ -237,4 +244,4 @@ const redirects = readOut('_redirects')
 for (const obsolete of ['/index.html','/all','/registry','/exchanges']) assert(redirects.includes(`${obsolete} / 301`), `_redirects is missing ${obsolete}`)
 for (const obsoleteDir of ['all','registry','exchanges']) assert(!fs.existsSync(path.join(outDir, obsoleteDir, 'index.html')), `obsolete route output still exists: /${obsoleteDir}/`)
 
-console.log(`Validated L1 bilingual public output: ${expected.total} entities, ${expected.events} events, ${expected.evidence} evidence, ${expectedSitemapCount} sitemap routes, bilingual dossier coverage, and dictionary-backed headings.`)
+console.log(`Validated bilingual public output: ${expected.total} entities, ${expected.events} events, ${expected.evidence} evidence, ${expectedSitemapCount} sitemap routes (${incidentPaginationRouteCount} paginated incident routes), bilingual dossier coverage, and dictionary-backed headings.`)

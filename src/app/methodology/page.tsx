@@ -136,7 +136,7 @@ export default function MethodologyPage() {
     <main className="longform">
       <section className="panel longform-panel">
         <p className="muted">Methodology</p>
-        <h2 style={{ marginTop: 0, fontSize: '34px' }}>How HEI classifies crypto exchange records</h2>
+        <h1 style={{ marginTop: 0, fontSize: '34px' }}>How HEI classifies crypto exchange records</h1>
         <p className="muted" style={{ lineHeight: 1.75, maxWidth: '82ch' }}>
           Historical Exchange Index is a historical registry of crypto exchanges. This page explains how HEI
           defines exchange records, classifies status, handles evidence, treats old URLs, and deals with uncertainty.

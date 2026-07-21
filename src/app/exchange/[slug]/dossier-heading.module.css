@@ -1,0 +1,39 @@
+.scope {
+  display: contents;
+}
+
+.headingPanel {
+  margin-top: 22px;
+  padding: 18px 22px;
+}
+
+.headingPanel p {
+  margin: 0 0 6px;
+  font-size: 12px;
+}
+
+.headingPanel h1 {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: -0.04em;
+}
+
+.scope :global(main .detail-header > div > p:first-child),
+.scope :global(main .detail-header h2) {
+  display: none;
+}
+
+.scope :global(main .detail-header > div > p:last-child) {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 599px) {
+  .headingPanel {
+    margin-top: 14px;
+    padding: 16px 18px;
+  }
+
+  .headingPanel h1 {
+    font-size: 26px;
+  }
+}
