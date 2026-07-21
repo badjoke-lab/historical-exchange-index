@@ -4,16 +4,16 @@
   "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX20.",
   "entries": [
     {
-      "candidate_key": "candidate:rhea-dex",
-      "canonical_name": "RHEA Finance",
-      "aliases": ["Rhea DEX", "RHEA DEX", "Rhea Finance"],
+      "candidate_key": "candidate:2thick",
+      "canonical_name": "2THICK",
+      "aliases": ["2Thick", "2THICK DEX"],
       "candidate_class": "B",
       "state": "promoted",
-      "first_seen_at": "2026-06-14",
+      "first_seen_at": "2026-06-11",
       "last_reviewed_at": "2026-07-21",
       "target_entity_id": "hei_ex_000994",
-      "source_files": ["data-staging/watchlists/review/20260614-active-later-02.json", "records/exchanges/rhea-finance.json"],
-      "notes": "BX20 promoted the held Rhea DEX candidate as the current RHEA Finance entity after identity, first-party product, and independent activity review."
+      "source_files": ["docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl", "records/exchanges/2thick.json"],
+      "notes": "BX20 promoted 2THICK after first-party product review and independent current TVL, fee, and volume verification. Distinct Eliteness exchange products remain separate entities."
     },
     {
       "candidate_key": "candidate:stellar-dex",
@@ -40,16 +40,16 @@
       "notes": "BX20 promoted the protocol-native XRP Ledger DEX as one entity covering order books, Offers, autobridging, cross-currency paths, and AMM liquidity."
     },
     {
-      "candidate_key": "candidate:1inch-liquidity-protocol",
-      "canonical_name": "1inch",
-      "aliases": ["1inch Network", "1inch Swap", "1inch DEX Aggregator"],
+      "candidate_key": "candidate:wannaswap",
+      "canonical_name": "WannaSwap",
+      "aliases": ["WANNA Swap", "WannaSwap AMM"],
       "candidate_class": "B",
       "state": "promoted",
-      "first_seen_at": "2026-06-11",
+      "first_seen_at": "2026-07-21",
       "last_reviewed_at": "2026-07-21",
       "target_entity_id": "hei_ex_000997",
-      "source_files": ["docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl", "records/exchanges/1inch.json"],
-      "notes": "BX20 consolidates 1inch Network, Swap, aggregation, liquidity-protocol, intent-based, and chain-specific discovery surfaces into one active DEX-aggregator entity."
+      "source_files": ["records/exchanges/wannaswap.json"],
+      "notes": "BX20 promoted WannaSwap after project-owned code identity review and independent current Aurora TVL and volume verification."
     }
   ]
 }
