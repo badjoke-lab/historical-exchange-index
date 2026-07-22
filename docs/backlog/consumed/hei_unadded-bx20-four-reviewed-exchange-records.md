@@ -58,6 +58,8 @@ RHEA Finance -> existing hei_ex_000224
 
 Records validation caught RHEA Finance and 1inch on the initial BX20 head, then caught 2THICK because its `eliteness.network` domain overlaps the existing E3 entity. The proposed files were removed, the IDs were reassigned, and the validation gate was not bypassed.
 
+The rejected 2THICK candidate is terminally closed as `duplicate` in `data-staging/watchlists/resolution/overrides/20260722-bx20-2thick-duplicate.json`, targeting existing entity `hei_ex_000855`, so it cannot silently return as new growth work.
+
 Direct canonical path checks, reviewed `data/entities.json`, name/alias review, and official-domain review found no existing canonical entity for Aktionariat, Stellar DEX, XRPL DEX, or WannaSwap.
 
 ## Entity-first boundaries
