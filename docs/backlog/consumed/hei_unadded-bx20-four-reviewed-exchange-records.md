@@ -22,7 +22,7 @@ Next evidence ID:   hei_src_012202
 ## Reviewed additions
 
 ```text
-2THICK       hei_ex_000994 active
+Aktionariat  hei_ex_000994 active
 Stellar DEX  hei_ex_000995 active
 XRPL DEX     hei_ex_000996 active
 WannaSwap    hei_ex_000997 active
@@ -32,7 +32,7 @@ WannaSwap    hei_ex_000997 active
 
 ```text
 docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl
-  2THICK
+  Aktionariat
 
 data-staging/watchlists/review/20260614-active-later-02.json
   Stellar DEX
@@ -53,15 +53,16 @@ THORChain    -> existing hei_ex_000516
 LFJ          -> existing hei_ex_000520
 RHEA Finance -> existing hei_ex_000224
 1inch        -> existing hei_ex_000344
+2THICK       -> existing hei_ex_000855 domain identity
 ```
 
-Records validation caught RHEA Finance and 1inch on the initial BX20 head. Their proposed files were removed, the IDs were reassigned, and the validation gate was not bypassed.
+Records validation caught RHEA Finance and 1inch on the initial BX20 head, then caught 2THICK because its `eliteness.network` domain overlaps the existing E3 entity. The proposed files were removed, the IDs were reassigned, and the validation gate was not bypassed.
 
-Direct canonical path checks, `data/entities.json` review, name/alias review, and official-domain review found no existing canonical entity for 2THICK, Stellar DEX, XRPL DEX, or WannaSwap.
+Direct canonical path checks, reviewed `data/entities.json`, name/alias review, and official-domain review found no existing canonical entity for Aktionariat, Stellar DEX, XRPL DEX, or WannaSwap.
 
 ## Entity-first boundaries
 
-- 2THICK remains distinct from other Eliteness exchange products such as E3 and THICK; chain deployments remain one 2THICK entity.
+- Aktionariat consolidates Brokerbot markets, SecondaryMarket contracts, direct-investment surfaces, and issuer-specific tokenized-share markets under one on-chain equity exchange entity.
 - Stellar DEX is the protocol-native ledger exchange, not each wallet or frontend.
 - XRPL DEX is the protocol-native ledger exchange, including order books and AMM functionality, not each wallet or frontend.
 - WannaSwap consolidates the Aurora protocol, contracts, pools, and exchange activity under one entity.
