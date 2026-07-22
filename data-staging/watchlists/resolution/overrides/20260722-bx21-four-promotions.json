@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-22",
+  "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX21.",
+  "entries": [
+    {
+      "candidate_key": "candidate:ambient",
+      "canonical_name": "Ambient",
+      "aliases": ["Ambient Finance", "CrocSwap", "CrocSwap DEX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-11",
+      "last_reviewed_at": "2026-07-22",
+      "target_entity_id": "hei_ex_000998",
+      "source_files": ["docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl", "records/exchanges/ambient.json"],
+      "notes": "BX21 promotes Ambient and consolidates the former CrocSwap identity, single-contract AMM architecture, and multichain deployments into one active exchange entity."
+    },
+    {
+      "candidate_key": "candidate:nabla-finance",
+      "canonical_name": "Nabla Finance",
+      "aliases": ["Nabla", "Nabla AMM", "Nabla Finance AMM"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-22",
+      "last_reviewed_at": "2026-07-22",
+      "target_entity_id": "hei_ex_000999",
+      "source_files": ["records/exchanges/nabla-finance.json"],
+      "notes": "BX21 promotes Nabla Finance after current first-party AMM review and independent multichain TVL, fee, revenue, and DEX-volume verification."
+    },
+    {
+      "candidate_key": "candidate:barterswap-superposition",
+      "canonical_name": "BarterSwap",
+      "aliases": ["Barter Swap", "BarterSwap Superposition", "BarterSwap Aggregator"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-11",
+      "last_reviewed_at": "2026-07-22",
+      "target_entity_id": "hei_ex_001000",
+      "source_files": ["docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl", "records/exchanges/barterswap.json"],
+      "notes": "BX21 promotes BarterSwap and consolidates its intent-matching, direct DEX, aggregator, Ethereum, and Superposition-labelled discovery surfaces into one entity."
+    },
+    {
+      "candidate_key": "candidate:beam-swap",
+      "canonical_name": "Beam Swap",
+      "aliases": ["Beam Network Swap", "Beam chain DEX", "swap.onbeam.com"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-06-11",
+      "last_reviewed_at": "2026-07-22",
+      "target_entity_id": "hei_ex_001001",
+      "source_files": ["docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl", "records/exchanges/beam-swap.json"],
+      "notes": "BX21 promotes the Beam-chain exchange at swap.onbeam.com. It remains distinct from Moonbeam Beamswap entity hei_ex_000370 at app.beamswap.io."
+    }
+  ]
+}
