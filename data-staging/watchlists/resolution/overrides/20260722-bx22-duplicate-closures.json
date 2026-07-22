@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-22",
+  "purpose": "Close two rejected BX22 proposals as duplicate canonical identities after records validation.",
+  "entries": [
+    {
+      "candidate_key": "candidate:buda",
+      "canonical_name": "Buda.com",
+      "aliases": ["Buda", "Buda Exchange", "BudaPro", "SurBTC"],
+      "candidate_class": "B",
+      "state": "duplicate",
+      "first_seen_at": "2026-06-11",
+      "last_reviewed_at": "2026-07-22",
+      "target_entity_id": "hei_ex_000054",
+      "source_files": [
+        "docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl",
+        "records/exchanges/buda-com.json"
+      ],
+      "notes": "BX22 records validation confirmed that the Buda.com name and buda.com domain are already canonical entity hei_ex_000054. The proposed duplicate record was removed and the candidate is terminally closed as duplicate."
+    },
+    {
+      "candidate_key": "candidate:bmx-classic-amm",
+      "canonical_name": "BMX Classic AMM",
+      "aliases": ["BMX", "BMX Trade", "MorpheX", "Morphex BMX"],
+      "candidate_class": "B",
+      "state": "duplicate",
+      "first_seen_at": "2026-06-11",
+      "last_reviewed_at": "2026-07-22",
+      "target_entity_id": "hei_ex_000610",
+      "source_files": [
+        "docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl",
+        "records/exchanges/bmx-trade.json"
+      ],
+      "notes": "BX22 records validation confirmed that the BMX names and bmx.trade domain are already consolidated under BMX Trade entity hei_ex_000610. The proposed duplicate record was removed and the candidate is terminally closed as duplicate."
+    }
+  ]
+}
