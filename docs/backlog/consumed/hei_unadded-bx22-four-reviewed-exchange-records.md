@@ -20,20 +20,18 @@ Next evidence ID:   hei_src_012218
 ## Reviewed additions
 
 ```text
-Buda.com hei_ex_001002 active
-BMX      hei_ex_001003 active
-Nado     hei_ex_001004 active
-InkySwap hei_ex_001005 active
+World Markets hei_ex_001002 active
+Prism DEX     hei_ex_001003 active
+Nado          hei_ex_001004 active
+InkySwap      hei_ex_001005 active
 ```
 
 ## Candidate sources
 
 ```text
-docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl
-  Buda
-  BMX Classic AMM
-
 current external discovery review
+  World Markets
+  Prism DEX
   Nado
   InkySwap
 ```
@@ -42,14 +40,23 @@ current external discovery review
 
 The BX22 screening pass rejected or consolidated stale candidates already represented by canonical entities, including BTC Markets, BTCBOX, BTSE Futures, Buenbit, Bunni V2, BuyUcoin, Cables Finance, Caliber, Canonic, Capricorn, Carbon DeFi, and Canto Dex.
 
-BMEX was not promoted because the candidate name is ambiguous across the BitMEX BMEX token and unrelated exchange references. BMX Classic AMM was promoted only after parent-level review and is represented by the single canonical BMX entity rather than a product-specific entity.
+Records validation rejected two initial BX22 proposals:
 
-Direct canonical path, alias, domain, and product-lineage review found no existing entity for Buda.com, BMX, Nado, or InkySwap.
+```text
+Buda.com        -> hei_ex_000054
+BMX Classic AMM -> BMX Trade hei_ex_000610
+```
+
+Their proposed files were removed, their ID and evidence slots were reassigned, and both candidates were terminally closed as duplicates in `data-staging/watchlists/resolution/overrides/20260722-bx22-duplicate-closures.json`. The validation gate was not bypassed.
+
+BMEX was not promoted because the candidate name is ambiguous across the BitMEX BMEX token and unrelated exchange references.
+
+Direct canonical path, alias, domain, and product-lineage review found no existing entity for World Markets, Prism DEX, Nado, or InkySwap.
 
 ## Entity-first boundaries
 
-- Buda.com consolidates the Buda brand, BudaPro professional interface, and country-specific operating surfaces.
-- BMX consolidates Classic AMM, Classic Perps, Freestyle, and the shared Morphex-origin trading brand.
+- World Markets consolidates spot, perpetual futures, lending, ATLAS risk controls, and unified-margin trading under one MegaETH exchange entity.
+- Prism DEX consolidates the Prism application, V3 factory, pools, and concentrated-liquidity positions.
 - Nado consolidates spot, perpetuals, its sequencer and on-chain settlement architecture, and the NLP liquidity vault.
 - InkySwap consolidates the AMM DEX and its InkyPump-linked pre-bond and post-bond trading surfaces.
 
