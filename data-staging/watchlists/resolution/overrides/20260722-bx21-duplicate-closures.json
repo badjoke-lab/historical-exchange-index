@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-22",
+  "purpose": "Close two rejected BX21 proposals as duplicate canonical identities after records validation.",
+  "entries": [
+    {
+      "candidate_key": "candidate:barterswap-superposition",
+      "canonical_name": "BarterSwap Superposition",
+      "aliases": ["BarterSwap", "Barter", "Superposition"],
+      "candidate_class": "B",
+      "state": "duplicate",
+      "first_seen_at": "2026-06-11",
+      "last_reviewed_at": "2026-07-22",
+      "target_entity_id": "hei_ex_000560",
+      "source_files": [
+        "docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl",
+        "records/exchanges/barter.json"
+      ],
+      "notes": "BX21 records validation confirmed that the BarterSwap and Superposition names and barterswap.xyz domain are already consolidated under Barter entity hei_ex_000560. The candidate is terminally closed as duplicate."
+    },
+    {
+      "candidate_key": "candidate:beam-swap",
+      "canonical_name": "Beam Swap",
+      "aliases": ["Beam Network Swap", "Beam Swap on Beam", "swap.onbeam.com"],
+      "candidate_class": "B",
+      "state": "duplicate",
+      "first_seen_at": "2026-06-11",
+      "last_reviewed_at": "2026-07-22",
+      "target_entity_id": "hei_ex_000558",
+      "source_files": [
+        "docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl",
+        "records/exchanges/beam-network-swap.json"
+      ],
+      "notes": "BX21 records validation confirmed that swap.onbeam.com and the Beam Network Swap aliases are already canonical entity hei_ex_000558. The candidate is terminally closed as duplicate. Moonbeam Beamswap remains separate entity hei_ex_000370."
+    }
+  ]
+}
