@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-22",
+  "purpose": "Close the rejected 2THICK BX20 proposal as a duplicate identity after canonical domain overlap validation.",
+  "entries": [
+    {
+      "candidate_key": "candidate:2thick",
+      "canonical_name": "2THICK",
+      "aliases": ["2Thick", "2THICK DEX", "THICK second iteration"],
+      "candidate_class": "B",
+      "state": "duplicate",
+      "first_seen_at": "2026-06-11",
+      "last_reviewed_at": "2026-07-22",
+      "target_entity_id": "hei_ex_000855",
+      "source_files": [
+        "docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl",
+        "records/exchanges/e3.json"
+      ],
+      "notes": "BX20 records validation rejected 2THICK as a separate entity because its canonical first-party domain, eliteness.network, is already assigned to E3 entity hei_ex_000855. The candidate is terminally closed as duplicate and must not return as new entity-growth work without an explicit identity-separation review."
+    }
+  ]
+}
