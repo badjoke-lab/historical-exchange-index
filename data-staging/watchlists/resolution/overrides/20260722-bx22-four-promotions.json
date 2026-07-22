@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-22",
+  "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX22.",
+  "entries": [
+    {
+      "candidate_key": "candidate:world-markets",
+      "canonical_name": "World Markets",
+      "aliases": ["World", "World Markets Inc", "World PrimeDEX", "WCM"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-22",
+      "last_reviewed_at": "2026-07-22",
+      "target_entity_id": "hei_ex_001002",
+      "source_files": ["records/exchanges/world-markets.json"],
+      "notes": "BX22 promotes World Markets after current first-party MegaETH spot, perpetual, lending, and unified-margin documentation plus independent TVL, fee, revenue, spot-volume, and perpetual-volume verification."
+    },
+    {
+      "candidate_key": "candidate:prism-dex",
+      "canonical_name": "Prism DEX",
+      "aliases": ["Prism", "PrismFi", "Prism Finance"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-22",
+      "last_reviewed_at": "2026-07-22",
+      "target_entity_id": "hei_ex_001003",
+      "source_files": ["records/exchanges/prism-dex.json"],
+      "notes": "BX22 promotes Prism DEX after current first-party MegaETH swap-interface review and independent concentrated-liquidity TVL, fee, revenue, and DEX-volume verification."
+    },
+    {
+      "candidate_key": "candidate:nado",
+      "canonical_name": "Nado",
+      "aliases": ["Nado Spot", "Nado Perps", "Nado Exchange"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-22",
+      "last_reviewed_at": "2026-07-22",
+      "target_entity_id": "hei_ex_001004",
+      "source_files": ["records/exchanges/nado.json"],
+      "notes": "BX22 promotes Nado after current first-party Ink trading-interface review and independent spot-volume, perpetual-volume, TVL, fee, revenue, and open-interest verification."
+    },
+    {
+      "candidate_key": "candidate:inkyswap",
+      "canonical_name": "InkySwap",
+      "aliases": ["InkySwap DEX", "InkySwap & InkyPump"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-22",
+      "last_reviewed_at": "2026-07-22",
+      "target_entity_id": "hei_ex_001005",
+      "source_files": ["records/exchanges/inkyswap.json"],
+      "notes": "BX22 promotes InkySwap after first-party AMM, liquidity, and InkyPump-linked trading review plus independent Ink-chain protocol verification."
+    }
+  ]
+}
