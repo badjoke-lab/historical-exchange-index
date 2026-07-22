@@ -4,28 +4,28 @@
   "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX22.",
   "entries": [
     {
-      "candidate_key": "candidate:buda",
-      "canonical_name": "Buda.com",
-      "aliases": ["Buda", "Buda Exchange", "BudaPro"],
+      "candidate_key": "candidate:world-markets",
+      "canonical_name": "World Markets",
+      "aliases": ["World", "World Markets Inc", "World PrimeDEX", "WCM"],
       "candidate_class": "B",
       "state": "promoted",
-      "first_seen_at": "2026-06-11",
+      "first_seen_at": "2026-07-22",
       "last_reviewed_at": "2026-07-22",
       "target_entity_id": "hei_ex_001002",
-      "source_files": ["docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl", "records/exchanges/buda.json"],
-      "notes": "BX22 promotes Buda.com after first-party company-history and operating-market review plus independent current spot-market verification. BudaPro remains a product surface of the parent exchange."
+      "source_files": ["records/exchanges/world-markets.json"],
+      "notes": "BX22 promotes World Markets after current first-party MegaETH spot, perpetual, lending, and unified-margin documentation plus independent TVL, fee, revenue, spot-volume, and perpetual-volume verification."
     },
     {
-      "candidate_key": "candidate:bmx-classic-amm",
-      "canonical_name": "BMX",
-      "aliases": ["BMX by Morphex", "Morphex BMX", "BMX Classic", "BMX Classic AMM", "BMX Freestyle"],
+      "candidate_key": "candidate:prism-dex",
+      "canonical_name": "Prism DEX",
+      "aliases": ["Prism", "PrismFi", "Prism Finance"],
       "candidate_class": "B",
       "state": "promoted",
-      "first_seen_at": "2026-06-11",
+      "first_seen_at": "2026-07-22",
       "last_reviewed_at": "2026-07-22",
       "target_entity_id": "hei_ex_001003",
-      "source_files": ["docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl", "records/exchanges/bmx.json"],
-      "notes": "BX22 resolves the product-specific BMX Classic AMM candidate into the parent BMX exchange entity, consolidating Classic, Freestyle, spot AMM, and perpetual trading surfaces."
+      "source_files": ["records/exchanges/prism-dex.json"],
+      "notes": "BX22 promotes Prism DEX after current first-party MegaETH swap-interface review and independent concentrated-liquidity TVL, fee, revenue, and DEX-volume verification."
     },
     {
       "candidate_key": "candidate:nado",
