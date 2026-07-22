@@ -4,16 +4,16 @@
   "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX20.",
   "entries": [
     {
-      "candidate_key": "candidate:2thick",
-      "canonical_name": "2THICK",
-      "aliases": ["2Thick", "2THICK DEX"],
+      "candidate_key": "candidate:aktionariat",
+      "canonical_name": "Aktionariat",
+      "aliases": ["Aktionariat AG", "Aktionariat Secondary Market", "Aktionariat Brokerbot"],
       "candidate_class": "B",
       "state": "promoted",
       "first_seen_at": "2026-06-11",
       "last_reviewed_at": "2026-07-21",
       "target_entity_id": "hei_ex_000994",
-      "source_files": ["docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl", "records/exchanges/2thick.json"],
-      "notes": "BX20 promoted 2THICK after first-party product review and independent current TVL, fee, and volume verification. Distinct Eliteness exchange products remain separate entities."
+      "source_files": ["docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl", "records/exchanges/aktionariat.json"],
+      "notes": "BX20 promoted Aktionariat after current first-party on-chain equity trading review and independent current DEX volume, TVL, fee, and revenue verification. Brokerbot, SecondaryMarket, direct-investment, and issuer-specific trading surfaces remain one entity."
     },
     {
       "candidate_key": "candidate:stellar-dex",
