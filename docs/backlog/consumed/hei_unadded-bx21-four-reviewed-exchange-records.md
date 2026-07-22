@@ -22,8 +22,8 @@ Next evidence ID:   hei_src_012210
 ```text
 Ambient        hei_ex_000998 active
 Nabla Finance hei_ex_000999 active
-BarterSwap     hei_ex_001000 active
-Beam Swap      hei_ex_001001 active
+WinnieSwap     hei_ex_001000 active
+Burve          hei_ex_001001 active
 ```
 
 ## Candidate sources
@@ -31,11 +31,11 @@ Beam Swap      hei_ex_001001 active
 ```text
 docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl
   Ambient
-  BarterSwap Superposition
-  Beam Swap
 
 current external discovery review
   Nabla Finance
+  WinnieSwap
+  Burve
 ```
 
 ## Duplicate controls
@@ -60,17 +60,21 @@ BetterSwap      -> hei_ex_000576
 BurrBear        -> hei_ex_000608
 Bulla Exchange  -> hei_ex_000412
 BrownFi         -> hei_ex_000606
+BarterSwap      -> Barter hei_ex_000560
+Beam Swap       -> Beam Network Swap hei_ex_000558
 Beralis V3      -> deprecated / insufficient active evidence
 ```
 
-Direct canonical path, alias, domain, and product-lineage review found no existing entity for Ambient, Nabla Finance, BarterSwap, or Beam Swap.
+Records validation caught BarterSwap and Beam Swap on the initial BX21 head. Their proposed files were removed, IDs and evidence slots were reassigned, and the gate was not bypassed. Both rejected candidates are terminally closed as `duplicate` in `data-staging/watchlists/resolution/overrides/20260722-bx21-duplicate-closures.json`.
+
+Direct canonical path, alias, domain, and product-lineage review found no existing entity for Ambient, Nabla Finance, WinnieSwap, or Burve.
 
 ## Entity-first boundaries
 
 - Ambient consolidates the former CrocSwap identity, single-contract DEX architecture, and current multichain deployments.
 - Nabla Finance consolidates the Nabla AMM, yield products, agent-facing liquidity, and all current deployments.
-- BarterSwap consolidates intent matching, direct DEX execution, aggregation, and the Superposition-labelled discovery representation.
-- Beam Swap is the Beam-chain DEX at `swap.onbeam.com` and remains distinct from Moonbeam Beamswap `hei_ex_000370` at `app.beamswap.io`.
+- WinnieSwap consolidates its Berachain V3 AMM, swaps, liquidity positions, Sticky Vaults, AutoWin Vaults, and Proof-of-Liquidity integrations.
+- Burve consolidates the current `burve.fi` multi-pool stableswap protocol and omni-pools; it remains distinct from older unrelated `burve.io` bonding-curve launch products.
 
 ## Projected reviewed delta
 
