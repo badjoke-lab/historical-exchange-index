@@ -28,28 +28,28 @@
       "notes": "BX21 promotes Nabla Finance after current first-party AMM review and independent multichain TVL, fee, revenue, and DEX-volume verification."
     },
     {
-      "candidate_key": "candidate:barterswap-superposition",
-      "canonical_name": "BarterSwap",
-      "aliases": ["Barter Swap", "BarterSwap Superposition", "BarterSwap Aggregator"],
+      "candidate_key": "candidate:winnieswap",
+      "canonical_name": "WinnieSwap",
+      "aliases": ["Winnie Swap", "WinnieSwap DEX", "Winnie"],
       "candidate_class": "B",
       "state": "promoted",
-      "first_seen_at": "2026-06-11",
+      "first_seen_at": "2026-07-22",
       "last_reviewed_at": "2026-07-22",
       "target_entity_id": "hei_ex_001000",
-      "source_files": ["docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl", "records/exchanges/barterswap.json"],
-      "notes": "BX21 promotes BarterSwap and consolidates its intent-matching, direct DEX, aggregator, Ethereum, and Superposition-labelled discovery surfaces into one entity."
+      "source_files": ["records/exchanges/winnieswap.json"],
+      "notes": "BX21 promotes WinnieSwap after current first-party Berachain DEX documentation and independent TVL, fee, and DEX-volume verification."
     },
     {
-      "candidate_key": "candidate:beam-swap",
-      "canonical_name": "Beam Swap",
-      "aliases": ["Beam Network Swap", "Beam chain DEX", "swap.onbeam.com"],
+      "candidate_key": "candidate:burve",
+      "canonical_name": "Burve",
+      "aliases": ["Burve Finance", "Burve Stableswap", "Burve DEX"],
       "candidate_class": "B",
       "state": "promoted",
-      "first_seen_at": "2026-06-11",
+      "first_seen_at": "2026-07-22",
       "last_reviewed_at": "2026-07-22",
       "target_entity_id": "hei_ex_001001",
-      "source_files": ["docs/backlog/verified-unadded-candidates-v1/unadded-candidates-verified-v1.jsonl", "records/exchanges/beam-swap.json"],
-      "notes": "BX21 promotes the Beam-chain exchange at swap.onbeam.com. It remains distinct from Moonbeam Beamswap entity hei_ex_000370 at app.beamswap.io."
+      "source_files": ["records/exchanges/burve.json"],
+      "notes": "BX21 promotes the current burve.fi Berachain multi-pool stableswap protocol. It remains distinct from older unrelated burve.io bonding-curve launch-product materials."
     }
   ]
 }
