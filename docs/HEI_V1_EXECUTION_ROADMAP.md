@@ -48,12 +48,12 @@ D-1000 Reviewed Entity Milestone:     CURRENT
 Language Selection Gate:              BLOCKED UNTIL D-1000 + L-2 EVIDENCE
 ```
 
-BX24 reviewed state:
+23 July 2026 BitMEX lifecycle state:
 
 ```text
 Entities: 893
-Events:   1004
-Evidence: 3545
+Events:   1005
+Evidence: 3547
 English dossiers:  893
 Japanese dossiers: 893
 Sitemap routes:     1834
@@ -64,7 +64,7 @@ Current authority:
 
 ```text
 config/maintainer-recovery-contract.json
-docs/audits/HEI_D1000_PROGRESS_BX24_2026-07-23.md
+docs/audits/HEI_BITMEX_CLOSURE_ANNOUNCEMENT_2026-07-23.md
 docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
 data-evaluation/l2-localization-evidence.json
 ```
@@ -85,12 +85,12 @@ scripts/lib/entity-corrections.mjs
 
 Milestones count reviewed public state after reviewed bundle aggregation, entity correction, identity resolution, and event/evidence merge semantics.
 
-Current BX24 identifiers:
+Current reviewed identifiers:
 
 ```text
 Maximum added entity ID:   hei_ex_001013
-Maximum event ID:          hei_ev_010080
-Maximum added evidence ID: hei_src_012241
+Maximum event ID:          hei_ev_010081
+Maximum added evidence ID: hei_src_012243
 ```
 
 The D-1000 milestone is `reviewed public entities >= 1000`.
@@ -274,8 +274,8 @@ State: `CURRENT`
 ```text
 Target:   reviewed public entities >= 1000
 Entities: 893
-Events:   1004
-Evidence: 3545
+Events:   1005
+Evidence: 3547
 Remaining: 107 reviewed entities
 ```
 
@@ -364,7 +364,7 @@ docs/operations/HEI_MAINTAINER_RECOVERY_RUNBOOK.md
 
 Recovery must determine repository identity, current main SHA, open PRs, deployment policy, roadmap checkpoint, active specifications, reviewed counts under build semantics, production/baseline verification state, required validation commands, and the first incomplete roadmap item.
 
-At the BX24 checkpoint, recovery should resolve:
+At the 23 July 2026 BitMEX lifecycle checkpoint, recovery should resolve:
 
 ```text
 Phase H COMPLETE
@@ -373,8 +373,8 @@ L-1 COMPLETE / PUBLIC
 L-2 HOLD
 D-1000 CURRENT
 Entities: 893
-Events: 1004
-Evidence: 3545
+Events: 1005
+Evidence: 3547
 Remaining to D-1000: 107
 ```
 
