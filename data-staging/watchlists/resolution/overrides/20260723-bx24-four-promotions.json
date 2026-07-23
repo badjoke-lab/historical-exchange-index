@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-23",
+  "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX24.",
+  "entries": [
+    {
+      "candidate_key": "candidate:inkswap",
+      "canonical_name": "InkSwap",
+      "aliases": ["InkSwap DEX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-23",
+      "last_reviewed_at": "2026-07-23",
+      "target_entity_id": "hei_ex_001010",
+      "source_files": ["records/exchanges/inkswap.json"],
+      "notes": "BX24 promotes InkSwap after current first-party application review and independent Ink-chain TVL verification. It remains distinct from InkySwap."
+    },
+    {
+      "candidate_key": "candidate:suidex",
+      "canonical_name": "SuiDex",
+      "aliases": ["SuiDeX", "SuiDex V2", "SuiDex V3"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-23",
+      "last_reviewed_at": "2026-07-23",
+      "target_entity_id": "hei_ex_001011",
+      "source_files": ["records/exchanges/suidex.json"],
+      "notes": "BX24 promotes SuiDex after current first-party V2, V3, routing, pool, and farming review plus independent Sui TVL verification."
+    },
+    {
+      "candidate_key": "candidate:skate-amm",
+      "canonical_name": "Skate AMM",
+      "aliases": ["Skate", "Skatechain AMM"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-23",
+      "last_reviewed_at": "2026-07-23",
+      "target_entity_id": "hei_ex_001012",
+      "source_files": ["records/exchanges/skate-amm.json"],
+      "notes": "BX24 promotes Skate AMM after current first-party unified-liquidity documentation and independent multi-chain TVL, fee, and DEX-volume verification."
+    },
+    {
+      "candidate_key": "candidate:crystal-exchange",
+      "canonical_name": "Crystal Exchange",
+      "aliases": ["Crystal", "Crystal CLOB"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-23",
+      "last_reviewed_at": "2026-07-23",
+      "target_entity_id": "hei_ex_001013",
+      "source_files": ["records/exchanges/crystal-exchange.json"],
+      "notes": "BX24 promotes Crystal Exchange as limited after current first-party Monad CLOB application and documentation review. Zero recent independent fee windows prevent active classification."
+    }
+  ]
+}
