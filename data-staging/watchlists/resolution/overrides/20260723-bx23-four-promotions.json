@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-23",
+  "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX23.",
+  "entries": [
+    {
+      "candidate_key": "candidate:kumbaya",
+      "canonical_name": "Kumbaya",
+      "aliases": ["Kumbaya DEX", "Kumbaya Launchpad"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-23",
+      "last_reviewed_at": "2026-07-23",
+      "target_entity_id": "hei_ex_001006",
+      "source_files": ["records/exchanges/kumbaya.json"],
+      "notes": "BX23 promotes Kumbaya after current first-party application review, MegaETH ecosystem confirmation, and independent TVL, fee, revenue, and DEX-volume verification. Swap, pool, router, launchpad, and social-asset surfaces remain one entity."
+    },
+    {
+      "candidate_key": "candidate:sakuraswap",
+      "canonical_name": "SakuraSwap",
+      "aliases": ["Sakura Swap", "SakuraSwap AMM", "SakuraSwap CLMM"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-23",
+      "last_reviewed_at": "2026-07-23",
+      "target_entity_id": "hei_ex_001007",
+      "source_files": ["records/exchanges/sakuraswap.json"],
+      "notes": "BX23 promotes SakuraSwap after current first-party trading and pool review plus independent multichain TVL, fee, and DEX-volume verification. AMM, CLMM, and network deployments remain one entity."
+    },
+    {
+      "candidate_key": "candidate:neoxa-exchange",
+      "canonical_name": "Neoxa Exchange",
+      "aliases": ["Neox EX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-23",
+      "last_reviewed_at": "2026-07-23",
+      "target_entity_id": "hei_ex_001008",
+      "source_files": ["records/exchanges/neoxa-exchange.json"],
+      "notes": "BX23 promotes the current Neoxa-team trading venue as limited. Custody and manual withdrawal-review features support centralized exchange-like modeling, and the venue remains distinct from the separately planned native Neoxa DEX."
+    },
+    {
+      "candidate_key": "candidate:squidswap",
+      "canonical_name": "SquidSwap",
+      "aliases": ["Squidswap", "SquidSwap DEX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-23",
+      "last_reviewed_at": "2026-07-23",
+      "target_entity_id": "hei_ex_001009",
+      "source_files": ["records/exchanges/squidswap.json"],
+      "notes": "BX23 promotes SquidSwap as limited because current directory markets remain non-zero while first-party domain continuity is uncertain. The canonical URL is preserved without a live assertion."
+    }
+  ]
+}
