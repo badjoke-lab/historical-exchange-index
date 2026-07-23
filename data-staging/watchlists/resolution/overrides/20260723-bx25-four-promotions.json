@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-23",
+  "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX25.",
+  "entries": [
+    {
+      "candidate_key": "candidate:lunarbase",
+      "canonical_name": "Lunarbase",
+      "aliases": ["LunarBase", "Lunarbase DEX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-23",
+      "last_reviewed_at": "2026-07-23",
+      "target_entity_id": "hei_ex_001014",
+      "source_files": ["records/exchanges/lunarbase.json"],
+      "notes": "BX25 promotes Lunarbase after current first-party application review and independent Base and Monad TVL, fee, revenue, and DEX-volume verification. All deployments remain one entity."
+    },
+    {
+      "candidate_key": "candidate:lithos",
+      "canonical_name": "Lithos",
+      "aliases": ["Lithos DEX", "Lithos Finance"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-23",
+      "last_reviewed_at": "2026-07-23",
+      "target_entity_id": "hei_ex_001015",
+      "source_files": ["records/exchanges/lithos.json"],
+      "notes": "BX25 promotes Lithos after first-party Plasma DEX documentation and independent current TVL, fee, revenue, and DEX-volume verification. The application URL remains live_unverified because direct response verification was blocked."
+    },
+    {
+      "candidate_key": "candidate:monday-trade",
+      "canonical_name": "Monday Trade",
+      "aliases": ["MondayTrade", "Monday Trade Spot", "Monday Trade Perps"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-23",
+      "last_reviewed_at": "2026-07-23",
+      "target_entity_id": "hei_ex_001016",
+      "source_files": ["records/exchanges/monday-trade.json"],
+      "notes": "BX25 promotes Monday Trade after first-party Monad spot and perpetual DEX documentation and independent current TVL, fee, spot-volume, and perpetual-volume verification. All product surfaces remain one entity."
+    },
+    {
+      "candidate_key": "candidate:purps",
+      "canonical_name": "Purps",
+      "aliases": ["PurpsExchange", "PURPS", "Purps DEX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-23",
+      "last_reviewed_at": "2026-07-23",
+      "target_entity_id": "hei_ex_001017",
+      "source_files": ["records/exchanges/purps.json"],
+      "notes": "BX25 promotes Purps after current first-party Monad swap application review and independent non-zero recent DEX-volume verification. Activity is thin, so confidence remains medium."
+    }
+  ]
+}
