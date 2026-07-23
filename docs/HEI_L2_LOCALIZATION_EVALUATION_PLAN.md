@@ -38,15 +38,15 @@ The initial L2 state is expected to be HOLD because the public Japanese Pilot ha
 
 HOLD keeps the Japanese Pilot public but does not block reviewed canonical data growth.
 
-After D-1000 batch BX24, the projected reviewed state is:
+After the 23 July 2026 BitMEX lifecycle update, the reviewed state is:
 
 ```text
 Entities: 893
-Events:   1004
-Evidence: 3545
+Events:   1005
+Evidence: 3547
 ```
 
-The localization decision remains HOLD. Translation breadth is not expanded by BX24, and third-language authorization remains false.
+The localization decision remains HOLD. Translation breadth is not expanded by this lifecycle update, and third-language authorization remains false.
 
 ## 3. Evidence categories
 
