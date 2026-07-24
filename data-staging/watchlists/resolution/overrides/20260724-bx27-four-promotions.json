@@ -28,16 +28,16 @@
       "notes": "BX27 promotes NovaDAX after current first-party Brazilian exchange review and independent current BRL and USDT spot-market and volume verification."
     },
     {
-      "candidate_key": "candidate:one-trading",
-      "canonical_name": "One Trading",
-      "aliases": ["OneTrading", "Bitpanda Pro"],
+      "candidate_key": "candidate:latoken",
+      "canonical_name": "LATOKEN",
+      "aliases": ["LATOKEN Exchange"],
       "candidate_class": "B",
       "state": "promoted",
       "first_seen_at": "2026-07-24",
       "last_reviewed_at": "2026-07-24",
       "target_entity_id": "hei_ex_001024",
-      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/one-trading.json"],
-      "notes": "BX27 promotes One Trading after current first-party Netherlands venue and regulatory review plus independent current spot-market and volume verification. The Bitpanda Pro rebrand remains within one entity."
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/latoken.json"],
+      "notes": "BX27 promotes LATOKEN after current first-party exchange-platform review and independent current multi-pair spot-market and non-zero volume verification. Confidence remains medium because the reviewed pass does not independently establish a current operating legal entity."
     },
     {
       "candidate_key": "candidate:paymium",
