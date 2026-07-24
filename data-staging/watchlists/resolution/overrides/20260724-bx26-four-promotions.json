@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-24",
+  "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX26.",
+  "entries": [
+    {
+      "candidate_key": "candidate:standx",
+      "canonical_name": "StandX",
+      "aliases": ["StandX Perps", "StandX Exchange"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-24",
+      "last_reviewed_at": "2026-07-24",
+      "target_entity_id": "hei_ex_001018",
+      "source_files": ["records/exchanges/standx.json"],
+      "notes": "BX26 promotes StandX after current first-party BNB Chain and Solana perpetual-DEX documentation and independent current volume, TVL, and open-interest verification."
+    },
+    {
+      "candidate_key": "candidate:vest-markets",
+      "canonical_name": "Vest Markets",
+      "aliases": ["Vest Exchange", "Vest"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-24",
+      "last_reviewed_at": "2026-07-24",
+      "target_entity_id": "hei_ex_001019",
+      "source_files": ["records/exchanges/vest-markets.json"],
+      "notes": "BX26 promotes Vest Markets after current first-party perpetual-market documentation and independent current volume, fees, TVL, and open-interest verification. Vest Markets and Vest Exchange remain one entity."
+    },
+    {
+      "candidate_key": "candidate:tessera-v",
+      "canonical_name": "Tessera V",
+      "aliases": ["Tessera V Prop AMM"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-24",
+      "last_reviewed_at": "2026-07-24",
+      "target_entity_id": "hei_ex_001020",
+      "source_files": ["records/exchanges/tessera-v.json"],
+      "notes": "BX26 promotes Tessera V after independent current Solana, Base, and BNB Chain DEX-volume verification. Confidence remains medium because no stable first-party website was recovered."
+    },
+    {
+      "candidate_key": "candidate:variational",
+      "canonical_name": "Variational",
+      "aliases": ["Variational Omni", "Omni by Variational", "Variational Protocol"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-24",
+      "last_reviewed_at": "2026-07-24",
+      "target_entity_id": "hei_ex_001021",
+      "source_files": ["records/exchanges/variational.json"],
+      "notes": "BX26 promotes Variational as one hybrid entity consolidating the protocol and live Omni perpetual-trading application after current first-party documentation and independent volume and open-interest verification."
+    }
+  ]
+}
