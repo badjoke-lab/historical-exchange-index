@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-24",
+  "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX27.",
+  "entries": [
+    {
+      "candidate_key": "candidate:ndax",
+      "canonical_name": "Ndax",
+      "aliases": ["NDAX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-24",
+      "last_reviewed_at": "2026-07-24",
+      "target_entity_id": "hei_ex_001022",
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/ndax.json"],
+      "notes": "BX27 promotes Ndax after current first-party Canadian trading-platform review and independent non-zero spot-volume verification. NDAX is preserved as an alias."
+    },
+    {
+      "candidate_key": "candidate:novadax",
+      "canonical_name": "NovaDAX",
+      "aliases": ["Nova DAX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-24",
+      "last_reviewed_at": "2026-07-24",
+      "target_entity_id": "hei_ex_001023",
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/novadax.json"],
+      "notes": "BX27 promotes NovaDAX after current first-party Brazilian exchange review and independent current BRL and USDT spot-market and volume verification."
+    },
+    {
+      "candidate_key": "candidate:latoken",
+      "canonical_name": "LATOKEN",
+      "aliases": ["LATOKEN Exchange"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-24",
+      "last_reviewed_at": "2026-07-24",
+      "target_entity_id": "hei_ex_001024",
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/latoken.json"],
+      "notes": "BX27 promotes LATOKEN after current first-party exchange-platform review and independent current multi-pair spot-market and non-zero volume verification. Confidence remains medium because the reviewed pass does not independently establish a current operating legal entity."
+    },
+    {
+      "candidate_key": "candidate:paymium",
+      "canonical_name": "Paymium",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-24",
+      "last_reviewed_at": "2026-07-24",
+      "target_entity_id": "hei_ex_001025",
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/paymium.json"],
+      "notes": "BX27 promotes Paymium after current first-party French exchange and MiCA service review plus independent current BTC-EUR market and volume verification."
+    }
+  ]
+}
