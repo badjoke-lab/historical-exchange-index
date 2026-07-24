@@ -5,10 +5,10 @@ Date: 2026-07-24
 ## Promoted
 
 ```text
-Ndax        -> hei_ex_001022
-NovaDAX     -> hei_ex_001023
-One Trading -> hei_ex_001024
-Paymium     -> hei_ex_001025
+Ndax    -> hei_ex_001022
+NovaDAX -> hei_ex_001023
+LATOKEN -> hei_ex_001024
+Paymium -> hei_ex_001025
 ```
 
 ## Backlog source
@@ -18,7 +18,7 @@ The current reviewed backlog-dedupe pass identified these named rows as not foun
 ```text
 hei_cand_0060 NDAX
 hei_cand_0061 NovaDAX
-hei_cand_0063 One Trading
+hei_cand_0055 LATOKEN
 hei_cand_0064 Paymium
 ```
 
@@ -39,12 +39,11 @@ The same pass directly recognized `Coinbase Exchange` as canonical and did not t
 - The platform reports more than 300 trading pairs.
 - Independent current market data lists recently updated BRL and USDT spot pairs and non-zero volume.
 
-### One Trading
+### LATOKEN
 
-- Current first-party pages identify One Trading Exchange B.V. as the Netherlands-based current venue.
-- The venue is authorised to operate a crypto-asset trading platform and related custody services.
-- Independent current market data lists recently updated spot pairs and non-zero volume.
-- Bitpanda Pro and One Trading remain one rebranded exchange identity in this routine growth record.
+- Current first-party platform exposes active exchange, wallet, asset-discovery, and trading entry points.
+- Independent current market data lists hundreds of spot pairs, recently updated major markets, and non-zero volume.
+- Confidence remains medium because the reviewed pass does not independently establish a current operating legal entity beyond the jurisdiction carried by the exchange registry.
 
 ### Paymium
 
@@ -54,7 +53,9 @@ The same pass directly recognized `Coinbase Exchange` as canonical and did not t
 
 ## Duplicate controls
 
-Direct canonical-path, name, alias, slug, and domain checks found no reviewed record for the four promoted BX27 entities before creation.
+Direct canonical-path, name, alias, slug, and domain checks found no reviewed record for the four final BX27 entities before creation.
+
+The first BX27 draft included One Trading, but Records validation detected that its `Bitpanda Pro` identity already belonged to the reviewed `Bitpanda Pro` entity (`hei_ex_000585`). One Trading was removed rather than bypassing the overlap gate, and LATOKEN was reviewed as the replacement fourth entity.
 
 Adjacent existing records and seed labels were not duplicated. In particular, the backlog's standalone `Coinbase` label was not promoted separately from the existing `Coinbase Exchange` entity.
 
