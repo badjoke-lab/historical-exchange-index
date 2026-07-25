@@ -4,16 +4,16 @@
   "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX29.",
   "entries": [
     {
-      "candidate_key": "candidate:biconomy-com",
-      "canonical_name": "Biconomy.com",
-      "aliases": ["Biconomy Exchange"],
+      "candidate_key": "candidate:coincatch",
+      "canonical_name": "CoinCatch",
+      "aliases": [],
       "candidate_class": "B",
       "state": "promoted",
       "first_seen_at": "2026-07-25",
       "last_reviewed_at": "2026-07-25",
       "target_entity_id": "hei_ex_001030",
-      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/biconomy-com.json"],
-      "notes": "BX29 promotes the Biconomy.com centralized exchange after direct path and protocol-name separation checks, current first-party corporate review, and independent current market and volume verification."
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/coincatch.json"],
+      "notes": "BX29 promotes CoinCatch as dead after direct path checks and first-party evidence for the 2025-12-24 termination announcement, 2026-01-30 cessation of platform operations, and subsequent final wind-down."
     },
     {
       "candidate_key": "candidate:zoomex",
