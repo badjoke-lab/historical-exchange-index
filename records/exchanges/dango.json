@@ -1,0 +1,105 @@
+{
+  "entity": {
+    "id": "hei_ex_001034",
+    "slug": "dango",
+    "canonical_name": "Dango",
+    "aliases": [
+      "Dango Exchange",
+      "The Endgame Exchange",
+      "dango.exchange"
+    ],
+    "type": "dex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": "2026-04-08",
+    "death_date": null,
+    "country_or_origin": "Dango L1 ecosystem",
+    "summary": "Perpetual futures decentralized exchange built on the Dango Layer 1 network. Dango announced an orderly project wind-down on 24 July 2026, with trading scheduled to halt on 29 July and the underlying chain scheduled to stop on 13 August.",
+    "official_url_original": "https://dango.exchange/",
+    "official_domain_original": "dango.exchange",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://dango.exchange/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-07-25",
+    "notes": "Dango remains in a phased wind-down rather than a completed shutdown. HEI therefore uses limited, leaves death_reason and death_date null, and records only the shutdown announcement. The scheduled 29 July trading halt and 13 August chain stop require later verification before a shutdown_effective event or dead classification is added."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010086",
+      "exchange_id": "hei_ex_001034",
+      "event_type": "launched",
+      "event_date": "2026-04-08",
+      "title": "Dango perpetuals exchange went live",
+      "description": "Dango announced that its perpetual futures exchange was live on the Dango Layer 1 network.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "The event records the public perps launch rather than an earlier testnet or chain-development milestone."
+    },
+    {
+      "id": "hei_ev_010087",
+      "exchange_id": "hei_ex_001034",
+      "event_type": "shutdown_announced",
+      "event_date": "2026-07-24",
+      "title": "Dango announced project wind-down",
+      "description": "Dango announced that trading would halt on 29 July 2026 at 12:00 UTC and that the Dango Layer 1 network would stop on 13 August 2026 at 12:00 UTC.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "Remaining positions are scheduled to close at oracle prices, DLP vault deposits are scheduled to unlock, and funds are scheduled to return as USDC. This is an announcement event; future completion is not pre-recorded."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012287",
+      "exchange_id": "hei_ex_001034",
+      "event_id": "hei_ev_010086",
+      "source_type": "official_social",
+      "title": "Dango perps are live",
+      "url": "https://x.com/dango/status/2041949548419973123",
+      "publisher": "Dango",
+      "published_at": "2026-04-08",
+      "archived_url": "https://web.archive.org/web/*/https://x.com/dango/status/2041949548419973123",
+      "accessed_at": "2026-07-25",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "First-party launch announcement for the public perpetual futures exchange."
+    },
+    {
+      "id": "hei_src_012288",
+      "exchange_id": "hei_ex_001034",
+      "event_id": "hei_ev_010087",
+      "source_type": "official_social",
+      "title": "Dango project wind-down announcement",
+      "url": "https://x.com/dango/status/2080707796144705625",
+      "publisher": "Dango",
+      "published_at": "2026-07-24",
+      "archived_url": "https://web.archive.org/web/*/https://x.com/dango/status/2080707796144705625",
+      "accessed_at": "2026-07-25",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party notice gives the trading-halt, position-closure, DLP unlock, USDC return, chain-stop, and residual-deposit refund schedule."
+    },
+    {
+      "id": "hei_src_012289",
+      "exchange_id": "hei_ex_001034",
+      "event_id": "hei_ev_010087",
+      "source_type": "news_article",
+      "title": "Perp DEX Dango to Wind Down, Will Halt Trading July 29",
+      "url": "https://thedefiant.io/news/defi/perp-dex-dango-to-wind-down-will-halt-trading-july-29",
+      "publisher": "The Defiant",
+      "published_at": "2026-07-24",
+      "archived_url": "https://web.archive.org/web/*/https://thedefiant.io/news/defi/perp-dex-dango-to-wind-down-will-halt-trading-july-29",
+      "accessed_at": "2026-07-25",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Independent reporting corroborates the phased shutdown schedule and identifies Dango as a perpetuals DEX on its own Layer 1."
+    }
+  ]
+}

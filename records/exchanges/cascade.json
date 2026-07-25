@@ -1,0 +1,109 @@
+{
+  "entity": {
+    "id": "hei_ex_001035",
+    "slug": "cascade",
+    "canonical_name": "Cascade",
+    "aliases": [
+      "Cascade XYZ",
+      "Cascade Perpetuals",
+      "cascade.xyz"
+    ],
+    "type": "dex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Arbitrum ecosystem",
+    "summary": "Invite-only perpetual markets platform in private beta. Cascade paused all trading and withdrawals after a July 2026 economic exploit of its Cascade Liquidity Strategy vault caused approximately 1.34 million USDC in user-fund losses.",
+    "official_url_original": "https://cascade.xyz/",
+    "official_domain_original": "cascade.xyz",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://cascade.xyz/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-07-25",
+    "notes": "Cascade remains publicly described as a private-beta perpetuals platform, and its website remains live. The operator confirmed that all trading and withdrawals were paused after the 15 July 2026 CLS vault exploit. HEI uses limited rather than inactive or dead because no verified shutdown announcement or permanent closure has been published. The investigation and recovery outcome remain unresolved."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010089",
+      "exchange_id": "hei_ex_001035",
+      "event_type": "exploit",
+      "event_date": "2026-07-15",
+      "title": "CLS vault exploit halted Cascade trading and withdrawals",
+      "description": "Attackers accumulated long positions in thin-liquidity markets, manipulated mark prices upward, and caused the Cascade Liquidity Strategy vault's opposing positions to be liquidated and auto-deleveraged. Cascade reported approximately 1.34 million USDC in losses and paused all trading and withdrawals.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 3,
+      "sort_order": 1,
+      "amount_text": "Approximately 1.34 million USDC",
+      "currency_text": "USDC",
+      "is_major_event": true,
+      "notes": "This records the confirmed economic exploit and operational pause. It does not classify unverified shutdown rumors as a terminal event and does not claim recovery, reimbursement, or resumed withdrawals."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012292",
+      "exchange_id": "hei_ex_001035",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Cascade perpetual markets application",
+      "url": "https://cascade.xyz/",
+      "publisher": "Cascade",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://cascade.xyz/",
+      "accessed_at": "2026-07-25",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party site identifies Cascade as an invite-only platform for 24/7 perpetual markets and provides a live login surface."
+    },
+    {
+      "id": "hei_src_012293",
+      "exchange_id": "hei_ex_001035",
+      "event_id": "hei_ev_010089",
+      "source_type": "official_social",
+      "title": "Cascade CLS exploit disclosure",
+      "url": "https://x.com/cascade_xyz/status/2077747846011306123",
+      "publisher": "Cascade",
+      "published_at": "2026-07-16",
+      "archived_url": "https://web.archive.org/web/*/https://x.com/cascade_xyz/status/2077747846011306123",
+      "accessed_at": "2026-07-25",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party disclosure explains the thin-market position buildup, mark-price manipulation, CLS liquidations and ADL closures, approximately 1.34 million USDC loss, and pause of trading and withdrawals."
+    },
+    {
+      "id": "hei_src_012294",
+      "exchange_id": "hei_ex_001035",
+      "event_id": "hei_ev_010089",
+      "source_type": "news_article",
+      "title": "Cascade loses $1.3M in vault exploit after months of warnings",
+      "url": "https://www.cryptopolitan.com/cascade-exploit-after-months-of-warnings/",
+      "publisher": "Cryptopolitan",
+      "published_at": "2026-07-16",
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptopolitan.com/cascade-exploit-after-months-of-warnings/",
+      "accessed_at": "2026-07-25",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Independent reporting corroborates the CLS vault loss, operational pause, private-beta deposit context, and cross-chain movement of the stolen funds. Unverified allegations in the article are not promoted into the canonical record."
+    },
+    {
+      "id": "hei_src_012295",
+      "exchange_id": "hei_ex_001035",
+      "event_id": "hei_ev_010089",
+      "source_type": "news_article",
+      "title": "Polychain-Backed Cascade Hacked for $1.34M in Locked User Funds",
+      "url": "https://www.cryptotimes.io/2026/07/16/polychain-backed-cascade-hacked-for-1-34m-in-locked-user-funds/",
+      "publisher": "The Crypto Times",
+      "published_at": "2026-07-16",
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptotimes.io/2026/07/16/polychain-backed-cascade-hacked-for-1-34m-in-locked-user-funds/",
+      "accessed_at": "2026-07-25",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Independent report corroborates the approximate 1.34 million USDC loss and the Cascade CLS vault as the affected exchange-liquidity component."
+    }
+  ]
+}
