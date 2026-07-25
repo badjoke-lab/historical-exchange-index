@@ -42,7 +42,7 @@ After D-1000 batch BX29, the projected reviewed state is:
 
 ```text
 Entities: 913
-Events:   1007
+Events:   1009
 Evidence: 3590
 ```
 
