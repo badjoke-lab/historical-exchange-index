@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-25",
+  "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX28.",
+  "entries": [
+    {
+      "candidate_key": "candidate:arkham-exchange",
+      "canonical_name": "Arkham Exchange",
+      "aliases": ["Arkham", "Arkham DEX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-25",
+      "last_reviewed_at": "2026-07-25",
+      "target_entity_id": "hei_ex_001026",
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/arkham-exchange.json"],
+      "notes": "BX28 promotes Arkham Exchange as limited after first-party centralized and decentralized trading review. Independent exchange tracking currently reports no tracked pairs or volume, so active status is not asserted."
+    },
+    {
+      "candidate_key": "candidate:yobit",
+      "canonical_name": "YoBit",
+      "aliases": ["YoBit.Net"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-25",
+      "last_reviewed_at": "2026-07-25",
+      "target_entity_id": "hei_ex_001027",
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/yobit.json"],
+      "notes": "BX28 promotes YoBit after current first-party market review and independent current spot-market and non-zero-volume verification. Confidence remains medium because ownership and jurisdiction are opaque and current quality warnings remain material."
+    },
+    {
+      "candidate_key": "candidate:hodl-hodl",
+      "canonical_name": "Hodl Hodl",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-25",
+      "last_reviewed_at": "2026-07-25",
+      "target_entity_id": "hei_ex_001028",
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/hodl-hodl.json"],
+      "notes": "BX28 promotes Hodl Hodl after current first-party non-custodial peer-to-peer Bitcoin marketplace and active API review."
+    },
+    {
+      "candidate_key": "candidate:paxful",
+      "canonical_name": "Paxful",
+      "aliases": ["Paxful Marketplace"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-25",
+      "last_reviewed_at": "2026-07-25",
+      "target_entity_id": "hei_ex_001029",
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/paxful.json"],
+      "notes": "BX28 promotes Paxful as dead with first-party evidence for a 2025-10-01 wind-down announcement and 2025-11-01 effective end of trading and deposits, leaving withdrawals only."
+    }
+  ]
+}
