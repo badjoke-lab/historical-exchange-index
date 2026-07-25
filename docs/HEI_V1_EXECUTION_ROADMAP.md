@@ -52,7 +52,7 @@ BX29 reviewed state:
 
 ```text
 Entities: 913
-Events:   1007
+Events:   1009
 Evidence: 3590
 English dossiers:  913
 Japanese dossiers: 913
@@ -89,7 +89,7 @@ Current BX29 identifiers:
 
 ```text
 Maximum added entity ID:   hei_ex_001033
-Maximum event ID:          hei_ev_010083
+Maximum event ID:          hei_ev_010085
 Maximum added evidence ID: hei_src_012286
 ```
 
@@ -274,7 +274,7 @@ State: `CURRENT`
 ```text
 Target:   reviewed public entities >= 1000
 Entities: 913
-Events:   1007
+Events:   1009
 Evidence: 3590
 Remaining: 87 reviewed entities
 ```
@@ -373,7 +373,7 @@ L-1 COMPLETE / PUBLIC
 L-2 HOLD
 D-1000 CURRENT
 Entities: 913
-Events: 1007
+Events: 1009
 Evidence: 3590
 Remaining to D-1000: 87
 ```
