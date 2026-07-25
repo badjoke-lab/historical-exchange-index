@@ -1,1 +1,119 @@
-{"entity":{"id":"hei_ex_000929","slug":"odos","canonical_name":"Odos","aliases":["Odos Router"],"type":"dex","status":"active","death_reason":null,"launch_date":null,"death_date":null,"country_or_origin":"Multichain ecosystem","summary":"Multichain decentralized exchange aggregator routing token swaps across EVM networks through a public application, API, quote and execution endpoints, and liquidity-source integrations.","official_url_original":"https://app.odos.xyz/","official_domain_original":"odos.xyz","official_url_status":"live_verified","archived_url":"https://web.archive.org/web/*/https://app.odos.xyz/","predecessor_id":null,"successor_id":null,"confidence":"high","last_verified_at":"2026-07-15","notes":"Current first-party documentation links the live Odos application and identifies the protocol as an active on-chain liquidity aggregator and swap router. It documents quote, assemble, execution, token-swap, liquidity-zap, contract, API, and multichain functions. No exact launch date, legal jurisdiction, predecessor, successor, or terminal lifecycle fact is asserted."},"events":[],"evidence":[{"id":"hei_src_012072","exchange_id":"hei_ex_000929","event_id":null,"source_type":"official_statement","title":"Odos documentation introduction","url":"https://docs.odos.xyz/","publisher":"Odos","published_at":null,"archived_url":"https://web.archive.org/web/*/https://docs.odos.xyz/","accessed_at":"2026-07-15","reliability":"high","claim_scope":"entity","notes":"First-party documentation describes Odos as a DeFi liquidity aggregation and routing system integrating DEXs, AMMs, order books, lending sources, and RFQ systems for on-chain swaps."},{"id":"hei_src_012073","exchange_id":"hei_ex_000929","event_id":null,"source_type":"official_statement","title":"Odos live application and API status","url":"https://app.odos.xyz/","publisher":"Odos","published_at":null,"archived_url":"https://web.archive.org/web/*/https://app.odos.xyz/","accessed_at":"2026-07-15","reliability":"high","claim_scope":"status","notes":"The current first-party documentation links the live application and reports live API v3 routing, token swaps, quote and execution endpoints, liquidity zaps, supported networks, and deployed contracts."}]}
+{
+  "entity": {
+    "id": "hei_ex_000929",
+    "slug": "odos",
+    "canonical_name": "Odos",
+    "aliases": [
+      "Odos Router"
+    ],
+    "type": "dex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Multichain ecosystem",
+    "summary": "Multichain decentralized exchange aggregator winding down after announcing that its application will become read-only on 27 July 2026 and all company-operated services will end on 30 July 2026.",
+    "official_url_original": "https://app.odos.xyz/",
+    "official_domain_original": "odos.xyz",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://app.odos.xyz/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-07-25",
+    "notes": "Odos announced a phased wind-down on 23 July 2026. New registrations, social-login wallet creation, and new limit orders stopped immediately; the app is scheduled to become read-only on 27 July, and all company-operated services are scheduled to stop on 30 July. Because swaps remain available during the transition and the final shutdown is in the future, HEI uses limited and leaves death_reason and death_date null. The ODOS token and Odos DAO remain separate from the operating company."
+  },
+  "entity_correction": {
+    "entity_id": "hei_ex_000929",
+    "expected": {
+      "status": "active",
+      "summary": "Multichain decentralized exchange aggregator routing token swaps across EVM networks through a public application, API, quote and execution endpoints, and liquidity-source integrations.",
+      "last_verified_at": "2026-07-15",
+      "notes": "Current first-party documentation links the live Odos application and identifies the protocol as an active on-chain liquidity aggregator and swap router. It documents quote, assemble, execution, token-swap, liquidity-zap, contract, API, and multichain functions. No exact launch date, legal jurisdiction, predecessor, successor, or terminal lifecycle fact is asserted."
+    },
+    "changes": {
+      "status": "limited",
+      "summary": "Multichain decentralized exchange aggregator winding down after announcing that its application will become read-only on 27 July 2026 and all company-operated services will end on 30 July 2026.",
+      "last_verified_at": "2026-07-25",
+      "notes": "Odos announced a phased wind-down on 23 July 2026. New registrations, social-login wallet creation, and new limit orders stopped immediately; the app is scheduled to become read-only on 27 July, and all company-operated services are scheduled to stop on 30 July. Because swaps remain available during the transition and the final shutdown is in the future, HEI uses limited and leaves death_reason and death_date null. The ODOS token and Odos DAO remain separate from the operating company."
+    }
+  },
+  "events": [
+    {
+      "id": "hei_ev_010088",
+      "exchange_id": "hei_ex_000929",
+      "event_type": "shutdown_announced",
+      "event_date": "2026-07-23",
+      "title": "Odos announced permanent service shutdown",
+      "description": "The company operating Odos announced that the application would move to read-only mode on 27 July 2026 and that all company-operated services would shut down permanently on 30 July 2026.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 2,
+      "sort_order": 10,
+      "notes": "New registrations, Odos-created wallets, and new limit orders stopped with the announcement. A shutdown_effective event and dead classification require verification after the scheduled service termination."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012072",
+      "exchange_id": "hei_ex_000929",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Odos documentation introduction",
+      "url": "https://docs.odos.xyz/",
+      "publisher": "Odos",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.odos.xyz/",
+      "accessed_at": "2026-07-15",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party documentation describes Odos as a DeFi liquidity aggregation and routing system integrating DEXs, AMMs, order books, lending sources, and RFQ systems for on-chain swaps."
+    },
+    {
+      "id": "hei_src_012073",
+      "exchange_id": "hei_ex_000929",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Odos live application and API status",
+      "url": "https://app.odos.xyz/",
+      "publisher": "Odos",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://app.odos.xyz/",
+      "accessed_at": "2026-07-15",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "The current first-party documentation links the live application and reports live API v3 routing, token swaps, quote and execution endpoints, liquidity zaps, supported networks, and deployed contracts."
+    },
+    {
+      "id": "hei_src_012290",
+      "exchange_id": "hei_ex_000929",
+      "event_id": "hei_ev_010088",
+      "source_type": "official_social",
+      "title": "Odos operating company wind-down announcement",
+      "url": "https://x.com/odosprotocol/status/2080337624922018014",
+      "publisher": "Odos",
+      "published_at": "2026-07-23",
+      "archived_url": "https://web.archive.org/web/*/https://x.com/odosprotocol/status/2080337624922018014",
+      "accessed_at": "2026-07-25",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party announcement gives the read-only and permanent shutdown dates, confirms non-custodial operation, separates the token and DAO from the operating company, and warns against fake migrations or claim sites."
+    },
+    {
+      "id": "hei_src_012291",
+      "exchange_id": "hei_ex_000929",
+      "event_id": "hei_ev_010088",
+      "source_type": "news_article",
+      "title": "Odos to Shut Down DEX Aggregator on July 30",
+      "url": "https://thedefiant.io/news/defi/odos-to-shut-down-dex-aggregator-on-july-30",
+      "publisher": "The Defiant",
+      "published_at": "2026-07-24",
+      "archived_url": "https://web.archive.org/web/*/https://thedefiant.io/news/defi/odos-to-shut-down-dex-aggregator-on-july-30",
+      "accessed_at": "2026-07-25",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Independent reporting corroborates the service timeline and distinguishes self-custody wallet users from social-login wallet users who must transfer assets or export keys."
+    }
+  ]
+}
