@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-25",
+  "purpose": "Close four reviewed exchange candidates after promotion through D-1000 BX29.",
+  "entries": [
+    {
+      "candidate_key": "candidate:coincatch",
+      "canonical_name": "CoinCatch",
+      "aliases": [],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-25",
+      "last_reviewed_at": "2026-07-25",
+      "target_entity_id": "hei_ex_001030",
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/coincatch.json"],
+      "notes": "BX29 promotes CoinCatch as dead after direct path checks and first-party evidence for the 2025-12-24 termination announcement, 2026-01-30 cessation of platform operations, and subsequent final wind-down."
+    },
+    {
+      "candidate_key": "candidate:zoomex",
+      "canonical_name": "Zoomex",
+      "aliases": ["Zoomex DEX"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-25",
+      "last_reviewed_at": "2026-07-25",
+      "target_entity_id": "hei_ex_001031",
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/zoomex.json"],
+      "notes": "BX29 promotes Zoomex as one hybrid entity after current first-party CEX and wallet-based DEX review plus independent current centralized market and volume verification."
+    },
+    {
+      "candidate_key": "candidate:p2b",
+      "canonical_name": "P2B",
+      "aliases": ["P2PB2B", "P2B Exchange"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-25",
+      "last_reviewed_at": "2026-07-25",
+      "target_entity_id": "hei_ex_001032",
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/p2b.json"],
+      "notes": "BX29 promotes P2B after direct P2B and P2PB2B identity checks, current first-party exchange review, and independent current market and volume verification."
+    },
+    {
+      "candidate_key": "candidate:m2-exchange",
+      "canonical_name": "M2",
+      "aliases": ["M2 Exchange"],
+      "candidate_class": "B",
+      "state": "promoted",
+      "first_seen_at": "2026-07-25",
+      "last_reviewed_at": "2026-07-25",
+      "target_entity_id": "hei_ex_001033",
+      "source_files": ["docs/backlog/hei-unadded-candidate-backlog-1000-v0.md", "records/exchanges/m2.json"],
+      "notes": "BX29 promotes M2 as limited after current first-party spot and OTC product review and independent exchange recognition. Untracked current market volume and separate global and ADGM legal-entity scopes prevent active classification."
+    }
+  ]
+}
