@@ -23,21 +23,6 @@
     "last_verified_at": "2026-07-25",
     "notes": "Odos announced a phased wind-down on 23 July 2026. New registrations, social-login wallet creation, and new limit orders stopped immediately; the app is scheduled to become read-only on 27 July, and all company-operated services are scheduled to stop on 30 July. Because swaps remain available during the transition and the final shutdown is in the future, HEI uses limited and leaves death_reason and death_date null. The ODOS token and Odos DAO remain separate from the operating company."
   },
-  "entity_correction": {
-    "entity_id": "hei_ex_000929",
-    "expected": {
-      "status": "active",
-      "summary": "Multichain decentralized exchange aggregator routing token swaps across EVM networks through a public application, API, quote and execution endpoints, and liquidity-source integrations.",
-      "last_verified_at": "2026-07-15",
-      "notes": "Current first-party documentation links the live Odos application and identifies the protocol as an active on-chain liquidity aggregator and swap router. It documents quote, assemble, execution, token-swap, liquidity-zap, contract, API, and multichain functions. No exact launch date, legal jurisdiction, predecessor, successor, or terminal lifecycle fact is asserted."
-    },
-    "changes": {
-      "status": "limited",
-      "summary": "Multichain decentralized exchange aggregator winding down after announcing that its application will become read-only on 27 July 2026 and all company-operated services will end on 30 July 2026.",
-      "last_verified_at": "2026-07-25",
-      "notes": "Odos announced a phased wind-down on 23 July 2026. New registrations, social-login wallet creation, and new limit orders stopped immediately; the app is scheduled to become read-only on 27 July, and all company-operated services are scheduled to stop on 30 July. Because swaps remain available during the transition and the final shutdown is in the future, HEI uses limited and leaves death_reason and death_date null. The ODOS token and Odos DAO remain separate from the operating company."
-    }
-  },
   "events": [
     {
       "id": "hei_ev_010088",
