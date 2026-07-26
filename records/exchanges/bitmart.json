@@ -7,19 +7,19 @@
       "bitmart.com"
     ],
     "type": "cex",
-    "status": "active",
+    "status": "limited",
     "death_reason": null,
     "launch_date": "2018-03-15",
     "death_date": null,
     "country_or_origin": "Marshall Islands",
-    "summary": "Centralized cryptocurrency exchange officially launched on March 15, 2018 and currently provided through Marshall Islands-addressed GBM Global Inc.",
+    "summary": "Centralized cryptocurrency exchange in an orderly wind-down after announcing phased service restrictions, an August 2026 trading stop, and planned termination of trading-platform operations on January 31, 2027.",
     "official_url_original": "https://www.bitmart.com/",
     "official_domain_original": "bitmart.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.bitmart.com/",
     "confidence": "high",
-    "last_verified_at": "2026-06-23",
-    "notes": "BitMart's official history gives an exact launch date of March 15, 2018. The origin field follows the current official user agreement, which identifies GBM Global Inc. with a Marshall Islands registration number and address. Cayman Islands governing law is documented separately and is not treated as the entity origin."
+    "last_verified_at": "2026-07-26",
+    "notes": "BitMart announced an orderly wind-down on July 26, 2026. New registrations, deposits, new positions, new spot orders, and automated trading services began stopping in phases from 01:30 UTC. Spot, futures, and other trading services are scheduled to stop on August 26, 2026, while formal trading-platform operations are planned to end on January 31, 2027. Withdrawals remain available during the wind-down. HEI therefore uses limited and leaves death_reason and death_date null until the relevant shutdown stages are verified. BitMart's official history gives an exact launch date of March 15, 2018. The origin field follows the current official user agreement, which identifies GBM Global Inc. with a Marshall Islands registration number and address."
   },
   "events": [
     {
@@ -49,6 +49,20 @@
       "source_count": 1,
       "sort_order": 2,
       "notes": "BitMart remained active and later resumed affected deposit and withdrawal services."
+    },
+    {
+      "id": "hei_ev_010090",
+      "exchange_id": "hei_ex_000393",
+      "event_type": "shutdown_announced",
+      "event_date": "2026-07-26",
+      "title": "BitMart announced an orderly wind-down",
+      "description": "BitMart announced phased restrictions beginning July 26, 2026, a stop to spot, futures, and other trading services on August 26, 2026, and planned termination of trading-platform operations on January 31, 2027.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 3,
+      "notes": "The exchange is not classified dead at announcement time because withdrawals remain available and the principal trading and platform-termination dates are in the future. Later shutdown_effective events require direct verification."
     }
   ],
   "evidence": [
@@ -141,6 +155,21 @@
       "reliability": "high",
       "claim_scope": "event",
       "notes": "Official update identifies the December 4, 2021 breach, affected hot wallets, and staged restoration of services."
+    },
+    {
+      "id": "hei_src_012296",
+      "exchange_id": "hei_ex_000393",
+      "event_id": "hei_ev_010090",
+      "source_type": "official_statement",
+      "title": "Important Notice Regarding the Orderly Cessation of BitMart Operations",
+      "url": "https://bitmart.zendesk.com/hc/en-us/articles/53544595916059-Important-Notice-Regarding-the-Orderly-Cessation-of-BitMart-Operations",
+      "publisher": "BitMart",
+      "published_at": "2026-07-26",
+      "archived_url": "https://web.archive.org/web/*/https://bitmart.zendesk.com/hc/en-us/articles/53544595916059-Important-Notice-Regarding-the-Orderly-Cessation-of-BitMart-Operations",
+      "accessed_at": "2026-07-26",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party notice defines the phased wind-down, including immediate registration, deposit, and new-order restrictions, the August 26 trading stop, the January 31, 2027 platform-termination date, and continuing withdrawal access during the transition."
     }
   ]
 }
