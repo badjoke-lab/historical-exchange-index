@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001042",
+    "slug": "bitmake",
+    "canonical_name": "BitMake",
+    "aliases": ["BitMake Exchange", "bitmake.com"],
+    "type": "cex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": "2022-01-01",
+    "death_date": null,
+    "country_or_origin": "United Arab Emirates",
+    "summary": "Dubai-origin centralized cryptocurrency exchange launched in 2022 with spot, futures, lending, and unified-account products, currently retained as limited because independent market tracking is incomplete.",
+    "official_url_original": "https://www.bitmake.com/",
+    "official_domain_original": "bitmake.com",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitmake.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-07-28",
+    "notes": "Current independent exchange-directory material continues to identify BitMake, links the bitmake.com domain, reports exchange-provided reserve addresses, and describes spot, perpetual, futures, and lending products. The same profile currently labels volume as untracked and does not expose usable current market data. HEI therefore uses limited rather than active. First-party historical material states that the team formed in Dubai in 2020 and the trading platform launched in 2022; January 1 is used only as a year-level launch marker. URL status remains live_unverified because the first-party root could not be fully validated during this review pass."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012309",
+      "exchange_id": "hei_ex_001042",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "BitMake exchange profile, products, and reported reserves",
+      "url": "https://coinmarketcap.com/exchanges/bitmake/",
+      "publisher": "CoinMarketCap",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-28",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current exchange profile links bitmake.com, describes the 2022 platform launch and spot, futures, and lending products, and reports exchange-provided reserves, while also classifying volume as untracked."
+    },
+    {
+      "id": "hei_src_012310",
+      "exchange_id": "hei_ex_001042",
+      "event_id": null,
+      "source_type": "official_blog",
+      "title": "BitMake launched DYM-LT on Lite Futures",
+      "url": "https://medium.com/@BitMakeOfficial/bitmake-has-launched-dym-lt-on-the-lite-futures-abcedc17d28f",
+      "publisher": "BitMake Exchange",
+      "published_at": "2024-02-07",
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/@BitMakeOfficial/bitmake-has-launched-dym-lt-on-the-lite-futures-abcedc17d28f",
+      "accessed_at": "2026-07-28",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "First-party-branded publication documents a BitMake futures-market listing and links the web trading surface, corroborating the exchange-product identity but not independently proving current unrestricted operation."
+    }
+  ]
+}

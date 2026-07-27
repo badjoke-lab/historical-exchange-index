@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001043",
+    "slug": "bitowex",
+    "canonical_name": "Bitowex",
+    "aliases": ["DIGITALK DASH Limited", "bitowex.com"],
+    "type": "cex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "United Kingdom",
+    "summary": "UK-company-branded digital asset platform exposing current spot trading, market, wallet, deposit, withdrawal, and account services, retained as limited pending stronger independent market corroboration.",
+    "official_url_original": "https://bitowex.com/",
+    "official_domain_original": "bitowex.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bitowex.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-07-28",
+    "notes": "The current first-party website exposes spot markets, trading pairs, account creation, deposits, withdrawals, wallets, fees, and exchange terms. Those terms identify DIGITALK DASH Limited as the operator. The UK Companies House register confirms that company number 14018271 is active and was incorporated in April 2022, but its filing classification does not independently verify cryptocurrency-exchange activity. HEI therefore uses limited rather than active and leaves launch_date null until stronger independent operational evidence is available."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012311",
+      "exchange_id": "hei_ex_001043",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Bitowex platform, terms, and compliance disclosures",
+      "url": "https://bitowex.com/info",
+      "publisher": "Bitowex",
+      "published_at": "2026-05-01",
+      "archived_url": "https://web.archive.org/web/*/https://bitowex.com/info",
+      "accessed_at": "2026-07-28",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party material exposes trading and funding services and identifies DIGITALK DASH Limited, company number 14018271, as the operator; the terms and policy set were updated on 1 May 2026."
+    },
+    {
+      "id": "hei_src_012312",
+      "exchange_id": "hei_ex_001043",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "DIGITALK DASH LIMITED company overview",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/14018271",
+      "publisher": "UK Companies House",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-28",
+      "reliability": "high",
+      "claim_scope": "ownership",
+      "notes": "The official UK company register confirms that DIGITALK DASH LIMITED is active, uses the address disclosed by Bitowex, and was incorporated on 1 April 2022. The register does not independently validate exchange operations."
+    }
+  ]
+}
