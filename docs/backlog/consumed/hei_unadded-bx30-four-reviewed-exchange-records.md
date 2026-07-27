@@ -1,6 +1,6 @@
 # HEI BX30 Consumed Candidate Note
 
-Date: 2026-07-26
+Date: 2026-07-27
 
 ## Starting state after intervening lifecycle updates
 
@@ -23,60 +23,68 @@ Events:   1014
 Evidence: 3600
 ```
 
+## Rejected overlap set
+
+The first historical-candidate draft proposed AgoraDesk, Einstein Exchange, BX.in.th, and CoinNest. Records validation identified all four as existing canonical entities:
+
+```text
+AgoraDesk         -> hei_ex_000294
+Einstein Exchange -> hei_ex_000138
+BX Thailand       -> hei_ex_000117
+Coinnest          -> hei_ex_000135
+```
+
+The duplicate record drafts were removed. Their entity, event, and evidence IDs were not retained or counted.
+
 ## Promoted
 
 ```text
-AgoraDesk        -> hei_ex_001036 dead
-Einstein Exchange -> hei_ex_001037 dead
-BX.in.th          -> hei_ex_001038 dead
-CoinNest          -> hei_ex_001039 dead
+GroveX   -> hei_ex_001036 active
+Koinpark -> hei_ex_001037 active
+Orbix    -> hei_ex_001038 active
+Niza.io  -> hei_ex_001039 active
 ```
 
 ## Direct duplicate controls
 
-Before drafting, HEI checked the canonical and alternate paths for the four entities, including:
+Before final drafting, HEI checked canonical and alternate paths, names, domains, and brand lineage for:
 
 ```text
-records/exchanges/agoradesk.json
-records/exchanges/localmonero.json
-records/exchanges/einstein-exchange.json
-records/exchanges/einstein.json
-records/exchanges/bx-in-th.json
-records/exchanges/bitcoin-co-th.json
-records/exchanges/coinnest.json
-records/exchanges/coin-nest.json
+GroveX / grovex.io
+Koinpark / Koinpark Private Limited / koinpark.com
+Orbix / Orbix Trade / Satang Pro / Satang Corporation
+Niza.io / NIZA / Niza Global / niza.io
 ```
 
-The paths were absent on the BX30 base commit. Repository name, alias, and domain searches also found no reviewed canonical entity for the final set.
+No reviewed canonical entity was found for the final four candidates on the BX30 base commit. Orbix and Satang Pro are deliberately consolidated as one continuing entity rather than counted as separate predecessor and successor exchanges.
 
 ## Review basis
 
-### AgoraDesk
+### GroveX
 
-- AgoraDesk and LocalMonero were two brand surfaces of the same non-custodial P2P platform and remain one entity.
-- A first-party May 7, 2024 announcement began a voluntary wind-down.
-- New trade creation ended on May 14, 2024; support and fund recovery remained temporarily available until the later website-removal deadline.
-- HEI therefore uses `dead / voluntary_shutdown` with `death_date: 2024-05-14`.
+- The current first-party domain exposes the GroveX exchange application.
+- Current independent exchange data identifies GroveX as an Australia-registered centralized exchange established in 2022 and reports current markets and non-zero trading activity.
+- The public legal-entity disclosure reviewed by HEI remains incomplete, so confidence is `medium` and no exact launch date is asserted.
 
-### Einstein Exchange
+### Koinpark
 
-- Primary British Columbia regulator releases confirm the November 1, 2019 interim receivership and operational seizure.
-- The receiver shut down the website and reported a severe shortfall between available assets and customer liabilities.
-- HEI therefore uses `dead / insolvency` and does not create a separate entity for the later regulatory and fraud findings.
+- Current first-party terms identify Koinpark Private Limited and describe the platform as a marketplace that matches and settles digital-asset buy and sell orders under Indian law.
+- Current independent exchange data identifies a 2023 establishment year and reports recently updated INR, USDT, and BTC markets with non-zero activity.
+- January 1 is used only as a year-level launch marker because an exact launch day was not verified.
 
-### BX.in.th
+### Orbix
 
-- Thailand's SEC preserved the operator's voluntary cessation notice.
-- All purchasing, selling, and trading ended after September 30, 2019.
-- Temporary withdrawal and support access did not constitute continued exchange operation.
-- HEI therefore uses `dead / voluntary_shutdown`.
+- Current first-party company history records the March 2017 founding of Satang Corporation and the October 2023 acquisition by Unita Capital, a KasikornBank subsidiary.
+- Current terms identify Orbix Trade Company Limited under Thai law.
+- Current independent exchange data preserves the Satang Pro-to-Orbix lineage and reports active markets.
+- Satang Pro and Orbix remain one continuing exchange entity.
 
-### CoinNest
+### Niza.io
 
-- Contemporary Korean and international reporting quotes the exchange's closure notice.
-- Trading and deposits ended at 17:00 KST on April 30, 2019, while withdrawals continued through a later wind-down deadline.
-- HEI therefore uses April 30 as the death date and `voluntary_shutdown` as the bounded primary reason.
+- Current first-party material states that Niza was established in March 2021 and exposes current spot markets, crypto purchase, account, app, and API-related services.
+- Current independent exchange data identifies Lithuania registration and reports current markets and non-zero trading activity.
+- Public first-party legal-entity disclosure remains incomplete, so confidence is `medium`.
 
 ## Safety note
 
-No unverified legal domicile, successor, acquisition, recovery, reimbursement, or incident cause is invented. Withdrawal-only and support-only wind-down access is not treated as active exchange operation.
+A live website alone was not treated as sufficient for active classification. Each final record includes current first-party platform evidence and independent exchange-market evidence. No unsupported exact launch day, terminal event, acquisition outcome, predecessor split, or legal-entity claim is introduced.
