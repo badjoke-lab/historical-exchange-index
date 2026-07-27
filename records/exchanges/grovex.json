@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001036",
+    "slug": "grovex",
+    "canonical_name": "GroveX",
+    "aliases": ["GroveX Exchange", "GroveX PTY LTD", "grovex.io"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Australia",
+    "summary": "Australia-registered centralized cryptocurrency exchange offering live crypto trading markets through the GroveX platform.",
+    "official_url_original": "https://grovex.io/",
+    "official_domain_original": "grovex.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://grovex.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-07-27",
+    "notes": "The current first-party domain exposes the GroveX exchange application. Current independent exchange data identifies GroveX as an Australia-registered centralized exchange established in 2022 and reports recently updated markets and non-zero trading activity. HEI leaves launch_date null because an exact first-party launch date was not verified. The public legal-entity disclosure remains incomplete, so confidence is medium."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012297",
+      "exchange_id": "hei_ex_001036",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "GroveX official exchange platform",
+      "url": "https://grovex.io/",
+      "publisher": "GroveX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://grovex.io/",
+      "accessed_at": "2026-07-27",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "The current first-party domain resolves to the GroveX cryptocurrency exchange application and verifies the operating brand and platform identity."
+    },
+    {
+      "id": "hei_src_012298",
+      "exchange_id": "hei_ex_001036",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "GroveX exchange profile and current markets",
+      "url": "https://www.coingecko.com/en/exchanges/grovex",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-27",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Current independent exchange profile identifies GroveX as a centralized exchange established in 2022 and registered in Australia and reports current markets and trading activity."
+    }
+  ]
+}
