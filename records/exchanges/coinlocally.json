@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001040",
+    "slug": "coinlocally",
+    "canonical_name": "Coinlocally",
+    "aliases": ["Coinlocally Exchange", "Coinlocally LLC", "coinlocally.com"],
+    "type": "cex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": "2019-01-01",
+    "death_date": null,
+    "country_or_origin": "Armenia",
+    "summary": "Centralized cryptocurrency exchange launched in 2019 and currently operating with temporary deposit and withdrawal restrictions during a custody-infrastructure upgrade.",
+    "official_url_original": "https://www.coinlocally.com/en_US/",
+    "official_domain_original": "coinlocally.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.coinlocally.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-07-28",
+    "notes": "The current first-party platform remains reachable and identifies Coinlocally LLC in Yerevan, Armenia. A current first-party notice states that custody, deposit, and withdrawal infrastructure is being upgraded and that deposits and withdrawals are temporarily suspended without a stated completion time. HEI therefore uses limited rather than active or dead. Independent exchange-directory material reports a 2019 launch year; January 1 is used only as a year-level marker. Later international operating or licensing claims are not treated as a resolved replacement legal lineage in this record."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012305",
+      "exchange_id": "hei_ex_001040",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Coinlocally platform and infrastructure-upgrade notice",
+      "url": "https://www.coinlocally.com/en_US/",
+      "publisher": "Coinlocally",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.coinlocally.com/en_US/",
+      "accessed_at": "2026-07-28",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "The current first-party platform remains available but states that deposits and withdrawals are temporarily suspended while custody and transfer infrastructure is upgraded."
+    },
+    {
+      "id": "hei_src_012306",
+      "exchange_id": "hei_ex_001040",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Coinlocally exchange profile",
+      "url": "https://coinmarketcap.com/exchanges/coinlocally/",
+      "publisher": "CoinMarketCap",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-28",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Independent exchange-directory material identifies Coinlocally as a centralized exchange launched in 2019. HEI does not rely on directory licensing claims to resolve the current legal operator."
+    }
+  ]
+}
