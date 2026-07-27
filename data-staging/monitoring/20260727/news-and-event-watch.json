@@ -1,0 +1,730 @@
+{
+  "monitor": "news-and-event-watch",
+  "status": "ok",
+  "started_at": "2026-07-27T06:35:53.730Z",
+  "finished_at": "2026-07-27T06:36:08.870Z",
+  "findings": [
+    {
+      "finding_id": "finding_1785134168868_mp5ide",
+      "monitor": "news-and-event-watch",
+      "severity": "medium",
+      "category": "news_event_actionable_candidate_new",
+      "title": "New news/event candidate: BitMEX Crypto",
+      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "affected_entity": null,
+      "recommended_action": "review_and_stage_public_quality_record",
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMigwFBVV95cUxNOXZPYV9GTHNmVHBKT3VvaUFPWkVnREsxeENlOGlFZzhsb1ZFdlM5cXU1M3lGcHNLaWRSWmYzdEtKa1hQRS1NRU41T21IcWlmTks5N1RSRTM0UGkydGVoQ0ZRYlV6NHA2TGR3ZVF4THRNQUwxTGFMMW9Ca0RObnRvM3B5MA?oc=5",
+        "https://news.google.com/rss/articles/CBMiV0FVX3lxTE0xR2JCa1U3UDZLNlFaMlR4aVdGci1vVEM3TGVzNE1WeTVuT3JEdDNHbF93VnNNZGkxV0VjRklaT2pYUUFvbGwtdG5sWHBPeHl5LWdsSkJLNA?oc=5"
+      ],
+      "confidence": "low",
+      "dedupe_key": "news-and-event-watch:actionable_candidate:candidate:bitmex-crypto",
+      "first_seen_at": "2026-07-27T06:37:03.100Z",
+      "last_seen_at": "2026-07-27T06:37:03.100Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    },
+    {
+      "finding_id": "finding_1785134168868_qjpplw",
+      "monitor": "news-and-event-watch",
+      "severity": "medium",
+      "category": "regulatory_actionable_candidate_new",
+      "title": "New regulatory candidate: FCA",
+      "summary": "Likely HEI-relevant historical dead/continuity candidate.",
+      "affected_entity": null,
+      "recommended_action": "review_and_stage_public_quality_record",
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMinwFBVV95cUxOQnA1Q1FwMEhXcmJmUDIwZWNKVDBCaks4ZVFSa1U4Ym5pY1lfLWV5cFJqMWhZdFViSTl5MG1WX1MwaW9hOGNEZnlEa3cwckRKcGllR205eDRrMGFJX0dFejI4RHQybDV4TGdTQXBNbDYwakRxTnJFbnEyeF9KcUg0SVUtcmhJdDZ3bmJhM0Q4cWlEZVpnMVVsOW9JakNGaDA?oc=5",
+        "https://news.google.com/rss/articles/CBMimgFBVV95cUxNMHpOUjRGQmhRdC0yUjRFSEpDVi1WbG1PZFFjRm1GRnozQ1c4TU00OEZkbW5PMUNLbkxKZXVFWnNUVmhTUzFwQWhIclVicFdaRnNFcW9VWFN0ZTd0RTlKRGJkVHlieDdfYkJnQUlKakRZNkY1STJSYXoxaWxULWJscHNVMWRxLVhPOTNHNkd4MVkyMnNVTldEVlR3?oc=5",
+        "https://news.google.com/rss/articles/CBMickFVX3lxTE1BXzVDcExtbWtSMW1hZlFVdE9ZQm5YY0xXTXFnc0daeE85SDVNTW95eXJJVWVmeE1HRzMxbDBiWURLWlpTSXpuV2FKbkZlRlB3MlVUT3ZQbXVyUk9oUExGQldzb2NaZmMzb1BPdWxnQjdJZw?oc=5",
+        "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOMmJRUmY3bnY4cWQxNTNHaHgxdWRmMWxYcllxV0JzZmV5N09WSEszTWxvaTVrRTUweDU3OHhtOWVvY0F5cnEwaVVNUWI0QURaMlhyTlIzQmFSY2MzcEhqYmYxZXdDSFhOcmYxM1p0aXNuS3pCSHJwZ0Y2bUhkcE1iLWViQk44TmVt?oc=5",
+        "https://news.google.com/rss/articles/CBMif0FVX3lxTE5tY3dHZ2RwcVREUlNtdUh6NE1nYzFRbmZ6dEtzUk1EOFBOWk5FeDNSRmpZMy1SaHpaTjBiUGFpcHZVVkNKVG1kV3RETUlXMXBRMWJ5MEtkd3dGUldmQVlleHM2aGhHNXVzQ2pUN1hkenNFTEp6N1lkc09yTlo1OE0?oc=5"
+      ],
+      "confidence": "medium",
+      "dedupe_key": "news-and-event-watch:actionable_candidate:candidate:fca",
+      "first_seen_at": "2026-07-27T06:37:03.100Z",
+      "last_seen_at": "2026-07-27T06:37:03.100Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    },
+    {
+      "finding_id": "finding_1785134168868_3fyce3",
+      "monitor": "news-and-event-watch",
+      "severity": "medium",
+      "category": "news_event_actionable_candidate_new",
+      "title": "New news/event candidate: Volume Suddenly",
+      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "affected_entity": null,
+      "recommended_action": "review_and_stage_public_quality_record",
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiggFBVV95cUxNSUtLSlV0Q1lWb0dhMmF4aHFMTk9landTU3hhTVlqVldVZGl1cUV4R1VaSzJhZW93VTFKSkdxeXlmVVBpR2FrbzY5czhqQ3Z4dElBRkNOY29uXzFlZmlyLTdpMnVYYmtlOUFFRnRTQTZkNElobXpqNGhKaDBtMjhUQXVn0gGHAUFVX3lxTE1wWmIyODFJWVFIZTV6amRvRUt4Z2l3cld5alJURmRLazVLN3Z6TktXZGJ1NU5mVzNHanIwU1R2NEQzeFVadFZPRDg5Q1lmNmZHN0VST3hiMGM2R3NxYjlhWVFZN2d0ZUVzUTQ0ZnYzdmhiTkhvZU9PalMtX3Q0QzVrVzhRRVNNaw?oc=5",
+        "https://news.google.com/rss/articles/CBMihwFBVV95cUxNcFpiMjgxSVlRSGU1empkb0VLeGdpd3JXeWpSVEZkS2s1Szd2ek5LV2RidTVOZlczR2pyMFNUdjREM3hVWnRWT0Q4OUNZZjZmRzdFUk94YjBjNkdzcWI5YVlRWTdndGVFc1E0NGZ2M3ZoYk5Ib2VPT2pTLV90NEM1a1c4UUVTTWvSAYcBQVVfeXFMTXBaYjI4MUlZUUhlNXpqZG9FS3hnaXdyV3lqUlRGZEtrNUs3dnpOS1dkYnU1TmZXM0dqcjBTVHY0RDN4VVp0Vk9EODlDWWY2Zkc3RVJPeGIwYzZHc3FiOWFZUVk3Z3RlRXNRNDRmdjN2aGJOSG9lT09qUy1fdDRDNWtXOFFFU01r?oc=5"
+      ],
+      "confidence": "low",
+      "dedupe_key": "news-and-event-watch:actionable_candidate:candidate:volume-suddenly",
+      "first_seen_at": "2026-07-27T06:37:03.100Z",
+      "last_seen_at": "2026-07-27T06:37:03.100Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    },
+    {
+      "finding_id": "finding_1785134168868_hs2e69",
+      "monitor": "news-and-event-watch",
+      "severity": "medium",
+      "category": "news_event_actionable_candidate_new",
+      "title": "New news/event candidate: CoinDesk",
+      "summary": "Likely HEI-relevant active-side incident or service restriction candidate.",
+      "affected_entity": null,
+      "recommended_action": "review_for_event_or_entity_staging",
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQbUs0ZFhjNmtyNHVHX0tKOXhIU3VySDFBVGY3YS1yMGZvenRwcTQxc2UtR0J5MTF6eFNMWFBRTzc4bTBMdF9jN0ZXbXliWXppWTdaeXNPX1MtckpUUFItbncxdVJZMm55VGluMDgxYlA5UmRwd1Z5d3lqNGRrYjBXY0RRMHZBcnJYSjdabVAyb3VERWJQQmFtRU95YldWeEhuQU1ueEpsQm5fVEpUMTR3UHJkeXFlTHgxUEtISmlsNjREQQ?oc=5"
+      ],
+      "confidence": "medium",
+      "dedupe_key": "news-and-event-watch:actionable_candidate:candidate:coindesk",
+      "first_seen_at": "2026-07-27T06:37:03.100Z",
+      "last_seen_at": "2026-07-27T06:37:03.100Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "candidate:bitmex-crypto",
+      "candidate_key": "candidate:bitmex-crypto",
+      "canonical_name": "BitMEX Crypto",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "Breaking: Arthur Hayes’ BitMEX Crypto Exchange to Shut Down on September 23 - CoinGape",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMigwFBVV95cUxNOXZPYV9GTHNmVHBKT3VvaUFPWkVnREsxeENlOGlFZzhsb1ZFdlM5cXU1M3lGcHNLaWRSWmYzdEtKa1hQRS1NRU41T21IcWlmTks5N1RSRTM0UGkydGVoQ0ZRYlV6NHA2TGR3ZVF4THRNQUwxTGFMMW9Ca0RObnRvM3B5MA?oc=5",
+        "https://news.google.com/rss/articles/CBMiV0FVX3lxTE0xR2JCa1U3UDZLNlFaMlR4aVdGci1vVEM3TGVzNE1WeTVuT3JEdDNHbF93VnNNZGkxV0VjRklaT2pYUUFvbGwtdG5sWHBPeHl5LWdsSkJLNA?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "CoinGape, Cryptonews.net",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "shutdown"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 4,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "multiple_source_urls"
+      ],
+      "first_seen_at": "2026-07-27T06:36:08.866Z",
+      "last_seen_at": "2026-07-27T06:36:08.866Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:fca",
+      "candidate_key": "candidate:fca",
+      "canonical_name": "FCA",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "regulation",
+      "record_shape": "new_entity",
+      "headline": "FCA Shuts Down Unregistered P2P Crypto Trading in London - CoinMarketCap",
+      "hei_relevance": "Likely HEI-relevant historical dead/continuity candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMinwFBVV95cUxOQnA1Q1FwMEhXcmJmUDIwZWNKVDBCaks4ZVFSa1U4Ym5pY1lfLWV5cFJqMWhZdFViSTl5MG1WX1MwaW9hOGNEZnlEa3cwckRKcGllR205eDRrMGFJX0dFejI4RHQybDV4TGdTQXBNbDYwakRxTnJFbnEyeF9KcUg0SVUtcmhJdDZ3bmJhM0Q4cWlEZVpnMVVsOW9JakNGaDA?oc=5",
+        "https://news.google.com/rss/articles/CBMimgFBVV95cUxNMHpOUjRGQmhRdC0yUjRFSEpDVi1WbG1PZFFjRm1GRnozQ1c4TU00OEZkbW5PMUNLbkxKZXVFWnNUVmhTUzFwQWhIclVicFdaRnNFcW9VWFN0ZTd0RTlKRGJkVHlieDdfYkJnQUlKakRZNkY1STJSYXoxaWxULWJscHNVMWRxLVhPOTNHNkd4MVkyMnNVTldEVlR3?oc=5",
+        "https://news.google.com/rss/articles/CBMickFVX3lxTE1BXzVDcExtbWtSMW1hZlFVdE9ZQm5YY0xXTXFnc0daeE85SDVNTW95eXJJVWVmeE1HRzMxbDBiWURLWlpTSXpuV2FKbkZlRlB3MlVUT3ZQbXVyUk9oUExGQldzb2NaZmMzb1BPdWxnQjdJZw?oc=5",
+        "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOMmJRUmY3bnY4cWQxNTNHaHgxdWRmMWxYcllxV0JzZmV5N09WSEszTWxvaTVrRTUweDU3OHhtOWVvY0F5cnEwaVVNUWI0QURaMlhyTlIzQmFSY2MzcEhqYmYxZXdDSFhOcmYxM1p0aXNuS3pCSHJwZ0Y2bUhkcE1iLWViQk44TmVt?oc=5",
+        "https://news.google.com/rss/articles/CBMif0FVX3lxTE5tY3dHZ2RwcVREUlNtdUh6NE1nYzFRbmZ6dEtzUk1EOFBOWk5FeDNSRmpZMy1SaHpaTjBiUGFpcHZVVkNKVG1kV3RETUlXMXBRMWJ5MEtkd3dGUldmQVlleHM2aGhHNXVzQ2pUN1hkenNFTEp6N1lkc09yTlo1OE0?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "CoinMarketCap, Yahoo Finance, Financial Conduct Authority | FCA",
+      "source_category": "regulatory_source",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective",
+        "regulatory_action",
+        "lawsuit"
+      ],
+      "news_event_categories": [
+        "shutdown",
+        "regulatory"
+      ],
+      "regulatory_authorities": [
+        "Financial Conduct Authority"
+      ],
+      "regulatory_regions": [
+        "United Kingdom"
+      ],
+      "regulatory_signals": [
+        "warning_list",
+        "enforcement_action",
+        "vasp_warning",
+        "license_or_registration_removed",
+        "sanctions"
+      ],
+      "historical_dead_score": 7,
+      "historical_dead_strength": "strong",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "regulatory_language",
+        "multiple_source_urls",
+        "high_quality_source"
+      ],
+      "first_seen_at": "2026-07-27T06:36:08.866Z",
+      "last_seen_at": "2026-07-27T06:36:08.866Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:volume-suddenly",
+      "candidate_key": "candidate:volume-suddenly",
+      "canonical_name": "Volume Suddenly",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "Top 10 Crypto Exchange by Trading Volume Suddenly Shuts Down - U.Today",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiggFBVV95cUxNSUtLSlV0Q1lWb0dhMmF4aHFMTk9landTU3hhTVlqVldVZGl1cUV4R1VaSzJhZW93VTFKSkdxeXlmVVBpR2FrbzY5czhqQ3Z4dElBRkNOY29uXzFlZmlyLTdpMnVYYmtlOUFFRnRTQTZkNElobXpqNGhKaDBtMjhUQXVn0gGHAUFVX3lxTE1wWmIyODFJWVFIZTV6amRvRUt4Z2l3cld5alJURmRLazVLN3Z6TktXZGJ1NU5mVzNHanIwU1R2NEQzeFVadFZPRDg5Q1lmNmZHN0VST3hiMGM2R3NxYjlhWVFZN2d0ZUVzUTQ0ZnYzdmhiTkhvZU9PalMtX3Q0QzVrVzhRRVNNaw?oc=5",
+        "https://news.google.com/rss/articles/CBMihwFBVV95cUxNcFpiMjgxSVlRSGU1empkb0VLeGdpd3JXeWpSVEZkS2s1Szd2ek5LV2RidTVOZlczR2pyMFNUdjREM3hVWnRWT0Q4OUNZZjZmRzdFUk94YjBjNkdzcWI5YVlRWTdndGVFc1E0NGZ2M3ZoYk5Ib2VPT2pTLV90NEM1a1c4UUVTTWvSAYcBQVVfeXFMTXBaYjI4MUlZUUhlNXpqZG9FS3hnaXdyV3lqUlRGZEtrNUs3dnpOS1dkYnU1TmZXM0dqcjBTVHY0RDN4VVp0Vk9EODlDWWY2Zkc3RVJPeGIwYzZHc3FiOWFZUVk3Z3RlRXNRNDRmdjN2aGJOSG9lT09qUy1fdDRDNWtXOFFFU01r?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "U.Today",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "shutdown"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 4,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "multiple_source_urls"
+      ],
+      "first_seen_at": "2026-07-27T06:36:08.866Z",
+      "last_seen_at": "2026-07-27T06:36:08.866Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:coindesk",
+      "candidate_key": "candidate:coindesk",
+      "canonical_name": "CoinDesk",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "unknown",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Sanctioned Cambodian Lender Huione, Linked to Illicit Crypto, Halts Business After Bank Run: Report - CoinDesk",
+      "hei_relevance": "Likely HEI-relevant active-side incident or service restriction candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQbUs0ZFhjNmtyNHVHX0tKOXhIU3VySDFBVGY3YS1yMGZvenRwcTQxc2UtR0J5MTF6eFNMWFBRTzc4bTBMdF9jN0ZXbXliWXppWTdaeXNPX1MtckpUUFItbncxdVJZMm55VGluMDgxYlA5UmRwd1Z5d3lqNGRrYjBXY0RRMHZBcnJYSjdabVAyb3VERWJQQmFtRU95YldWeEhuQU1ueEpsQm5fVEpUMTR3UHJkeXFlTHgxUEtISmlsNjREQQ?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "review_for_event_or_entity_staging",
+      "source_name": "CoinDesk",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "withdrawal_suspended",
+        "deposit_suspended",
+        "trading_halted",
+        "regulatory_action"
+      ],
+      "news_event_categories": [
+        "withdrawal_deposit_trading_suspension",
+        "regulatory"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 3,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "regulatory_language",
+        "high_quality_source"
+      ],
+      "first_seen_at": "2026-07-27T06:36:08.867Z",
+      "last_seen_at": "2026-07-27T06:36:08.867Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:six",
+      "candidate_key": "candidate:six",
+      "canonical_name": "Six",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "unknown",
+      "likely_status": "limited",
+      "likely_death_reason": "regulation",
+      "record_shape": "new_entity",
+      "headline": "Customer Advisory: Six Warning Signs of Online Financial Romance Frauds - Commodity Futures Trading Commission | CFTC (.gov)",
+      "hei_relevance": "Potential HEI regulatory candidate; do not mark dead unless service closure is proven.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMigAFBVV95cUxNazZ4bng5U0JzN21nUk4yaUlQZ3dsZDk5Q2VXRGI3VDJrY1dyb2VoNmpqdXp1WldkMGFmLV9KM3ZQMVRWQ3VMbXFVeHRyWlVlVlM0RGFKRDAwdVV5d3B1Z3hNUmRkUXFHN0F3ZW0wOGRLQjNITEQzODc0SjRUQmdkRQ?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "hold_for_regulatory_scope_review",
+      "source_name": "Commodity Futures Trading Commission | CFTC (.gov)",
+      "source_category": "regulatory_source",
+      "likely_event_types": [
+        "regulatory_action"
+      ],
+      "news_event_categories": [
+        "regulatory"
+      ],
+      "regulatory_authorities": [
+        "Commodity Futures Trading Commission"
+      ],
+      "regulatory_regions": [
+        "United States"
+      ],
+      "regulatory_signals": [
+        "warning_list"
+      ],
+      "historical_dead_score": 5,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "scam_or_exit_language",
+        "regulatory_language",
+        "high_quality_source"
+      ],
+      "first_seen_at": "2026-07-27T06:36:08.867Z",
+      "last_seen_at": "2026-07-27T06:36:08.867Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:johnson-supporting",
+      "candidate_key": "candidate:johnson-supporting",
+      "canonical_name": "Johnson Supporting",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "unknown",
+      "likely_status": "limited",
+      "likely_death_reason": "regulation",
+      "record_shape": "new_entity",
+      "headline": "Statement of Commissioner Kristin N. Johnson Supporting Enforcement Action Against Bitcoin Fraud - Commodity Futures Trading Commission | CFTC (.gov)",
+      "hei_relevance": "Potential HEI regulatory candidate; do not mark dead unless service closure is proven.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMie0FVX3lxTE0wM1VxZXRXZEdzRHc4aXVGY2txZDhYSDhsVUVBREhRRmRNZWg2YUQ2ZlE0RHdEU2cwTU5UczRZUVNyaU92azd3cU1ONnlTRm53M0NnR3JlZ3lyME1hX1BIQnM2aGsxTmtDSmJrS25Ib192RlNTYWlBdGFFUQ?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "hold_for_regulatory_scope_review",
+      "source_name": "Commodity Futures Trading Commission | CFTC (.gov)",
+      "source_category": "regulatory_source",
+      "likely_event_types": [
+        "regulatory_action",
+        "lawsuit"
+      ],
+      "news_event_categories": [
+        "regulatory"
+      ],
+      "regulatory_authorities": [
+        "Commodity Futures Trading Commission"
+      ],
+      "regulatory_regions": [
+        "United States"
+      ],
+      "regulatory_signals": [
+        "enforcement_action"
+      ],
+      "historical_dead_score": 5,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "scam_or_exit_language",
+        "regulatory_language",
+        "high_quality_source"
+      ],
+      "first_seen_at": "2026-07-27T06:36:08.867Z",
+      "last_seen_at": "2026-07-27T06:36:08.867Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:pham-regarding",
+      "candidate_key": "candidate:pham-regarding",
+      "canonical_name": "Pham Regarding",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "unknown",
+      "likely_status": "limited",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Statement of Commissioner Caroline D. Pham Regarding Enforcement Action on Crypto Lending - Commodity Futures Trading Commission | CFTC (.gov)",
+      "hei_relevance": "Potential HEI regulatory candidate; do not mark dead unless service closure is proven.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMid0FVX3lxTE5Ic3FYRkVDZElfRVhMTTNjUmNYbmJRQVcxVHNnek5ZSUJSX190OXlZM0E4cVBLMHBweWcwdWNxdFlCT09UTF9ybE12emliTFRKYS1qYnhxNFNhZURKNmNrQ0JXLWNabUU5OTRRNmFJSk9RV2VhQTNF?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "hold_for_regulatory_scope_review",
+      "source_name": "Commodity Futures Trading Commission | CFTC (.gov)",
+      "source_category": "regulatory_source",
+      "likely_event_types": [
+        "regulatory_action",
+        "lawsuit"
+      ],
+      "news_event_categories": [
+        "regulatory"
+      ],
+      "regulatory_authorities": [
+        "Commodity Futures Trading Commission"
+      ],
+      "regulatory_regions": [
+        "United States"
+      ],
+      "regulatory_signals": [
+        "enforcement_action"
+      ],
+      "historical_dead_score": 3,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "regulatory_language",
+        "high_quality_source"
+      ],
+      "first_seen_at": "2026-07-27T06:36:08.867Z",
+      "last_seen_at": "2026-07-27T06:36:08.867Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:concluding-cftc",
+      "candidate_key": "candidate:concluding-cftc",
+      "canonical_name": "Concluding CFTC",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "unknown",
+      "likely_status": "limited",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Federal Court Enters Order Against Binance and Former CEO, Zhao, Concluding CFTC Enforcement Action - Commodity Futures Trading Commission | CFTC (.gov)",
+      "hei_relevance": "Potential HEI regulatory candidate; do not mark dead unless service closure is proven.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMiYkFVX3lxTFA2NklKRzl2VHZ2dGZFNWM1ZHROQ1ExQjdUS0NzcERQbGJtYnk0OENEWUN0Wmx3VmRmRnZpNVdnX2dyMExBSkh1NUg4dE53OEEyaGhKMkk2NFpPSHJtMzFweU1B?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "hold_for_regulatory_scope_review",
+      "source_name": "Commodity Futures Trading Commission | CFTC (.gov)",
+      "source_category": "regulatory_source",
+      "likely_event_types": [
+        "regulatory_action",
+        "lawsuit"
+      ],
+      "news_event_categories": [
+        "regulatory"
+      ],
+      "regulatory_authorities": [
+        "Commodity Futures Trading Commission"
+      ],
+      "regulatory_regions": [
+        "United States"
+      ],
+      "regulatory_signals": [
+        "enforcement_action"
+      ],
+      "historical_dead_score": 3,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "regulatory_language",
+        "high_quality_source"
+      ],
+      "first_seen_at": "2026-07-27T06:36:08.867Z",
+      "last_seen_at": "2026-07-27T06:36:08.867Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:hong-kong",
+      "candidate_key": "candidate:hong-kong",
+      "canonical_name": "Hong Kong",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "unknown",
+      "likely_status": "limited",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "Warning statement on unregulated virtual asset trading platform - Securities & Futures Commission of Hong Kong",
+      "hei_relevance": "Potential HEI regulatory candidate; do not mark dead unless service closure is proven.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOQTg4Z2RFWXROWGxNNHNkRk03aWVJZDFyN285Tjhvdkx3ZngzZEh6bGY0cFZpbEtuS19iTkV6eXNnWjhZSDNGSzE1andyaE5pb1FqZnNSejZkdUtOVTRDRkhqa1FSVEFnRWdraVNYTl9aVUROdjNpNHFwTjhFaGFVdndtRUVZWVMyejFhQ1FhTFdwRXBtLWlFTjRiUzdyYmszU3BSbnpzRHpsZXdUVnVqM3lSRHNVS2Q1Zjl5NEFkemhmSEJ4ZlpIblNCSnlUYldMdHdfMXVRY0x2Z0s2?oc=5",
+        "https://news.google.com/rss/articles/CBMilwFBVV95cUxNYUhnbFdQTmRaZDlXQUdKZnhLMWt4S0RpTGpoSzBTSGljYThJUzVydkxKTXlUY1JydnlXdm1ldTFSakFXRVRZV1RkQ0dkSzJ1M0pZMnY4b2hYSmw4NjdETFZ3SjFBemtyQ0RHV0pCTHB4QmxKQ19wbDk2TXN0ejZ6ZHRTLWJkZWVuMXNXMl9pYWpBS1VtZ2NJ?oc=5",
+        "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOdGhVTkFJbG1mc2o3ZHk0X3lNMDd5TkVyZWxpNUpkMUU1dTB3NnJwYkJ4ZU1vZE94X2pySnlCbHdmVmVSZVFCLWZhQU1JX1RyLTFlY1NhTnZ6TkpsYkFLR1lpV3BZRVA2Ql9WbENwYUJTTy1Pb201QW5nbDVJNHhWUnc1eEk2ellQc09XSl9UUE40aENkMWtXcjhaSVlWVHlfWmpiQUh3ZVFoX0M2R0pFNXhQS3RzZnZWWVFDUTBhY2JmbHdlSDhFVFNDczRWS0kta3p1dklWdGhMT28?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "hold_for_regulatory_scope_review",
+      "source_name": "Securities & Futures Commission of Hong Kong",
+      "source_category": "regulatory_source",
+      "likely_event_types": [
+        "regulatory_action",
+        "lawsuit"
+      ],
+      "news_event_categories": [
+        "regulatory"
+      ],
+      "regulatory_authorities": [
+        "Securities and Futures Commission"
+      ],
+      "regulatory_regions": [
+        "Hong Kong"
+      ],
+      "regulatory_signals": [
+        "warning_list",
+        "enforcement_action",
+        "vasp_warning",
+        "sanctions"
+      ],
+      "historical_dead_score": 4,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "regulatory_language",
+        "multiple_source_urls",
+        "high_quality_source"
+      ],
+      "first_seen_at": "2026-07-27T06:36:08.867Z",
+      "last_seen_at": "2026-07-27T06:36:08.867Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:coinunited-io",
+      "candidate_key": "candidate:coinunited-io",
+      "canonical_name": "CoinUnited.io",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "unknown",
+      "likely_status": "limited",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "SFC warns public against unlicensed virtual asset trading platform CoinUnited.io - Securities & Futures Commission of Hong Kong",
+      "hei_relevance": "Potential HEI regulatory candidate; do not mark dead unless service closure is proven.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMihwFBVV95cUxPY1EzMi1BNzhtRUpYZVh4WjcyQ1lRcmNhWTU1UW5rbEhDRlM1WGFXdnQ3Z0RyX1F3czVOR2xUM2pGNVRCemFDQnlwMWIzeHJyVUVqNG9TYkFad3ZkZS1STFRLVHR4TExnNHNXZy1MM3BKWjdiSjlXT1VrTlRuZnhUWW5nY2EzUEE?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "hold_for_regulatory_scope_review",
+      "source_name": "Securities & Futures Commission of Hong Kong",
+      "source_category": "regulatory_source",
+      "likely_event_types": [
+        "regulatory_action",
+        "lawsuit"
+      ],
+      "news_event_categories": [
+        "regulatory"
+      ],
+      "regulatory_authorities": [
+        "Securities and Futures Commission"
+      ],
+      "regulatory_regions": [
+        "Hong Kong"
+      ],
+      "regulatory_signals": [
+        "warning_list",
+        "enforcement_action"
+      ],
+      "historical_dead_score": 3,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "regulatory_language",
+        "high_quality_source"
+      ],
+      "first_seen_at": "2026-07-27T06:36:08.867Z",
+      "last_seen_at": "2026-07-27T06:36:08.867Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:sure",
+      "candidate_key": "candidate:sure",
+      "canonical_name": "Sure",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "unknown",
+      "likely_status": "limited",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "SFC warns public against unlicensed virtual asset trading platform Sure X - Securities & Futures Commission of Hong Kong",
+      "hei_relevance": "Potential HEI regulatory candidate; do not mark dead unless service closure is proven.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZzNwbHloSzRxQXpMMEdfRlBsbkFoZHpOaHIxcXpLRzJXc19iWmZ1cTdjSkFiUElwZmI3d1dZV1l0VWRJb1liaVFGSVVOeXA2UHlKUi1vakJ1NnkxM3VaY3Foenl6dlRJN1oxUFkyeXlnaTJYZVVpS1BBZFB3YW9xbHdZTndFclY5NXNOWjhldVNYeWdfcUx3?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "hold_for_regulatory_scope_review",
+      "source_name": "Securities & Futures Commission of Hong Kong",
+      "source_category": "regulatory_source",
+      "likely_event_types": [
+        "regulatory_action",
+        "lawsuit"
+      ],
+      "news_event_categories": [
+        "regulatory"
+      ],
+      "regulatory_authorities": [
+        "Securities and Futures Commission"
+      ],
+      "regulatory_regions": [
+        "Hong Kong"
+      ],
+      "regulatory_signals": [
+        "warning_list",
+        "enforcement_action"
+      ],
+      "historical_dead_score": 3,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "regulatory_language",
+        "high_quality_source"
+      ],
+      "first_seen_at": "2026-07-27T06:36:08.867Z",
+      "last_seen_at": "2026-07-27T06:36:08.867Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "findings_count": 4,
+    "visible_findings_count": 4,
+    "candidate_count": 11,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 4,
+    "low": 0
+  },
+  "news_summary": {
+    "enabled": true,
+    "queries": 20,
+    "items": 1442,
+    "candidates": 3
+  },
+  "regulatory_summary": {
+    "enabled": true,
+    "authorities_configured": 7,
+    "query_templates": 5,
+    "queries": 25,
+    "items": 1952,
+    "candidates": 8
+  },
+  "combined_summary": {
+    "items": 3394,
+    "raw_candidates": 138,
+    "candidates": 11,
+    "dropped_candidates": 127,
+    "resolved_candidate_names": 249,
+    "missing_in_hei": 11,
+    "matched_existing": 0
+  }
+}
