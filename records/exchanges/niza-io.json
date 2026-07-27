@@ -1,0 +1,62 @@
+{
+  "entity": {
+    "id": "hei_ex_001039",
+    "slug": "niza-io",
+    "canonical_name": "Niza.io",
+    "aliases": [
+      "NIZA",
+      "Niza Global",
+      "Niza Exchange",
+      "niza.io"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2021-03-01",
+    "death_date": null,
+    "country_or_origin": "Lithuania",
+    "summary": "Centralized cryptocurrency exchange established in March 2021 and providing current spot trading, crypto purchase, account, banking, and API-related services under the Niza.io brand.",
+    "official_url_original": "https://niza.io/",
+    "official_domain_original": "niza.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://niza.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-07-27",
+    "notes": "Current first-party material states that Niza was established in March 2021 and exposes an operating exchange with spot markets, crypto purchases, personal and business accounts, apps, and API links. Current independent exchange data identifies Lithuania registration and reports active markets and non-zero volume. The public first-party legal-entity disclosure reviewed by HEI does not fully resolve the contracting operator, so confidence remains medium."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012303",
+      "exchange_id": "hei_ex_001039",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "About Niza Global",
+      "url": "https://niza.io/about",
+      "publisher": "Niza.io",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://niza.io/about",
+      "accessed_at": "2026-07-27",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "First-party About page states that Niza was established in March 2021 and describes the current high-performance exchange and global user base."
+    },
+    {
+      "id": "hei_src_012304",
+      "exchange_id": "hei_ex_001039",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Niza.io exchange profile and current markets",
+      "url": "https://www.coingecko.com/en/exchanges/niza-global",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-27",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current independent exchange profile identifies Niza.io as a Lithuania-registered centralized exchange established in 2021 and reports current markets and non-zero trading activity."
+    }
+  ]
+}
