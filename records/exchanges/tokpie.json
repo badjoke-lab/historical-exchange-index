@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001051",
+    "slug": "tokpie",
+    "canonical_name": "Tokpie",
+    "aliases": ["TOKPIE Exchange", "Graceful Globe S.A.", "tokpie.io", "tokpie.com"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2018-01-01",
+    "death_date": null,
+    "country_or_origin": "Panama",
+    "summary": "Panama-operated centralized cryptocurrency exchange launched in 2018 and providing current spot trading, token listing, lending and borrowing, launchpad, card purchase, API, and bounty-stake-related services.",
+    "official_url_original": "https://tokpie.io/",
+    "official_domain_original": "tokpie.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://tokpie.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-07-28",
+    "notes": "Current first-party website exposes live market data, trading entry points, 100+ crypto assets, lending and borrowing, token listing, launchpad, card purchase, API, and bounty-stake products, and identifies Graceful Globe S.A. in Panama in the current footer. Current independent exchange data reports recently updated markets, non-zero volume, a 2018 establishment year, and a Hong Kong registration/address. HEI uses Panama for the current first-party operating origin and retains the independent Hong Kong discrepancy in notes rather than asserting a resolved group structure. January 1 is a year-level launch marker."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012327",
+      "exchange_id": "hei_ex_001051",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Tokpie official exchange platform",
+      "url": "https://tokpie.io/",
+      "publisher": "Tokpie",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://tokpie.io/",
+      "accessed_at": "2026-07-28",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party site exposes live markets, trading and account entry points, exchange products, and identifies Graceful Globe S.A. in Panama."
+    },
+    {
+      "id": "hei_src_012328",
+      "exchange_id": "hei_ex_001051",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Tokpie exchange profile and current markets",
+      "url": "https://www.coingecko.com/en/exchanges/tokpie",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-28",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current independent profile reports recently updated markets, non-zero trading activity, a 2018 establishment year, and a Hong Kong registration/address."
+    }
+  ]
+}
