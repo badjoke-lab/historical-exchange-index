@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001046",
+    "slug": "biconomy-com",
+    "canonical_name": "Biconomy.com",
+    "aliases": ["Biconomy Exchange", "BICONOMY PTE. LTD", "biconomy.com"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2019-10-01",
+    "death_date": null,
+    "country_or_origin": "British Virgin Islands",
+    "summary": "British Virgin Islands-registered centralized cryptocurrency exchange established in October 2019 and providing current spot, futures, earn, launchpad, and payment-related services.",
+    "official_url_original": "https://www.biconomy.com/",
+    "official_domain_original": "biconomy.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.biconomy.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-07-28",
+    "notes": "Current first-party About material identifies BICONOMY PTE. LTD, gives a Road Town, Tortola address in the British Virgin Islands, and describes a global cryptocurrency exchange platform. The current first-party site exposes spot, futures, earn, launchpad, payment, API, and mobile-app services. Current independent exchange data reports recently updated markets, substantial non-zero volume, reserves, a 2019 establishment year, and British Virgin Islands registration. CoinGecko states October 2019 but not an exact day, so October 1 is used as a month-level marker. This exchange is distinct from the Biconomy Web3 infrastructure protocol and BICO token project."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012317",
+      "exchange_id": "hei_ex_001046",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "About Biconomy.com",
+      "url": "https://www.biconomy.com/en/about",
+      "publisher": "Biconomy.com",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.biconomy.com/en/about",
+      "accessed_at": "2026-07-28",
+      "reliability": "high",
+      "claim_scope": "ownership",
+      "notes": "First-party About material identifies BICONOMY PTE. LTD, provides the British Virgin Islands registered address, and describes the exchange-platform business."
+    },
+    {
+      "id": "hei_src_012318",
+      "exchange_id": "hei_ex_001046",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Biconomy.com exchange profile, markets, and reserves",
+      "url": "https://www.coingecko.com/en/exchanges/biconomy-com",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-28",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current independent exchange profile reports recently updated markets, substantial non-zero trading activity, exchange reserves, British Virgin Islands registration, and an October 2019 establishment marker."
+    }
+  ]
+}
