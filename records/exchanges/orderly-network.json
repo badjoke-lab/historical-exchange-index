@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001052",
+    "slug": "orderly-network",
+    "canonical_name": "Orderly Network",
+    "aliases": ["Orderly", "Orderly Perps", "Orderly Network Perps"],
+    "type": "hybrid",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Orderly Network / omnichain ecosystem",
+    "summary": "Omnichain self-custodial perpetual-futures exchange infrastructure operating a shared central-limit order book with off-chain matching, on-chain settlement, and trading access through multiple independent front ends and APIs.",
+    "official_url_original": "https://orderly.network/",
+    "official_domain_original": "orderly.network",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://orderly.network/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-07-28",
+    "notes": "Current first-party documentation describes one shared perpetual-futures order book, self-custodial accounts, off-chain matching, on-chain settlement, API access, and trading through numerous builder front ends across EVM and non-EVM chains. Current independently maintained metrics report substantial non-zero 24-hour, 7-day, and 30-day perpetual volume, fees, and open interest. HEI records the shared Orderly exchange layer as one entity and does not treat every white-label interface as a separate exchange without independent identity evidence."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012329",
+      "exchange_id": "hei_ex_001052",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Trade on Orderly",
+      "url": "https://orderly.network/docs/introduction/trade-on-orderly/trade-on-orderly",
+      "publisher": "Orderly Network",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://orderly.network/docs/introduction/trade-on-orderly/trade-on-orderly",
+      "accessed_at": "2026-07-28",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party documentation identifies Orderly as decentralized perpetual-futures trading infrastructure with one shared omnichain order book, self-custody, multiple front ends, API access, off-chain matching, and on-chain settlement."
+    },
+    {
+      "id": "hei_src_012330",
+      "exchange_id": "hei_ex_001052",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Orderly Perps protocol metrics",
+      "url": "https://defillama.com/protocol/orderly-perps",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-28",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current independent metrics report substantial non-zero 24-hour, 7-day, and 30-day perpetual volume together with fees and open interest, supporting active classification."
+    }
+  ]
+}

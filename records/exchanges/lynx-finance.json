@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001054",
+    "slug": "lynx-finance",
+    "canonical_name": "Lynx Finance",
+    "aliases": ["Lynx", "Lynx Perps"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Multi-chain ecosystem",
+    "summary": "Self-custodial multi-chain perpetual-futures exchange that allows traders to use a broad range of tokens as collateral for leveraged crypto, foreign-exchange, and related markets.",
+    "official_url_original": "https://www.lynx.finance/",
+    "official_domain_original": "lynx.finance",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.lynx.finance/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-07-28",
+    "notes": "Current first-party website and documentation expose active self-custodial perpetual trading, multi-token collateral, leveraged crypto and forex instruments, liquidity provision, cross-chain deposits, and gasless trading flows. Current independently maintained metrics report non-zero perpetual volume, TVL, fees, and revenue across multiple chains. No exact public launch date, legal jurisdiction, predecessor, successor, or terminal lifecycle fact is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012333",
+      "exchange_id": "hei_ex_001054",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Lynx Finance official trading platform",
+      "url": "https://www.lynx.finance/",
+      "publisher": "Lynx Finance",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.lynx.finance/",
+      "accessed_at": "2026-07-28",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party platform identifies Lynx as a decentralized perpetual-futures venue supporting self-custody, high-leverage instruments, broad collateral selection, gasless trading, and liquidity provision."
+    },
+    {
+      "id": "hei_src_012334",
+      "exchange_id": "hei_ex_001054",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Lynx protocol metrics",
+      "url": "https://defillama.com/protocol/lynx",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-28",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current independent metrics report non-zero 24-hour, 7-day, and 30-day perpetual volume together with TVL, fees, and revenue, supporting active classification."
+    }
+  ]
+}
