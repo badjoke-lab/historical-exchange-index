@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001046",
+    "slug": "perennial",
+    "canonical_name": "Perennial",
+    "aliases": ["Perennial Finance", "Perennial V2", "perp.fun"],
+    "type": "hybrid",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Arbitrum and Base ecosystems",
+    "summary": "Hybrid decentralized perpetuals protocol combining off-chain signed intents and solver execution with on-chain AMM settlement, collateral, oracle pricing, and market accounting across current trading frontends.",
+    "official_url_original": "https://app.perennial.finance/",
+    "official_domain_original": "perennial.finance",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://app.perennial.finance/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-07-28",
+    "notes": "Current first-party documentation describes Perennial as a full-stack perpetuals ecosystem with a hybrid intent-AMM model, off-chain signed order intents, solver execution, and on-chain settlement against isolated derivative markets. Current guides document connected-wallet and embedded-wallet trading through app.perennial.finance and perp.fun. Current independently maintained metrics report non-zero 7-day and 30-day perpetual volume and material Arbitrum TVL, although 24-hour volume was zero at the review snapshot, so confidence remains medium. HEI models Perennial V2, the dedicated rollup, app.perennial.finance, and perp.fun as one protocol-level entity rather than separate exchanges. No exact launch date or legal jurisdiction is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012317",
+      "exchange_id": "hei_ex_001046",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Introduction to Perennial",
+      "url": "https://docs.perennial.finance/",
+      "publisher": "Perennial",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.perennial.finance/",
+      "accessed_at": "2026-07-28",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party documentation describes the protocol, dedicated rollup, trading frontends, hybrid intent-AMM execution, oracle-priced markets, and on-chain settlement architecture."
+    },
+    {
+      "id": "hei_src_012318",
+      "exchange_id": "hei_ex_001046",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Perennial protocol TVL and perpetual volume",
+      "url": "https://defillama.com/protocol/perennial",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-28",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current independently maintained metrics report material Arbitrum TVL, non-zero 7-day and 30-day perpetual volume, and cumulative protocol trading activity."
+    }
+  ]
+}
