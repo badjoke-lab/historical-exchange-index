@@ -23,15 +23,15 @@ StandX            -> hei_ex_001018
 Variational       -> hei_ex_001021
 ```
 
-Those existing entities were not duplicated.
+The initial Biconomy.com draft was subsequently rejected by the permanent Records validator because the entity is already represented as Biconomy Exchange `hei_ex_000094` in current reviewed aggregation paths. The duplicate draft was removed rather than bypassing the gate.
 
 ## Promoted
 
 ```text
-Lighter      -> hei_ex_001044 active
-SafeTrade    -> hei_ex_001045 active
-Biconomy.com -> hei_ex_001046 active
-PointPay     -> hei_ex_001047 active
+Lighter   -> hei_ex_001044 active
+SafeTrade -> hei_ex_001045 active
+Perennial -> hei_ex_001046 active
+PointPay  -> hei_ex_001047 active
 ```
 
 ## Review basis
@@ -48,11 +48,11 @@ PointPay     -> hei_ex_001047 active
 - Current independent data reports recently updated markets and non-zero trading activity.
 - Public operator naming varies across first-party pages, so confidence remains `medium`.
 
-### Biconomy.com
+### Perennial
 
-- Current first-party material identifies BICONOMY PTE. LTD and a British Virgin Islands address and exposes current spot, futures, earn, launchpad, payment, API, and mobile products.
-- Current independent data reports recently updated markets, substantial non-zero volume, reserves, and an October 2019 establishment marker.
-- The exchange is distinct from the unrelated Biconomy Web3 infrastructure protocol.
+- Current first-party documentation describes a full-stack perps ecosystem using signed intents, solver execution, an AMM, oracle-priced markets, and on-chain settlement.
+- Current guides document trading through app.perennial.finance and perp.fun while retaining user control of collateral.
+- Current independent data reports material protocol TVL and non-zero 7-day and 30-day perpetual volume. Confidence remains `medium` because 24-hour volume was zero at the review snapshot.
 
 ### PointPay
 
