@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001045",
+    "slug": "safetrade",
+    "canonical_name": "SafeTrade",
+    "aliases": ["SafeTrade Exchange", "Safetrade.com Inc.", "safetrade.com"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2018-01-01",
+    "death_date": null,
+    "country_or_origin": "Panama",
+    "summary": "Panama-registered centralized cryptocurrency exchange founded in 2018 and providing current account-based spot trading and custody services across active digital-asset markets.",
+    "official_url_original": "https://safetrade.com/",
+    "official_domain_original": "safetrade.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://safetrade.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-07-28",
+    "notes": "Current first-party About material identifies Safetrade.com Inc. as a Panama-registered cryptocurrency trading platform founded in 2018. Current terms describe order matching, customer accounts, custody, deposits, withdrawals, and spot settlement. Current independent market data reports recently updated pairs and non-zero volume. The public terms also use the operator wording SafeTrade Limited Co., so confidence remains medium rather than treating the legal-entity presentation as fully resolved. January 1 is used only as a year-level launch marker."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012315",
+      "exchange_id": "hei_ex_001045",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "About SafeTrade",
+      "url": "https://safetrade.com/about",
+      "publisher": "SafeTrade",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://safetrade.com/about",
+      "accessed_at": "2026-07-28",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party material states that SafeTrade was founded in 2018, identifies Safetrade.com Inc., and gives Panama as the registered country."
+    },
+    {
+      "id": "hei_src_012316",
+      "exchange_id": "hei_ex_001045",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "SafeTrade exchange profile and current markets",
+      "url": "https://www.coingecko.com/en/exchanges/safe-trade",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-28",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current independent exchange profile reports recently updated SafeTrade spot markets and non-zero trading activity."
+    }
+  ]
+}
