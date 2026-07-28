@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001044",
+    "slug": "lighter",
+    "canonical_name": "Lighter",
+    "aliases": ["Lighter Exchange", "Lighter Perps", "Lighter Spot", "zkLighter"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Ethereum ecosystem",
+    "summary": "Decentralized spot and perpetual trading platform using zero-knowledge infrastructure for verifiable order matching and liquidations while providing current high-volume markets and API access.",
+    "official_url_original": "https://app.lighter.xyz/",
+    "official_domain_original": "lighter.xyz",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://app.lighter.xyz/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-07-28",
+    "notes": "Current first-party documentation identifies Lighter as a decentralized exchange with verifiable order matching and liquidations, perpetual futures, spot markets, wallet-linked accounts, subaccounts, and a mainnet API. Current independent exchange and protocol metrics report substantial non-zero perpetual volume, open interest, spot volume, TVL, fees, and active addresses. HEI models Lighter Perps and Lighter Spot as products of one protocol-level exchange entity rather than separate entities. An exact public launch date and legal jurisdiction are not asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012313",
+      "exchange_id": "hei_ex_001044",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Introduction to Lighter",
+      "url": "https://docs.lighter.xyz/",
+      "publisher": "Lighter",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.lighter.xyz/",
+      "accessed_at": "2026-07-28",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party documentation describes Lighter as a decentralized trading platform with zero-fee trading, verifiable order matching and liquidations, and links the live trading applications."
+    },
+    {
+      "id": "hei_src_012314",
+      "exchange_id": "hei_ex_001044",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Lighter exchange markets and protocol metrics",
+      "url": "https://www.coingecko.com/en/exchanges/lighter",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-28",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current independent exchange data reports recently updated perpetual markets, substantial trading volume, and open interest. DefiLlama separately reports current TVL, fees, revenue, spot and perpetual volume, and active addresses for the combined Lighter protocol."
+    }
+  ]
+}
