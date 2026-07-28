@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001047",
+    "slug": "pointpay",
+    "canonical_name": "PointPay",
+    "aliases": ["PointPay Exchange", "PointPay Limited", "exchange.pointpay.io"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2018-01-01",
+    "death_date": null,
+    "country_or_origin": "Saint Vincent and the Grenadines",
+    "summary": "Centralized cryptocurrency exchange operating since 2018 and providing current spot, futures, conversion, staking, launchpad, wallet, and payment-related services through the PointPay ecosystem.",
+    "official_url_original": "https://exchange.pointpay.io/",
+    "official_domain_original": "pointpay.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://exchange.pointpay.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-07-28",
+    "notes": "Current first-party exchange surfaces expose spot and futures trading, conversion, staking, launchpad, wallet, card and bank purchase options, P2P services, and current market pages. First-party anniversary and product materials state that PointPay has operated since 2018. Current independent exchange data reports recently updated markets, non-zero volume, and registration in Saint Vincent and the Grenadines. Public terms identify PointPay Limited and include region-specific service restrictions, so HEI does not generalize any regulatory authorization across all jurisdictions. January 1 is used only as a year-level launch marker."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012319",
+      "exchange_id": "hei_ex_001047",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "PointPay official exchange platform",
+      "url": "https://exchange.pointpay.io/",
+      "publisher": "PointPay",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://exchange.pointpay.io/",
+      "accessed_at": "2026-07-28",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party exchange site exposes operating spot and futures products, current market pages, conversion, staking, launchpad, wallet, payment, and P2P services."
+    },
+    {
+      "id": "hei_src_012320",
+      "exchange_id": "hei_ex_001047",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "PointPay exchange profile and current markets",
+      "url": "https://www.coingecko.com/en/exchanges/pointpay",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-28",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Current independent exchange profile reports recently updated spot markets, non-zero trading activity, a 2018 establishment year, and registration in Saint Vincent and the Grenadines."
+    }
+  ]
+}
