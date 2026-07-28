@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001050",
+    "slug": "max-exchange",
+    "canonical_name": "MAX Exchange",
+    "aliases": ["MAX Maicoin", "MaiCoin | MAX", "MAX Digital Asset Exchange", "max.maicoin.com"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2018-01-01",
+    "death_date": null,
+    "country_or_origin": "Taiwan",
+    "summary": "Taiwan-based centralized digital-asset exchange launched in 2018 by the MaiCoin group and currently providing New Taiwan dollar and crypto spot markets, staking, trading bots, APIs, and bank-trust-supported fiat services.",
+    "official_url_original": "https://max.maicoin.com/",
+    "official_domain_original": "max.maicoin.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://max.maicoin.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-07-28",
+    "notes": "Current first-party MaiCoin Group material identifies Modernity Financial Technologies Co., Ltd., states that MAX Exchange launched in Taiwan in 2018, and distinguishes MAX from the sibling MaiCoin platform while presenting both within one operating group. Current first-party exchange and support surfaces expose live trading, staking, bots, API documentation, TWD bank-trust arrangements, operator details, and July 2026 announcements. Current independent data reports recently updated TWD and USDT markets, non-zero volume, a 2018 establishment year, Taiwan registration, and VASP AML registration. HEI models MAX Exchange as its own trading venue rather than treating the separate MaiCoin retail platform as an alias-only duplicate. January 1 is used as a year-level launch marker because the reviewed sources do not provide an exact public launch day."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012325",
+      "exchange_id": "hei_ex_001050",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "MaiCoin Group company history and MAX Exchange launch",
+      "url": "https://group.maicoin.com/about",
+      "publisher": "MaiCoin Group",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://group.maicoin.com/about",
+      "accessed_at": "2026-07-28",
+      "reliability": "high",
+      "claim_scope": "ownership",
+      "notes": "First-party group history identifies the operating companies, distinguishes MaiCoin and MAX Exchange, and records the MAX Exchange launch in Taiwan in 2018."
+    },
+    {
+      "id": "hei_src_012326",
+      "exchange_id": "hei_ex_001050",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "MAX Exchange profile and current markets",
+      "url": "https://www.coingecko.com/en/exchanges/max-maicoin",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-28",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current independent profile reports recently updated markets, non-zero trading activity, a 2018 establishment year, Taiwan registration, and Taiwan VASP AML registration context."
+    }
+  ]
+}
