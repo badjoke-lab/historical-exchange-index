@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "reviewed_at": "2026-07-29",
+  "reviewed_at": "2026-06-21",
   "source_inventory_pr": 408,
   "scope": "existing_predecessor_successor_edges",
   "dispositions": [
@@ -135,30 +135,6 @@
       "rationale": "OPNX was connected to CoinFLEX leadership and creditor plans, but the transition was not a clean exchange-name rebrand and later evidence disputes the extent of continuity. The relationship remains historical narrative rather than a forced canonical successor link.",
       "event_ids": ["hei_ev_000575"],
       "evidence_ids": ["hei_src_001284", "hei_src_000387", "hei_src_003196"]
-    },
-    {
-      "entity_id": "hei_ex_000586",
-      "entity_name": "BL3P",
-      "field": "successor_id",
-      "target_id": "hei_ex_001067",
-      "target_name": "Bitonic",
-      "disposition": "keep_bidirectional",
-      "continuity_status": "exchange_closed_and_balances_migrated",
-      "rationale": "BL3P ended trading and transferred remaining customer balances into Bitonic accounts. The direct one-to-one service migration supports a reciprocal successor and predecessor pair.",
-      "event_ids": ["hei_ev_010046", "hei_ev_010047"],
-      "evidence_ids": ["hei_src_011118", "hei_src_011119", "hei_src_011120", "hei_src_012359"]
-    },
-    {
-      "entity_id": "hei_ex_001067",
-      "entity_name": "Bitonic",
-      "field": "predecessor_id",
-      "target_id": "hei_ex_000586",
-      "target_name": "BL3P",
-      "disposition": "keep_bidirectional",
-      "continuity_status": "exchange_closed_and_balances_migrated",
-      "rationale": "Bitonic received the remaining BL3P balances when BL3P trading closed. The reviewed migration is a direct service succession and is accurately represented by the reciprocal pair.",
-      "event_ids": ["hei_ev_010046", "hei_ev_010047"],
-      "evidence_ids": ["hei_src_011118", "hei_src_011119", "hei_src_011120", "hei_src_012359"]
     }
   ]
 }
