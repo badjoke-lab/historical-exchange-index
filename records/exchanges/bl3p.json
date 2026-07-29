@@ -16,7 +16,7 @@
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://bl3p.eu/",
     "predecessor_id": null,
-    "successor_id": "hei_ex_001067",
+    "successor_id": null,
     "confidence": "high",
     "last_verified_at": "2026-07-03",
     "notes": "Launch is stored at year precision because Bitonic's current history states that BL3P launched in 2014, while a January 2014 announcement describes a private operating environment and staged public availability rather than one definitive public-launch day. The terminal exchange marker is 2024-12-20, when trading, deposits, and withdrawals stopped and balances migrated to Bitonic. The BL3P domain remains reachable only as a historical shutdown notice; live_verified does not imply active trading."
