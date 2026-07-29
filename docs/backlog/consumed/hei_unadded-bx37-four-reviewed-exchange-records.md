@@ -22,9 +22,9 @@ Coinmerce     hei_src_012357–012358
 Bitonic       hei_src_012359–012360
 ```
 
-## Lineage repair
+## BL3P transition handling
 
-BL3P (`hei_ex_000586`) now points to Bitonic as successor, and Bitonic points back to BL3P as predecessor. Existing BL3P events already document the December 2024 closure and balance migration, so BX37 adds no event.
+BL3P's existing shutdown event and evidence already document its December 2024 closure and transfer of remaining balances to Bitonic. BX37 keeps that transition event-only and does not add canonical predecessor or successor fields because the current lineage-application baseline is frozen.
 
 ## Rejected or held during review
 
