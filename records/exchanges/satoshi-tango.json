@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001082",
+    "slug": "satoshi-tango",
+    "canonical_name": "Satoshi Tango",
+    "aliases": ["SatoshiTango", "Fintech S.A."],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2014-01-01",
+    "death_date": null,
+    "country_or_origin": "Argentina / Latin America",
+    "summary": "Argentina-origin custodial cryptocurrency trading and financial-services platform founded in 2014, offering fiat-to-crypto purchase and sale, crypto conversion, deposits, withdrawals, and app-based services across several Latin American markets.",
+    "official_url_original": "https://www.satoshitango.com/",
+    "official_domain_original": "satoshitango.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.satoshitango.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-02",
+    "notes": "First-party company history states that Satoshi Tango was founded in 2014, but does not establish an exact day; January 1 is used as a year-level marker. The current site exposes registration and active purchase, sale, conversion, deposit, withdrawal, and app functions and identifies Fintech S.A. as registered under number 4 in Argentina's virtual-asset service provider registry. No broader regulatory endorsement is inferred from the registration statement."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012391",
+      "exchange_id": "hei_ex_001082",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Satoshi Tango company history",
+      "url": "https://www.satoshitango.com/sobre-nosotros",
+      "publisher": "Satoshi Tango",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.satoshitango.com/sobre-nosotros",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "First-party company history states that the founders created Satoshi Tango in 2014 and describes the continuing Latin American blockchain-based financial-services platform."
+    },
+    {
+      "id": "hei_src_012392",
+      "exchange_id": "hei_ex_001082",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Satoshi Tango cryptocurrency purchase and sale platform",
+      "url": "https://www.satoshitango.com/",
+      "publisher": "Satoshi Tango",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.satoshitango.com/",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party platform exposes registration, crypto purchase, sale, conversion, deposits, withdrawals, and mobile access and states that Fintech S.A. is registered as Argentina PSAV number 4."
+    }
+  ]
+}
