@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "id": "hei_ex_001086",
+    "slug": "belo",
+    "canonical_name": "belo",
+    "aliases": [
+      "Belo",
+      "Belo Argentina S.A."
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Argentina",
+    "summary": "Argentina-origin custodial virtual wallet and crypto exchange service operated for Argentine users by Belo Argentina S.A., supporting cryptocurrency purchase, sale, balances, transfers, receipts, payments, and international money movement.",
+    "official_url_original": "https://www.belo.app/",
+    "official_domain_original": "belo.app",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.belo.app/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-02",
+    "notes": "The current first-party site remains live with account and international-payment products. Current general terms explicitly define crypto services including purchases, sales, balances, outgoing transfers, receipts, and yield functions, and identify Belo Argentina S.A. as Argentina PSAV registration number 52. The registration is recorded as an identity and compliance fact, not as a CNV license or product endorsement. No exact launch date or terminal lifecycle event is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012399",
+      "exchange_id": "hei_ex_001086",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "belo international virtual wallet platform",
+      "url": "https://www.belo.app/en-us/ar/",
+      "publisher": "belo",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.belo.app/en-us/ar/",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party platform exposes account creation, international receipt and transfer, payment, balance conversion, and app access, confirming that the service remains operational."
+    },
+    {
+      "id": "hei_src_012400",
+      "exchange_id": "hei_ex_001086",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "belo general terms and crypto services",
+      "url": "https://help.belo.app/en/articles/5362779-general-terms-and-conditions",
+      "publisher": "Belo Argentina S.A.",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://help.belo.app/en/articles/5362779-general-terms-and-conditions",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party terms identify Belo Argentina S.A., describe cryptocurrency purchase, sale, balance, transfer, and receipt services, and state Argentina PSAV registration number 52 without claiming CNV licensing."
+    }
+  ]
+}
