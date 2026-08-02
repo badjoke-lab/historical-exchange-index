@@ -42,7 +42,7 @@ After D-1000 batch BX41, the projected reviewed state is:
 
 ```text
 Entities: 963
-Events:   1016
+Events:   1017
 Evidence: 3698
 ```
 
