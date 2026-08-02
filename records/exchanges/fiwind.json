@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001083",
+    "slug": "fiwind",
+    "canonical_name": "Fiwind",
+    "aliases": ["Financewind S.A."],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Argentina",
+    "summary": "Argentine custodial crypto and financial-services platform operated by Financewind S.A., providing cryptocurrency acquisition, exchange, sale, storage, deposits, withdrawals, and app-based conversion alongside broader payment and investment products.",
+    "official_url_original": "https://www.fiwind.io/",
+    "official_domain_original": "fiwind.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.fiwind.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-02",
+    "notes": "The current first-party site exposes cryptocurrency purchase, sale, transfer, yield, payment, and app functions and states that Fiwind is registered as Argentina PSAV number 75. Current terms identify Financewind S.A. and explicitly define a digital exchange platform for acquiring, exchanging, disposing of, and storing crypto-tokens. No exact launch date or terminal lifecycle event is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012393",
+      "exchange_id": "hei_ex_001083",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Fiwind crypto and financial-services platform",
+      "url": "https://www.fiwind.io/",
+      "publisher": "Fiwind",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.fiwind.io/",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party platform offers cryptocurrency purchase, sale, transfer, payment, and app services and states that Fiwind is registered as Argentina PSAV number 75."
+    },
+    {
+      "id": "hei_src_012394",
+      "exchange_id": "hei_ex_001083",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Fiwind general terms and exchange-platform definition",
+      "url": "https://www.fiwind.io/terms",
+      "publisher": "Financewind S.A.",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.fiwind.io/terms",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current legal terms identify Financewind S.A. and define the Fiwind digital exchange platform for acquisition, exchange, disposal, and storage of crypto-tokens."
+    }
+  ]
+}

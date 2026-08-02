@@ -1,0 +1,87 @@
+{
+  "entity": {
+    "id": "hei_ex_001080",
+    "slug": "orionx",
+    "canonical_name": "Orionx",
+    "aliases": ["Orionx SpA", "Orionx Exchange"],
+    "type": "cex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": "2017-01-01",
+    "death_date": null,
+    "country_or_origin": "Chile",
+    "summary": "Chile-origin centralized digital-asset exchange and financial-infrastructure platform operating since 2017. Its public exchange remains reachable, but a June 2026 CMF decision rejected Orionx SpA's registration and authorization requests for covered Fintech Law services and required it to stop new regulated operations while concluding existing ones.",
+    "official_url_original": "https://orionx.com/",
+    "official_domain_original": "orionx.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://orionx.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-02",
+    "notes": "The official site still exposes registration, instant purchase, exchange, OTC, API, and business services. However, Chile's CMF stated on 2026-06-26 that Orionx SpA's registration and authorization requests were rejected and that affected firms could not enter new operations or provide covered services to new clients, while being limited to orderly conclusion of existing operations. HEI therefore uses limited rather than active or dead. The 2017 launch marker is year-level because reviewed first-party pages do not establish an exact day."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010092",
+      "exchange_id": "hei_ex_001080",
+      "event_type": "regulatory_action",
+      "event_date": "2026-06-26",
+      "title": "CMF rejected Orionx registration and authorization requests",
+      "description": "Chile's Financial Market Commission rejected Orionx SpA's registration and authorization requests for covered Fintech Law services, ending its transitional authorization and requiring it to refrain from new regulated operations while concluding existing ones.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "The decision is not recorded as a terminal shutdown because the public platform remains reachable and the reviewed sources do not establish completion of an exchange closure."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012386",
+      "exchange_id": "hei_ex_001080",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Orionx digital-asset exchange platform",
+      "url": "https://orionx.com/",
+      "publisher": "Orionx",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://orionx.com/",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site exposes sign-up, instant purchase, exchange, OTC, API, and business-service entry points, confirming that the domain and platform surface remain live."
+    },
+    {
+      "id": "hei_src_012387",
+      "exchange_id": "hei_ex_001080",
+      "event_id": "hei_ev_010092",
+      "source_type": "regulatory_notice",
+      "title": "CMF rejects registration and authorization requests from fintech service providers",
+      "url": "https://cmfchile.cl/portal/principal/623/w4-article-111490.html",
+      "publisher": "Financial Market Commission of Chile",
+      "published_at": "2026-06-26",
+      "archived_url": "https://web.archive.org/web/*/https://cmfchile.cl/portal/principal/623/w4-article-111490.html",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Official regulator notice names Orionx SpA, rejects the relevant registration and authorization requests, ends transitional authorization, and states that affected firms must stop new covered operations and orderly conclude existing ones."
+    },
+    {
+      "id": "hei_src_012388",
+      "exchange_id": "hei_ex_001080",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Orionx business and infrastructure services",
+      "url": "https://orionx.com/business",
+      "publisher": "Orionx",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://orionx.com/business",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Current first-party business page describes Orionx as providing digital-asset and financial-infrastructure services since 2017."
+    }
+  ]
+}
