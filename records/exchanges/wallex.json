@@ -1,0 +1,72 @@
+{
+  "entity": {
+    "id": "hei_ex_001081",
+    "slug": "wallex",
+    "canonical_name": "Wallex",
+    "aliases": ["صرافی والکس", "Khalk-e Sarzamin-e Parseh"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Iran",
+    "summary": "Iranian centralized cryptocurrency exchange offering rial- and stablecoin-denominated spot markets, instant purchase and sale, custody, trading tools, mobile access, and authenticated API order execution.",
+    "official_url_original": "https://wallex.ir/",
+    "official_domain_original": "wallex.ir",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://wallex.ir/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-02",
+    "notes": "The current first-party site presents more than 320 trading markets, instant purchase and sale, authenticated accounts, mobile applications, and API trading. The U.S. Treasury designated Wallex on 2026-06-02 pursuant to E.O. 13902 for operating in Iran's financial sector. The designation is recorded as a regulatory event and does not by itself establish operational closure; the exchange remains active. No exact launch date is asserted."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010093",
+      "exchange_id": "hei_ex_001081",
+      "event_type": "regulatory_action",
+      "event_date": "2026-06-02",
+      "title": "U.S. Treasury designated Wallex under Iran sanctions authority",
+      "description": "The U.S. Treasury's Office of Foreign Assets Control designated Wallex pursuant to Executive Order 13902 for operating in the financial sector of the Iranian economy.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "The designation creates sanctions exposure but the reviewed first-party platform remains operational, so HEI does not infer a shutdown or terminal status."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012389",
+      "exchange_id": "hei_ex_001081",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Wallex cryptocurrency exchange platform",
+      "url": "https://wallex.ir/",
+      "publisher": "Wallex",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://wallex.ir/",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party platform presents more than 320 rial- and USDT-based trading markets, instant purchase and sale, registration, mobile access, trading tools, custody, and API functions."
+    },
+    {
+      "id": "hei_src_012390",
+      "exchange_id": "hei_ex_001081",
+      "event_id": "hei_ev_010093",
+      "source_type": "regulatory_notice",
+      "title": "Economic Fury targets Iranian digital asset exchanges",
+      "url": "https://home.treasury.gov/news/press-releases/sb0519",
+      "publisher": "U.S. Department of the Treasury",
+      "published_at": "2026-06-02",
+      "archived_url": "https://web.archive.org/web/*/https://home.treasury.gov/news/press-releases/sb0519",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Official Treasury release identifies Wallex as an Iranian digital-asset exchange and records its designation pursuant to E.O. 13902 for operating in Iran's financial sector."
+    }
+  ]
+}
