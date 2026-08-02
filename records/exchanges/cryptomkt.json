@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001081",
+    "slug": "cryptomkt",
+    "canonical_name": "CryptoMKT",
+    "aliases": ["CryptoMarket", "Crypto MKT"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Chile / Latin America",
+    "summary": "Chile-origin centralized cryptocurrency exchange serving multiple Latin American markets with fiat purchase, spot exchange, wallet, API, and advanced order functions.",
+    "official_url_original": "https://www.cryptomkt.com/",
+    "official_domain_original": "cryptomkt.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.cryptomkt.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-08-02",
+    "notes": "The current first-party platform exposes account creation, fiat purchase, exchange, wallet, API documentation, limit and stop-loss order functionality, and country-specific services for Argentina, Brazil, Chile, Colombia, Peru, and Bolivia. A current independent directory preserves the CryptoMarket exchange identity but does not track current volume, so HEI avoids volume claims and uses medium confidence. No exact launch date or terminal lifecycle event is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012389",
+      "exchange_id": "hei_ex_001081",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "CryptoMKT cryptocurrency exchange platform",
+      "url": "https://www.cryptomkt.com/en/",
+      "publisher": "CryptoMKT",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptomkt.com/en/",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site exposes account creation, cryptocurrency purchase, professional exchange tools, wallet services, API documentation, and country-specific operations across Latin America."
+    },
+    {
+      "id": "hei_src_012390",
+      "exchange_id": "hei_ex_001081",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "CryptoMarket exchange profile",
+      "url": "https://coinmarketcap.com/exchanges/cryptomarket/",
+      "publisher": "CoinMarketCap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/cryptomarket/",
+      "accessed_at": "2026-08-02",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Current independent directory preserves the CryptoMarket exchange identity and official cryptomkt.com domain, while marking market-volume data as untracked."
+    }
+  ]
+}
