@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "id": "hei_ex_001085",
+    "slug": "busha",
+    "canonical_name": "Busha",
+    "aliases": [
+      "Busha Digital Limited",
+      "Busha Ltd"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Nigeria",
+    "summary": "Nigeria-origin centralized digital-asset exchange operated by Busha Digital Limited, providing cryptocurrency purchase, sale, conversion, spot wallets, limit orders, custody, fiat ramps, payments, and business services.",
+    "official_url_original": "https://busha.io/",
+    "official_domain_original": "busha.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://busha.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-02",
+    "notes": "The current first-party platform exposes buy, sell, convert, wallet, limit-order, payments, and business products. Current terms identify Busha Digital Limited and define the service as a virtual-asset exchange platform. Nigeria's SEC registered-operator page separately lists Busha as a Digital Assets Exchange participant. No exact launch date or terminal lifecycle event is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012397",
+      "exchange_id": "hei_ex_001085",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Busha digital-money and digital-asset exchange platform",
+      "url": "https://busha.io/",
+      "publisher": "Busha",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://busha.io/",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site exposes sign-up, buy, sell, convert, limit-order, wallet, payment, and business-service functions for digital assets."
+    },
+    {
+      "id": "hei_src_012398",
+      "exchange_id": "hei_ex_001085",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "Registered FinTech Operators",
+      "url": "https://home.sec.gov.ng/fintech-and-innovation-hub-finport/registered-fintech-operators/",
+      "publisher": "Securities and Exchange Commission, Nigeria",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://home.sec.gov.ng/fintech-and-innovation-hub-finport/registered-fintech-operators/",
+      "accessed_at": "2026-08-02",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official regulator directory lists Busha Digital Limited, trading as Busha, with the function Digital Assets Exchange."
+    }
+  ]
+}
