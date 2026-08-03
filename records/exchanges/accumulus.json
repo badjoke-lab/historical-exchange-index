@@ -26,7 +26,7 @@
   "events": [],
   "evidence": [
     {
-      "id": "hei_src_012421",
+      "id": "hei_src_012424",
       "exchange_id": "hei_ex_001096",
       "event_id": null,
       "source_type": "official_statement",
@@ -41,7 +41,7 @@
       "notes": "Current first-party site identifies the operator and presents Accumulus as an operating Hong Kong licensed virtual asset trading platform."
     },
     {
-      "id": "hei_src_012422",
+      "id": "hei_src_012425",
       "exchange_id": "hei_ex_001096",
       "event_id": null,
       "source_type": "regulatory_notice",
