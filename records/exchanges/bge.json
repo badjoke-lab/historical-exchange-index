@@ -27,7 +27,7 @@
   "events": [],
   "evidence": [
     {
-      "id": "hei_src_012425",
+      "id": "hei_src_012428",
       "exchange_id": "hei_ex_001098",
       "event_id": null,
       "source_type": "official_statement",
@@ -42,7 +42,7 @@
       "notes": "Current first-party platform exposes registration, virtual asset deposits, spot trading, OTC services, fee information, and mobile trading access."
     },
     {
-      "id": "hei_src_012426",
+      "id": "hei_src_012429",
       "exchange_id": "hei_ex_001098",
       "event_id": null,
       "source_type": "regulatory_notice",
