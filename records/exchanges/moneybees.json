@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "id": "hei_ex_001091",
+    "slug": "moneybees",
+    "canonical_name": "Moneybees",
+    "aliases": [
+      "Moneybees Forex Corporation",
+      "Moneybees Forex Corp."
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Philippines",
+    "summary": "Philippines-based centralized virtual-asset exchange service operated by Moneybees Forex Corporation, offering cryptocurrency purchase and sale through an online trading desk and partner over-the-counter outlets.",
+    "official_url_original": "https://www.moneybees.ph/",
+    "official_domain_original": "moneybees.ph",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.moneybees.ph/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-03",
+    "notes": "The current first-party site publishes buy and sell rates, an online trading desk, wallet-to-cash and cash-to-wallet flows, transaction limits, and a nationwide OTC partner network. Current terms identify Moneybees Forex Corporation and define virtual-currency purchase and sale through supervised partner outlets or online trading desks. No exact launch date or lifecycle event is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012409",
+      "exchange_id": "hei_ex_001091",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Moneybees cryptocurrency OTC and online trading platform",
+      "url": "https://www.moneybees.ph/",
+      "publisher": "Moneybees",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.moneybees.ph/",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site exposes cryptocurrency buy and sell rates, online desk access, wallet funding and cash-out flows, KYC limits, and active partner outlet locations."
+    },
+    {
+      "id": "hei_src_012410",
+      "exchange_id": "hei_ex_001091",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Moneybees customer terms and conditions",
+      "url": "https://www.moneybees.ph/terms/",
+      "publisher": "Moneybees Forex Corporation",
+      "published_at": "2025-02-28",
+      "archived_url": "https://web.archive.org/web/*/https://www.moneybees.ph/terms/",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party terms identify Moneybees Forex Corporation and define virtual-currency purchase and sale over the counter through partner outlets or through online trading desks."
+    }
+  ]
+}
