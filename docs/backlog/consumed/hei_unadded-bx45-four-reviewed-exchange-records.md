@@ -13,38 +13,32 @@ BGE           hei_ex_001098 active
 VDX           hei_ex_001099 active
 ```
 
-## Evidence allocation
+## Final evidence allocation
 
 ```text
-Accumulus     hei_src_012421–012422
-PantherTrade  hei_src_012423–012424
-BGE           hei_src_012425–012426
-VDX           hei_src_012427–012428
+Accumulus     hei_src_012424–012425
+PantherTrade  hei_src_012426–012427
+BGE           hei_src_012428–012429
+VDX           hei_src_012430–012431
 ```
+
+PR #720 merged during BX45 validation and allocated `hei_src_012421–012423` to BTCBOX. BX45 evidence was therefore moved to the next collision-free range without changing its claims or sources.
 
 ## Event allocation
 
-No new lifecycle event is added. The next unused event ID remains `hei_ev_010095`.
+BX45 adds no lifecycle event. PR #720 allocated `hei_ev_010095–010096`; the next unused event ID is `hei_ev_010097`.
 
-## Status handling
+## Status and identity handling
 
-All four entities are added as `active` at high confidence.
+All four entities are `active` at high confidence, supported by current first-party operating or licensing surfaces and the Hong Kong SFC licensed VATP list. Direct name, path, domain, and historical checks found no reviewed overlap.
 
-Each record is supported by a current first-party operating or licensing surface and the Hong Kong Securities and Futures Commission list of licensed virtual asset trading platforms. The SFC evidence is used for operator identity, platform identity, CE reference, licensing date, and current licensed-platform status, not as a performance or safety endorsement.
-
-## Identity and overlap checks
-
-Direct current-main name, path, domain, and historical commit checks found no reviewed Accumulus, PantherTrade, BGE, or VDX entity before drafting.
-
-No unsupported predecessor, successor, merger, acquisition, rebrand, regional split, or shared-entity relation is added.
-
-## Result
+## Final result
 
 ```text
 Entities: 979
-Events:   1018
-Evidence: 3732
+Events:   1020
+Evidence: 3735
 Remaining to D-1000: 21
 ```
 
-The next unused evidence ID is `hei_src_012429`.
+The next unused evidence ID is `hei_src_012432`.

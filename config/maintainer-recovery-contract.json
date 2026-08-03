@@ -7,8 +7,8 @@
   "next_item": "D-1000 Reviewed Entity Milestone",
   "reviewed_counts": {
     "entities": 979,
-    "events": 1018,
-    "evidence": 3732
+    "events": 1020,
+    "evidence": 3735
   },
   "authoritative_paths": {
     "agent_instructions": "AGENTS.md",
