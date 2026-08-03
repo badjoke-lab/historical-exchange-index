@@ -26,7 +26,7 @@
   "events": [],
   "evidence": [
     {
-      "id": "hei_src_012427",
+      "id": "hei_src_012430",
       "exchange_id": "hei_ex_001099",
       "event_id": null,
       "source_type": "official_statement",
@@ -41,7 +41,7 @@
       "notes": "Current first-party announcement states that VDX obtained the required SFC licences to operate a Hong Kong virtual asset trading platform and provide infrastructure and services to licensed financial institutions."
     },
     {
-      "id": "hei_src_012428",
+      "id": "hei_src_012431",
       "exchange_id": "hei_ex_001099",
       "event_id": null,
       "source_type": "regulatory_notice",
