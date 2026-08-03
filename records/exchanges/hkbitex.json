@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "id": "hei_ex_001093",
+    "slug": "hkbitex",
+    "canonical_name": "HKbitEX",
+    "aliases": [
+      "Hong Kong Digital Asset EX Limited",
+      "Hong Kong Digital Asset Exchange"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Hong Kong",
+    "summary": "Hong Kong-based licensed centralized virtual asset trading platform operated by Hong Kong Digital Asset EX Limited, providing account-based spot and over-the-counter trading together with fiat and virtual asset deposit and withdrawal functions.",
+    "official_url_original": "https://www.hkbitex.com.hk/",
+    "official_domain_original": "hkbitex.com.hk",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.hkbitex.com.hk/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-03",
+    "notes": "The current first-party platform exposes account access, spot and OTC trading, fee schedules, and fiat and virtual asset funding and withdrawal guidance. Hong Kong's Securities and Futures Commission lists Hong Kong Digital Asset EX Limited, trading as HKbitEX, as a licensed virtual asset trading platform under CE reference BPO721, licensed on 2024-12-18. The regulatory listing is used as operator, identity, and current licensing evidence rather than as a performance endorsement. No exact launch date or lifecycle event is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012415",
+      "exchange_id": "hei_ex_001093",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "HKbitEX virtual asset exchange platform",
+      "url": "https://www.hkbitex.com.hk/",
+      "publisher": "HKbitEX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.hkbitex.com.hk/",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party platform and support surfaces expose account access, spot and OTC services, fee schedules, and deposit and withdrawal functions."
+    },
+    {
+      "id": "hei_src_012416",
+      "exchange_id": "hei_ex_001093",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "Lists of virtual asset trading platforms",
+      "url": "https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms",
+      "publisher": "Securities and Futures Commission of Hong Kong",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official SFC list identifies Hong Kong Digital Asset EX Limited, trading as HKbitEX, under CE reference BPO721 with a licensing date of 2024-12-18."
+    }
+  ]
+}
