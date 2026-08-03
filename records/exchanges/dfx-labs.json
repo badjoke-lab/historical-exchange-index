@@ -4,7 +4,6 @@
     "slug": "dfx-labs",
     "canonical_name": "DFX Labs",
     "aliases": [
-      "DFX",
       "DFX Labs Company Limited"
     ],
     "type": "cex",
@@ -22,7 +21,7 @@
     "successor_id": null,
     "confidence": "high",
     "last_verified_at": "2026-08-03",
-    "notes": "The current first-party site exposes login, virtual asset trading, deposit, and withdrawal functions. Hong Kong's Securities and Futures Commission lists DFX Labs Company Limited, trading as DFX Labs, as a licensed virtual asset trading platform under CE reference BUN619, licensed on 2024-12-18. This entity is distinct from the unrelated DFX Finance decentralized protocol already represented in HEI: the operator, product identity, domain, and service model differ. The regulatory listing is used as operator, identity, and current licensing evidence rather than as a performance endorsement. No exact launch date or lifecycle event is asserted."
+    "notes": "The current first-party site exposes login, virtual asset trading, deposit, and withdrawal functions. Hong Kong's Securities and Futures Commission lists DFX Labs Company Limited, trading as DFX Labs, as a licensed virtual asset trading platform under CE reference BUN619, licensed on 2024-12-18. This entity is distinct from the unrelated DFX Finance decentralized protocol already represented in HEI: the operator, product identity, domain, and service model differ. The short form DFX is not stored as an alias because it would overlap with DFX Finance. The regulatory listing is used as operator, identity, and current licensing evidence rather than as a performance endorsement. No exact launch date or lifecycle event is asserted."
   },
   "events": [],
   "evidence": [
