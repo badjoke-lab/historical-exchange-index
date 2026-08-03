@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "id": "hei_ex_001097",
+    "slug": "panthertrade",
+    "canonical_name": "PantherTrade",
+    "aliases": [
+      "Panthertrade",
+      "Panthertrade (Hong Kong) Limited"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Hong Kong",
+    "summary": "Hong Kong-based licensed centralized virtual asset trading platform operated by Panthertrade (Hong Kong) Limited, providing spot trading, over-the-counter execution, custody, stablecoin settlement, and institutional digital-asset services.",
+    "official_url_original": "https://www.panthertrade.com/",
+    "official_domain_original": "panthertrade.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.panthertrade.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-03",
+    "notes": "The current first-party site exposes cryptocurrency markets and describes spot trading, OTC execution, asset custody, stablecoin settlement, and institutional services. Hong Kong's Securities and Futures Commission lists Panthertrade (Hong Kong) Limited, trading as PantherTrade, under CE reference BUY578 with a licensing date of 2025-01-27. The regulatory listing is used as operator, identity, and current licensing evidence rather than as a performance endorsement. No exact launch date or lifecycle event is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012423",
+      "exchange_id": "hei_ex_001097",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "PantherTrade professional crypto trading platform",
+      "url": "https://www.panthertrade.com/en/",
+      "publisher": "PantherTrade",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.panthertrade.com/en/",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party platform exposes supported virtual asset markets and describes spot trading, OTC execution, custody, stablecoin settlement, and institutional services."
+    },
+    {
+      "id": "hei_src_012424",
+      "exchange_id": "hei_ex_001097",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "Lists of virtual asset trading platforms",
+      "url": "https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms",
+      "publisher": "Securities and Futures Commission of Hong Kong",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official SFC list identifies Panthertrade (Hong Kong) Limited, trading as PantherTrade, under CE reference BUY578 with a licensing date of 2025-01-27."
+    }
+  ]
+}
