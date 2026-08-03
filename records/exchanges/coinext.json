@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "id": "hei_ex_001090",
+    "slug": "coinext",
+    "canonical_name": "Coinext",
+    "aliases": [
+      "Coinext Serviços Digitais S.A.",
+      "Coinext Sociedade Prestadora de Serviços Digitais S.A."
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Brazil",
+    "summary": "Brazil-based centralized cryptocurrency exchange operated by Coinext, providing spot purchase and sale, custody, staking, fiat and crypto transfers, advanced orders, web and mobile trading, and API services.",
+    "official_url_original": "https://coinext.com.br/",
+    "official_domain_original": "coinext.com.br",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://coinext.com.br/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-03",
+    "notes": "The current first-party site exposes live markets, registration, app and web trading, spot purchase and sale, deposits and withdrawals, staking, advanced orders, and API services. Current terms identify the operating company and define crypto purchase, sale, storage, and transaction services. No exact launch date or lifecycle event is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012407",
+      "exchange_id": "hei_ex_001090",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Coinext cryptocurrency exchange platform",
+      "url": "https://coinext.com.br/",
+      "publisher": "Coinext",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinext.com.br/",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site exposes registration, live markets, spot purchase and sale, mobile and web trading, deposits and withdrawals, staking, advanced orders, and API services."
+    },
+    {
+      "id": "hei_src_012408",
+      "exchange_id": "hei_ex_001090",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Coinext terms of use and services",
+      "url": "https://coinext.com.br/institucional/termos-de-uso-e-condicoes",
+      "publisher": "Coinext Serviços Digitais S.A.",
+      "published_at": "2026-01-29",
+      "archived_url": "https://web.archive.org/web/*/https://coinext.com.br/institucional/termos-de-uso-e-condicoes",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party terms identify the operating company and govern platform services for cryptocurrency purchase, sale, storage, and account-based transactions."
+    }
+  ]
+}

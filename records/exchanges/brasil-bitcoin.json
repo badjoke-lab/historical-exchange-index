@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "id": "hei_ex_001088",
+    "slug": "brasil-bitcoin",
+    "canonical_name": "Brasil Bitcoin",
+    "aliases": [
+      "BRASIL BITCOIN SERVIÇOS DIGITAIS LTDA.",
+      "Brasil Bitcoin Serviços Digitais Ltda."
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Brazil",
+    "summary": "Brazil-based centralized cryptocurrency trading platform operated by Brasil Bitcoin Serviços Digitais Ltda., supporting crypto purchase and sale, custody wallets, fiat funding and withdrawal, OTC transactions, and related account services.",
+    "official_url_original": "https://brasilbitcoin.com.br/",
+    "official_domain_original": "brasilbitcoin.com.br",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://brasilbitcoin.com.br/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-03",
+    "notes": "The current first-party site exposes a live trading platform, app, OTC service, markets, account registration, and additional crypto services. Current terms identify Brasil Bitcoin Serviços Digitais Ltda. and define user purchase and sale orders, virtual wallets, real-denominated account funding and withdrawals, and crypto transfers. No exact launch date or lifecycle event is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012403",
+      "exchange_id": "hei_ex_001088",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Brasil Bitcoin cryptocurrency exchange platform",
+      "url": "https://brasilbitcoin.com.br/",
+      "publisher": "Brasil Bitcoin",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://brasilbitcoin.com.br/",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site exposes account registration, a cryptocurrency trading platform, market pages, OTC services, app downloads, and supported crypto products, confirming current operation."
+    },
+    {
+      "id": "hei_src_012404",
+      "exchange_id": "hei_ex_001088",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Brasil Bitcoin terms of use",
+      "url": "https://brasilbitcoin.com.br/termos-de-uso/",
+      "publisher": "Brasil Bitcoin Serviços Digitais Ltda.",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://brasilbitcoin.com.br/termos-de-uso/",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party terms identify the operating company and define cryptocurrency purchase and sale, virtual wallets, real-denominated account balances, deposits, withdrawals, OTC, and trading-order functions."
+    }
+  ]
+}

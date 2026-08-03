@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "id": "hei_ex_001089",
+    "slug": "digitra",
+    "canonical_name": "Digitra.com",
+    "aliases": [
+      "Digitra",
+      "DIGITRA.COM ATIVOS DIGITAIS LTDA"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Brazil",
+    "summary": "Brazil-based centralized cryptoasset exchange operated by Digitra.com Ativos Digitais Ltda., providing account-based crypto trading, deposits, withdrawals, custody, staking, OTC services, and API access.",
+    "official_url_original": "https://digitra.com/",
+    "official_domain_original": "digitra.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://digitra.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-03",
+    "notes": "The current first-party site exposes login, account opening, app access, crypto purchase, staking, OTC, and API surfaces. Current terms identify Digitra.com Ativos Digitais Ltda. and define cryptoasset purchase and sale intermediation, deposits, withdrawals, custody, order-book trading, and asset-to-asset exchange. No exact launch date or lifecycle event is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012405",
+      "exchange_id": "hei_ex_001089",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Digitra.com crypto exchange platform",
+      "url": "https://digitra.com/",
+      "publisher": "Digitra.com",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://digitra.com/",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site exposes account creation, login, app access, cryptocurrency purchase, staking, OTC, liquidity, and API entry points."
+    },
+    {
+      "id": "hei_src_012406",
+      "exchange_id": "hei_ex_001089",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Digitra.com terms of use",
+      "url": "https://digitra.com/en/article/terms-of-use/",
+      "publisher": "Digitra.com Ativos Digitais Ltda.",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://digitra.com/en/article/terms-of-use/",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party terms identify the operating company and describe cryptoasset purchase and sale intermediation, deposits, withdrawals, storage, order-book trading, and exchanges between supported cryptoassets."
+    }
+  ]
+}
