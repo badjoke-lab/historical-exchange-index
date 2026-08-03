@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "id": "hei_ex_001092",
+    "slug": "hkvax",
+    "canonical_name": "HKVAX",
+    "aliases": [
+      "Hong Kong Virtual Asset Exchange",
+      "Hong Kong Virtual Asset Exchange Limited"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Hong Kong",
+    "summary": "Hong Kong-based licensed centralized virtual asset trading platform operated by Hong Kong Virtual Asset Exchange Limited, serving professional and institutional users through virtual asset, security-token, over-the-counter, and related custody-oriented services.",
+    "official_url_original": "https://www.hkvax.com/",
+    "official_domain_original": "hkvax.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.hkvax.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-03",
+    "notes": "The current first-party site presents active institutional and professional virtual asset trading services. Hong Kong's Securities and Futures Commission lists Hong Kong Virtual Asset Exchange Limited, trading as HKVAX, as a licensed virtual asset trading platform under CE reference BPW549, licensed on 2024-10-03. The regulatory listing is used as operator, identity, and current licensing evidence rather than as a performance endorsement. No exact launch date or lifecycle event is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012413",
+      "exchange_id": "hei_ex_001092",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "HKVAX virtual asset trading platform",
+      "url": "https://www.hkvax.com/what_we_do",
+      "publisher": "HKVAX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.hkvax.com/what_we_do",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party material describes professional and institutional virtual asset and security-token trading, OTC, custody-oriented, and related platform services."
+    },
+    {
+      "id": "hei_src_012414",
+      "exchange_id": "hei_ex_001092",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "Lists of virtual asset trading platforms",
+      "url": "https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms",
+      "publisher": "Securities and Futures Commission of Hong Kong",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms",
+      "accessed_at": "2026-08-03",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official SFC list identifies Hong Kong Virtual Asset Exchange Limited, trading as HKVAX, under CE reference BPW549 with a licensing date of 2024-10-03."
+    }
+  ]
+}
