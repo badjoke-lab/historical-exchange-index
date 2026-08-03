@@ -27,7 +27,7 @@
   "events": [],
   "evidence": [
     {
-      "id": "hei_src_012423",
+      "id": "hei_src_012426",
       "exchange_id": "hei_ex_001097",
       "event_id": null,
       "source_type": "official_statement",
@@ -42,7 +42,7 @@
       "notes": "Current first-party platform exposes supported virtual asset markets and describes spot trading, OTC execution, custody, stablecoin settlement, and institutional services."
     },
     {
-      "id": "hei_src_012424",
+      "id": "hei_src_012427",
       "exchange_id": "hei_ex_001097",
       "event_id": null,
       "source_type": "regulatory_notice",
