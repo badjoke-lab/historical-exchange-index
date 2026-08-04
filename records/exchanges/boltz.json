@@ -35,7 +35,7 @@
       "confidence": "high",
       "impact_level": "critical",
       "event_status_effect": "inactive",
-      "source_count": 1,
+      "source_count": 2,
       "sort_order": 1,
       "is_major_event": true,
       "notes": "The operator described a multi-month pattern that accelerated during the preceding days. No permanent closure, user-fund loss, death date, or death reason is inferred."
