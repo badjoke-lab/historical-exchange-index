@@ -26,7 +26,7 @@
   },
   "events": [
     {
-      "id": "hei_ev_010097",
+      "id": "hei_ev_010098",
       "exchange_id": "hei_ex_001100",
       "event_type": "trading_halted",
       "event_date": "2026-08-03",
@@ -43,9 +43,9 @@
   ],
   "evidence": [
     {
-      "id": "hei_src_012432",
+      "id": "hei_src_012434",
       "exchange_id": "hei_ex_001100",
-      "event_id": "hei_ev_010097",
+      "event_id": "hei_ev_010098",
       "source_type": "official_social",
       "title": "Boltz swaps remain disabled until further notice",
       "url": "https://x.com/Boltzhq/status/2084311537502630319",
@@ -58,7 +58,7 @@
       "notes": "First-party statement says all swaps remain disabled until further notice because escalating automated AI-assisted probing, multiple contained exploits, and internal security findings outpaced the team's ability to remediate safely. It states that refund paths and support remain available and that no user funds were at risk."
     },
     {
-      "id": "hei_src_012433",
+      "id": "hei_src_012435",
       "exchange_id": "hei_ex_001100",
       "event_id": null,
       "source_type": "official_statement",
@@ -73,9 +73,9 @@
       "notes": "Current first-party site identifies Boltz as a non-custodial Bitcoin bridge for swaps across Bitcoin layers and stablecoins. The site remains reachable while swap creation is unavailable."
     },
     {
-      "id": "hei_src_012434",
+      "id": "hei_src_012436",
       "exchange_id": "hei_ex_001100",
-      "event_id": "hei_ev_010097",
+      "event_id": "hei_ev_010098",
       "source_type": "official_statement",
       "title": "Boltz API claims and refunds documentation",
       "url": "https://api.docs.boltz.exchange/claiming-swaps.html",

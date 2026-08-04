@@ -7,6 +7,7 @@ import {
 } from '../lib/i18n/page-presentations'
 import { SITE_NAME, SITE_URL } from '../lib/site-constants'
 
+// Keep the home surface bound to the latest reviewed registry build.
 export function generateMetadata(): Metadata {
   const { summary } = buildRegistryView()
   const presentation = getPagePresentation('en', 'home')
