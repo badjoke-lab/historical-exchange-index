@@ -83,9 +83,7 @@ export default function SiteChrome({ locale, children }: SiteChromeProps) {
             BadJoke-Lab project hub
           </a>
           <span className="muted footer-sep"> · </span>
-          <a className="archive-link" href="https://hei.badjoke-lab.com/" aria-current="page">
-            HEI
-          </a>
+          <span className="muted">HEI</span>
           <span className="muted footer-sep"> · </span>
           <a className="archive-link" href="https://www.stableorgone.com/">
             SOG
