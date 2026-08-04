@@ -15,7 +15,7 @@ export function generateMetadata(): Metadata {
   return {
     title: 'Compare',
     description,
-    alternates: { canonical: '/compare' },
+    alternates: { canonical: '/compare/' },
     openGraph: {
       type: 'website',
       url: `${SITE_URL}/compare/`,
