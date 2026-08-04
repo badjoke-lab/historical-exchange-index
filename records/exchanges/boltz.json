@@ -1,0 +1,91 @@
+{
+  "entity": {
+    "id": "hei_ex_001100",
+    "slug": "boltz",
+    "canonical_name": "Boltz",
+    "aliases": [
+      "Boltz Exchange",
+      "Boltz - Non-Custodial Bitcoin Bridge"
+    ],
+    "type": "hybrid",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Global",
+    "summary": "Non-custodial Bitcoin swap and bridge service supporting atomic swaps across Bitcoin layers and selected stablecoin networks. Boltz disabled all swap services until further notice in August 2026 after reporting an escalating campaign of automated AI-assisted probing, several contained exploits, and security-scan findings that prevented a responsible restart. Refund mechanisms and support remained available.",
+    "official_url_original": "https://boltz.exchange/",
+    "official_domain_original": "boltz.exchange",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://boltz.exchange/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-04",
+    "notes": "Boltz is classified as hybrid because it provides operator-backed swap infrastructure while using non-custodial atomic-swap mechanics. It is inactive rather than dead because the operator has not announced a permanent shutdown or terminal date. The August 2026 notice states that all swaps remain disabled until further notice, while the API remains available for cooperative refunds, non-cooperative refunds remain possible, and support remains reachable. The operator stated that no user funds had been at risk."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010097",
+      "exchange_id": "hei_ex_001100",
+      "event_type": "trading_halted",
+      "event_date": "2026-08-03",
+      "title": "Boltz disabled all swap services until further notice",
+      "description": "Boltz disabled all swap services after reporting a sustained increase in automated AI-assisted probing, several contained exploits, and internal security-scan findings that made a responsible restart untenable. Cooperative and non-cooperative refund paths and customer support remained available.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "inactive",
+      "source_count": 1,
+      "sort_order": 1,
+      "is_major_event": true,
+      "notes": "The operator described a multi-month pattern that accelerated during the preceding days. No permanent closure, user-fund loss, death date, or death reason is inferred."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012432",
+      "exchange_id": "hei_ex_001100",
+      "event_id": "hei_ev_010097",
+      "source_type": "official_social",
+      "title": "Boltz swaps remain disabled until further notice",
+      "url": "https://x.com/Boltzhq/status/2084311537502630319",
+      "publisher": "Boltz",
+      "published_at": "2026-08-03",
+      "archived_url": "https://web.archive.org/web/*/https://x.com/Boltzhq/status/2084311537502630319",
+      "accessed_at": "2026-08-04",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party statement says all swaps remain disabled until further notice because escalating automated AI-assisted probing, multiple contained exploits, and internal security findings outpaced the team's ability to remediate safely. It states that refund paths and support remain available and that no user funds were at risk."
+    },
+    {
+      "id": "hei_src_012433",
+      "exchange_id": "hei_ex_001100",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Boltz non-custodial Bitcoin bridge and swap service",
+      "url": "https://boltz.exchange/",
+      "publisher": "Boltz",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://boltz.exchange/",
+      "accessed_at": "2026-08-04",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party site identifies Boltz as a non-custodial Bitcoin bridge for swaps across Bitcoin layers and stablecoins. The site remains reachable while swap creation is unavailable."
+    },
+    {
+      "id": "hei_src_012434",
+      "exchange_id": "hei_ex_001100",
+      "event_id": "hei_ev_010097",
+      "source_type": "official_statement",
+      "title": "Boltz API claims and refunds documentation",
+      "url": "https://api.docs.boltz.exchange/claiming-swaps.html",
+      "publisher": "Boltz",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.docs.boltz.exchange/claiming-swaps.html",
+      "accessed_at": "2026-08-04",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party documentation describes cooperative and script-path refund mechanisms, supporting the operator's statement that refund recovery remains available independently of normal swap operation."
+    }
+  ]
+}
