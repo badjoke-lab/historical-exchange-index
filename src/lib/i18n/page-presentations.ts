@@ -84,6 +84,7 @@ export function buildLocalizedPageMetadata({
     publicLocale,
     buildLocalePath(pathname, publicLocale),
   ]))
+  languages['x-default'] = buildLocalePath(pathname, 'en')
 
   return {
     title,
