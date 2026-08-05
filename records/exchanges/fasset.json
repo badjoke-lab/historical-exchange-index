@@ -1,0 +1,59 @@
+{
+  "entity": {
+    "id": "hei_ex_001107",
+    "slug": "fasset",
+    "canonical_name": "Fasset",
+    "aliases": [
+      "Fasset FZE"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "United Arab Emirates",
+    "summary": "Digital-asset and financial platform providing access to digital assets, commodities, stocks, payments, and related account services through its consumer and institutional products.",
+    "official_url_original": "https://fasset.com/",
+    "official_domain_original": "fasset.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://fasset.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-05",
+    "notes": "The current first-party platform presents digital-asset investment and trading access alongside banking, payment-card, commodity, and stock features. Dubai's Virtual Assets Regulatory Authority lists Fasset FZE under reference VL/23/07/002 with an active broker-dealer licence for institutional, qualified, and retail investors. The UAE origin value follows the reviewed Dubai-licensed operating entity. No exact launch date or cross-jurisdiction licence conclusion is inferred."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012450",
+      "exchange_id": "hei_ex_001107",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Fasset digital asset and financial platform",
+      "url": "https://fasset.com/",
+      "publisher": "Fasset",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://fasset.com/",
+      "accessed_at": "2026-08-05",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site presents an operating account and app with digital-asset investment, payment, banking, commodity, stock, and institutional OTC or API services."
+    },
+    {
+      "id": "hei_src_012451",
+      "exchange_id": "hei_ex_001107",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "Fasset FZE public register entry",
+      "url": "https://www.vara.ae/en/licenses-and-register/public-register/fasset-fze/",
+      "publisher": "Virtual Assets Regulatory Authority",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.vara.ae/en/licenses-and-register/public-register/fasset-fze/",
+      "accessed_at": "2026-08-05",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official VARA entry identifies Fasset FZE, the official website, Dubai address, reference VL/23/07/002, broker-dealer activity, retail eligibility, and active status."
+    }
+  ]
+}
