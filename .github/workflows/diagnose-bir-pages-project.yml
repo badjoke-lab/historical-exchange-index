@@ -1,4 +1,4 @@
-name: Diagnose BIR Cloudflare Pages Project
+name: Remediate BIR Cloudflare Pages Queue
 
 on:
   push:
@@ -10,61 +10,169 @@ permissions:
   contents: read
 
 jobs:
-  diagnose:
+  remediate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     env:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     steps:
-      - name: List BIR Pages deployment queue without exposing credentials
+      - name: Disable preview builds and delete queued previews only
         shell: bash
         run: |
           node <<'NODE'
           const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
           const token = process.env.CLOUDFLARE_API_TOKEN;
           if (!accountId || !token) {
-            console.error('Cloudflare account credentials are unavailable in this repository.');
+            console.error('Cloudflare account credentials are unavailable.');
             process.exit(1);
           }
+
           const projectName = 'bridge-incident-registry';
-          const request = async (path) => {
-            const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${accountId}${path}`, {
-              headers: { Authorization: `Bearer ${token}` }
+          const apiBase = `https://api.cloudflare.com/client/v4/accounts/${accountId}`;
+
+          async function request(path, init = {}) {
+            const response = await fetch(`${apiBase}${path}`, {
+              ...init,
+              headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+                ...(init.headers ?? {})
+              }
             });
-            const body = await response.json();
+            const body = await response.json().catch(() => null);
             if (!response.ok || !body?.success) {
-              console.error(JSON.stringify({ status: response.status, errors: body?.errors ?? [] }, null, 2));
+              console.error(JSON.stringify({
+                path,
+                method: init.method ?? 'GET',
+                status: response.status,
+                errors: body?.errors ?? []
+              }, null, 2));
               process.exit(1);
             }
             return body.result;
-          };
-          const project = await request(`/pages/projects/${projectName}`);
+          }
+
+          const projectPath = `/pages/projects/${encodeURIComponent(projectName)}`;
+          const before = await request(projectPath);
+          const source = before.source;
+          if (!source || source.type !== 'github') {
+            console.error('BIR Pages project is not GitHub-integrated.');
+            process.exit(1);
+          }
+
+          console.log('Before configuration:');
           console.log(JSON.stringify({
-            project: project.name,
-            production_branch: project.production_branch,
-            preview_deployment_setting: project.source?.config?.preview_deployment_setting,
-            production_deployments_enabled: project.source?.config?.production_deployments_enabled,
-            deployments_enabled: project.source?.config?.deployments_enabled
+            production_branch: before.production_branch,
+            deployments_enabled: source.config?.deployments_enabled,
+            production_deployments_enabled: source.config?.production_deployments_enabled,
+            preview_deployment_setting: source.config?.preview_deployment_setting,
+            preview_branch_includes: source.config?.preview_branch_includes ?? [],
+            preview_branch_excludes: source.config?.preview_branch_excludes ?? []
           }, null, 2));
-          const deployments = await request(`/pages/projects/${projectName}/deployments?page=1&per_page=25`);
-          console.log(`Deployments returned: ${deployments.length}`);
-          for (const deployment of deployments) {
-            console.log(JSON.stringify({
+
+          const patch = {
+            production_branch: 'main',
+            source: {
+              type: source.type,
+              config: {
+                ...source.config,
+                deployments_enabled: true,
+                production_branch: 'main',
+                production_deployments_enabled: true,
+                preview_deployment_setting: 'none',
+                preview_branch_includes: [],
+                preview_branch_excludes: []
+              }
+            }
+          };
+
+          await request(projectPath, {
+            method: 'PATCH',
+            body: JSON.stringify(patch)
+          });
+
+          const after = await request(projectPath);
+          const verified = {
+            production_branch: after.production_branch,
+            deployments_enabled: after.source?.config?.deployments_enabled,
+            production_deployments_enabled: after.source?.config?.production_deployments_enabled,
+            preview_deployment_setting: after.source?.config?.preview_deployment_setting,
+            preview_branch_includes: after.source?.config?.preview_branch_includes ?? [],
+            preview_branch_excludes: after.source?.config?.preview_branch_excludes ?? []
+          };
+          console.log('After configuration:');
+          console.log(JSON.stringify(verified, null, 2));
+
+          if (
+            verified.production_branch !== 'main' ||
+            verified.deployments_enabled !== true ||
+            verified.production_deployments_enabled !== true ||
+            verified.preview_deployment_setting !== 'none' ||
+            verified.preview_branch_includes.length !== 0 ||
+            verified.preview_branch_excludes.length !== 0
+          ) {
+            console.error('BIR Pages configuration did not converge to the required production-only state.');
+            process.exit(1);
+          }
+
+          const deleted = [];
+          for (let cycle = 1; cycle <= 20; cycle += 1) {
+            const deployments = await request(`${projectPath}/deployments?page=1&per_page=25`);
+            const queuedPreviews = deployments.filter((deployment) =>
+              deployment.environment === 'preview' &&
+              deployment.latest_stage?.name === 'queued' &&
+              deployment.latest_stage?.status === 'active'
+            );
+
+            if (queuedPreviews.length === 0) break;
+
+            console.log(`Cleanup cycle ${cycle}: deleting ${queuedPreviews.length} queued preview deployments.`);
+            for (const deployment of queuedPreviews) {
+              const branch = deployment.deployment_trigger?.metadata?.branch ?? null;
+              const commitHash = deployment.deployment_trigger?.metadata?.commit_hash ?? null;
+              console.log(JSON.stringify({
+                action: 'delete_queued_preview',
+                id: deployment.id,
+                branch,
+                commit_hash: commitHash,
+                created_on: deployment.created_on
+              }));
+              await request(`${projectPath}/deployments/${encodeURIComponent(deployment.id)}`, {
+                method: 'DELETE'
+              });
+              deleted.push(deployment.id);
+            }
+          }
+
+          const remaining = await request(`${projectPath}/deployments?page=1&per_page=25`);
+          const remainingActive = remaining
+            .filter((deployment) => deployment.latest_stage?.status === 'active')
+            .map((deployment) => ({
               id: deployment.id,
               environment: deployment.environment,
-              created_on: deployment.created_on,
-              modified_on: deployment.modified_on,
-              stage: deployment.latest_stage ? {
-                name: deployment.latest_stage.name,
-                status: deployment.latest_stage.status,
-                started_on: deployment.latest_stage.started_on,
-                ended_on: deployment.latest_stage.ended_on
-              } : null,
-              branch: deployment.deployment_trigger?.metadata?.branch,
-              commit_hash: deployment.deployment_trigger?.metadata?.commit_hash,
-              commit_message: deployment.deployment_trigger?.metadata?.commit_message,
-              url: deployment.url
+              stage: deployment.latest_stage?.name,
+              branch: deployment.deployment_trigger?.metadata?.branch ?? null,
+              commit_hash: deployment.deployment_trigger?.metadata?.commit_hash ?? null,
+              created_on: deployment.created_on
             }));
+
+          const queuedPreviewRemaining = remainingActive.filter((deployment) =>
+            deployment.environment === 'preview' && deployment.stage === 'queued'
+          );
+          const queuedProductionRemaining = remainingActive.filter((deployment) =>
+            deployment.environment === 'production' && deployment.stage === 'queued'
+          );
+
+          console.log(JSON.stringify({
+            deleted_queued_previews: deleted.length,
+            queued_preview_remaining_first_page: queuedPreviewRemaining.length,
+            queued_production_remaining_first_page: queuedProductionRemaining.length,
+            remaining_active_first_page: remainingActive
+          }, null, 2));
+
+          if (queuedPreviewRemaining.length !== 0) {
+            console.error('Queued preview deployments remain on the first page after bounded cleanup.');
+            process.exit(1);
           }
           NODE
