@@ -3,13 +3,11 @@ import { Suspense, type ReactNode } from 'react'
 import type { SupportedLocale } from '../../i18n/config'
 import { getDictionary, translate } from '../../lib/i18n/get-dictionary'
 import { buildLocalePath } from '../../lib/i18n/locale-routes'
-import {
-  CONTACT_HREF,
-  ISSUES_HREF,
-} from '../../lib/site-constants'
 import ExchangeCompareContextLink from '../navigation/exchange-compare-context-link'
 import SiteNavigation, { type SiteNavigationItem } from '../navigation/site-navigation'
+import SupportStrip from '../support/support-strip'
 import headingStyles from './semantic-heading-compat.module.css'
+import ProjectFooter from './project-footer'
 import styles from './site-chrome.module.css'
 
 type SiteChromeProps = {
@@ -25,7 +23,7 @@ function localHref(pathname: string, locale: SupportedLocale) {
 export default function SiteChrome({ locale, children }: SiteChromeProps) {
   const dictionary = getDictionary(locale).common
   const t = (key: string, fallback?: string) => translate(dictionary, key, fallback)
-  const donateHref = localHref('/donate', locale)
+  const supportHref = localHref('/donate', locale)
 
   const navItems: SiteNavigationItem[] = [
     { label: t('nav.home'), href: localHref('/', locale) },
@@ -62,7 +60,7 @@ export default function SiteChrome({ locale, children }: SiteChromeProps) {
           <SiteNavigation
             primaryAriaLabel={primaryAriaLabel}
             items={navItems}
-            donateHref={donateHref}
+            donateHref={supportHref}
             donateLabel={t('nav.donate')}
             menuLabel={locale === 'ja' ? 'メニュー' : 'Menu'}
             closeLabel={locale === 'ja' ? '閉じる' : 'Close'}
@@ -75,55 +73,8 @@ export default function SiteChrome({ locale, children }: SiteChromeProps) {
 
       <ExchangeCompareContextLink />
       {children}
-
-      <footer className="footer">
-        <div className="footer-copy">{t('footer.registryTagline')}</div>
-        <div className="footer-links">
-          <a className="archive-link" href="https://badjoke-lab.com/">
-            BadJoke-Lab project hub
-          </a>
-          <span className="muted footer-sep"> · </span>
-          <span className="muted">HEI</span>
-          <span className="muted footer-sep"> · </span>
-          <a className="archive-link" href="https://www.stableorgone.com/">
-            SOG
-          </a>
-          <span className="muted footer-sep"> · </span>
-          <a className="archive-link" href="https://cya.badjoke-lab.com/">
-            CYA
-          </a>
-          <span className="muted footer-sep"> · </span>
-          <a className="archive-link" href="https://bir.badjoke-lab.com/">
-            BIR
-          </a>
-          <span className="muted footer-sep"> · </span>
-          <a className="archive-link" href={CONTACT_HREF} target="_blank" rel="noreferrer">
-            {t('footer.contactCorrections')}
-          </a>
-          <span className="muted footer-sep"> · </span>
-          <a className="archive-link" href={ISSUES_HREF} target="_blank" rel="noreferrer">
-            {t('footer.githubIssues')}
-          </a>
-          <span className="muted footer-sep"> · </span>
-          <Link className="archive-link" href={localHref('/explore', locale)}>{t('nav.explorer')}</Link>
-          <span className="muted footer-sep"> · </span>
-          <Link className="archive-link" href="/compare">{t('nav.compare')}</Link>
-          <span className="muted footer-sep"> · </span>
-          <Link className="archive-link" href={localHref('/updates', locale)}>{t('nav.updates')}</Link>
-          <span className="muted footer-sep"> · </span>
-          <Link className="archive-link" href={localHref('/incidents', locale)}>{t('nav.incidents')}</Link>
-          <span className="muted footer-sep"> · </span>
-          <Link className="archive-link" href={localHref('/monthly', locale)}>{t('nav.monthly')}</Link>
-          <span className="muted footer-sep"> · </span>
-          <Link className="archive-link" href={localHref('/quality', locale)}>{t('nav.quality')}</Link>
-          <span className="muted footer-sep"> · </span>
-          <Link className="archive-link" href={localHref('/stats', locale)}>{t('nav.stats')}</Link>
-          <span className="muted footer-sep"> · </span>
-          <Link className="archive-link" href={donateHref}>{t('footer.supportHei')}</Link>
-          <span className="muted footer-sep"> · </span>
-          <Link href={localHref('/about', locale)}>{t('nav.about')}</Link>
-        </div>
-      </footer>
+      <SupportStrip locale={locale} href={supportHref} />
+      <ProjectFooter locale={locale} supportHref={supportHref} />
     </div>
   )
 }
