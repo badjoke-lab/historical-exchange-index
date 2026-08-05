@@ -36,7 +36,7 @@ The regulatory evidence is used for operator identity, platform identity, licenc
 
 YAX and Bixin.com use `live_unverified` URL status because their main sites returned access-control responses during verification. Ofza and MB.IO use `live_verified` from directly reviewed first-party operating surfaces.
 
-MB.IO does not receive a single country-of-origin value because the first-party and regulatory surfaces identify jurisdiction-specific operating entities.
+MB.IO uses `United Arab Emirates` for `country_or_origin` from the reviewed Dubai-licensed platform operator MBIO FZE. The Australian spot-product entity remains documented as an alias and jurisdiction-specific scope note rather than a second canonical exchange or lineage edge.
 
 ## Identity and overlap checks
 
