@@ -1,0 +1,61 @@
+{
+  "entity": {
+    "id": "hei_ex_001105",
+    "slug": "yhego",
+    "canonical_name": "Yhego",
+    "aliases": [
+      "YHEGO",
+      "YHEGO Virtual Assets Exchange Service L.L.C",
+      "Yhego Technology Investment L.L.C"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "United Arab Emirates",
+    "summary": "Dubai virtual-asset trading platform licensed to provide exchange services and broker-dealer services under the Yhego name.",
+    "official_url_original": "https://yhego.ae/",
+    "official_domain_original": "yhego.ae",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://yhego.ae/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-05",
+    "notes": "Dubai's Virtual Assets Regulatory Authority lists YHEGO Virtual Assets Exchange Service L.L.C, with Yhego Technology Investment L.L.C in the operator name, under reference VL/26/06/001 with active status. Exchange services are permitted for institutional, qualified, and retail investors, while broker-dealer services are limited to institutional and qualified investors. The official site returned an access-control response during verification, so the URL is live_unverified rather than live_verified. No exact platform launch date is inferred from the licence issue date."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012445",
+      "exchange_id": "hei_ex_001105",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "YHEGO Virtual Assets Exchange Service L.L.C public register entry",
+      "url": "https://www.vara.ae/en/licenses-and-register/public-register/yhego-virtual-assets-exchange-service-llc-yhego-technology-investment-llc/",
+      "publisher": "Virtual Assets Regulatory Authority",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.vara.ae/en/licenses-and-register/public-register/yhego-virtual-assets-exchange-service-llc-yhego-technology-investment-llc/",
+      "accessed_at": "2026-08-05",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official VARA entry identifies the licensed operator, Yhego trading identity, Dubai address, official website, reference VL/26/06/001, licensed exchange and broker-dealer activities, licence conditions, and active status."
+    },
+    {
+      "id": "hei_src_012446",
+      "exchange_id": "hei_ex_001105",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "VARA public register of licensed virtual asset service providers",
+      "url": "https://www.vara.ae/en/licenses-and-register/public-register/",
+      "publisher": "Virtual Assets Regulatory Authority",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.vara.ae/en/licenses-and-register/public-register/",
+      "accessed_at": "2026-08-05",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current public register independently preserves Yhego's active VASP status, reference, licensed activities, and licence issue date."
+    }
+  ]
+}

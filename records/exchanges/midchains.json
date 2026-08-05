@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "id": "hei_ex_001108",
+    "slug": "midchains",
+    "canonical_name": "MidChains",
+    "aliases": [
+      "Midchains FZE",
+      "MidChains FZE"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "United Arab Emirates",
+    "summary": "United Arab Emirates digital-asset platform providing regulated over-the-counter execution, settlement, funding, and account services for institutional, corporate, family-office, and private clients.",
+    "official_url_original": "https://www.midchains.com/",
+    "official_domain_original": "midchains.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.midchains.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-05",
+    "notes": "The current first-party site describes MidChains as a regulated digital-asset platform for OTC trade execution, funding, and settlement and states that it is Emirati founded and operated from the UAE. Dubai's Virtual Assets Regulatory Authority lists Midchains FZE under reference VL/25/04/008 with an active broker-dealer licence for institutional, qualified, and retail investors. No exact launch date is inferred from the licence issue date."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012452",
+      "exchange_id": "hei_ex_001108",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "MidChains regulated digital asset platform",
+      "url": "https://www.midchains.com/",
+      "publisher": "MidChains",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.midchains.com/",
+      "accessed_at": "2026-08-05",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site exposes regulated OTC execution, digital-asset funding and settlement workflows, supported assets, account access, and client categories."
+    },
+    {
+      "id": "hei_src_012453",
+      "exchange_id": "hei_ex_001108",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "Midchains FZE public register entry",
+      "url": "https://www.vara.ae/en/licenses-and-register/public-register/midchains-fze/",
+      "publisher": "Virtual Assets Regulatory Authority",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.vara.ae/en/licenses-and-register/public-register/midchains-fze/",
+      "accessed_at": "2026-08-05",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official VARA entry identifies Midchains FZE, the official website, Dubai address, reference VL/25/04/008, broker-dealer activity, retail eligibility, and active status."
+    }
+  ]
+}
