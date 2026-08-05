@@ -12,8 +12,8 @@
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
-    "country_or_origin": null,
-    "summary": "Centralized digital asset trading platform providing fiat and cryptocurrency funding, spot trading, conversion, and related exchange services through jurisdiction-specific operating entities.",
+    "country_or_origin": "United Arab Emirates",
+    "summary": "Dubai-licensed centralized digital asset trading platform providing fiat and cryptocurrency funding, spot trading, conversion, and related exchange services through jurisdiction-specific operating entities.",
     "official_url_original": "https://mb.io/en",
     "official_domain_original": "mb.io",
     "official_url_status": "live_verified",
@@ -22,7 +22,7 @@
     "successor_id": null,
     "confidence": "high",
     "last_verified_at": "2026-08-05",
-    "notes": "The current first-party site exposes account opening, fiat funding, cryptocurrency trading, and fiat and crypto pairs and identifies MB.IO Pty Ltd for Australian spot products. Dubai's Virtual Assets Regulatory Authority separately lists MBIO FZE, trading as MB.IO, under reference VL/24/06/001 with broker-dealer and exchange services, a licence issue date of 2024-07-18, and active status. Because the platform is presented through jurisdiction-specific entities, no single unsupported country of origin is asserted."
+    "notes": "Dubai's Virtual Assets Regulatory Authority lists MBIO FZE, trading as MB.IO, under reference VL/24/06/001 with broker-dealer and exchange services, a licence issue date of 2024-07-18, and active status; the country field follows this reviewed licensed-platform operator. The current first-party site exposes account opening, fiat funding, cryptocurrency trading, and fiat and crypto pairs and also identifies MB.IO Pty Ltd for Australian spot products. The Australian product entity is preserved as an alias and scope note rather than converted into a second canonical exchange record or an unsupported lineage claim."
   },
   "events": [],
   "evidence": [
