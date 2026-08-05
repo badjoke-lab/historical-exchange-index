@@ -48,7 +48,8 @@ function headerRoutes(html) {
 }
 
 function footerRoutes(html) {
-  const footer = extractFirstBlock(html, /<footer\b[^>]*class=["'][^"']*\bfooter\b[^"']*["'][^>]*>[\s\S]*?<\/footer>/i, 'footer')
+  // CSS modules hash class names, so the semantic footer element is the stable contract.
+  const footer = extractFirstBlock(html, /<footer\b[^>]*>[\s\S]*?<\/footer>/i, 'footer')
   return internalRouteSet(footer)
 }
 
