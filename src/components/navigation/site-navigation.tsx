@@ -151,6 +151,14 @@ export default function SiteNavigation({
           </Suspense>
         </div>
 
+        <Link
+          className={`${styles.utilityLink} ${styles.mobileUtilityLink} ${donateActive ? styles.activeLink : ''}`}
+          href={donateHref}
+          aria-current={donateActive ? 'page' : undefined}
+        >
+          {donateLabel}
+        </Link>
+
         <details
           key={pathname}
           ref={detailsRef}
@@ -169,14 +177,6 @@ export default function SiteNavigation({
           <div className={styles.mobilePanel}>
             <nav id="hei-mobile-navigation" className={styles.mobileMenuNav} aria-label={primaryAriaLabel}>
               {items.map((item, index) => renderItem(item, true, index))}
-              <Link
-                className={`${styles.utilityLink} ${donateActive ? styles.activeLink : ''}`}
-                href={donateHref}
-                aria-current={donateActive ? 'page' : undefined}
-                onClick={() => closeMenu(false)}
-              >
-                {donateLabel}
-              </Link>
             </nav>
           </div>
         </details>

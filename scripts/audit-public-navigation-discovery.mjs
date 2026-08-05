@@ -19,6 +19,7 @@ function readJson(filePath) {
 function normalizeRoute(value) {
   const url = new URL(value, origin)
   if (url.origin !== origin) return null
+  if (/\.[a-z0-9]+$/i.test(url.pathname)) return null
   if (url.pathname === '/') return '/'
   return `${url.pathname.replace(/\/+$/, '')}/`
 }
@@ -48,7 +49,7 @@ function headerRoutes(html) {
 }
 
 function footerRoutes(html) {
-  const footer = extractFirstBlock(html, /<footer\b[^>]*class=["'][^"']*\bfooter\b[^"']*["'][^>]*>[\s\S]*?<\/footer>/i, 'footer')
+  const footer = extractFirstBlock(html, /<footer\b[^>]*>[\s\S]*?<\/footer>/i, 'footer')
   return internalRouteSet(footer)
 }
 
@@ -81,13 +82,9 @@ function allSurfaceRoutes(config) {
   return [...new Set(Object.values(config.layers).flat())]
 }
 
-export function auditPublicNavigationDiscovery(
-  outDir = defaultOutDir,
-  configPath = defaultConfigPath,
-) {
+export function auditPublicNavigationDiscovery(outDir = defaultOutDir, configPath = defaultConfigPath) {
   const config = readJson(configPath)
   assert(config.version === 1, 'unsupported navigation contract version')
-
   const surfaces = allSurfaceRoutes(config)
   const findings = []
   const htmlByRoute = new Map()
@@ -111,20 +108,9 @@ export function auditPublicNavigationDiscovery(
   const actualFooter = footerRoutes(homeHtml)
   const headerDiff = setDiff(actualHeader, config.header_routes)
   const footerDiff = setDiff(actualFooter, config.footer_routes)
-
-  if (headerDiff.missing.length > 0 || headerDiff.unexpected.length > 0) {
-    findings.push({ type: 'header_route_set_mismatch', ...headerDiff })
-  }
-  if (footerDiff.missing.length > 0 || footerDiff.unexpected.length > 0) {
-    findings.push({ type: 'footer_route_set_mismatch', ...footerDiff })
-  }
-  if (actualHeader.size > config.header_internal_route_limit) {
-    findings.push({
-      type: 'header_route_limit_exceeded',
-      actual: actualHeader.size,
-      limit: config.header_internal_route_limit,
-    })
-  }
+  if (headerDiff.missing.length > 0 || headerDiff.unexpected.length > 0) findings.push({ type: 'header_route_set_mismatch', ...headerDiff })
+  if (footerDiff.missing.length > 0 || footerDiff.unexpected.length > 0) findings.push({ type: 'footer_route_set_mismatch', ...footerDiff })
+  if (actualHeader.size > config.header_internal_route_limit) findings.push({ type: 'header_route_limit_exceeded', actual: actualHeader.size, limit: config.header_internal_route_limit })
 
   const graph = new Map(surfaces.map((route) => [route, new Set()]))
   for (const route of actualHeader) graph.get('/')?.add(route)
@@ -137,11 +123,8 @@ export function auditPublicNavigationDiscovery(
       continue
     }
     const routes = contextualRoutes(html)
-    if (!routes.has(to)) {
-      findings.push({ type: 'missing_contextual_edge', from, to })
-    } else {
-      graph.get(from)?.add(to)
-    }
+    if (!routes.has(to)) findings.push({ type: 'missing_contextual_edge', from, to })
+    else graph.get(from)?.add(to)
   }
 
   const reachable = new Set(['/'])
@@ -166,19 +149,8 @@ export function auditPublicNavigationDiscovery(
   const orphans = sorted(surfaces.filter((route) => route !== '/' && (inbound.get(route) ?? 0) === 0))
   if (orphans.length > 0) findings.push({ type: 'orphan_surfaces', routes: orphans })
 
-  const layerRouteCount = Object.fromEntries(
-    Object.entries(config.layers).map(([layer, routes]) => [layer, routes.length]),
-  )
-
-  return {
-    surfaces: surfaces.length,
-    headerRoutes: actualHeader.size,
-    footerRoutes: actualFooter.size,
-    contextualEdges: config.contextual_edges.length,
-    reachableSurfaces: reachable.size,
-    layerRouteCount,
-    findings,
-  }
+  const layerRouteCount = Object.fromEntries(Object.entries(config.layers).map(([layer, routes]) => [layer, routes.length]))
+  return { surfaces: surfaces.length, headerRoutes: actualHeader.size, footerRoutes: actualFooter.size, contextualEdges: config.contextual_edges.length, reachableSurfaces: reachable.size, layerRouteCount, findings }
 }
 
 function pageHtml(header, footer, context = []) {
@@ -192,13 +164,7 @@ function runSelfTest() {
   const configPath = path.join(tempRoot, 'navigation.json')
   const config = {
     version: 1,
-    layers: {
-      registry: ['/'],
-      analysis: ['/stats/', '/quality/'],
-      change: ['/updates/'],
-      trust: [],
-      support: [],
-    },
+    layers: { registry: ['/'], analysis: ['/stats/', '/quality/'], change: ['/updates/'], trust: [], support: [] },
     header_routes: ['/', '/stats/', '/updates/'],
     footer_routes: ['/quality/', '/stats/'],
     header_internal_route_limit: 3,
@@ -215,10 +181,8 @@ function runSelfTest() {
       const context = route === '/stats/' ? ['/quality/'] : route === '/quality/' ? ['/stats/'] : []
       fs.writeFileSync(filePath, pageHtml(config.header_routes, config.footer_routes, context))
     }
-
     const clean = auditPublicNavigationDiscovery(outDir, configPath)
     assert(clean.findings.length === 0, `self-test expected 0 findings: ${JSON.stringify(clean.findings)}`)
-
     const statsFile = routeOutputFile('/stats/', outDir)
     fs.writeFileSync(statsFile, pageHtml(config.header_routes, config.footer_routes, []))
     const broken = auditPublicNavigationDiscovery(outDir, configPath)
@@ -226,13 +190,11 @@ function runSelfTest() {
   } finally {
     fs.rmSync(tempRoot, { recursive: true, force: true })
   }
-
   console.log('Public navigation discovery audit self-test passed.')
 }
 
-if (process.argv.includes('--self-test')) {
-  runSelfTest()
-} else {
+if (process.argv.includes('--self-test')) runSelfTest()
+else {
   const result = auditPublicNavigationDiscovery()
   console.log(`Public navigation audit: ${result.surfaces} surfaces, ${result.headerRoutes} header routes, ${result.footerRoutes} footer routes, ${result.contextualEdges} contextual edges.`)
   if (result.findings.length > 0) {

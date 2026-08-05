@@ -1,0 +1,138 @@
+.footer {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.25fr) repeat(3, minmax(170px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+  padding: 32px 0 8px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.summary {
+  align-self: start;
+}
+
+.summary strong {
+  display: block;
+  font-size: 15px;
+}
+
+.summary p {
+  max-width: 34ch;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.group {
+  min-width: 0;
+}
+
+.group h2 {
+  margin: 0 0 10px;
+  color: #d9e1ea;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.links {
+  display: grid;
+  gap: 3px;
+}
+
+.links > a,
+.current,
+.networkLink {
+  min-height: 44px;
+  padding: 8px 9px;
+  border-radius: 10px;
+}
+
+.links > a,
+.networkLink {
+  display: flex;
+  align-items: center;
+  color: #cdd6e0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.links > a:hover,
+.links > a:focus-visible,
+.networkLink:hover,
+.networkLink:focus-visible {
+  color: var(--text);
+  background: rgba(255,255,255,0.045);
+  outline: none;
+}
+
+.networkLink,
+.current {
+  display: grid;
+  align-content: center;
+  gap: 2px;
+}
+
+.networkLink small,
+.current small {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.current {
+  border: 1px solid rgba(184,135,70,0.24);
+  color: #f5dfbf;
+  background: rgba(184,135,70,0.08);
+  font-size: 12px;
+}
+
+.supportLink {
+  border: 1px solid rgba(184,135,70,0.32);
+  color: #f5dfbf !important;
+  background: rgba(184,135,70,0.09);
+  font-weight: 650;
+}
+
+@media (max-width: 1023px) {
+  .footer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 599px) {
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 24px;
+    padding-top: 24px;
+  }
+
+  .summary p {
+    max-width: none;
+  }
+
+  .group {
+    padding-top: 4px;
+  }
+
+  .group h2 {
+    margin-bottom: 6px;
+  }
+
+  .links > a,
+  .current,
+  .networkLink {
+    width: 100%;
+    min-height: 44px;
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--line-soft);
+    border-radius: 8px;
+  }
+
+  .current {
+    border: 1px solid rgba(184,135,70,0.24);
+  }
+}
