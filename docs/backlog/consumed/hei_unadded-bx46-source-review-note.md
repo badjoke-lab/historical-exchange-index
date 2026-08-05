@@ -27,7 +27,7 @@ The current first-party site exposes account registration, fiat deposits, and cr
 
 The current first-party site exposes fiat and cryptocurrency funding and trading and identifies an Australian operating entity for spot products. The VARA register separately identifies MBIO FZE and its Dubai exchange and broker-dealer licence.
 
-The entity record preserves the shared MB.IO platform identity but does not infer a single country of origin from the jurisdiction-specific operating entities.
+The canonical country field follows the reviewed Dubai-licensed platform operator MBIO FZE. The Australian entity remains preserved as an alias and jurisdiction-specific scope note; it is not converted into a second canonical exchange record or a lineage assertion.
 
 ## Exclusions
 
