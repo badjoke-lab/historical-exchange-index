@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "id": "hei_ex_001104",
+    "slug": "mb-io",
+    "canonical_name": "MB.IO",
+    "aliases": [
+      "MBIO FZE",
+      "MB.IO Pty Ltd"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": null,
+    "summary": "Centralized digital asset trading platform providing fiat and cryptocurrency funding, spot trading, conversion, and related exchange services through jurisdiction-specific operating entities.",
+    "official_url_original": "https://mb.io/en",
+    "official_domain_original": "mb.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://mb.io/en",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-05",
+    "notes": "The current first-party site exposes account opening, fiat funding, cryptocurrency trading, and fiat and crypto pairs and identifies MB.IO Pty Ltd for Australian spot products. Dubai's Virtual Assets Regulatory Authority separately lists MBIO FZE, trading as MB.IO, under reference VL/24/06/001 with broker-dealer and exchange services, a licence issue date of 2024-07-18, and active status. Because the platform is presented through jurisdiction-specific entities, no single unsupported country of origin is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012443",
+      "exchange_id": "hei_ex_001104",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "MB.IO digital asset trading platform",
+      "url": "https://mb.io/en",
+      "publisher": "MB.IO",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://mb.io/en",
+      "accessed_at": "2026-08-05",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party platform exposes account opening, fiat funding, cryptocurrency trading, conversion, and fiat and crypto pairs and identifies MB.IO Pty Ltd for Australian spot products."
+    },
+    {
+      "id": "hei_src_012444",
+      "exchange_id": "hei_ex_001104",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "MBIO FZE public register entry",
+      "url": "https://www.vara.ae/en/licenses-and-register/public-register/mbio-fze-mbio/",
+      "publisher": "Virtual Assets Regulatory Authority",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.vara.ae/en/licenses-and-register/public-register/mbio-fze-mbio/",
+      "accessed_at": "2026-08-05",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official VARA register lists MBIO FZE, trading as MB.IO, under reference VL/24/06/001 with broker-dealer and exchange services, licence issued 2024-07-18, and active status."
+    }
+  ]
+}
