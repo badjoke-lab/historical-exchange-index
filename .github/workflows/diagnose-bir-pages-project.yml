@@ -47,7 +47,7 @@ jobs:
             production_deployments_enabled: project.source?.config?.production_deployments_enabled,
             deployments_enabled: project.source?.config?.deployments_enabled
           }, null, 2));
-          const deployments = await request(`/pages/projects/${projectName}/deployments?per_page=100`);
+          const deployments = await request(`/pages/projects/${projectName}/deployments?page=1&per_page=25`);
           console.log(`Deployments returned: ${deployments.length}`);
           for (const deployment of deployments) {
             console.log(JSON.stringify({
