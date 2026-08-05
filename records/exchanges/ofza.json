@@ -1,0 +1,59 @@
+{
+  "entity": {
+    "id": "hei_ex_001103",
+    "slug": "ofza",
+    "canonical_name": "Ofza",
+    "aliases": [
+      "OFZA Fintech Virtual Asset Exchange Services LLC"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "United Arab Emirates",
+    "summary": "Dubai-based licensed centralized cryptocurrency exchange providing account registration, fiat funding, real-time cryptocurrency buying and selling, and related regulated virtual asset services.",
+    "official_url_original": "https://ofza.com/en",
+    "official_domain_original": "ofza.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://ofza.com/en",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-05",
+    "notes": "The current first-party site exposes account registration, deposits, and real-time cryptocurrency buying and selling and identifies Ofza as a Dubai VARA-licensed virtual asset service provider. Dubai's Virtual Assets Regulatory Authority lists OFZA Fintech Virtual Asset Exchange Services LLC under reference VL/24/12/002 with exchange, broker-dealer, and management and investment services, a licence issue date of 2024-12-30, and active status. No exact platform launch date is asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012441",
+      "exchange_id": "hei_ex_001103",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Ofza cryptocurrency exchange",
+      "url": "https://ofza.com/en",
+      "publisher": "Ofza",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://ofza.com/en",
+      "accessed_at": "2026-08-05",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site exposes registration, fiat deposits, and real-time cryptocurrency buying and selling and identifies Ofza as a Dubai VARA-licensed virtual asset service provider."
+    },
+    {
+      "id": "hei_src_012442",
+      "exchange_id": "hei_ex_001103",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "OFZA Fintech Virtual Asset Exchange Services LLC public register entry",
+      "url": "https://www.vara.ae/en/licenses-and-register/public-register/ofza-fintech-virtual-asset-exchange-services-llc/",
+      "publisher": "Virtual Assets Regulatory Authority",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.vara.ae/en/licenses-and-register/public-register/ofza-fintech-virtual-asset-exchange-services-llc/",
+      "accessed_at": "2026-08-05",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official VARA register lists OFZA Fintech Virtual Asset Exchange Services LLC under reference VL/24/12/002 with exchange, broker-dealer, and management and investment services, licence issued 2024-12-30, and active status."
+    }
+  ]
+}
