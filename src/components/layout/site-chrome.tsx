@@ -51,7 +51,8 @@ export default function SiteChrome({ locale, children }: SiteChromeProps) {
         >
           <span className={styles.brandMark} aria-hidden="true">HEI</span>
           <span className={styles.brandCopy}>
-            <span className={styles.brandTitle}>{brandTitle}</span>
+            <span className={`${styles.brandTitle} ${styles.brandTitleLong}`}>{brandTitle}</span>
+            <span className={`${styles.brandTitle} ${styles.brandTitleShort}`}>Exchange Index</span>
             <span className={styles.brandTagline}>{t('brand.tagline', 'A quiet registry of crypto exchanges, active and gone.')}</span>
           </span>
         </Link>
