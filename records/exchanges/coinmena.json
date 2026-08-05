@@ -1,0 +1,90 @@
+{
+  "entity": {
+    "id": "hei_ex_001106",
+    "slug": "coinmena",
+    "canonical_name": "CoinMENA",
+    "aliases": [
+      "CoinMENA FZE",
+      "CoinMENA B.S.C. (c)"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Bahrain",
+    "summary": "Middle East and North Africa digital-asset exchange platform offering local-currency funding, spot and limit orders, transfers, withdrawals, and over-the-counter trading.",
+    "official_url_original": "https://www.coinmena.com/en",
+    "official_domain_original": "coinmena.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.coinmena.com/en",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-05",
+    "notes": "CoinMENA's first-party site identifies the Bahrain-headquartered CoinMENA B.S.C. (c) and the UAE operating entity CoinMENA FZE. Dubai's Virtual Assets Regulatory Authority lists CoinMENA FZE under reference VL/23/09/001 with an active broker-dealer licence for institutional, qualified, and retail investors. VARA issued a notice of fines on 2026-06-22 concerning AML programme control failures and a remediation plan; the same regulator continued to list the licence as active, so the entity remains active and the enforcement action is recorded separately."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010099",
+      "exchange_id": "hei_ex_001106",
+      "event_type": "regulatory_action",
+      "event_date": "2026-06-22",
+      "title": "VARA fined CoinMENA over AML control failures",
+      "description": "Dubai's Virtual Assets Regulatory Authority announced a financial penalty against CoinMENA FZE after identifying administrative and internal-control failures in its anti-money-laundering programme and stated that CoinMENA had begun a coordinated remediation plan.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "none",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "The regulator continued to list CoinMENA FZE as active. The notice does not establish a suspension, withdrawal, or shutdown."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012447",
+      "exchange_id": "hei_ex_001106",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "CoinMENA digital asset exchange platform",
+      "url": "https://www.coinmena.com/en",
+      "publisher": "CoinMENA",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.coinmena.com/en",
+      "accessed_at": "2026-08-05",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party platform exposes local-currency funding, spot and limit orders, deposits, withdrawals, transfers, and OTC trading."
+    },
+    {
+      "id": "hei_src_012448",
+      "exchange_id": "hei_ex_001106",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "CoinMENA FZE public register entry",
+      "url": "https://www.vara.ae/en/licenses-and-register/public-register/coinmena-fze/",
+      "publisher": "Virtual Assets Regulatory Authority",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.vara.ae/en/licenses-and-register/public-register/coinmena-fze/",
+      "accessed_at": "2026-08-05",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official VARA entry identifies CoinMENA FZE, the official website, reference VL/23/09/001, permitted broker-dealer services, licence conditions, and active status."
+    },
+    {
+      "id": "hei_src_012449",
+      "exchange_id": "hei_ex_001106",
+      "event_id": "hei_ev_010099",
+      "source_type": "regulatory_notice",
+      "title": "VARA Notice of Fines – CoinMENA FZE",
+      "url": "https://www.vara.ae/en/regulations/regulatory-notices/vara-notice-of-fines-coinmena-fze/",
+      "publisher": "Virtual Assets Regulatory Authority",
+      "published_at": "2026-06-22",
+      "archived_url": "https://web.archive.org/web/*/https://www.vara.ae/en/regulations/regulatory-notices/vara-notice-of-fines-coinmena-fze/",
+      "accessed_at": "2026-08-05",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Official enforcement notice confirms the financial penalty, AML programme control failures, cooperation, and remediation plan."
+    }
+  ]
+}
