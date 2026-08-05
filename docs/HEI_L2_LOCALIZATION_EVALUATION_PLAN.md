@@ -38,15 +38,15 @@ The initial L2 state is expected to be HOLD because the public Japanese Pilot ha
 
 HOLD keeps the Japanese Pilot public but does not block reviewed canonical data growth.
 
-After the reconciled D-1000 batch BX45 state, including the concurrent BTCBOX lifecycle update, the reviewed state is:
+After D-1000 batch BX46, the reviewed state is:
 
 ```text
-Entities: 979
-Events:   1020
-Evidence: 3735
+Entities: 984
+Events:   1022
+Evidence: 3748
 ```
 
-The localization decision remains HOLD. Translation breadth is not expanded by BX45, and third-language authorization remains false.
+The localization decision remains HOLD. Translation breadth is not expanded by BX46, and third-language authorization remains false.
 
 ## 3. Evidence categories
 
