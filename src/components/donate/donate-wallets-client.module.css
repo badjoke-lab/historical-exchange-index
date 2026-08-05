@@ -1,0 +1,155 @@
+.wrapper {
+  display: grid;
+  gap: 18px;
+}
+
+.groupTitle {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.018);
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.asset {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.network {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.copyButton {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  padding: 8px 11px;
+  border: 1px solid rgba(184,135,70,0.3);
+  border-radius: 10px;
+  color: #f5dfbf;
+  background: rgba(184,135,70,0.08);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.copyButton:hover,
+.copyButton:focus-visible {
+  background: rgba(184,135,70,0.16);
+  outline: none;
+}
+
+.note,
+.warning {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.note {
+  margin: 12px 0 0;
+}
+
+.addressLabel {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.address {
+  display: block;
+  margin-top: 5px;
+  padding: 10px 11px;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  color: #dce5ef;
+  background: #0d1116;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.warning {
+  margin: 10px 0 0;
+}
+
+.additional {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.012);
+}
+
+.additional summary {
+  min-height: 48px;
+  padding: 13px 16px;
+  cursor: pointer;
+  color: #dce4ed;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.additional[open] summary {
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.additional .grid {
+  padding: 14px;
+}
+
+@media (max-width: 699px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  .top {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) auto;
+  }
+
+  .copyButton {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 439px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+
+  .copyButton {
+    width: 100%;
+  }
+}
