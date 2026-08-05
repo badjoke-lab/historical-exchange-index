@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "contract_id": "hei_representative_visual_review_v1_2026_07_20",
   "status": "active_specification",
   "public_output": false,
@@ -12,7 +12,8 @@
     "every representative page must expose one page-specific h1",
     "all global navigation and locale controls must remain reachable on mobile",
     "long registries must use bounded rendering with crawlable navigation",
-    "horizontal page overflow is prohibited"
+    "horizontal page overflow is prohibited",
+    "the donate page must be reviewed on desktop and mobile"
   ],
   "visual_review_matrix": [
     {"id":"home-desktop","template":"home","route":"/","viewport":{"width":1440,"height":1000},"state":"default"},
@@ -38,7 +39,9 @@
     {"id":"monthly-desktop","template":"monthly","route":"/monthly/","viewport":{"width":1440,"height":1000},"state":"default"},
     {"id":"monthly-mobile","template":"monthly","route":"/monthly/","viewport":{"width":390,"height":844},"state":"default","locale_switcher_required":true},
     {"id":"methodology-desktop","template":"longform","route":"/methodology/","viewport":{"width":1280,"height":1000},"state":"longform"},
-    {"id":"methodology-mobile","template":"longform","route":"/methodology/","viewport":{"width":390,"height":844},"state":"longform","locale_switcher_required":true}
+    {"id":"methodology-mobile","template":"longform","route":"/methodology/","viewport":{"width":390,"height":844},"state":"longform","locale_switcher_required":true},
+    {"id":"donate-desktop","template":"donate","route":"/donate/","viewport":{"width":1280,"height":1000},"state":"support_page"},
+    {"id":"donate-mobile","template":"donate","route":"/donate/","viewport":{"width":390,"height":844},"state":"support_page","locale_switcher_required":true}
   ],
   "navigation_targets": [
     "/dead/",
@@ -55,7 +58,7 @@
     "/donate/"
   ],
   "failure_gates": {
-    "expected_state_count": 24,
+    "expected_state_count": 26,
     "initial_scroll_y_max": 1,
     "navigation_scroll_y_max": 1,
     "horizontal_page_overflow_prohibited": true,
