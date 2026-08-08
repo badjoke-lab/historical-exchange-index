@@ -2,7 +2,7 @@
 
 Status: active execution source of truth  
 Repository: `badjoke-lab/historical-exchange-index`  
-Checkpoint: 2026-07-25
+Checkpoint: 2026-08-09
 
 Repository state, reviewed build output, and current GitHub state are authoritative. Dynamic values such as the current main SHA and open pull requests must be read at recovery time rather than treated as permanent roadmap text.
 
@@ -44,32 +44,31 @@ Phase H — Compare v1:                 COMPLETE
 D-750 Reviewed Entity Milestone:      COMPLETE
 L-1 Japanese Pilot:                   COMPLETE / PUBLIC
 L-2 Localization Evaluation Gate:     HOLD / EVIDENCE CAPTURE
-D-1000 Reviewed Entity Milestone:     CURRENT
-Language Selection Gate:              BLOCKED UNTIL D-1000 + L-2 EVIDENCE
+D-1000 Reviewed Entity Milestone:     COMPLETE
+Language Selection Gate:              BLOCKED UNTIL L-2 EVIDENCE / DECISION
 ```
 
-BX29 reviewed state:
+D-1000 completion state:
 
 ```text
-Entities: 913
-Events:   1009
-Evidence: 3590
-English dossiers:  913
-Japanese dossiers: 913
-Sitemap routes:     1874
-Remaining to D-1000: 87
+Entities: 1000
+Events:   1025
+Evidence: 3781
+English dossiers:  1000
+Japanese dossiers: 1000
+Sitemap dossier routes: 1000 English + 1000 Japanese
 ```
 
 Current authority:
 
 ```text
 config/maintainer-recovery-contract.json
-docs/audits/HEI_D1000_PROGRESS_BX29_2026-07-25.md
+docs/audits/HEI_D1000_MILESTONE_COMPLETION_2026-08-09.md
 docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
 data-evaluation/l2-localization-evidence.json
 ```
 
-L-2 remains HOLD because the minimum observation window and required external evidence are not complete. HOLD keeps the Japanese Pilot public and permits reviewed canonical growth toward D-1000.
+D-1000 is complete. L-2 remains HOLD because required external Search Console, GA4, indexing, and operator-burden evidence is not yet complete. The 1000-entity prerequisite for Language Selection is satisfied, but Language Selection remains blocked until the L-2 evidence and decision requirements are satisfied.
 
 ## 4. Reviewed-count semantics
 
@@ -85,15 +84,18 @@ scripts/lib/entity-corrections.mjs
 
 Milestones count reviewed public state after reviewed bundle aggregation, entity correction, identity resolution, and event/evidence merge semantics.
 
-Current BX29 identifiers:
+Current reviewed identifiers after BX50:
 
 ```text
-Maximum added entity ID:   hei_ex_001033
-Maximum event ID:          hei_ev_010085
-Maximum added evidence ID: hei_src_012286
+Maximum added entity ID:   hei_ex_001120
+Maximum event ID:          hei_ev_010101
+Maximum added evidence ID: hei_src_012477
+Next entity ID:            hei_ex_001121
+Next event ID:             hei_ev_010102
+Next evidence ID:          hei_src_012478
 ```
 
-The D-1000 milestone is `reviewed public entities >= 1000`.
+The D-1000 milestone target `reviewed public entities >= 1000` is complete.
 
 ## 5. Completed phases and frozen baseline evidence
 
@@ -113,6 +115,7 @@ G-7 v1.0 Baseline Checkpoint                   COMPLETE
 Phase H    Compare v1                           COMPLETE
 D-750      Reviewed Entity Milestone            COMPLETE
 L-1        Japanese Pilot                       COMPLETE / PUBLIC
+D-1000     Reviewed Entity Milestone            COMPLETE
 ```
 
 Frozen and phase-completion evidence:
@@ -124,6 +127,7 @@ scripts/validate-v1-baseline.mjs
 docs/audits/HEI_H5_COMPARE_V1_COMPLETION_2026-07-08.md
 docs/audits/HEI_D750_MILESTONE_COMPLETION_2026-07-10.md
 docs/audits/HEI_L1_JAPANESE_PILOT_ROUTE_ACTIVATION_COMPLETION_2026-07-10.md
+docs/audits/HEI_D1000_MILESTONE_COMPLETION_2026-08-09.md
 ```
 
 The frozen v1 baseline remains historical evidence. Current reviewed counts may grow without changing its baseline SHA, route contract, schema contract, or safety boundaries.
@@ -140,7 +144,8 @@ record strengthening
 status / lifecycle updates
 quality repair
 archive / evidence improvement
-D-1000 Reviewed Entity Milestone       CURRENT
+D-1000 Reviewed Entity Milestone       COMPLETE
+post-D-1000 growth continues under the same quality rules
 ```
 
 ### Lane B — Product and localization
@@ -150,7 +155,7 @@ Phase H — Compare v1                   COMPLETE
 L-1 Japanese Pilot                     COMPLETE / PUBLIC
 L-2 Localization Evaluation Gate       HOLD / EVIDENCE CAPTURE
 Japanese staged expansion              ONLY AFTER GO
-Language Selection Gate                AFTER D-1000 + L-2 EVIDENCE
+Language Selection Gate                AFTER L-2 EVIDENCE / DECISION
 Phase I — Discovery Log Trial          AFTER LANGUAGE SELECTION GATE
 Phase J — NL Filter Translator         CONDITIONAL
 Phase K — API Expansion                CONDITIONAL
@@ -188,16 +193,16 @@ D-750 Reviewed Entity Milestone        COMPLETE
         ↓
 L-1 Japanese Pilot                     COMPLETE / PUBLIC
         ↓
-L-2 Localization Evaluation Gate       HOLD
+L-2 Localization Evaluation Gate       HOLD / EVIDENCE CAPTURE
         ↓
-D-1000 Reviewed Entity Milestone       CURRENT
+D-1000 Reviewed Entity Milestone       COMPLETE
         ↓
-Language Selection Gate
+Language Selection Gate                BLOCKED ON L-2 EVIDENCE / DECISION
         ↓
 Phase I — Discovery Log Trial
 ```
 
-Data growth continues during L-2 HOLD, but public rollout gates remain fixed.
+Canonical growth and quality work may continue while L-2 evidence is captured, but public rollout gates remain fixed.
 
 ## 8. Phase H — Compare v1
 
@@ -247,17 +252,17 @@ docs/audits/HEI_L1_JAPANESE_PILOT_ROUTE_ACTIVATION_COMPLETION_2026-07-10.md
 
 ## 11. L-2 Localization Evaluation Gate
 
-State: `HOLD`
+State: `HOLD / EVIDENCE CAPTURE`
 
 Decision semantics:
 
 ```text
-GO    -> staged Japanese expansion may continue with D-1000 growth
-HOLD  -> keep Pilot stable; prioritize D-1000/core work
-PIVOT -> retain useful Pilot work; do not expand aggressively; continue D-1000
+GO    -> staged Japanese expansion may continue; Language Selection becomes eligible for execution
+HOLD  -> keep Pilot stable; continue evidence capture and core/data-quality work
+PIVOT -> retain useful Pilot work; do not expand aggressively; repair or reduce scope before Language Selection
 ```
 
-L-2 does not authorize a third language. Until the observation window and required external metrics are complete, HOLD is correct.
+L-2 does not authorize a third language. D-1000 is complete, but until the observation and required external metrics are complete and the decision is reproducible from real evidence, HOLD remains correct and Language Selection remains blocked.
 
 Authority:
 
@@ -269,40 +274,37 @@ data-evaluation/l2-localization-evidence.json
 
 ## 12. D-1000 Reviewed Entity Milestone
 
-State: `CURRENT`
+State: `COMPLETE`
 
 ```text
 Target:   reviewed public entities >= 1000
-Entities: 913
-Events:   1009
-Evidence: 3590
-Remaining: 87 reviewed entities
+Entities: 1000
+Events:   1025
+Evidence: 3781
+Remaining: 0 reviewed entities
 ```
 
-Work categories:
+Completion authority:
 
 ```text
-candidate discovery
-strong dedupe and direct canonical-path checks before drafting
-reviewed batch additions
-record strengthening where additions reveal overlap or lifecycle gaps
-status and lifecycle updates
-archive and evidence improvements
-count validation under public build semantics
+docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md
+docs/audits/HEI_D1000_MILESTONE_COMPLETION_2026-08-09.md
 ```
 
-D-1000 is a prerequisite for the Language Selection Gate.
+The milestone was completed on reviewed `main` after BX50 with record overlap, duplicate, ID-collision, count-semantics, machine/public, URL-safety, localization, and public-output validation passing.
+
+Post-D-1000 data growth remains allowed and should continue to use the same reviewed PR, evidence, dedupe, and manual-merge boundaries.
 
 ## 13. Language Selection Gate
 
-State: `BLOCKED`
+State: `BLOCKED ON L-2 EVIDENCE / DECISION`
 
 Prerequisites:
 
 ```text
-D-1000 COMPLETE
-Japanese Pilot evidence exists
-L-2 decision recorded
+D-1000 COMPLETE                         SATISFIED
+Japanese Pilot evidence exists          INCOMPLETE
+L-2 decision reproducible from evidence INCOMPLETE
 ```
 
 No third language is preselected.
@@ -316,6 +318,8 @@ NO LAUNCH
 PILOT ONE LANGUAGE
   select exactly one evidence-supported third language
 ```
+
+Do not run this gate from language preference or chat memory alone. It must use HEI-specific evidence and the L-2 decision record.
 
 ## 14. Phase I — Discovery Log Trial
 
@@ -344,12 +348,12 @@ Activate only after real external consumer need that static files cannot satisfy
 ## 16. Immediate execution order
 
 ```text
-1. Continue L-2 evidence capture under HOLD
-2. Continue D-1000 reviewed canonical growth          CURRENT
-3. Complete D-1000 at >=1000 reviewed entities
-4. Reproduce the L-2 decision from real evidence
-5. Run the Language Selection Gate
-6. Phase I — Discovery Log Trial
+1. Continue L-2 evidence capture under HOLD                CURRENT
+2. Populate required external and operator-burden metrics
+3. Reproduce the L-2 GO / HOLD / PIVOT decision
+4. Run the Language Selection Gate
+5. Phase I — Discovery Log Trial
+6. Continue reviewed data/quality growth in parallel
 7. Phase J only if justified
 8. Phase K only if justified
 ```
@@ -364,18 +368,18 @@ docs/operations/HEI_MAINTAINER_RECOVERY_RUNBOOK.md
 
 Recovery must determine repository identity, current main SHA, open PRs, deployment policy, roadmap checkpoint, active specifications, reviewed counts under build semantics, production/baseline verification state, required validation commands, and the first incomplete roadmap item.
 
-At the BX29 checkpoint, recovery should resolve:
+At the D-1000 completion checkpoint, recovery should resolve:
 
 ```text
 Phase H COMPLETE
 D-750 COMPLETE
 L-1 COMPLETE / PUBLIC
-L-2 HOLD
-D-1000 CURRENT
-Entities: 913
-Events: 1009
-Evidence: 3590
-Remaining to D-1000: 87
+L-2 HOLD / EVIDENCE CAPTURE
+D-1000 COMPLETE
+Entities: 1000
+Events: 1025
+Evidence: 3781
+Language Selection BLOCKED ON L-2 EVIDENCE / DECISION
 ```
 
 Dynamic main SHA and open PR state must still be read from current GitHub state.
@@ -393,7 +397,7 @@ Update this roadmap together with relevant specifications before changing:
 - Discovery Log order;
 - conditional activation of Phase J or K.
 
-Fixed priority:
+Fixed priority remains:
 
 ```text
 Compare -> 750 -> Japanese Pilot/evaluation -> 1000 -> language selection

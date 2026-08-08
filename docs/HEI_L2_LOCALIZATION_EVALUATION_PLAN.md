@@ -26,19 +26,19 @@ L-2 does not authorize a third language.
 L2-1 — Evaluation contract, telemetry, and evidence capture
 ```
 
-Next roadmap item after L-2 decision:
+Next roadmap item after an evidence-backed L-2 decision:
 
 ```text
-D-1000 Reviewed Entity Milestone
+Language Selection Gate
 ```
 
-The initial L2 state is expected to be HOLD because the public Japanese Pilot has just launched and search, indexing, usage, and operator-burden evidence are not yet mature.
+D-1000 is complete. The remaining blocker before Language Selection is the L-2 evidence and decision requirement, not entity-count growth.
 
-### 2.1 Parallel canonical growth during HOLD
+### 2.1 Canonical growth status during HOLD
 
-HOLD keeps the Japanese Pilot public but does not block reviewed canonical data growth.
+HOLD keeps the Japanese Pilot public and does not block reviewed canonical data or quality growth.
 
-After D-1000 batch BX50, the projected reviewed state is:
+The D-1000 reviewed state is complete at:
 
 ```text
 Entities: 1000
@@ -46,7 +46,13 @@ Events:   1025
 Evidence: 3781
 ```
 
-The localization decision remains HOLD. Translation breadth is not expanded by BX50, and third-language authorization remains false. D-1000 completion is declared only after the reviewed BX50 state is merged to `main` and the milestone completion gate is recorded.
+Completion authority:
+
+```text
+docs/audits/HEI_D1000_MILESTONE_COMPLETION_2026-08-09.md
+```
+
+The localization decision remains HOLD until real evaluation evidence is complete. D-1000 completion does not expand translation breadth and does not authorize a third language.
 
 ## 3. Evidence categories
 
@@ -118,6 +124,8 @@ A shorter window results in HOLD unless a material quality or operational proble
 
 The purpose is to avoid declaring success or failure from launch-day noise.
 
+Satisfying the calendar window alone is not enough for GO. Required external and operational evidence must also be populated.
+
 ## 7. Decision contract
 
 ### 7.1 GO
@@ -135,9 +143,9 @@ no critical locale failure
 
 Quality and operations may be neutral if they are not negative.
 
-GO means the Japanese Pilot may continue controlled expansion.
+GO means the Japanese Pilot may continue controlled expansion and the Language Selection Gate becomes eligible to run.
 
-GO does not authorize:
+GO does not itself authorize:
 
 ```text
 a third language
@@ -164,7 +172,8 @@ keep the Japanese Pilot public
 continue collecting evidence
 preserve fallback behavior
 avoid broad translation expansion
-continue canonical data growth
+continue canonical data and quality growth
+keep Language Selection blocked
 ```
 
 ### 7.3 PIVOT
@@ -180,6 +189,8 @@ two or more required signal groups negative
 PIVOT may mean reducing scope, changing copy strategy, repairing navigation or metadata, or pausing further overlay expansion.
 
 Ordinary low-volume early data is not enough for PIVOT.
+
+A PIVOT decision still does not automatically authorize Language Selection; the roadmap transition must be recorded explicitly.
 
 ## 8. Telemetry contract
 
@@ -223,6 +234,8 @@ evidence notes
 
 The snapshot must be updated from real evidence before a later GO or PIVOT decision.
 
+D-1000 completion does not substitute for missing search, usage, indexing, or operator-burden evidence.
+
 ## 10. Evaluation tooling
 
 Authoritative contract:
@@ -245,7 +258,7 @@ npm run localization:telemetry:test
 npm run localization:evaluate
 ```
 
-The current initial evidence snapshot is expected to evaluate as:
+Until the evidence snapshot is populated sufficiently, the expected reproducible decision remains:
 
 ```text
 HOLD
@@ -283,4 +296,4 @@ GO / HOLD / PIVOT evaluation is reproducible
 third_language_authorized remains false
 ```
 
-Until those conditions are satisfied, HOLD is the correct state.
+Until those conditions are satisfied, HOLD is the correct state and the Language Selection Gate remains blocked.
