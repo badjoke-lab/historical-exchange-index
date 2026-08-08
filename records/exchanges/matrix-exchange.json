@@ -1,0 +1,75 @@
+{
+  "entity": {
+    "id": "hei_ex_001112",
+    "slug": "matrix-exchange",
+    "canonical_name": "Matrix Exchange",
+    "aliases": [
+      "Matrix",
+      "Matrix Limited"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": null,
+    "death_date": "2026-01-31",
+    "country_or_origin": "United Arab Emirates",
+    "summary": "Abu Dhabi-regulated virtual-asset multilateral trading facility and custody platform that permanently suspended its trading facility during a voluntary wind-down in January 2026.",
+    "official_url_original": "https://www.matrix.co/",
+    "official_domain_original": "matrix.co",
+    "official_url_status": "live_unverified",
+    "archived_url": "https://web.archive.org/web/*/https://www.matrix.co/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-09",
+    "notes": "Matrix Limited announced a voluntary wind-down and permanent suspension of its Multilateral Trading Facility at 23:59:59 UTC on 2026-01-31. HEI uses that first-party trading-facility shutdown date as the entity death date rather than the later FSRA regulatory-withdrawal date. The ADGM FSRA public register now marks Matrix Limited withdrawn and preserves its former virtual-asset MTF and custody permissions. The root domain remains reachable but was not treated as evidence that trading service continues."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010100",
+      "exchange_id": "hei_ex_001112",
+      "event_type": "shutdown_effective",
+      "event_date": "2026-01-31",
+      "title": "Multilateral trading facility permanently suspended",
+      "description": "Matrix Limited permanently suspended its virtual-asset multilateral trading facility as part of an announced service wind-down.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "dead",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "The terminal service date follows Matrix Limited's first-party wind-down notice. Later FSRA withdrawal dates are retained as supporting regulatory status evidence rather than substituted for the service shutdown date."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012460",
+      "exchange_id": "hei_ex_001112",
+      "event_id": "hei_ev_010100",
+      "source_type": "official_statement",
+      "title": "Important Notice: Matrix Limited – Service Wind-Down",
+      "url": "https://support.matrix.co/hc/en-us/articles/42429718503569-Important-Notice-Matrix-Limited-Service-Wind-Down",
+      "publisher": "Matrix Limited",
+      "published_at": "2026-01-02",
+      "archived_url": "https://web.archive.org/web/*/https://support.matrix.co/hc/en-us/articles/42429718503569-Important-Notice-Matrix-Limited-Service-Wind-Down",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party notice states that Matrix Limited decided to wind down and would permanently suspend its MTF on 2026-01-31 at 23:59:59 UTC, with deposits already stopped and clients instructed to withdraw assets by that date."
+    },
+    {
+      "id": "hei_src_012461",
+      "exchange_id": "hei_ex_001112",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "Matrix Limited FSRA public register entry",
+      "url": "https://www.adgm.com/public-registers/fsra/firms/financial-firms/matrix-limited-190019",
+      "publisher": "Abu Dhabi Global Market Financial Services Regulatory Authority",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.adgm.com/public-registers/fsra/firms/financial-firms/matrix-limited-190019",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Official FSRA register identifies Matrix Limited, FSP 190019, the matrix.co website, withdrawn firm status, and former virtual-asset MTF and custody regulated activities. The register's firm-level and activity-level withdrawal dates are later than the first-party MTF shutdown date and are not used as the HEI death date."
+    }
+  ]
+}

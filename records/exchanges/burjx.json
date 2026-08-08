@@ -1,0 +1,59 @@
+{
+  "entity": {
+    "id": "hei_ex_001111",
+    "slug": "burjx",
+    "canonical_name": "BurjX",
+    "aliases": [
+      "BurjX MENA Ltd."
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "United Arab Emirates",
+    "summary": "Abu Dhabi-based centralized crypto exchange providing AED on-ramps and off-ramps, spot trading, OTC execution, and institutional trading services.",
+    "official_url_original": "https://burjx.com/",
+    "official_domain_original": "burjx.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://burjx.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-09",
+    "notes": "The current first-party site presents active spot trading in AED and USDT pairs, AED funding and withdrawals, OTC execution, and institutional services. The ADGM FSRA public register lists BurjX MENA Ltd. as active under FSP 240022, with matched-principal virtual-asset dealing and custody activities effective from 2025-06-11. No exact platform launch date is inferred from the FSP date, and the regulatory record is not converted into a broader safety or product-quality endorsement."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012458",
+      "exchange_id": "hei_ex_001111",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BurjX regulated crypto exchange",
+      "url": "https://burjx.com/",
+      "publisher": "BurjX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://burjx.com/",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site presents an operating UAE crypto exchange with AED funding, spot trading, OTC, and institutional services."
+    },
+    {
+      "id": "hei_src_012459",
+      "exchange_id": "hei_ex_001111",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "BurjX MENA Ltd. FSRA public register entry",
+      "url": "https://www.adgm.com/public-registers/fsra/firms/financial-firms/burjx-mena-ltd-240022",
+      "publisher": "Abu Dhabi Global Market Financial Services Regulatory Authority",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.adgm.com/public-registers/fsra/firms/financial-firms/burjx-mena-ltd-240022",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official FSRA register identifies BurjX MENA Ltd., FSP 240022, active status, and regulated matched-principal dealing and custody activities for virtual assets."
+    }
+  ]
+}
