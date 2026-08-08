@@ -1,0 +1,59 @@
+{
+  "entity": {
+    "id": "hei_ex_001116",
+    "slug": "intebix",
+    "canonical_name": "Intebix",
+    "aliases": [
+      "Intebix Ltd."
+    ],
+    "type": "cex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Kazakhstan",
+    "summary": "Kazakhstan-based centralized digital-asset exchange whose current public platform remains online while trading and balance operations are temporarily unavailable during infrastructure upgrade work.",
+    "official_url_original": "https://intebix.kz/",
+    "official_domain_original": "intebix.kz",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://intebix.kz/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-09",
+    "notes": "The current first-party site remains reachable and presents the Intebix exchange but explicitly states that infrastructure upgrade work is in progress and that trading and balance operations are temporarily unavailable. AFSA's public register lists Intebix Ltd. licence AFSA-G-LA-2022-0004 as active for Operating a Digital Asset Trading Facility through 2026-09-01. HEI therefore uses `limited`, not `active`, while the trading interruption remains in effect. No historical Biteeu/Intebix lineage is asserted in this batch without first-party identity evidence."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012468",
+      "exchange_id": "hei_ex_001116",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Intebix exchange infrastructure upgrade notice",
+      "url": "https://intebix.kz/",
+      "publisher": "Intebix",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://intebix.kz/",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party platform states that infrastructure upgrade work is underway and that trading and balance operations are temporarily unavailable while the exchange site remains online."
+    },
+    {
+      "id": "hei_src_012469",
+      "exchange_id": "hei_ex_001116",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "Intebix Ltd. AFSA Digital Asset Trading Facility licence",
+      "url": "https://publicreg.myafsa.com/licence_details/AFSA-G-LA-2022-0004/",
+      "publisher": "Astana Financial Services Authority",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://publicreg.myafsa.com/licence_details/AFSA-G-LA-2022-0004/",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Official AFSA public register lists Intebix Ltd. licence AFSA-G-LA-2022-0004 as active for Operating a Digital Asset Trading Facility, currently extended through 2026-09-01."
+    }
+  ]
+}

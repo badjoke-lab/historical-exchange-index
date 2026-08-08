@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "id": "hei_ex_001114",
+    "slug": "deltada",
+    "canonical_name": "DeltaDA",
+    "aliases": [
+      "Delta DA",
+      "Delta DA Ltd."
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Kazakhstan",
+    "summary": "Kazakhstan-based regulated digital-asset exchange operator providing exchange and OTC execution alongside custody and crypto-fiat services.",
+    "official_url_original": "https://deltada.kz/",
+    "official_domain_original": "deltada.kz",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://deltada.kz/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-09",
+    "notes": "The current first-party site identifies Delta DA Ltd. as a regulated exchange operator and presents exchange-based and OTC execution services. AFSA's current public register lists its Digital Asset Trading Facility licence AFSA-G-LA-2021-0019 as active through 2027-01-31. The site's statement that the company was established in 2021 is not converted into an exact platform launch date."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012464",
+      "exchange_id": "hei_ex_001114",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "DeltaDA regulated digital asset exchange",
+      "url": "https://deltada.kz/",
+      "publisher": "DeltaDA",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://deltada.kz/",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site identifies Delta DA Ltd. as an operating regulated crypto exchange and describes exchange-based execution, OTC trading, custody, and crypto-fiat services."
+    },
+    {
+      "id": "hei_src_012465",
+      "exchange_id": "hei_ex_001114",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "Delta DA Ltd. AFSA Digital Asset Trading Facility licence",
+      "url": "https://publicreg.myafsa.com/licence_details/AFSA-G-LA-2021-0019/",
+      "publisher": "Astana Financial Services Authority",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://publicreg.myafsa.com/licence_details/AFSA-G-LA-2021-0019/",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Official AFSA public register lists Delta DA Ltd. licence AFSA-G-LA-2021-0019 as active for Operating a Digital Asset Trading Facility, with the current extension running through 2027-01-31."
+    }
+  ]
+}

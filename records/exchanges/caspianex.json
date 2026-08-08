@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "id": "hei_ex_001115",
+    "slug": "caspianex",
+    "canonical_name": "CaspianEx",
+    "aliases": [
+      "Caspian Exchange",
+      "Top Line Limited"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Kazakhstan",
+    "summary": "Kazakhstan-based centralized digital-asset exchange operated by Top Line Limited, offering order-book trading, quick exchange, wallet funding, and custody-related services.",
+    "official_url_original": "https://www.caspianex.com/",
+    "official_domain_original": "caspianex.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.caspianex.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-09",
+    "notes": "The current CaspianEx site presents active registration, exchange trading, quick exchange, funding, and wallet functions and identifies Top Line Limited as operator. The site's footer retains an older FinTech Lab expiry date, while AFSA's current public register lists licence AFSA-G-LA-2022-0011 as active through 2026-12-31 after an earlier 2023 voluntary suspension and reactivation. HEI uses the current regulator status rather than the stale footer expiry text."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012466",
+      "exchange_id": "hei_ex_001115",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "CaspianEx cryptocurrency exchange",
+      "url": "https://www.caspianex.com/en",
+      "publisher": "CaspianEx",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.caspianex.com/en",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party site presents an operating exchange and quick-exchange service and identifies Top Line Limited as the regulated operator."
+    },
+    {
+      "id": "hei_src_012467",
+      "exchange_id": "hei_ex_001115",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "Top Line Limited AFSA Digital Asset Trading Facility licence",
+      "url": "https://publicreg.myafsa.com/licence_details/AFSA-G-LA-2022-0011/",
+      "publisher": "Astana Financial Services Authority",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://publicreg.myafsa.com/licence_details/AFSA-G-LA-2022-0011/",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Official AFSA register lists Top Line Limited licence AFSA-G-LA-2022-0011 as active for Operating a Digital Asset Trading Facility through 2026-12-31 and records its 2023 voluntary suspension and subsequent reactivation."
+    }
+  ]
+}
