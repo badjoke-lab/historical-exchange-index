@@ -1,0 +1,62 @@
+{
+  "entity": {
+    "id": "hei_ex_001118",
+    "slug": "kdx",
+    "canonical_name": "KDX",
+    "aliases": [
+      "Kinetic DAX",
+      "Kinetic DAX Sdn. Bhd.",
+      "Tokenize Malaysia",
+      "Tokenize Technology (M) Sdn. Bhd."
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Malaysia",
+    "summary": "Malaysian centralized digital-asset exchange offering MYR markets, order-book trading, wallet transfers, and institutional services under the KDX brand.",
+    "official_url_original": "https://www.kdx.com.my/",
+    "official_domain_original": "kdx.com.my",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.kdx.com.my/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-09",
+    "notes": "Kinetic DAX Sdn. Bhd. is the continuing Malaysian operator formerly known as Tokenize Technology (M) Sdn. Bhd. The current KDX site provides MYR order-book exchange and wallet services and identifies the company as a Securities Commission Malaysia-registered Digital Asset Exchange. The SC's current DAX list, updated 2026-07-20, lists Kinetic DAX Sdn Bhd. BX50 records the current KDX identity as one continuing entity and does not infer identity with separate non-Malaysian Tokenize operators."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012472",
+      "exchange_id": "hei_ex_001118",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "KDX Malaysian digital asset exchange",
+      "url": "https://www.kdx.com.my/",
+      "publisher": "KDX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.kdx.com.my/",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party site presents MYR spot markets, a full order book, wallet functions, and the operator identity Kinetic DAX Sdn. Bhd., formerly Tokenize Technology (M) Sdn. Bhd."
+    },
+    {
+      "id": "hei_src_012473",
+      "exchange_id": "hei_ex_001118",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "List of Registered Digital Asset Exchanges",
+      "url": "https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges",
+      "publisher": "Securities Commission Malaysia",
+      "published_at": "2026-07-20",
+      "archived_url": "https://web.archive.org/web/*/https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "The current SC list identifies Kinetic DAX Sdn Bhd as a registered Malaysian Recognized Market Operator-Digital Asset Exchange."
+    }
+  ]
+}
