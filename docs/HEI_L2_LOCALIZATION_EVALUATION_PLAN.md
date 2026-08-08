@@ -42,7 +42,7 @@ After D-1000 batch BX49, the reviewed state is:
 
 ```text
 Entities: 996
-Events:   1024
+Events:   1025
 Evidence: 3773
 ```
 

@@ -5,13 +5,21 @@ Status: reviewed support note
 
 ## Scope
 
-BX49 uses current first-party exchange surfaces together with the Astana Financial Services Authority public register. All four additions are Kazakhstan-based Digital Asset Trading Facility operators or exchange brands tied to such operators.
+BX49 uses current first-party exchange surfaces together with the Astana Financial Services Authority public register. All four accepted additions are Kazakhstan-based Digital Asset Trading Facility operators or exchange brands tied to such operators.
 
-## ATAIX Eurasia
+## Swiftex
 
-The current ATAIX Eurasia surface presents live spot trading, instant exchange, wallet, P2P, fiat funding, and API functions. AFSA lists ATAIX Eurasia Ltd. under licence `AFSA-A-LA-2025-0022` as active for Operating a Digital Asset Trading Facility, custody, and principal/agent dealing in digital assets.
+The current Swiftex surface remains online with sign-in, sign-up, wallet, and exchange calls to action and continues to describe Swiftex.io Limited as an AFSA-authorised FinTech Lab exchange operator. AFSA's current public register instead records licence `AFSA-G-LA-2024-0003` for Operating a Digital Asset Trading Facility as withdrawn by participant effective 2026-05-05.
 
-The full-authorisation date is not converted into an exact platform launch date.
+HEI therefore uses:
+
+```text
+status: limited
+death_reason: null
+death_date: null
+```
+
+A `regulatory_action` event records the licence withdrawal. The regulatory change is not converted into a permanent service shutdown because the first-party exchange surface remains publicly present.
 
 ## DeltaDA
 
@@ -39,6 +47,10 @@ death_date: null
 
 No dated event is added because the reviewed first-party notice does not provide a reliable start date for the current interruption.
 
+## Rejected candidate: ATAIX Eurasia
+
+ATAIX Eurasia was initially drafted but the permanent entity-overlap validator correctly matched alias `ATAIX` against existing reviewed entity `hei_ex_000551` (`records/exchanges/ataix.json`). The regional operator is not split into a second reviewed entity for milestone counting in BX49.
+
 ## Exclusions
 
 BX49 does not infer:
@@ -46,6 +58,7 @@ BX49 does not infer:
 - exact launch dates from licence dates;
 - trading volume, liquidity, solvency, custody quality, or security quality;
 - predecessor, successor, merger, acquisition, or rebrand relationships;
+- permanent closure from Swiftex's regulatory withdrawal alone;
 - permanent closure from Intebix's current temporary interruption;
 - historical Biteeu/Intebix identity continuity without reviewed first-party evidence;
 - broader regulatory approval beyond the cited AIFC/AFSA scope.
