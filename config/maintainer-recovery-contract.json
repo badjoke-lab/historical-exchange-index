@@ -22,6 +22,7 @@
     "l2_evaluation_plan": "docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md",
     "l2_evaluation_contract": "config/l2-localization-evaluation-contract.json",
     "l2_evidence_snapshot": "data-evaluation/l2-localization-evidence.json",
+    "l2_evidence_capture_report": "docs/audits/HEI_L2_EVIDENCE_CAPTURE_2026-08-09.md",
     "l2_evaluator": "scripts/evaluate-l2-localization-gate.mjs",
     "d750_completion_report": "docs/audits/HEI_D750_MILESTONE_COMPLETION_2026-07-10.md",
     "d1000_progress_report": "docs/audits/HEI_D1000_PROGRESS_BX50_2026-08-09.md",

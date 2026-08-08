@@ -3,8 +3,8 @@
   "phase": "L-2 Localization Evaluation Gate",
   "window": {
     "start_date": "2026-07-11",
-    "end_date": "2026-07-11",
-    "observation_days": 0
+    "end_date": "2026-08-09",
+    "observation_days": 29
   },
   "external_metrics": {
     "japanese_search_impressions": null,
@@ -28,9 +28,12 @@
     "operations": "unknown"
   },
   "evidence_notes": [
-    "Japanese public routes and 750 Japanese dossier routes passed the activation gate.",
-    "The first reviewed optional entity-copy overlay sample contains 5 Japanese summaries and 0 event overlays.",
-    "The pilot is newly activated, so search, usage, indexing, and operator-burden evidence are not yet mature enough for GO or PIVOT.",
-    "Current decision must remain HOLD until the minimum observation window and required external metrics are satisfied."
+    "The Japanese Pilot observation window has now reached 29 days, satisfying the 28-day minimum calendar requirement.",
+    "D-1000 is complete at 1000 reviewed entities, and the Japanese Pilot readiness and L-2 evaluation gates continue to pass with the current reviewed public routes.",
+    "Repository validation still reports no critical locale failure, while the current evidence snapshot retains zero broken locale links and zero translation synchronization incidents.",
+    "Required Search Console, GA4, representative indexing, language-switch, and operator-burden metrics have not been captured into repository evidence and remain null rather than being inferred or fabricated.",
+    "Search visibility, usage, and operations therefore remain unknown; quality remains positive from repository and public-output validation.",
+    "The reproducible L-2 decision remains HOLD because required external metrics and signal evidence are incomplete even though the minimum observation window is now satisfied.",
+    "Third-language authorization remains false and the Language Selection Gate must remain blocked until an evidence-backed L-2 decision is recorded."
   ]
 }
