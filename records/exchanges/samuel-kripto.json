@@ -1,0 +1,61 @@
+{
+  "entity": {
+    "id": "hei_ex_001119",
+    "slug": "samuel-kripto",
+    "canonical_name": "Samuel Kripto",
+    "aliases": [
+      "Samuel Kripto Indonesia",
+      "PT Samuel Kripto Indonesia",
+      "Vonix"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Indonesia",
+    "summary": "Indonesian centralized cryptocurrency trading platform offering easy and advanced trading, portfolio management, and mobile access under PT Samuel Kripto Indonesia.",
+    "official_url_original": "https://samuelkripto.com/",
+    "official_domain_original": "samuelkripto.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://samuelkripto.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-09",
+    "notes": "The current first-party corporate surface identifies PT Samuel Kripto Indonesia, describes an operating crypto exchange platform, states that the trading platform launched in 2022, and cites OJK licence KEP-8/D.07/2025. OJK's formal licence announcement grants PT Samuel Kripto Indonesia a Digital Financial Asset Trader business licence, while the current CFX member list records the brand as an exchange member. The former Vonix app identity is retained as an alias; no exact launch date is inferred beyond the reviewed launch year."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012474",
+      "exchange_id": "hei_ex_001119",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Samuel Kripto Indonesia trading platform",
+      "url": "https://corporate.samuelkripto.com/",
+      "publisher": "Samuel Kripto Indonesia",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://corporate.samuelkripto.com/",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party corporate site identifies PT Samuel Kripto Indonesia, describes an operating crypto exchange platform, and cites OJK licence KEP-8/D.07/2025."
+    },
+    {
+      "id": "hei_src_012475",
+      "exchange_id": "hei_ex_001119",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "PT Samuel Kripto Indonesia Business License",
+      "url": "https://ojk.go.id/en/berita-dan-kegiatan/pengumuman/Documents/PENG-5.IK.01.2025_270325_PT%20Samuel%20Kripto%20Indonesia%20Business%20License.pdf",
+      "publisher": "Otoritas Jasa Keuangan",
+      "published_at": "2025-03-27",
+      "archived_url": null,
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "OJK's formal announcement grants PT Samuel Kripto Indonesia business licence KEP-8/D.07/2025 as a Digital Financial Asset Trader, effective 2025-03-24."
+    }
+  ]
+}
