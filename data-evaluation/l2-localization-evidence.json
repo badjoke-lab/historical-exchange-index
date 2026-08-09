@@ -18,8 +18,8 @@
     "critical_locale_failure": false,
     "translation_sync_incidents": 0,
     "operator_qa_minutes_per_batch": null,
-    "localization_ci_failures": null,
-    "localization_ci_runs": null
+    "localization_ci_failures": 72,
+    "localization_ci_runs": 453
   },
   "signals": {
     "search_visibility": "unknown",
@@ -31,9 +31,10 @@
     "The Japanese Pilot observation window has now reached 29 days, satisfying the 28-day minimum calendar requirement.",
     "D-1000 is complete at 1000 reviewed entities, and the Japanese Pilot readiness and L-2 evaluation gates continue to pass with the current reviewed public routes.",
     "Repository validation still reports no critical locale failure, while the current evidence snapshot retains zero broken locale links and zero translation synchronization incidents.",
-    "Required Search Console, GA4, representative indexing, language-switch, and operator-burden metrics have not been captured into repository evidence and remain null rather than being inferred or fabricated.",
+    "GitHub Actions provides real operational evidence for the dedicated L2 localization evaluation gate: from its creation on 2026-07-11 through this capture, 453 workflow runs completed and 72 concluded failure. These values populate localization_ci_runs and localization_ci_failures rather than leaving them inferred or null.",
+    "Required Search Console, GA4, representative indexing, language-switch, and operator QA burden metrics remain unavailable in repository evidence and remain null rather than being inferred or fabricated.",
     "Search visibility, usage, and operations therefore remain unknown; quality remains positive from repository and public-output validation.",
-    "The reproducible L-2 decision remains HOLD because required external metrics and signal evidence are incomplete even though the minimum observation window is now satisfied.",
+    "The reproducible L-2 decision remains HOLD because required external metrics and signal evidence are incomplete even though the minimum observation window is now satisfied and CI run/failure totals are now captured.",
     "Third-language authorization remains false and the Language Selection Gate must remain blocked until an evidence-backed L-2 decision is recorded."
   ]
 }
