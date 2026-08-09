@@ -72,7 +72,36 @@ CI
 and all other triggered quality gates
 ```
 
-## 4. Evidence still missing
+## 4. Localization CI operational evidence
+
+The dedicated GitHub Actions workflow is:
+
+```text
+workflow: L2 localization evaluation gate
+workflow_id: 311115893
+created_at: 2026-07-11T14:54:19+09:00
+```
+
+Its creation date is the first day of the active L-2 observation window. GitHub Actions API totals captured on 2026-08-09 show:
+
+```text
+completed runs: 453
+success:        377
+failure:         72
+```
+
+Four completed runs have conclusions outside the success/failure totals above. The operational metric intentionally records completed runs as the denominator and explicit `failure` conclusions as the failure count:
+
+```text
+localization_ci_runs:     453
+localization_ci_failures:  72
+```
+
+This is real repository operational evidence, not an inference from route counts or build output. A post-merge run triggered by PR #735 was still in progress at the capture point and is not included in the completed-run denominator.
+
+These counts measure the dedicated L-2 localization evaluation gate only. They do not claim to represent every workflow in the repository.
+
+## 5. Evidence still missing
 
 Required external metrics remain unavailable in repository evidence:
 
@@ -84,17 +113,17 @@ japanese_pageviews:                null
 language_switch_events:            null
 ```
 
-Operational evidence also remains incomplete:
+Operational evidence is now narrower but still incomplete:
 
 ```text
 operator_qa_minutes_per_batch: null
-localization_ci_failures:      null
-localization_ci_runs:          null
+localization_ci_failures:      72
+localization_ci_runs:          453
 ```
 
-These values are intentionally left null. They must not be fabricated from route counts, build success, general web search results, or repository activity.
+The remaining null values must not be fabricated from route counts, build success, general web search results, or repository activity.
 
-## 5. Current signal classification
+## 6. Current signal classification
 
 ```text
 search_visibility: unknown
@@ -105,9 +134,9 @@ operations:        unknown
 
 The current evidence therefore does not satisfy the GO rule.
 
-There is also no material quality evidence requiring PIVOT.
+There is also no material quality evidence requiring PIVOT. The CI totals are now available for review, but operator QA burden remains unknown and this capture does not invent a new operations classification threshold.
 
-## 6. Reproducible HOLD reasons
+## 7. Reproducible HOLD reasons
 
 With the 29-day observation window, the evaluator should no longer report:
 
@@ -125,9 +154,9 @@ unknown operations
 neither search visibility nor usage is positive yet
 ```
 
-This distinction matters because the next action is now evidence acquisition, not additional waiting for the minimum calendar window.
+This distinction matters because the next action is evidence acquisition, not additional waiting for the minimum calendar window.
 
-## 7. Third-language boundary
+## 8. Third-language boundary
 
 ```text
 third_language_authorized: false
@@ -138,9 +167,9 @@ D-1000 completion alone does not authorize a third language.
 
 The Language Selection Gate may run only after the L-2 evidence snapshot contains sufficient real evidence for a reproducible GO / HOLD / PIVOT decision under the active contract.
 
-## 8. Next evidence actions
+## 9. Next evidence actions
 
-Required next inputs are:
+Required next inputs are now:
 
 ```text
 1. Google Search Console Japanese impressions and clicks
@@ -148,12 +177,13 @@ Required next inputs are:
 3. GA4 Japanese pageviews
 4. GA4 hei_language_switch event count
 5. operator QA minutes per reviewed localization batch
-6. localization CI run/failure totals over the observation period
 ```
 
-Until these are captured from their real sources, HOLD is correct.
+Localization CI run/failure totals are no longer missing.
 
-## 9. Authority
+Until the remaining evidence is captured from its real sources, HOLD is correct.
+
+## 10. Authority
 
 ```text
 config/l2-localization-evaluation-contract.json
@@ -162,4 +192,5 @@ scripts/evaluate-l2-localization-gate.mjs
 docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
 docs/HEI_V1_EXECUTION_ROADMAP.md
 docs/audits/HEI_D1000_MILESTONE_COMPLETION_2026-08-09.md
+GitHub Actions workflow 311115893
 ```
