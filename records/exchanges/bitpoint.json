@@ -1,0 +1,91 @@
+{
+  "entity": {
+    "id": "hei_ex_001133",
+    "slug": "bitpoint",
+    "canonical_name": "BITPOINT",
+    "aliases": [
+      "BITPOINT PRO",
+      "Bitpoint Japan",
+      "株式会社ビットポイントジャパン"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Japan",
+    "summary": "Japanese centralized crypto trading service that continues as a distinct BITPOINT brand under SBI VC Trade after the former operating company, BITPoint Japan, was absorbed into SBI VC Trade in April 2026.",
+    "official_url_original": "https://www.bitpoint.co.jp/",
+    "official_domain_original": "bitpoint.co.jp",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitpoint.co.jp/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-09",
+    "notes": "The current first-party BITPOINT site exposes account opening, spot trading, exchange tools, asset transfers, staking, and current July 2026 notices. The former operator, BITPoint Japan Co., Ltd., was absorbed into SBI VC Trade Co., Ltd. on 2026-04-01, but both BITPOINT and VCTRADE remained distinct customer-facing services after the legal-company merger. HEI therefore records an active service identity plus a merger event rather than treating the brand as dead or merged out. No exact launch date is inferred from the former operating company's 2016 establishment date."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010103",
+      "exchange_id": "hei_ex_001133",
+      "event_type": "merged",
+      "event_date": "2026-04-01",
+      "title": "BITPOINT operating company merged into SBI VC Trade",
+      "description": "BITPoint Japan Co., Ltd. was absorbed into SBI VC Trade Co., Ltd. on April 1, 2026. The BITPOINT service brand continued separately after the corporate merger and remained available to customers.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "This is a legal-operator merger, not a service shutdown. First-party notices from both BITPOINT and SBI VC Trade state that BITPOINT and VCTRADE remained separate services after the merger, with future service integration planned separately."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012503",
+      "exchange_id": "hei_ex_001133",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BITPOINT official crypto trading service website",
+      "url": "https://www.bitpoint.co.jp/",
+      "publisher": "BITPOINT",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.bitpoint.co.jp/",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site exposes active account opening, spot trading, exchange tools, asset transfers, staking, and recent July 2026 operating notices."
+    },
+    {
+      "id": "hei_src_012504",
+      "exchange_id": "hei_ex_001133",
+      "event_id": "hei_ev_010103",
+      "source_type": "official_statement",
+      "title": "Completion of merger between BITPoint Japan and SBI VC Trade",
+      "url": "https://www.bitpoint.co.jp/news/info/info-2026040101/",
+      "publisher": "BITPOINT",
+      "published_at": "2026-04-01",
+      "archived_url": "https://web.archive.org/web/*/https://www.bitpoint.co.jp/news/info/info-2026040101/",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party notice confirms the April 1 legal-company merger and explicitly states that BITPOINT and VCTRADE would continue as distinct service brands for the time being."
+    },
+    {
+      "id": "hei_src_012505",
+      "exchange_id": "hei_ex_001133",
+      "event_id": "hei_ev_010103",
+      "source_type": "official_statement",
+      "title": "SBI VC Trade and BITPoint Japan merger completion notice",
+      "url": "https://www.sbivc.co.jp/newsview/umhk6419ku",
+      "publisher": "SBI VC Trade",
+      "published_at": "2026-04-01",
+      "archived_url": "https://web.archive.org/web/*/https://www.sbivc.co.jp/newsview/umhk6419ku",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Corroborating first-party notice from the surviving legal operator confirms the merger and continued exchange/trading service business."
+    }
+  ]
+}
