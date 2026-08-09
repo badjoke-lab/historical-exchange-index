@@ -1,0 +1,93 @@
+{
+  "entity": {
+    "id": "hei_ex_001128",
+    "slug": "kucoin-thailand",
+    "canonical_name": "KuCoin Thailand",
+    "aliases": [
+      "ERX",
+      "ERX Co., Ltd.",
+      "ERX Company Limited",
+      "KuCoin TH"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": "2026-04-22",
+    "country_or_origin": "Thailand",
+    "summary": "Thailand digital-asset exchange operated by ERX Co., Ltd. under the KuCoin Thailand trade name. Trading and deposits were suspended in January 2026 after a regulatory capital deficiency, the customer system closed on April 22, and the operator subsequently announced that it was returning its Digital Asset Exchange licence.",
+    "official_url_original": "https://www.kucoin.th/",
+    "official_domain_original": "kucoin.th",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.kucoin.th/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-09",
+    "notes": "Thailand SEC identified ERX Co., Ltd. as the digital asset exchange operating under the KuCoin Thailand trade name and documented the 2026-01-03 suspension after ERX failed to maintain required ongoing capital. First-party notices later stated that there was no scheduled near-term resumption, closed customer login and self-service withdrawals from 2026-04-22 13:00 UTC+7, and on 2026-04-25 announced a process to return the Digital Asset Exchange licence following review of business plans and strategic direction. HEI uses 2026-04-22 as the operational death marker because normal customer exchange access ended then; manual offboarding withdrawals and a live support website do not constitute an active exchange. `unknown` is used for death_reason because the reviewed record includes both regulatory-capital failure and a later strategic licence-return decision rather than one exclusive terminal cause."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010102",
+      "exchange_id": "hei_ex_001128",
+      "event_type": "shutdown_effective",
+      "event_date": "2026-04-22",
+      "title": "KuCoin Thailand closed its customer system during wind-down",
+      "description": "KuCoin Thailand ended normal customer system access at 13:00 UTC+7 on April 22, 2026 after trading and deposits had already been suspended. Customers could no longer log in, view balances or transaction history in the platform, or perform self-service withdrawals; remaining withdrawals moved to manual customer-service processing.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "dead",
+      "source_count": 3,
+      "sort_order": 1,
+      "is_major_event": true,
+      "notes": "The April 22 marker represents operational exchange shutdown, not corporate dissolution. A first-party April 25 notice subsequently stated that ERX was in the process of returning its Digital Asset Exchange licence."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012492",
+      "exchange_id": "hei_ex_001128",
+      "event_id": "hei_ev_010102",
+      "source_type": "regulatory_notice",
+      "title": "SEC conducts inspection of ERX after temporary suspension of operations",
+      "url": "https://www.sec.or.th/EN/Pages/News_Detail.aspx?SECID=12421",
+      "publisher": "Securities and Exchange Commission, Thailand",
+      "published_at": "2026-01-07",
+      "archived_url": "https://web.archive.org/web/*/https://www.sec.or.th/EN/Pages/News_Detail.aspx?SECID=12421",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Regulator notice identifies ERX as the exchange operating under the KuCoin Thailand trade name and records the January 3 business suspension caused by failure to maintain the required ongoing capital fund."
+    },
+    {
+      "id": "hei_src_012493",
+      "exchange_id": "hei_ex_001128",
+      "event_id": "hei_ev_010102",
+      "source_type": "official_statement",
+      "title": "Important Announcement: Asset Withdrawal, Temporary System Suspension, and Custody Fee Policy",
+      "url": "https://www.kucoin.th/en/announcement/20254-35",
+      "publisher": "KuCoin Thailand",
+      "published_at": "2026-04-16",
+      "archived_url": "https://web.archive.org/web/*/https://www.kucoin.th/en/announcement/20254-35",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party notice states that there was no scheduled plan to resume in the near future and that customer login and self-service account functions would end on 2026-04-22 at 13:00 UTC+7, with later withdrawals handled manually."
+    },
+    {
+      "id": "hei_src_012494",
+      "exchange_id": "hei_ex_001128",
+      "event_id": "hei_ev_010102",
+      "source_type": "official_statement",
+      "title": "Return of Digital Asset Exchange License",
+      "url": "https://www.kucoin.th/en/announcement/20509-35",
+      "publisher": "KuCoin Thailand",
+      "published_at": "2026-04-25",
+      "archived_url": "https://web.archive.org/web/*/https://www.kucoin.th/en/announcement/20509-35",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party notice states that ERX was in the process of returning its Digital Asset Exchange licence to the Ministry of Finance following review of its business plans and strategic direction, while manual withdrawals remained available."
+    }
+  ]
+}
