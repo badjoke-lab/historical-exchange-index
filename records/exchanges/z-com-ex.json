@@ -1,0 +1,61 @@
+{
+  "entity": {
+    "id": "hei_ex_001123",
+    "slug": "z-com-ex",
+    "canonical_name": "Z.com EX",
+    "aliases": [
+      "Z.COMEX",
+      "GMO-Z.com Cryptonomics (Thailand)",
+      "GMO-Z.com Cryptonomics (Thailand) Co., Ltd."
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Thailand",
+    "summary": "Thai centralized cryptocurrency exchange and OTC service operated by GMO-Z.com Cryptonomics (Thailand) Co., Ltd.",
+    "official_url_original": "https://ex.z.com/",
+    "official_domain_original": "ex.z.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://ex.z.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-09",
+    "notes": "Current Z.com EX support material documents cryptocurrency trading, THB and crypto deposits/withdrawals, and a completed July 2026 maintenance window. Thailand SEC's current licensed-operator page lists Z.COMEX / GMO-Z.COM CRYPTONOMICS (THAILAND) COMPANY LIMITED under Digital Asset Exchange. A 2025 first-party notice explicitly states that this Thai exchange and OTC service remained operational despite service discontinuation at another Z.com-branded group company."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012482",
+      "exchange_id": "hei_ex_001123",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "How to buy cryptocurrency on website",
+      "url": "https://support.ex.z.com/hc/en-us/articles/12497635526553-How-to-buy-cryptocurrency-on-website",
+      "publisher": "Z.com EX",
+      "published_at": "2025-07-15",
+      "archived_url": "https://web.archive.org/web/*/https://support.ex.z.com/hc/en-us/articles/12497635526553-How-to-buy-cryptocurrency-on-website",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party support documentation describes live website trading through the Z.com EX exchange interface, including cryptocurrency/THB order placement."
+    },
+    {
+      "id": "hei_src_012483",
+      "exchange_id": "hei_ex_001123",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "List of licensed digital asset business operators — Digital Asset Exchange",
+      "url": "https://market.sec.or.th/LicenseCheck/views/DABusiness?exchange%2Fen=",
+      "publisher": "Securities and Exchange Commission, Thailand",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://market.sec.or.th/LicenseCheck/views/DABusiness?exchange%2Fen=",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current Thailand SEC license-check page lists Z.COMEX / GMO-Z.COM Cryptonomics (Thailand) Company Limited as a Digital Asset Exchange and links ex.z.com."
+    }
+  ]
+}
