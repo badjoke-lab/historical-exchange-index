@@ -1,0 +1,61 @@
+{
+  "entity": {
+    "id": "hei_ex_001131",
+    "slug": "coredax",
+    "canonical_name": "COREDAX",
+    "aliases": [
+      "Coredax",
+      "코어닥스",
+      "COREDAX Co., Ltd."
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "South Korea",
+    "summary": "South Korean centralized virtual-asset exchange operated by COREDAX Co., Ltd., providing account-based digital-asset trading through web and mobile exchange services.",
+    "official_url_original": "https://www.coredax.com/",
+    "official_domain_original": "coredax.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.coredax.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-09",
+    "notes": "Current first-party site presents COREDAX as an operating digital-asset exchange with mobile trading and customer support. Its company material states that the operator completed Financial Intelligence Unit reporting as a virtual-asset service provider. DAXA's virtual-asset service provider status page, current to 2026-07-31, lists COREDAX Co., Ltd. and service name COREDAX. No exact launch date is inferred from the stated 2018 company founding year."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012499",
+      "exchange_id": "hei_ex_001131",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "COREDAX company introduction",
+      "url": "https://www.coredax.com/company/intro/ceo/index.html",
+      "publisher": "COREDAX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.coredax.com/company/intro/ceo/index.html",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party company material identifies COREDAX as a digital-asset exchange and states that the operator completed FIU virtual-asset service provider reporting."
+    },
+    {
+      "id": "hei_src_012500",
+      "exchange_id": "hei_ex_001131",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Virtual asset service provider report status",
+      "url": "https://kdaxa.org/support/vasp.php",
+      "publisher": "Digital Asset eXchange Alliance (DAXA)",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://kdaxa.org/support/vasp.php",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "DAXA's status page, current to 2026-07-31, lists COREDAX Co., Ltd. with service name COREDAX and links coredax.com."
+    }
+  ]
+}
