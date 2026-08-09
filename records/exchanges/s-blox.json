@@ -1,0 +1,59 @@
+{
+  "entity": {
+    "id": "hei_ex_001134",
+    "slug": "s-blox",
+    "canonical_name": "S.BLOX",
+    "aliases": [
+      "S.BLOX株式会社"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Japan",
+    "summary": "Japan-based centralized crypto-asset trading service operated by S.BLOX Inc., providing account-based crypto buying and selling and related customer asset services.",
+    "official_url_original": "https://www.sblox.jp/",
+    "official_domain_original": "sblox.jp",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.sblox.jp/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-09",
+    "notes": "Current first-party site identifies S.BLOX Inc. as a Japanese registered crypto-asset exchange service provider and presents an active crypto trading service. Current 2026 support notices describe normal crypto buy/sell operations outside scheduled maintenance. JVCEA's current member directory lists S.BLOX Inc. with Kanto Finance Bureau registration No. 00016. No exact launch date is inferred from registration or corporate-history dates."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012506",
+      "exchange_id": "hei_ex_001134",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "S.BLOX crypto trading service website",
+      "url": "https://www.sblox.jp/",
+      "publisher": "S.BLOX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.sblox.jp/",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site identifies S.BLOX Inc., displays its Japanese crypto-asset exchange registration, and provides the active customer-facing trading service surface."
+    },
+    {
+      "id": "hei_src_012507",
+      "exchange_id": "hei_ex_001134",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "JVCEA member directory",
+      "url": "https://jvcea.or.jp/member/",
+      "publisher": "Japan Virtual and Crypto assets Exchange Association (JVCEA)",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://jvcea.or.jp/member/",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current JVCEA member directory lists S.BLOX Inc. as a crypto-asset exchange business member with Kanto Finance Bureau registration No. 00016."
+    }
+  ]
+}
