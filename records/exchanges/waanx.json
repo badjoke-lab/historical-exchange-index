@@ -1,0 +1,61 @@
+{
+  "entity": {
+    "id": "hei_ex_001121",
+    "slug": "waanx",
+    "canonical_name": "WAANX",
+    "aliases": [
+      "WaanX",
+      "Waan Exchange",
+      "Waan Exchange Co., Ltd."
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Thailand",
+    "summary": "Thai centralized digital-asset exchange and brokerage platform providing cryptocurrency trading services under the WAANX brand.",
+    "official_url_original": "https://www.waanx.com/",
+    "official_domain_original": "waanx.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.waanx.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-09",
+    "notes": "Current first-party WAANX pages present an operating cryptocurrency trading platform and identify Waan Exchange Co., Ltd. as providing Digital Asset Exchange and Digital Asset Broker services. Thailand SEC's current licensed-operator page lists WAANX / Waan Exchange Company Limited under Digital Asset Exchange. The company page states that Waan Exchange was founded on 2022-01-28, but HEI does not infer that corporate foundation date as the exact exchange launch date."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012478",
+      "exchange_id": "hei_ex_001121",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "WaanX Company",
+      "url": "https://www.waanx.com/en/company",
+      "publisher": "WAANX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.waanx.com/en/company",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party company page identifies Waan Exchange Co., Ltd., describes its digital asset exchange and broker operations, and presents WAANX as an active cryptocurrency trading platform."
+    },
+    {
+      "id": "hei_src_012479",
+      "exchange_id": "hei_ex_001121",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "List of licensed digital asset business operators — Digital Asset Exchange",
+      "url": "https://market.sec.or.th/LicenseCheck/views/DABusiness?exchange%2Fen=",
+      "publisher": "Securities and Exchange Commission, Thailand",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://market.sec.or.th/LicenseCheck/views/DABusiness?exchange%2Fen=",
+      "accessed_at": "2026-08-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current Thailand SEC license-check page lists WAANX / Waan Exchange Company Limited as a Digital Asset Exchange and links waanx.com."
+    }
+  ]
+}

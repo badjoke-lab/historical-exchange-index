@@ -38,7 +38,7 @@ D-1000 is complete. The remaining blocker before Language Selection is the L-2 e
 
 HOLD keeps the Japanese Pilot public and does not block reviewed canonical data or quality growth.
 
-The D-1000 reviewed state is complete at:
+The D-1000 milestone completion baseline is:
 
 ```text
 Entities: 1000
@@ -52,7 +52,21 @@ Completion authority:
 docs/audits/HEI_D1000_MILESTONE_COMPLETION_2026-08-09.md
 ```
 
-The localization decision remains HOLD until real evaluation evidence is complete. D-1000 completion does not expand translation breadth and does not authorize a third language.
+Reviewed canonical growth continues after D-1000. With post-D-1000 BX51, the current reviewed state is:
+
+```text
+Entities: 1004
+Events:   1025
+Evidence: 3789
+```
+
+Current post-D-1000 growth authority:
+
+```text
+docs/audits/HEI_POST_D1000_GROWTH_BX51_2026-08-09.md
+```
+
+The localization decision remains HOLD until real evaluation evidence is complete. D-1000 completion and later canonical growth do not expand translation breadth and do not authorize a third language.
 
 ## 3. Evidence categories
 
