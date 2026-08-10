@@ -34,6 +34,9 @@ const KNOWN_BAD_NAMES = new Set([
   'users',
   'hackers',
   'regulators',
+  'popular',
+  'top crypto',
+  'russia',
 ]);
 
 function cleanCandidateName(value) {
@@ -46,6 +49,23 @@ function cleanCandidateName(value) {
     words.shift();
   }
   return words.join(' ').replace(/\b(exchange|dex|protocol|platform)$/i, '').trim();
+}
+
+function isMetadataSelfReference(name, item) {
+  const normalized = normalizeText(name);
+  if (!normalized) return true;
+
+  const sourceName = normalizeText(item?.source_name);
+  if (sourceName && normalized === sourceName) return true;
+
+  const authorityNames = [
+    item?.regulatory_authority,
+    item?.regulatory_authority_short_name,
+  ]
+    .map((value) => normalizeText(value))
+    .filter(Boolean);
+
+  return authorityNames.includes(normalized);
 }
 
 function domainFromUrl(value) {
@@ -87,7 +107,11 @@ export function extractCandidateNameFromNews(item) {
     const match = text.match(pattern);
     if (match?.[1]) {
       const name = cleanCandidateName(match[1]);
-      if (name && !KNOWN_BAD_NAMES.has(normalizeText(name))) return name;
+      if (
+        name
+        && !KNOWN_BAD_NAMES.has(normalizeText(name))
+        && !isMetadataSelfReference(name, item)
+      ) return name;
     }
   }
 
