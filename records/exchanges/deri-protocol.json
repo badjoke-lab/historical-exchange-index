@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001143",
+    "slug": "deri-protocol",
+    "canonical_name": "Deri Protocol",
+    "aliases": ["Deri", "Deri V4"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Multi-chain EVM ecosystem",
+    "summary": "Decentralized on-chain derivatives exchange supporting perpetual futures, everlasting options, power perpetuals, and gamma-swap products across multiple EVM networks.",
+    "official_url_original": "https://deri.io/",
+    "official_domain_original": "deri.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://deri.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-10",
+    "notes": "Current first-party site and documentation present Deri Protocol as an on-chain decentralized derivatives exchange with live futures, options, powers, and gamma products. Independent current protocol metrics report non-zero TVL across several EVM networks. BX57 treats current Deri versions as one protocol-level entity and does not infer version-transition events without a separate lineage review."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012527",
+      "exchange_id": "hei_ex_001143",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Deri Protocol current derivatives trading platform",
+      "url": "https://deri.io/",
+      "publisher": "Deri Protocol",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://deri.io/",
+      "accessed_at": "2026-08-10",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party site identifies Deri Protocol, exposes current trading entry points, and lists futures, options, powers, and gamma derivative products."
+    },
+    {
+      "id": "hei_src_012528",
+      "exchange_id": "hei_ex_001143",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Deri current protocol metrics",
+      "url": "https://defillama.com/protocol/deri",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-08-10",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Independent current metrics report non-zero Deri TVL across Linea, BSC, Arbitrum, ZKsync Era and other supported networks, supporting the active classification."
+    }
+  ]
+}
