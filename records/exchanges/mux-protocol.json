@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001138",
+    "slug": "mux-protocol",
+    "canonical_name": "MUX Protocol",
+    "aliases": ["MUX", "MUX Perpetual Aggregator"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Arbitrum ecosystem",
+    "summary": "Multi-chain decentralized perpetual trading protocol and aggregator offering leveraged markets, pooled liquidity, and routed execution across several EVM networks.",
+    "official_url_original": "https://mux.network/",
+    "official_domain_original": "mux.network",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://mux.network/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-10",
+    "notes": "Current first-party documentation presents MUX as a protocol suite containing decentralized perpetual trading protocols and a perpetual aggregator. Independent current protocol metrics report non-zero perpetual and aggregator volume, TVL, fees, and active addresses. HEI models the MUX trading protocols and aggregator as one protocol-level exchange entity rather than separate product entities. An exact launch date, legal entity, jurisdiction, or MCDEX lineage transition is not asserted here."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012517",
+      "exchange_id": "hei_ex_001138",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "MUX Protocol overview",
+      "url": "https://docs.mux.network/",
+      "publisher": "MUX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.mux.network/",
+      "accessed_at": "2026-08-10",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party documentation describes the MUX protocol suite, including decentralized perpetual trading protocols and the MUX Perpetual Aggregator, with multi-chain trading and routed liquidity."
+    },
+    {
+      "id": "hei_src_012518",
+      "exchange_id": "hei_ex_001138",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "MUX Protocol current protocol and perpetual trading metrics",
+      "url": "https://defillama.com/protocol/mux-protocol",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-08-10",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Independent current metrics report non-zero TVL, 24-hour and 30-day perpetual volume, perpetual aggregator volume, fees, and active addresses across the MUX protocol suite."
+    }
+  ]
+}
