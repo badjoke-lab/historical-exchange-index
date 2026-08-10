@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001142",
+    "slug": "perpl",
+    "canonical_name": "Perpl",
+    "aliases": ["Perpl Exchange"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Monad ecosystem",
+    "summary": "Fully on-chain perpetual futures exchange on Monad using a central-limit-order-book trading model with on-chain execution and collateral.",
+    "official_url_original": "https://perpl.xyz/",
+    "official_domain_original": "perpl.xyz",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://perpl.xyz/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-10",
+    "notes": "Current first-party site identifies Perpl as a fully on-chain CLOB-based perpetual futures DEX on Monad. Independent current protocol metrics report non-zero perpetual volume, open interest, fees, revenue, and TVL. An exact launch date, legal entity, or jurisdiction is not asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012525",
+      "exchange_id": "hei_ex_001142",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Perpl on-chain perpetual futures exchange",
+      "url": "https://perpl.xyz/",
+      "publisher": "Perpl",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://perpl.xyz/",
+      "accessed_at": "2026-08-10",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party site describes Perpl as a fully on-chain CLOB-based perpetual futures DEX on Monad and links to the live trading application."
+    },
+    {
+      "id": "hei_src_012526",
+      "exchange_id": "hei_ex_001142",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Perpl current perpetual trading metrics",
+      "url": "https://defillama.com/protocol/perpl",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-08-10",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Independent current metrics report non-zero Monad perpetual volume, open interest, fees, revenue, and TVL, supporting the active classification."
+    }
+  ]
+}
