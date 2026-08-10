@@ -4,6 +4,7 @@ import { loadCanonicalData } from './core/load-canonical-data.mjs';
 import { createMonitorResult, runMonitorSafely } from './core/finding-utils.mjs';
 import { buildSummaryMarkdown } from './core/summary-writer.mjs';
 import { extractCandidateNameFromNews } from './core/news-extract.mjs';
+import { shouldRetryOfficialSiteCheck } from './monitors/active-status-watch.mjs';
 import { normalizeSitemapUrl } from './adapters/sitemap-check.mjs';
 import { runReviewedBundleAggregationRegression } from '../test-reviewed-bundle-aggregation.mjs';
 import { buildRegistryMetrics, parseReviewMonth } from '../review/monthly-registry-core.mjs';
@@ -92,6 +93,13 @@ function runMonitoringOutputRegressions() {
     regulatory_authority_short_name: 'FCA',
   });
   assert(authoritySelfReference === null, `news extraction must reject regulatory authority self-reference candidate: ${authoritySelfReference}`);
+
+  assert(shouldRetryOfficialSiteCheck({ status: 'dns_failure' }), 'DNS failures must be retried before creating an active-status finding');
+  assert(shouldRetryOfficialSiteCheck({ status: 'tls_failure' }), 'TLS failures must be retried before creating an active-status finding');
+  assert(shouldRetryOfficialSiteCheck({ status: 'server_error' }), 'server errors must be retried before creating an active-status finding');
+  assert(shouldRetryOfficialSiteCheck({ status: 'timeout' }), 'timeouts must be retried before creating an active-status finding');
+  assert(!shouldRetryOfficialSiteCheck({ status: 'ok' }), 'healthy responses must not be retried');
+  assert(!shouldRetryOfficialSiteCheck({ status: 'redirected', http_status: 200 }), 'healthy redirects must not be retried');
 
   const summary = buildSummaryMarkdown({
     runId: '20260630-smoke',
