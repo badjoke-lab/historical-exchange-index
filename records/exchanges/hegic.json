@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001141",
+    "slug": "hegic",
+    "canonical_name": "Hegic",
+    "aliases": ["Hegic Options"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Arbitrum ecosystem",
+    "summary": "On-chain peer-to-pool options trading protocol on Arbitrum offering BTC and ETH call and put options and one-click options strategies.",
+    "official_url_original": "https://www.hegic.co/",
+    "official_domain_original": "hegic.co",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.hegic.co/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-10",
+    "notes": "Current first-party trading surfaces identify Hegic as an on-chain peer-to-pool options trading protocol on Arbitrum with live BTC and ETH options and strategy products. Independent current protocol metrics report non-zero options notional and premium volume, TVL, fees, and revenue. The first-party site states service to options traders since February 2020, but BX56 does not convert that month-level statement into an exact launch date."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012523",
+      "exchange_id": "hei_ex_001141",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Hegic on-chain options trading protocol",
+      "url": "https://www.hegic.co/",
+      "publisher": "Hegic",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.hegic.co/",
+      "accessed_at": "2026-08-10",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party site describes Hegic as a peer-to-pool on-chain options trading protocol on Arbitrum and exposes current BTC and ETH call, put, and strategy trading surfaces."
+    },
+    {
+      "id": "hei_src_012524",
+      "exchange_id": "hei_ex_001141",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Hegic current options trading and protocol metrics",
+      "url": "https://defillama.com/protocol/hegic",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-08-10",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Independent current metrics report non-zero options notional and premium volume, TVL, fees, and revenue, supporting the active classification."
+    }
+  ]
+}
