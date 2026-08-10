@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001144",
+    "slug": "awaken-swap",
+    "canonical_name": "AwakenSwap",
+    "aliases": ["Awaken Swap", "Awaken Finance"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "aelf ecosystem",
+    "summary": "Non-custodial AMM decentralized exchange on aelf supporting token swaps, liquidity pools, routing, spot trading tools, and limit-order functionality.",
+    "official_url_original": "https://awaken.finance/",
+    "official_domain_original": "awaken.finance",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://awaken.finance/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-10",
+    "notes": "Current first-party site and documentation identify AwakenSwap as an all-in-one DEX on aelf with non-custodial AMM swaps, liquidity tools, spot-trading infrastructure, and limit orders. Independent current protocol metrics report non-zero aelf TVL. An exact launch date, legal entity, or jurisdiction is not asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012529",
+      "exchange_id": "hei_ex_001144",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "AwakenSwap current DEX platform",
+      "url": "https://awaken.finance/",
+      "publisher": "AwakenSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://awaken.finance/",
+      "accessed_at": "2026-08-10",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party site presents AwakenSwap as an aelf DEX with spot trading, instant swaps, routing, liquidity provision, and limit-order tools."
+    },
+    {
+      "id": "hei_src_012530",
+      "exchange_id": "hei_ex_001144",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Awaken Swap current protocol metrics",
+      "url": "https://defillama.com/protocol/awaken-swap",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-08-10",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Independent current metrics report non-zero aelf TVL for Awaken Swap and classify it as an AMM DEX, supporting the active classification."
+    }
+  ]
+}
