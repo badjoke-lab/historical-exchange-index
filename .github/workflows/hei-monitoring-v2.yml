@@ -114,5 +114,16 @@ jobs:
       - name: Create monitoring pull request
         if: steps.changes.outputs.changed == 'true'
         env:
+          # A dedicated fine-grained PAT lets the resulting pull_request event
+          # start normal validation runs. PRs created with the workflow
+          # GITHUB_TOKEN intentionally enter GitHub's approval-required state.
+          GH_TOKEN: ${{ secrets.HEI_MONITORING_PR_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
-        run: bash scripts/monitoring/create-report-pr.sh
+        run: |
+          if [ -n "${GH_TOKEN:-}" ]; then
+            echo "Using HEI_MONITORING_PR_TOKEN for pull-request creation."
+          else
+            echo "::warning::HEI_MONITORING_PR_TOKEN is not configured; falling back to GITHUB_TOKEN. The resulting PR workflows will require manual approval."
+            unset GH_TOKEN
+          fi
+          bash scripts/monitoring/create-report-pr.sh
