@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001139",
+    "slug": "storm-trade",
+    "canonical_name": "Storm Trade",
+    "aliases": ["Storm", "StormTrade"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "TON ecosystem",
+    "summary": "Decentralized derivatives exchange on TON offering leveraged futures trading through web and Telegram interfaces with on-chain smart-contract execution.",
+    "official_url_original": "https://storm.tg/",
+    "official_domain_original": "storm.tg",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://storm.tg/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-10",
+    "notes": "Current first-party documentation identifies Storm Trade as a decentralized futures and derivatives exchange built on TON, available through web and Telegram interfaces. Independent current protocol metrics report non-zero perpetual volume, open interest, TVL, fees, and revenue. An exact public launch date, legal entity, or jurisdiction is not asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012519",
+      "exchange_id": "hei_ex_001139",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "About Storm Trade",
+      "url": "https://docs.storm.tg/introduction/readme",
+      "publisher": "Storm Trade",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.storm.tg/introduction/readme",
+      "accessed_at": "2026-08-10",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party documentation describes Storm Trade as a decentralized derivatives trading platform on TON with leveraged markets and web and Telegram trading interfaces."
+    },
+    {
+      "id": "hei_src_012520",
+      "exchange_id": "hei_ex_001139",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Storm Trade current protocol and perpetual trading metrics",
+      "url": "https://defillama.com/protocol/storm-trade",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-08-10",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Independent current metrics report non-zero TON TVL, perpetual volume, open interest, fees, and revenue, supporting the active classification."
+    }
+  ]
+}
