@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001140",
+    "slug": "metal-x",
+    "canonical_name": "Metal X",
+    "aliases": ["MetalX", "MetalX DEX"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "XPR Network ecosystem",
+    "summary": "Decentralized cryptocurrency exchange on XPR Network using on-chain order books and non-custodial wallet-based trading, alongside AMM swap functionality in the broader Metal X product suite.",
+    "official_url_original": "https://metalx.com/",
+    "official_domain_original": "metalx.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://metalx.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-10",
+    "notes": "Current first-party documentation identifies Metal X as a decentralized exchange on XPR Network with on-chain order books, multiple order types, and user-controlled wallets. Independent exchange and protocol metrics report current markets and non-zero DEX volume. HEI treats the order-book DEX and related MetalX DEX trading surfaces as one protocol-level exchange entity rather than splitting product labels. An exact launch day, legal entity, or jurisdiction is not asserted."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012521",
+      "exchange_id": "hei_ex_001140",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "What is Metal X?",
+      "url": "https://docs.metalx.com/",
+      "publisher": "Metal X",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.metalx.com/",
+      "accessed_at": "2026-08-10",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party documentation describes Metal X as a DEX using on-chain order books, non-custodial wallet control, multiple order types, and XPR Network infrastructure."
+    },
+    {
+      "id": "hei_src_012522",
+      "exchange_id": "hei_ex_001140",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "MetalX DEX current volume and liquidity metrics",
+      "url": "https://defillama.com/protocol/metalx-dex",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-08-10",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Independent current metrics report non-zero XPR Network DEX volume and TVL for MetalX DEX, supporting the active classification."
+    }
+  ]
+}
