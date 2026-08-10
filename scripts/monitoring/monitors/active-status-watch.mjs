@@ -4,6 +4,7 @@ import { checkHttpUrl } from '../adapters/http-check.mjs';
 
 const ENABLE_DOMAIN_CHECKS = process.env.HEI_MONITORING_ENABLE_DOMAIN_CHECKS === '1';
 const DEFAULT_LIMIT = 50;
+const RETRYABLE_CHECK_STATUSES = new Set(['dns_failure', 'tls_failure', 'server_error', 'timeout']);
 
 function getCheckLimit() {
   const parsed = Number.parseInt(process.env.HEI_MONITORING_DOMAIN_CHECK_LIMIT || String(DEFAULT_LIMIT), 10);
@@ -27,6 +28,30 @@ function isAccessControlNoise(check) {
 
 function isHealthyRedirect(check) {
   return check.status === 'redirected' && check.http_status === 200 && check.final_url;
+}
+
+export function shouldRetryOfficialSiteCheck(check) {
+  return Boolean(check && RETRYABLE_CHECK_STATUSES.has(check.status));
+}
+
+async function checkOfficialSite(url) {
+  const initialCheck = await checkHttpUrl(url);
+  if (!shouldRetryOfficialSiteCheck(initialCheck)) {
+    return {
+      check: initialCheck,
+      initial_check: null,
+      retry_attempted: false,
+      recovered_after_retry: false,
+    };
+  }
+
+  const retryCheck = await checkHttpUrl(url);
+  return {
+    check: retryCheck,
+    initial_check: initialCheck,
+    retry_attempted: true,
+    recovered_after_retry: retryCheck.status === 'ok' || isHealthyRedirect(retryCheck) || isAccessControlNoise(retryCheck),
+  };
 }
 
 function shouldCreateFinding(entity, check) {
@@ -103,7 +128,9 @@ export async function runActiveStatusWatch(context, { startedAt } = {}) {
 
   for (const entity of selected) {
     const url = entityUrl(entity);
-    const check = await checkHttpUrl(url);
+    const checkResult = await checkOfficialSite(url);
+    const check = checkResult.check;
+    const findingCreated = shouldCreateFinding(entity, check);
     checks.push({
       entity_id: entity.id,
       slug: entity.slug,
@@ -111,17 +138,20 @@ export async function runActiveStatusWatch(context, { startedAt } = {}) {
       status: entity.status,
       official_url: url,
       check,
-      finding_created: shouldCreateFinding(entity, check),
+      initial_check: checkResult.initial_check,
+      retry_attempted: checkResult.retry_attempted,
+      recovered_after_retry: checkResult.recovered_after_retry,
+      finding_created: findingCreated,
     });
 
-    if (shouldCreateFinding(entity, check)) {
+    if (findingCreated) {
       const severity = severityForCheck(entity, check);
       findings.push(createFinding({
         monitor,
         severity,
         category: `official_site_${check.status}`,
         title: `Official site check ${check.status}: ${entity.canonical_name}`,
-        summary: `${entity.id} ${url} -> ${check.status}${check.http_status ? ` HTTP ${check.http_status}` : ''}${check.error ? ` error=${check.error}` : ''}`,
+        summary: `${entity.id} ${url} -> ${check.status}${check.http_status ? ` HTTP ${check.http_status}` : ''}${check.error ? ` error=${check.error}` : ''}; retry_attempted=${checkResult.retry_attempted}`,
         affected_entity: {
           matched_existing_entity: true,
           id: entity.id,
@@ -149,6 +179,8 @@ export async function runActiveStatusWatch(context, { startedAt } = {}) {
         active_side_entities_with_urls: targets.length,
         checked: selected.length,
         findings: findings.length,
+        retries_attempted: checks.filter((item) => item.retry_attempted).length,
+        recovered_after_retry: checks.filter((item) => item.recovered_after_retry).length,
         access_control_noise: checks.filter((item) => isAccessControlNoise(item.check)).length,
         healthy_redirects: checks.filter((item) => isHealthyRedirect(item.check)).length,
         inactive_dns_noise: checks.filter((item) => item.status === 'inactive' && item.check.status === 'dns_failure').length,
