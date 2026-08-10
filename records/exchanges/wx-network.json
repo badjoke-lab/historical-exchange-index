@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001145",
+    "slug": "wx-network",
+    "canonical_name": "WX Network",
+    "aliases": ["Waves.Exchange", "Waves Exchange", "Waves DEX"],
+    "type": "dex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Waves ecosystem",
+    "summary": "Decentralized spot exchange and wallet platform on Waves using a matcher-based order book with blockchain-validated settlement, alongside swap and liquidity-pool tools.",
+    "official_url_original": "https://wx.network/",
+    "official_domain_original": "wx.network",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://wx.network/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-10",
+    "notes": "Current first-party WX Network documentation still describes a decentralized exchange, spot trading, matcher APIs, swaps, and Waves-based custody. Independent current exchange data still lists WX Network / Waves.Exchange and recently updated spot pairs, but reported liquidity and volume are very small and inconsistent across observations. BX57 therefore uses limited rather than active. Historical Waves DEX -> Waves.Exchange -> WX Network naming is preserved as aliases here without asserting separate lineage records or exact rebrand dates."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012531",
+      "exchange_id": "hei_ex_001145",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "WX Network decentralized exchange protocol",
+      "url": "https://docs.waves.exchange/en/waves-exchange/waves-exchange-protocol",
+      "publisher": "WX Network",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.waves.exchange/en/waves-exchange/waves-exchange-protocol",
+      "accessed_at": "2026-08-10",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party documentation describes WX Network as a decentralized exchange with matcher-based order execution and blockchain validation, while current user documentation continues to expose spot trading and swap functionality."
+    },
+    {
+      "id": "hei_src_012532",
+      "exchange_id": "hei_ex_001145",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "WX Network current exchange markets",
+      "url": "https://www.coingecko.com/en/exchanges/wx-network",
+      "publisher": "CoinGecko",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-08-10",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Independent exchange listing identifies Waves.Exchange as relaunched under WX Network and continues to expose exchange-market observations, but current market depth and volume are very low or variable; this supports a limited rather than fully active classification."
+    }
+  ]
+}
