@@ -55,6 +55,44 @@ function runMonitoringOutputRegressions() {
   });
   assert(extractedName === 'Oxium', `news extraction must identify Oxium instead of a headline fragment: ${extractedName}`);
 
+  const topCrypto = extractCandidateNameFromNews({
+    title: 'Another Top Crypto Exchange Shuts Down. What Does This Mean For the Future of the Crypto Market?',
+    snippet: 'A generic headline should not manufacture an exchange named Top Crypto.',
+    source_name: 'The Motley Fool',
+  });
+  assert(topCrypto === null, `news extraction must reject generic Top Crypto candidate: ${topCrypto}`);
+
+  const popular = extractCandidateNameFromNews({
+    title: 'Popular exchange shuts down after 8 years, here is everything you need to know',
+    snippet: 'Popular is an adjective, not an exchange identity.',
+    source_name: 'TheStreet',
+  });
+  assert(popular === null, `news extraction must reject generic Popular candidate: ${popular}`);
+
+  const russia = extractCandidateNameFromNews({
+    title: 'Russia Exchange Shuts Down After Regulatory Action',
+    snippet: 'A geographic label must not become a canonical exchange candidate.',
+    source_name: 'Example News',
+  });
+  assert(russia === null, `news extraction must reject geographic Russia candidate: ${russia}`);
+
+  const sourceSelfReference = extractCandidateNameFromNews({
+    title: 'CoinDesk Exchange Suspends Withdrawals Following Incident',
+    snippet: 'The publisher name must not become the monitored exchange identity.',
+    source_name: 'CoinDesk',
+  });
+  assert(sourceSelfReference === null, `news extraction must reject publisher self-reference candidate: ${sourceSelfReference}`);
+
+  const authoritySelfReference = extractCandidateNameFromNews({
+    title: 'FCA Warning on Crypto Exchange Registration',
+    snippet: 'The regulator name must not become the monitored exchange identity.',
+    source_name: 'Financial Conduct Authority',
+    source_category: 'regulatory_source',
+    regulatory_authority: 'Financial Conduct Authority',
+    regulatory_authority_short_name: 'FCA',
+  });
+  assert(authoritySelfReference === null, `news extraction must reject regulatory authority self-reference candidate: ${authoritySelfReference}`);
+
   const summary = buildSummaryMarkdown({
     runId: '20260630-smoke',
     mode: 'smoke',
