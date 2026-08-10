@@ -1,0 +1,106 @@
+{
+  "entity": {
+    "id": "hei_ex_001137",
+    "slug": "shelbit",
+    "canonical_name": "Shelbit",
+    "aliases": [
+      "Shelbit Exchange",
+      "Shelbit General Trading L.L.C"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "United Arab Emirates",
+    "summary": "Dubai-based cryptocurrency exchange subject to VARA enforcement in July 2026 and subsequent U.S. sanctions reporting in August 2026. Public operating status is disputed: Shelbit said it had ceased operations in January 2026, while VARA said in July that the entity had continued providing unlicensed virtual-asset services, so HEI keeps the record inactive rather than dead.",
+    "official_url_original": "https://shelbit.com/",
+    "official_domain_original": "shelbit.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://shelbit.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-08-10",
+    "notes": "VARA identifies Shelbit General Trading L.L.C as commercially operating as Shelbit or Shelbit Exchange and says it continued providing virtual-asset services in and from Dubai without a valid licence before a July 2026 fine and cease-and-desist direction. Reuters reported that the public website had been unavailable for months, reappeared after its July 31 investigation, and carried a Shelbit statement saying operations had ceased in January 2026. Because those operational signals conflict, HEI does not assign a death date or death reason and uses inactive as the conservative status. Reuters reported activity appearing to begin around May 2024, but no exact launch date is encoded."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010106",
+      "exchange_id": "hei_ex_001137",
+      "event_type": "regulatory_action",
+      "event_date": "2026-07-24",
+      "title": "VARA fined Shelbit and ordered an immediate cease and desist",
+      "description": "Dubai's Virtual Assets Regulatory Authority said Shelbit General Trading L.L.C had continued providing virtual-asset services without a valid licence, onboarding users without required KYC checks and marketing services without authorisation. VARA imposed financial penalties and directed the entity to cease all unlicensed virtual-asset activities in or from Dubai immediately.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 2,
+      "sort_order": 1,
+      "is_major_event": true,
+      "notes": "The enforcement notice establishes a major service constraint but does not by itself establish permanent global shutdown."
+    },
+    {
+      "id": "hei_ev_010107",
+      "exchange_id": "hei_ex_001137",
+      "event_type": "regulatory_action",
+      "event_date": "2026-08-07",
+      "title": "U.S. sanctions were imposed on Shelbit and its founder",
+      "description": "Reuters reported that the U.S. Treasury sanctioned Shelbit, founder Siavash Kayvanpour and associated companies, alleging that Shelbit processed digital assets for Iran-linked sanctioned actors including the IRGC.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "none",
+      "source_count": 1,
+      "sort_order": 2,
+      "is_major_event": true,
+      "notes": "This event records the sanctions action without using it as a substitute for a verified operational shutdown date."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012514",
+      "exchange_id": "hei_ex_001137",
+      "event_id": "hei_ev_010106",
+      "source_type": "regulatory_notice",
+      "title": "VARA Notice of Fines – Shelbit General Trading L.L.C",
+      "url": "https://www.vara.ae/en/regulations/regulatory-notices/vara-notice-of-fines-shelbit-general-trading-llc/",
+      "publisher": "Virtual Assets Regulatory Authority",
+      "published_at": "2026-07-24",
+      "archived_url": "https://web.archive.org/web/*/https://www.vara.ae/en/regulations/regulatory-notices/vara-notice-of-fines-shelbit-general-trading-llc/",
+      "accessed_at": "2026-08-10",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Primary regulator notice identifies the legal entity and Shelbit trade names, describes continued unlicensed virtual-asset activity and KYC/marketing violations, records financial penalties, and orders an immediate cease and desist."
+    },
+    {
+      "id": "hei_src_012515",
+      "exchange_id": "hei_ex_001137",
+      "event_id": "hei_ev_010106",
+      "source_type": "news_article",
+      "title": "Illicit Iranian gambling network helped pull off a $4 billion sanctions dodge",
+      "url": "https://www.reuters.com/investigations/illicit-iranian-gambling-network-helped-pull-off-4-billion-sanctions-dodge-2026-07-31/",
+      "publisher": "Reuters",
+      "published_at": "2026-07-31",
+      "archived_url": "https://web.archive.org/web/*/https://www.reuters.com/investigations/illicit-iranian-gambling-network-helped-pull-off-4-billion-sanctions-dodge-2026-07-31/",
+      "accessed_at": "2026-08-10",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Independent investigation identifies Shelbit as a Dubai-based crypto exchange, reports that the public website was unavailable and public trading access was not identifiable at the time, and corroborates VARA enforcement context."
+    },
+    {
+      "id": "hei_src_012516",
+      "exchange_id": "hei_ex_001137",
+      "event_id": "hei_ev_010107",
+      "source_type": "news_article",
+      "title": "US sanctions Dubai crypto exchange for aiding Iran's IRGC, following a Reuters report",
+      "url": "https://www.reuters.com/world/middle-east/us-sanctions-dubai-crypto-exchange-aiding-irans-irgc-following-reuters-report-2026-08-07/",
+      "publisher": "Reuters",
+      "published_at": "2026-08-07",
+      "archived_url": "https://web.archive.org/web/*/https://www.reuters.com/world/middle-east/us-sanctions-dubai-crypto-exchange-aiding-irans-irgc-following-reuters-report-2026-08-07/",
+      "accessed_at": "2026-08-10",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Independent reporting records the August 7 U.S. sanctions action and Shelbit's response that it had ceased operations in January 2026, while also noting that the website had reactivated after the July 31 investigation."
+    }
+  ]
+}
