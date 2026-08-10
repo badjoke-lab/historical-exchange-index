@@ -52,18 +52,18 @@ Completion authority:
 docs/audits/HEI_D1000_MILESTONE_COMPLETION_2026-08-09.md
 ```
 
-Reviewed canonical growth continues after D-1000. With post-D-1000 BX55, the current reviewed state is:
+Reviewed canonical growth continues after D-1000. With post-D-1000 BX56, the current reviewed state is:
 
 ```text
-Entities: 1017
+Entities: 1021
 Events:   1031
-Evidence: 3820
+Evidence: 3828
 ```
 
 Current post-D-1000 growth authority:
 
 ```text
-docs/audits/HEI_POST_D1000_GROWTH_BX55_2026-08-10.md
+docs/audits/HEI_POST_D1000_GROWTH_BX56_2026-08-10.md
 ```
 
 The localization decision remains HOLD until real evaluation evidence is complete. D-1000 completion and later canonical growth do not expand translation breadth and do not authorize a third language.
