@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001149",
+    "slug": "verus-market",
+    "canonical_name": "Verus Market",
+    "aliases": ["Verus DeFi"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Verus ecosystem",
+    "summary": "Protocol-level decentralized exchange on Verus using reserve-backed basket currencies as automated market makers for on-chain and cross-chain asset conversions.",
+    "official_url_original": "https://docs.verus.io/currencies/",
+    "official_domain_original": "docs.verus.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://docs.verus.io/currencies/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-11",
+    "notes": "Current first-party documentation describes Verus basket currencies as AMMs that support reserve-to-reserve conversions and the current Verus site identifies protocol-level DeFi conversion activity. Independent current metrics classify Verus Market as an AMM DEX with non-zero volume, fees, revenue, and TVL. The Verus-Ethereum Bridge is not modeled as a separate exchange entity here."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012539",
+      "exchange_id": "hei_ex_001149",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Verus basket currencies and AMM conversions",
+      "url": "https://docs.verus.io/currencies/",
+      "publisher": "Verus",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.verus.io/currencies/",
+      "accessed_at": "2026-08-11",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party documentation states that Verus basket currencies function as AMMs with reserves and permit reserve-to-reserve conversions, establishing the protocol-level decentralized exchange mechanism."
+    },
+    {
+      "id": "hei_src_012540",
+      "exchange_id": "hei_ex_001149",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Verus Market current DEX metrics",
+      "url": "https://defillama.com/protocol/verus-market",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-08-11",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Independent current metrics classify Verus Market as an AMM DEX on Verus and report non-zero DEX volume, fees, revenue, and TVL, supporting active classification."
+    }
+  ]
+}

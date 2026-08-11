@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001148",
+    "slug": "anyhedge",
+    "canonical_name": "AnyHedge",
+    "aliases": [],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Bitcoin Cash ecosystem",
+    "summary": "Permissionless, non-custodial on-chain derivatives protocol on Bitcoin Cash for leveraged long positions and fully collateralized peer-to-peer hedge or futures-style contracts.",
+    "official_url_original": "https://anyhedge.com/",
+    "official_domain_original": "anyhedge.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://anyhedge.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-11",
+    "notes": "Current first-party site describes permissionless, non-custodial leverage trading and identifies AnyHedge as the technology behind BCH Bull. Independent current derivatives metrics report non-zero perpetual volume and TVL. HEI treats the protocol-level peer-to-peer derivatives market as a DEX-like trading venue rather than creating BCH Bull as a duplicate entity in this batch."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012537",
+      "exchange_id": "hei_ex_001148",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "AnyHedge decentralized leverage trading",
+      "url": "https://anyhedge.com/",
+      "publisher": "AnyHedge",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://anyhedge.com/",
+      "accessed_at": "2026-08-11",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party site describes leveraged long and hedge positions on Bitcoin Cash as permissionless, non-custodial, and on-chain and identifies BCH Bull as a live trader-facing implementation."
+    },
+    {
+      "id": "hei_src_012538",
+      "exchange_id": "hei_ex_001148",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "AnyHedge current derivatives metrics",
+      "url": "https://defillama.com/protocol/anyhedge",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-08-11",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Independent current metrics classify AnyHedge under derivatives and report non-zero Bitcoin Cash perpetual volume and protocol TVL, supporting active classification."
+    }
+  ]
+}
