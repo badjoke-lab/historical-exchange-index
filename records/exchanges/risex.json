@@ -1,0 +1,57 @@
+{
+  "entity": {
+    "id": "hei_ex_001147",
+    "slug": "risex",
+    "canonical_name": "RISEx",
+    "aliases": ["RISE Exchange"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "RISE ecosystem",
+    "summary": "Fully on-chain perpetual futures exchange on RISE Chain with self-custodial trading, collateralized positions, and a composable order-book trading surface.",
+    "official_url_original": "https://www.rise.trade/en",
+    "official_domain_original": "rise.trade",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.rise.trade/en",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-11",
+    "notes": "Current first-party trading surface identifies RISEx as the unified exchange and exposes a live trading entry point. Independent current metrics identify RISEx as a fully on-chain perpetuals exchange on RISE Chain with substantial non-zero perpetual volume, open interest, and TVL."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012535",
+      "exchange_id": "hei_ex_001147",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "RISEx unified exchange trading surface",
+      "url": "https://www.rise.trade/en",
+      "publisher": "RISEx",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.rise.trade/en",
+      "accessed_at": "2026-08-11",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party surface presents RISEx as the unified exchange and exposes a live Trade now entry point."
+    },
+    {
+      "id": "hei_src_012536",
+      "exchange_id": "hei_ex_001147",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "RISEx current perpetual trading metrics",
+      "url": "https://defillama.com/protocol/risex",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-08-11",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Independent current metrics identify RISEx as a fully on-chain perpetuals exchange on RISE Chain and report substantial non-zero perpetual volume, open interest, and TVL."
+    }
+  ]
+}
