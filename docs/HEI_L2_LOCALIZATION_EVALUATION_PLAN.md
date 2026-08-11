@@ -57,7 +57,7 @@ Reviewed canonical growth continues after D-1000. With post-D-1000 BX59, the cur
 ```text
 Entities: 1030
 Events:   1032
-Evidence: 3847
+Evidence: 3849
 ```
 
 Current post-D-1000 growth authority:
