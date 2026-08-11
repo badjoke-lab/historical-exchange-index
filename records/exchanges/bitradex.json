@@ -9,7 +9,7 @@
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
-    "country_or_origin": null,
+    "country_or_origin": "United Kingdom",
     "summary": "Centralized cryptocurrency exchange and AI-oriented digital asset platform whose public site and current market listings remain live while August 2026 public reports describe material restrictions on access to existing user assets.",
     "official_url_original": "https://www.bitradex.ai/",
     "official_domain_original": "bitradex.ai",
@@ -19,7 +19,7 @@
     "successor_id": null,
     "confidence": "medium",
     "last_verified_at": "2026-08-11",
-    "notes": "The current first-party site remains publicly available and CoinMarketCap continues to expose BitradeX spot and derivatives market pages. Public Japanese reports on 2026-08-11 described staged release or return of existing user assets during ongoing platform changes, but HEI has not yet captured the underlying first-party August notice or the detailed release rules. HEI therefore uses `limited` conservatively and does not infer a terminal shutdown, insolvency, hack, scam/rug classification, or referral-conditioned asset release from the available reviewed evidence."
+    "notes": "The current first-party site remains publicly available and CoinMarketCap continues to expose BitradeX spot and derivatives market pages. BitradeX identifies BITRADEX FINTECH LIMITED as its legal operator, and the UK Companies House register confirms company 16322746 as an active private limited company incorporated in England and Wales on 2025-03-18; HEI therefore uses United Kingdom as the verified current corporate origin without backdating that company identity to the platform's earlier claimed history. Public Japanese reports on 2026-08-11 described staged release or return of existing user assets during ongoing platform changes, but HEI has not yet captured the underlying first-party August notice or the detailed release rules. HEI therefore uses `limited` conservatively and does not infer a terminal shutdown, insolvency, hack, scam/rug classification, or referral-conditioned asset release from the available reviewed evidence."
   },
   "events": [
     {
@@ -82,6 +82,36 @@
       "reliability": "low",
       "claim_scope": "event",
       "notes": "Japanese community post characterizes a BitradeX announcement as saying existing principal could not be returned immediately and would be released gradually. The post itself states that detailed rules were not yet available and avoids a definitive conclusion. HEI uses it only as a monitoring-quality event signal, not as proof of hack, insolvency, scam, or referral-linked release mechanics."
+    },
+    {
+      "id": "hei_src_012544",
+      "exchange_id": "hei_ex_001150",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Registration Information & Licenses",
+      "url": "https://help.bitradex.ai/hc/en-001/articles/15432623431055-Registration-Information-Licenses",
+      "publisher": "BitradeX",
+      "published_at": "2026-03-13",
+      "archived_url": "https://web.archive.org/web/*/https://help.bitradex.ai/hc/en-001/articles/15432623431055-Registration-Information-Licenses",
+      "accessed_at": "2026-08-11",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party registration page identifies BITRADEX FINTECH LIMITED, company number 16322746, as the legal company entity and states its registration jurisdiction is England and Wales. This evidence supports the operator linkage only; regulatory-authorization claims on the page require separate authority-specific verification."
+    },
+    {
+      "id": "hei_src_012545",
+      "exchange_id": "hei_ex_001150",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "BITRADEX FINTECH LIMITED company overview",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/16322746",
+      "publisher": "UK Companies House",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://find-and-update.company-information.service.gov.uk/company/16322746",
+      "accessed_at": "2026-08-11",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Official UK company register confirms BITRADEX FINTECH LIMITED, company number 16322746, as an active private limited company incorporated on 2025-03-18 with a registered office in England. This establishes the current corporate record but does not independently establish BitradeX platform activity before incorporation."
     }
   ]
 }
