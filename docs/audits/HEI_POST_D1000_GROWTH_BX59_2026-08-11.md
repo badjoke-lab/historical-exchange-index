@@ -11,26 +11,28 @@ BX59 adds one independently reviewed centralized exchange record for BitradeX wi
 Added reviewed entity candidate:
 
 ```text
-BitradeX  limited / cex / origin unresolved
+BitradeX  limited / cex / United Kingdom
 ```
 
 Added event: 1  
-Added evidence: 3
+Added evidence: 5
 
 Projected reviewed public state after merge:
 
 ```text
 Entities: 1030
 Events:   1032
-Evidence: 3847
+Evidence: 3849
 ```
 
 ## Evidence standard
 
-The record separates current entity/status evidence from the August incident signal.
+The record separates current entity/status evidence, corporate-origin evidence, and the August incident signal.
 
 - BitradeX first-party public website establishes current exchange identity and a live official domain.
 - CoinMarketCap provides an independent current market listing with spot and derivatives data and links to the same official domain.
+- BitradeX's registration page identifies BITRADEX FINTECH LIMITED, company number 16322746, as its legal company entity in England and Wales.
+- UK Companies House independently confirms BITRADEX FINTECH LIMITED, company number 16322746, as an active private limited company incorporated on 2025-03-18.
 - A 2026-08-11 Japanese community post is retained as low-reliability event evidence because it summarizes an alleged BitradeX announcement about staged return/release of existing user assets while explicitly warning that detailed rules were not yet available.
 
 HEI has not yet captured the underlying first-party August notice or detailed release rules.
@@ -77,7 +79,8 @@ Those claims require the primary August notice or stronger independent evidence 
 - `BitradeX` is the canonical entity name.
 - `Bitrade X` is retained only as a search/identity alias.
 - No exact launch date is invented from the year-only secondary description.
-- No country/origin is inferred from promotional corporate claims without dedicated jurisdiction review.
+- `United Kingdom` is used as the current verified corporate origin because BitradeX links the platform to BITRADEX FINTECH LIMITED and Companies House independently confirms that UK entity. This does not backdate the UK company identity to BitradeX's earlier claimed platform history.
+- Regulatory-authorization claims on BitradeX's registration page are not promoted without authority-specific verification.
 - Current public trading surfaces are not treated as proof that all customer assets are freely withdrawable.
 
 ## Identifier allocation
@@ -85,7 +88,7 @@ Those claims require the primary August notice or stronger independent evidence 
 ```text
 Entity:   hei_ex_001150
 Event:    hei_ev_010108
-Evidence: hei_src_012541 through hei_src_012543
+Evidence: hei_src_012541 through hei_src_012545
 ```
 
 Exact repository search before branch creation found these identifiers unused on the reviewed main state.
@@ -101,7 +104,7 @@ Evidence: 3844
 After BX59
 Entities: 1030
 Events:   1032
-Evidence: 3847
+Evidence: 3849
 ```
 
 ## L-2 relationship
