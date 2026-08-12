@@ -55,9 +55,9 @@ docs/audits/HEI_D1000_MILESTONE_COMPLETION_2026-08-09.md
 Reviewed canonical growth continues after D-1000. With post-D-1000 BX62, the current reviewed state is:
 
 ```text
-Entities: 1033
-Events:   1036
-Evidence: 3862
+Entities: 1034
+Events:   1037
+Evidence: 3867
 ```
 
 Current post-D-1000 growth authority:
