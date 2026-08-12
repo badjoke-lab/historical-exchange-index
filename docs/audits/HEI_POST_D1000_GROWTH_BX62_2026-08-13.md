@@ -6,38 +6,52 @@ L-2 state: HOLD / evidence capture
 
 ## Result
 
-BX62 adds one independently reviewed MSX record and one non-terminal product event.
+BX62 closes the remaining addable HEI candidates from the Aug 12 cross-site intake by adding two independently reviewed records: MSX and IZAKA-YA.
 
-Added reviewed entity:
-
-```text
-MSX  active / cex / Global
-```
-
-Added event:
+Added reviewed entities:
 
 ```text
-2026-06-05  other  none  X Card launch announcement
+MSX       active / cex    / Global
+IZAKA-YA  active / hybrid / Hong Kong
 ```
 
-Added evidence: 4
+Added events:
+
+```text
+2026-06-05  MSX       other        none  X Card launch announcement
+2025-05-01  IZAKA-YA  partnership  none  CryptoPanda collaboration campaign
+```
+
+Added evidence: 9
 
 Projected reviewed public state after merge:
 
 ```text
-Entities: 1033
-Events:   1036
-Evidence: 3862
+Entities: 1034
+Events:   1037
+Evidence: 3867
 ```
 
-## Evidence standard
+## Candidate-intake boundary
+
+Issue #753 was created from an external service-watchlist item and is discovery-only. The originating list is not canonical evidence.
+
+The HEI review sequence was:
+
+```text
+CryptoPanda -> CoinChief -> MSX -> IZAKA-YA
+```
+
+CryptoPanda and CoinChief were independently reviewed and merged before BX62. BX62 handles the remaining two addable HEI entities. MEXC and BTCC were already present in HEI and were not duplicated.
+
+## MSX evidence standard
 
 - The current first-party MSX site describes a digital-asset trading platform providing spot and derivatives trading for assets including Bitcoin and Ethereum, alongside RWA token trading.
 - First-party MSX API documentation exposes REST/WebSocket spot trading, account/asset queries, market data, and U-margined contract trading interfaces.
 - Apple currently distributes an MSX crypto-exchange application whose developer is identified as Mystonks Holding LTD.; HEI uses this only as medium-reliability current-distribution corroboration.
 - An MSX-authored paid press release carried by CoinDesk states that MSX launched X Card on 2026-06-05. HEI uses it only to establish MSX's own product-launch announcement.
 
-## Status and type
+MSX classification:
 
 ```text
 type: cex
@@ -46,35 +60,46 @@ country_or_origin: Global
 confidence: medium
 ```
 
-The active classification is supported by current first-party trading and API surfaces plus current app distribution.
+The active classification is supported by current first-party trading and API surfaces plus current app distribution. The CEX classification is based on centralized account/trading interfaces and authenticated API surfaces. The reviewed evidence does not independently establish the operator's legal jurisdiction, so HEI uses `Global`. No launch date is inferred.
 
-The CEX classification is based on centralized account/trading interfaces and authenticated API surfaces. MSX's community-driven and on-chain marketing language does not by itself make the exchange a DEX.
+The X Card item is recorded only as a non-terminal product event. Promotional licensing, security, network, geographic-availability, reserve and safety claims are not independently promoted into canonical HEI facts.
 
-The footer identifies Mystonks Holding LTD., but the reviewed evidence does not independently establish the operator's legal jurisdiction. HEI therefore uses `Global` and does not infer a country.
+## IZAKA-YA evidence standard
 
-No launch date is inferred.
+- The current first-party IZAKA-YA site exposes lending, crypto-to-crypto swap, wallet and crypto-purchase functions.
+- The first-party company profile identifies Izakaya Limited and a Hong Kong operating address. It states a December 2023 service-start month, but no exact launch day is established.
+- First-party project documentation describes permissionless smart-contract-based lending, swapping and token management.
+- Official wallet-support documentation describes account-based cryptocurrency management, lending, swapping, deposits/transfers, balances and transaction history.
+- A first-party 2025-05-01 campaign page documents an IZAKA-YA x CryptoPanda collaboration requiring linked registration and a CryptoPanda transaction connected to an IZAKA-YA wallet.
 
-## X Card event boundary
-
-The X Card item is recorded as a product event only:
+IZAKA-YA classification:
 
 ```text
-2026-06-05  other  none
+type: hybrid
+status: active
+country_or_origin: Hong Kong
+confidence: medium
 ```
 
-It does not alter MSX's active exchange status.
+HEI uses `hybrid` because current service surfaces include account/wallet and service-side transaction functions while first-party project documentation describes permissionless smart-contract/DeFi architecture. `Hong Kong` is supported by the first-party operator profile. The known service-start month is not converted into an invented exact launch date.
 
-The issuer-authored release contains broader operational and promotional assertions. HEI does not independently promote those assertions into canonical licensing, security, geographic-availability, network, reserve, or safety facts.
+IZAKA-YA and CryptoPanda remain separate entities. The documented collaboration is represented as a `partnership` event, not as an alias, merger, acquisition, common-ownership claim, or predecessor/successor relationship.
 
 ## Identifier allocation
 
 ```text
+MSX
 Entity:   hei_ex_001153
 Event:    hei_ev_010112
 Evidence: hei_src_012555 through hei_src_012558
+
+IZAKA-YA
+Entity:   hei_ex_001154
+Event:    hei_ev_010113
+Evidence: hei_src_012559 through hei_src_012563
 ```
 
-Exact repository searches after BX61 merged found these identifiers unused, and no open PR competed for the allocation.
+Exact repository searches after BX61 merged found these identifiers unused. Duplicate name/domain searches found no existing MSX or IZAKA-YA record, and there was no competing open PR at allocation time.
 
 ## Count impact
 
@@ -85,9 +110,9 @@ Events:   1035
 Evidence: 3858
 
 After BX62
-Entities: 1033
-Events:   1036
-Evidence: 3862
+Entities: 1034
+Events:   1037
+Evidence: 3867
 ```
 
 ## L-2 relationship
@@ -96,7 +121,7 @@ This reviewed data-growth batch does not change the localization decision. L-2 r
 
 ## Deployment decision
 
-This PR changes `records/**`, so reviewed public output changes after merge. Under the current Cloudflare deployment policy, no branch preview is required for this record-only addition. GitHub validation must pass before merge.
+This PR changes `records/**`, so reviewed public output changes after merge. Under the current Cloudflare deployment policy, no branch preview is required for this reviewed record batch. GitHub validation must pass before merge.
 
 ## Completion condition
 
