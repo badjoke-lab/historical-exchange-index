@@ -6,9 +6,9 @@
   "current_item": "L2-1 — Evaluation contract, telemetry, and evidence capture",
   "next_item": "Language Selection Gate",
   "reviewed_counts": {
-    "entities": 1031,
-    "events": 1034,
-    "evidence": 3854
+    "entities": 1032,
+    "events": 1035,
+    "evidence": 3858
   },
   "authoritative_paths": {
     "agent_instructions": "AGENTS.md",
@@ -27,7 +27,7 @@
     "d750_completion_report": "docs/audits/HEI_D750_MILESTONE_COMPLETION_2026-07-10.md",
     "d1000_progress_report": "docs/audits/HEI_D1000_PROGRESS_BX50_2026-08-09.md",
     "d1000_completion_report": "docs/audits/HEI_D1000_MILESTONE_COMPLETION_2026-08-09.md",
-    "post_d1000_growth_report": "docs/audits/HEI_POST_D1000_GROWTH_BX60_2026-08-13.md",
+    "post_d1000_growth_report": "docs/audits/HEI_POST_D1000_GROWTH_BX61_2026-08-13.md",
     "l1_activation_completion_report": "docs/audits/HEI_L1_JAPANESE_PILOT_ROUTE_ACTIVATION_COMPLETION_2026-07-10.md",
     "deployment_policy": "docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md",
     "cloudflare_project_policy": "config/cloudflare-pages-project.json",
