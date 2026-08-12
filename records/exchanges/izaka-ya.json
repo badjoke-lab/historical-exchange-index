@@ -19,13 +19,13 @@
     "successor_id": null,
     "confidence": "medium",
     "last_verified_at": "2026-08-13",
-    "notes": "The current first-party service exposes account-based wallet, lending, swap and crypto-purchase functions. First-party project documentation describes permissionless smart-contract-based lending, swap and token-management architecture, while the live support surface documents email/password accounts, managed balances, internal transfers and service-side transaction history. HEI therefore uses hybrid rather than classifying the service as purely centralized or purely decentralized. The first-party company page identifies Izakaya Limited and a Hong Kong operating address, supporting Hong Kong as country_or_origin. It states a service start month of December 2023, but because no exact day is established HEI leaves launch_date null. IZAKA-YA and CryptoPanda are treated as separate entities; their documented integration is recorded as a partnership event rather than an alias or lineage relationship."
+    "notes": "The current first-party service exposes account-based wallet, lending, swap and crypto-purchase functions. First-party project documentation describes permissionless smart-contract-based lending, swap and token-management architecture, while the live support surface documents email/password accounts, managed balances, internal transfers and service-side transaction history. HEI therefore uses hybrid rather than classifying the service as purely centralized or purely decentralized. The first-party company page identifies Izakaya Limited and a Hong Kong operating address, supporting Hong Kong as country_or_origin. It states a service start month of December 2023, but because no exact day is established HEI leaves launch_date null. IZAKA-YA and CryptoPanda are treated as separate entities; their documented integration is recorded as a collaboration event rather than an alias or lineage relationship."
   },
   "events": [
     {
       "id": "hei_ev_010113",
       "exchange_id": "hei_ex_001154",
-      "event_type": "partnership",
+      "event_type": "other",
       "event_date": "2025-05-01",
       "title": "IZAKA-YA and CryptoPanda ran linked-service collaboration campaign",
       "description": "IZAKA-YA published a collaboration campaign requiring users to register with both services, link IZAKA-YA with CryptoPanda, and complete a CryptoPanda transaction connected to an IZAKA-YA wallet.",
@@ -35,7 +35,7 @@
       "source_count": 1,
       "sort_order": 1,
       "counterparty_name": "CryptoPanda",
-      "notes": "The event establishes a documented service integration/collaboration. It does not imply common ownership, merger, acquisition, predecessor/successor status, or that the two services are the same entity."
+      "notes": "The event establishes a documented service integration/collaboration. HEI uses the existing `other` event type because the projected event enum does not define a dedicated partnership value. It does not imply common ownership, merger, acquisition, predecessor/successor status, or that the two services are the same entity."
     }
   ],
   "evidence": [

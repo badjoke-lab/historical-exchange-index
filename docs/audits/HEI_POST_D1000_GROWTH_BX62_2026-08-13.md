@@ -18,8 +18,8 @@ IZAKA-YA  active / hybrid / Hong Kong
 Added events:
 
 ```text
-2026-06-05  MSX       other        none  X Card launch announcement
-2025-05-01  IZAKA-YA  partnership  none  CryptoPanda collaboration campaign
+2026-06-05  MSX       other  none  X Card launch announcement
+2025-05-01  IZAKA-YA  other  none  CryptoPanda collaboration campaign
 ```
 
 Added evidence: 9
@@ -83,7 +83,7 @@ confidence: medium
 
 HEI uses `hybrid` because current service surfaces include account/wallet and service-side transaction functions while first-party project documentation describes permissionless smart-contract/DeFi architecture. `Hong Kong` is supported by the first-party operator profile. The known service-start month is not converted into an invented exact launch date.
 
-IZAKA-YA and CryptoPanda remain separate entities. The documented collaboration is represented as a `partnership` event, not as an alias, merger, acquisition, common-ownership claim, or predecessor/successor relationship.
+IZAKA-YA and CryptoPanda remain separate entities. The documented collaboration is represented as a non-terminal `other` event because the current projected event enum does not define a dedicated partnership value. It is not treated as an alias, merger, acquisition, common-ownership claim, or predecessor/successor relationship.
 
 ## Identifier allocation
 
