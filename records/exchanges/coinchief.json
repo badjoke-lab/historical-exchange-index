@@ -1,0 +1,103 @@
+{
+  "entity": {
+    "id": "hei_ex_001152",
+    "slug": "coinchief",
+    "canonical_name": "CoinChief",
+    "aliases": ["Coin Chief", "Coin Chief Tech INC.", "C网"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Global",
+    "summary": "Centralized digital-asset exchange offering spot, P2P, futures, copy-trading and earn surfaces, with public trading markets and first-party API documentation. In May 2026, GMTech announced preliminary discussions concerning a proposed strategic investment and broader cooperation with Coin Chief Tech INC.; no definitive agreement had been finalized at that time.",
+    "official_url_original": "https://www.coinchief.live/",
+    "official_domain_original": "coinchief.live",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.coinchief.live/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-08-13",
+    "notes": "The current first-party site exposes Spot, USDⓈ-M Futures, Copy Trading, Earn, and Spot/P2P/Futures account and order surfaces, and identifies Coin Chief Tech INC. in its footer. First-party OpenAPI documentation separately exposes spot, margin, contract/futures, account, withdrawal and market-data interfaces. CoinMarketCap currently lists CoinChief as an exchange linked to coinchief.live, but HEI does not independently adopt CoinMarketCap profile claims about founding date, licensing, reserves, security, or jurisdiction. The reviewed sources do not independently establish the operator's legal jurisdiction or an exact launch date, so HEI uses Global and leaves launch_date null. The 2026 GMTech announcement is recorded as preliminary investment/cooperation discussion only and is not treated as an acquisition, merger, completed investment, ownership transfer, or successor relationship. Promotional claims connecting CoinChief to 9D Assets / StaX remain outside this record unless separately verified."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010111",
+      "exchange_id": "hei_ex_001152",
+      "event_type": "other",
+      "event_date": "2026-05-11",
+      "title": "GMTech announced proposed strategic investment and cooperation discussions",
+      "description": "GMTech Inc. announced that it intended to make a strategic investment in Coin Chief Tech INC. and had entered preliminary discussions regarding global strategic cooperation. The announcement stated that no definitive agreement had been finalized.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "none",
+      "source_count": 1,
+      "sort_order": 1,
+      "counterparty_name": "GMTech Inc.",
+      "notes": "This is a preliminary-discussion event. HEI does not classify CoinChief as acquired or merged and does not infer that the proposed investment was completed."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012551",
+      "exchange_id": "hei_ex_001152",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "CoinChief public service site",
+      "url": "https://www.coinchief.live/",
+      "publisher": "CoinChief",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.coinchief.live/",
+      "accessed_at": "2026-08-13",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site shows Spot, USDⓈ-M Futures, Copy Trading, Earn, Spot/P2P/Futures accounts and orders, and public BTC/USDT, LTC/USDT, BCH/USDT and TRX/USDT market surfaces. Footer identifies Coin Chief Tech INC. Used for current service/status evidence only; promotional security claims are not independently adopted by HEI."
+    },
+    {
+      "id": "hei_src_012552",
+      "exchange_id": "hei_ex_001152",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "CoinChief OpenAPI documentation",
+      "url": "https://www.coinchief.live/openapi/open-api-en.html",
+      "publisher": "CoinChief",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.coinchief.live/openapi/open-api-en.html",
+      "accessed_at": "2026-08-13",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party API documentation exposes Spot, Margin and Contract/Futures trading, account, withdrawal, order, market-data and WebSocket interfaces. Used to corroborate the exchange-service shape."
+    },
+    {
+      "id": "hei_src_012553",
+      "exchange_id": "hei_ex_001152",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "CoinChief trade volume and market listings",
+      "url": "https://coinmarketcap.com/exchanges/coinchief/",
+      "publisher": "CoinMarketCap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/coinchief/",
+      "accessed_at": "2026-08-13",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current database reference links CoinChief to coinchief.live and lists Spot, Perpetual and Futures market categories. HEI does not independently adopt the page's exchange-supplied claims concerning founding year, licenses, reserves, safety, reach, or jurisdiction."
+    },
+    {
+      "id": "hei_src_012554",
+      "exchange_id": "hei_ex_001152",
+      "event_id": "hei_ev_010111",
+      "source_type": "official_statement",
+      "title": "GMTech Inc. Announces Proposed Strategic Cooperation with Coin Chief Tech INC.",
+      "url": "https://www.nasdaq.com/press-release/gmtech-inc-announces-proposed-strategic-cooperation-coin-chief-tech-inc-2026-05-11",
+      "publisher": "GMTech Inc.",
+      "published_at": "2026-05-11",
+      "archived_url": "https://web.archive.org/web/*/https://www.nasdaq.com/press-release/gmtech-inc-announces-proposed-strategic-cooperation-coin-chief-tech-inc-2026-05-11",
+      "accessed_at": "2026-08-13",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "GMTech-authored press release distributed via ACCESS Newswire and carried by Nasdaq. It states that GMTech intended to make a strategic investment in Coin Chief Tech INC. and had entered cooperation discussions, while explicitly stating that no definitive agreement had been finalized. Primary evidence for the preliminary 2026-05-11 event only."
+    }
+  ]
+}
