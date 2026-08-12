@@ -1,0 +1,72 @@
+{
+  "entity": {
+    "id": "hei_ex_001153",
+    "slug": "msx",
+    "canonical_name": "MSX",
+    "aliases": ["Mystonks"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Global",
+    "summary": "Digital-asset trading platform offering crypto spot and derivatives trading alongside RWA token trading.",
+    "official_url_original": "https://msx.com/",
+    "official_domain_original": "msx.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://msx.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-08-13",
+    "notes": "The current first-party site describes MSX as a digital-asset trading platform providing spot and derivatives trading for assets including Bitcoin and Ethereum, while also offering RWA token trading. First-party API documentation exposes spot order/account/asset interfaces and U-margined contract trading interfaces. The footer identifies Mystonks Holding LTD., but the reviewed sources do not independently establish its legal jurisdiction, so HEI uses Global and leaves launch_date null. App Store distribution corroborates an active crypto-exchange application published by Mystonks Holding LTD."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012555",
+      "exchange_id": "hei_ex_001153",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "MSX public trading platform",
+      "url": "https://msx.com/",
+      "publisher": "MSX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://msx.com/",
+      "accessed_at": "2026-08-13",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site describes crypto spot and derivatives trading plus RWA token trading. Used for active status and service-surface evidence."
+    },
+    {
+      "id": "hei_src_012556",
+      "exchange_id": "hei_ex_001153",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "MSX API documentation",
+      "url": "https://developers.msx.com/",
+      "publisher": "MSX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://developers.msx.com/",
+      "accessed_at": "2026-08-13",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party REST and WebSocket documentation exposes spot trading, asset queries, market data and U-margined contract trading interfaces."
+    },
+    {
+      "id": "hei_src_012557",
+      "exchange_id": "hei_ex_001153",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "MSX: Buy Bitcoin & Crypto",
+      "url": "https://apps.apple.com/us/app/msx-buy-bitcoin-crypto/id6759999989",
+      "publisher": "Apple App Store",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://apps.apple.com/us/app/msx-buy-bitcoin-crypto/id6759999989",
+      "accessed_at": "2026-08-13",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "App Store listing identifies Mystonks Holding LTD. as developer and describes crypto perpetual-contract trading, tokenized-asset features and a wallet interface."
+    }
+  ]
+}
