@@ -4,7 +4,7 @@ import { loadCanonicalData } from './core/load-canonical-data.mjs';
 import { createMonitorResult, runMonitorSafely } from './core/finding-utils.mjs';
 import { buildSummaryMarkdown } from './core/summary-writer.mjs';
 import { extractCandidateNameFromNews } from './core/news-extract.mjs';
-import { shouldRetryOfficialSiteCheck } from './monitors/active-status-watch.mjs';
+import { prioritizeActiveStatusTargets, shouldRetryOfficialSiteCheck } from './monitors/active-status-watch.mjs';
 import { normalizeSitemapUrl } from './adapters/sitemap-check.mjs';
 import { runReviewedBundleAggregationRegression } from '../test-reviewed-bundle-aggregation.mjs';
 import { buildRegistryMetrics, parseReviewMonth } from '../review/monthly-registry-core.mjs';
@@ -100,6 +100,21 @@ function runMonitoringOutputRegressions() {
   assert(shouldRetryOfficialSiteCheck({ status: 'timeout' }), 'timeouts must be retried before creating an active-status finding');
   assert(!shouldRetryOfficialSiteCheck({ status: 'ok' }), 'healthy responses must not be retried');
   assert(!shouldRetryOfficialSiteCheck({ status: 'redirected', http_status: 200 }), 'healthy redirects must not be retried');
+
+  const prioritizedTargets = prioritizeActiveStatusTargets(
+    [
+      { slug: 'alpha' },
+      { slug: 'coinchief' },
+      { slug: 'izaka-ya' },
+      { slug: 'msx' },
+      { slug: 'zeta' },
+    ],
+    ['msx', 'coinchief', 'missing', 'msx'],
+  );
+  assert(
+    prioritizedTargets.map((entity) => entity.slug).join(',') === 'msx,coinchief,alpha,izaka-ya,zeta',
+    `active-status priority ordering must be stable and deduplicated: ${prioritizedTargets.map((entity) => entity.slug).join(',')}`,
+  );
 
   const summary = buildSummaryMarkdown({
     runId: '20260630-smoke',
