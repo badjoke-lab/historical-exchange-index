@@ -6,12 +6,24 @@ This schedule does not replace active HEI work. It inserts AI-era resilience wor
 
 ## Work order
 ### A. Preserve ongoing operations
+Status: ONGOING
+
 Continue reviewed record growth, evidence maintenance, monitoring, localization, and current approved roadmap work.
 
 ### B. Provenance and lifecycle audit
+Status: COMPLETE / BOUNDED AUDIT
+
 Audit representative active/dead records for missing post-event follow-up, last-verified metadata, archive/evidence visibility, claims/recovery/distribution events, and successor relationships. Produce a bounded backlog; do not mass-change canonical data automatically.
 
+Completion authority:
+
+`docs/audits/HEI_AI_ERA_PROVENANCE_LIFECYCLE_AUDIT_2026-08-15.md`
+
+The resulting lifecycle backlog remains ordinary reviewed Lane A / Stage G work; Stage B completion does not mean every follow-up item is already resolved.
+
 ### C. Record-level machine-readable surface
+Status: NEXT AI-ERA IMPLEMENTATION STAGE
+
 Define and ship deterministic per-record JSON derived from canonical entity/event/evidence data. Validate parity with the human page and existing manifest/version rules.
 
 ### D. Explorer/Search strengthening
