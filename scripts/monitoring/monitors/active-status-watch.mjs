@@ -4,11 +4,18 @@ import { checkHttpUrl } from '../adapters/http-check.mjs';
 
 const ENABLE_DOMAIN_CHECKS = process.env.HEI_MONITORING_ENABLE_DOMAIN_CHECKS === '1';
 const DEFAULT_LIMIT = 50;
+const DEFAULT_PRIORITY_SLUGS = ['coinchief', 'cryptopanda', 'izaka-ya', 'msx'];
 const RETRYABLE_CHECK_STATUSES = new Set(['dns_failure', 'tls_failure', 'server_error', 'timeout']);
 
 function getCheckLimit() {
   const parsed = Number.parseInt(process.env.HEI_MONITORING_DOMAIN_CHECK_LIMIT || String(DEFAULT_LIMIT), 10);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : DEFAULT_LIMIT;
+}
+
+function getPrioritySlugs() {
+  const raw = process.env.HEI_MONITORING_PRIORITY_DOMAIN_SLUGS;
+  if (!raw) return [...DEFAULT_PRIORITY_SLUGS];
+  return [...new Set(raw.split(',').map((value) => value.trim()).filter(Boolean))];
 }
 
 function entityUrl(entity) {
@@ -20,6 +27,28 @@ function activeSideEntities(entities = []) {
     .filter((entity) => ACTIVE_SIDE_STATUSES.includes(entity.status))
     .filter((entity) => entityUrl(entity))
     .sort((a, b) => String(a.slug || '').localeCompare(String(b.slug || '')));
+}
+
+export function prioritizeActiveStatusTargets(targets = [], prioritySlugs = []) {
+  const bySlug = new Map(targets.map((entity) => [String(entity.slug || ''), entity]));
+  const ordered = [];
+  const seen = new Set();
+
+  for (const slug of prioritySlugs) {
+    const entity = bySlug.get(slug);
+    if (!entity || seen.has(slug)) continue;
+    ordered.push(entity);
+    seen.add(slug);
+  }
+
+  for (const entity of targets) {
+    const slug = String(entity.slug || '');
+    if (seen.has(slug)) continue;
+    ordered.push(entity);
+    seen.add(slug);
+  }
+
+  return ordered;
 }
 
 function isAccessControlNoise(check) {
@@ -92,6 +121,7 @@ export async function runActiveStatusWatch(context, { startedAt } = {}) {
   const errors = [];
   const entities = context?.canonicalData?.entities || [];
   const targets = activeSideEntities(entities);
+  const prioritySlugs = getPrioritySlugs();
 
   if (!ENABLE_DOMAIN_CHECKS) {
     findings.push(createFinding({
@@ -117,13 +147,17 @@ export async function runActiveStatusWatch(context, { startedAt } = {}) {
           enabled: false,
           active_side_entities_with_urls: targets.length,
           checked: 0,
+          priority_slugs: prioritySlugs,
+          priority_selected: 0,
         },
       },
     });
   }
 
   const limit = getCheckLimit();
-  const selected = targets.slice(0, limit);
+  const prioritizedTargets = prioritizeActiveStatusTargets(targets, prioritySlugs);
+  const selected = prioritizedTargets.slice(0, limit);
+  const selectedSlugs = new Set(selected.map((entity) => String(entity.slug || '')));
   const checks = [];
 
   for (const entity of selected) {
@@ -179,6 +213,8 @@ export async function runActiveStatusWatch(context, { startedAt } = {}) {
         active_side_entities_with_urls: targets.length,
         checked: selected.length,
         findings: findings.length,
+        priority_slugs: prioritySlugs,
+        priority_selected: prioritySlugs.filter((slug) => selectedSlugs.has(slug)).length,
         retries_attempted: checks.filter((item) => item.retry_attempted).length,
         recovered_after_retry: checks.filter((item) => item.recovered_after_retry).length,
         access_control_noise: checks.filter((item) => isAccessControlNoise(item.check)).length,
