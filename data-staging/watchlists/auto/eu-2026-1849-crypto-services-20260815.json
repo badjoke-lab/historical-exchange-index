@@ -1,0 +1,127 @@
+{
+  "watchlist_id": "eu-2026-1849-crypto-services-20260815",
+  "created_at": "2026-08-15T05:34:00Z",
+  "source_type": "regulatory_notice",
+  "source_title": "Council Decision (CFSP) 2026/1849",
+  "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026D1849",
+  "source_publisher": "European Union / EUR-Lex",
+  "effective_date": "2026-08-23",
+  "scope_note": "Annex XIX Part A adds non-EU credit/financial institutions and entities providing crypto-asset or payment services. This watchlist stages HEI relevance review only; it does not change canonical status or death_reason.",
+  "canonical_guard": true,
+  "timing": {
+    "base_main_sha": "abd821b0a30f5ac81d75764b50b4e66c64fa6a24",
+    "insert_after": "PR #759 AI-era registry specification and execution schedule",
+    "reason": "PR #759 merged before this intake branch was created; open PR count was zero at branch creation, so the intake can be staged without interrupting the prior workstream.",
+    "canonical_update_gate": "review this watchlist first; canonical record changes require a separate reviewed PR"
+  },
+  "candidates": [
+    {
+      "name": "Rapira",
+      "legal_name": null,
+      "effective_date": "2026-08-23",
+      "hei_match": "not_found_exact_name_scan",
+      "record_shape": "new_entity_or_out_of_scope_review",
+      "candidate_class": "A",
+      "recommended_action": "verify exchange/crypto-service scope, official domain and independent evidence before canonical addition"
+    },
+    {
+      "name": "Aifory Pro",
+      "legal_name": "Sooty Ltd.",
+      "effective_date": "2026-08-23",
+      "hei_match": "not_found_exact_name_scan",
+      "record_shape": "new_entity_or_out_of_scope_review",
+      "candidate_class": "A",
+      "recommended_action": "verify exchange/crypto-service scope, official domain and independent evidence before canonical addition"
+    },
+    {
+      "name": "ABCeX",
+      "legal_name": "Nueva Cryptologia S.A.S DE C.V.",
+      "effective_date": "2026-08-23",
+      "hei_match": "not_found_exact_name_scan",
+      "record_shape": "new_entity_or_out_of_scope_review",
+      "candidate_class": "A",
+      "recommended_action": "verify exchange/crypto-service scope, official domain and independent evidence before canonical addition"
+    },
+    {
+      "name": "WhiteBird",
+      "legal_name": null,
+      "effective_date": "2026-08-23",
+      "hei_match": "not_found_exact_name_scan",
+      "record_shape": "new_entity_or_out_of_scope_review",
+      "candidate_class": "A",
+      "recommended_action": "verify exchange/crypto-service scope, official domain and independent evidence before canonical addition"
+    },
+    {
+      "name": "NoOnecrypto",
+      "legal_name": "NoOnecrypto INC.",
+      "effective_date": "2026-08-23",
+      "hei_match": "not_found_exact_name_scan",
+      "record_shape": "new_entity_or_out_of_scope_review",
+      "candidate_class": "A",
+      "recommended_action": "verify exchange/crypto-service scope, official domain and independent evidence before canonical addition"
+    },
+    {
+      "name": "Tradex",
+      "legal_name": "Brightum LLC",
+      "effective_date": "2026-08-23",
+      "hei_match": "not_found_exact_name_scan",
+      "record_shape": "new_entity_or_out_of_scope_review",
+      "candidate_class": "A",
+      "recommended_action": "verify identity carefully because the brand name is generic; do not merge by name alone"
+    },
+    {
+      "name": "Monease",
+      "legal_name": "Monease Ltd",
+      "effective_date": "2026-08-23",
+      "hei_match": "not_found_exact_name_scan",
+      "record_shape": "new_entity_or_out_of_scope_review",
+      "candidate_class": "A",
+      "recommended_action": "verify whether HEI exchange scope is met or whether this is payment-service-only"
+    },
+    {
+      "name": "BitPapa",
+      "legal_name": null,
+      "effective_date": "2026-08-23",
+      "hei_match": "not_found_exact_name_scan",
+      "record_shape": "new_entity_or_out_of_scope_review",
+      "candidate_class": "A",
+      "recommended_action": "verify exchange/crypto-service scope, official domain and independent evidence before canonical addition"
+    },
+    {
+      "name": "Exnode / Exnode Pay",
+      "legal_name": "Arvix",
+      "effective_date": "2026-08-23",
+      "hei_match": "not_found_exact_name_scan",
+      "record_shape": "new_entity_or_out_of_scope_review",
+      "candidate_class": "A",
+      "recommended_action": "resolve whether Exnode and Exnode Pay belong to one HEI entity and verify exchange versus payment-service scope"
+    },
+    {
+      "name": "HTX",
+      "legal_name": "HUOBI GLOBAL SA",
+      "effective_date": "2026-08-23",
+      "hei_match": "existing",
+      "matched_id": "hei_ex_000019",
+      "matched_slug": "htx",
+      "record_shape": "existing_entity_event_update",
+      "candidate_class": "A",
+      "recommended_action": "add reviewed regulatory_action event and evidence; retain active status unless separate evidence supports a status change"
+    },
+    {
+      "name": "EXMO",
+      "legal_name": "EXMO Ltd",
+      "effective_date": "2026-08-23",
+      "hei_match": "existing",
+      "matched_id": "hei_ex_000685",
+      "matched_slug": "exmo",
+      "record_shape": "existing_entity_event_update",
+      "candidate_class": "A",
+      "recommended_action": "add reviewed regulatory_action event and evidence; retain active status unless separate evidence supports a status change"
+    }
+  ],
+  "next_gate": {
+    "existing_updates": ["htx", "exmo"],
+    "new_or_scope_review": ["Rapira", "Aifory Pro", "ABCeX", "WhiteBird", "NoOnecrypto", "Tradex", "Monease", "BitPapa", "Exnode / Exnode Pay"],
+    "prohibited_automatic_actions": ["status change", "death_reason assignment", "canonical entity/event/evidence mutation"]
+  }
+}
