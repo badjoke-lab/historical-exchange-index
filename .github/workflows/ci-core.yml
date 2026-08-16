@@ -41,7 +41,9 @@ jobs:
       - run: npm run monitor:test-completion
       - run: node --check scripts/check-machine-readable-production.mjs
       - run: node --check scripts/check-record-level-machine-readable-production.mjs
+      - run: node --check scripts/check-stats-machine-readable-production.mjs
       - run: npm run build
       - run: npm run machine:validate
       - run: node scripts/validate-record-level-machine-readable.mjs
+      - run: node scripts/validate-stats-machine-readable.mjs
       - run: npm run public:validate
