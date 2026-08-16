@@ -42,4 +42,5 @@ jobs:
       - run: node --check scripts/check-machine-readable-production.mjs
       - run: npm run build
       - run: npm run machine:validate
+      - run: node scripts/validate-record-level-machine-readable.mjs
       - run: npm run public:validate
