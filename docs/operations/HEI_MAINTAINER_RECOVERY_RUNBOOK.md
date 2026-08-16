@@ -5,9 +5,7 @@ Scope: repository-only recovery after an interrupted thread, session, handoff, o
 
 ## 1. Purpose
 
-This runbook lets a new maintainer or agent reconstruct HEI development state from repository and current GitHub state alone.
-
-Do not use remembered chat history as authority.
+This runbook lets a new maintainer or agent reconstruct HEI development state from repository and current GitHub state alone. Do not use remembered chat history as authority.
 
 The recovery target is to determine:
 
@@ -41,10 +39,13 @@ Read in this order:
 2. docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md
 3. config/cloudflare-pages-project.json
 4. docs/HEI_V1_EXECUTION_ROADMAP.md
-5. active phase specification
-6. task-specific contracts/specifications
-7. latest dated production verification report when production state matters
-8. current GitHub state for SHA, branches, workflows, and open PRs
+5. docs/HEI_AI_ERA_REGISTRY_SPEC.md
+6. docs/HEI_AI_ERA_EXECUTION_SCHEDULE.md
+7. config/maintainer-recovery-contract.json
+8. active phase specification
+9. task-specific contracts/specifications
+10. latest exact-commit production verification evidence when production state matters
+11. current GitHub state for SHA, branches, workflows, open PRs, and issues
 ```
 
 Rules:
@@ -52,11 +53,29 @@ Rules:
 - repository/GitHub state wins when a checkpoint is stale;
 - deployment policy wins on Cloudflare behavior;
 - roadmap controls execution order;
-- task specifications control behavior and completion gates;
+- AI-era registry/schedule controls provenance, lifecycle, deterministic machine-use, Explorer, Compare, Stats, and later AI-assisted retrieval boundaries;
+- task specifications control detailed behavior and completion gates;
 - main SHA and open PRs are dynamic and must be inspected;
 - reviewed counts must use public build semantics, not base-array lengths.
 
-## 3. Step 1 — Confirm repository identity and default branch
+## 3. Recovery sequence
+
+The canonical recovery sequence is intentionally explicit so a new maintainer can execute it without chat history.
+
+1. **Confirm repository identity** and default branch.
+2. **Fetch current remote** state and record `origin/main` SHA.
+3. **Inspect open PRs** and branch state.
+4. **Read AGENTS + deployment policy + Cloudflare project policy**.
+5. **Read roadmap current** checkpoint and execution order.
+6. **Read AI-era registry** specification + execution schedule + closeout report.
+7. **Read active phase** specification and task-specific contracts.
+8. **Derive reviewed counts** using public build aggregation semantics.
+9. **Read exact-commit production** verification state before production diagnosis.
+10. **Run recovery validator** and relevant project validation commands.
+11. **Resume the first** incomplete roadmap item while preserving completed AI-era boundaries.
+12. **Repair stale checkpoint** in the next appropriate reviewed PR.
+
+## 4. Confirm repository identity and default branch
 
 Expected repository:
 
@@ -80,7 +99,7 @@ git remote show origin
 
 Stop if you are in the wrong repository.
 
-## 4. Step 2 — Fetch current remote state and record origin/main SHA
+## 5. Fetch current remote state and record origin/main SHA
 
 Do not copy a SHA from an old handoff.
 
@@ -88,8 +107,6 @@ Do not copy a SHA from an old handoff.
 git fetch origin --prune
 git rev-parse origin/main
 ```
-
-Record the returned SHA as the recovery input commit.
 
 For feature-branch recovery also record:
 
@@ -100,7 +117,7 @@ git merge-base HEAD origin/main
 
 Never treat stale local `main` as current without fetching remote state first.
 
-## 5. Step 3 — Inspect open PRs and branch state
+## 6. Inspect open PRs and branch state
 
 Open product PRs are dynamic.
 
@@ -108,21 +125,11 @@ Open product PRs are dynamic.
 gh pr list --state open --limit 100
 ```
 
-Inspect:
+Inspect PR title, head/base branch, mergeability, head SHA, workflow state, and roadmap item. Also inspect open issues when they carry scheduled follow-up work, including lifecycle checkpoints.
 
-```text
-PR title
-head branch
-base branch
-mergeability
-head SHA
-workflow state
-roadmap item advanced by the PR
-```
+Do not permanently encode transient open PR numbers as current truth.
 
-Do not permanently encode transient open PR numbers into this runbook or recovery contract.
-
-## 6. Step 4 — Read AGENTS + deployment policy + Cloudflare project policy
+## 7. Read AGENTS + deployment policy + Cloudflare project policy
 
 Read:
 
@@ -132,19 +139,9 @@ docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md
 config/cloudflare-pages-project.json
 ```
 
-Confirm current repository policy for:
+Confirm production branch, production deployment enablement, preview setting, build watch paths, and commit-first production verification rules. Never expose Cloudflare credentials.
 
-```text
-production branch
-production deployment enablement
-preview deployment setting
-PR deployment comments
-build watch paths
-```
-
-Never expose Cloudflare credentials in repository files, issues, PRs, or logs.
-
-## 7. Step 5 — Read roadmap current checkpoint and execution order
+## 8. Read roadmap current checkpoint and execution order
 
 Read:
 
@@ -153,56 +150,51 @@ docs/HEI_V1_EXECUTION_ROADMAP.md
 config/maintainer-recovery-contract.json
 ```
 
-Extract:
-
-```text
-current phase
-current work item
-next work item
-reviewed counts
-immediate execution order
-post-v1 milestone gates
-```
-
-If roadmap and current GitHub state disagree:
-
-1. inspect current main and open PRs;
-2. determine actual repository state;
-3. continue from repository truth;
-4. repair the stale checkpoint in the next appropriate reviewed PR.
-
-Current reviewed checkpoint after D-750 and L-1 completion:
-
-```text
-current phase: L-2 Localization Evaluation Gate
-current work item: L2-1 — Evaluation contract, telemetry, and evidence capture
-next work item: D-1000 Reviewed Entity Milestone
-```
-
-Phase state:
+At the 2026-08-16 closeout checkpoint the expected state is:
 
 ```text
 Phase G — v1.0 Integration Baseline: COMPLETE
 Phase H — Compare v1:                 COMPLETE
 D-750 Reviewed Entity Milestone:      COMPLETE
-L-1 Japanese Pilot:                   COMPLETE
-L-2 Localization Evaluation Gate:     CURRENT
+L-1 Japanese Pilot:                   COMPLETE / PUBLIC
+L-2 Localization Evaluation Gate:     HOLD / EVIDENCE CAPTURE
+D-1000 Reviewed Entity Milestone:     COMPLETE
+AI-era finite resilience pass:        COMPLETE
+Language Selection Gate:              BLOCKED UNTIL L-2 EVIDENCE / DECISION
 ```
 
-The fixed post-v1 priority sequence remains:
+The current phase is `L-2 Localization Evaluation Gate`. The current work item is `L2-1 — Evaluation contract, telemetry, and evidence capture`. The next work item is `Language Selection Gate`, but it remains blocked until L-2 has real evidence and a reproducible decision.
+
+If repository state later differs, recover from repository/GitHub truth and repair stale documentation in a reviewed PR.
+
+## 9. Read AI-era registry specification + execution schedule + closeout report
+
+Mandatory authorities:
 
 ```text
-Phase H — Compare v1                 COMPLETE
-D-750 Reviewed Entity Milestone      COMPLETE
-L-1 Japanese Pilot                   COMPLETE
-L-2 Localization Evaluation Gate     CURRENT
-D-1000 Reviewed Entity Milestone     NEXT AFTER L-2 DECISION
-Language Selection Gate
+docs/HEI_AI_ERA_REGISTRY_SPEC.md
+docs/HEI_AI_ERA_EXECUTION_SCHEDULE.md
+docs/audits/HEI_AI_ERA_FINITE_PASS_CLOSEOUT_2026-08-16.md
 ```
 
-Current GitHub state remains authoritative if this checkpoint later becomes stale.
+The finite B-H implementation pass is complete. Do not reopen completed work merely because Stage A normal operations, L-2 evidence collection, or future lifecycle follow-ups continue.
 
-## 8. Step 6 — Derive reviewed counts using public build aggregation semantics
+Continuing rules include reviewed-only publication, provenance visibility, record-level deterministic JSON, deterministic Explorer/Compare/Stats behavior, no generated canonical facts, and human-accountable review.
+
+## 10. Read active phase specification and task-specific contracts
+
+For the current L-2 phase read at minimum:
+
+```text
+docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md
+docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
+config/l2-localization-evaluation-contract.json
+data-evaluation/l2-localization-evidence.json
+```
+
+For data, Explorer, Compare, Stats, machine-readable, monitoring, or lifecycle work, also read the matching task-specific authority listed in `config/maintainer-recovery-contract.json`.
+
+## 11. Derive reviewed counts using public build aggregation semantics
 
 Reviewed public state is not equal to base-array lengths alone.
 
@@ -223,8 +215,6 @@ plus:
   event/evidence merge semantics
 ```
 
-Do not manually reimplement simplified count logic.
-
 Use the same aggregation modules as public build and recovery validation:
 
 ```text
@@ -232,94 +222,41 @@ scripts/lib/reviewed-bundle-aggregation.mjs
 scripts/lib/entity-corrections.mjs
 ```
 
-Current expected reviewed counts:
+Expected reviewed counts at this checkpoint:
 
 ```text
-Entities:  750
-Events:    1004
-Evidence:  3219
+Entities: 1034
+Events:   1039
+Evidence: 3871
 ```
 
-Run:
+These numbers are a checkpoint only. Re-derive them after later reviewed growth.
 
-```bash
-npm run recovery:validate
-```
+## 12. Read exact-commit production verification state before production diagnosis
 
-The validator reports reviewed counts under build semantics and rejects stale checkpoint counts.
+A stale deployment is not a code defect. Start with `/version.json` and compare the deployed build commit to the expected Git commit.
 
-Data growth gates are defined in:
+Relevant evidence includes:
+
+- the historical production verification report named in the recovery contract;
+- current exact-commit machine-readable production smoke runs;
+- current exact-commit Compare production verification when Compare behavior matters;
+- the AI-era closeout report for the 2026-08 finite pass.
+
+At finite AI-era closeout:
 
 ```text
-docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md
+Stage C/D machine-readable production smoke: 31927708917 PASS
+Stage E Compare production verification:     31928424433 PASS
+Stage F main CI:                              31928619171 PASS
+Stage F machine-readable production smoke:   31928845519 PASS
 ```
 
-The milestone count rules explicitly reject:
+Do not infer current production state from these historical run IDs after later public deployments; inspect current GitHub and `/version.json` first.
 
-- raw candidate count;
-- monitoring finding count;
-- staging count;
-- base JSON array lengths alone;
-- unmerged PR count.
+## 13. Run recovery validator and relevant project validation commands
 
-## 9. Step 7 — Read active phase specification and task-specific contracts
-
-For the current L-2 phase, read:
-
-```text
-docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md
-docs/HEI_L2_LOCALIZATION_EVALUATION_PLAN.md
-config/l2-localization-evaluation-contract.json
-data-evaluation/l2-localization-evidence.json
-```
-
-For Japanese Pilot maintenance, also read:
-
-```text
-docs/HEI_L1_JAPANESE_PILOT_IMPLEMENTATION_PLAN.md
-config/japanese-pilot-route-contract.json
-```
-
-For data-growth planning after L-2, read:
-
-```text
-docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md
-```
-
-For Compare maintenance, also read:
-
-```text
-docs/HEI_COMPARE_V1_SPEC.md
-config/compare-v1-contract.json
-```
-
-L-2 decides GO / HOLD / PIVOT for the Japanese Pilot. It does not authorize a third language.
-
-## 10. Step 8 — Read latest production verification report before production diagnosis
-
-Historical v1 baseline production evidence remains in:
-
-```text
-docs/audits/HEI_G7_V1_BASELINE_CHECKPOINT_2026-07-07.md
-```
-
-Latest Compare completion and H-5 production evidence is summarized in:
-
-```text
-docs/audits/HEI_H5_COMPARE_V1_COMPLETION_2026-07-08.md
-```
-
-Current production diagnosis still begins with deployed commit identity:
-
-```text
-/version.json
-```
-
-Do not diagnose a stale deployment as a code defect before comparing deployed commit identity with the expected current main commit.
-
-## 11. Step 9 — Run recovery validator and relevant project validation commands
-
-Core commands:
+Required validation commands from the recovery contract are:
 
 ```bash
 npm run policy:check
@@ -333,63 +270,40 @@ npm run recovery:test
 npm run recovery:validate
 ```
 
-For L-2 evaluation changes, confirm:
+Public-output implementation CI also validates the dedicated record-level and Stats machine-readable outputs. Do not remove those CI checks merely because they are not separate recovery-contract commands.
+
+Expected L-2 evaluation remains `HOLD` while required real external evidence is missing. A reproducible HOLD is not a failed recovery.
+
+## 14. Resume the first incomplete roadmap item while preserving completed AI-era boundaries
+
+After successful recovery:
+
+1. continue L-2 evidence capture if real external evidence is available;
+2. continue reviewed data/quality/lifecycle work in parallel;
+3. process scheduled lifecycle follow-ups through normal reviewed Lane A;
+4. do not run Language Selection before the L-2 gate allows it;
+5. do not revive the natural-language translator unless its evidence-backed reopening conditions are met.
+
+The finite AI-era implementation pass being complete does not stop ordinary HEI maintenance.
+
+## 15. Repair stale checkpoint in the next appropriate reviewed PR
+
+If counts, phase text, current authority, production evidence, or branch state has legitimately advanced, update the affected roadmap/spec/recovery authority in the same appropriate reviewed workflow. Do not weaken fail-close validators just to make stale text pass.
+
+## 16. Recovery completion checklist
+
+Recovery is complete only when all are known or verified:
 
 ```text
-GO/HOLD/PIVOT self-test passes
-telemetry source test passes
-current evidence snapshot evaluates reproducibly
-third_language_authorized remains false
-```
-
-For data-growth changes, run the relevant overlap, duplicate, ID-collision, count-semantics, and quality gates already wired into GitHub Actions.
-
-For Compare maintenance changes, also use:
-
-```bash
-npm run compare:test
-npm run compare:audit
-```
-
-## 12. Step 10 — Resume the first incomplete roadmap item
-
-At this checkpoint:
-
-```text
-Phase H COMPLETE
-D-750 COMPLETE
-L-1 COMPLETE
-L-2 CURRENT
-```
-
-Resume L2-1 evaluation evidence capture and keep the current decision at HOLD until the minimum observation window and required evidence are complete.
-
-Do not fabricate Search Console or GA4 values. Do not infer demand from route existence alone.
-
-After the L-2 decision, resume the D-1000 Reviewed Entity Milestone according to roadmap order.
-
-## 13. Step 11 — Repair stale checkpoint in the next appropriate reviewed PR
-
-When repository state advances:
-
-1. update the roadmap checkpoint;
-2. update `config/maintainer-recovery-contract.json` when current phase/item/next item changes;
-3. update this runbook checkpoint section when needed;
-4. preserve historical baseline evidence rather than rewriting it as current state;
-5. keep dynamic main SHA and open PR state outside permanent assumptions.
-
-## 14. Recovery sequence summary
-
-```text
-confirm repository identity and default branch
-fetch current remote state and record origin/main SHA
-inspect open PRs and branch state
-read AGENTS + deployment policy + Cloudflare project policy
-read roadmap current checkpoint and execution order
-read active phase specification and task-specific contracts
-derive reviewed counts using public build aggregation semantics
-read latest production verification report before production diagnosis
-run recovery validator and relevant project validation commands
-resume the first incomplete roadmap item
-repair stale checkpoint in the next appropriate reviewed PR
+[ ] repository and default branch
+[ ] current origin/main SHA
+[ ] open PR and relevant issue state
+[ ] current reviewed counts under build semantics
+[ ] current phase / current item / next item
+[ ] L-2 decision/evidence state
+[ ] AI-era registry/schedule/closeout state
+[ ] deployment policy and watched paths
+[ ] current exact-commit production state when relevant
+[ ] required validation results
+[ ] first incomplete roadmap item
 ```
