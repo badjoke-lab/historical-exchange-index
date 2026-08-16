@@ -7,8 +7,8 @@
   "next_item": "Language Selection Gate",
   "reviewed_counts": {
     "entities": 1034,
-    "events": 1037,
-    "evidence": 3867
+    "events": 1039,
+    "evidence": 3871
   },
   "authoritative_paths": {
     "agent_instructions": "AGENTS.md",
