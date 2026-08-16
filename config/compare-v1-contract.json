@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "status": "fixed_for_compare_v1_implementation",
+  "version": 2,
+  "status": "extended_for_ai_era_stage_e",
   "route": "/compare/",
   "selection_parameter": {
     "key": "exchange",
@@ -30,9 +30,7 @@
   },
   "serialization": {
     "encoding": "URLSearchParams",
-    "stable_parameter_order": [
-      "exchange"
-    ],
+    "stable_parameter_order": ["exchange"],
     "repeated_parameter_encoding": true,
     "multi_value_order": "selection_order",
     "omit_empty": true,
@@ -46,97 +44,31 @@
     "missing_values": "display_explicit_unknown_without_inference"
   },
   "comparison_sections": [
-    {
-      "id": "identity",
-      "fields": [
-        "canonical_name",
-        "type",
-        "dossier_link"
-      ]
-    },
-    {
-      "id": "lifecycle",
-      "fields": [
-        "launch_date",
-        "terminal_date",
-        "lifespan_days"
-      ]
-    },
-    {
-      "id": "status_origin",
-      "fields": [
-        "status",
-        "death_reason",
-        "country_or_origin",
-        "confidence"
-      ]
-    },
-    {
-      "id": "url_archive",
-      "fields": [
-        "official_domain_original",
-        "official_url_status",
-        "archive_available",
-        "archive_link"
-      ]
-    },
-    {
-      "id": "record_coverage",
-      "fields": [
-        "event_count",
-        "evidence_count"
-      ]
-    },
-    {
-      "id": "major_events",
-      "fields": [
-        "selected_major_events"
-      ]
-    }
+    {"id": "identity", "fields": ["canonical_name", "type", "dossier_link"]},
+    {"id": "lifecycle", "fields": ["launch_date", "terminal_date", "lifespan_days", "last_verified_at"]},
+    {"id": "status_origin", "fields": ["status", "death_reason", "country_or_origin", "confidence"]},
+    {"id": "url_archive", "fields": ["official_domain_original", "official_url_status", "archive_available", "archive_link"]},
+    {"id": "record_coverage", "fields": ["event_count", "evidence_count"]},
+    {"id": "provenance", "fields": ["high_reliability_evidence_count", "archived_evidence_count", "event_linked_evidence_count", "evidence_source_type_count", "latest_evidence_accessed_at"]},
+    {"id": "major_events", "fields": ["selected_major_events"]}
   ],
   "derived_values": {
-    "terminal_date": {
-      "source": "entity.death_date",
-      "fallback": null,
-      "event_inference": false
-    },
-    "lifespan_days": {
-      "requires": [
-        "launch_date",
-        "death_date"
-      ],
-      "calculation": "floor_utc_day_difference",
-      "invalid_or_negative": null,
-      "stored_in_canonical_data": false
-    },
-    "archive_available": {
-      "calculation": "Boolean(entity.archived_url)",
-      "stored_in_canonical_data": false
-    },
-    "event_count": {
-      "calculation": "count_reviewed_events_for_entity",
-      "stored_in_canonical_data": false
-    },
-    "evidence_count": {
-      "calculation": "count_reviewed_evidence_for_entity",
-      "stored_in_canonical_data": false
-    }
+    "terminal_date": {"source": "entity.death_date", "fallback": null, "event_inference": false},
+    "lifespan_days": {"requires": ["launch_date", "death_date"], "calculation": "floor_utc_day_difference", "invalid_or_negative": null, "stored_in_canonical_data": false},
+    "archive_available": {"calculation": "Boolean(entity.archived_url)", "stored_in_canonical_data": false},
+    "event_count": {"calculation": "count_reviewed_events_for_entity", "stored_in_canonical_data": false},
+    "evidence_count": {"calculation": "count_reviewed_evidence_for_entity", "stored_in_canonical_data": false},
+    "high_reliability_evidence_count": {"calculation": "count_reviewed_evidence_where_reliability_high", "stored_in_canonical_data": false},
+    "archived_evidence_count": {"calculation": "count_reviewed_evidence_with_archived_url", "stored_in_canonical_data": false},
+    "event_linked_evidence_count": {"calculation": "count_reviewed_evidence_with_event_id", "stored_in_canonical_data": false},
+    "evidence_source_type_count": {"calculation": "count_distinct_reviewed_evidence_source_type", "stored_in_canonical_data": false},
+    "latest_evidence_accessed_at": {"calculation": "maximum_valid_reviewed_evidence_accessed_at", "fallback": null, "stored_in_canonical_data": false}
   },
   "major_event_selection": {
     "candidate_rule": "is_major_event_true_or_impact_level_critical_or_high",
-    "priority_order": [
-      "is_major_event true first",
-      "impact critical before high",
-      "event_date known first newest",
-      "sort_order desc",
-      "id asc"
-    ],
+    "priority_order": ["is_major_event true first", "impact critical before high", "event_date known first newest", "sort_order desc", "id asc"],
     "limit_per_entity": 5,
-    "display_order": [
-      "event_date known first asc",
-      "sort_order asc",
-      "id asc"
-    ],
+    "display_order": ["event_date known first asc", "sort_order asc", "id asc"],
     "reviewed_events_only": true,
     "ai_selection": false
   },
@@ -171,6 +103,7 @@
   "compatibility": {
     "parameter_rename_after_v1": "requires_spec_change_and_migration_plan",
     "selection_semantics_change_after_v1": "requires_compatibility_review",
-    "field_set_expansion": "allowed_only_for_reviewed_or_deterministic_values"
+    "field_set_expansion": "allowed_only_for_reviewed_or_deterministic_values",
+    "stage_e_extension": "additive_fields_only_existing_selection_urls_unchanged"
   }
 }
