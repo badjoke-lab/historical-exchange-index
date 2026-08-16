@@ -1,6 +1,6 @@
 # HEI AI-era Execution Schedule
 
-Status: roadmap addendum / closeout synchronization in progress
+Status: **finite AI-era pass complete / mandatory roadmap addendum**
 
 This schedule does not replace active HEI work. It inserts AI-era resilience work into the existing roadmap without stopping record growth or monitoring.
 
@@ -60,16 +60,27 @@ Implementation:
 
 Production verification:
 
+- exact main CI run `31928161585` — PASS;
 - exact-commit Compare production verification run `31928424433` — PASS.
 
 Compare retains the existing reviewed 2–4 entity selection contract and adds deterministic provenance/verification fields without risk, safety or investment scoring.
 
 ### F. Stats completion
-Status: **IN PROGRESS / PR #767**
+Status: **COMPLETE / PRODUCTION VERIFIED**
 
-Stage F publishes deterministic `/stats.json` and `/stats-history.json` outputs from reviewed entity/event/evidence aggregation, registers their machine-readable discovery metadata, validates aggregate parity, and adds exact-commit production smoke coverage.
+Implementation:
 
-Do not mark Stage F complete until PR #767 CI is green, the PR is merged, and the exact merged commit passes production verification for both Stats endpoints.
+- PR #767
+- merge commit: `ca28e4e7c05a79c781a32ddc0a3d3c5472b45b09`
+- public deterministic endpoints: `/stats.json` and `/stats-history.json`
+
+Verification:
+
+- exact merged-main CI run `31928619171` — PASS;
+- exact-commit machine-readable production smoke run `31928845519` — PASS;
+- production job `95120550522` verified all three layers: base machine-readable endpoints, record-level endpoints, and Stats endpoints.
+
+Stage F therefore closes the remaining finite AI-era production gate. Stats remains reviewed registry analysis/coverage/history, not a price/TVL/ranking dashboard.
 
 ### G. Lifecycle follow-up pass
 Status: **COMPLETE FOR CURRENT-DATE PASS**
@@ -93,11 +104,13 @@ No public natural-language translator is added now. The deterministic Explorer a
 
 Spec/update -> implementation PR -> CI green -> merge -> production/read-only verification where applicable -> roadmap/status synchronization.
 
-A later finite stage must not be declared complete from code alone.
+All finite stages B-H have passed their applicable completion gates for the 2026-08 AI-era pass.
 
 ## Closeout boundary
 
-The finite AI-era pass is complete when Stage F becomes production-verified and this schedule is synchronized to that exact merge/runtime state.
+The finite AI-era pass is **COMPLETE** as of the Stage F exact production verification above. The closeout record is:
+
+`docs/audits/HEI_AI_ERA_FINITE_PASS_CLOSEOUT_2026-08-16.md`
 
 The following remain ongoing after finite closeout and must not be mislabeled as unfinished AI-era implementation:
 
