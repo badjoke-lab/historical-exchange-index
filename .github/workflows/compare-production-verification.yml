@@ -1,28 +1,40 @@
 name: Compare production verification
 
 on:
-  pull_request:
-    paths:
-      - 'scripts/verify-compare-production.mjs'
-      - '.github/workflows/compare-production-verification.yml'
-      - 'docs/audits/HEI_H5_COMPARE_PRODUCTION_VERIFICATION_*.md'
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
   workflow_dispatch:
+    inputs:
+      expected_commit:
+        description: Exact deployed main commit to verify
+        required: true
+        type: string
 
 jobs:
   verify:
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-24.04
     timeout-minutes: 10
+    permissions:
+      contents: read
+    env:
+      HEI_EXPECTED_PRODUCTION_COMMIT: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || inputs.expected_commit }}
+      HEI_PRODUCTION_ORIGIN: https://hei.badjoke-lab.com
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-node@v4
         with:
           node-version: 24
 
-      - name: Verify deployed H-5 Compare integration
-        env:
-          HEI_EXPECTED_PRODUCTION_COMMIT: 9fb3e1a3bda0c51ce59af364402a98a86736bcb1
-          HEI_PRODUCTION_ORIGIN: https://hei.badjoke-lab.com
+      - name: Verify deployed Compare integration and provenance bundle
         run: node scripts/verify-compare-production.mjs | tee compare-production-verification.json
 
       - name: Upload Compare production verification report

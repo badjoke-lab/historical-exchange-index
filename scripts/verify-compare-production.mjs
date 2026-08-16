@@ -8,9 +8,14 @@ if (!expectedCommit) {
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 async function fetchText(pathname) {
-  const response = await fetch(`${origin}${pathname}`, {
-    headers: { 'user-agent': 'HEI-Compare-Production-Verification/1.0' },
+  const separator = pathname.includes('?') ? '&' : '?'
+  const response = await fetch(`${origin}${pathname}${separator}hei_compare_verify=${encodeURIComponent(expectedCommit)}`, {
+    headers: {
+      'user-agent': 'HEI-Compare-Production-Verification/2.0',
+      'cache-control': 'no-cache',
+    },
     redirect: 'follow',
+    signal: AbortSignal.timeout(20_000),
   })
   if (!response.ok) throw new Error(`${pathname} returned HTTP ${response.status}`)
   return response.text()
@@ -36,6 +41,21 @@ function assert(condition, message) {
   if (!condition) throw new Error(`Compare production verification failed: ${message}`)
 }
 
+function scriptSources(html) {
+  return [...html.matchAll(/<script\b[^>]*src=["']([^"']+)["'][^>]*>/gi)].map((match) => match[1])
+}
+
+async function fetchCompareClientBundle(html) {
+  const sources = scriptSources(html)
+    .filter((src) => src.startsWith('/_next/static/') || src.startsWith(`${origin}/_next/static/`))
+  assert(sources.length > 0, 'Compare base route exposes no Next.js script bundles')
+  const texts = await Promise.all(sources.map(async (src) => {
+    const pathname = src.startsWith(origin) ? src.slice(origin.length) : src
+    return fetchText(pathname)
+  }))
+  return texts.join('\n')
+}
+
 const version = await waitForExpectedCommit()
 const manifest = await fetchJson('/data/manifest.json')
 const entitiesFile = await fetchJson('/data/entities.json')
@@ -44,6 +64,7 @@ const llms = await fetchText('/llms.txt')
 const ai = await fetchText('/ai.txt')
 const compareBase = await fetchText('/compare/')
 const explorer = await fetchText('/explore/')
+const compareBundle = await fetchCompareClientBundle(compareBase)
 
 const records = entitiesFile.records ?? []
 assert(records.length >= 4, 'public reviewed entity dataset has fewer than four records')
@@ -57,7 +78,7 @@ const compare2 = await fetchText(query2)
 const compare4 = await fetchText(query4)
 const dossier = await fetchText(`/exchange/${encodeURIComponent(slugs[0])}/`)
 
-assert(version.build?.commit === expectedCommit, 'version commit does not match expected H-5 merge commit')
+assert(version.build?.commit === expectedCommit, 'version commit does not match expected merge commit')
 assert(version.routes?.compare === '/compare/', 'version route map does not expose Compare')
 assert(manifest.main_routes?.includes('/compare/'), 'manifest main_routes does not expose Compare')
 assert(llms.includes('/compare/'), 'llms.txt does not expose Compare')
@@ -66,6 +87,17 @@ assert(ai.includes('/compare/'), 'ai.txt does not expose Compare')
 assert(compareBase.includes('Compare'), 'Compare base route does not contain Compare surface marker')
 assert(compare2.includes('Compare'), 'representative 2-entity Compare query does not return Compare surface')
 assert(compare4.includes('Compare'), 'representative 4-entity Compare query does not return Compare surface')
+
+for (const marker of [
+  'Last verified',
+  'High-reliability evidence',
+  'Archived evidence',
+  'Event-linked evidence',
+  'Evidence source types',
+  'Latest evidence access',
+]) {
+  assert(compareBundle.includes(marker), `deployed Compare client bundle missing provenance marker: ${marker}`)
+}
 
 const compareBaseUrl = `${origin}/compare/`
 const compareLocMatches = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)]
@@ -89,6 +121,14 @@ const report = {
     compare_query_4: 'PASS',
     representative_dossier_handoff: 'PASS',
     explorer_discovery: 'PASS',
+  },
+  provenance_bundle: {
+    last_verified: 'PASS',
+    high_reliability_evidence: 'PASS',
+    archived_evidence: 'PASS',
+    event_linked_evidence: 'PASS',
+    evidence_source_types: 'PASS',
+    latest_evidence_access: 'PASS',
   },
   discovery: {
     version: 'PASS',

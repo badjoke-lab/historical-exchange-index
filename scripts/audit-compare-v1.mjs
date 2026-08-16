@@ -56,6 +56,11 @@ function runContractSelfTest(contract) {
   if (contract.selection_parameter.comparison_ready_max !== 4) throw new Error('Compare maximum changed')
   if (contract.selection_parameter.selection_order !== 'preserve_input_order') throw new Error('Compare selection ordering changed')
   if (contract.selection_parameter.reviewed_public_only !== true) throw new Error('Compare reviewed-public boundary missing')
+  if (contract.version !== 2 || contract.status !== 'extended_for_ai_era_stage_e') throw new Error('Compare AI-era Stage E contract marker missing')
+  const provenance = contract.comparison_sections.find((section) => section.id === 'provenance')
+  const required = ['high_reliability_evidence_count', 'archived_evidence_count', 'event_linked_evidence_count', 'evidence_source_type_count', 'latest_evidence_accessed_at']
+  if (!provenance || required.some((field) => !provenance.fields.includes(field))) throw new Error('Compare provenance section incomplete')
+  if (contract.compatibility?.stage_e_extension !== 'additive_fields_only_existing_selection_urls_unchanged') throw new Error('Compare Stage E compatibility marker missing')
 }
 
 export function auditCompareV1() {
@@ -71,6 +76,7 @@ export function auditCompareV1() {
   const compareHtml = fs.existsSync(compareHtmlPath) ? fs.readFileSync(compareHtmlPath, 'utf8') : ''
   const exploreHtml = fs.existsSync(exploreHtmlPath) ? fs.readFileSync(exploreHtmlPath, 'utf8') : ''
   const compareStateSource = readText('src/lib/compare/compare-state.ts')
+  const compareContextSource = readText('src/lib/compare/compare-context.ts')
   const compareClientSource = readText('src/components/compare/compare-client.tsx')
   const dossierContextSource = readText('src/components/navigation/exchange-compare-context-link.tsx')
   const findings = []
@@ -124,6 +130,12 @@ export function auditCompareV1() {
   if (!compareStateSource.includes('COMPARE_MIN = 2') || !compareStateSource.includes('COMPARE_MAX = 4')) {
     findings.push(finding('compare_source_limit_contract_missing'))
   }
+  for (const marker of ['high_reliability_evidence_count', 'archived_evidence_count', 'event_linked_evidence_count', 'evidence_source_type_count', 'latest_evidence_accessed_at']) {
+    if (!compareContextSource.includes(marker)) findings.push(finding('compare_provenance_context_missing', { marker }))
+  }
+  for (const label of ['Last verified', 'High-reliability evidence', 'Archived evidence', 'Event-linked evidence', 'Evidence source types', 'Latest evidence access']) {
+    if (!compareClientSource.includes(`label: '${label}'`)) findings.push(finding('compare_provenance_row_source_missing', { label }))
+  }
   if (!compareClientSource.includes('serializeCompareState(state)')) findings.push(finding('normalized_share_serialization_missing'))
   if (!compareClientSource.includes('navigator.clipboard.writeText')) findings.push(finding('share_clipboard_action_missing'))
   if (!dossierContextSource.includes('/compare/?exchange=')) findings.push(finding('dossier_compare_handoff_missing'))
@@ -142,13 +154,13 @@ export function auditCompareV1() {
 const contract = readJson('config/compare-v1-contract.json')
 if (process.argv.includes('--self-test')) {
   runContractSelfTest(contract)
-  console.log('Compare v1 contract self-test passed.')
+  console.log('Compare contract v2 AI-era provenance self-test passed.')
 } else {
   const report = auditCompareV1()
-  console.log(`Compare v1 audit: ${report.finding_count} findings.`)
+  console.log(`Compare audit: ${report.finding_count} findings.`)
   if (report.finding_count > 0) {
     for (const item of report.findings) console.error(JSON.stringify(item))
-    throw new Error(`Compare v1 audit found ${report.finding_count} findings`)
+    throw new Error(`Compare audit found ${report.finding_count} findings`)
   }
-  console.log('Compare v1 audit passed with 0 findings.')
+  console.log('Compare audit passed with 0 findings.')
 }

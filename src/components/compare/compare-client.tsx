@@ -33,6 +33,11 @@ type Row = {
 const EMPTY_CONTEXT: CompareEntityContext = {
   event_count: 0,
   evidence_count: 0,
+  high_reliability_evidence_count: 0,
+  archived_evidence_count: 0,
+  event_linked_evidence_count: 0,
+  evidence_source_type_count: 0,
+  latest_evidence_accessed_at: null,
   selected_major_events: [],
 }
 
@@ -82,6 +87,10 @@ const rows: Row[] = [
     render: (entity) => titleCase(entity.confidence),
   },
   {
+    label: 'Last verified',
+    render: (entity) => formatDate(entity.last_verified_at),
+  },
+  {
     label: 'Original domain',
     render: (entity) => entity.official_domain_original ?? <span className="muted">Unknown</span>,
   },
@@ -102,6 +111,26 @@ const rows: Row[] = [
   {
     label: 'Reviewed evidence',
     render: (_entity, entityContext) => entityContext.evidence_count.toLocaleString(),
+  },
+  {
+    label: 'High-reliability evidence',
+    render: (_entity, entityContext) => entityContext.high_reliability_evidence_count.toLocaleString(),
+  },
+  {
+    label: 'Archived evidence',
+    render: (_entity, entityContext) => entityContext.archived_evidence_count.toLocaleString(),
+  },
+  {
+    label: 'Event-linked evidence',
+    render: (_entity, entityContext) => entityContext.event_linked_evidence_count.toLocaleString(),
+  },
+  {
+    label: 'Evidence source types',
+    render: (_entity, entityContext) => entityContext.evidence_source_type_count.toLocaleString(),
+  },
+  {
+    label: 'Latest evidence access',
+    render: (_entity, entityContext) => formatDate(entityContext.latest_evidence_accessed_at),
   },
   {
     label: 'Record',

@@ -10,6 +10,11 @@ export type CompareMajorEvent = Pick<
 export type CompareEntityContext = {
   event_count: number
   evidence_count: number
+  high_reliability_evidence_count: number
+  archived_evidence_count: number
+  event_linked_evidence_count: number
+  evidence_source_type_count: number
+  latest_evidence_accessed_at: string | null
   selected_major_events: CompareMajorEvent[]
 }
 
@@ -80,13 +85,21 @@ export function selectCompareMajorEvents(events: EventRecord[], limit = 5): Comp
     }))
 }
 
+function latestEvidenceAccessDate(evidence: EvidenceRecord[]): string | null {
+  return evidence
+    .map((item) => item.accessed_at)
+    .filter((value): value is string => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value))
+    .sort()
+    .at(-1) ?? null
+}
+
 export function buildCompareContext(
   entities: EntityRecord[],
   events: EventRecord[],
   evidence: EvidenceRecord[],
 ): CompareContextMap {
   const eventsByEntity = new Map<string, EventRecord[]>()
-  const evidenceCountByEntity = new Map<string, number>()
+  const evidenceByEntity = new Map<string, EvidenceRecord[]>()
 
   for (const event of events) {
     const current = eventsByEntity.get(event.exchange_id) ?? []
@@ -95,17 +108,22 @@ export function buildCompareContext(
   }
 
   for (const source of evidence) {
-    evidenceCountByEntity.set(
-      source.exchange_id,
-      (evidenceCountByEntity.get(source.exchange_id) ?? 0) + 1,
-    )
+    const current = evidenceByEntity.get(source.exchange_id) ?? []
+    current.push(source)
+    evidenceByEntity.set(source.exchange_id, current)
   }
 
   return Object.fromEntries(entities.map((entity) => {
     const entityEvents = eventsByEntity.get(entity.id) ?? []
+    const entityEvidence = evidenceByEntity.get(entity.id) ?? []
     return [entity.slug, {
       event_count: entityEvents.length,
-      evidence_count: evidenceCountByEntity.get(entity.id) ?? 0,
+      evidence_count: entityEvidence.length,
+      high_reliability_evidence_count: entityEvidence.filter((item) => item.reliability === 'high').length,
+      archived_evidence_count: entityEvidence.filter((item) => Boolean(item.archived_url)).length,
+      event_linked_evidence_count: entityEvidence.filter((item) => Boolean(item.event_id)).length,
+      evidence_source_type_count: new Set(entityEvidence.map((item) => item.source_type)).size,
+      latest_evidence_accessed_at: latestEvidenceAccessDate(entityEvidence),
       selected_major_events: selectCompareMajorEvents(entityEvents),
     }]
   }))
