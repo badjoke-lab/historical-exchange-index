@@ -13,9 +13,17 @@
   "authoritative_paths": {
     "agent_instructions": "AGENTS.md",
     "roadmap": "docs/HEI_V1_EXECUTION_ROADMAP.md",
+    "ai_era_registry_spec": "docs/HEI_AI_ERA_REGISTRY_SPEC.md",
+    "ai_era_execution_schedule": "docs/HEI_AI_ERA_EXECUTION_SCHEDULE.md",
+    "ai_era_closeout_report": "docs/audits/HEI_AI_ERA_FINITE_PASS_CLOSEOUT_2026-08-16.md",
+    "ai_era_lifecycle_followup": "docs/audits/HEI_AI_ERA_LIFECYCLE_FOLLOWUP_PASS_2026-08-16.md",
+    "ai_era_nl_evaluation": "docs/audits/HEI_AI_ERA_NATURAL_LANGUAGE_FILTER_EVALUATION_2026-08-16.md",
     "phase_g_spec": "docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md",
     "product_spec": "docs/HEI_PRODUCT_SURFACES_SPEC.md",
     "compare_spec": "docs/HEI_COMPARE_V1_SPEC.md",
+    "ai_era_compare_spec": "docs/HEI_AI_ERA_COMPARE_EXTENSION_SPEC.md",
+    "ai_era_explorer_spec": "docs/HEI_AI_ERA_EXPLORER_STRENGTHENING_SPEC.md",
+    "ai_era_stats_spec": "docs/HEI_AI_ERA_STATS_COMPLETION_SPEC.md",
     "data_growth_spec": "docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md",
     "localization_spec": "docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md",
     "l1_implementation_plan": "docs/HEI_L1_JAPANESE_PILOT_IMPLEMENTATION_PLAN.md",
@@ -57,8 +65,9 @@
   "dynamic_state_rules": {
     "main_sha": "derive from current origin/main or GitHub repository state; never hard-code as permanent truth",
     "open_product_prs": "derive from current GitHub pull-request state; never hard-code transient PR numbers as permanent truth",
-    "production_state": "read the latest dated production verification report and current production verification contract before diagnosing production",
-    "reviewed_counts": "derive with the same reviewed bundle aggregation and entity correction semantics used by public builds; never use base-array lengths alone"
+    "production_state": "read the latest production verification report plus current exact-commit machine-readable and Compare verification results before diagnosing production",
+    "reviewed_counts": "derive with the same reviewed bundle aggregation and entity correction semantics used by public builds; never use base-array lengths alone",
+    "ai_era_state": "read the AI-era registry specification, execution schedule, and closeout report; do not infer finite-pass completion from chat history"
   },
   "post_v1_priority_sequence": [
     "Phase H — Compare v1",
@@ -74,11 +83,12 @@
     "inspect open PRs and branch state",
     "read AGENTS + deployment policy + Cloudflare project policy",
     "read roadmap current checkpoint and execution order",
+    "read AI-era registry specification + execution schedule + closeout report",
     "read active phase specification and task-specific contracts",
     "derive reviewed counts using public build aggregation semantics",
-    "read latest production verification report before production diagnosis",
+    "read exact-commit production verification state before production diagnosis",
     "run recovery validator and relevant project validation commands",
-    "resume the first incomplete roadmap item",
+    "resume the first incomplete roadmap item while preserving completed AI-era boundaries",
     "repair stale checkpoint in the next appropriate reviewed PR"
   ]
 }
