@@ -9,15 +9,17 @@ Before changing code, data, workflows, build configuration, deployment behavior,
 1. `docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md`
 2. `config/cloudflare-pages-project.json`
 3. `docs/HEI_V1_EXECUTION_ROADMAP.md`
-4. `docs/HEI_PRODUCT_SURFACES_SPEC.md` when changing public product surfaces, routes, Explorer behavior, Change-layer output, Compare, AI-assisted query behavior, or related navigation
-5. `docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md` before changing entity-growth priorities, 750/1000 milestone gates, count semantics, or the relationship between data growth and localization
-6. `docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md` before changing locale configuration, dictionaries, overlays, locale routes, language switchers, hreflang, translated public copy, Japanese Pilot scope, evaluation, or additional-language rollout
-7. `docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md` before Phase G accessibility, URL-safety, cross-surface integration, public/machine consistency, production verification, recovery, or v1.0 baseline work
-8. the relevant schema, monitoring, record-growth, machine-readable, audit, feed, or other task-specific specification
+4. `docs/HEI_AI_ERA_REGISTRY_SPEC.md`
+5. `docs/HEI_AI_ERA_EXECUTION_SCHEDULE.md`
+6. `docs/HEI_PRODUCT_SURFACES_SPEC.md` when changing public product surfaces, routes, Explorer behavior, Change-layer output, Compare, AI-assisted query behavior, or related navigation
+7. `docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md` before changing entity-growth priorities, 750/1000 milestone gates, count semantics, or the relationship between data growth and localization
+8. `docs/HEI_LOCALIZATION_STRATEGY_AND_FOUNDATION_SPEC.md` before changing locale configuration, dictionaries, overlays, locale routes, language switchers, hreflang, translated public copy, Japanese Pilot scope, evaluation, or additional-language rollout
+9. `docs/HEI_V1_INTEGRATION_BASELINE_SPEC.md` before Phase G accessibility, URL-safety, cross-surface integration, public/machine consistency, production verification, recovery, or v1.0 baseline work
+10. the relevant schema, monitoring, record-growth, machine-readable, audit, feed, or other task-specific specification
 
 The Cloudflare deployment policy is the human-readable operational source of truth. The JSON project policy is the machine-readable authority for branch controls and build watch paths.
 
-The roadmap is the execution-order source of truth. The product-surfaces specification is the behavior and non-goal source of truth for public Registry, Analysis, Research, Change, Compare, and later query surfaces. The data-growth milestone specification is the source of truth for reviewed-count semantics and the 750/1000 release gates. The localization strategy specification is the source of truth for locale architecture, rollout gates, fallback, Japanese Pilot scope, evaluation, and additional-language safety. The v1 integration baseline specification is the source of truth for Phase G audit scope, severity, completion gates, production verification, and recovery requirements.
+The roadmap is the execution-order source of truth. The AI-era registry specification and execution schedule are mandatory product-resilience authorities for provenance, lifecycle follow-up, deterministic machine use, Explorer, Compare, Stats, and any later AI-assisted retrieval. The product-surfaces specification is the behavior and non-goal source of truth for public Registry, Analysis, Research, Change, Compare, and later query surfaces. The data-growth milestone specification is the source of truth for reviewed-count semantics and the 750/1000 release gates. The localization strategy specification is the source of truth for locale architecture, rollout gates, fallback, Japanese Pilot scope, evaluation, and additional-language safety. The v1 integration baseline specification is the source of truth for Phase G audit scope, severity, completion gates, production verification, and recovery requirements.
 
 Repository state is authoritative when a document checkpoint and current GitHub state disagree. Inspect current state first, then repair stale repository authority in the next appropriate reviewed PR.
 
@@ -34,7 +36,7 @@ Every implementation pull request must identify:
 
 Do not use remembered chat history as implementation authority when repository documents and current GitHub state can be inspected.
 
-When a change materially alters phase order, active work, route contracts, Explorer query semantics, public publishing safety, data-growth milestone gates, localization rollout order, locale architecture, Phase G completion gates, or post-v1 priorities, update the roadmap and relevant specification together.
+When a change materially alters phase order, active work, route contracts, Explorer query semantics, public publishing safety, data-growth milestone gates, localization rollout order, locale architecture, Phase G completion gates, AI-era registry boundaries, or post-v1 priorities, update the roadmap and relevant specification together.
 
 ## Fixed post-v1 priority rule
 
@@ -53,6 +55,8 @@ D-1000 Reviewed Entity Milestone
         ↓
 Language Selection Gate
 ```
+
+The completed finite AI-era pass is an orthogonal resilience track and does not silently reorder the localization roadmap. Its continuing rules remain mandatory while the fixed post-v1 sequence advances.
 
 Data growth may continue during product and localization work, but:
 
@@ -89,6 +93,8 @@ Treat changes to these paths as deployment-sensitive:
 - `scripts/build-*`
 - `scripts/validate-*`
 - `scripts/check-machine-readable-production.mjs`
+- `scripts/check-record-level-machine-readable-production.mjs`
+- `scripts/check-stats-machine-readable-production.mjs`
 
 For such changes, record whether preview is required and why.
 
@@ -119,7 +125,7 @@ Do not use base-array lengths alone as the reviewed public entity count.
 
 Monitoring and ingestion automation must not publish unreviewed candidates directly into reviewed public data. Staging and monitoring outputs remain non-canonical until reviewed and merged.
 
-Public product surfaces, Explorer results, Stats deep links, Timeline output, Registry Updates, monthly snapshots, public feeds, localized presentation layers, and Phase G audits must preserve the reviewed-public boundary defined by the relevant specification.
+Public product surfaces, Explorer results, Stats deep links, Timeline output, Registry Updates, monthly snapshots, public feeds, localized presentation layers, machine-readable record bundles, aggregate Stats JSON, and audits must preserve the reviewed-public boundary defined by the relevant specification.
 
 Localization dictionaries and overlays must not become alternate canonical data stores. IDs, slugs, enum values, domains, source URLs, archive URLs, and reviewed factual fields remain locale-independent unless the localization specification is deliberately revised.
 
@@ -142,6 +148,8 @@ Temporary scripts, workflows, audit files, and diagnostic branches must be remov
 If another instruction conflicts with `docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md` on deployment behavior, follow the deployment policy until a reviewed PR deliberately changes it.
 
 If a public product implementation conflicts with `docs/HEI_PRODUCT_SURFACES_SPEC.md`, stop that implementation path and reconcile the product specification and roadmap before proceeding.
+
+If AI-era product, provenance, lifecycle, machine-readable, Explorer, Compare, Stats, or AI-assisted retrieval work conflicts with `docs/HEI_AI_ERA_REGISTRY_SPEC.md` or `docs/HEI_AI_ERA_EXECUTION_SCHEDULE.md`, stop that path and reconcile those authorities with the roadmap before proceeding.
 
 If data-growth work conflicts with `docs/HEI_DATA_GROWTH_MILESTONES_SPEC.md`, stop that path and reconcile the growth specification and roadmap before proceeding.
 
