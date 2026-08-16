@@ -12,6 +12,8 @@
       "data/*",
       "records/*",
       "scripts/build-machine-readable-layer.mjs",
+      "scripts/build-record-level-machine-readable.mjs",
+      "scripts/register-stats-machine-readable.mjs",
       "scripts/lib/*",
       "package.json",
       "package-lock.json",
