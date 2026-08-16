@@ -4,6 +4,7 @@ import JapanesePilotSurface from '../../../components/i18n/japanese-pilot-surfac
 import EntityExplorerClient from '../../../components/explorer/entity-explorer-client'
 import { loadEntities } from '../../../lib/data/load-entities'
 import { loadEvents } from '../../../lib/data/load-events'
+import { loadEvidence } from '../../../lib/data/load-evidence'
 import { buildLocalizedPageMetadata, getPagePresentation } from '../../../lib/i18n/page-presentations'
 
 export function generateMetadata(): Metadata {
@@ -13,6 +14,7 @@ export function generateMetadata(): Metadata {
 export default function JapaneseExplorePage() {
   const entities = loadEntities()
   const events = loadEvents()
+  const evidence = loadEvidence()
   const reviewedOrigins = [...new Set(
     entities
       .map((entity) => entity.country_or_origin)
@@ -22,7 +24,7 @@ export default function JapaneseExplorePage() {
   return (
     <JapanesePilotSurface presentation={getPagePresentation('ja', 'explore')} englishHref="/explore/">
       <Suspense fallback={<section className="panel table-panel"><div className="results-meta"><div>クエリ状態を読み込み中…</div></div></section>}>
-        <EntityExplorerClient entities={entities} events={events} reviewedOrigins={reviewedOrigins} />
+        <EntityExplorerClient entities={entities} events={events} evidence={evidence} reviewedOrigins={reviewedOrigins} />
       </Suspense>
     </JapanesePilotSurface>
   )

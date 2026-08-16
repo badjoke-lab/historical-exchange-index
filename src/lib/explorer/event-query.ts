@@ -1,8 +1,10 @@
 import contractJson from '../../../config/explorer-query-contract.json'
 import type { Confidence, EntityRecord, ExchangeStatus, ExchangeType } from '../types/entity'
+import type { EvidenceRecord, Reliability, SourceType } from '../types/evidence'
 import type { EventRecord, EventStatusEffect, EventType, ImpactLevel } from '../types/event'
 
 export type EventSort = 'date_newest' | 'date_oldest' | 'entity_name_asc'
+export type EvidenceArchiveAvailable = '' | 'true' | 'false'
 
 export interface EventExplorerState {
   view: 'events'
@@ -15,12 +17,15 @@ export interface EventExplorerState {
   confidence: Confidence[]
   entity_type: ExchangeType[]
   entity_status: ExchangeStatus[]
+  evidence_source_type: SourceType[]
+  evidence_reliability: Reliability[]
+  evidence_archive_available: EvidenceArchiveAvailable
   sort: EventSort
 }
 
 type ParameterDefinition = {
   key: string
-  kind: 'text' | 'enum' | 'date'
+  kind: 'text' | 'enum' | 'date' | 'boolean'
   cardinality: 'single' | 'multi'
   values?: string[]
 }
@@ -53,6 +58,8 @@ export const EVENT_FILTER_VALUES = {
   confidence: enumValues<Confidence>('confidence'),
   entity_type: enumValues<ExchangeType>('entity_type'),
   entity_status: enumValues<ExchangeStatus>('entity_status'),
+  evidence_source_type: enumValues<SourceType>('evidence_source_type'),
+  evidence_reliability: enumValues<Reliability>('evidence_reliability'),
   sort: enumValues<EventSort>('sort'),
 }
 
@@ -99,6 +106,14 @@ function stableEnum<T extends string>(params: URLSearchParams, key: string): T[]
   return allowed.filter((value) => requested.has(value))
 }
 
+function firstValidBoolean(params: URLSearchParams, key: string): EvidenceArchiveAvailable {
+  const allowed = new Set(definitions.get(key)?.values ?? [])
+  for (const value of params.getAll(key)) {
+    if (allowed.has(value)) return value as EvidenceArchiveAvailable
+  }
+  return ''
+}
+
 function firstValidSort(params: URLSearchParams): EventSort {
   const allowed = new Set(EVENT_FILTER_VALUES.sort)
   for (const value of params.getAll('sort')) {
@@ -120,6 +135,9 @@ export function parseEventExplorerState(input: string | URLSearchParams): EventE
     confidence: stableEnum<Confidence>(params, 'confidence'),
     entity_type: stableEnum<ExchangeType>(params, 'entity_type'),
     entity_status: stableEnum<ExchangeStatus>(params, 'entity_status'),
+    evidence_source_type: stableEnum<SourceType>(params, 'evidence_source_type'),
+    evidence_reliability: stableEnum<Reliability>(params, 'evidence_reliability'),
+    evidence_archive_available: firstValidBoolean(params, 'evidence_archive_available'),
     sort: firstValidSort(params),
   }
 }
@@ -140,6 +158,9 @@ export function serializeEventExplorerState(state: EventExplorerState) {
   appendMany(params, 'confidence', state.confidence)
   appendMany(params, 'entity_type', state.entity_type)
   appendMany(params, 'entity_status', state.entity_status)
+  appendMany(params, 'evidence_source_type', state.evidence_source_type)
+  appendMany(params, 'evidence_reliability', state.evidence_reliability)
+  if (state.evidence_archive_available) params.append('evidence_archive_available', state.evidence_archive_available)
   if (state.sort !== EVENT_DEFAULT_SORT) params.append('sort', state.sort)
   return params.toString()
 }
@@ -174,10 +195,25 @@ function rangeMatches(value: string | null, from: string, to: string) {
   return true
 }
 
+function hasEvidenceConstraints(state: EventExplorerState) {
+  return state.evidence_source_type.length > 0
+    || state.evidence_reliability.length > 0
+    || Boolean(state.evidence_archive_available)
+}
+
+function evidenceMatches(item: EvidenceRecord, state: EventExplorerState) {
+  if (!matchesAny(item.source_type, state.evidence_source_type)) return false
+  if (!matchesAny(item.reliability, state.evidence_reliability)) return false
+  if (state.evidence_archive_available === 'true' && !item.archived_url) return false
+  if (state.evidence_archive_available === 'false' && item.archived_url) return false
+  return true
+}
+
 export function filterEventExplorerRecords(
   events: EventRecord[],
   entityById: Map<string, EntityRecord>,
   state: EventExplorerState,
+  evidenceByEvent: Map<string, EvidenceRecord[]> = new Map(),
 ) {
   if (state.date_from && state.date_to && state.date_from > state.date_to) return []
 
@@ -192,6 +228,7 @@ export function filterEventExplorerRecords(
     if (!matchesAny(event.confidence, state.confidence)) return false
     if (!matchesAny(parent.type, state.entity_type)) return false
     if (!matchesAny(parent.status, state.entity_status)) return false
+    if (hasEvidenceConstraints(state) && !(evidenceByEvent.get(event.id) ?? []).some((item) => evidenceMatches(item, state))) return false
     return true
   })
 }
@@ -239,5 +276,8 @@ export function countEventExplorerFilters(state: EventExplorerState) {
     + state.confidence.length
     + state.entity_type.length
     + state.entity_status.length
+    + state.evidence_source_type.length
+    + state.evidence_reliability.length
+    + Number(Boolean(state.evidence_archive_available))
     + Number(state.sort !== EVENT_DEFAULT_SORT)
 }

@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import EntityExplorerClient from '../../components/explorer/entity-explorer-client'
 import { loadEntities } from '../../lib/data/load-entities'
 import { loadEvents } from '../../lib/data/load-events'
+import { loadEvidence } from '../../lib/data/load-evidence'
 import {
   buildLocalizedPageMetadata,
   getPagePresentation,
@@ -24,6 +25,7 @@ export function generateMetadata(): Metadata {
 export default function ExplorePage() {
   const entities = loadEntities()
   const events = loadEvents()
+  const evidence = loadEvidence()
   const presentation = getPagePresentation('en', 'explore')
   const reviewedOrigins = [...new Set(
     entities
@@ -62,7 +64,7 @@ export default function ExplorePage() {
       </section>
 
       <Suspense fallback={<section className="panel table-panel"><div className="results-meta"><div>Loading Explorer query state…</div></div></section>}>
-        <EntityExplorerClient entities={entities} events={events} reviewedOrigins={reviewedOrigins} />
+        <EntityExplorerClient entities={entities} events={events} evidence={evidence} reviewedOrigins={reviewedOrigins} />
       </Suspense>
     </main>
   )

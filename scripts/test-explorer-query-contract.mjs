@@ -31,7 +31,7 @@ function run() {
   assert.equal(
     canonicalizeExplorerQuery('status=dead&type=dex&type=cex&view=entities&type=dex', contract, reviewedValues),
     'view=entities&type=cex&type=dex&status=dead',
-    'canonical parameter order',
+    'canonical parameter order remains backward compatible',
   )
 
   equal(
@@ -76,6 +76,43 @@ function run() {
     'inverted valid ranges are preserved for deterministic empty-result handling',
   )
 
+  equal(
+    parseExplorerQuery('view=entities&verified_from=2026&verified_to=2026-08-16&evidence_source_type=regulatory_notice&evidence_source_type=official_statement&evidence_reliability=high&evidence_archive_available=true', contract, reviewedValues),
+    {
+      view: 'entities',
+      verified_from: '2026-01-01',
+      verified_to: '2026-08-16',
+      evidence_source_type: ['official_statement', 'regulatory_notice'],
+      evidence_reliability: ['high'],
+      evidence_archive_available: 'true',
+    },
+    'entity verification and evidence provenance filters normalize deterministically',
+  )
+
+  assert.equal(
+    canonicalizeExplorerQuery('view=entities&status=dead&evidence_reliability=medium&evidence_source_type=news_article&verified_from=2026'),
+    'view=entities&status=dead&verified_from=2026-01-01&evidence_source_type=news_article&evidence_reliability=medium',
+    'entity provenance keys serialize in additive contract order',
+  )
+
+  equal(
+    parseExplorerQuery('view=events&event_type=regulatory_action&evidence_source_type=regulatory_notice&evidence_reliability=high&evidence_archive_available=false', contract, reviewedValues),
+    {
+      view: 'events',
+      event_type: ['regulatory_action'],
+      evidence_source_type: ['regulatory_notice'],
+      evidence_reliability: ['high'],
+      evidence_archive_available: 'false',
+    },
+    'event provenance filters parse against directly linked evidence dimensions',
+  )
+
+  assert.equal(
+    canonicalizeExplorerQuery('view=events&evidence_archive_available=true&evidence_reliability=low&evidence_source_type=community_reference&sort=entity_name_asc'),
+    'view=events&evidence_source_type=community_reference&evidence_reliability=low&evidence_archive_available=true&sort=entity_name_asc',
+    'event provenance keys have stable serialization order',
+  )
+
   const firstOrigin = reviewedValues.entities.country_or_origin[0]
   assert.ok(firstOrigin, 'reviewed origin values should not be empty')
   const originLower = firstOrigin.toLocaleLowerCase('en-US')
@@ -102,6 +139,7 @@ function run() {
 
   assert.equal(normalizeExplorerDate('2020', 'launch_from', contract), '2020-01-01')
   assert.equal(normalizeExplorerDate('2020', 'launch_to', contract), '2020-12-31')
+  assert.equal(normalizeExplorerDate('2020', 'verified_from', contract), '2020-01-01')
   assert.equal(normalizeExplorerDate('2020-02-29', 'launch_from', contract), '2020-02-29')
   assert.equal(normalizeExplorerDate('2021-02-29', 'launch_from', contract), null)
 
@@ -137,10 +175,10 @@ function run() {
   assert.equal(
     explorerQueryHref({ view: 'entities', status: ['dead'], type: ['dex'] }, contract, reviewedValues),
     '/explore/?view=entities&type=dex&status=dead',
-    'href helper uses canonical route and query order',
+    'href helper preserves existing canonical route and query order',
   )
 
-  console.log('Explorer query contract tests passed.')
+  console.log('Explorer query contract v2 provenance-extension tests passed.')
 }
 
 run()

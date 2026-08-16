@@ -5,6 +5,7 @@ import { useMemo, useState, type ReactNode } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import type { EntityRecord } from '../../lib/types/entity'
 import type { EventRecord } from '../../lib/types/event'
+import type { EvidenceRecord } from '../../lib/types/evidence'
 import {
   countEventExplorerFilters,
   EVENT_FILTER_VALUES,
@@ -23,9 +24,10 @@ const LOAD_MORE_STEP = 50
 type Props = {
   events: EventRecord[]
   entities: EntityRecord[]
+  evidence: EvidenceRecord[]
 }
 
-type MultiKey = 'event_type' | 'impact_level' | 'event_status_effect' | 'confidence' | 'entity_type' | 'entity_status'
+type MultiKey = 'event_type' | 'impact_level' | 'event_status_effect' | 'confidence' | 'entity_type' | 'entity_status' | 'evidence_source_type' | 'evidence_reliability'
 
 function titleCase(value: string) {
   return value.split('_').map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
@@ -145,17 +147,27 @@ function EventResults({ events, entityById, state }: {
           <div className="registry-load-more-note">{remaining} remaining in current query</div>
         </div>
       ) : null}
-      <div className={styles.resultHint}>Sort: {titleCase(state.sort)} · Parent exchange context is reviewed HEI entity data.</div>
+      <div className={styles.resultHint}>Sort: {titleCase(state.sort)} · Evidence filters use directly event-linked reviewed evidence only.</div>
     </>
   )
 }
 
-export default function EventExplorerPanel({ events, entities }: Props) {
+export default function EventExplorerPanel({ events, entities, evidence }: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const state = useMemo(() => parseEventExplorerState(searchParams), [searchParams])
   const entityById = useMemo(() => new Map(entities.map((entity) => [entity.id, entity])), [entities])
+  const evidenceByEvent = useMemo(() => {
+    const map = new Map<string, EvidenceRecord[]>()
+    for (const item of evidence) {
+      if (!item.event_id) continue
+      const list = map.get(item.event_id) ?? []
+      list.push(item)
+      map.set(item.event_id, list)
+    }
+    return map
+  }, [evidence])
 
   const updateState = (next: EventExplorerState) => router.replace(`${pathname}?${serializeEventExplorerState(next)}`, { scroll: false })
   const patchState = (patch: Partial<EventExplorerState>) => updateState({ ...state, ...patch, view: 'events' })
@@ -166,8 +178,8 @@ export default function EventExplorerPanel({ events, entities }: Props) {
   }
 
   const filteredAndSorted = useMemo(
-    () => sortEventExplorerRecords(filterEventExplorerRecords(events, entityById, state), entityById, state.sort),
-    [events, entityById, state],
+    () => sortEventExplorerRecords(filterEventExplorerRecords(events, entityById, state, evidenceByEvent), entityById, state.sort),
+    [events, entityById, state, evidenceByEvent],
   )
   const filterCount = countEventExplorerFilters(state)
   const resultKey = serializeEventExplorerState(state)
@@ -190,6 +202,9 @@ export default function EventExplorerPanel({ events, entities }: Props) {
           <FilterGroup title="Confidence" count={state.confidence.length || 'all'}><CheckboxList values={EVENT_FILTER_VALUES.confidence} selected={state.confidence} labelFor={titleCase} onToggle={(value) => toggleMulti('confidence', value)} /></FilterGroup>
           <FilterGroup title="Parent type" count={state.entity_type.length || 'all'}><CheckboxList values={EVENT_FILTER_VALUES.entity_type} selected={state.entity_type} labelFor={(value) => value === 'hybrid' ? 'Hybrid' : value.toUpperCase()} onToggle={(value) => toggleMulti('entity_type', value)} /></FilterGroup>
           <FilterGroup title="Parent status" count={state.entity_status.length || 'all'}><CheckboxList values={EVENT_FILTER_VALUES.entity_status} selected={state.entity_status} labelFor={(value) => STATUS_LABELS[value as keyof typeof STATUS_LABELS]} onToggle={(value) => toggleMulti('entity_status', value)} /></FilterGroup>
+          <FilterGroup title="Evidence source type" count={state.evidence_source_type.length || 'all'}><CheckboxList values={EVENT_FILTER_VALUES.evidence_source_type} selected={state.evidence_source_type} labelFor={titleCase} onToggle={(value) => toggleMulti('evidence_source_type', value)} /></FilterGroup>
+          <FilterGroup title="Evidence reliability" count={state.evidence_reliability.length || 'all'}><CheckboxList values={EVENT_FILTER_VALUES.evidence_reliability} selected={state.evidence_reliability} labelFor={titleCase} onToggle={(value) => toggleMulti('evidence_reliability', value)} /></FilterGroup>
+          <FilterGroup title="Evidence archive" count={state.evidence_archive_available || 'all'}><div className={styles.optionList}><label className={styles.dateLabel}>Direct event evidence archive state<select className="field" aria-label="Event evidence archive availability" value={state.evidence_archive_available} onChange={(event) => patchState({ evidence_archive_available: event.target.value as EventExplorerState['evidence_archive_available'] })}><option value="">Any evidence archive state</option><option value="true">Includes archived evidence</option><option value="false">Includes evidence without archive</option></select></label><div className={styles.originHelp}>All active evidence filters must match the same directly linked reviewed evidence item.</div></div></FilterGroup>
         </div>
 
         <div className={styles.toolbar}>

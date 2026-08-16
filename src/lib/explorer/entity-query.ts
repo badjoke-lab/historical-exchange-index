@@ -1,5 +1,6 @@
 import contractJson from '../../../config/explorer-query-contract.json'
 import type { Confidence, DeathReason, EntityRecord, ExchangeStatus, ExchangeType, UrlStatus } from '../types/entity'
+import type { EvidenceRecord, Reliability, SourceType } from '../types/evidence'
 
 type EntitySort =
   | 'name_asc'
@@ -25,6 +26,11 @@ export interface EntityExplorerState {
   official_url_status: UrlStatus[]
   archive_available: ArchiveAvailable
   confidence: Confidence[]
+  verified_from: string
+  verified_to: string
+  evidence_source_type: SourceType[]
+  evidence_reliability: Reliability[]
+  evidence_archive_available: ArchiveAvailable
   country_or_origin: string[]
   sort: EntitySort
 }
@@ -69,6 +75,8 @@ export const ENTITY_FILTER_VALUES = {
   death_reason: getEnumValues<Exclude<DeathReason, null>>('death_reason'),
   official_url_status: getEnumValues<UrlStatus>('official_url_status'),
   confidence: getEnumValues<Confidence>('confidence'),
+  evidence_source_type: getEnumValues<SourceType>('evidence_source_type'),
+  evidence_reliability: getEnumValues<Reliability>('evidence_reliability'),
   sort: getEnumValues<EntitySort>('sort'),
 }
 
@@ -185,6 +193,11 @@ export function parseEntityExplorerState(
     official_url_status: stableEnumValues<UrlStatus>(params.getAll('official_url_status'), 'official_url_status'),
     archive_available: firstValidBoolean(params, 'archive_available'),
     confidence: stableEnumValues<Confidence>(params.getAll('confidence'), 'confidence'),
+    verified_from: firstValidDate(params, 'verified_from'),
+    verified_to: firstValidDate(params, 'verified_to'),
+    evidence_source_type: stableEnumValues<SourceType>(params.getAll('evidence_source_type'), 'evidence_source_type'),
+    evidence_reliability: stableEnumValues<Reliability>(params.getAll('evidence_reliability'), 'evidence_reliability'),
+    evidence_archive_available: firstValidBoolean(params, 'evidence_archive_available'),
     country_or_origin: stableReviewedValues(params.getAll('country_or_origin'), reviewedOrigins),
     sort: firstValidSort(params),
   }
@@ -210,6 +223,11 @@ export function serializeEntityExplorerState(state: EntityExplorerState, reviewe
   appendMany(params, 'official_url_status', normalized.official_url_status)
   if (normalized.archive_available) params.append('archive_available', normalized.archive_available)
   appendMany(params, 'confidence', normalized.confidence)
+  if (normalized.verified_from) params.append('verified_from', normalized.verified_from)
+  if (normalized.verified_to) params.append('verified_to', normalized.verified_to)
+  appendMany(params, 'evidence_source_type', normalized.evidence_source_type)
+  appendMany(params, 'evidence_reliability', normalized.evidence_reliability)
+  if (normalized.evidence_archive_available) params.append('evidence_archive_available', normalized.evidence_archive_available)
   appendMany(params, 'country_or_origin', normalized.country_or_origin)
   if (normalized.sort !== ENTITY_DEFAULT_SORT) params.append('sort', normalized.sort)
 
@@ -230,6 +248,11 @@ function stateToParams(state: EntityExplorerState) {
   appendMany(params, 'official_url_status', state.official_url_status)
   if (state.archive_available) params.append('archive_available', state.archive_available)
   appendMany(params, 'confidence', state.confidence)
+  if (state.verified_from) params.append('verified_from', state.verified_from)
+  if (state.verified_to) params.append('verified_to', state.verified_to)
+  appendMany(params, 'evidence_source_type', state.evidence_source_type)
+  appendMany(params, 'evidence_reliability', state.evidence_reliability)
+  if (state.evidence_archive_available) params.append('evidence_archive_available', state.evidence_archive_available)
   appendMany(params, 'country_or_origin', state.country_or_origin)
   if (state.sort) params.append('sort', state.sort)
   return params
@@ -268,9 +291,28 @@ function matchesAny<T extends string>(value: T | null, filters: T[]) {
   return filters.length === 0 || (value !== null && filters.includes(value))
 }
 
-export function filterEntityExplorerRecords(entities: EntityRecord[], state: EntityExplorerState) {
+function hasEvidenceConstraints(state: EntityExplorerState) {
+  return state.evidence_source_type.length > 0
+    || state.evidence_reliability.length > 0
+    || Boolean(state.evidence_archive_available)
+}
+
+function evidenceMatches(item: EvidenceRecord, state: EntityExplorerState) {
+  if (!matchesAny(item.source_type, state.evidence_source_type)) return false
+  if (!matchesAny(item.reliability, state.evidence_reliability)) return false
+  if (state.evidence_archive_available === 'true' && !item.archived_url) return false
+  if (state.evidence_archive_available === 'false' && item.archived_url) return false
+  return true
+}
+
+export function filterEntityExplorerRecords(
+  entities: EntityRecord[],
+  state: EntityExplorerState,
+  evidenceByEntity: Map<string, EvidenceRecord[]> = new Map(),
+) {
   if (hasInvertedRange(state.launch_from, state.launch_to)) return []
   if (hasInvertedRange(state.death_from, state.death_to)) return []
+  if (hasInvertedRange(state.verified_from, state.verified_to)) return []
 
   return entities.filter((entity) => {
     if (!matchesSearch(entity, state.q)) return false
@@ -283,6 +325,8 @@ export function filterEntityExplorerRecords(entities: EntityRecord[], state: Ent
     if (state.archive_available === 'true' && !entity.archived_url) return false
     if (state.archive_available === 'false' && entity.archived_url) return false
     if (!matchesAny(entity.confidence, state.confidence)) return false
+    if (!inInclusiveRange(entity.last_verified_at, state.verified_from, state.verified_to)) return false
+    if (hasEvidenceConstraints(state) && !(evidenceByEntity.get(entity.id) ?? []).some((item) => evidenceMatches(item, state))) return false
     if (state.country_or_origin.length > 0 && !matchesAny(entity.country_or_origin, state.country_or_origin)) return false
     return true
   })
@@ -337,6 +381,11 @@ export function countEntityExplorerFilters(state: EntityExplorerState) {
     + state.official_url_status.length
     + Number(Boolean(state.archive_available))
     + state.confidence.length
+    + Number(Boolean(state.verified_from))
+    + Number(Boolean(state.verified_to))
+    + state.evidence_source_type.length
+    + state.evidence_reliability.length
+    + Number(Boolean(state.evidence_archive_available))
     + state.country_or_origin.length
     + Number(Boolean(state.q))
     + Number(state.sort !== ENTITY_DEFAULT_SORT)

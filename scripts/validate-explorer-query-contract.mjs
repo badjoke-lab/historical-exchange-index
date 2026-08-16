@@ -17,8 +17,8 @@ function readJson(filePath) {
 const contract = readJson(contractPath)
 const handoff = readJson(handoffPath)
 
-assert(contract.version === 1, 'contract version must be 1')
-assert(contract.status === 'fixed_for_explorer_v1_implementation', 'contract status is not fixed for v1 implementation')
+assert(contract.version === 2, 'contract version must be 2 after the AI-era provenance extension')
+assert(contract.status === 'extended_for_ai_era_stage_d', 'contract status is not the AI-era Stage D extension')
 assert(contract.route === '/explore/', 'Explorer route must be /explore/')
 assert(contract.view_parameter?.key === 'view', 'view parameter key must be view')
 assert(contract.view_parameter?.default === 'entities', 'default view must be entities')
@@ -29,6 +29,7 @@ assert(contract.combination_semantics?.same_key_multiple_values === 'or', 'same-
 assert(contract.combination_semantics?.different_keys === 'and', 'different keys must use AND semantics')
 assert(contract.combination_semantics?.repeated_parameter_encoding === true, 'multi-value encoding must use repeated parameters')
 assert(contract.combination_semantics?.deduplicate_repeated_values === true, 'multi-value dedupe must be enabled')
+assert(contract.combination_semantics?.evidence_filter_scope === 'all active evidence filters must match the same reviewed evidence item', 'evidence filter scope changed')
 
 assert(contract.invalid_input?.unknown_parameter === 'ignore', 'unknown parameters must be ignored')
 assert(contract.invalid_input?.cross_view_parameter === 'ignore', 'cross-view parameters must be ignored')
@@ -74,10 +75,25 @@ for (const viewName of contract.view_parameter.values) {
   for (const value of sort.values) assert(Array.isArray(view.sort_semantics?.[value]) && view.sort_semantics[value].length > 0, `sort semantics missing: ${viewName}:${value}`)
 }
 
+const entityKeys = new Set(contract.views.entities.parameters.map((parameter) => parameter.key))
+for (const key of ['verified_from', 'verified_to', 'evidence_source_type', 'evidence_reliability', 'evidence_archive_available']) {
+  assert(entityKeys.has(key), `AI-era entity provenance key missing: ${key}`)
+}
+const eventKeys = new Set(contract.views.events.parameters.map((parameter) => parameter.key))
+for (const key of ['evidence_source_type', 'evidence_reliability', 'evidence_archive_available']) {
+  assert(eventKeys.has(key), `AI-era event provenance key missing: ${key}`)
+}
+const sourceTypes = contract.views.entities.parameters.find((parameter) => parameter.key === 'evidence_source_type')?.values
+assert(JSON.stringify(sourceTypes) === JSON.stringify(contract.views.events.parameters.find((parameter) => parameter.key === 'evidence_source_type')?.values), 'entity/event source-type filters differ')
+const reliabilities = contract.views.entities.parameters.find((parameter) => parameter.key === 'evidence_reliability')?.values
+assert(JSON.stringify(reliabilities) === JSON.stringify(['high', 'medium', 'low']), 'evidence reliability filter values changed')
+assert(JSON.stringify(reliabilities) === JSON.stringify(contract.views.events.parameters.find((parameter) => parameter.key === 'evidence_reliability')?.values), 'entity/event reliability filters differ')
+
 assert(contract.crawl_policy?.base_route_indexable === true, 'base Explorer route must be indexable')
 assert(contract.crawl_policy?.canonical_for_all_query_variants === '/explore/', 'query variant canonical must point to /explore/')
 assert(contract.crawl_policy?.query_variants_in_sitemap === false, 'query variants must stay out of sitemap')
 assert(contract.crawl_policy?.generated_filter_landing_pages === false, 'generated filter landing pages must remain disabled')
+assert(contract.compatibility?.stage_d_additive_keys === 'backward_compatible_old_urls_unchanged', 'Stage D compatibility marker missing')
 
 assert(handoff.status === 'deep_links_enabled_on_fixed_explorer_v1_contract', 'Stats handoff status is not enabled')
 assert(handoff.explorer_route === contract.route, 'Stats handoff route differs from query contract')
@@ -96,7 +112,7 @@ for (const dimension of handoff.dimensions) {
 }
 
 const evidenceDimension = handoff.dimensions.find((dimension) => dimension.id === 'evidence_dimensions')
-assert(evidenceDimension?.destination_view === 'deferred_evidence', 'Evidence dimensions must remain deferred')
-assert(evidenceDimension?.query_keys.length === 0, 'Evidence dimensions must expose no query keys')
+assert(evidenceDimension?.destination_view === 'deferred_evidence', 'Evidence dimensions remain outside a dedicated Evidence Explorer')
+assert(evidenceDimension?.query_keys.length === 0, 'Stats evidence dimensions remain unlinked until separately authorized')
 
-console.log(`Validated Explorer query contract v${contract.version}: Stats deep links enabled across ${handoff.dimensions.length} mapped dimensions.`)
+console.log(`Validated Explorer query contract v${contract.version}: AI-era provenance filters enabled; ${handoff.dimensions.length} existing Stats mappings remain compatible.`)
