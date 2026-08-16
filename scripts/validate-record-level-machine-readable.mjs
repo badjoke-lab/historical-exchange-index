@@ -16,6 +16,12 @@ function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
 }
 
+function readText(relativePath) {
+  const filePath = path.join(root, relativePath)
+  assert(fs.existsSync(filePath), `missing ${relativePath}`)
+  return fs.readFileSync(filePath, 'utf8')
+}
+
 function compareEvents(a, b) {
   const dateOrder = String(a.event_date ?? '').localeCompare(String(b.event_date ?? ''))
   if (dateOrder !== 0) return dateOrder
@@ -25,6 +31,9 @@ function compareEvents(a, b) {
 }
 
 const version = readJson('public/version.json')
+const manifest = readJson('public/data/manifest.json')
+const llms = readText('public/llms.txt')
+const ai = readText('public/ai.txt')
 const index = readJson('public/data/exchanges/index.json')
 const canonicalEntities = readJson('data/entities.json')
 const canonicalEvents = readJson('data/events.json')
@@ -36,7 +45,19 @@ const bundleEntityIdMap = buildBundleEntityIdMap(correctedCanonicalEntities, rev
 const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event')
 const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence')
 const canonicalExchangeId = (exchangeId) => bundleEntityIdMap.get(exchangeId) ?? exchangeId
-const entityById = new Map(entities.map((entity) => [entity.id, entity]))
+
+const expectedDiscovery = {
+  index: '/data/exchanges/index.json',
+  record_url_template: '/data/exchanges/{slug}.json',
+  record_count: entities.length,
+  canonical_only: true,
+}
+assert(stableStringify(version.record_level) === stableStringify(expectedDiscovery), 'version record_level discovery mismatch')
+assert(stableStringify(manifest.record_level) === stableStringify(expectedDiscovery), 'manifest record_level discovery mismatch')
+for (const text of [llms, ai]) {
+  assert(text.includes('/data/exchanges/index.json'), 'record-level index missing from discovery text')
+  assert(text.includes('/data/exchanges/{slug}.json'), 'record-level template missing from discovery text')
+}
 
 assert(index.schema_version === '1.0.0', 'index schema_version mismatch')
 assert(index.data_schema_version === 'hei_entity_event_evidence_v1', 'index data_schema_version mismatch')
@@ -126,4 +147,4 @@ for (const entity of entities) {
 const files = fs.readdirSync(path.join(root, 'public', 'data', 'exchanges')).filter((name) => name.endsWith('.json'))
 assert(files.length === entities.length + 1, 'record-level output contains stale or missing JSON files')
 
-console.log(`Validated ${entities.length} HEI record-level machine-readable bundles.`)
+console.log(`Validated ${entities.length} HEI record-level machine-readable bundles and discovery metadata.`)

@@ -35,3 +35,6 @@ jobs:
 
       - name: Verify production machine-readable endpoints
         run: node scripts/check-machine-readable-production.mjs
+
+      - name: Verify production record-level endpoints
+        run: node scripts/check-record-level-machine-readable-production.mjs

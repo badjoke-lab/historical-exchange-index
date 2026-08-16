@@ -18,6 +18,12 @@ function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
 }
 
+function appendDiscoveryOnce(filePath, marker, block) {
+  const current = fs.readFileSync(filePath, 'utf8').trimEnd()
+  if (current.includes(marker)) return
+  fs.writeFileSync(filePath, `${current}\n\n${block.trim()}\n`, 'utf8')
+}
+
 function compareEvents(a, b) {
   const dateOrder = String(a.event_date ?? '').localeCompare(String(b.event_date ?? ''))
   if (dateOrder !== 0) return dateOrder
@@ -27,8 +33,14 @@ function compareEvents(a, b) {
 }
 
 const versionPath = path.join(publicDir, 'version.json')
+const manifestPath = path.join(publicDir, 'data', 'manifest.json')
+const llmsPath = path.join(publicDir, 'llms.txt')
+const aiPath = path.join(publicDir, 'ai.txt')
 if (!fs.existsSync(versionPath)) {
   throw new Error('record-level build requires public/version.json from build-machine-readable-layer.mjs')
+}
+if (!fs.existsSync(manifestPath) || !fs.existsSync(llmsPath) || !fs.existsSync(aiPath)) {
+  throw new Error('record-level build requires the base machine-readable public layer')
 }
 const version = JSON.parse(fs.readFileSync(versionPath, 'utf8'))
 const generatedAt = version.build?.generated_at
@@ -160,5 +172,29 @@ writeJson(path.join(outputDir, 'index.json'), {
   record_url_template: `${origin}/data/exchanges/{slug}.json`,
   records: indexRecords,
 })
+
+const recordLevelDiscovery = {
+  index: '/data/exchanges/index.json',
+  record_url_template: '/data/exchanges/{slug}.json',
+  record_count: indexRecords.length,
+  canonical_only: true,
+}
+version.record_level = recordLevelDiscovery
+writeJson(versionPath, version)
+
+const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+manifest.record_level = recordLevelDiscovery
+writeJson(manifestPath, manifest)
+
+appendDiscoveryOnce(llmsPath, '/data/exchanges/index.json', `## Record-level reviewed bundles
+- Index: /data/exchanges/index.json
+- Record template: /data/exchanges/{slug}.json
+- Each record bundles one reviewed exchange entity with its reviewed events, event evidence references, evidence provenance, relationships, and verification metadata.
+- Record-level files use the same reviewed canonical source of truth as the main public datasets.`)
+
+appendDiscoveryOnce(aiPath, '/data/exchanges/index.json', `Record-level reviewed bundles:
+/data/exchanges/index.json
+/data/exchanges/{slug}.json
+These files bundle one reviewed exchange entity with its reviewed events, evidence provenance, relationships, and verification metadata from the same canonical source of truth.`)
 
 console.log(`Built ${indexRecords.length} HEI record-level machine-readable bundles.`)
