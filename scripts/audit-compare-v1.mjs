@@ -96,9 +96,6 @@ export function auditCompareV1() {
       findings.push(finding('compare_canonical_mismatch', { canonicals }))
     }
     if (!compareHtml.includes('/explore/')) findings.push(finding('compare_to_explorer_edge_missing'))
-    for (const label of ['Last verified', 'High-reliability evidence', 'Archived evidence', 'Event-linked evidence', 'Evidence source types', 'Latest evidence access']) {
-      if (!compareHtml.includes(label)) findings.push(finding('compare_provenance_row_missing', { label }))
-    }
     for (const forbidden of ['candidate_class', 'data-staging', 'watchlists/auto', 'private_notes']) {
       if (compareHtml.includes(forbidden)) findings.push(finding('compare_public_safety_leak', { marker: forbidden }))
     }
@@ -135,6 +132,9 @@ export function auditCompareV1() {
   }
   for (const marker of ['high_reliability_evidence_count', 'archived_evidence_count', 'event_linked_evidence_count', 'evidence_source_type_count', 'latest_evidence_accessed_at']) {
     if (!compareContextSource.includes(marker)) findings.push(finding('compare_provenance_context_missing', { marker }))
+  }
+  for (const label of ['Last verified', 'High-reliability evidence', 'Archived evidence', 'Event-linked evidence', 'Evidence source types', 'Latest evidence access']) {
+    if (!compareClientSource.includes(`label: '${label}'`)) findings.push(finding('compare_provenance_row_source_missing', { label }))
   }
   if (!compareClientSource.includes('serializeCompareState(state)')) findings.push(finding('normalized_share_serialization_missing'))
   if (!compareClientSource.includes('navigator.clipboard.writeText')) findings.push(finding('share_clipboard_action_missing'))
