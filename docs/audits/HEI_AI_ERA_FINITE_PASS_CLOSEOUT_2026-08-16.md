@@ -1,6 +1,6 @@
 # HEI AI-era Finite-pass Closeout — 2026-08-16
 
-Status: **CLOSEOUT PENDING FINAL STAGE F PRODUCTION GATE**
+Status: **COMPLETE / FINITE AI-ERA PASS CLOSED**
 
 This record closes the finite AI-era implementation pass defined by `docs/HEI_AI_ERA_EXECUTION_SCHEDULE.md`. It does not close ordinary HEI operations, record growth, monitoring, localization evidence collection, or future lifecycle follow-ups.
 
@@ -27,7 +27,7 @@ Authority:
 Result: COMPLETE / PRODUCTION VERIFIED.
 
 - PR #764
-- merge commit `7f09ed503857499ced92a88acecf8ba01fdefb9a`
+- first merge commit `7f09ed503857499ced92a88acecf8ba01fdefb9a`
 - record-level/base production smoke authority: run `31927708917`
 
 ### Stage D — deterministic Explorer strengthening
@@ -51,13 +51,24 @@ Result: COMPLETE / PRODUCTION VERIFIED.
 
 ### Stage F — deterministic Stats machine outputs
 
-Implementation merged:
+Result: COMPLETE / PRODUCTION VERIFIED.
 
 - PR #767
 - merge commit `ca28e4e7c05a79c781a32ddc0a3d3c5472b45b09`
 - endpoints: `/stats.json`, `/stats-history.json`
+- exact merged-main CI: run `31928619171` — PASS
+- exact-commit machine-readable production smoke: run `31928845519` — PASS
+- production verification job `95120550522` — PASS
 
-The PR exact-head CI passed after correcting the validator to mirror the authoritative Stats builder's existing year-extraction semantics. Final Stage F completion still requires the exact merged main CI and machine-readable production smoke to pass for the Stats endpoints. This file must be updated with those authorities before closeout is merged.
+The production job verified all required layers against the exact Stage F merge commit:
+
+```text
+base machine-readable endpoints  PASS
+record-level endpoints           PASS
+stats endpoints                  PASS
+```
+
+The PR exact-head CI had previously exposed a validator mismatch between strict date parsing and the authoritative Stats builder's existing year-extraction semantics. That validator was repaired to mirror the builder rather than weakening or bypassing the Stats contract, and the repaired exact-head CI passed before merge.
 
 ### Stage G — lifecycle follow-up pass
 
@@ -91,9 +102,12 @@ The following are intentionally not classified as incomplete finite AI-era imple
 
 ## Final closeout condition
 
-This closeout becomes COMPLETE only when all of the following are true:
+All finite closeout gates are satisfied:
 
-- Stage F main CI passes at exact merge commit `ca28e4e7c05a79c781a32ddc0a3d3c5472b45b09`;
-- exact-commit production smoke verifies base machine-readable, record-level, `/stats.json`, and `/stats-history.json` outputs;
-- `HEI_AI_ERA_EXECUTION_SCHEDULE.md` is synchronized to Stage F production authority;
-- this closeout record is updated from pending to complete and merged through normal CI.
+- Stage F exact merged-main CI passed at `ca28e4e7c05a79c781a32ddc0a3d3c5472b45b09`;
+- exact-commit production smoke verified base machine-readable, record-level, `/stats.json`, and `/stats-history.json` outputs;
+- `HEI_AI_ERA_EXECUTION_SCHEDULE.md` is synchronized to the exact Stage F production authority;
+- roadmap, agent instructions, AI-era registry specification, and maintainer recovery authority are synchronized on the closeout branch;
+- this closeout record is marked COMPLETE.
+
+After this closeout PR itself passes normal repository CI and is merged, there is no remaining finite AI-era implementation stage from the 2026-08 pass. Ongoing Stage A operations, L-2 evidence capture, and Issue #768 are continuing operational/research work by design.
