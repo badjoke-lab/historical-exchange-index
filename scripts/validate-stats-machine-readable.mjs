@@ -25,9 +25,10 @@ function sumCounts(rows) {
   return rows.reduce((sum, row) => sum + Number(row.count || 0), 0)
 }
 
-function validYear(date) {
-  if (typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return null
-  return Number(date.slice(0, 4))
+function extractedYear(value) {
+  if (!value) return null
+  const match = String(value).match(/(\d{4})/)
+  return match ? Number(match[1]) : null
 }
 
 const stats = readJson('out/stats.json')
@@ -75,10 +76,10 @@ const latest = history.snapshots.at(-1)
 for (const key of ['total_entities', 'dead_side_total', 'active_side_total', 'total_events', 'total_evidence']) {
   assert(latest?.[key] === expected[key], `stats history latest snapshot mismatch ${key}`)
 }
-const knownLaunchDates = entities.filter((entity) => validYear(entity.launch_date) !== null).length
-const knownDeathDates = entities.filter((entity) => validYear(entity.death_date) !== null).length
-assert(sumCounts(history.launch_year_counts) === knownLaunchDates, 'launch year history count mismatch')
-assert(sumCounts(history.death_year_counts) === knownDeathDates, 'death year history count mismatch')
+const knownLaunchYears = entities.filter((entity) => extractedYear(entity.launch_date) !== null).length
+const knownDeathYears = entities.filter((entity) => extractedYear(entity.death_date) !== null).length
+assert(sumCounts(history.launch_year_counts) === knownLaunchYears, `launch year history count mismatch: expected ${knownLaunchYears}, got ${sumCounts(history.launch_year_counts)}`)
+assert(sumCounts(history.death_year_counts) === knownDeathYears, `death year history count mismatch: expected ${knownDeathYears}, got ${sumCounts(history.death_year_counts)}`)
 
 const expectedDiscovery = {
   snapshot: '/stats.json',
