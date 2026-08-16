@@ -55,8 +55,6 @@
     "npm run policy:check",
     "npm run records:validate",
     "npm run machine:validate",
-    "node scripts/validate-record-level-machine-readable.mjs",
-    "node scripts/validate-stats-machine-readable.mjs",
     "npm run public:validate",
     "npm run localization:evaluate:test",
     "npm run localization:telemetry:test",
@@ -67,7 +65,7 @@
   "dynamic_state_rules": {
     "main_sha": "derive from current origin/main or GitHub repository state; never hard-code as permanent truth",
     "open_product_prs": "derive from current GitHub pull-request state; never hard-code transient PR numbers as permanent truth",
-    "production_state": "read current deployed version/manifest state plus the latest exact-commit machine-readable and Compare production verification results before diagnosing production",
+    "production_state": "read the latest production verification report plus current exact-commit machine-readable and Compare verification results before diagnosing production",
     "reviewed_counts": "derive with the same reviewed bundle aggregation and entity correction semantics used by public builds; never use base-array lengths alone",
     "ai_era_state": "read the AI-era registry specification, execution schedule, and closeout report; do not infer finite-pass completion from chat history"
   },
