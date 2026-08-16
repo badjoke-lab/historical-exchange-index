@@ -92,8 +92,20 @@ function checkSitemap() {
 function checkExplorerAndI18n(reviewedCounts) {
   const explorer = readJson('config/explorer-query-contract.json')
   const i18n = readJson('config/i18n-locales.json')
-  if (explorer.version !== contract.schema_versions.explorer_query_contract_version) add('explorer_contract_mismatch', 'explorer_version_mismatch')
+  const baselineExplorerVersion = contract.schema_versions.explorer_query_contract_version
+  if (!Number.isInteger(explorer.version) || explorer.version < baselineExplorerVersion) {
+    add('explorer_contract_mismatch', 'explorer_version_below_v1_baseline', { actual: explorer.version, baseline: baselineExplorerVersion })
+  }
   if (explorer.route !== contract.public_route_contract.explorer_query_canonical) add('explorer_contract_mismatch', 'explorer_route_mismatch')
+  if (explorer.view_parameter?.key !== 'view' || !containsAll(explorer.view_parameter?.values ?? [], ['entities', 'events'])) {
+    add('explorer_contract_mismatch', 'explorer_v1_view_contract_missing')
+  }
+  if (explorer.crawl_policy?.canonical_for_all_query_variants !== contract.public_route_contract.explorer_query_canonical) {
+    add('explorer_contract_mismatch', 'explorer_query_canonical_changed')
+  }
+  if (explorer.crawl_policy?.query_variants_in_sitemap !== contract.public_route_contract.explorer_query_variants_in_sitemap) {
+    add('explorer_contract_mismatch', 'explorer_query_sitemap_policy_changed')
+  }
   const expected = contract.localization_foundation
   if (i18n.version !== contract.schema_versions.i18n_locale_contract_version) add('localization_mismatch', 'i18n_version_mismatch')
   for (const key of ['default_locale', 'fallback_locale']) if (i18n[key] !== expected[key]) add('localization_mismatch', `${key}_mismatch`)

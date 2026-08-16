@@ -45,6 +45,9 @@ assert(exploreHtml.includes('aria-label="Search reviewed entities"'), 'Entity se
 assert(exploreHtml.includes('type="checkbox"'), 'Entity filter checkboxes are missing from generated Explorer output')
 assert(exploreHtml.includes('<label'), 'Explorer filter controls lack label elements')
 assert(exploreHtml.includes('<summary>'), 'Explorer filter groups are not native keyboard-operable details/summary controls')
+assert(exploreHtml.includes('Evidence source type'), 'Entity provenance source-type controls missing from generated Explorer')
+assert(exploreHtml.includes('Evidence reliability'), 'Entity provenance reliability controls missing from generated Explorer')
+assert(exploreHtml.includes('Last verified'), 'Entity last-verified controls missing from generated Explorer')
 
 const canonicalMatches = [...exploreHtml.matchAll(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/gi)]
 assert(canonicalMatches.length === 1, `Explorer canonical count is ${canonicalMatches.length}`)
@@ -90,6 +93,9 @@ for (const [label, html] of sourcePages) {
 
 const entitySource = read('src/components/explorer/entity-explorer-client.tsx')
 const eventSource = read('src/components/explorer/event-explorer-panel.tsx')
+const entityQuerySource = read('src/lib/explorer/entity-query.ts')
+const eventQuerySource = read('src/lib/explorer/event-query.ts')
+const explorePageSource = read('src/app/explore/page.tsx')
 const explorerCss = read('src/components/explorer/entity-explorer-client.module.css')
 
 for (const marker of [
@@ -98,23 +104,39 @@ for (const marker of [
   'aria-label="Archive availability"',
   'aria-label="Sort entities"',
   'aria-label="Country or origin values"',
+  'aria-label="Evidence archive availability"',
+  'evidence_source_type',
+  'evidence_reliability',
+  'verified_from',
+  'verified_to',
   'type="date"',
   'type="checkbox"',
   'type="button"',
 ]) {
-  assert(entitySource.includes(marker), `Entity Explorer accessibility marker missing: ${marker}`)
+  assert(entitySource.includes(marker), `Entity Explorer accessibility/provenance marker missing: ${marker}`)
 }
 
 for (const marker of [
   'aria-label="Search reviewed events"',
   'aria-label="Sort events"',
+  'aria-label="Event evidence archive availability"',
+  'evidence_source_type',
+  'evidence_reliability',
+  'evidence_archive_available',
   'type="date"',
   'type="checkbox"',
   'type="button"',
 ]) {
-  assert(eventSource.includes(marker), `Event Explorer accessibility marker missing: ${marker}`)
+  assert(eventSource.includes(marker), `Event Explorer accessibility/provenance marker missing: ${marker}`)
 }
 
+for (const marker of ['evidenceByEntity', 'evidenceMatches', 'verified_from', 'evidence_source_type']) {
+  assert(entityQuerySource.includes(marker), `Entity provenance filtering not wired: ${marker}`)
+}
+for (const marker of ['evidenceByEvent', 'evidenceMatches', 'evidence_source_type']) {
+  assert(eventQuerySource.includes(marker), `Event provenance filtering not wired: ${marker}`)
+}
+assert(explorePageSource.includes('loadEvidence'), 'Explorer page does not load reviewed evidence')
 assert(explorerCss.includes('@media(max-width:1023px)'), 'Explorer tablet responsive rule missing')
 assert(explorerCss.includes('@media(max-width:720px)'), 'Explorer mobile responsive rule missing')
 assert(entitySource.includes('serializeEntityExplorerState'), 'Entity URL serialization not wired to UI')
@@ -123,4 +145,4 @@ assert(entitySource.includes('getExplorerView'), 'Explorer view parser not wired
 assert(!exploreHtml.includes('data-staging'), 'Explorer output leaks staging path')
 assert(!exploreHtml.includes('candidate_class'), 'Explorer output leaks candidate fields')
 
-console.log(`Explorer final audit passed: base route crawl policy fixed, ${queryLinkCount} Stats/Change query links validated, accessibility and mobile source contracts present.`)
+console.log(`Explorer final audit passed: provenance filters, crawl policy, ${queryLinkCount} Stats/Change query links, accessibility and mobile source contracts validated.`)

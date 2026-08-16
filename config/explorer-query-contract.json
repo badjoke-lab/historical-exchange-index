@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "status": "fixed_for_explorer_v1_implementation",
+  "version": 2,
+  "status": "extended_for_ai_era_stage_d",
   "route": "/explore/",
   "view_parameter": {
     "key": "view",
@@ -13,7 +13,8 @@
     "different_keys": "and",
     "repeated_parameter_encoding": true,
     "deduplicate_repeated_values": true,
-    "repeated_single_value_parameter": "first_valid_value"
+    "repeated_single_value_parameter": "first_valid_value",
+    "evidence_filter_scope": "all active evidence filters must match the same reviewed evidence item"
   },
   "invalid_input": {
     "unknown_parameter": "ignore",
@@ -63,6 +64,11 @@
         {"key": "official_url_status", "kind": "enum", "cardinality": "multi", "values": ["live_verified", "live_unverified", "redirected", "repurposed", "dead_domain", "unsafe", "unknown"]},
         {"key": "archive_available", "kind": "boolean", "cardinality": "single", "values": ["true", "false"]},
         {"key": "confidence", "kind": "enum", "cardinality": "multi", "values": ["high", "medium", "low"]},
+        {"key": "verified_from", "kind": "date", "cardinality": "single"},
+        {"key": "verified_to", "kind": "date", "cardinality": "single"},
+        {"key": "evidence_source_type", "kind": "enum", "cardinality": "multi", "values": ["official_statement", "official_blog", "official_social", "archive_capture", "news_article", "court_document", "regulatory_notice", "database_reference", "community_reference", "other"]},
+        {"key": "evidence_reliability", "kind": "enum", "cardinality": "multi", "values": ["high", "medium", "low"]},
+        {"key": "evidence_archive_available", "kind": "boolean", "cardinality": "single", "values": ["true", "false"]},
         {"key": "country_or_origin", "kind": "reviewed_value", "cardinality": "multi", "matching": "case_insensitive_to_reviewed_canonical_value"},
         {"key": "sort", "kind": "enum", "cardinality": "single", "values": ["name_asc", "name_desc", "launch_oldest", "launch_newest", "death_oldest", "death_newest", "last_verified_newest"]}
       ],
@@ -88,6 +94,9 @@
         {"key": "confidence", "kind": "enum", "cardinality": "multi", "values": ["high", "medium", "low"]},
         {"key": "entity_type", "kind": "enum", "cardinality": "multi", "values": ["cex", "dex", "hybrid"]},
         {"key": "entity_status", "kind": "enum", "cardinality": "multi", "values": ["active", "limited", "inactive", "dead", "merged", "acquired", "rebranded", "unknown"]},
+        {"key": "evidence_source_type", "kind": "enum", "cardinality": "multi", "values": ["official_statement", "official_blog", "official_social", "archive_capture", "news_article", "court_document", "regulatory_notice", "database_reference", "community_reference", "other"]},
+        {"key": "evidence_reliability", "kind": "enum", "cardinality": "multi", "values": ["high", "medium", "low"]},
+        {"key": "evidence_archive_available", "kind": "boolean", "cardinality": "single", "values": ["true", "false"]},
         {"key": "sort", "kind": "enum", "cardinality": "single", "values": ["date_newest", "date_oldest", "entity_name_asc"]}
       ],
       "sort_semantics": {
@@ -108,6 +117,7 @@
     "unknown_future_keys_on_old_parser": "ignore",
     "parameter_rename_after_v1": "requires_spec_change_and_migration_plan",
     "enum_value_change_after_v1": "requires_schema_and_query_contract_review",
-    "serialization_order_change_after_v1": "requires_compatibility_review"
+    "serialization_order_change_after_v1": "requires_compatibility_review",
+    "stage_d_additive_keys": "backward_compatible_old_urls_unchanged"
   }
 }

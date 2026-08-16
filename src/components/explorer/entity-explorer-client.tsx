@@ -5,6 +5,7 @@ import { useMemo, useState, type ReactNode } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import type { EntityRecord } from '../../lib/types/entity'
 import type { EventRecord } from '../../lib/types/event'
+import type { EvidenceRecord } from '../../lib/types/evidence'
 import {
   countEntityExplorerFilters,
   ENTITY_FILTER_VALUES,
@@ -25,8 +26,8 @@ import styles from './entity-explorer-client.module.css'
 const INITIAL_VISIBLE = 40
 const LOAD_MORE_STEP = 40
 
-type Props = { entities: EntityRecord[]; events: EventRecord[]; reviewedOrigins: string[] }
-type MultiKey = 'type' | 'status' | 'death_reason' | 'official_url_status' | 'confidence' | 'country_or_origin'
+type Props = { entities: EntityRecord[]; events: EventRecord[]; evidence: EvidenceRecord[]; reviewedOrigins: string[] }
+type MultiKey = 'type' | 'status' | 'death_reason' | 'official_url_status' | 'confidence' | 'evidence_source_type' | 'evidence_reliability' | 'country_or_origin'
 
 const titleCase = (value: string) => value.split('_').map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
 
@@ -60,26 +61,35 @@ function Results({ entities, state }: { entities: EntityRecord[]; state: EntityE
   </>
 }
 
-export default function EntityExplorerClient({ entities, events, reviewedOrigins }: Props) {
+export default function EntityExplorerClient({ entities, events, evidence, reviewedOrigins }: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const view = getExplorerView(searchParams)
   const state = useMemo(() => parseEntityExplorerState(searchParams, reviewedOrigins), [searchParams, reviewedOrigins])
+  const evidenceByEntity = useMemo(() => {
+    const map = new Map<string, EvidenceRecord[]>()
+    for (const item of evidence) {
+      const list = map.get(item.exchange_id) ?? []
+      list.push(item)
+      map.set(item.exchange_id, list)
+    }
+    return map
+  }, [evidence])
   const patch = (next: Partial<EntityExplorerState>) => router.replace(`${pathname}?${serializeEntityExplorerState({ ...state, ...next, view: 'entities' }, reviewedOrigins)}`, { scroll: false })
   const toggle = (key: MultiKey, value: string) => {
     const current = state[key] as string[]
     patch({ [key]: current.includes(value) ? current.filter((item) => item !== value) : [...current, value] } as Partial<EntityExplorerState>)
   }
-  const result = useMemo(() => sortEntityExplorerRecords(filterEntityExplorerRecords(entities, state), state.sort), [entities, state])
+  const result = useMemo(() => sortEntityExplorerRecords(filterEntityExplorerRecords(entities, state, evidenceByEntity), state.sort), [entities, state, evidenceByEntity])
   const filterCount = countEntityExplorerFilters(state)
   const resultKey = serializeEntityExplorerState(state, reviewedOrigins)
 
   return <section className={`panel table-panel ${styles.shell}`}>
     <nav className={styles.viewTabs} aria-label="Explorer views"><Link className={`${styles.viewTab} ${view === 'entities' ? styles.viewTabActive : ''}`} href="/explore/?view=entities">Entity Explorer</Link><Link className={`${styles.viewTab} ${view === 'events' ? styles.viewTabActive : ''}`} href="/explore/?view=events">Event Explorer</Link><Link className={styles.viewTab} href="/compare/">Compare</Link></nav>
-    {view === 'events' ? <EventExplorerPanel events={events} entities={entities} /> : <>
+    {view === 'events' ? <EventExplorerPanel events={events} entities={entities} evidence={evidence} /> : <>
       <div className={styles.controlStack}>
-        <div className={styles.primaryControls}><div className="search"><input className="field" aria-label="Search reviewed entities" placeholder="Search name, alias, slug, summary, or origin" value={state.q} onChange={(event) => patch({ q: event.target.value })} /></div><select className="field" aria-label="Archive availability" value={state.archive_available} onChange={(event) => patch({ archive_available: event.target.value as EntityExplorerState['archive_available'] })}><option value="">Any archive state</option><option value="true">Archive available</option><option value="false">No archive URL</option></select><select className="field" aria-label="Sort entities" value={state.sort} onChange={(event) => patch({ sort: event.target.value as EntityExplorerState['sort'] })}>{ENTITY_FILTER_VALUES.sort.map((value) => <option value={value} key={value}>{titleCase(value)}</option>)}</select></div>
+        <div className={styles.primaryControls}><div className="search"><input className="field" aria-label="Search reviewed entities" placeholder="Search name, alias, slug, summary, or origin" value={state.q} onChange={(event) => patch({ q: event.target.value })} /></div><select className="field" aria-label="Archive availability" value={state.archive_available} onChange={(event) => patch({ archive_available: event.target.value as EntityExplorerState['archive_available'] })}><option value="">Any entity archive state</option><option value="true">Entity archive available</option><option value="false">No entity archive URL</option></select><select className="field" aria-label="Sort entities" value={state.sort} onChange={(event) => patch({ sort: event.target.value as EntityExplorerState['sort'] })}>{ENTITY_FILTER_VALUES.sort.map((value) => <option value={value} key={value}>{titleCase(value)}</option>)}</select></div>
         <div className={styles.filterGrid}>
           <Group title="Type" count={state.type.length || 'all'}><Checks values={ENTITY_FILTER_VALUES.type} selected={state.type} labelFor={(value) => value === 'hybrid' ? 'Hybrid' : value.toUpperCase()} onToggle={(value) => toggle('type', value)} /></Group>
           <Group title="Status" count={state.status.length || 'all'}><Checks values={ENTITY_FILTER_VALUES.status} selected={state.status} labelFor={(value) => STATUS_LABELS[value as keyof typeof STATUS_LABELS]} onToggle={(value) => toggle('status', value)} /></Group>
@@ -88,6 +98,10 @@ export default function EntityExplorerClient({ entities, events, reviewedOrigins
           <Group title="Death date" count={state.death_from || state.death_to ? 'set' : 'all'}><Dates from={state.death_from} to={state.death_to} onFrom={(value) => patch({ death_from: value })} onTo={(value) => patch({ death_to: value })} /></Group>
           <Group title="URL status" count={state.official_url_status.length || 'all'}><Checks values={ENTITY_FILTER_VALUES.official_url_status} selected={state.official_url_status} labelFor={(value) => URL_STATUS_LABELS[value as keyof typeof URL_STATUS_LABELS]} onToggle={(value) => toggle('official_url_status', value)} /></Group>
           <Group title="Confidence" count={state.confidence.length || 'all'}><Checks values={ENTITY_FILTER_VALUES.confidence} selected={state.confidence} labelFor={titleCase} onToggle={(value) => toggle('confidence', value)} /></Group>
+          <Group title="Last verified" count={state.verified_from || state.verified_to ? 'set' : 'all'}><Dates from={state.verified_from} to={state.verified_to} onFrom={(value) => patch({ verified_from: value })} onTo={(value) => patch({ verified_to: value })} /></Group>
+          <Group title="Evidence source type" count={state.evidence_source_type.length || 'all'}><Checks values={ENTITY_FILTER_VALUES.evidence_source_type} selected={state.evidence_source_type} labelFor={titleCase} onToggle={(value) => toggle('evidence_source_type', value)} /></Group>
+          <Group title="Evidence reliability" count={state.evidence_reliability.length || 'all'}><Checks values={ENTITY_FILTER_VALUES.evidence_reliability} selected={state.evidence_reliability} labelFor={titleCase} onToggle={(value) => toggle('evidence_reliability', value)} /></Group>
+          <Group title="Evidence archive" count={state.evidence_archive_available || 'all'}><div className={styles.optionList}><label className={styles.dateLabel}>Reviewed evidence archive state<select className="field" aria-label="Evidence archive availability" value={state.evidence_archive_available} onChange={(event) => patch({ evidence_archive_available: event.target.value as EntityExplorerState['evidence_archive_available'] })}><option value="">Any evidence archive state</option><option value="true">Includes archived evidence</option><option value="false">Includes evidence without archive</option></select></label><div className={styles.originHelp}>When combined with source type or reliability, all evidence constraints must match the same reviewed evidence item.</div></div></Group>
           <Group title="Country / origin" count={state.country_or_origin.length || 'all'}><div className={styles.originHelp}>Select one or more reviewed canonical origin values.</div><div className={styles.optionList}><select className={styles.originSelect} multiple value={state.country_or_origin} onChange={(event) => patch({ country_or_origin: Array.from(event.currentTarget.selectedOptions).map((option) => option.value) })} aria-label="Country or origin values">{reviewedOrigins.map((origin) => <option key={origin} value={origin}>{origin}</option>)}</select></div></Group>
         </div>
         <div className={styles.toolbar}><div className={styles.toolbarMeta}>{filterCount === 0 ? 'No active filters · default Entity view' : `${filterCount} active query constraints`}</div><div className={styles.toolbarActions}>{filterCount > 0 ? <button type="button" className="btn btn-ghost" onClick={() => router.replace(`${pathname}?view=entities`, { scroll: false })}>Clear all filters</button> : null}</div></div>
