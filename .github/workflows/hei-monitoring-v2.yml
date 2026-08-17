@@ -73,6 +73,7 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run monitor:smoke
+      - run: node scripts/monitoring/test-http-check-classification.mjs
       - name: Run monitoring
         id: monitor
         env:
