@@ -4,7 +4,7 @@ import { loadCanonicalData } from './core/load-canonical-data.mjs';
 import { createMonitorResult, runMonitorSafely } from './core/finding-utils.mjs';
 import { buildSummaryMarkdown } from './core/summary-writer.mjs';
 import { extractCandidateNameFromNews } from './core/news-extract.mjs';
-import { prioritizeActiveStatusTargets, shouldRetryOfficialSiteCheck } from './monitors/active-status-watch.mjs';
+import { actionForCheck, prioritizeActiveStatusTargets, severityForCheck, shouldRetryOfficialSiteCheck } from './monitors/active-status-watch.mjs';
 import { normalizeSitemapUrl } from './adapters/sitemap-check.mjs';
 import { runReviewedBundleAggregationRegression } from '../test-reviewed-bundle-aggregation.mjs';
 import { buildRegistryMetrics, parseReviewMonth } from '../review/monthly-registry-core.mjs';
@@ -100,6 +100,28 @@ function runMonitoringOutputRegressions() {
   assert(shouldRetryOfficialSiteCheck({ status: 'timeout' }), 'timeouts must be retried before creating an active-status finding');
   assert(!shouldRetryOfficialSiteCheck({ status: 'ok' }), 'healthy responses must not be retried');
   assert(!shouldRetryOfficialSiteCheck({ status: 'redirected', http_status: 200 }), 'healthy redirects must not be retried');
+
+  const activeEntity = { status: 'active' };
+  assert(
+    severityForCheck(activeEntity, { status: 'dns_failure' }) === 'medium',
+    'a retry-surviving DNS failure must not become a high-severity lifecycle signal by itself',
+  );
+  assert(
+    severityForCheck(activeEntity, { status: 'tls_failure' }) === 'medium',
+    'a retry-surviving TLS failure must remain a medium review signal',
+  );
+  assert(
+    severityForCheck(activeEntity, { status: 'server_error' }) === 'low',
+    'runner-specific server failures must remain low-severity recheck signals',
+  );
+  assert(
+    severityForCheck(activeEntity, { status: 'parked_or_for_sale' }) === 'high',
+    'explicit parked-domain evidence must remain high severity for active entities',
+  );
+  assert(
+    actionForCheck(activeEntity, { status: 'dns_failure' }) === 'recheck_before_status_change',
+    'DNS failure must not directly recommend an active-to-inactive transition',
+  );
 
   const prioritizedTargets = prioritizeActiveStatusTargets(
     [

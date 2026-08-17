@@ -95,19 +95,23 @@ function shouldCreateFinding(entity, check) {
   return true;
 }
 
-function severityForCheck(entity, check) {
-  if (['dns_failure', 'tls_failure', 'parked_or_for_sale'].includes(check.status)) return entity.status === 'active' ? 'high' : 'medium';
-  if (['not_found', 'server_error', 'timeout'].includes(check.status)) return entity.status === 'active' ? 'medium' : 'low';
+export function severityForCheck(entity, check) {
+  if (check.status === 'parked_or_for_sale') return entity.status === 'active' ? 'high' : 'medium';
+
+  // A single scheduled run performs only one immediate retry. Persistent DNS,
+  // TLS, server, and timeout failures can still be caused by resolver, CDN,
+  // bot-protection, or runner-specific conditions. They are review signals,
+  // not sufficient high-severity lifecycle evidence by themselves.
+  if (['dns_failure', 'tls_failure', 'not_found'].includes(check.status)) {
+    return entity.status === 'active' ? 'medium' : 'low';
+  }
+  if (['server_error', 'timeout'].includes(check.status)) return 'low';
   return 'low';
 }
 
-function actionForCheck(entity, check) {
+export function actionForCheck(entity, check) {
   if (check.status === 'parked_or_for_sale') return 'investigate_active_status_and_domain_repurpose';
-  if (check.status === 'dns_failure') {
-    return entity.status === 'active'
-      ? 'investigate_active_to_inactive_candidate'
-      : 'review_inactive_official_url_status';
-  }
+  if (check.status === 'dns_failure') return 'recheck_before_status_change';
   if (check.status === 'tls_failure') return 'review_official_site_tls_status';
   if (check.status === 'not_found') return 'review_official_url_or_archive';
   if (check.status === 'server_error' || check.status === 'timeout') return 'recheck_before_status_change';
