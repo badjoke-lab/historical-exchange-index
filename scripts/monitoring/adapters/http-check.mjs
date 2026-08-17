@@ -4,7 +4,10 @@ const PARKING_PATTERNS = [
   /domain\s+for\s+sale/i,
   /buy\s+this\s+domain/i,
   /this\s+domain\s+is\s+for\s+sale/i,
-  /parking/i,
+  /domain\s+parking/i,
+  /parked\s+domain/i,
+  /domain\s+is\s+parked/i,
+  /parking\s+page/i,
   /sedo/i,
   /afternic/i,
   /dan\.com/i,
@@ -24,7 +27,7 @@ function normalizeUrl(value) {
   return `https://${raw}`;
 }
 
-function classifyStatus({ status, finalUrl, startUrl, body }) {
+export function classifyStatus({ status, finalUrl, startUrl, body }) {
   if (status >= 200 && status < 400) {
     if (PARKING_PATTERNS.some((pattern) => pattern.test(body || ''))) return 'parked_or_for_sale';
     if (finalUrl && startUrl && finalUrl !== startUrl) return 'redirected';
