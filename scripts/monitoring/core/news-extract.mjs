@@ -36,6 +36,15 @@ const KNOWN_BAD_NAMES = new Set([
   'regulators',
   'popular',
   'top crypto',
+  'top',
+  'exploits cost',
+  'fca',
+  'cftc',
+  'sec',
+  'six',
+  'johnson supporting',
+  'concluding cftc',
+  'hong kong',
   'russia',
 ]);
 
