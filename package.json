@@ -16,7 +16,7 @@
     "monitor:check": "node scripts/check-monitoring-completion.mjs",
     "monitor:test-completion": "node scripts/test-monitoring-completion.mjs",
     "monitor:promote-candidate": "node scripts/monitoring/promote-candidate-to-staging.mjs",
-    "monitor:smoke": "node scripts/monitoring/smoke-test.mjs",
+    "monitor:smoke": "node scripts/monitoring/smoke-test.mjs && node scripts/monitoring/test-news-extract-noise.mjs",
     "watchlists:check": "node scripts/check-watchlist-resolutions.mjs",
     "watchlists:test": "node scripts/check-watchlist-resolutions.mjs --self-test",
     "counts:check": "node scripts/check-count-semantics-regression.mjs",
