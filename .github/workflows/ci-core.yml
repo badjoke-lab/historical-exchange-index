@@ -32,6 +32,8 @@ jobs:
           retention-days: 7
       - run: npm run lint
       - run: npm run records:validate
+      - name: Validate bounded commercial dataset sample export
+        run: node tools/export-commercial-dataset.mjs --sample-size=5 --source-commit="${GITHUB_SHA}"
       - run: npm run data:check-event-types
       - run: npm run data:check-official-url-statuses
       - run: npm run data:check-source-types
