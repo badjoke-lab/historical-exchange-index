@@ -8,6 +8,7 @@ dist
 .next
 .next/
 out
+.commercial-output/
 
 # Generated during the Next production build
 public/version.json
