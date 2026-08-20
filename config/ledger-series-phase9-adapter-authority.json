@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "authority_id": "hei_ledger_series_phase9_adapter_2026_08_20",
+  "status": "active_after_merge",
+  "entry_main_commit": "f273e61631f0528efd2da57831790ff3450de8e8",
+  "coordination_issue": 780,
+  "official_public_origin": "https://hei.badjoke-lab.com",
+  "purpose": "Authorize only the bounded HEI implementation of the cross-registry Ledger Series Phase 9 Stage 3 adapter. This local authority is required because Issue #780 is coordination-only and does not itself authorize HEI runtime changes.",
+  "mandatory_references": [
+    "AGENTS.md",
+    "docs/operations/CLOUDFLARE_DEPLOYMENT_POLICY.md",
+    "docs/HEI_V1_EXECUTION_ROADMAP.md",
+    "docs/HEI_AI_ERA_REGISTRY_SPEC.md",
+    "docs/HEI_AI_ERA_EXECUTION_SCHEDULE.md",
+    "docs/HEI_PRODUCT_SURFACES_SPEC.md",
+    "docs/machine-readable-public-layer.md"
+  ],
+  "scope": [
+    "reuse_existing_record_level_exchange_bundles_as_native_authority",
+    "publish_series_registry_descriptor",
+    "publish_series_record_index",
+    "publish_one_series_envelope_per_reviewed_exchange_bundle",
+    "add_deterministic_series_validation",
+    "add_permanent_read_only_series_ci",
+    "run_exact_main_production_verification",
+    "synchronize_phase9_tracker_after_acceptance"
+  ],
+  "public_surface_boundary": {
+    "series_descriptor": "/data/series/registry.json",
+    "series_index": "/data/series/index.json",
+    "series_record_template": "/data/series/records/{slug}.json",
+    "native_index": "/data/exchanges/index.json",
+    "native_record_template": "/data/exchanges/{slug}.json",
+    "search_route": "/explore/",
+    "compare_route": "/compare/",
+    "stats_route": "/stats/",
+    "new_html_route_family_authorized": false,
+    "search_behavior_change_authorized": false,
+    "compare_behavior_change_authorized": false,
+    "stats_behavior_change_authorized": false,
+    "ui_css_change_authorized": false
+  },
+  "canonical_boundary": {
+    "canonical_entity_event_evidence_mutation_authorized": false,
+    "reviewed_bundle_mutation_authorized": false,
+    "schema_or_taxonomy_change_authorized": false,
+    "candidate_or_staging_publication_authorized": false,
+    "monitoring_publication_authorized": false,
+    "relationship_inference_authorized": false
+  },
+  "concurrent_work_protection": {
+    "open_pr_777": "do_not_modify_retarget_rebase_merge_or_depend_on",
+    "open_pr_779": "do_not_modify_retarget_rebase_merge_or_depend_on",
+    "adapter_counts": "derive_from_current_native_record_level_index_at_build_time"
+  },
+  "required_acceptance": [
+    "native_record_level_bundles_remain_authoritative_and_lossless",
+    "series_count_equals_native_record_level_count",
+    "series_global_keys_are_unique_and_stable",
+    "series_urls_use_only_real_existing_public_routes",
+    "series_output_is_canonical_only_and_excludes_candidates_monitoring_private_material",
+    "typed_series_relationships_are_not_emitted_during_stage3",
+    "existing_machine_readable_record_level_explorer_compare_stats_and_public_output_gates_remain_green",
+    "exact_main_production_series_equality_passes_before_acceptance"
+  ],
+  "forbidden": [
+    "canonical_entity_event_evidence_changes",
+    "reviewed_bundle_changes",
+    "schema_or_taxonomy_changes",
+    "candidate_or_monitoring_publication",
+    "ai_generated_canonical_facts",
+    "relationship_inference",
+    "search_compare_stats_ui_behavior_changes",
+    "dns_or_cloudflare_project_configuration_changes",
+    "retarget_rebase_merge_or_modify_concurrent_vertical_prs"
+  ],
+  "closeout": {
+    "automatic_continuation": false,
+    "production_verification_required": true,
+    "coordination_issue": 780
+  }
+}
