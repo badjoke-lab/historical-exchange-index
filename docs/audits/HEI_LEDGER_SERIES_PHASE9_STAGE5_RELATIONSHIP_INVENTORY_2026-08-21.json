@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage5-audit-2026-08-20",
+  "status": "reviewed_audit_no_publication_authority",
+  "collector": {
+    "run_id": 32376869141,
+    "artifact_id": 9409407512,
+    "artifact_digest": "sha256:b70c5729aa763993fe954fbc7aa8bdc13ce8bca1e0a4c05a563f869fd8c1020e",
+    "collected_at": "2026-08-20T13:54:41.215Z",
+    "registry_count": 8
+  },
+  "counts": {
+    "collector_accepted_before_review": 246,
+    "collector_deferred_before_review": 276,
+    "accepted_candidates": 244,
+    "rejected_mappings": 247,
+    "unresolved_mappings": 31,
+    "cross_registry_exact_id_refs": 0
+  },
+  "by_registry": {
+    "historical-exchange-index": {"accepted": 21, "rejected": 0, "unresolved": 0},
+    "minted-and-gone": {"accepted": 17, "rejected": 1, "unresolved": 14},
+    "stable-or-gone": {"accepted": 1, "rejected": 128, "unresolved": 0},
+    "crypto-yield-archive": {"accepted": 0, "rejected": 118, "unresolved": 0},
+    "bridge-incident-registry": {"accepted": 44, "rejected": 0, "unresolved": 1},
+    "cryptocurrency-wallet-lifecycle-registry": {"accepted": 161, "rejected": 0, "unresolved": 0},
+    "ai-tools-history-archive": {"accepted": 0, "rejected": 0, "unresolved": 0},
+    "api-deprecation-archive": {"accepted": 0, "rejected": 0, "unresolved": 16}
+  },
+  "cross_registry_relationships_accepted": 0,
+  "review_document": "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE5_RELATIONSHIP_INVENTORY_2026-08-21.md",
+  "publication_implementation_authority_justified": true,
+  "publication_blocked_until_second_reviewed_authority": true,
+  "manual_corrections": {
+    "collector_false_accepts": 3,
+    "collector_deferred_promoted": 1,
+    "mag_self_loop_rejected": 1,
+    "mag_contradictory_pair_rows_unresolved": 2,
+    "sog_sai_to_dai_promoted_once": 1
+  },
+  "automatic_continuation": false
+}
