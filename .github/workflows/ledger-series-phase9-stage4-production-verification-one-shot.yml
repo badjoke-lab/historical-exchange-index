@@ -1,0 +1,38 @@
+name: Ledger Series Phase 9 Stage 4 production verification one-shot
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - scripts/verify-ledger-series-stage4-production.mjs
+      - .github/workflows/ledger-series-phase9-stage4-production-verification-one-shot.yml
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    env:
+      HEI_EXPECTED_PRODUCTION_COMMIT: 9c079dfd4bda36a2e7de2384b1578488e552ca76
+      HEI_PRODUCTION_ORIGIN: https://hei.badjoke-lab.com
+
+    steps:
+      - name: Checkout verification branch
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Verify exact-main Stage 4 production publication and live registry synchronization
+        run: node scripts/verify-ledger-series-stage4-production.mjs | tee ledger-series-stage4-production-verification.json
+
+      - name: Upload verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ledger-series-stage4-production-verification-report
+          path: ledger-series-stage4-production-verification.json
+          if-no-files-found: warn
