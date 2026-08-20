@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+
 const descriptors = [
   ['mag', 'https://mag.badjoke-lab.com/data/series/registry.json'],
   ['sog', 'https://www.stableorgone.com/data/series/registry.json'],
@@ -24,6 +26,8 @@ for (const [label, url] of descriptors) {
   output.push({ label, descriptor_url: url, raw })
 }
 
+const snapshot = { collected_at: new Date().toISOString(), descriptors: output }
+fs.writeFileSync('stage4-remote-descriptors.json', `${JSON.stringify(snapshot, null, 2)}\n`, 'utf8')
 console.log('STAGE4_CORRECTIVE_DESCRIPTOR_SNAPSHOT_BEGIN')
-console.log(JSON.stringify({ collected_at: new Date().toISOString(), descriptors: output }, null, 2))
+console.log(JSON.stringify(snapshot, null, 2))
 console.log('STAGE4_CORRECTIVE_DESCRIPTOR_SNAPSHOT_END')
