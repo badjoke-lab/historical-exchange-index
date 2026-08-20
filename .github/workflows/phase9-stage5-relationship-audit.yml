@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/phase9-stage5-relationship-audit.yml"
+      - "scripts/phase9-stage5-scan-relationships.mjs"
 
 permissions:
   contents: read
@@ -123,6 +124,9 @@ jobs:
             process.exit(1);
           });
           NODE
+
+      - name: Scan all Series envelopes for explicit reviewed relationship references
+        run: node scripts/phase9-stage5-scan-relationships.mjs
 
       - name: Upload audit artifact
         uses: actions/upload-artifact@v4
