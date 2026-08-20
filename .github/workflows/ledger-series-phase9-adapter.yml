@@ -1,0 +1,54 @@
+name: Ledger Series Phase 9 Adapter
+
+on:
+  pull_request:
+    paths:
+      - "scripts/build-ledger-series-phase9-adapter.mjs"
+      - "scripts/validate-ledger-series-phase9-adapter.mjs"
+      - "scripts/build-record-level-machine-readable.mjs"
+      - "scripts/validate-record-level-machine-readable.mjs"
+      - "scripts/build-machine-readable-layer.mjs"
+      - "next.config.ts"
+      - "data/**"
+      - "records/**"
+      - ".github/workflows/ledger-series-phase9-adapter.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/build-ledger-series-phase9-adapter.mjs"
+      - "scripts/validate-ledger-series-phase9-adapter.mjs"
+      - "scripts/build-record-level-machine-readable.mjs"
+      - "scripts/validate-record-level-machine-readable.mjs"
+      - "scripts/build-machine-readable-layer.mjs"
+      - "next.config.ts"
+      - "data/**"
+      - "records/**"
+      - ".github/workflows/ledger-series-phase9-adapter.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-series-adapter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build exact candidate
+        run: npm run build
+
+      - name: Validate native record-level layer
+        run: node scripts/validate-record-level-machine-readable.mjs
+
+      - name: Validate Ledger Series adapter
+        run: node scripts/validate-ledger-series-phase9-adapter.mjs
