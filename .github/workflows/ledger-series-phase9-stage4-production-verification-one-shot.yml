@@ -27,7 +27,10 @@ jobs:
           node-version: 24
 
       - name: Verify exact-main Stage 4 production publication and live registry synchronization
-        run: node scripts/verify-ledger-series-stage4-production.mjs | tee ledger-series-stage4-production-verification.json
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/verify-ledger-series-stage4-production.mjs | tee ledger-series-stage4-production-verification.json
 
       - name: Upload verification report
         if: always()
