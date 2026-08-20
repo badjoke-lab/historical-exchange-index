@@ -3,7 +3,7 @@ name: Ledger Series Phase 9 Stage 4 Index
 on:
   pull_request:
     paths:
-      - "config/ledger-series-registry-index-source.json"
+      - "scripts/lib/ledger-series-registry-index-source.json"
       - "scripts/build-ledger-series-registry-index.mjs"
       - "scripts/validate-ledger-series-registry-index.mjs"
       - "next.config.ts"
@@ -12,7 +12,7 @@ on:
     branches:
       - main
     paths:
-      - "config/ledger-series-registry-index-source.json"
+      - "scripts/lib/ledger-series-registry-index-source.json"
       - "scripts/build-ledger-series-registry-index.mjs"
       - "scripts/validate-ledger-series-registry-index.mjs"
       - "next.config.ts"
