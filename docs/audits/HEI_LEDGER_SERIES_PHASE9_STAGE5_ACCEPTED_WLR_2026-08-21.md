@@ -6,6 +6,8 @@ Count: **161**
 
 Inclusive product-ID ranges below are the complete `product_of` inventory. Every row is supported by `current_state.native.parent_entity.id`.
 
+The range notation is audit-only compression and is **not** a Series record-identity syntax. A Stage 5 publication implementation must expand every product ID in these ranges into an individual relationship using the existing namespaced `global_record_key`: source `cryptocurrency-wallet-lifecycle-registry:wlr.product-record.v1:<wlr_prod_id>` and target `cryptocurrency-wallet-lifecycle-registry:wlr.wallet-record.v1:<wlr_ent_id>`. No range token is itself a record identity, and raw WLR IDs must not be published as cross-record targets without the registry and native-record-type namespace. The `predecessor_of` / `successor_of` rows below likewise expand product-to-product with `wlr.product-record.v1` on both sides.
+
 ```text
 wlr_prod_000001..wlr_prod_000006 -> wlr_ent_000001
 wlr_prod_000007..wlr_prod_000013 -> wlr_ent_000002
