@@ -1,0 +1,127 @@
+name: Phase 9 Stage 5 relationship audit collector
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/phase9-stage5-relationship-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Collect reviewed public Series contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          const registries = [
+            ['historical-exchange-index', 'https://hei.badjoke-lab.com'],
+            ['minted-and-gone', 'https://mag.badjoke-lab.com'],
+            ['stable-or-gone', 'https://www.stableorgone.com'],
+            ['crypto-yield-archive', 'https://cya.badjoke-lab.com'],
+            ['bridge-incident-registry', 'https://bir.badjoke-lab.com'],
+            ['cryptocurrency-wallet-lifecycle-registry', 'https://wlr.badjoke-lab.com'],
+            ['ai-tools-history-archive', 'https://ai-tools-history-archive.pages.dev'],
+            ['api-deprecation-archive', 'https://api-deprecation-archive.pages.dev'],
+          ];
+
+          const outRoot = 'stage5-relationship-audit';
+          fs.rmSync(outRoot, { recursive: true, force: true });
+          fs.mkdirSync(outRoot, { recursive: true });
+
+          async function getJson(url) {
+            const res = await fetch(url, { headers: { 'user-agent': 'badjoke-lab-ledger-series-stage5-audit/1.0' } });
+            if (!res.ok) throw new Error(`${url} -> HTTP ${res.status}`);
+            const text = await res.text();
+            try { return JSON.parse(text); } catch { throw new Error(`${url} -> invalid JSON`); }
+          }
+
+          function collectRecordPaths(value, found = new Set()) {
+            if (typeof value === 'string') {
+              const m = value.match(/(?:https?:\/\/[^\s"']+)?\/data\/series\/records\/[^\s"']+\.json/g);
+              if (m) for (const x of m) found.add(x);
+              return found;
+            }
+            if (Array.isArray(value)) for (const x of value) collectRecordPaths(x, found);
+            else if (value && typeof value === 'object') for (const x of Object.values(value)) collectRecordPaths(x, found);
+            return found;
+          }
+
+          function nativeManifestUrl(descriptor, origin) {
+            const raw = descriptor?.native_contract?.manifest_url || descriptor?.native_contract?.manifest || null;
+            if (!raw) return `${origin}/data/manifest.json`;
+            return new URL(raw, origin).href;
+          }
+
+          const summary = [];
+          for (const [expectedId, origin] of registries) {
+            const dir = path.join(outRoot, expectedId);
+            fs.mkdirSync(dir, { recursive: true });
+            const descriptorUrl = `${origin}/data/series/registry.json`;
+            const indexUrl = `${origin}/data/series/index.json`;
+            const descriptor = await getJson(descriptorUrl);
+            const index = await getJson(indexUrl);
+            const observedId = descriptor?.registry?.id || descriptor?.registry_id || descriptor?.project_id || null;
+            if (observedId !== expectedId) throw new Error(`${expectedId}: descriptor registry id mismatch: ${observedId}`);
+            if (descriptor?.canonical_only !== true && descriptor?.data_safety?.canonical_only !== true) {
+              throw new Error(`${expectedId}: canonical_only is not true`);
+            }
+            fs.writeFileSync(path.join(dir, 'descriptor.json'), JSON.stringify(descriptor, null, 2) + '\n');
+            fs.writeFileSync(path.join(dir, 'index.json'), JSON.stringify(index, null, 2) + '\n');
+
+            const manifestUrl = nativeManifestUrl(descriptor, origin);
+            const manifest = await getJson(manifestUrl);
+            fs.writeFileSync(path.join(dir, 'native-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
+
+            const paths = [...collectRecordPaths(index)].map((p) => p.startsWith('http') ? p : new URL(p, origin).href).sort();
+            if (!paths.length) throw new Error(`${expectedId}: no Series record paths discovered from index`);
+            const picks = [...new Set([paths[0], paths[Math.floor(paths.length / 2)], paths[paths.length - 1]])];
+            const samples = [];
+            for (let i = 0; i < picks.length; i++) {
+              const payload = await getJson(picks[i]);
+              const rel = payload?.relationships;
+              samples.push({ url: picks[i], relationships: Array.isArray(rel) ? rel : rel ?? null });
+              fs.writeFileSync(path.join(dir, `sample-${i + 1}.json`), JSON.stringify(payload, null, 2) + '\n');
+            }
+
+            const row = {
+              registry_id: expectedId,
+              descriptor_url: descriptorUrl,
+              index_url: indexUrl,
+              native_manifest_url: manifestUrl,
+              series_record_paths_discovered: paths.length,
+              primary_records: descriptor?.record_counts?.primary_records ?? null,
+              series_records: descriptor?.record_counts?.series_records ?? descriptor?.record_counts?.primary_records ?? null,
+              verification: descriptor?.verification ?? null,
+              sample_record_urls: picks,
+              sample_relationship_fields: samples,
+            };
+            summary.push(row);
+            console.log(JSON.stringify(row));
+          }
+
+          fs.writeFileSync(path.join(outRoot, 'summary.json'), JSON.stringify({
+            schema_version: '1.0.0',
+            audit_scope: 'phase9_stage5_read_only_public_contract_collection',
+            collected_at: new Date().toISOString(),
+            registry_count: summary.length,
+            registries: summary,
+          }, null, 2) + '\n');
+          console.log(`Stage 5 read-only collection passed: ${summary.length}/8 registries.`);
+          NODE
+
+      - name: Upload audit artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase9-stage5-relationship-audit
+          path: stage5-relationship-audit/
+          if-no-files-found: error
