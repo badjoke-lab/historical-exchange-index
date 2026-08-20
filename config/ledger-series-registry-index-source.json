@@ -1,0 +1,562 @@
+{
+  "schema_version": "1.0.0",
+  "snapshot_type": "ledger_series_registry_descriptor_lock",
+  "semantic_owner": "badjoke-lab-ledger-series",
+  "collected_at": "2026-08-20T05:24:48.116Z",
+  "collector_run": 32335477187,
+  "registry_count": 8,
+  "registries": [
+    {
+      "descriptor_url": "https://hei.badjoke-lab.com/data/series/registry.json",
+      "snapshot": {
+        "series_schema_version": "1.0.0",
+        "object_type": "registry_descriptor",
+        "registry": {
+          "id": "historical-exchange-index",
+          "name": "Historical Exchange Index",
+          "type": "historical_crypto_exchange_registry",
+          "origin": "https://hei.badjoke-lab.com",
+          "native_machine_schema_version": "1.0.0",
+          "native_data_schema_version": "hei_entity_event_evidence_v1"
+        },
+        "canonical_only": true,
+        "record_counts": {
+          "primary_records": 1038,
+          "series_records": 1038
+        },
+        "routes": {
+          "descriptor": "/data/series/registry.json",
+          "index": "/data/series/index.json",
+          "record_template": "/data/series/records/{slug}.json",
+          "native_record_template": "/data/exchanges/{slug}.json",
+          "search": "/explore/",
+          "compare": "/compare/",
+          "stats": "/stats/"
+        },
+        "capabilities": {
+          "search": true,
+          "compare": true,
+          "stats": true,
+          "typed_relationships": false
+        },
+        "data_safety": {
+          "canonical_only": true,
+          "includes_unreviewed_candidates": false,
+          "includes_internal_monitoring": false,
+          "includes_private_notes": false,
+          "ai_generated_canonical_facts": false
+        },
+        "verification": {
+          "build": {
+            "commit": "6b94227a3427e7255b8cb72244ae526b91a0899e",
+            "branch": "main",
+            "generated_at": "2026-08-20T04:57:53.976Z",
+            "verification_marker": "hei_machine_readable_layer_v1"
+          },
+          "native_verification_marker": "hei_machine_readable_layer_v1"
+        }
+      }
+    },
+    {
+      "descriptor_url": "https://mag.badjoke-lab.com/data/series/registry.json",
+      "snapshot": {
+        "canonical_only": true,
+        "capabilities": {
+          "compare": true,
+          "events": "inline",
+          "evidence": "inline",
+          "record_json": true,
+          "relationships": "adapter",
+          "search": true,
+          "stats": true
+        },
+        "data_safety": {
+          "ai_generated_canonical_facts": false,
+          "canonical_only": true,
+          "includes_internal_monitoring": false,
+          "includes_private_notes": false,
+          "includes_unreviewed_candidates": false,
+          "public_quality_certification_implied": false,
+          "source_reviewed_drafts_may_have_open_flags": true
+        },
+        "native_contract": {
+          "manifest_url": "https://mag.badjoke-lab.com/data/manifest.json",
+          "schema_version": "1.0.0",
+          "version_url": "https://mag.badjoke-lab.com/version.json"
+        },
+        "object_type": "registry_descriptor",
+        "record_counts": {
+          "events": 388,
+          "evidence": 811,
+          "native": {
+            "events": 388,
+            "evidence": 811,
+            "marketplaces": 385
+          },
+          "primary_records": 385
+        },
+        "record_types": [
+          {
+            "machine_template": "/data/series/records/{slug}.json",
+            "native_record_type": "marketplace_dossier",
+            "series_record_type": "nft_marketplace"
+          }
+        ],
+        "registry": {
+          "id": "minted-and-gone",
+          "name": "Minted & Gone",
+          "native_project_id": "mag",
+          "origin": "https://mag.badjoke-lab.com",
+          "repository": "https://github.com/badjoke-lab/mintedandgone",
+          "type": "nft_marketplace_history"
+        },
+        "routes": {
+          "compare": "/compare/",
+          "descriptor": "/data/series/registry.json",
+          "index": "/data/series/index.json",
+          "record_templates": [
+            "/data/series/records/{slug}.json"
+          ],
+          "search": "/encyclopedia/",
+          "stats": "/stats/"
+        },
+        "series_schema_version": "1.0.0",
+        "verification": {
+          "build_commit": "6c41c2ae0fdd884501f02d3a6620ca5800268fdc",
+          "generated_at": "2026-08-19T18:32:24.003Z"
+        }
+      }
+    },
+    {
+      "descriptor_url": "https://www.stableorgone.com/data/series/registry.json",
+      "snapshot": {
+        "series_schema_version": "1.0.0",
+        "object_type": "registry_descriptor",
+        "registry": {
+          "id": "stable-or-gone",
+          "native_project_id": "stable-or-gone",
+          "name": "Stable or Gone",
+          "type": "stablecoin_issuer_registry",
+          "origin": "https://www.stableorgone.com",
+          "repository": "https://github.com/badjoke-lab/stable-or-gone"
+        },
+        "canonical_only": true,
+        "native_contract": {
+          "schema_version": "1.0.0",
+          "version_url": "https://www.stableorgone.com/version.json",
+          "manifest_url": "https://www.stableorgone.com/data/manifest.json",
+          "stablecoin_dossier_template": "https://www.stableorgone.com/data/stablecoin/{slug}.json"
+        },
+        "record_counts": {
+          "primary_records": 119,
+          "series_records": 119
+        },
+        "record_types": [
+          {
+            "series_record_type": "stablecoin",
+            "native_record_type": "stablecoin",
+            "machine_template": "/data/series/records/{slug}.json"
+          }
+        ],
+        "routes": {
+          "descriptor": "/data/series/registry.json",
+          "index": "/data/series/index.json",
+          "record_template": "/data/series/records/{slug}.json",
+          "search": "/stablecoins/",
+          "compare": "/compare/",
+          "stats": "/stats/"
+        },
+        "capabilities": {
+          "record_json": true,
+          "events": "inline",
+          "evidence": "inline",
+          "relationships": "adapter",
+          "search": true,
+          "compare": true,
+          "stats": true
+        },
+        "verification": {
+          "build": {
+            "commit": "626a11685e13afa1f22616948678128e8cd49e5b",
+            "branch": "main",
+            "generated_at": "2026-08-20T02:47:40.000Z",
+            "canonical_data_hash": "sha256:4e7570b6fab88a8178a01ae280a36d98787573b376440b891491f25469458798",
+            "canonical_file_count": 466,
+            "canonical_record_counts": {
+              "stablecoins": 119,
+              "organizations": 109,
+              "relationships": 131,
+              "classifications": 119,
+              "profiles": 119,
+              "events": 194,
+              "event_details": 194,
+              "evidence": 585,
+              "reserve_reports": 127,
+              "known_unknowns": 352,
+              "regulatory_notes": 9,
+              "deployments": 186,
+              "legal_profiles": 119,
+              "stable_asset_relationships": 5,
+              "reserve_components": 153,
+              "income_profiles": 119,
+              "evidence_relations": 585
+            },
+            "route_counts": {
+              "stablecoin_detail": 119,
+              "organization_detail": 109,
+              "event_detail": 194,
+              "total_detail": 422,
+              "declared_main_routes": 13
+            },
+            "provenance_schema_version": "1.0",
+            "provenance_verification_marker": "sog_build_provenance_v1",
+            "verification_marker": "sog_machine_readable_layer_v1"
+          }
+        },
+        "data_safety": {
+          "canonical_only": true,
+          "includes_unreviewed_candidates": false,
+          "includes_internal_monitoring": false,
+          "includes_private_notes": false,
+          "ai_generated_canonical_facts": false
+        }
+      }
+    },
+    {
+      "descriptor_url": "https://cya.badjoke-lab.com/data/series/registry.json",
+      "snapshot": {
+        "series_schema_version": "1.0.0",
+        "object_type": "registry_descriptor",
+        "registry": {
+          "id": "crypto-yield-archive",
+          "name": "Crypto Yield Archive",
+          "type": "historical_crypto_yield_registry",
+          "origin": "https://cya.badjoke-lab.com",
+          "native_machine_schema_version": "1.2.0",
+          "native_data_schema_version": "cya_registry_public_data_v2"
+        },
+        "canonical_only": true,
+        "record_counts": {
+          "primary_records": 117,
+          "series_records": 117
+        },
+        "routes": {
+          "descriptor": "/data/series/registry.json",
+          "index": "/data/series/index.json",
+          "record_template": "/data/series/records/{slug}.json",
+          "native_record_template": "/data/platform/{slug}.json",
+          "search": "/platforms/",
+          "compare": "/compare/",
+          "stats": "/stats/"
+        },
+        "capabilities": {
+          "search": true,
+          "compare": true,
+          "stats": true,
+          "typed_relationships": false
+        },
+        "data_safety": {
+          "canonical_only": true,
+          "includes_unreviewed_candidates": false,
+          "includes_internal_monitoring": false,
+          "includes_private_notes": false,
+          "ai_generated_canonical_facts": false
+        },
+        "verification": {
+          "build": {
+            "commit": "242bc8d03d3dd12af1dfcbaa16e7da1b3f7051a2",
+            "branch": "main",
+            "generated_at": "2026-08-20T03:07:57.295Z",
+            "verification_marker": "cya_machine_readable_layer_v2"
+          },
+          "native_verification_marker": "cya_machine_readable_layer_v2"
+        }
+      }
+    },
+    {
+      "descriptor_url": "https://bir.badjoke-lab.com/data/series/registry.json",
+      "snapshot": {
+        "canonical_only": true,
+        "capabilities": {
+          "compare": true,
+          "events": "inline",
+          "evidence": "inline",
+          "record_json": true,
+          "relationships": "adapter",
+          "search": true,
+          "stats": true
+        },
+        "data_safety": {
+          "ai_generated_canonical_facts": false,
+          "canonical_only": true,
+          "includes_internal_monitoring": false,
+          "includes_private_notes": false,
+          "includes_unreviewed_candidates": false
+        },
+        "native_contract": {
+          "manifest_url": "https://bir.badjoke-lab.com/data/manifest.json",
+          "schema_version": "1.1.0-draft",
+          "verification_marker": "canonical-reviewed-records-only",
+          "version_url": "https://bir.badjoke-lab.com/version.json"
+        },
+        "object_type": "registry_descriptor",
+        "record_counts": {
+          "native": {
+            "bridges": 39,
+            "events": 194,
+            "evidence": 316,
+            "incidents": 41
+          },
+          "primary_records": 39,
+          "series_records": 80
+        },
+        "record_types": [
+          {
+            "machine_template": "/data/series/records/bridge--{slug}.json",
+            "native_record_type": "bridge",
+            "series_record_type": "bridge"
+          },
+          {
+            "machine_template": "/data/series/records/incident--{slug}.json",
+            "native_record_type": "incident",
+            "series_record_type": "bridge_incident"
+          }
+        ],
+        "registry": {
+          "id": "bridge-incident-registry",
+          "name": "Bridge Incident Registry",
+          "native_project_id": "bridge-incident-registry",
+          "origin": "https://bir.badjoke-lab.com",
+          "repository": "https://github.com/badjoke-lab/bridge-incident-registry",
+          "type": "bridge_incident_registry"
+        },
+        "routes": {
+          "compare": "/compare/",
+          "descriptor": "/data/series/registry.json",
+          "index": "/data/series/index.json",
+          "record_templates": [
+            "/data/series/records/bridge--{slug}.json",
+            "/data/series/records/incident--{slug}.json"
+          ],
+          "search": "/incidents/",
+          "stats": "/stats/"
+        },
+        "series_schema_version": "1.0.0",
+        "verification": {
+          "generated_at": "2026-08-20T05:22:57.197Z",
+          "last_verified_at": "2026-08-20",
+          "verification_marker": "canonical-reviewed-records-only"
+        }
+      }
+    },
+    {
+      "descriptor_url": "https://wlr.badjoke-lab.com/data/series/registry.json",
+      "snapshot": {
+        "canonical_only": true,
+        "capabilities": {
+          "compare": true,
+          "events": "inline",
+          "evidence": "inline",
+          "record_json": true,
+          "relationships": "adapter",
+          "search": true,
+          "stats": true
+        },
+        "data_safety": {
+          "ai_generated_canonical_facts": false,
+          "canonical_only": true,
+          "includes_internal_monitoring": false,
+          "includes_private_notes": false,
+          "includes_unreviewed_candidates": false
+        },
+        "native_contract": {
+          "manifest_url": "https://wlr.badjoke-lab.com/data/manifest.json",
+          "version_url": "https://wlr.badjoke-lab.com/version.json"
+        },
+        "object_type": "registry_descriptor",
+        "record_counts": {
+          "native": {
+            "entities": 100,
+            "events": 138,
+            "evidence": 363,
+            "product_records": 149,
+            "products": 149,
+            "wallet_records": 100
+          },
+          "primary_records": 100
+        },
+        "record_types": [
+          {
+            "machine_template": "/data/series/records/wallet--{slug}.json",
+            "native_record_type": "wlr.wallet-record.v1",
+            "series_record_type": "wallet"
+          },
+          {
+            "machine_template": "/data/series/records/product--{slug}.json",
+            "native_record_type": "wlr.product-record.v1",
+            "series_record_type": "wallet_product"
+          }
+        ],
+        "registry": {
+          "id": "cryptocurrency-wallet-lifecycle-registry",
+          "name": "Wallet Lifecycle Registry",
+          "native_project_id": "cryptocurrency-wallet-lifecycle-registry",
+          "origin": "https://wlr.badjoke-lab.com",
+          "repository": "https://github.com/badjoke-lab/cryptocurrency-wallet-lifecycle-registry",
+          "type": "cryptocurrency_wallet_lifecycle_registry"
+        },
+        "routes": {
+          "compare": "/compare/",
+          "descriptor": "/data/series/registry.json",
+          "index": "/data/series/index.json",
+          "record_templates": [
+            "/data/series/records/wallet--{slug}.json",
+            "/data/series/records/product--{slug}.json"
+          ],
+          "search": "/",
+          "stats": "/stats/"
+        },
+        "series_schema_version": "1.0.0",
+        "verification": {
+          "last_verified_at": "2026-08-20"
+        }
+      }
+    },
+    {
+      "descriptor_url": "https://ai-tools-history-archive.pages.dev/data/series/registry.json",
+      "snapshot": {
+        "canonical_only": true,
+        "capabilities": {
+          "compare": true,
+          "events": "inline",
+          "evidence": "inline",
+          "record_json": true,
+          "relationships": "none",
+          "search": true,
+          "stats": true
+        },
+        "data_safety": {
+          "ai_generated_canonical_facts": false,
+          "canonical_only": true,
+          "includes_internal_monitoring": false,
+          "includes_private_notes": false,
+          "includes_unreviewed_candidates": false
+        },
+        "native_contract": {
+          "manifest_url": "https://ai-tools-history-archive.pages.dev/data/manifest.json",
+          "schema_version": "1.0.0",
+          "version_url": "https://ai-tools-history-archive.pages.dev/version.json"
+        },
+        "object_type": "registry_descriptor",
+        "record_counts": {
+          "events": 11,
+          "evidence": 12,
+          "native": {
+            "events": 11,
+            "evidence": 12,
+            "records": 10
+          },
+          "primary_records": 10
+        },
+        "record_types": [
+          {
+            "machine_template": "/data/series/records/{slug}.json",
+            "native_record_type": "ai_lifecycle_record",
+            "series_record_type": "ai_lifecycle"
+          }
+        ],
+        "registry": {
+          "id": "ai-tools-history-archive",
+          "name": "AI Tools History Archive",
+          "native_project_id": "atha",
+          "origin": "https://ai-tools-history-archive.pages.dev",
+          "repository": "https://github.com/badjoke-lab/ai-tools-history-archive",
+          "type": "ai_tool_lifecycle_history"
+        },
+        "routes": {
+          "compare": "/compare/",
+          "descriptor": "/data/series/registry.json",
+          "index": "/data/series/index.json",
+          "record_templates": [
+            "/data/series/records/{slug}.json"
+          ],
+          "search": "/records/",
+          "stats": "/stats/"
+        },
+        "series_schema_version": "1.0.0",
+        "verification": {
+          "build_commit": "76ef103329813f0174db121117c932bff53fbf8e",
+          "generated_at": "2026-08-19T18:29:41.858Z"
+        }
+      }
+    },
+    {
+      "descriptor_url": "https://api-deprecation-archive.pages.dev/data/series/registry.json",
+      "snapshot": {
+        "canonical_only": true,
+        "capabilities": {
+          "compare": true,
+          "events": "inline",
+          "evidence": "inline",
+          "record_json": true,
+          "relationships": "none",
+          "search": true,
+          "stats": true
+        },
+        "data_safety": {
+          "ai_generated_canonical_facts": false,
+          "canonical_only": true,
+          "includes_internal_monitoring": false,
+          "includes_private_notes": false,
+          "includes_unreviewed_candidates": false
+        },
+        "native_contract": {
+          "manifest_url": "https://api-deprecation-archive.pages.dev/data/machine/manifest.json",
+          "schema_version": "1.0.0",
+          "version_url": "https://api-deprecation-archive.pages.dev/version.json"
+        },
+        "object_type": "registry_descriptor",
+        "record_counts": {
+          "events": 18,
+          "evidence": 20,
+          "native": {
+            "entities": 19,
+            "events": 18,
+            "evidence": 20
+          },
+          "primary_records": 19
+        },
+        "record_types": [
+          {
+            "machine_template": "/data/series/records/{slug}.json",
+            "native_record_type": "api_lifecycle_dossier",
+            "series_record_type": "api_lifecycle"
+          }
+        ],
+        "registry": {
+          "id": "api-deprecation-archive",
+          "name": "API Deprecation Archive",
+          "native_project_id": "api-deprecation-archive",
+          "origin": "https://api-deprecation-archive.pages.dev",
+          "repository": "https://github.com/badjoke-lab/api-deprecation-archive",
+          "type": "developer_api_migration_history"
+        },
+        "routes": {
+          "compare": "/compare/",
+          "descriptor": "/data/series/registry.json",
+          "index": "/data/series/index.json",
+          "record_templates": [
+            "/data/series/records/{slug}.json"
+          ],
+          "search": "/apis/",
+          "stats": "/stats/"
+        },
+        "series_schema_version": "1.0.0",
+        "verification": {
+          "data_revision": "8da5be8df926ec754bf63c081e33f14ac19a6f89143c7e2d617b96c0304be47c",
+          "last_verified_at": "2026-08-20"
+        }
+      }
+    }
+  ]
+}
