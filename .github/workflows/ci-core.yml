@@ -39,6 +39,8 @@ jobs:
       - run: npm run data:check-projected-enums
       - run: npm run monitor:smoke
       - run: npm run monitor:test-completion
+      - name: Validate bounded commercial dataset sample export
+        run: node tools/export-commercial-dataset.mjs --sample-size=5 --source-commit="${GITHUB_SHA}"
       - run: node --check scripts/check-machine-readable-production.mjs
       - run: node --check scripts/check-record-level-machine-readable-production.mjs
       - run: node --check scripts/check-stats-machine-readable-production.mjs
