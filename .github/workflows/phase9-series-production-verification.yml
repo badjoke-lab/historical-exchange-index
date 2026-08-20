@@ -39,7 +39,13 @@ jobs:
       - name: Validate local Ledger Series adapter
         run: node scripts/validate-ledger-series-phase9-adapter.mjs
 
+      - name: Checkout verifier source without changing exact-main workspace
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: verifier-source
+
       - name: Verify exact-main production Series equality
         env:
           HEI_EXPECTED_MAIN_COMMIT: 6b94227a3427e7255b8cb72244ae526b91a0899e
-        run: node scripts/verify-ledger-series-phase9-production.mjs
+        run: node verifier-source/scripts/verify-ledger-series-phase9-production.mjs
