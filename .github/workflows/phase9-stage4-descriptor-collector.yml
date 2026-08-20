@@ -1,0 +1,25 @@
+name: Phase 9 Stage 4 descriptor collector
+
+on:
+  pull_request:
+    paths:
+      - "scripts/collect-ledger-series-stage4-descriptors.mjs"
+      - ".github/workflows/phase9-stage4-descriptor-collector.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  collect-descriptors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Collect eight production Series descriptors
+        run: node scripts/collect-ledger-series-stage4-descriptors.mjs
