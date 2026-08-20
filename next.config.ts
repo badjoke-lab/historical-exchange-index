@@ -1,6 +1,7 @@
 import './scripts/build-machine-readable-layer.mjs'
 import './scripts/build-record-level-machine-readable.mjs'
 import './scripts/build-ledger-series-phase9-adapter.mjs'
+import './scripts/build-ledger-series-registry-index.mjs'
 import './scripts/register-stats-machine-readable.mjs'
 import type { NextConfig } from 'next'
 
