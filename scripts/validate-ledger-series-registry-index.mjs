@@ -56,7 +56,7 @@ function assertNoCanonicalPayloads(value, pathParts = []) {
   }
 }
 
-const source = readJson('config/ledger-series-registry-index-source.json')
+const source = readJson('scripts/lib/ledger-series-registry-index-source.json')
 const output = readJson('public/data/series/registries.json')
 
 assert(source.schema_version === '1.0.0', 'source schema version')
