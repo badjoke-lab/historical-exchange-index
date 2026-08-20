@@ -21,10 +21,9 @@ function stable(value) {
   return JSON.stringify(value)
 }
 
-function normalizeEntry(entry) {
-  const snapshot = entry.snapshot
+function normalizeDescriptor(descriptorUrl, snapshot) {
   return {
-    descriptor_url: entry.descriptor_url,
+    descriptor_url: descriptorUrl,
     series_schema_version: snapshot.series_schema_version,
     canonical_only: snapshot.canonical_only,
     registry: snapshot.registry,
@@ -56,44 +55,62 @@ function assertNoCanonicalPayloads(value, pathParts = []) {
   }
 }
 
+function assertDescriptor(descriptorUrl, snapshot, label) {
+  assert(typeof descriptorUrl === 'string' && descriptorUrl.startsWith('https://'), `${label} descriptor URL must use HTTPS`)
+  assert(descriptorUrl.endsWith('/data/series/registry.json'), `${label} descriptor URL path`)
+  assert(snapshot?.series_schema_version === '1.0.0', `${label} Series schema`)
+  assert(snapshot?.object_type === 'registry_descriptor', `${label} object_type`)
+  assert(snapshot?.canonical_only === true, `${label} canonical_only`)
+  assert(snapshot?.data_safety?.canonical_only === true, `${label} data safety canonical_only`)
+  assert(typeof snapshot?.registry?.id === 'string' && snapshot.registry.id, `${label} registry id`)
+  assert(typeof snapshot?.registry?.origin === 'string' && snapshot.registry.origin.startsWith('https://'), `${label} origin`)
+  assert(descriptorUrl === `${snapshot.registry.origin}/data/series/registry.json`, `${label} descriptor/origin mismatch`)
+  assert(Number.isInteger(snapshot?.record_counts?.primary_records) && snapshot.record_counts.primary_records >= 0, `${label} primary record count`)
+  assert(snapshot.routes?.descriptor === '/data/series/registry.json', `${label} descriptor route`)
+  assert(snapshot.routes?.index === '/data/series/index.json', `${label} index route`)
+  assert(snapshot.capabilities && typeof snapshot.capabilities === 'object', `${label} capabilities`)
+  assert(snapshot.verification && typeof snapshot.verification === 'object', `${label} verification`)
+  assertNoCanonicalPayloads(snapshot)
+}
+
 const source = readJson('scripts/lib/ledger-series-registry-index-source.json')
+const localDescriptor = readJson('public/data/series/registry.json')
 const output = readJson('public/data/series/registries.json')
 
-assert(source.schema_version === '1.0.0', 'source schema version')
+assert(source.schema_version === '1.1.0', 'source schema version')
 assert(source.snapshot_type === 'ledger_series_registry_descriptor_lock', 'source snapshot type')
 assert(source.semantic_owner === 'badjoke-lab-ledger-series', 'source semantic owner')
 assert(source.registry_count === 8, 'source registry_count')
-assert(Array.isArray(source.registries) && source.registries.length === 8, 'source registries length')
+assert(source.remote_registry_count === 7, 'source remote_registry_count')
+assert(Array.isArray(source.registries) && source.registries.length === 7, 'source remote registries length')
+assert(source.local_host?.registry_id === 'historical-exchange-index', 'local host registry id')
+assert(source.local_host?.descriptor_url === 'https://hei.badjoke-lab.com/data/series/registry.json', 'local host descriptor URL')
+assert(source.local_host?.source === 'local_build_descriptor', 'local host source mode')
+assert(source.local_host?.generated_input === 'public/data/series/registry.json', 'local host generated input')
 
-const ids = new Set()
-const origins = new Set()
-const descriptorUrls = new Set()
+assertDescriptor(source.local_host.descriptor_url, localDescriptor, 'local HEI descriptor')
+assert(localDescriptor.registry.id === source.local_host.registry_id, 'local descriptor id must match local host')
+
+const ids = new Set([localDescriptor.registry.id])
+const origins = new Set([localDescriptor.registry.origin])
+const descriptorUrls = new Set([source.local_host.descriptor_url])
 
 for (const entry of source.registries) {
-  assert(entry && typeof entry === 'object', 'invalid source entry')
-  assert(typeof entry.descriptor_url === 'string' && entry.descriptor_url.startsWith('https://'), 'descriptor URL must use HTTPS')
-  assert(entry.descriptor_url.endsWith('/data/series/registry.json'), `descriptor URL path: ${entry.descriptor_url}`)
+  assert(entry && typeof entry === 'object', 'invalid remote source entry')
   const snapshot = entry.snapshot
-  assert(snapshot?.series_schema_version === '1.0.0', `${entry.descriptor_url} Series schema`)
-  assert(snapshot?.object_type === 'registry_descriptor', `${entry.descriptor_url} object_type`)
-  assert(snapshot?.canonical_only === true, `${entry.descriptor_url} canonical_only`)
-  assert(snapshot?.data_safety?.canonical_only === true, `${entry.descriptor_url} data safety canonical_only`)
-  assert(typeof snapshot?.registry?.id === 'string' && snapshot.registry.id, `${entry.descriptor_url} registry id`)
-  assert(typeof snapshot?.registry?.origin === 'string' && snapshot.registry.origin.startsWith('https://'), `${entry.descriptor_url} origin`)
-  assert(entry.descriptor_url === `${snapshot.registry.origin}/data/series/registry.json`, `${snapshot.registry.id} descriptor/origin mismatch`)
-  assert(Number.isInteger(snapshot?.record_counts?.primary_records) && snapshot.record_counts.primary_records >= 0, `${snapshot.registry.id} primary record count`)
-  assert(snapshot.routes?.descriptor === '/data/series/registry.json', `${snapshot.registry.id} descriptor route`)
-  assert(snapshot.routes?.index === '/data/series/index.json', `${snapshot.registry.id} index route`)
-  assert(snapshot.capabilities && typeof snapshot.capabilities === 'object', `${snapshot.registry.id} capabilities`)
-  assert(snapshot.verification && typeof snapshot.verification === 'object', `${snapshot.registry.id} verification`)
+  assertDescriptor(entry.descriptor_url, snapshot, `remote ${snapshot?.registry?.id || entry.descriptor_url}`)
+  assert(snapshot.registry.id !== source.local_host.registry_id, 'remote lock must not contain local HEI snapshot')
   assert(!ids.has(snapshot.registry.id), `duplicate registry id ${snapshot.registry.id}`)
   assert(!origins.has(snapshot.registry.origin), `duplicate origin ${snapshot.registry.origin}`)
   assert(!descriptorUrls.has(entry.descriptor_url), `duplicate descriptor URL ${entry.descriptor_url}`)
   ids.add(snapshot.registry.id)
   origins.add(snapshot.registry.origin)
   descriptorUrls.add(entry.descriptor_url)
-  assertNoCanonicalPayloads(snapshot)
 }
+
+assert(ids.size === 8, 'combined registry ids must be unique across eight registries')
+assert(origins.size === 8, 'combined origins must be unique across eight registries')
+assert(descriptorUrls.size === 8, 'combined descriptor URLs must be unique across eight registries')
 
 assert(output.series_schema_version === '1.0.0', 'output schema version')
 assert(output.object_type === 'registry_index', 'output object type')
@@ -102,15 +119,30 @@ assert(output.publication?.host_repository === 'badjoke-lab/historical-exchange-
 assert(output.publication?.host_origin === 'https://hei.badjoke-lab.com', 'host origin')
 assert(output.publication?.host_is_semantic_owner === false, 'host must not be semantic owner')
 assert(output.publication?.portable_to_future_dedicated_repository === true, 'portable flag')
-assert(output.snapshot?.collected_at === source.collected_at, 'snapshot collected_at')
-assert(output.snapshot?.collector_run === source.collector_run, 'snapshot collector run')
+assert(output.snapshot?.collected_at === source.collected_at, 'remote snapshot collected_at')
+assert(output.snapshot?.collector_run === source.collector_run, 'remote snapshot collector run')
+assert(output.snapshot?.local_host_registry_id === source.local_host.registry_id, 'output local host id')
+assert(output.snapshot?.local_host_source === source.local_host.source, 'output local host source mode')
 assert(output.registry_count === 8, 'output registry count')
 assert(Array.isArray(output.registries) && output.registries.length === 8, 'output registries length')
 
-const expected = source.registries
-  .map(normalizeEntry)
-  .sort((a, b) => String(a.registry.id).localeCompare(String(b.registry.id)))
-assert(stable(output.registries) === stable(expected), 'public index is not a deterministic projection of the reviewed source lock')
+const expected = [
+  normalizeDescriptor(source.local_host.descriptor_url, localDescriptor),
+  ...source.registries.map((entry) => normalizeDescriptor(entry.descriptor_url, entry.snapshot)),
+].sort((a, b) => String(a.registry.id).localeCompare(String(b.registry.id)))
+
+assert(stable(output.registries) === stable(expected), 'public index is not a deterministic projection of local HEI descriptor plus reviewed remote lock')
+
+const outputHei = output.registries.find((entry) => entry.registry?.id === source.local_host.registry_id)
+assert(outputHei, 'missing public HEI row')
+assert(stable(outputHei) === stable(normalizeDescriptor(source.local_host.descriptor_url, localDescriptor)), 'public HEI row must equal same-build local descriptor projection')
+
+for (const remote of source.registries) {
+  const actual = output.registries.find((entry) => entry.registry?.id === remote.snapshot.registry.id)
+  assert(actual, `missing public remote row ${remote.snapshot.registry.id}`)
+  assert(stable(actual) === stable(normalizeDescriptor(remote.descriptor_url, remote.snapshot)), `public remote row drift ${remote.snapshot.registry.id}`)
+}
+
 assertNoCanonicalPayloads(output)
 
 const serialized = JSON.stringify(output)
@@ -118,4 +150,4 @@ for (const forbidden of ['data-staging', 'internal monitoring', 'private researc
   assert(!serialized.includes(forbidden), `forbidden marker ${forbidden}`)
 }
 
-console.log(`Ledger Series registry index validation passed: ${output.registry_count} unique registry descriptors.`)
+console.log(`Ledger Series registry index validation passed: 8 unique registry descriptors (7 reviewed remote + 1 same-build local HEI).`)
