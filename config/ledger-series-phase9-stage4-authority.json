@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage4-2026-08-20",
+  "phase": 9,
+  "stage": 4,
+  "title": "Temporary-host Series registry index authority",
+  "status": "review_required_before_implementation",
+  "coordination_issue": 780,
+  "authority_base_main": "6b94227a3427e7255b8cb72244ae526b91a0899e",
+  "stage3_status": "complete_8_of_8_production_accepted",
+  "publication": {
+    "semantic_owner": "badjoke-lab-ledger-series",
+    "temporary_host_repository": "badjoke-lab/historical-exchange-index",
+    "temporary_host_origin": "https://hei.badjoke-lab.com",
+    "public_route": "/data/series/registries.json",
+    "host_is_semantic_owner": false,
+    "portable_to_future_dedicated_repository": true
+  },
+  "source_descriptors": [
+    "https://hei.badjoke-lab.com/data/series/registry.json",
+    "https://mag.badjoke-lab.com/data/series/registry.json",
+    "https://www.stableorgone.com/data/series/registry.json",
+    "https://cya.badjoke-lab.com/data/series/registry.json",
+    "https://bir.badjoke-lab.com/data/series/registry.json",
+    "https://wlr.badjoke-lab.com/data/series/registry.json",
+    "https://ai-tools-history-archive.pages.dev/data/series/registry.json",
+    "https://api-deprecation-archive.pages.dev/data/series/registry.json"
+  ],
+  "allowed_implementation": [
+    "add one reviewed tracked registry-index source/lock containing registry-level descriptor snapshots only",
+    "add a deterministic build generator for /data/series/registries.json with no network access during normal build",
+    "add fail-close validation for exactly eight unique registry identities, origins, descriptor URLs, counts, capabilities and verification facts",
+    "add one build hook after native HEI Series generation",
+    "add read-only CI for deterministic Stage 4 index validation",
+    "add a verification-only workflow/PR that compares the accepted central snapshot with all eight live production Series descriptors",
+    "publish /data/series/registries.json from the temporary HEI host after reviewed merge"
+  ],
+  "forbidden": [
+    "canonical exchange/entity/event/evidence mutation",
+    "copying any registry canonical record into the central index",
+    "cross-registry relationship publication",
+    "candidate or private monitoring publication",
+    "native schema or taxonomy changes",
+    "Search, Compare, Stats or UI behavior changes",
+    "Cloudflare account, DNS, hostname or deployment-project mutation",
+    "retargeting, rebasing or merging unrelated vertical pull requests",
+    "treating HEI as semantic owner of other registries",
+    "automatic Stage 5 continuation without separate reviewed authority"
+  ],
+  "acceptance": [
+    "authority PR merged before implementation",
+    "implementation diff contains only bounded Stage 4 source/generator/validator/build-hook/CI changes",
+    "existing HEI checks and dedicated Stage 4 validation green on exact final head",
+    "implementation merged to main",
+    "production /version.json reports exact accepted implementation main",
+    "production /data/series/registries.json equals exact-main deterministic output apart from explicitly documented deployment timestamps if any",
+    "all eight production descriptor identities/origins/counts/capabilities/verification snapshots agree at acceptance",
+    "representative descriptor URLs return successfully",
+    "Stage 4 acceptance evidence recorded in coordination Issue #780"
+  ],
+  "automatic_continuation": false
+}
