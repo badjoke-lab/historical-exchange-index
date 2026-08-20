@@ -1,62 +1,18 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "snapshot_type": "ledger_series_registry_descriptor_lock",
   "semantic_owner": "badjoke-lab-ledger-series",
-  "collected_at": "2026-08-20T05:24:48.116Z",
-  "collector_run": 32335477187,
+  "collected_at": "2026-08-20T06:40:01.492Z",
+  "collector_run": 32340438224,
   "registry_count": 8,
+  "local_host": {
+    "registry_id": "historical-exchange-index",
+    "descriptor_url": "https://hei.badjoke-lab.com/data/series/registry.json",
+    "source": "local_build_descriptor",
+    "generated_input": "public/data/series/registry.json"
+  },
+  "remote_registry_count": 7,
   "registries": [
-    {
-      "descriptor_url": "https://hei.badjoke-lab.com/data/series/registry.json",
-      "snapshot": {
-        "series_schema_version": "1.0.0",
-        "object_type": "registry_descriptor",
-        "registry": {
-          "id": "historical-exchange-index",
-          "name": "Historical Exchange Index",
-          "type": "historical_crypto_exchange_registry",
-          "origin": "https://hei.badjoke-lab.com",
-          "native_machine_schema_version": "1.0.0",
-          "native_data_schema_version": "hei_entity_event_evidence_v1"
-        },
-        "canonical_only": true,
-        "record_counts": {
-          "primary_records": 1038,
-          "series_records": 1038
-        },
-        "routes": {
-          "descriptor": "/data/series/registry.json",
-          "index": "/data/series/index.json",
-          "record_template": "/data/series/records/{slug}.json",
-          "native_record_template": "/data/exchanges/{slug}.json",
-          "search": "/explore/",
-          "compare": "/compare/",
-          "stats": "/stats/"
-        },
-        "capabilities": {
-          "search": true,
-          "compare": true,
-          "stats": true,
-          "typed_relationships": false
-        },
-        "data_safety": {
-          "canonical_only": true,
-          "includes_unreviewed_candidates": false,
-          "includes_internal_monitoring": false,
-          "includes_private_notes": false,
-          "ai_generated_canonical_facts": false
-        },
-        "verification": {
-          "build": {
-            "commit": "6b94227a3427e7255b8cb72244ae526b91a0899e",
-            "branch": "main",
-            "generated_at": "2026-08-20T04:57:53.976Z",
-            "verification_marker": "hei_machine_readable_layer_v1"
-          },
-          "native_verification_marker": "hei_machine_readable_layer_v1"
-        }
-      }
-    },
     {
       "descriptor_url": "https://mag.badjoke-lab.com/data/series/registry.json",
       "snapshot": {
@@ -177,9 +133,9 @@
         },
         "verification": {
           "build": {
-            "commit": "626a11685e13afa1f22616948678128e8cd49e5b",
+            "commit": "010689ef4e5a77f415091693d71b01e3e6c3f392",
             "branch": "main",
-            "generated_at": "2026-08-20T02:47:40.000Z",
+            "generated_at": "2026-08-20T05:36:00.000Z",
             "canonical_data_hash": "sha256:4e7570b6fab88a8178a01ae280a36d98787573b376440b891491f25469458798",
             "canonical_file_count": 466,
             "canonical_record_counts": {
@@ -237,8 +193,8 @@
         },
         "canonical_only": true,
         "record_counts": {
-          "primary_records": 117,
-          "series_records": 117
+          "primary_records": 118,
+          "series_records": 118
         },
         "routes": {
           "descriptor": "/data/series/registry.json",
@@ -264,9 +220,9 @@
         },
         "verification": {
           "build": {
-            "commit": "242bc8d03d3dd12af1dfcbaa16e7da1b3f7051a2",
+            "commit": "d5ffd036f52cf4789190c95848979f76ce768423",
             "branch": "main",
-            "generated_at": "2026-08-20T03:07:57.295Z",
+            "generated_at": "2026-08-20T05:36:03.421Z",
             "verification_marker": "cya_machine_readable_layer_v2"
           },
           "native_verification_marker": "cya_machine_readable_layer_v2"
@@ -303,12 +259,12 @@
         "record_counts": {
           "native": {
             "bridges": 39,
-            "events": 194,
-            "evidence": 316,
-            "incidents": 41
+            "events": 199,
+            "evidence": 325,
+            "incidents": 42
           },
           "primary_records": 39,
-          "series_records": 80
+          "series_records": 81
         },
         "record_types": [
           {
@@ -343,7 +299,7 @@
         },
         "series_schema_version": "1.0.0",
         "verification": {
-          "generated_at": "2026-08-20T05:22:57.197Z",
+          "generated_at": "2026-08-20T06:23:18.219Z",
           "last_verified_at": "2026-08-20",
           "verification_marker": "canonical-reviewed-records-only"
         }
