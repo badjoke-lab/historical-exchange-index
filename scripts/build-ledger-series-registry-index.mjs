@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const root = process.cwd()
-const sourcePath = path.join(root, 'config', 'ledger-series-registry-index-source.json')
+const sourcePath = path.join(root, 'scripts', 'lib', 'ledger-series-registry-index-source.json')
 const outputPath = path.join(root, 'public', 'data', 'series', 'registries.json')
 
 function readJson(filePath) {
