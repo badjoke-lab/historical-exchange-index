@@ -12,14 +12,14 @@
   "counts": {
     "collector_accepted_before_review": 246,
     "collector_deferred_before_review": 276,
-    "accepted_candidates": 247,
-    "rejected_mappings": 246,
-    "unresolved_mappings": 29,
+    "accepted_candidates": 244,
+    "rejected_mappings": 247,
+    "unresolved_mappings": 31,
     "cross_registry_exact_id_refs": 0
   },
   "by_registry": {
     "historical-exchange-index": {"accepted": 21, "rejected": 0, "unresolved": 0},
-    "minted-and-gone": {"accepted": 20, "rejected": 0, "unresolved": 12},
+    "minted-and-gone": {"accepted": 17, "rejected": 1, "unresolved": 14},
     "stable-or-gone": {"accepted": 1, "rejected": 128, "unresolved": 0},
     "crypto-yield-archive": {"accepted": 0, "rejected": 118, "unresolved": 0},
     "bridge-incident-registry": {"accepted": 44, "rejected": 0, "unresolved": 1},
@@ -31,12 +31,12 @@
   "review_document": "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE5_RELATIONSHIP_INVENTORY_2026-08-21.md",
   "publication_implementation_authority_justified": true,
   "publication_blocked_until_second_reviewed_authority": true,
-  "notes": [
-    "247 same-registry candidates are lossless under Series v1.",
-    "Rejected and unresolved rows are not authorized for public Series output.",
-    "No exact cross-registry ID reference was found.",
-    "SAI predecessor_of DAI is accepted once; duplicate observation is rejected.",
-    "SOG yield_wrapper_of/redeemable_into are not weakened into another v1 type.",
-    "CYA products and SOG organizations remain outside Stage 3 Series target scope."
-  ]
+  "manual_corrections": {
+    "collector_false_accepts": 3,
+    "collector_deferred_promoted": 1,
+    "mag_self_loop_rejected": 1,
+    "mag_contradictory_pair_rows_unresolved": 2,
+    "sog_sai_to_dai_promoted_once": 1
+  },
+  "automatic_continuation": false
 }
