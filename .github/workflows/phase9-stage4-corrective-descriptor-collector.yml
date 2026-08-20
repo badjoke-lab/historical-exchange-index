@@ -23,3 +23,10 @@ jobs:
 
       - name: Collect seven remote production Series descriptors
         run: node scripts/collect-ledger-series-stage4-remote-descriptors.mjs
+
+      - name: Upload reviewed descriptor snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage4-remote-descriptors
+          path: stage4-remote-descriptors.json
+          if-no-files-found: error
