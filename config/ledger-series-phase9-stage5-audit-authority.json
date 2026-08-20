@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage5-audit-2026-08-20",
+  "phase": 9,
+  "stage": 5,
+  "substage": "relationship_inventory_audit",
+  "title": "Ledger Series reviewed relationship inventory audit authority",
+  "status": "review_required_before_audit_execution",
+  "coordination_issue": 780,
+  "authority_base_main": "95b50e56398d3d29d4766e1451082c4fd6a5a79d",
+  "depends_on": {
+    "stage3_adapters": "complete_8_of_8_production_accepted",
+    "stage4_registry_index": "complete_production_accepted",
+    "stage4_acceptance_run": 32341764151,
+    "stage4_acceptance_job": 96342135268,
+    "series_contract": "v1.0.0_frozen_in_issue_780_stage2"
+  },
+  "purpose": "Inventory only the explicit reviewed native relationships that can be mapped losslessly into the frozen Series v1 relationship vocabulary. The audit produces reviewed candidates; it does not publish relationship records.",
+  "frozen_relationship_vocabulary": [
+    "predecessor_of",
+    "successor_of",
+    "same_operator_as",
+    "product_of",
+    "incident_of",
+    "event_of",
+    "evidence_for",
+    "migration_target_of",
+    "replacement_for",
+    "related_to"
+  ],
+  "audit_rules": [
+    "Relationship claims require explicit reviewed native relationship support or a separately reviewed Series relationship source; name similarity is never sufficient.",
+    "related_to is deliberately weak and must not be interpreted as replacement, successor, ownership, product, incident, migration or operator identity.",
+    "replacement_for and migration_target_of require explicit reviewed native/source support.",
+    "same_operator_as requires an explicit reviewed operator/entity identity match, not string similarity.",
+    "Registry-native relationships may be proposed for Series mirroring only when the mapping is lossless.",
+    "Native provenance/evidence references must be retained when available.",
+    "Candidate relationships remain outside canonical/public Series output until a later reviewed implementation authority.",
+    "Cross-registry targets use globally namespaced identity: registry_id + native_record_type + native_record_id."
+  ],
+  "required_registry_audit": [
+    "historical-exchange-index",
+    "minted-and-gone",
+    "stable-or-gone",
+    "crypto-yield-archive",
+    "bridge-incident-registry",
+    "cryptocurrency-wallet-lifecycle-registry",
+    "ai-tools-history-archive",
+    "api-deprecation-archive"
+  ],
+  "initial_mapping_hypotheses_to_verify_not_assume": {
+    "minted-and-gone": ["predecessor_of", "successor_of"],
+    "bridge-incident-registry": ["incident_of"],
+    "cryptocurrency-wallet-lifecycle-registry": ["product_of"],
+    "stable-or-gone": ["native relationship vocabulary must be inspected before any mapping"],
+    "historical-exchange-index": ["event/evidence links alone do not authorize cross-record relationship claims"],
+    "crypto-yield-archive": ["supporting records alone do not authorize typed Series relationships"],
+    "ai-tools-history-archive": ["generic related_records do not imply successor or replacement semantics"],
+    "api-deprecation-archive": ["no relationship should be invented where native reviewed vocabulary is absent"]
+  },
+  "allowed_work": [
+    "create a temporary read-only one-shot collector or auditor on a task branch",
+    "read production Series descriptors, indexes and record envelopes for all eight registries",
+    "read native machine dossiers when needed to validate an explicit relationship mapping",
+    "produce a non-public audit artifact and repository review document listing accepted candidates, rejected candidates and unresolved mappings",
+    "record exact registry production verification facts used by the audit",
+    "delete temporary collector/auditor workflow files before closing the audit implementation if they are not needed permanently",
+    "update Issue #780 with the reviewed Stage 5 audit result"
+  ],
+  "forbidden": [
+    "publishing any relationship record or relationship index",
+    "modifying any canonical entity, event, evidence, marketplace, stablecoin, platform, bridge, wallet, AI tool or API record",
+    "modifying another registry repository",
+    "using name, slug, domain or operator string similarity as relationship evidence",
+    "promoting candidate/private/monitoring material into public Series output",
+    "changing the frozen Series v1 relationship vocabulary",
+    "changing Search, Compare, Stats or public UI",
+    "changing Cloudflare account, project, DNS or hostname configuration",
+    "automatic continuation into Stage 5 relationship publication without a second reviewed implementation authority"
+  ],
+  "audit_acceptance": [
+    "this authority PR is merged before any Stage 5 audit branch executes network collection",
+    "all eight registries are audited or explicitly marked no-reviewed-mapping with evidence",
+    "every proposed relationship candidate has namespaced source and target identities",
+    "every proposed typed mapping identifies the exact reviewed native field/source that supports the type",
+    "rejected and unresolved mappings remain non-public",
+    "audit artifact/report contains no private or unreviewed candidate payloads",
+    "Issue #780 records the accepted inventory and the decision whether a separate publication implementation authority is justified"
+  ],
+  "preview_required": false,
+  "production_verification_required": false,
+  "reason": "This authority permits audit-only work and no public output mutation.",
+  "automatic_continuation": false
+}
