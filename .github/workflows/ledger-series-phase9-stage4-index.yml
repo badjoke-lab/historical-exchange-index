@@ -1,0 +1,47 @@
+name: Ledger Series Phase 9 Stage 4 Index
+
+on:
+  pull_request:
+    paths:
+      - "config/ledger-series-registry-index-source.json"
+      - "scripts/build-ledger-series-registry-index.mjs"
+      - "scripts/validate-ledger-series-registry-index.mjs"
+      - "next.config.ts"
+      - ".github/workflows/ledger-series-phase9-stage4-index.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "config/ledger-series-registry-index-source.json"
+      - "scripts/build-ledger-series-registry-index.mjs"
+      - "scripts/validate-ledger-series-registry-index.mjs"
+      - "next.config.ts"
+      - ".github/workflows/ledger-series-phase9-stage4-index.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-registry-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Build exact candidate
+        run: npm run build
+
+      - name: Validate native HEI Series adapter
+        run: node scripts/validate-ledger-series-phase9-adapter.mjs
+
+      - name: Validate Stage 4 registry index
+        run: node scripts/validate-ledger-series-registry-index.mjs
