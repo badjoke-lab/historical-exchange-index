@@ -1,0 +1,45 @@
+name: Phase 9 Series production verification
+
+on:
+  pull_request:
+    paths:
+      - "scripts/verify-ledger-series-phase9-production.mjs"
+      - ".github/workflows/phase9-series-production-verification.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact merged main
+        uses: actions/checkout@v7
+        with:
+          ref: 6b94227a3427e7255b8cb72244ae526b91a0899e
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Build exact merged main
+        env:
+          CF_PAGES_COMMIT_SHA: 6b94227a3427e7255b8cb72244ae526b91a0899e
+          CF_PAGES_BRANCH: main
+        run: npm run build
+
+      - name: Validate native record-level layer
+        run: node scripts/validate-record-level-machine-readable.mjs
+
+      - name: Validate local Ledger Series adapter
+        run: node scripts/validate-ledger-series-phase9-adapter.mjs
+
+      - name: Verify exact-main production Series equality
+        env:
+          HEI_EXPECTED_MAIN_COMMIT: 6b94227a3427e7255b8cb72244ae526b91a0899e
+        run: node scripts/verify-ledger-series-phase9-production.mjs
