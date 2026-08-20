@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage4-corrective-2026-08-20",
+  "phase": 9,
+  "stage": 4,
+  "title": "Stage 4 host-self synchronization corrective authority",
+  "status": "review_required_before_corrective_implementation",
+  "coordination_issue": 780,
+  "authority_base_main": "9c079dfd4bda36a2e7de2384b1578488e552ca76",
+  "original_stage4_authority": "config/ledger-series-phase9-stage4-authority.json",
+  "original_stage4_implementation_pr": 785,
+  "production_verifier_pr": 786,
+  "problem": {
+    "production_deployment_reached_expected_main": true,
+    "first_verifier_run": 32339065549,
+    "first_verifier_job": 96334293361,
+    "first_verifier_acceptance": "rejected",
+    "masked_failure": "live descriptor drift for historical-exchange-index",
+    "workflow_failure_mask_reason": "node verifier was piped through tee without bash pipefail",
+    "self_reference": "The tracked registry lock snapshots HEI verification.build.commit, but any Stage 4 merge changes the live HEI build commit again, so a static host-self verification commit cannot reach a fixed point."
+  },
+  "corrective_design": {
+    "normal_build_network_access": false,
+    "local_host_registry_id": "historical-exchange-index",
+    "local_host_source": "the locally generated HEI /data/series/registry.json produced earlier in the same deterministic build",
+    "remote_registry_source": "reviewed tracked descriptor lock for the other seven registries",
+    "remote_registry_count": 7,
+    "live_acceptance_registry_count": 8,
+    "reason": "The temporary host must describe its own current build from the same build output while all non-host registries remain reviewed lock inputs."
+  },
+  "allowed_implementation": [
+    "adjust the Stage 4 registry-index builder so only the HEI row is projected from the locally generated HEI Series descriptor",
+    "keep the other seven registries sourced from the reviewed tracked descriptor lock",
+    "refresh reviewed non-HEI descriptor snapshots when live vertical drift is confirmed before the corrective merge",
+    "adjust the Stage 4 validator and read-only CI to require local-host descriptor parity plus reviewed-lock parity for the other seven registries",
+    "retain deterministic network-free normal builds",
+    "rerun fail-close exact-main production synchronization across all eight live descriptors",
+    "update Stage 4 coordination evidence and close the verification-only PR without merge after successful acceptance"
+  ],
+  "forbidden": [
+    "canonical exchange/entity/event/evidence mutation",
+    "changes to another registry repository",
+    "cross-registry relationship publication or Stage 5 implementation",
+    "candidate or private monitoring publication",
+    "native schema or taxonomy changes",
+    "Search, Compare, Stats or UI behavior changes",
+    "Cloudflare account, DNS, hostname or project configuration mutation",
+    "weakening live synchronization checks for the seven non-host registries",
+    "treating HEI as semantic owner of other registries",
+    "automatic continuation after Stage 4 acceptance"
+  ],
+  "acceptance": [
+    "this corrective authority PR is merged before any corrective runtime/public-output write",
+    "corrective implementation is limited to Stage 4 source/builder/validator/CI changes and any reviewed non-HEI lock refresh needed for current live synchronization",
+    "existing HEI CI and dedicated Stage 4 validation are green on the exact corrective head",
+    "corrective implementation is merged to main",
+    "production /version.json reports the exact corrective main commit",
+    "the public HEI row equals the live local-host HEI Series descriptor for that exact deployed build",
+    "the other seven public registry rows equal their reviewed lock projections and all seven live production descriptors at acceptance",
+    "all eight identities, origins, counts, capabilities, verification facts and data-safety facts agree under the Stage 4 registry-level contract",
+    "the fail-close production verifier exits successfully without pipeline masking",
+    "accepted run/job and synchronized registry facts are recorded in Issue #780"
+  ],
+  "preview_required": false,
+  "preview_reason": "The correction is deterministic static machine-readable generation with no Cloudflare-specific routing, redirect, header, DNS, project, or UI behavior. Repository CI plus exact-main production verification is the release gate.",
+  "automatic_continuation": false
+}
