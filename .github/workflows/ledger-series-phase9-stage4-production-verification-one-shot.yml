@@ -15,7 +15,7 @@ jobs:
     permissions:
       contents: read
     env:
-      HEI_EXPECTED_PRODUCTION_COMMIT: 9c079dfd4bda36a2e7de2384b1578488e552ca76
+      HEI_EXPECTED_PRODUCTION_COMMIT: 95b50e56398d3d29d4766e1451082c4fd6a5a79d
       HEI_PRODUCTION_ORIGIN: https://hei.badjoke-lab.com
 
     steps:
