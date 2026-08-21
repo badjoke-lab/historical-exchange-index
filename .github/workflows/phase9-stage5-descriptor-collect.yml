@@ -1,0 +1,38 @@
+name: Phase 9 Stage 5 Descriptor Collect
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/phase9-stage5-descriptor-collect.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  collect-live-descriptors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Collect reviewed remote descriptor snapshots
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const source = JSON.parse(fs.readFileSync('scripts/lib/ledger-series-registry-index-source.json', 'utf8'))
+          for (const entry of source.registries) {
+            const response = await fetch(entry.descriptor_url, {
+              headers: { accept: 'application/json', 'cache-control': 'no-cache', 'user-agent': 'HEI-stage5-descriptor-collector/1.0' },
+              signal: AbortSignal.timeout(30000),
+            })
+            if (!response.ok) throw new Error(`${entry.descriptor_url}: HTTP ${response.status}`)
+            const snapshot = await response.json()
+            const id = snapshot?.registry?.id
+            if (!id) throw new Error(`${entry.descriptor_url}: missing registry id`)
+            console.log(`DESCRIPTOR ${id} ${Buffer.from(JSON.stringify(snapshot), 'utf8').toString('base64')}`)
+          }
+          console.log(`COLLECTED_AT ${new Date().toISOString()}`)
+          NODE
