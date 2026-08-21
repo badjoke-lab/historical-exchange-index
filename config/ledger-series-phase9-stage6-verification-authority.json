@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage6-cross-registry-verification-2026-08-21",
+  "phase": 9,
+  "stage": 6,
+  "title": "Ledger Series cross-registry production and equality verification authority",
+  "status": "review_required_before_execution",
+  "coordination_issue": 780,
+  "authority_base_main": "1e9db45ec8b82f831b85e197fb2fba7120697c09",
+  "depends_on": {
+    "stage3_adapters": "complete_8_of_8_production_accepted",
+    "stage4_registry_index": "complete_production_accepted",
+    "stage5_relationships": "complete_244_of_244_production_accepted",
+    "stage5_registry_descriptor_resync": "merged_pr_799"
+  },
+  "purpose": "Run a bounded, read-only, fail-closed verification across all eight live Ledger Series registries after Stage 5. Prove that each registry's native public contract and Series adapter agree on the identity, record counts, revision or verification facts actually supported by that registry, canonical-only provenance boundary, and published relationship count/capability, while detecting stale or mixed revisions.",
+  "registries": [
+    "historical-exchange-index",
+    "minted-and-gone",
+    "stable-or-gone",
+    "crypto-yield-archive",
+    "bridge-incident-registry",
+    "cryptocurrency-wallet-lifecycle-registry",
+    "ai-tools-history-archive",
+    "api-deprecation-archive"
+  ],
+  "required_checks": [
+    "fetch the reviewed Stage 4/5 central registry index and each live registry descriptor",
+    "verify the central index contains exactly the eight reviewed registry identities and no duplicate registry id or origin",
+    "verify each central-index row agrees with its live descriptor for registry identity, origin, Series schema version, primary record count, Series record count, declared routes, capabilities and relationship count when present",
+    "verify every registry remains canonical-only and no candidate, monitoring, private or unreviewed payload is exposed through the Series layer",
+    "verify every Series record index count equals the descriptor's Series record count and that representative records resolve to the same namespaced identity advertised by the index",
+    "verify native public counts agree with the Series projection using only lossless mappings already accepted in Stage 3; do not invent a universal native count field",
+    "verify revision, build commit, data hash, generated timestamp, last-verified timestamp or native verification marker only where the registry actually exposes that fact; missing optional verification facts must remain missing rather than fabricated",
+    "verify no registry shows a stale or mixed revision across descriptor, index, representative record and relationship transport",
+    "verify Stage 5 relationship transports contain exactly the production-accepted reviewed counts: HEI 21, MAG 17, SOG 1, BIR 44, WLR 161, CYA 0, AI Tools 0, API Deprecation 0",
+    "verify all published Stage 5 relationship records use the frozen Series v1 relationship_record contract, namespaced endpoints, deterministic ids where the registry implementation declares them, no self loops, and no cross-registry relationship",
+    "verify registries with zero accepted Stage 5 relationships do not silently expose inferred typed relationships",
+    "record exact production URLs, observed verification facts, counts and pass/fail disposition in a non-public audit artifact or repository review document"
+  ],
+  "fail_closed_conditions": [
+    "central index and live descriptor disagreement",
+    "duplicate or missing registry identity",
+    "primary or Series count disagreement without an explicitly documented accepted mapping",
+    "stale or mixed revision evidence within one registry's Series transport",
+    "canonical_only false or missing where the frozen contract requires it",
+    "relationship count or tuple drift from the Stage 5 production-accepted set",
+    "relationship endpoint referencing a missing Series record",
+    "cross-registry relationship appearing despite Stage 5 accepted cross-registry count being zero",
+    "fabricated verification metadata or normalization that weakens stronger native verification"
+  ],
+  "allowed_work": [
+    "create a temporary read-only one-shot Stage 6 verifier on a task branch after this authority merges",
+    "read the eight registries' production native and Series machine endpoints",
+    "read the HEI-hosted central Series registry index",
+    "produce non-public verification artifacts and reviewed audit documents",
+    "add a dedicated fail-closed verifier or workflow when necessary for reproducibility",
+    "update Issue #780 with the reviewed Stage 6 result"
+  ],
+  "forbidden": [
+    "modifying canonical records in HEI or any other registry",
+    "modifying another registry repository under this authority",
+    "changing any public Series adapter, descriptor, relationship transport, Search, Compare, Stats, UI, localization or Cloudflare configuration merely to make Stage 6 pass",
+    "silently refreshing tracked remote locks or expected values during the verifier run",
+    "treating generated_at alone as proof of equality when a registry exposes stronger revision or build evidence",
+    "publishing new relationship records or changing the frozen Stage 5 accepted relationship set",
+    "automatic continuation into Stage 7 or Stage 8"
+  ],
+  "acceptance": [
+    "this authority PR is merged before any new Stage 6 network verifier is executed",
+    "all eight registries are checked against their live production endpoints",
+    "all required checks pass or any failure is reported without mutating production or expected values",
+    "Stage 5 relationship total equals 244 and accepted cross-registry relationship count remains zero",
+    "the audit records exact observed production verification facts and identifies any optional verification field that is genuinely unavailable",
+    "temporary network collector files are removed before closeout unless a permanent reproducible verifier is separately justified",
+    "Issue #780 records whether Stage 6 is accepted and whether a separate Stage 7 docs/status synchronization authority is justified"
+  ],
+  "preview_required": false,
+  "production_mutation_authorized": false,
+  "production_verification_required": true,
+  "automatic_continuation": false
+}
