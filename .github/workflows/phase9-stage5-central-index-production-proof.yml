@@ -1,0 +1,70 @@
+name: Phase 9 Stage 5 Central Index Production Proof
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/phase9-stage5-central-index-production-proof.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-central-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify exact merged HEI build and Stage 5 descriptor snapshot
+        env:
+          EXPECTED_COMMIT: 1e9db45ec8b82f831b85e197fb2fba7120697c09
+          EXPECTED_COLLECTOR_RUN: '32484094968'
+        run: |
+          node --input-type=module <<'NODE'
+          const origin = 'https://hei.badjoke-lab.com'
+          const expectedCommit = process.env.EXPECTED_COMMIT
+          const expectedCollectorRun = Number(process.env.EXPECTED_COLLECTOR_RUN)
+          const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+          async function fetchJson(route) {
+            const response = await fetch(`${origin}${route}`, {
+              headers: { accept: 'application/json', 'cache-control': 'no-cache', 'user-agent': 'HEI-stage5-central-index-proof/1.0' },
+              signal: AbortSignal.timeout(30000),
+            })
+            if (!response.ok) throw new Error(`${route}: HTTP ${response.status}`)
+            return response.json()
+          }
+          let lastError = null
+          for (let attempt = 1; attempt <= 30; attempt += 1) {
+            try {
+              const [version, index] = await Promise.all([
+                fetchJson('/version.json'),
+                fetchJson('/data/series/registries.json'),
+              ])
+              if (version?.build?.commit !== expectedCommit) throw new Error(`version commit ${version?.build?.commit ?? 'missing'} != ${expectedCommit}`)
+              if (index?.object_type !== 'registry_index' || index?.registry_count !== 8 || !Array.isArray(index?.registries) || index.registries.length !== 8) throw new Error('central registry index must contain exactly 8 descriptors')
+              if (index?.snapshot?.collector_run !== expectedCollectorRun) throw new Error(`collector run ${index?.snapshot?.collector_run ?? 'missing'} != ${expectedCollectorRun}`)
+              if (index?.snapshot?.local_host_registry_id !== 'historical-exchange-index' || index?.snapshot?.local_host_source !== 'local_build_descriptor') throw new Error('local HEI descriptor boundary mismatch')
+              const byId = new Map(index.registries.map((row) => [row?.registry?.id, row]))
+              const expectedRelationships = new Map([
+                ['historical-exchange-index', 21],
+                ['minted-and-gone', 17],
+                ['stable-or-gone', 1],
+                ['bridge-incident-registry', 44],
+                ['cryptocurrency-wallet-lifecycle-registry', 161],
+              ])
+              for (const [id, count] of expectedRelationships) {
+                const row = byId.get(id)
+                if (!row) throw new Error(`missing registry ${id}`)
+                if (row?.record_counts?.relationships !== count) throw new Error(`${id} relationships ${row?.record_counts?.relationships ?? 'missing'} != ${count}`)
+                if (row?.routes?.relationships !== '/data/series/relationships.json') throw new Error(`${id} relationship route mismatch`)
+                if (row?.capabilities?.relationships !== 'adapter') throw new Error(`${id} relationship capability mismatch`)
+              }
+              if (byId.get('crypto-yield-archive')?.record_counts?.primary_records !== 119) throw new Error('CYA refreshed primary record count must be 119')
+              if (byId.get('ai-tools-history-archive')?.capabilities?.relationships !== 'none') throw new Error('AI Tools relationships capability must remain none')
+              if (byId.get('api-deprecation-archive')?.capabilities?.relationships !== 'none') throw new Error('API Deprecation relationships capability must remain none')
+              console.log(`Stage 5 central registry index production proof passed on attempt ${attempt}: commit=${expectedCommit}, collector_run=${expectedCollectorRun}, registries=8.`)
+              process.exit(0)
+            } catch (error) {
+              lastError = error
+              if (attempt < 30) await sleep(15000)
+            }
+          }
+          throw lastError
+          NODE
