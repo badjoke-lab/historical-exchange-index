@@ -1,3 +1,4 @@
+// Build order is deliberate: native machine layer -> record-level layer -> reviewed Series relationships -> registry index -> stats.
 import './scripts/build-machine-readable-layer.mjs'
 import './scripts/build-record-level-machine-readable.mjs'
 import './scripts/build-ledger-series-phase9-adapter.mjs'
