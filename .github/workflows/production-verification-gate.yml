@@ -5,8 +5,10 @@ on:
     paths:
       - 'config/production-verification-contract.json'
       - 'config/v1-baseline-contract.json'
+      - 'config/ledger-series-phase9-stage5-hei-local-authority.json'
       - 'scripts/check-machine-readable-production.mjs'
       - 'scripts/verify-production-integration.mjs'
+      - 'scripts/verify-ledger-series-stage5-production.mjs'
       - 'scripts/validate-g5-production-baseline.mjs'
       - 'docs/audits/HEI_G5_PRODUCTION_VERIFICATION_*.md'
       - '.github/workflows/production-verification-gate.yml'
@@ -29,6 +31,7 @@ jobs:
         run: |
           node --check scripts/check-machine-readable-production.mjs
           node --check scripts/verify-production-integration.mjs
+          node --check scripts/verify-ledger-series-stage5-production.mjs
 
       - name: Write verification summary
         if: always()
@@ -38,7 +41,7 @@ jobs:
             echo "# HEI G-5 Production Baseline Integrity"
             echo
             echo "Historical baseline evidence is validated offline."
-            echo "Post-v1 live production verification is performed against the current target commit by the active phase verification plan, not by rewriting the immutable G-5 baseline contract."
+            echo "Post-v1 live production verification is performed against the current target commit by the active phase verification plan, including the reviewed Ledger Series Stage 5 relationship transport."
           } > production-verification-summary.md
 
       - name: Upload production verification baseline summary
