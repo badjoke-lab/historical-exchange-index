@@ -3,6 +3,7 @@ name: Ledger Series Phase 9 Adapter
 on:
   pull_request:
     paths:
+      - "config/ledger-series-phase9-stage5-hei-local-authority.json"
       - "scripts/build-ledger-series-phase9-adapter.mjs"
       - "scripts/validate-ledger-series-phase9-adapter.mjs"
       - "scripts/build-record-level-machine-readable.mjs"
@@ -16,6 +17,7 @@ on:
     branches:
       - main
     paths:
+      - "config/ledger-series-phase9-stage5-hei-local-authority.json"
       - "scripts/build-ledger-series-phase9-adapter.mjs"
       - "scripts/validate-ledger-series-phase9-adapter.mjs"
       - "scripts/build-record-level-machine-readable.mjs"
