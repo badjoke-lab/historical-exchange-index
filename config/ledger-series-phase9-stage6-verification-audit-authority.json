@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage6-verification-audit-2026-08-21",
+  "phase": 9,
+  "stage": 6,
+  "substage": "cross_registry_production_equality_contract_audit",
+  "title": "Ledger Series Stage 6 production/equality verification contract audit authority",
+  "status": "review_required_before_audit",
+  "coordination_issue": 780,
+  "authority_base_main": "1e9db45ec8b82f831b85e197fb2fba7120697c09",
+  "semantic_owner": "badjoke-lab-ledger-series",
+  "purpose": "Authorize only a read-only eight-registry audit of the exact native-public and Series-public verification facts needed to define Stage 6 fail-closed production/equality checks. This authority does not authorize Stage 6 implementation, vertical repository mutation, runtime changes, or any invented common revision field.",
+  "depends_on": {
+    "series_contract": "v1.0.0_frozen_in_issue_780_stage2",
+    "stage3_adapters": "complete_8_of_8_production_accepted",
+    "stage4_registry_index": "complete_production_accepted",
+    "stage5_relationships": "complete_244_of_244_production_accepted",
+    "stage5_accepted_cross_registry_relationships": 0,
+    "stage5_central_descriptor_resync_merge": "1e9db45ec8b82f831b85e197fb2fba7120697c09",
+    "stage5_central_descriptor_proof_run": 32488130051,
+    "stage5_central_descriptor_proof_job": 96789222402,
+    "stage5_central_descriptor_collector_run": 32484094968
+  },
+  "audit_registries": [
+    {
+      "registry_id": "historical-exchange-index",
+      "repository": "badjoke-lab/historical-exchange-index",
+      "origin": "https://hei.badjoke-lab.com"
+    },
+    {
+      "registry_id": "minted-and-gone",
+      "repository": "badjoke-lab/mintedandgone",
+      "origin": "https://mag.badjoke-lab.com"
+    },
+    {
+      "registry_id": "stable-or-gone",
+      "repository": "badjoke-lab/stable-or-gone",
+      "origin": "https://www.stableorgone.com"
+    },
+    {
+      "registry_id": "crypto-yield-archive",
+      "repository": "badjoke-lab/crypto-yield-archive",
+      "origin": "https://cya.badjoke-lab.com"
+    },
+    {
+      "registry_id": "bridge-incident-registry",
+      "repository": "badjoke-lab/bridge-incident-registry",
+      "origin": "https://bir.badjoke-lab.com"
+    },
+    {
+      "registry_id": "cryptocurrency-wallet-lifecycle-registry",
+      "repository": "badjoke-lab/cryptocurrency-wallet-lifecycle-registry",
+      "origin": "https://wlr.badjoke-lab.com"
+    },
+    {
+      "registry_id": "ai-tools-history-archive",
+      "repository": "badjoke-lab/ai-tools-history-archive",
+      "origin": "https://ai-tools-history-archive.pages.dev"
+    },
+    {
+      "registry_id": "api-deprecation-archive",
+      "repository": "badjoke-lab/api-deprecation-archive",
+      "origin": "https://api-deprecation-archive.pages.dev"
+    }
+  ],
+  "audit_questions": [
+    "What exact native public identity field or tuple is authoritative for this registry?",
+    "What exact native public primary-record count is authoritative, and what Series count must equal it?",
+    "Which revision facts are actually exposed by the native public layer: build commit, source/main commit, tree hash, data revision, canonical data hash, generated time, last verified time, verification marker, or none?",
+    "Which of those revision facts are also projected into the Series descriptor/envelopes without weakening or fabrication?",
+    "What canonical-only/data-safety/provenance facts are exposed natively and which Series fields must preserve them?",
+    "Which existing repository production/equality scripts or workflows already verify native and/or Series output, and what exact assertions do they make?",
+    "Can the registry be verified by exact revision equality, exact content/count equality, or only a weaker observable fact?",
+    "What stale or mixed-revision condition must fail closed for this registry?",
+    "Does any required Stage 6 fact remain missing or unverifiable? If so, the audit must mark it unresolved and later implementation must remain blocked rather than inventing a replacement fact."
+  ],
+  "classification_vocabulary": [
+    "native_exact",
+    "adapter_exact",
+    "content_exact_without_revision",
+    "observable_weaker_fact",
+    "missing_unverifiable",
+    "not_applicable"
+  ],
+  "required_output": {
+    "summary_markdown": "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE6_VERIFICATION_CONTRACT_AUDIT_2026-08-21.md",
+    "machine_matrix": "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE6_VERIFICATION_CONTRACT_AUDIT_2026-08-21.json",
+    "minimum_per_registry_fields": [
+      "registry_id",
+      "repository",
+      "audited_main_or_reviewed_baseline",
+      "production_origin",
+      "native_identity_anchor",
+      "native_primary_count_anchor",
+      "series_count_anchor",
+      "native_revision_facts",
+      "series_revision_facts",
+      "native_provenance_and_safety_facts",
+      "series_provenance_and_safety_facts",
+      "existing_verification_scripts_or_workflows",
+      "equality_classification",
+      "fail_closed_conditions",
+      "unresolved_gaps"
+    ]
+  },
+  "allowed_work": [
+    "read repository main branches, existing production/equality scripts, workflow definitions and merged review authorities across all eight registries",
+    "read existing live public native and Series machine endpoints without mutating production",
+    "record exact observed verification facts and classify them using only the frozen classification vocabulary",
+    "record exact existing production/equality capabilities and explicit gaps",
+    "write only the Stage 6 audit markdown and machine matrix in the HEI coordination repository",
+    "run ordinary HEI pull-request CI on the audit authority and later audit evidence",
+    "after the audit is reviewed and merged, propose a separate Stage 6 implementation authority based only on the merged audit evidence"
+  ],
+  "forbidden": [
+    "changing any vertical registry canonical data, Series output, runtime, workflow behavior or repository configuration under this audit authority",
+    "adding or changing production verification scripts under this audit authority",
+    "creating a universal revision field when a registry does not expose that fact",
+    "treating generated_at or last_verified_at as equivalent to a commit/hash/revision unless the native contract explicitly defines that equivalence",
+    "normalizing stronger native verification down to a weaker common timestamp-only check",
+    "publishing candidate, private, monitoring or unresolved material",
+    "changing Search, Compare, Stats, UI, localization, DNS, Cloudflare project configuration or deployment configuration",
+    "changing Stage 5 relationship semantics or counts",
+    "starting Stage 7 or Stage 8 work",
+    "automatically continuing from the audit into Stage 6 implementation"
+  ],
+  "acceptance": [
+    "this authority is reviewed and merged before the Stage 6 verification contract audit begins",
+    "the audit covers exactly eight registries and records an explicit baseline for every registry",
+    "every equality/revision/provenance claim is supported by an existing repository contract or live reviewed public fact",
+    "missing verification facts are recorded as missing_unverifiable rather than fabricated",
+    "the audit distinguishes exact revision equality from exact content/count equality and weaker observable checks",
+    "the audit records fail-closed stale/mixed-revision conditions for all eight registries",
+    "the audit identifies every existing native/Series production verifier that can be reused instead of creating redundant checks",
+    "no vertical repository or production surface changes under this audit authority",
+    "a later Stage 6 implementation authority remains blocked until the audit evidence is reviewed and merged"
+  ],
+  "production_mutation_authorized": false,
+  "vertical_repository_mutation_authorized": false,
+  "automatic_continuation": false
+}
