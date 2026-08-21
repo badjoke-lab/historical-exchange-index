@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage5-hei-local-2026-08-21",
+  "status": "review_required_before_implementation",
+  "phase": 9,
+  "stage": 5,
+  "registry_id": "historical-exchange-index",
+  "repository": "badjoke-lab/historical-exchange-index",
+  "base_main": "6b4925d894908de6b043269405af794b60031f54",
+  "coordination_issue": 780,
+  "upstream_publication_authority": {
+    "pr": 792,
+    "merge_commit": "6b4925d894908de6b043269405af794b60031f54"
+  },
+  "reviewed_audit": {
+    "pr": 791,
+    "merge_commit": "562419348b48bd7d3ab7e521c8a654e0cbe15413",
+    "accepted_count": 21,
+    "source": "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE5_ACCEPTED_HEI_2026-08-21.md"
+  },
+  "publication_contract": {
+    "object_type": "relationship_record",
+    "series_schema_version": "1.0.0",
+    "transport": "/data/series/relationships.json",
+    "descriptor_route": "routes.relationships",
+    "descriptor_count": "record_counts.relationships",
+    "descriptor_capability": "capabilities.relationships",
+    "descriptor_capability_value": "adapter",
+    "record_envelope_relationship_arrays_remain_empty": true,
+    "canonical_records_unchanged": true,
+    "cross_registry_relationships": 0
+  },
+  "id_contract": {
+    "algorithm": "series_rel_ + lowercase hex SHA-256 of UTF-8 relation_type + newline + source_global_record_key + newline + target_global_record_key",
+    "direction": "directed",
+    "provenance_basis": "native_reviewed_relationship"
+  },
+  "finite_allowlist": [
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000125", "historical-exchange-index:exchange_entity:hei_ex_000009"],
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000126", "historical-exchange-index:exchange_entity:hei_ex_000009"],
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000127", "historical-exchange-index:exchange_entity:hei_ex_000216"],
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000134", "historical-exchange-index:exchange_entity:hei_ex_000009"],
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000146", "historical-exchange-index:exchange_entity:hei_ex_000001"],
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000155", "historical-exchange-index:exchange_entity:hei_ex_000016"],
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000211", "historical-exchange-index:exchange_entity:hei_ex_000208"],
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000260", "historical-exchange-index:exchange_entity:hei_ex_000410"],
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000271", "historical-exchange-index:exchange_entity:hei_ex_000290"],
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000283", "historical-exchange-index:exchange_entity:hei_ex_000046"],
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000285", "historical-exchange-index:exchange_entity:hei_ex_000009"],
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000301", "historical-exchange-index:exchange_entity:hei_ex_000009"],
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000302", "historical-exchange-index:exchange_entity:hei_ex_000128"],
+    ["predecessor_of", "historical-exchange-index:exchange_entity:hei_ex_000309", "historical-exchange-index:exchange_entity:hei_ex_000101"],
+    ["successor_of", "historical-exchange-index:exchange_entity:hei_ex_000016", "historical-exchange-index:exchange_entity:hei_ex_000155"],
+    ["successor_of", "historical-exchange-index:exchange_entity:hei_ex_000101", "historical-exchange-index:exchange_entity:hei_ex_000309"],
+    ["successor_of", "historical-exchange-index:exchange_entity:hei_ex_000128", "historical-exchange-index:exchange_entity:hei_ex_000302"],
+    ["successor_of", "historical-exchange-index:exchange_entity:hei_ex_000208", "historical-exchange-index:exchange_entity:hei_ex_000211"],
+    ["successor_of", "historical-exchange-index:exchange_entity:hei_ex_000216", "historical-exchange-index:exchange_entity:hei_ex_000127"],
+    ["successor_of", "historical-exchange-index:exchange_entity:hei_ex_000290", "historical-exchange-index:exchange_entity:hei_ex_000271"],
+    ["successor_of", "historical-exchange-index:exchange_entity:hei_ex_000410", "historical-exchange-index:exchange_entity:hei_ex_000260"]
+  ],
+  "allowed_work": [
+    "emit exactly the 21 allowlisted relationship_record objects",
+    "add deterministic local relationship generation and validation",
+    "advertise only the relationship route, count and adapter capability in the Series descriptor",
+    "extend the existing Series adapter workflow path filter when required for the new allowlist source"
+  ],
+  "forbidden": [
+    "canonical entity/event/evidence mutation",
+    "record-envelope relationship mutation",
+    "dynamic relationship discovery",
+    "publication of rejected or unresolved audit rows",
+    "Search, Compare, Stats, UI, localization or Cloudflare configuration changes",
+    "Stage 6 continuation"
+  ],
+  "acceptance": [
+    "generated relationship count is exactly 21",
+    "generated set equals finite_allowlist exactly",
+    "all endpoints resolve to existing Stage 3 Series global keys",
+    "all IDs match the deterministic SHA-256 contract",
+    "record envelope relationships remain empty",
+    "existing HEI CI and dedicated Series validation are green",
+    "merge precedes production verification",
+    "production descriptor and relationship transport equal exact merged main"
+  ],
+  "automatic_continuation": false
+}
