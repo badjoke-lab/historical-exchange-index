@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage6-production-equality-2026-08-21-v2",
+  "phase": 9,
+  "stage": 6,
+  "substage": "cross_registry_production_equality_execution",
+  "status": "review_required_before_execution",
+  "coordination_issue": 780,
+  "authority_base_main": "5f3cc4c07b0e2a89781cd5890ff83f4ee401c598",
+  "semantic_owner": "badjoke-lab-ledger-series",
+  "purpose": "Authorize a finite, read-only Stage 6 production/equality verifier in the HEI coordination repository and one bounded eight-registry network execution using the per-registry contracts established by the merged Stage 6 audit. This authority may surface stale or mixed revisions but may not repair, resync, deploy or mutate production.",
+  "depends_on": {
+    "stage6_audit_authority_merge": "00544ca0d80b6e7762993f9b57868ecb788811a0",
+    "stage6_audit_evidence_merge": "5f3cc4c07b0e2a89781cd5890ff83f4ee401c598",
+    "stage6_audit_markdown": "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE6_VERIFICATION_CONTRACT_AUDIT_2026-08-21.md",
+    "stage6_audit_matrix": "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE6_VERIFICATION_CONTRACT_AUDIT_2026-08-21.json",
+    "stage5_relationships_production_accepted": 244,
+    "stage5_cross_registry_relationships_production_accepted": 0,
+    "stage5_central_descriptor_proof_run": 32488130051,
+    "stage5_central_descriptor_proof_job": 96789222402
+  },
+  "reviewed_repository_baselines": [
+    {"registry_id":"historical-exchange-index","repository":"badjoke-lab/historical-exchange-index","reviewed_main":"00544ca0d80b6e7762993f9b57868ecb788811a0","origin":"https://hei.badjoke-lab.com","verification_mode":"exact_build_commit_and_adapter_build_equality"},
+    {"registry_id":"minted-and-gone","repository":"badjoke-lab/mintedandgone","reviewed_main":"f7892a04edf4cba49e4ae3d9f04109e3faf429a2","origin":"https://mag.badjoke-lab.com","verification_mode":"exact_expected_build_commit_and_series_content_equality"},
+    {"registry_id":"stable-or-gone","repository":"badjoke-lab/stable-or-gone","reviewed_main":"f86ae68772783f9930b855effefbc781ea7ecb28","origin":"https://www.stableorgone.com","verification_mode":"exact_build_commit_and_canonical_data_hash"},
+    {"registry_id":"crypto-yield-archive","repository":"badjoke-lab/crypto-yield-archive","reviewed_main":"df87a4efe16d7370e9c42be7397282ac3ae04f2a","origin":"https://cya.badjoke-lab.com","verification_mode":"exact_native_series_build_and_source_commit_when_exposed"},
+    {"registry_id":"bridge-incident-registry","repository":"badjoke-lab/bridge-incident-registry","reviewed_main":"38651a2961ba89dbc0aedfbdb2f13bedb08df516","origin":"https://bir.badjoke-lab.com","verification_mode":"exact_regenerated_content_without_invented_revision"},
+    {"registry_id":"cryptocurrency-wallet-lifecycle-registry","repository":"badjoke-lab/cryptocurrency-wallet-lifecycle-registry","reviewed_main":"e0e9de465a71aa54c0f6a4ec69bdac84bb3e4f8d","origin":"https://wlr.badjoke-lab.com","verification_mode":"exact_content_identity_plus_last_verified_at_only"},
+    {"registry_id":"ai-tools-history-archive","repository":"badjoke-lab/ai-tools-history-archive","reviewed_main":"76ef103329813f0174db121117c932bff53fbf8e","origin":"https://ai-tools-history-archive.pages.dev","verification_mode":"exact_build_commit"},
+    {"registry_id":"api-deprecation-archive","repository":"badjoke-lab/api-deprecation-archive","reviewed_main":"641a6d4243d30f95f48436455d2cbc12a8aded53","origin":"https://api-deprecation-archive.pages.dev","verification_mode":"exact_deterministic_data_revision"}
+  ],
+  "frozen_stage5_relationship_counts": {
+    "historical-exchange-index": 21,
+    "minted-and-gone": 17,
+    "stable-or-gone": 1,
+    "crypto-yield-archive": 0,
+    "bridge-incident-registry": 44,
+    "cryptocurrency-wallet-lifecycle-registry": 161,
+    "ai-tools-history-archive": 0,
+    "api-deprecation-archive": 0,
+    "total": 244,
+    "cross_registry": 0
+  },
+  "known_pre_execution_signal": {
+    "registry_id": "crypto-yield-archive",
+    "central_descriptor_lock_collected_at": "2026-08-21T12:54:30.900Z",
+    "central_descriptor_lock_primary_records": 119,
+    "central_descriptor_lock_build_commit": "795c32d1ede24f4f688c9a7c3712744081f81173",
+    "reviewed_repository_main": "df87a4efe16d7370e9c42be7397282ac3ae04f2a",
+    "reviewed_repository_primary_records": 120,
+    "rule": "This is a stale-central warning relative to the reviewed repository baseline, not proof of current production state. The Stage 6 network execution must independently read live native and Series production and fail closed if the central descriptor is not equal to the accepted live descriptor. Verification authority does not authorize refreshing the lock."
+  },
+  "authorized_coordination_repository_changes_after_this_authority_is_merged": [
+    "add one bounded read-only HEI Stage 6 verifier script under scripts/",
+    "add one bounded HEI verification workflow or extend one verification-only workflow solely to execute that script without production mutation",
+    "add a Stage 6 execution report under docs/audits/ containing observations, PASS/FAIL per registry and an explicit central-index result",
+    "run ordinary HEI CI on the verifier implementation",
+    "run the merged read-only verifier against exactly the eight reviewed production origins"
+  ],
+  "execution_requirements": [
+    "re-read each reviewed repository main before network execution and stop if a repository has advanced beyond the audited baseline unless the new revision is separately reviewed and recorded before execution",
+    "verify native production and Series production in the same bounded execution window for each registry so mixed revisions cannot pass as unrelated observations",
+    "HEI: require exact live native build.commit equality to the reviewed expected commit and require Series descriptor/index/envelope build metadata, identity and count equality",
+    "MAG: require an explicit reviewed expected build commit and exact live Series descriptor/index/envelope identity/content equality",
+    "SOG: require the reviewed native build identity and canonical_data_hash and equal Series build/count/canonical-only facts",
+    "CYA: derive current native counts from the reviewed canonical corpus, require exact live build/source revision facts where exposed, and require native/Series build/count/slug-set equality; do not use 119 as a permanent constant",
+    "BIR: require exact live canonical content equality against regenerated reviewed repository content plus exact Series record/relationship endpoint equality; do not invent a commit/hash revision",
+    "WLR: require exact live wallet/product native-to-Series identity/count/content equality and only the legitimate last_verified_at observable; do not invent build_commit or equate the timestamp with a cryptographic revision",
+    "AI Tools: require exact reviewed build_commit across native and Series outputs plus exact identity/count/payload equality",
+    "API Deprecation: require exact reviewed deterministic data_revision across native machine and Series outputs plus exact canonical count/safety equality",
+    "verify the HEI central Stage 4 registry descriptor index against the accepted live descriptor set after all eight registry checks; stale or mixed descriptor state fails closed",
+    "verify Stage 5 relationship counts/sets remain 21/17/1/0/44/161/0/0, total 244, with cross-registry relationships remaining zero",
+    "treat missing endpoint, timeout, non-2xx required endpoint, malformed JSON, identity/count/revision/content mismatch, weakened canonical-only/provenance fact, stale central descriptor or mixed-revision observation as FAILURE",
+    "record unresolved or weaker facts exactly as audited and never upgrade them to stronger revision claims"
+  ],
+  "forbidden": [
+    "mutating any vertical registry repository under this authority",
+    "mutating production data, deployment state, scheduler, DNS or Cloudflare configuration",
+    "refreshing or rewriting the HEI central descriptor lock as part of verification",
+    "auto-repairing a stale registry or central snapshot",
+    "changing canonical records, Stage 5 relationship semantics/counts, Search, Compare, Stats, UI or localization",
+    "creating a universal revision field or weakening stronger registries to timestamp-only verification",
+    "starting Stage 7 or Stage 8",
+    "automatically continuing from a failed Stage 6 verification into remediation"
+  ],
+  "acceptance": [
+    "this authority PR contains only this authority file",
+    "ordinary HEI pull-request CI is green on the exact authority head",
+    "this authority is merged before any Stage 6 verifier implementation or network execution begins",
+    "the later verifier implementation is bounded to the eight reviewed origins and audit-defined verification modes",
+    "network execution is read-only and produces one explicit PASS/FAIL result per registry plus one central descriptor result",
+    "any failure remains a blocker requiring a separate remediation authority rather than automatic mutation"
+  ],
+  "production_mutation_authorized": false,
+  "vertical_repository_mutation_authorized": false,
+  "central_descriptor_resync_authorized": false,
+  "coordination_repository_verifier_implementation_authorized_after_merge": true,
+  "network_read_only_verification_authorized_after_merge": true,
+  "automatic_continuation": false
+}
