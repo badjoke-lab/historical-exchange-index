@@ -2,8 +2,8 @@
   "schema_version": "1.1.0",
   "snapshot_type": "ledger_series_registry_descriptor_lock",
   "semantic_owner": "badjoke-lab-ledger-series",
-  "collected_at": "2026-08-20T06:40:01.492Z",
-  "collector_run": 32340438224,
+  "collected_at": "2026-08-21T12:54:30.900Z",
+  "collector_run": 32484094968,
   "registry_count": 8,
   "local_host": {
     "registry_id": "historical-exchange-index",
@@ -49,7 +49,8 @@
             "evidence": 811,
             "marketplaces": 385
           },
-          "primary_records": 385
+          "primary_records": 385,
+          "relationships": 17
         },
         "record_types": [
           {
@@ -73,13 +74,14 @@
           "record_templates": [
             "/data/series/records/{slug}.json"
           ],
+          "relationships": "/data/series/relationships.json",
           "search": "/encyclopedia/",
           "stats": "/stats/"
         },
         "series_schema_version": "1.0.0",
         "verification": {
-          "build_commit": "6c41c2ae0fdd884501f02d3a6620ca5800268fdc",
-          "generated_at": "2026-08-19T18:32:24.003Z"
+          "build_commit": "f7892a04edf4cba49e4ae3d9f04109e3faf429a2",
+          "generated_at": "2026-08-21T04:38:43.417Z"
         }
       }
     },
@@ -105,7 +107,8 @@
         },
         "record_counts": {
           "primary_records": 119,
-          "series_records": 119
+          "series_records": 119,
+          "relationships": 1
         },
         "record_types": [
           {
@@ -117,6 +120,7 @@
         "routes": {
           "descriptor": "/data/series/registry.json",
           "index": "/data/series/index.json",
+          "relationships": "/data/series/relationships.json",
           "record_template": "/data/series/records/{slug}.json",
           "search": "/stablecoins/",
           "compare": "/compare/",
@@ -133,9 +137,9 @@
         },
         "verification": {
           "build": {
-            "commit": "010689ef4e5a77f415091693d71b01e3e6c3f392",
+            "commit": "f86ae68772783f9930b855effefbc781ea7ecb28",
             "branch": "main",
-            "generated_at": "2026-08-20T05:36:00.000Z",
+            "generated_at": "2026-08-21T12:48:40.000Z",
             "canonical_data_hash": "sha256:4e7570b6fab88a8178a01ae280a36d98787573b376440b891491f25469458798",
             "canonical_file_count": 466,
             "canonical_record_counts": {
@@ -193,8 +197,8 @@
         },
         "canonical_only": true,
         "record_counts": {
-          "primary_records": 118,
-          "series_records": 118
+          "primary_records": 119,
+          "series_records": 119
         },
         "routes": {
           "descriptor": "/data/series/registry.json",
@@ -220,9 +224,9 @@
         },
         "verification": {
           "build": {
-            "commit": "d5ffd036f52cf4789190c95848979f76ce768423",
+            "commit": "795c32d1ede24f4f688c9a7c3712744081f81173",
             "branch": "main",
-            "generated_at": "2026-08-20T05:36:03.421Z",
+            "generated_at": "2026-08-21T12:33:11.028Z",
             "verification_marker": "cya_machine_readable_layer_v2"
           },
           "native_verification_marker": "cya_machine_readable_layer_v2"
@@ -258,13 +262,14 @@
         "object_type": "registry_descriptor",
         "record_counts": {
           "native": {
-            "bridges": 39,
-            "events": 199,
-            "evidence": 325,
-            "incidents": 42
+            "bridges": 40,
+            "events": 203,
+            "evidence": 335,
+            "incidents": 43
           },
-          "primary_records": 39,
-          "series_records": 81
+          "primary_records": 40,
+          "relationships": 44,
+          "series_records": 83
         },
         "record_types": [
           {
@@ -294,13 +299,14 @@
             "/data/series/records/bridge--{slug}.json",
             "/data/series/records/incident--{slug}.json"
           ],
+          "relationships": "/data/series/relationships.json",
           "search": "/incidents/",
           "stats": "/stats/"
         },
         "series_schema_version": "1.0.0",
         "verification": {
-          "generated_at": "2026-08-20T06:23:18.219Z",
-          "last_verified_at": "2026-08-20",
+          "generated_at": "2026-08-21T11:08:11.551Z",
+          "last_verified_at": "2026-08-21",
           "verification_marker": "canonical-reviewed-records-only"
         }
       }
@@ -333,13 +339,14 @@
         "record_counts": {
           "native": {
             "entities": 100,
-            "events": 138,
-            "evidence": 363,
+            "events": 141,
+            "evidence": 368,
             "product_records": 149,
             "products": 149,
             "wallet_records": 100
           },
-          "primary_records": 100
+          "primary_records": 100,
+          "relationships": 161
         },
         "record_types": [
           {
@@ -369,6 +376,7 @@
             "/data/series/records/wallet--{slug}.json",
             "/data/series/records/product--{slug}.json"
           ],
+          "relationships": "/data/series/relationships.json",
           "search": "/",
           "stats": "/stats/"
         },
