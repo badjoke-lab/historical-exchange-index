@@ -20,10 +20,26 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-08-09",
-    "notes": "The current MANTRA Finance site presents a Spot DEX for tokenized real-world assets and describes the platform as licensed by VARA in Dubai for spot trading and DeFi. VARA lists Mantra Finance FZE under reference VL/25/02/001 with active Exchange Services, Broker-Dealer Services, and Management and Investment Services permissions, including a DeFi Limited Licence condition. The regulated MANTRA Finance product is recorded separately from the broader MANTRA Chain identity, and no exact launch date is inferred from the licence issue date."
+    "last_verified_at": "2026-08-21",
+    "notes": "The current MANTRA Finance site presents a Spot DEX for tokenized real-world assets and describes the platform as licensed by VARA in Dubai for spot trading and DeFi. VARA lists Mantra Finance FZE under reference VL/25/02/001 with active Exchange Services, Broker-Dealer Services, and Management and Investment Services permissions, including a DeFi Limited Licence condition. The regulated MANTRA Finance product is recorded separately from the broader MANTRA Chain identity, and no exact launch date is inferred from the licence issue date. On 2026-08-21 MANTRA Chain halted block production during a Cosmos EVM security incident; HEI records the resulting infrastructure disruption as a chain_shutdown_impact event without classifying MANTRA Finance itself as hacked, dead, or terminally impaired."
   },
-  "events": [],
+  "events": [
+    {
+      "id": "hei_ev_010123",
+      "exchange_id": "hei_ex_001110",
+      "event_type": "chain_shutdown_impact",
+      "event_date": "2026-08-21",
+      "title": "MANTRA Chain halt froze on-chain transactions",
+      "description": "MANTRA Chain halted block production and froze endpoints and transactions while investigating a security incident later isolated to its Cosmos EVM module. MANTRA said two wallet addresses were affected, no user funds were exploited, and a patched release and coordinated restart were being prepared.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 3,
+      "sort_order": 1,
+      "is_major_event": true,
+      "notes": "This event records chain-level infrastructure impact on MANTRA Finance's on-chain trading environment. It is not modeled as an exploit of MANTRA Finance itself, and the entity remains active pending direct evidence of a broader or lasting product shutdown."
+    }
+  ],
   "evidence": [
     {
       "id": "hei_src_012456",
@@ -54,6 +70,51 @@
       "reliability": "high",
       "claim_scope": "entity",
       "notes": "Official VARA entry identifies Mantra Finance FZE, reference VL/25/02/001, Exchange Services, Broker-Dealer Services, Management and Investment Services, the DeFi Limited Licence condition, and active status."
+    },
+    {
+      "id": "hei_src_012586",
+      "exchange_id": "hei_ex_001110",
+      "event_id": "hei_ev_010123",
+      "source_type": "official_social",
+      "title": "MANTRA Chain security incident and halt updates",
+      "url": "https://x.com/MANTRA_Chain",
+      "publisher": "MANTRA Chain",
+      "published_at": "2026-08-21",
+      "archived_url": "https://web.archive.org/web/*/https://x.com/MANTRA_Chain",
+      "accessed_at": "2026-08-21",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party incident updates state that the chain was halted as a precaution with endpoints and transactions frozen, later identify the incident as isolated to the Cosmos EVM module affecting two wallet addresses, state that no user funds were exploited, and describe patch testing and a coordinated restart."
+    },
+    {
+      "id": "hei_src_012587",
+      "exchange_id": "hei_ex_001110",
+      "event_id": "hei_ev_010123",
+      "source_type": "official_statement",
+      "title": "MANTRA Finance compliant DeFi platform",
+      "url": "https://mantra.finance/",
+      "publisher": "MANTRA Finance",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://mantra.finance/",
+      "accessed_at": "2026-08-21",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Current first-party MANTRA Finance surface identifies Spot DEX trading and other on-chain DeFi products. This source establishes why a full MANTRA Chain transaction halt is relevant to the exchange record; it does not by itself establish a terminal MANTRA Finance outage."
+    },
+    {
+      "id": "hei_src_012588",
+      "exchange_id": "hei_ex_001110",
+      "event_id": "hei_ev_010123",
+      "source_type": "news_article",
+      "title": "MANTRA freezes all transactions and network following unspecified incident",
+      "url": "https://www.theblock.co/news/defi/2026-08-21-mantra-freezes-network-412416",
+      "publisher": "The Block",
+      "published_at": "2026-08-21",
+      "archived_url": "https://web.archive.org/web/*/https://www.theblock.co/news/defi/2026-08-21-mantra-freezes-network-412416",
+      "accessed_at": "2026-08-21",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Independent reporting corroborates the MANTRA Chain halt, frozen endpoints and transactions, and the resulting deposit/withdrawal disruption while the incident was investigated."
     }
   ]
 }
