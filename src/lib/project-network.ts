@@ -1,5 +1,5 @@
 export type ProjectNetworkItem = {
-  id: 'hub' | 'hei' | 'sog' | 'cya' | 'bir' | 'mag'
+  id: 'hub' | 'hei' | 'sog' | 'cya' | 'bir' | 'mag' | 'wlr'
   name: string
   shortName: string
   url: string
@@ -48,5 +48,12 @@ export const PROJECT_NETWORK: readonly ProjectNetworkItem[] = [
     shortName: 'MAG',
     url: 'https://mag.badjoke-lab.com/',
     description: 'Historical archive of NFT marketplaces.',
+  },
+  {
+    id: 'wlr',
+    name: 'Wallet Lifecycle Registry',
+    shortName: 'WLR',
+    url: 'https://wlr.badjoke-lab.com/',
+    description: 'Evidence-backed historical registry of cryptocurrency wallets and products.',
   },
 ] as const
