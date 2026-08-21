@@ -12,7 +12,7 @@ jobs:
   inspect-pages-production:
     runs-on: ubuntu-latest
     steps:
-      - name: Inspect actual Pages project and production deployments
+      - name: Inspect actual Pages project, deployments and Stage 5 endpoints
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -39,17 +39,6 @@ jobs:
             source_type: project?.source?.type ?? null,
             source_config: project?.source?.config ?? null,
             build_config: project?.build_config ?? null,
-            latest_deployment: project?.latest_deployment ? {
-              id: project.latest_deployment.id ?? null,
-              environment: project.latest_deployment.environment ?? null,
-              created_on: project.latest_deployment.created_on ?? null,
-              modified_on: project.latest_deployment.modified_on ?? null,
-              url: project.latest_deployment.url ?? null,
-              aliases: project.latest_deployment.aliases ?? null,
-              deployment_trigger: project.latest_deployment.deployment_trigger ?? null,
-              stages: project.latest_deployment.stages ?? null,
-              source: project.latest_deployment.source ?? null,
-            } : null,
           }
           console.log('PROJECT_STATE ' + JSON.stringify(selectedProject))
           for (const deployment of Array.isArray(deployments) ? deployments : []) {
@@ -65,4 +54,24 @@ jobs:
               source: deployment?.source ?? null,
             }))
           }
+          const production = (Array.isArray(deployments) ? deployments : []).find((item) => item?.environment === 'production' && item?.stages?.every((stage) => stage?.status === 'success'))
+          if (!production?.url) throw new Error('No completed production deployment URL found')
+          async function inspectOrigin(label, origin) {
+            for (const route of ['/version.json', '/data/series/registry.json', '/data/series/relationships.json']) {
+              const response = await fetch(`${origin}${route}`, { headers: { accept: 'application/json', 'cache-control': 'no-cache' }, redirect: 'manual' })
+              const text = await response.text()
+              let summary = null
+              if (response.ok) {
+                try {
+                  const parsed = JSON.parse(text)
+                  if (route === '/version.json') summary = { commit: parsed?.build?.commit ?? parsed?.verification?.build?.commit ?? null }
+                  if (route === '/data/series/registry.json') summary = { registry_id: parsed?.registry?.id ?? null, relationships: parsed?.record_counts?.relationships ?? null, relationship_route: parsed?.routes?.relationships ?? null, capability: parsed?.capabilities?.relationships ?? null }
+                  if (route === '/data/series/relationships.json') summary = { is_array: Array.isArray(parsed), length: Array.isArray(parsed) ? parsed.length : null }
+                } catch {}
+              }
+              console.log(`ENDPOINT ${label} ${route} HTTP ${response.status} ${JSON.stringify(summary)}`)
+            }
+          }
+          await inspectOrigin('deployment', production.url)
+          await inspectOrigin('custom', 'https://hei.badjoke-lab.com')
           NODE
