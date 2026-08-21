@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 
@@ -10,6 +11,7 @@ const origin = 'https://hei.badjoke-lab.com'
 const seriesSchemaVersion = '1.0.0'
 const registryId = 'historical-exchange-index'
 const nativeRecordType = 'exchange_entity'
+const relationshipAuthorityPath = path.join(root, 'config', 'ledger-series-phase9-stage5-hei-local-authority.json')
 
 function readJson(filePath) {
   if (!fs.existsSync(filePath)) throw new Error(`Ledger Series adapter missing required input: ${path.relative(root, filePath)}`)
@@ -25,9 +27,27 @@ function globalRecordKey(id) {
   return `${registryId}:${nativeRecordType}:${id}`
 }
 
+function parseGlobalKey(globalKey) {
+  const parts = String(globalKey).split(':')
+  if (parts.length !== 3 || parts.some((part) => !part)) throw new Error(`Ledger Series adapter invalid global key: ${globalKey}`)
+  return {
+    registry_id: parts[0],
+    native_record_type: parts[1],
+    native_record_id: parts[2],
+  }
+}
+
+function relationshipId(relationType, sourceGlobalKey, targetGlobalKey) {
+  const digest = createHash('sha256')
+    .update(`${relationType}\n${sourceGlobalKey}\n${targetGlobalKey}`, 'utf8')
+    .digest('hex')
+  return `series_rel_${digest}`
+}
+
 const version = readJson(path.join(publicDir, 'version.json'))
 const manifest = readJson(path.join(publicDir, 'data', 'manifest.json'))
 const nativeIndex = readJson(path.join(nativeDir, 'index.json'))
+const relationshipAuthority = readJson(relationshipAuthorityPath)
 
 if (version.project_id !== registryId || manifest.project_id !== registryId || nativeIndex.project_id !== registryId) {
   throw new Error('Ledger Series adapter project identity mismatch')
@@ -38,50 +58,15 @@ if (nativeIndex.canonical_only !== true || manifest.data_safety?.canonical_only 
 if (!Array.isArray(nativeIndex.records) || nativeIndex.record_count !== nativeIndex.records.length) {
   throw new Error('Ledger Series adapter native index count mismatch')
 }
+if (relationshipAuthority.registry_id !== registryId || relationshipAuthority.reviewed_audit?.accepted_count !== 21) {
+  throw new Error('Ledger Series adapter unexpected HEI Stage 5 relationship authority')
+}
+if (!Array.isArray(relationshipAuthority.finite_allowlist) || relationshipAuthority.finite_allowlist.length !== 21) {
+  throw new Error('Ledger Series adapter HEI Stage 5 allowlist must contain exactly 21 rows')
+}
 
 fs.rmSync(seriesDir, { recursive: true, force: true })
 fs.mkdirSync(recordsDir, { recursive: true })
-
-const descriptor = {
-  series_schema_version: seriesSchemaVersion,
-  object_type: 'registry_descriptor',
-  registry: {
-    id: registryId,
-    name: version.site_name,
-    type: version.registry_type,
-    origin,
-    native_machine_schema_version: nativeIndex.schema_version,
-    native_data_schema_version: nativeIndex.data_schema_version,
-  },
-  canonical_only: true,
-  record_counts: {
-    primary_records: nativeIndex.record_count,
-    series_records: nativeIndex.record_count,
-  },
-  routes: {
-    descriptor: '/data/series/registry.json',
-    index: '/data/series/index.json',
-    record_template: '/data/series/records/{slug}.json',
-    native_record_template: '/data/exchanges/{slug}.json',
-    search: '/explore/',
-    compare: '/compare/',
-    stats: '/stats/',
-  },
-  capabilities: {
-    search: true,
-    compare: true,
-    stats: true,
-    typed_relationships: false,
-  },
-  data_safety: {
-    ...manifest.data_safety,
-    ai_generated_canonical_facts: false,
-  },
-  verification: {
-    build: version.build,
-    native_verification_marker: version.build?.verification_marker ?? null,
-  },
-}
 
 const indexRecords = []
 for (const item of [...nativeIndex.records].sort((a, b) => String(a.slug).localeCompare(String(b.slug)))) {
@@ -155,6 +140,87 @@ for (const item of [...nativeIndex.records].sort((a, b) => String(a.slug).locale
   })
 }
 
+const availableGlobalKeys = new Set(indexRecords.map((record) => record.global_record_key))
+const relationshipTuples = new Set()
+const relationshipIds = new Set()
+const relationshipRecords = relationshipAuthority.finite_allowlist.map((entry, index) => {
+  if (!Array.isArray(entry) || entry.length !== 3) {
+    throw new Error(`Ledger Series adapter relationship row ${index + 1} must be [relation_type, source, target]`)
+  }
+  const [relationType, sourceGlobalKey, targetGlobalKey] = entry
+  if (!['predecessor_of', 'successor_of'].includes(relationType)) {
+    throw new Error(`Ledger Series adapter relationship row ${index + 1} unauthorized type: ${relationType}`)
+  }
+  if (sourceGlobalKey === targetGlobalKey) throw new Error(`Ledger Series adapter relationship row ${index + 1} is a self-loop`)
+  if (!availableGlobalKeys.has(sourceGlobalKey) || !availableGlobalKeys.has(targetGlobalKey)) {
+    throw new Error(`Ledger Series adapter relationship row ${index + 1} references a missing Stage 3 endpoint`)
+  }
+  const tuple = `${relationType}\n${sourceGlobalKey}\n${targetGlobalKey}`
+  if (relationshipTuples.has(tuple)) throw new Error(`Ledger Series adapter duplicate relationship tuple at row ${index + 1}`)
+  relationshipTuples.add(tuple)
+
+  const id = relationshipId(relationType, sourceGlobalKey, targetGlobalKey)
+  if (relationshipIds.has(id)) throw new Error(`Ledger Series adapter relationship ID collision: ${id}`)
+  relationshipIds.add(id)
+
+  return {
+    series_schema_version: seriesSchemaVersion,
+    object_type: 'relationship_record',
+    id,
+    relation_type: relationType,
+    source: parseGlobalKey(sourceGlobalKey),
+    target: parseGlobalKey(targetGlobalKey),
+    direction: 'directed',
+    provenance: {
+      basis: 'native_reviewed_relationship',
+      native_evidence_refs: [],
+    },
+  }
+})
+
+const descriptor = {
+  series_schema_version: seriesSchemaVersion,
+  object_type: 'registry_descriptor',
+  registry: {
+    id: registryId,
+    name: version.site_name,
+    type: version.registry_type,
+    origin,
+    native_machine_schema_version: nativeIndex.schema_version,
+    native_data_schema_version: nativeIndex.data_schema_version,
+  },
+  canonical_only: true,
+  record_counts: {
+    primary_records: nativeIndex.record_count,
+    series_records: nativeIndex.record_count,
+    relationships: relationshipRecords.length,
+  },
+  routes: {
+    descriptor: '/data/series/registry.json',
+    index: '/data/series/index.json',
+    relationships: '/data/series/relationships.json',
+    record_template: '/data/series/records/{slug}.json',
+    native_record_template: '/data/exchanges/{slug}.json',
+    search: '/explore/',
+    compare: '/compare/',
+    stats: '/stats/',
+  },
+  capabilities: {
+    search: true,
+    compare: true,
+    stats: true,
+    relationships: 'adapter',
+  },
+  data_safety: {
+    ...manifest.data_safety,
+    ai_generated_canonical_facts: false,
+  },
+  verification: {
+    build: version.build,
+    native_verification_marker: version.build?.verification_marker ?? null,
+  },
+}
+
 const seriesIndex = {
   series_schema_version: seriesSchemaVersion,
   object_type: 'record_index',
@@ -172,5 +238,6 @@ const seriesIndex = {
 
 writeJson(path.join(seriesDir, 'registry.json'), descriptor)
 writeJson(path.join(seriesDir, 'index.json'), seriesIndex)
+writeJson(path.join(seriesDir, 'relationships.json'), relationshipRecords)
 
-console.log(`Built HEI Ledger Series Phase 9 adapter: ${indexRecords.length} canonical exchange envelopes.`)
+console.log(`Built HEI Ledger Series Phase 9 adapter: ${indexRecords.length} canonical exchange envelopes, ${relationshipRecords.length} reviewed relationships.`)
