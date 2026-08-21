@@ -1,0 +1,75 @@
+name: Ledger Series Phase 9 Stage 6 production equality
+
+on:
+  pull_request:
+    paths:
+      - "scripts/verify-ledger-series-phase9-stage6-production-equality.mjs"
+      - ".github/workflows/ledger-series-phase9-stage6-production-equality.yml"
+      - "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE6_PRE_EXECUTION_BASELINE_REVIEW_2026-08-22.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review-syntax:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify Stage 6 script syntax
+        run: node --check scripts/verify-ledger-series-phase9-stage6-production-equality.mjs
+
+      - name: Verify authority and review boundary
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const authority = JSON.parse(fs.readFileSync('config/ledger-series-phase9-stage6-production-equality-authority.json', 'utf8'));
+          if (authority.authority_id !== 'hei-ledger-series-phase9-stage6-production-equality-2026-08-21-v2') throw new Error('unexpected authority id');
+          if (authority.network_read_only_verification_authorized_after_merge !== true) throw new Error('network verification not authorized');
+          if (authority.production_mutation_authorized !== false || authority.vertical_repository_mutation_authorized !== false || authority.central_descriptor_resync_authorized !== false) throw new Error('mutation boundary weakened');
+          if (authority.reviewed_repository_baselines?.length !== 8) throw new Error('expected exactly eight reviewed registries');
+          console.log('Stage 6 authority/review boundary PASS');
+          NODE
+
+  verify-production-equality:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout exact main execution revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify Stage 6 script syntax
+        run: node --check scripts/verify-ledger-series-phase9-stage6-production-equality.mjs
+
+      - name: Run bounded read-only eight-registry equality verification
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          STAGE6_RESULT_PATH: .stage6/phase9-stage6-production-equality-result.json
+          STAGE6_TIMEOUT_MS: "20000"
+          STAGE6_CONCURRENCY: "12"
+        run: node scripts/verify-ledger-series-phase9-stage6-production-equality.mjs
+
+      - name: Upload Stage 6 result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ledger-series-phase9-stage6-production-equality-result
+          path: .stage6/phase9-stage6-production-equality-result.json
+          if-no-files-found: error
+          retention-days: 14
