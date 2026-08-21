@@ -1,0 +1,215 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage5-publication-2026-08-21",
+  "phase": 9,
+  "stage": 5,
+  "substage": "reviewed_relationship_publication",
+  "title": "Ledger Series reviewed relationship publication implementation authority",
+  "status": "review_required_before_implementation",
+  "coordination_issue": 780,
+  "authority_base_main": "562419348b48bd7d3ab7e521c8a654e0cbe15413",
+  "semantic_owner": "badjoke-lab-ledger-series",
+  "coordination_host": {
+    "repository": "badjoke-lab/historical-exchange-index",
+    "origin": "https://hei.badjoke-lab.com",
+    "host_is_semantic_owner": false,
+    "purpose": "Coordinate the finite reviewed Stage 5 rollout without transferring canonical or semantic ownership from any vertical registry."
+  },
+  "depends_on": {
+    "series_contract": "v1.0.0_frozen_in_issue_780_stage2",
+    "stage3_adapters": "complete_8_of_8_production_accepted",
+    "stage4_registry_index": "complete_production_accepted",
+    "stage5_audit_authority": "config/ledger-series-phase9-stage5-audit-authority.json",
+    "stage5_audit_pr": 791,
+    "stage5_audit_final_head": "69b9939b3a88ca5d98d0db3d64658fc5cdce34e8",
+    "stage5_audit_merge_main": "562419348b48bd7d3ab7e521c8a654e0cbe15413",
+    "stage5_audit_exact_head_checks": "14_of_14_success"
+  },
+  "reviewed_inventory": {
+    "summary_markdown": "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE5_RELATIONSHIP_INVENTORY_2026-08-21.md",
+    "machine_inventory": "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE5_RELATIONSHIP_INVENTORY_2026-08-21.json",
+    "accepted": 244,
+    "rejected": 247,
+    "unresolved": 31,
+    "accepted_cross_registry": 0,
+    "accepted_relation_types": [
+      "predecessor_of",
+      "successor_of",
+      "product_of",
+      "incident_of"
+    ],
+    "accepted_by_registry": {
+      "historical-exchange-index": 21,
+      "minted-and-gone": 17,
+      "stable-or-gone": 1,
+      "crypto-yield-archive": 0,
+      "bridge-incident-registry": 44,
+      "cryptocurrency-wallet-lifecycle-registry": 161,
+      "ai-tools-history-archive": 0,
+      "api-deprecation-archive": 0
+    }
+  },
+  "frozen_relationship_vocabulary": [
+    "predecessor_of",
+    "successor_of",
+    "same_operator_as",
+    "product_of",
+    "incident_of",
+    "event_of",
+    "evidence_for",
+    "migration_target_of",
+    "replacement_for",
+    "related_to"
+  ],
+  "identity_contract": {
+    "required_global_identity": "registry_id + native_record_type + native_record_id",
+    "source_and_target_must_resolve_to_stage3_series_records": true,
+    "raw_native_ids_are_not_global_ids": true,
+    "range_tokens_are_not_record_ids": true,
+    "wlr_range_expansion": "Every compact WLR product range in the audit appendix must expand to individual product global_record_key values. product_of targets use wlr.wallet-record.v1; predecessor_of/successor_of product endpoints use wlr.product-record.v1."
+  },
+  "relationship_record_contract": {
+    "object_type": "relationship_record",
+    "series_schema_version": "1.0.0",
+    "transport_route": "/data/series/relationships.json",
+    "transport_shape": "JSON array of full Series v1 relationship_record objects for that registry",
+    "record_envelope_relationship_arrays_remain_unmodified": true,
+    "direction_for_this_reviewed_inventory": "directed",
+    "id_algorithm": "series_rel_ + lowercase hex SHA-256 of UTF-8 relation_type + newline + source_global_record_key + newline + target_global_record_key",
+    "required_fields": [
+      "series_schema_version",
+      "object_type",
+      "id",
+      "relation_type",
+      "source.registry_id",
+      "source.native_record_type",
+      "source.native_record_id",
+      "target.registry_id",
+      "target.native_record_type",
+      "target.native_record_id",
+      "direction",
+      "provenance.basis"
+    ],
+    "provenance_basis": "native_reviewed_relationship",
+    "review_provenance": {
+      "coordination_issue": 780,
+      "audit_pr": 791,
+      "audit_merge_commit": "562419348b48bd7d3ab7e521c8a654e0cbe15413"
+    },
+    "descriptor_projection": {
+      "route_field": "routes.relationships",
+      "route_value": "/data/series/relationships.json",
+      "count_field": "record_counts.relationships",
+      "capability_field": "capabilities.relationships",
+      "capability_value": "adapter"
+    }
+  },
+  "implementation_model": {
+    "authority_is_finite_allowlist_only": true,
+    "dynamic_relationship_discovery_for_publication": false,
+    "accepted_audit_rows_are_the_only_publishable_relationships": true,
+    "each_vertical_registry_remains_canonical_owner": true,
+    "each_affected_registry_requires_its_own_reviewed_local_implementation_authority_or_equivalent_review_gate_before_runtime_changes": true,
+    "publication_location": "registry-local standalone Series v1 relationship_record objects under /data/series/relationships.json",
+    "central_relationship_database_authorized": false,
+    "new_cross_registry_relationship_aggregation_authorized": false,
+    "new_html_routes_authorized": false,
+    "central_copy_of_native_canonical_records_authorized": false
+  },
+  "affected_registries": [
+    {
+      "registry_id": "historical-exchange-index",
+      "repository": "badjoke-lab/historical-exchange-index",
+      "accepted_relationships": 21
+    },
+    {
+      "registry_id": "minted-and-gone",
+      "repository": "badjoke-lab/mintedandgone",
+      "accepted_relationships": 17
+    },
+    {
+      "registry_id": "stable-or-gone",
+      "repository": "badjoke-lab/stable-or-gone",
+      "accepted_relationships": 1
+    },
+    {
+      "registry_id": "bridge-incident-registry",
+      "repository": "badjoke-lab/bridge-incident-registry",
+      "accepted_relationships": 44
+    },
+    {
+      "registry_id": "cryptocurrency-wallet-lifecycle-registry",
+      "repository": "badjoke-lab/cryptocurrency-wallet-lifecycle-registry",
+      "accepted_relationships": 161
+    }
+  ],
+  "zero_publication_registries": [
+    "crypto-yield-archive",
+    "ai-tools-history-archive",
+    "api-deprecation-archive"
+  ],
+  "allowed_work": [
+    "create a reviewed local implementation authority or equivalent review gate in each affected vertical registry before changing its Series adapter output",
+    "encode only the accepted Stage 5 audit rows for that registry as a deterministic finite allowlist or equivalent reviewed lock",
+    "emit the allowlisted rows as standalone Series v1 relationship_record objects at /data/series/relationships.json without changing native canonical records or embedding new relationship semantics in record envelopes",
+    "update the affected registry descriptor only to truthfully advertise routes.relationships, record_counts.relationships and capabilities.relationships=adapter while preserving all stronger native verification and safety facts",
+    "add deterministic validation proving relationship-record schema, deterministic ID, relation type, source identity, target identity, endpoint existence, uniqueness and exact allowlist equality",
+    "add or extend read-only CI so the emitted relationship set cannot drift beyond the reviewed allowlist",
+    "run exact-main production verification for each affected registry after reviewed merge",
+    "record each accepted vertical implementation and production verification in Issue #780",
+    "after all five affected registries are production accepted, re-verify the central Stage 4 registry index remains synchronized with the updated live descriptors without copying relationship records into the central index"
+  ],
+  "required_relationship_validation": [
+    "every emitted relationship_record is present in the merged #791 accepted inventory",
+    "no rejected or unresolved mapping is emitted",
+    "accepted cross-registry relationship count remains zero",
+    "every source and target tuple is a valid namespaced Series identity resolving to an existing Stage 3 Series record",
+    "every relationship_record id exactly matches the frozen deterministic SHA-256 algorithm and no two rows collide",
+    "relationship types are members of the frozen Series v1 vocabulary and, under this finite inventory, are one of predecessor_of, successor_of, product_of or incident_of",
+    "every emitted relationship has direction=directed",
+    "no self-loop is emitted; the reviewed inventory authorizes none",
+    "duplicate mirrored observations do not create duplicate relationship rows",
+    "WLR compact ranges are fully expanded to individual namespaced endpoints",
+    "native provenance used by the audit remains traceable and no weaker semantic type is substituted for an unsupported native relationship",
+    "the registry descriptor relationship route and count equal the generated relationship transport exactly",
+    "record-envelope relationship arrays remain unchanged by this Stage 5 publication implementation"
+  ],
+  "forbidden": [
+    "publishing any relationship not accepted by merged PR #791",
+    "publishing any of the 247 rejected mappings",
+    "publishing any of the 31 unresolved mappings",
+    "inventing a cross-registry relationship from names, slugs, domains, operators or semantic similarity",
+    "weakening SOG yield_wrapper_of or redeemable_into into a frozen Series v1 type",
+    "promoting CYA product records or SOG organization records outside their Stage 3 Series target record types",
+    "changing the frozen Series v1 relationship vocabulary",
+    "hiding Stage 5 typed relationship publication only inside record-envelope relationships arrays instead of emitting the frozen Series v1 relationship_record object type",
+    "creating a central giant relationship database or copying all vertical relationship records into the Stage 4 central registry index",
+    "changing canonical entity, event, evidence, marketplace, stablecoin, platform, bridge, wallet, AI-tool or API records for the purpose of Series publication",
+    "publishing candidate, private, monitoring or unresolved material",
+    "changing Search, Compare, Stats or public UI behavior",
+    "changing Cloudflare account, project, DNS or hostname configuration",
+    "using HEI as semantic owner of another registry",
+    "automatically continuing into a later Phase 9 stage"
+  ],
+  "acceptance": [
+    "this authority PR is reviewed and merged before any Stage 5 publication implementation branch changes Series runtime output",
+    "all five affected registries use local reviewed implementation authority or equivalent review gates",
+    "HEI publishes exactly 21 accepted relationship_record objects and no others",
+    "MAG publishes exactly 17 accepted relationship_record objects and no others",
+    "SOG publishes exactly 1 accepted relationship_record object and no others",
+    "BIR publishes exactly 44 accepted relationship_record objects and no others",
+    "WLR publishes exactly 161 accepted relationship_record objects and no others",
+    "CYA, AI Tools and API Deprecation publish zero Stage 5 relationship records under this authority",
+    "each affected registry serves /data/series/relationships.json with exact local allowlist equality and advertises the exact relationship count and route in its descriptor",
+    "existing registry CI plus dedicated relationship validation is green on every exact final implementation head",
+    "each affected registry implementation is merged to its own main before production verification",
+    "each affected registry production Series relationship transport and descriptor are verified against its exact accepted main",
+    "Issue #780 records the exact implementation PR, accepted main commit and production verification evidence for every affected registry",
+    "the final aggregate production relationship_record count is exactly 244 and accepted cross-registry relationship count is exactly zero",
+    "the Stage 4 central registry index is re-verified against all eight live descriptors without becoming a relationship-record database",
+    "rejected and unresolved mappings remain non-public",
+    "Stage 6 or any later work remains blocked pending a separate reviewed authority"
+  ],
+  "production_verification_required": true,
+  "automatic_continuation": false
+}
