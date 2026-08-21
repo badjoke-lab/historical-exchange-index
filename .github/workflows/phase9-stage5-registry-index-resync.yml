@@ -1,0 +1,74 @@
+name: Phase 9 Stage 5 Registry Index Resync
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/phase9-stage5-registry-index-resync.yml'
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  resync-reviewed-descriptor-lock:
+    if: github.head_ref == 'agent/phase9-stage5-registry-index-resync'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Refresh seven reviewed remote descriptor snapshots
+        env:
+          COLLECTOR_RUN: ${{ github.run_id }}
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const path = 'scripts/lib/ledger-series-registry-index-source.json'
+          const current = JSON.parse(fs.readFileSync(path, 'utf8'))
+          if (current.schema_version !== '1.1.0' || current.snapshot_type !== 'ledger_series_registry_descriptor_lock') throw new Error('unexpected Stage 4 descriptor-lock contract')
+          if (current.registry_count !== 8 || current.remote_registry_count !== 7 || !Array.isArray(current.registries) || current.registries.length !== 7) throw new Error('unexpected registry-count contract')
+          const refreshed = []
+          for (const entry of current.registries) {
+            const response = await fetch(entry.descriptor_url, {
+              headers: { accept: 'application/json', 'cache-control': 'no-cache', 'user-agent': 'HEI-stage5-registry-index-resync/1.0' },
+              signal: AbortSignal.timeout(30000),
+            })
+            if (!response.ok) throw new Error(`${entry.descriptor_url}: HTTP ${response.status}`)
+            const snapshot = await response.json()
+            if (snapshot?.object_type !== 'registry_descriptor' || !snapshot?.registry?.id) throw new Error(`${entry.descriptor_url}: invalid registry descriptor`)
+            refreshed.push({ descriptor_url: entry.descriptor_url, snapshot })
+            console.log(`reviewed descriptor ${snapshot.registry.id}`)
+          }
+          const next = {
+            schema_version: current.schema_version,
+            snapshot_type: current.snapshot_type,
+            semantic_owner: current.semantic_owner,
+            collected_at: new Date().toISOString(),
+            collector_run: Number(process.env.COLLECTOR_RUN),
+            registry_count: current.registry_count,
+            local_host: current.local_host,
+            remote_registry_count: current.remote_registry_count,
+            registries: refreshed,
+          }
+          fs.writeFileSync(path, `${JSON.stringify(next, null, 2)}\n`)
+          NODE
+      - name: Install dependencies
+        run: npm install
+      - name: Build exact candidate
+        run: npm run build
+      - name: Validate Stage 4 central registry index
+        run: node scripts/validate-ledger-series-registry-index.mjs
+      - name: Commit reviewed descriptor lock only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/lib/ledger-series-registry-index-source.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Refresh reviewed Ledger Series registry descriptors after Stage 5'
+          git push origin HEAD:${GITHUB_HEAD_REF}
