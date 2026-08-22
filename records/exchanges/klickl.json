@@ -1,0 +1,90 @@
+{
+  "entity": {
+    "id": "hei_ex_001162",
+    "slug": "klickl",
+    "canonical_name": "Klickl",
+    "aliases": [
+      "Klickl Group"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2022-05-13",
+    "death_date": null,
+    "country_or_origin": "Hong Kong",
+    "summary": "Active successor brand to IDCM. Klickl emerged from the 2022 IDCM rebrand and continues to provide crypto exchange, OTC, custody, payment and related digital-asset services through a multi-jurisdiction group structure.",
+    "official_url_original": "https://www.klickl.com/",
+    "official_domain_original": "klickl.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.klickl.com/",
+    "predecessor_id": "hei_ex_001161",
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-23",
+    "notes": "The lineage is explicit: ADGM described Klickl in September 2022 as formerly known as IDCM, and Klickl's official company material records the IDCM brand change and domain migration. HEI uses 2022-05-13, the date of the reviewed Klickl-sourced rebrand announcement, as the successor-brand launch marker. Current 2026 first-party Klickl pages expose Quick Buy, professional trading, OTC and exchange services. The current group has operations and regulated entities across multiple jurisdictions; country_or_origin follows the historical Hong Kong origin of the IDCM/Klickl brand lineage rather than implying that every current service is Hong Kong-regulated.",
+    "parent_id": null
+  },
+  "events": [
+    {
+      "id": "hei_ev_010136",
+      "exchange_id": "hei_ex_001162",
+      "event_type": "regulatory_action",
+      "event_date": "2022-09-05",
+      "title": "Klickl received ADGM in-principle approval",
+      "description": "Abu Dhabi Global Market announced that Klickl had received in-principle approval for a Financial Services Permission to operate as a virtual-asset broker-dealer and custody provider.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "This event records an in-principle approval, not a claim that the approval itself was a final operating licence for every Klickl product or jurisdiction."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012606",
+      "exchange_id": "hei_ex_001162",
+      "event_id": "hei_ev_010136",
+      "source_type": "regulatory_notice",
+      "title": "KLICKL gets ADGM In-Principle approval to operate as broker-dealer and custody provider in virtual assets",
+      "url": "https://www.adgm.com/media/announcements/klickl-gets-adgm-in-principle-approval",
+      "publisher": "Abu Dhabi Global Market",
+      "published_at": "2022-09-05",
+      "archived_url": "https://web.archive.org/web/*/https://www.adgm.com/media/announcements/klickl-gets-adgm-in-principle-approval",
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "ADGM states that Klickl received in-principle approval and explicitly describes the group as formerly known as IDCM, independently corroborating the reviewed rebrand lineage."
+    },
+    {
+      "id": "hei_src_012607",
+      "exchange_id": "hei_ex_001162",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Klickl official website",
+      "url": "https://www.klickl.com/",
+      "publisher": "Klickl",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.klickl.com/",
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site exposes Quick Buy, professional trading, OTC and exchange services and identifies current Klickl group operating entities, supporting active status in 2026."
+    },
+    {
+      "id": "hei_src_012608",
+      "exchange_id": "hei_ex_001162",
+      "event_id": null,
+      "source_type": "official_social",
+      "title": "IDCM Rebranded As Klickl: What's new?",
+      "url": "https://www.linkedin.com/pulse/idcm-rebranded-klickl-whats-new-klicklofficial",
+      "publisher": "Klickl Group",
+      "published_at": "2022-05-16",
+      "archived_url": "https://web.archive.org/web/*/https://www.linkedin.com/pulse/idcm-rebranded-klickl-whats-new-klicklofficial",
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "ownership",
+      "notes": "Official company LinkedIn article states that IDCM officially rebranded as Klickl and changed the domain from idcm.io to klickl.com, supporting predecessor/successor identity continuity."
+    }
+  ]
+}

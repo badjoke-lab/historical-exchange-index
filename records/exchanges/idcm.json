@@ -1,0 +1,89 @@
+{
+  "entity": {
+    "id": "hei_ex_001161",
+    "slug": "idcm",
+    "canonical_name": "IDCM",
+    "aliases": [
+      "IDCM Exchange"
+    ],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": "2017-01-01",
+    "death_date": "2022-05-13",
+    "country_or_origin": "Hong Kong",
+    "summary": "Hong Kong-origin centralized cryptocurrency exchange launched in 2017. In May 2022 IDCM was rebranded to Klickl, with the successor brand retaining exchange functionality while expanding into payment, wallet, custody and other Web3 financial services.",
+    "official_url_original": "https://www.idcm.io/",
+    "official_domain_original": "idcm.io",
+    "official_url_status": "redirected",
+    "archived_url": "https://web.archive.org/web/*/https://www.idcm.io/",
+    "predecessor_id": null,
+    "successor_id": "hei_ex_001162",
+    "confidence": "high",
+    "last_verified_at": "2026-08-23",
+    "notes": "Reviewed first-party IDCM material describes the exchange as a five-year platform and places its exchange-alliance activity in 2017; HEI therefore normalizes the year-level launch to 2017-01-01. A Klickl-sourced 2022-05-13 company update records the IDCM-to-Klickl rebrand, and the former IDCM blog states that the main domain changed from idcm.io to klickl.com while exchange functionality continued under the new brand. HEI treats the IDCM identity as rebranded rather than dead or voluntarily shut down and links it to the separately reviewed active Klickl successor record.",
+    "parent_id": null
+  },
+  "events": [
+    {
+      "id": "hei_ev_010134",
+      "exchange_id": "hei_ex_001161",
+      "event_type": "launched",
+      "event_date": "2017-01-01",
+      "title": "IDCM began operating as a cryptocurrency exchange",
+      "description": "Reviewed first-party IDCM material places the platform's initial exchange and exchange-alliance activity in 2017.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "Year-level launch marker normalized to 2017-01-01 because the reviewed source does not establish an exact launch day."
+    },
+    {
+      "id": "hei_ev_010135",
+      "exchange_id": "hei_ex_001161",
+      "event_type": "rebranded",
+      "event_date": "2022-05-13",
+      "title": "IDCM rebranded to Klickl",
+      "description": "IDCM announced a strategic brand upgrade to Klickl, moving the main domain and continuing its exchange business under the successor brand while broadening the product suite.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "rebranded",
+      "source_count": 1,
+      "sort_order": 2,
+      "notes": "The 2022-05-13 Klickl-sourced company update is used as the reviewed effective marker for the brand transition. This is a lineage/rebrand event, not a service shutdown."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012604",
+      "exchange_id": "hei_ex_001161",
+      "event_id": "hei_ev_010134",
+      "source_type": "official_blog",
+      "title": "IDCM品牌形象全面升级，更名为Klickl",
+      "url": "https://idcmenblog.wordpress.com/__trashed/",
+      "publisher": "IDCM",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://idcmenblog.wordpress.com/__trashed/",
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "First-party IDCM blog states that the platform had five years of operating history and describes its 2017 exchange-alliance activity, supporting a year-level 2017 launch marker."
+    },
+    {
+      "id": "hei_src_012605",
+      "exchange_id": "hei_ex_001161",
+      "event_id": "hei_ev_010135",
+      "source_type": "news_article",
+      "title": "IDCM Rebrands to Klickl After 5 Years as Innovative Features Like Contract Trading and Bridge Market Aim to Impress",
+      "url": "https://www.accessnewswire.com/newsroom/en/business-and-professional-services/idcm-rebrands-to-klickl-after-5-years-as-innovative-features-like-699343",
+      "publisher": "ACCESSWIRE / Klickl",
+      "published_at": "2022-05-13",
+      "archived_url": "https://web.archive.org/web/*/https://www.accessnewswire.com/newsroom/en/business-and-professional-services/idcm-rebrands-to-klickl-after-5-years-as-innovative-features-like-699343",
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Wire-distributed company update sourced to Klickl states that IDCM decided to rebrand to Klickl and that the payment gateway, Alliance solution and exchange platform were unified under the new brand."
+    }
+  ]
+}
