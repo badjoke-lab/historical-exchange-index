@@ -67,7 +67,7 @@
       "event_status_effect": "acquired",
       "source_count": 2,
       "sort_order": 3,
-      "notes": "Mine Digital did not continue operations under the GBX banner or use the GBX platform technology, so HEI treats this as the effective end of the independent GBX exchange identity."
+      "notes": "Mine Digital did not continue operations under the GBX banner or use the GBX platform technology, so HEI treats this as the effective end of the independent GBX exchange identity. The completion notice and first-party FAQ both document the closure."
     }
   ],
   "evidence": [
@@ -129,7 +129,7 @@
       "accessed_at": "2026-08-23",
       "reliability": "high",
       "claim_scope": "ownership",
-      "notes": "First-party completion notice confirms that GSX Group had sold GBX to Mine Digital on 2021-01-29."
+      "notes": "First-party completion notice confirms that GSX Group sold GBX to Mine Digital on 2021-01-29 and also states that the GBX-DAX closed that day."
     },
     {
       "id": "hei_src_012597",
@@ -148,21 +148,6 @@
     },
     {
       "id": "hei_src_012598",
-      "exchange_id": "hei_ex_001159",
-      "event_id": "hei_ev_010130",
-      "source_type": "official_blog",
-      "title": "Global Blockchain Exchange (GBX) Completes Sale Process to Mine Digital",
-      "url": "https://gbx.global/global-blockchain-exchange-gbx-completes-sale-process-to-mine-digital/",
-      "publisher": "GBX / GSX Group",
-      "published_at": "2021-01-29",
-      "archived_url": "https://web.archive.org/web/*/https://gbx.global/global-blockchain-exchange-gbx-completes-sale-process-to-mine-digital/",
-      "accessed_at": "2026-08-23",
-      "reliability": "high",
-      "claim_scope": "status",
-      "notes": "The completion notice independently supports the same-day GBX-DAX closure and customer-account shutdown. This separate evidence record is scoped to terminal status rather than ownership."
-    },
-    {
-      "id": "hei_src_012599",
       "exchange_id": "hei_ex_001159",
       "event_id": null,
       "source_type": "other",
