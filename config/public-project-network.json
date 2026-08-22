@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "authority": "badjoke-lab/historical-exchange-index",
+  "network": "badjoke-lab-public-ledger-network",
+  "members": [
+    { "id": "hub", "name": "BadJoke-Lab Hub", "url": "https://badjoke-lab.com/" },
+    { "id": "hei", "name": "Historical Exchange Index", "url": "https://hei.badjoke-lab.com/" },
+    { "id": "sog", "name": "Stable or Gone", "url": "https://www.stableorgone.com/" },
+    { "id": "cya", "name": "Crypto Yield Archive", "url": "https://cya.badjoke-lab.com/" },
+    { "id": "bir", "name": "Bridge Incident Registry", "url": "https://bir.badjoke-lab.com/" },
+    { "id": "mag", "name": "Minted & Gone", "url": "https://mag.badjoke-lab.com/" },
+    { "id": "wlr", "name": "Wallet Lifecycle Registry", "url": "https://wlr.badjoke-lab.com/" }
+  ]
+}
