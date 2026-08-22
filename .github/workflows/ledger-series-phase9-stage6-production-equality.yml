@@ -5,8 +5,14 @@ on:
     paths:
       - "scripts/verify-ledger-series-phase9-stage6-production-equality.mjs"
       - ".github/workflows/ledger-series-phase9-stage6-production-equality.yml"
-      - "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE6_PRE_EXECUTION_BASELINE_REVIEW_2026-08-22.md"
-  workflow_dispatch:
+      - "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE6_PRE_EXECUTION_BASELINE_REVIEW_SUPERSEDING_2026-08-22.md"
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/verify-ledger-series-phase9-stage6-production-equality.mjs"
+      - ".github/workflows/ledger-series-phase9-stage6-production-equality.yml"
+      - "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE6_PRE_EXECUTION_BASELINE_REVIEW_SUPERSEDING_2026-08-22.md"
 
 permissions:
   contents: read
@@ -18,16 +24,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      - name: Verify Stage 6 script syntax
+      - name: Verify corrected Stage 6 script syntax
         run: node --check scripts/verify-ledger-series-phase9-stage6-production-equality.mjs
-
-      - name: Verify authority boundary
+      - name: Verify authority boundary remains read-only
         run: |
           node - <<'NODE'
           const fs = require('node:fs');
@@ -35,41 +38,90 @@ jobs:
           if (authority.authority_id !== 'hei-ledger-series-phase9-stage6-production-equality-2026-08-21-v2') throw new Error('unexpected authority id');
           if (authority.network_read_only_verification_authorized_after_merge !== true) throw new Error('network verification not authorized');
           if (authority.production_mutation_authorized !== false || authority.vertical_repository_mutation_authorized !== false || authority.central_descriptor_resync_authorized !== false) throw new Error('mutation boundary weakened');
-          if (authority.reviewed_repository_baselines?.length !== 8) throw new Error('expected exactly eight reviewed registries');
-          console.log('Stage 6 authority boundary PASS');
+          if (authority.reviewed_repository_baselines?.length !== 8) throw new Error('expected exactly eight authority registries');
+          console.log('Corrected Stage 6 authority boundary PASS');
           NODE
 
   verify-production-equality:
-    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Phase 9 Stage 6 corrected verifier one-shot')
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - name: Checkout exact main execution revision
+      - name: Checkout HEI exact execution revision
         uses: actions/checkout@v4
         with:
           ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Checkout reviewed MAG execution baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/mintedandgone
+          ref: f917d5e25eedc7b2c48091c7343b7fa9cd203428
+          path: .stage6/repos/mag
+          persist-credentials: false
+      - name: Checkout reviewed SOG execution baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/stable-or-gone
+          ref: 9a4f853cca85efff1c7ae4303b07c7af224e65bd
+          path: .stage6/repos/sog
+          persist-credentials: false
+      - name: Checkout reviewed CYA execution baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/crypto-yield-archive
+          ref: de0f7cab8b519f745d153add3a04b16394ecb8b1
+          path: .stage6/repos/cya
+          persist-credentials: false
+      - name: Checkout reviewed BIR execution baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/bridge-incident-registry
+          ref: ef2767ee5fb55339e530d90fcdf3eff88becbc41
+          path: .stage6/repos/bir
+          persist-credentials: false
+      - name: Checkout reviewed WLR execution baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/cryptocurrency-wallet-lifecycle-registry
+          ref: 919a759a4f3077ffecac5464cbb61eae41cd1f0e
+          path: .stage6/repos/wlr
+          persist-credentials: false
+      - name: Checkout reviewed AI execution baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/ai-tools-history-archive
+          ref: 76ef103329813f0174db121117c932bff53fbf8e
+          path: .stage6/repos/ai
+          persist-credentials: false
+      - name: Checkout reviewed API execution baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/api-deprecation-archive
+          ref: 641a6d4243d30f95f48436455d2cbc12a8aded53
+          path: .stage6/repos/api
+          persist-credentials: false
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      - name: Verify Stage 6 script syntax
+      - name: Verify corrected script syntax
         run: node --check scripts/verify-ledger-series-phase9-stage6-production-equality.mjs
-
-      - name: Run bounded read-only eight-registry equality verification
+      - name: Run one authorized read-only eight-registry equality verification
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          STAGE6_REPO_ROOT: .stage6/repos
           STAGE6_RESULT_PATH: .stage6/phase9-stage6-production-equality-result.json
           STAGE6_TIMEOUT_MS: "20000"
-          STAGE6_CONCURRENCY: "12"
+          STAGE6_CONCURRENCY: "10"
         run: node scripts/verify-ledger-series-phase9-stage6-production-equality.mjs
-
       - name: Upload Stage 6 result
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ledger-series-phase9-stage6-production-equality-result
+          name: ledger-series-phase9-stage6-production-equality-result-${{ github.sha }}
           path: .stage6/phase9-stage6-production-equality-result.json
           if-no-files-found: error
           retention-days: 14
