@@ -60,7 +60,7 @@
       "reviewed_canonical_source_merge": "758caa7c5e9490cb669b4ab0822b20ac4b3090be",
       "origin": "https://cya.badjoke-lab.com",
       "verification_mode": "exact_canonical_corpus_plus_legitimate_source_revision_and_native_series_build_equality",
-      "production_revision_rule": "Do not invent a current build commit. Require the current reviewed checkout corpus, require the deployed source commit to correspond to the reviewed canonical source state where the native source-commit endpoint is exposed, and require the live native and Series build/revision facts to agree exactly. Candidate/staging-only main drift must not be treated as canonical publication."
+      "production_revision_rule": "Do not invent a current build commit. Require the live canonical corpus to equal the canonical loader output from reviewed main 579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2. If the native source-commit endpoint is exposed, the legitimate deployed source commit may be either canonical merge 758caa7c5e9490cb669b4ab0822b20ac4b3090be when the later staging-only merge did not redeploy, or reviewed current main 579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2 when it did; no other source commit passes. In either case live native and Series build/revision facts must agree exactly and candidate/staging data must not leak into canonical publication."
     },
     {
       "registry_id": "bridge-incident-registry",
@@ -153,7 +153,7 @@
     "HEI: require current native deployment equality for reviewed runtime source 47fcb5ef86d725225c9bfc78244f499e666f7e69 and exact Series identity/count/build/content agreement.",
     "MAG: retain exact reviewed runtime build 73dafdf78a2ca60e9329a4c6844315cafb8e55c0 and exact native/Series content equality.",
     "SOG: retain exact reviewed runtime build a3cf1e51a00b70d867a6579ea9602343016ad58a plus canonical data hash and exact Series agreement.",
-    "CYA: derive counts and canonical payload expectations from reviewed main 579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2 while excluding staging/candidate material by the existing canonical loader; require legitimate deployed source-revision evidence for canonical merge 758caa7c5e9490cb669b4ab0822b20ac4b3090be where exposed and require live native/Series build facts to agree without fabricating a build commit.",
+    "CYA: derive counts and canonical payload expectations from reviewed main 579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2 while excluding staging/candidate material by the existing canonical loader. If a source-commit endpoint is exposed, accept only 758caa7c5e9490cb669b4ab0822b20ac4b3090be or 579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2 as the reviewed legitimate deployment source, then require live native/Series build facts to agree and canonical content to match exactly without fabricating a build commit.",
     "BIR: regenerate expected production content from reviewed main 5342b997bb8d31dd9c6d573de7369eb43540cd69 and compare live native and Series content exactly without inventing a revision field.",
     "WLR: compare reviewed canonical aggregates and deterministic generated native/Series outputs from c24916eb96f09ee322b185cafaef360b762bea61 to live production exactly; preserve only native verification facts.",
     "AI Tools: retain exact reviewed build commit 76ef103329813f0174db121117c932bff53fbf8e across native and Series.",
