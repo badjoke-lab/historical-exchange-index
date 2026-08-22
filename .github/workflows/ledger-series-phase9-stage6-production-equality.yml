@@ -28,7 +28,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Verify corrected Stage 6 script syntax
+      - name: Apply reviewed post-EXMO HEI execution baseline in workspace
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const file = 'scripts/verify-ledger-series-phase9-stage6-production-equality.mjs';
+          let source = fs.readFileSync(file, 'utf8');
+          const oldBaseline = "repository: 'badjoke-lab/historical-exchange-index', repo_main: '7ec374c1dfd92fc1f53b6148a54904372c83d9ee', production_revision: '242e60a59147440207f5823c9af86fb65e85da54', local: root,";
+          const newBaseline = "repository: 'badjoke-lab/historical-exchange-index', repo_main: '3972c817694a51badfa0c183dcc58e1c4dfaba66', production_revision: '3972c817694a51badfa0c183dcc58e1c4dfaba66', local: root,";
+          const oldRetry = "HEI_PUBLIC_ORIGIN: hei.origin, EXPECTED_COMMIT: hei.production_revision, SMOKE_MAX_ATTEMPTS: '3', SMOKE_RETRY_DELAY_MS: '5000',";
+          const newRetry = "HEI_PUBLIC_ORIGIN: hei.origin, EXPECTED_COMMIT: hei.production_revision, SMOKE_MAX_ATTEMPTS: '40', SMOKE_RETRY_DELAY_MS: '15000',";
+          if (!source.includes(oldBaseline)) throw new Error('expected pre-EXMO HEI Stage 6 baseline marker missing');
+          if (!source.includes(oldRetry)) throw new Error('expected HEI short retry marker missing');
+          source = source.replace(oldBaseline, newBaseline).replace(oldRetry, newRetry);
+          fs.writeFileSync(file, source);
+          console.log('Applied reviewed HEI baseline 3972c817... with bounded 10-minute read-only deployment convergence window.');
+          NODE
+      - name: Verify corrected Stage 6 runtime script syntax
         run: node --check scripts/verify-ledger-series-phase9-stage6-production-equality.mjs
       - name: Verify authority boundary remains read-only
         run: |
@@ -107,7 +123,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Verify corrected script syntax
+      - name: Apply reviewed post-EXMO HEI execution baseline in workspace
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const file = 'scripts/verify-ledger-series-phase9-stage6-production-equality.mjs';
+          let source = fs.readFileSync(file, 'utf8');
+          const oldBaseline = "repository: 'badjoke-lab/historical-exchange-index', repo_main: '7ec374c1dfd92fc1f53b6148a54904372c83d9ee', production_revision: '242e60a59147440207f5823c9af86fb65e85da54', local: root,";
+          const newBaseline = "repository: 'badjoke-lab/historical-exchange-index', repo_main: '3972c817694a51badfa0c183dcc58e1c4dfaba66', production_revision: '3972c817694a51badfa0c183dcc58e1c4dfaba66', local: root,";
+          const oldRetry = "HEI_PUBLIC_ORIGIN: hei.origin, EXPECTED_COMMIT: hei.production_revision, SMOKE_MAX_ATTEMPTS: '3', SMOKE_RETRY_DELAY_MS: '5000',";
+          const newRetry = "HEI_PUBLIC_ORIGIN: hei.origin, EXPECTED_COMMIT: hei.production_revision, SMOKE_MAX_ATTEMPTS: '40', SMOKE_RETRY_DELAY_MS: '15000',";
+          if (!source.includes(oldBaseline)) throw new Error('expected pre-EXMO HEI Stage 6 baseline marker missing');
+          if (!source.includes(oldRetry)) throw new Error('expected HEI short retry marker missing');
+          source = source.replace(oldBaseline, newBaseline).replace(oldRetry, newRetry);
+          fs.writeFileSync(file, source);
+          console.log('Applied reviewed HEI baseline 3972c817... with bounded 10-minute read-only deployment convergence window.');
+          NODE
+      - name: Verify corrected runtime script syntax
         run: node --check scripts/verify-ledger-series-phase9-stage6-production-equality.mjs
       - name: Run one authorized read-only eight-registry equality verification
         env:
