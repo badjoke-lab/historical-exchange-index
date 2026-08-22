@@ -65,9 +65,9 @@
       "confidence": "high",
       "impact_level": "high",
       "event_status_effect": "acquired",
-      "source_count": 2,
+      "source_count": 1,
       "sort_order": 3,
-      "notes": "Mine Digital did not continue operations under the GBX banner or use the GBX platform technology, so HEI treats this as the effective end of the independent GBX exchange identity. The completion notice and first-party FAQ both document the closure."
+      "notes": "Mine Digital did not continue operations under the GBX banner or use the GBX platform technology, so HEI treats this as the effective end of the independent GBX exchange identity. The event-linked first-party FAQ documents the closure; the acquisition completion notice separately corroborates the same-day shutdown in the wider record."
     }
   ],
   "evidence": [
