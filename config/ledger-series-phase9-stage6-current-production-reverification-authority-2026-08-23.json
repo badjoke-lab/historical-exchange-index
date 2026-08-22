@@ -25,7 +25,7 @@
     "SOG advanced during this authority review through reviewed non-growth MNEE June 2026 attestation-boundary maintenance in PR #593.",
     "CYA advanced through canonical BitMEX EARN promotion in PR #303; later PR #306 is candidate/staging work and does not erase the need to verify the new canonical corpus.",
     "BIR advanced through bounded canonical XRPL-TX evidence changes in PR #359; later PRs #360 and #361 are review/audit documentation only.",
-    "WLR advanced through canonical post-100 depth batch 07 in PR #251 with deterministic regenerated public and Series outputs.",
+    "WLR advanced through canonical post-100 depth batch 07 in PR #251 with deterministic regenerated public and Series outputs; later PR #256 adds GA4/GSC integration hooks only and does not change canonical or Series data, but its current main must still be frozen for execution preflight.",
     "MAG, AI Tools and API Deprecation remained on the v2 reviewed execution mains, but all eight registries must still be checked in one bounded current-production observation window."
   ],
   "reviewed_repository_baselines": [
@@ -76,10 +76,11 @@
     {
       "registry_id": "cryptocurrency-wallet-lifecycle-registry",
       "repository": "badjoke-lab/cryptocurrency-wallet-lifecycle-registry",
-      "reviewed_main": "c24916eb96f09ee322b185cafaef360b762bea61",
+      "reviewed_main": "8192dedeb3777894f031dcbd13d95367f5f688de",
+      "reviewed_canonical_content_through": "c24916eb96f09ee322b185cafaef360b762bea61",
       "origin": "https://wlr.badjoke-lab.com",
       "verification_mode": "exact_content_identity_plus_legitimate_native_verification_facts",
-      "production_revision_rule": "Require reviewed canonical aggregates, generated native public records and Series projections to agree with live production exactly. Preserve last_verified_at or other native facts as facts; do not invent build_commit or treat a timestamp as a cryptographic revision."
+      "production_revision_rule": "Require reviewed canonical aggregates, generated native public records and Series projections to agree with live production exactly. Canonical/Series expectations remain those produced by canonical merge c24916eb96f09ee322b185cafaef360b762bea61 because PR #256 changes only conditional GA4/GSC presentation hooks and no canonical/public-data/Series files. Preserve last_verified_at or other native facts as facts; do not invent build_commit or treat a timestamp as a cryptographic revision."
     },
     {
       "registry_id": "ai-tools-history-archive",
@@ -134,8 +135,13 @@
       "canonical_pr": 251,
       "canonical_pr_head": "00e63f2803d56e4a97b1d1de3535f5c0a7210421",
       "canonical_merge": "c24916eb96f09ee322b185cafaef360b762bea61",
-      "observed_checks": 3,
-      "series_adapter_contract_green": true
+      "canonical_observed_checks": 3,
+      "series_adapter_contract_green": true,
+      "later_presentation_pr": 256,
+      "later_presentation_pr_head": "4bb513bf356f0263fc3404753ec0cf4f1d72d9f3",
+      "later_presentation_merge": "8192dedeb3777894f031dcbd13d95367f5f688de",
+      "later_presentation_classification": "ga4_gsc_hooks_only_no_canonical_or_series_data_delta",
+      "later_presentation_observed_checks": 2
     }
   },
   "frozen_stage5_relationship_counts": {
@@ -166,7 +172,7 @@
     "SOG: require current native deployment equality for reviewed merge e8663a8289033a3a6af7cb19fb31683b2545e61c, recompute canonical_data_hash from that checkout, and require exact native/Series build, count, canonical-only and hash agreement; PR #593 must not change the frozen Stage 5 relationship set.",
     "CYA: derive counts and canonical payload expectations from reviewed main 579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2 while excluding staging/candidate material by the existing canonical loader. If a source-commit endpoint is exposed, accept only 758caa7c5e9490cb669b4ab0822b20ac4b3090be or 579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2 as the reviewed legitimate deployment source, then require live native/Series build facts to agree and canonical content to match exactly without fabricating a build commit.",
     "BIR: regenerate expected production content from reviewed main 5342b997bb8d31dd9c6d573de7369eb43540cd69 and compare live native and Series content exactly without inventing a revision field.",
-    "WLR: compare reviewed canonical aggregates and deterministic generated native/Series outputs from c24916eb96f09ee322b185cafaef360b762bea61 to live production exactly; preserve only native verification facts.",
+    "WLR: preflight current repository main 8192dedeb3777894f031dcbd13d95367f5f688de, then compare canonical aggregates and deterministic native/Series data derived from canonical merge c24916eb96f09ee322b185cafaef360b762bea61 to live production exactly; PR #256 must not alter those data outputs, and only legitimate native verification facts may be used.",
     "AI Tools: retain exact reviewed build commit 76ef103329813f0174db121117c932bff53fbf8e across native and Series.",
     "API Deprecation: retain exact deterministic data_revision semantics across native machine and Series; do not fabricate a git commit field.",
     "After all eight registry checks pass, compare the HEI central Series index against the accepted live descriptor set observed in the same execution window.",
