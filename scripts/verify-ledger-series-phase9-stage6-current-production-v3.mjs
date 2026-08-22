@@ -47,7 +47,10 @@ function addReview(id, localExpr, productionRevision = null, extra = {}) {
   for (const [key, value] of Object.entries(extra)) reviewLines.push(`    ${key}: ${js(value)},`)
   reviewLines.push('  },')
 }
-addReview('historical-exchange-index', 'root', byId.get('historical-exchange-index').production_runtime_source)
+const heiBaseline = byId.get('historical-exchange-index')
+addReview('historical-exchange-index', 'root', heiBaseline.production_runtime_source, {
+  allowed_build_commits: [heiBaseline.production_runtime_source, heiBaseline.reviewed_main_before_implementation],
+})
 addReview('minted-and-gone', `path.join(${repoRootExpr}, 'mag')`, byId.get('minted-and-gone').production_runtime_source)
 addReview('stable-or-gone', `path.join(${repoRootExpr}, 'sog')`, byId.get('stable-or-gone').production_runtime_source)
 addReview('crypto-yield-archive', `path.join(${repoRootExpr}, 'cya')`, null, {
@@ -98,14 +101,39 @@ source = replaceOnce(
 )
 source = replaceOnce(
   source,
+  "      assert(githubSha && observed === githubSha, `HEI main moved: workflow ${githubSha || 'missing'}, observed ${observed}`)",
+  "      const expectedHeiExecutionSha = (process.env.STAGE6_HEI_EXECUTION_SHA || githubSha || '').trim()\n      assert(expectedHeiExecutionSha && observed === expectedHeiExecutionSha, `HEI main moved: reviewed execution ${expectedHeiExecutionSha || 'missing'}, observed ${observed}`)",
+  'HEI execution SHA preflight',
+)
+source = replaceOnce(
+  source,
+  "HEI_PUBLIC_ORIGIN: hei.origin, EXPECTED_COMMIT: hei.production_revision, SMOKE_MAX_ATTEMPTS: '3', SMOKE_RETRY_DELAY_MS: '5000',",
+  "HEI_PUBLIC_ORIGIN: hei.origin, EXPECTED_COMMIT: '', SMOKE_MAX_ATTEMPTS: '3', SMOKE_RETRY_DELAY_MS: '5000',",
+  'HEI checker build semantics',
+)
+source = replaceOnce(
+  source,
   "CYA_BASE_URL: cya.origin, CYA_EXPECTED_COMMIT: cya.production_revision, CYA_SMOKE_ATTEMPTS: '3', CYA_SMOKE_DELAY_MS: '5000',",
   "CYA_BASE_URL: cya.origin, CYA_EXPECTED_COMMIT: '', CYA_SMOKE_ATTEMPTS: '3', CYA_SMOKE_DELAY_MS: '5000',",
   'CYA checker commit semantics',
 )
 
-const cyaNeedle = "  if (id === 'crypto-yield-archive') await verifyCyaDerivedCount(review, descriptor.record_counts.primary_records)"
+const heiNeedle = "  if (id === 'crypto-yield-archive') await verifyCyaDerivedCount(review, descriptor, index)"
+const heiReplacement = `  if (id === 'historical-exchange-index') {
+    const heiVersion = await live(review, '/version.json', 'HEI native version')
+    assertSame(descriptor.verification?.build, heiVersion.build, 'HEI descriptor/native build')
+    assertSame(index.verification?.build, heiVersion.build, 'HEI index/native build')
+    const executionSha = (process.env.STAGE6_HEI_EXECUTION_SHA || '').trim()
+    const allowed = new Set([...(review.allowed_build_commits || []), executionSha].filter(Boolean))
+    assert(allowed.size > 0, 'HEI reviewed build allowlist missing')
+    assert(allowed.has(heiVersion.build?.commit), 'HEI production build ' + heiVersion.build?.commit + ' is not a reviewed runtime/coordination build')
+  }
+  if (id === 'crypto-yield-archive') await verifyCyaDerivedCount(review, descriptor, index)`
+source = replaceOnce(source, heiNeedle, heiReplacement, 'HEI v3 build verification')
+
+const cyaNeedle = "  if (id === 'crypto-yield-archive') await verifyCyaDerivedCount(review, descriptor, index)"
 const cyaReplacement = `  if (id === 'crypto-yield-archive') {
-    await verifyCyaDerivedCount(review, descriptor.record_counts.primary_records)
+    await verifyCyaDerivedCount(review, descriptor, index)
     assert(
       descriptor.record_counts.primary_records === review.expected_primary_records,
       'CYA primary count: expected ' + review.expected_primary_records + ', observed ' + descriptor.record_counts.primary_records
