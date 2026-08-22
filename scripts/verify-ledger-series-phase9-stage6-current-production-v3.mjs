@@ -83,6 +83,12 @@ source = replaceOnce(
   "assert(authority.authority_id === 'hei-ledger-series-phase9-stage6-current-production-reverification-2026-08-23-v3', 'unexpected Stage 6 v3 authority')",
   'authority id assertion',
 )
+source = replaceOnce(
+  source,
+  "assert(authority.network_read_only_verification_authorized_after_merge === true, 'Stage 6 network verification is not authorized')",
+  "assert(authority.network_read_only_reverification_authorized_after_implementation_merge === true, 'Stage 6 v3 network reverification is not authorized')",
+  'network authority assertion',
+)
 source = replaceOnce(source, "schema_version: '1.1.0'", "schema_version: '1.2.0'", 'report schema version')
 source = replaceOnce(
   source,
@@ -98,7 +104,25 @@ source = replaceOnce(
 )
 
 const cyaNeedle = "  if (id === 'crypto-yield-archive') await verifyCyaDerivedCount(review, descriptor.record_counts.primary_records)"
-const cyaReplacement = `  if (id === 'crypto-yield-archive') {\n    await verifyCyaDerivedCount(review, descriptor.record_counts.primary_records)\n    assert(descriptor.record_counts.primary_records === review.expected_primary_records, \\`CYA primary count: expected \\${review.expected_primary_records}, observed \\${descriptor.record_counts.primary_records}\\`)\n    const cyaVersion = await live(review, '/version.json', 'CYA native version')\n    assertSame(descriptor.verification?.build, cyaVersion.build, 'CYA descriptor/native build')\n    assertSame(index.verification?.build, cyaVersion.build, 'CYA index/native build')\n    const allowed = new Set(review.allowed_source_commits || [])\n    assert(allowed.size > 0, 'CYA reviewed source-commit allowlist missing')\n    try {\n      const sourceCommit = (await fetchText(\\`\\${review.origin.replace(/\\\\/$/, '')}/cya-source-commit.txt?stage6=\\${nonce}\\`, 'CYA deployed source commit')).trim()\n      assert(allowed.has(sourceCommit), \\`CYA deployed source commit \\${sourceCommit} is not in reviewed execution allowlist\\`)\n    } catch (error) {\n      if (!String(error?.message || error).includes('HTTP 404')) throw error\n    }\n  }`
+const cyaReplacement = `  if (id === 'crypto-yield-archive') {
+    await verifyCyaDerivedCount(review, descriptor.record_counts.primary_records)
+    assert(
+      descriptor.record_counts.primary_records === review.expected_primary_records,
+      'CYA primary count: expected ' + review.expected_primary_records + ', observed ' + descriptor.record_counts.primary_records
+    )
+    const cyaVersion = await live(review, '/version.json', 'CYA native version')
+    assertSame(descriptor.verification?.build, cyaVersion.build, 'CYA descriptor/native build')
+    assertSame(index.verification?.build, cyaVersion.build, 'CYA index/native build')
+    const allowed = new Set(review.allowed_source_commits || [])
+    assert(allowed.size > 0, 'CYA reviewed source-commit allowlist missing')
+    try {
+      const cyaOrigin = review.origin.endsWith('/') ? review.origin.slice(0, -1) : review.origin
+      const sourceCommit = (await fetchText(cyaOrigin + '/cya-source-commit.txt?stage6=' + nonce, 'CYA deployed source commit')).trim()
+      assert(allowed.has(sourceCommit), 'CYA deployed source commit ' + sourceCommit + ' is not in reviewed execution allowlist')
+    } catch (error) {
+      if (!String(error?.message || error).includes('HTTP 404')) throw error
+    }
+  }`
 source = replaceOnce(source, cyaNeedle, cyaReplacement, 'CYA v3 build/source verification')
 
 source = replaceOnce(
