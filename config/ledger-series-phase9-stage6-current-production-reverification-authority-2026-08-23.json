@@ -22,10 +22,11 @@
   },
   "why_fresh_reverification_is_required": [
     "HEI advanced after the v2 execution baseline through canonical BitradeX evidence changes in PR #813 and the canonical GBX historical record in PR #815.",
+    "SOG advanced during this authority review through reviewed non-growth MNEE June 2026 attestation-boundary maintenance in PR #593.",
     "CYA advanced through canonical BitMEX EARN promotion in PR #303; later PR #306 is candidate/staging work and does not erase the need to verify the new canonical corpus.",
     "BIR advanced through bounded canonical XRPL-TX evidence changes in PR #359; later PRs #360 and #361 are review/audit documentation only.",
     "WLR advanced through canonical post-100 depth batch 07 in PR #251 with deterministic regenerated public and Series outputs.",
-    "MAG, SOG, AI Tools and API Deprecation remained on the v2 reviewed execution mains, but all eight registries must still be checked in one bounded current-production observation window."
+    "MAG, AI Tools and API Deprecation remained on the v2 reviewed execution mains, but all eight registries must still be checked in one bounded current-production observation window."
   ],
   "reviewed_repository_baselines": [
     {
@@ -48,10 +49,11 @@
     {
       "registry_id": "stable-or-gone",
       "repository": "badjoke-lab/stable-or-gone",
-      "reviewed_main": "9a4f853cca85efff1c7ae4303b07c7af224e65bd",
-      "reviewed_runtime_build": "a3cf1e51a00b70d867a6579ea9602343016ad58a",
+      "reviewed_main": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+      "reviewed_runtime_build": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
       "origin": "https://www.stableorgone.com",
-      "verification_mode": "exact_build_commit_and_canonical_data_hash"
+      "verification_mode": "exact_build_commit_and_canonical_data_hash",
+      "production_revision_rule": "Require live SOG native build identity to converge to reviewed merge e8663a8289033a3a6af7cb19fb31683b2545e61c, recompute the canonical data hash from that reviewed checkout, and require exact native/Series build, count, canonical-only and data-hash agreement. PR #593 is non-growth canonical maintenance: primary relationship counts must not change."
     },
     {
       "registry_id": "crypto-yield-archive",
@@ -103,6 +105,15 @@
       "pr_815_observed_checks": 20,
       "series_adapter_and_machine_public_consistency_green": true
     },
+    "sog": {
+      "maintenance_pr": 593,
+      "maintenance_pr_head": "49df9c4756aea4599c576932cb9036e0d0ce90aa",
+      "maintenance_merge": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+      "observed_successful_checks": 25,
+      "observed_skipped_non_applicable_checks": 2,
+      "ledger_series_adapter_public_consistency_reproducible_build_green": true,
+      "canonical_counts_unchanged": true
+    },
     "cya": {
       "canonical_pr": 303,
       "canonical_pr_head": "033b510ce3bdba4a8a5aa49c6fb985bc72c39919",
@@ -152,14 +163,14 @@
     "Observe native production and Series production in one bounded execution window so stale or mixed revisions cannot pass as unrelated observations.",
     "HEI: require current native deployment equality for reviewed runtime source 47fcb5ef86d725225c9bfc78244f499e666f7e69 and exact Series identity/count/build/content agreement.",
     "MAG: retain exact reviewed runtime build 73dafdf78a2ca60e9329a4c6844315cafb8e55c0 and exact native/Series content equality.",
-    "SOG: retain exact reviewed runtime build a3cf1e51a00b70d867a6579ea9602343016ad58a plus canonical data hash and exact Series agreement.",
+    "SOG: require current native deployment equality for reviewed merge e8663a8289033a3a6af7cb19fb31683b2545e61c, recompute canonical_data_hash from that checkout, and require exact native/Series build, count, canonical-only and hash agreement; PR #593 must not change the frozen Stage 5 relationship set.",
     "CYA: derive counts and canonical payload expectations from reviewed main 579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2 while excluding staging/candidate material by the existing canonical loader. If a source-commit endpoint is exposed, accept only 758caa7c5e9490cb669b4ab0822b20ac4b3090be or 579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2 as the reviewed legitimate deployment source, then require live native/Series build facts to agree and canonical content to match exactly without fabricating a build commit.",
     "BIR: regenerate expected production content from reviewed main 5342b997bb8d31dd9c6d573de7369eb43540cd69 and compare live native and Series content exactly without inventing a revision field.",
     "WLR: compare reviewed canonical aggregates and deterministic generated native/Series outputs from c24916eb96f09ee322b185cafaef360b762bea61 to live production exactly; preserve only native verification facts.",
     "AI Tools: retain exact reviewed build commit 76ef103329813f0174db121117c932bff53fbf8e across native and Series.",
     "API Deprecation: retain exact deterministic data_revision semantics across native machine and Series; do not fabricate a git commit field.",
     "After all eight registry checks pass, compare the HEI central Series index against the accepted live descriptor set observed in the same execution window.",
-    "Verify Stage 5 relationship sets and counts remain exactly 21/17/1/0/44/161/0/0, total 244, with zero accepted cross-registry relationships; canonical growth must not silently create Series relationships.",
+    "Verify Stage 5 relationship sets and counts remain exactly 21/17/1/0/44/161/0/0, total 244, with zero accepted cross-registry relationships; canonical growth or maintenance must not silently create Series relationships.",
     "Missing endpoint, timeout, malformed JSON, non-2xx required endpoint, identity/count/content/revision/provenance mismatch, stale central descriptor, mixed revision, unexpected relationship drift or weakened canonical-only fact is FAILURE.",
     "Any FAILURE stops. It may be classified, but it may not trigger automatic repair, descriptor refresh, deployment, canonical mutation, vertical-repository mutation or a second execution under this authority."
   ],
