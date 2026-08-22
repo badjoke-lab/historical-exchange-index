@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage6-current-production-reverification-2026-08-23-v3",
+  "phase": 9,
+  "stage": 6,
+  "substage": "current_production_reverification_after_vertical_drift",
+  "status": "reviewed_authority_baselines_frozen_before_verifier_implementation",
+  "coordination_issue": 780,
+  "authority_base_main": "47fcb5ef86d725225c9bfc78244f499e666f7e69",
+  "semantic_owner": "badjoke-lab-ledger-series",
+  "purpose": "Authorize a new finite, read-only Stage 6 current-production equality verification after reviewed vertical drift made the earlier e42e44c snapshot insufficient for Phase 9 closeout. This authority does not retroactively claim the earlier one-shot result and does not authorize repair, resync, deployment, canonical mutation, vertical-repository mutation, Cloudflare/DNS changes, Stage 7 or Stage 8.",
+  "previous_execution": {
+    "authority_id": "hei-ledger-series-phase9-stage6-production-equality-2026-08-21-v2",
+    "corrected_verifier_pr": 809,
+    "corrected_verifier_head": "4720f7e0e81bcfc7affa7e0f91d3fb2e2d0f7054",
+    "one_shot_merge": "e42e44c0709f8a11661b66c168a46a4eaf995c14",
+    "one_shot_merge_title": "Phase 9 Stage 6 corrected verifier one-shot",
+    "result_evidence_status": "not_yet_retrieved_from_the_push_side_run_with_the_currently_available_actions",
+    "stage6_production_acceptance_claimed": false,
+    "reuse_authorized": false,
+    "rule": "The historical v2 execution remains a separate snapshot. Even if its result is later recovered as PASS, it cannot prove the current vertical state covered by this v3 authority and its separately reviewed execution baseline."
+  },
+  "why_fresh_reverification_is_required": [
+    "HEI advanced after the v2 execution baseline through canonical BitradeX evidence changes in PR #813 and the canonical GBX historical record in PR #815.",
+    "SOG advanced during this authority review through reviewed non-growth MNEE June 2026 attestation-boundary maintenance in PR #593.",
+    "CYA advanced through canonical BitMEX EARN promotion in PR #303; later PR #306 is candidate/staging work and does not erase the need to verify the new canonical corpus.",
+    "BIR advanced through bounded canonical XRPL-TX evidence changes in PR #359; later PRs #360 and #361 are review/audit documentation only.",
+    "WLR advanced through canonical post-100 depth batch 07 in PR #251 with deterministic regenerated public and Series outputs; later PR #256 adds GA4/GSC integration hooks only and does not change canonical or Series data.",
+    "MAG, AI Tools and API Deprecation remained on the v2 reviewed execution mains, but all eight registries must still be checked in one bounded current-production observation window."
+  ],
+  "reviewed_repository_baselines": [
+    {
+      "registry_id": "historical-exchange-index",
+      "repository": "badjoke-lab/historical-exchange-index",
+      "reviewed_main": "47fcb5ef86d725225c9bfc78244f499e666f7e69",
+      "reviewed_runtime_source": "47fcb5ef86d725225c9bfc78244f499e666f7e69",
+      "origin": "https://hei.badjoke-lab.com",
+      "verification_mode": "exact_build_commit_and_adapter_build_equality",
+      "production_revision_rule": "Require the live HEI native build commit to converge to the reviewed runtime source selected by the separately reviewed execution baseline. Coordination-only authority/verifier commits must not be substituted as runtime revisions merely because they become repository main."
+    },
+    {
+      "registry_id": "minted-and-gone",
+      "repository": "badjoke-lab/mintedandgone",
+      "reviewed_main": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+      "reviewed_runtime_build": "73dafdf78a2ca60e9329a4c6844315cafb8e55c0",
+      "origin": "https://mag.badjoke-lab.com",
+      "verification_mode": "exact_expected_build_commit_and_series_content_equality"
+    },
+    {
+      "registry_id": "stable-or-gone",
+      "repository": "badjoke-lab/stable-or-gone",
+      "reviewed_main": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+      "reviewed_runtime_build": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+      "origin": "https://www.stableorgone.com",
+      "verification_mode": "exact_build_commit_and_canonical_data_hash",
+      "production_revision_rule": "Require live SOG native build identity to match the reviewed execution baseline, recompute the canonical data hash from that reviewed checkout, and require exact native/Series build, count, canonical-only and data-hash agreement. PR #593 is non-growth canonical maintenance: primary relationship counts must not change."
+    },
+    {
+      "registry_id": "crypto-yield-archive",
+      "repository": "badjoke-lab/crypto-yield-archive",
+      "reviewed_main": "579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2",
+      "reviewed_canonical_source_merge": "758caa7c5e9490cb669b4ab0822b20ac4b3090be",
+      "origin": "https://cya.badjoke-lab.com",
+      "verification_mode": "exact_canonical_corpus_plus_legitimate_source_revision_and_native_series_build_equality",
+      "production_revision_rule": "Do not invent a current build commit. Require the live canonical corpus to equal the canonical loader output from the reviewed execution checkout. If the native source-commit endpoint is exposed, only source revisions explicitly recorded as legitimate in the execution review may pass. Live native and Series build/revision facts must agree exactly and candidate/staging data must not leak into canonical publication."
+    },
+    {
+      "registry_id": "bridge-incident-registry",
+      "repository": "badjoke-lab/bridge-incident-registry",
+      "reviewed_main": "5342b997bb8d31dd9c6d573de7369eb43540cd69",
+      "reviewed_canonical_content_through": "2aaa68baad735f0bbbad54733bc1de9a5ee0e533",
+      "origin": "https://bir.badjoke-lab.com",
+      "verification_mode": "exact_regenerated_content_without_invented_revision",
+      "production_revision_rule": "Regenerate native/public expectations from the reviewed execution checkout and compare live content exactly. Documentation-only drift does not authorize a fabricated build revision."
+    },
+    {
+      "registry_id": "cryptocurrency-wallet-lifecycle-registry",
+      "repository": "badjoke-lab/cryptocurrency-wallet-lifecycle-registry",
+      "reviewed_main": "8192dedeb3777894f031dcbd13d95367f5f688de",
+      "reviewed_canonical_content_through": "c24916eb96f09ee322b185cafaef360b762bea61",
+      "origin": "https://wlr.badjoke-lab.com",
+      "verification_mode": "exact_content_identity_plus_legitimate_native_verification_facts",
+      "production_revision_rule": "Require reviewed canonical aggregates, generated native public records and Series projections to agree with live production exactly. PR #256 changes only conditional GA4/GSC presentation hooks and no canonical/public-data/Series files. Preserve last_verified_at or other native facts as facts; do not invent build_commit or treat a timestamp as a cryptographic revision."
+    },
+    {
+      "registry_id": "ai-tools-history-archive",
+      "repository": "badjoke-lab/ai-tools-history-archive",
+      "reviewed_main": "76ef103329813f0174db121117c932bff53fbf8e",
+      "reviewed_runtime_build": "76ef103329813f0174db121117c932bff53fbf8e",
+      "origin": "https://ai-tools-history-archive.pages.dev",
+      "verification_mode": "exact_build_commit"
+    },
+    {
+      "registry_id": "api-deprecation-archive",
+      "repository": "badjoke-lab/api-deprecation-archive",
+      "reviewed_main": "641a6d4243d30f95f48436455d2cbc12a8aded53",
+      "origin": "https://api-deprecation-archive.pages.dev",
+      "verification_mode": "exact_deterministic_data_revision_without_invented_commit"
+    }
+  ],
+  "execution_baseline_rule": {
+    "purpose": "Keep vertical development independent without silently moving the Stage 6 proof target.",
+    "rule": "The later verifier implementation PR must contain one explicit pre-execution baseline review covering all eight repository mains. A repository may advance beyond this authority snapshot only when that exact newer revision is reviewed and recorded there before execution, with its change classified against the registry verification contract. The verifier must then require the observed main at execution time to equal that separately reviewed execution revision. Any further unreviewed drift fails closed.",
+    "allowed_review_outcomes": [
+      "verification_relevant_revision_reviewed_and_new_expected_content_or_revision_frozen",
+      "non_semantic_or_non_machine_public_drift_reviewed_and_current_main_frozen_without changing canonical expectations"
+    ],
+    "not_allowed": [
+      "silent latest-main lookup",
+      "wildcard descendant acceptance",
+      "automatic baseline refresh",
+      "assuming docs, analytics, UI or staging changes are irrelevant without reviewing their actual diff",
+      "executing after a repository moves beyond the explicit implementation-review SHA"
+    ]
+  },
+  "review_evidence": {
+    "hei": {
+      "pr_813_head": "99105c83c91e9141917b0e0a64ef4ad5281f0eba",
+      "pr_813_observed_checks": 19,
+      "pr_815_head": "6979b4e80df8ca908d9a5eefd7aa0aa00fdc8a89",
+      "pr_815_observed_checks": 20,
+      "series_adapter_and_machine_public_consistency_green": true
+    },
+    "sog": {
+      "maintenance_pr": 593,
+      "maintenance_pr_head": "49df9c4756aea4599c576932cb9036e0d0ce90aa",
+      "maintenance_merge": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+      "observed_successful_checks": 25,
+      "observed_skipped_non_applicable_checks": 2,
+      "ledger_series_adapter_public_consistency_reproducible_build_green": true,
+      "canonical_counts_unchanged": true
+    },
+    "cya": {
+      "canonical_pr": 303,
+      "canonical_pr_head": "033b510ce3bdba4a8a5aa49c6fb985bc72c39919",
+      "canonical_merge": "758caa7c5e9490cb669b4ab0822b20ac4b3090be",
+      "observed_checks": 10,
+      "series_adapter_green": true,
+      "later_main_change": "579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2",
+      "later_main_change_classification": "candidate_staging_only"
+    },
+    "bir": {
+      "canonical_pr": 359,
+      "canonical_pr_head": "da868f5095c04877d028d145027dbc64d4c371ef",
+      "canonical_merge": "2aaa68baad735f0bbbad54733bc1de9a5ee0e533",
+      "later_main": "5342b997bb8d31dd9c6d573de7369eb43540cd69",
+      "later_changes_after_canonical_merge": "docs_only_reviews_360_361"
+    },
+    "wlr": {
+      "canonical_pr": 251,
+      "canonical_pr_head": "00e63f2803d56e4a97b1d1de3535f5c0a7210421",
+      "canonical_merge": "c24916eb96f09ee322b185cafaef360b762bea61",
+      "canonical_observed_checks": 3,
+      "series_adapter_contract_green": true,
+      "later_presentation_pr": 256,
+      "later_presentation_pr_head": "4bb513bf356f0263fc3404753ec0cf4f1d72d9f3",
+      "later_presentation_merge": "8192dedeb3777894f031dcbd13d95367f5f688de",
+      "later_presentation_classification": "ga4_gsc_hooks_only_no_canonical_or_series_data_delta",
+      "later_presentation_observed_checks": 2
+    }
+  },
+  "frozen_stage5_relationship_counts": {
+    "historical-exchange-index": 21,
+    "minted-and-gone": 17,
+    "stable-or-gone": 1,
+    "crypto-yield-archive": 0,
+    "bridge-incident-registry": 44,
+    "cryptocurrency-wallet-lifecycle-registry": 161,
+    "ai-tools-history-archive": 0,
+    "api-deprecation-archive": 0,
+    "total": 244,
+    "cross_registry": 0
+  },
+  "authorized_coordination_repository_changes_after_this_authority_is_merged": [
+    "add one explicit eight-registry pre-execution baseline review under docs/audits/",
+    "add or update one bounded read-only Stage 6 current-production reverification script under scripts/",
+    "add or update one bounded workflow solely to execute that script once from an exact reviewed trigger",
+    "add a Stage 6 current-production reverification audit report under docs/audits/",
+    "run ordinary HEI CI on the implementation",
+    "execute one read-only verification against exactly the eight reviewed production origins after the implementation is merged"
+  ],
+  "execution_requirements": [
+    "Before execution, re-read all eight repository mains. Each observed main must equal the explicit execution revision recorded in the merged implementation review. Any further drift fails closed; do not silently rebase onto newer vertical work.",
+    "Keep the execution read-only across all eight registries and production origins.",
+    "Observe native production and Series production in one bounded execution window so stale or mixed revisions cannot pass as unrelated observations.",
+    "HEI: require current native deployment equality for the reviewed runtime source selected by the implementation review and exact Series identity/count/build/content agreement.",
+    "MAG: require the explicit reviewed runtime build selected by the implementation review and exact native/Series content equality.",
+    "SOG: require native deployment equality for the reviewed implementation baseline, recompute canonical_data_hash from that checkout, and require exact native/Series build, count, canonical-only and hash agreement; reviewed maintenance must not change the frozen Stage 5 relationship set unless a separate relationship authority exists.",
+    "CYA: derive counts and canonical payload expectations from the reviewed implementation checkout while excluding staging/candidate material by the existing canonical loader. If a source-commit endpoint is exposed, only implementation-review-approved source revisions may pass, then live native/Series build facts must agree and canonical content must match exactly without fabricating a build commit.",
+    "BIR: regenerate expected production content from the reviewed implementation checkout and compare live native and Series content exactly without inventing a revision field.",
+    "WLR: compare reviewed canonical aggregates and deterministic native/Series outputs from the reviewed implementation checkout to live production exactly; presentation-only drift may change repository main only when its diff was explicitly reviewed and recorded as not changing canonical/public-data/Series outputs.",
+    "AI Tools: require the explicit reviewed build commit selected by the implementation review across native and Series.",
+    "API Deprecation: retain exact deterministic data_revision semantics across native machine and Series; do not fabricate a git commit field.",
+    "After all eight registry checks pass, compare the HEI central Series index against the accepted live descriptor set observed in the same execution window.",
+    "Verify Stage 5 relationship sets and counts remain exactly 21/17/1/0/44/161/0/0, total 244, with zero accepted cross-registry relationships; canonical growth or maintenance must not silently create Series relationships.",
+    "Missing endpoint, timeout, malformed JSON, non-2xx required endpoint, identity/count/content/revision/provenance mismatch, stale central descriptor, mixed revision, unexpected relationship drift or weakened canonical-only fact is FAILURE.",
+    "Any FAILURE stops. It may be classified, but it may not trigger automatic repair, descriptor refresh, deployment, canonical mutation, vertical-repository mutation or a second execution under this authority."
+  ],
+  "forbidden": [
+    "reusing the v2 one-shot trigger or authority as authorization for the current-production run",
+    "mutating any vertical registry repository",
+    "mutating production data, deployment state, scheduler, DNS or Cloudflare configuration",
+    "refreshing or rewriting the HEI central descriptor as part of verification",
+    "auto-repairing stale registry or central state",
+    "changing canonical records or Stage 5 relationship semantics/counts",
+    "inventing a universal revision field or fabricating missing commit/hash facts",
+    "silently advancing an execution baseline to latest main without an explicit reviewed diff and recorded SHA",
+    "starting Stage 7, Stage 8 or Phase 10 from this authority alone",
+    "automatically continuing from a failed reverification into remediation"
+  ],
+  "acceptance": [
+    "this authority PR contains only this new authority file",
+    "ordinary HEI pull-request checks are green on the exact authority head",
+    "this authority is merged before any v3 verifier/workflow implementation begins",
+    "the later implementation contains an explicit eight-registry pre-execution baseline review and freezes one exact execution SHA per registry",
+    "the later implementation is bounded to the eight reviewed origins and the verification modes frozen here",
+    "the later one-shot execution rejects any repository main that moved beyond its merged implementation-review SHA",
+    "the later one-shot execution produces an explicit PASS/FAIL result per registry, Stage 5 relationship result and central descriptor result",
+    "Stage 6 current-production acceptance is not claimed until the run evidence and result artifact are read and recorded in Issue #780",
+    "any failure remains a blocker requiring separate authority rather than automatic mutation"
+  ],
+  "production_mutation_authorized": false,
+  "vertical_repository_mutation_authorized": false,
+  "central_descriptor_resync_authorized": false,
+  "coordination_repository_verifier_implementation_authorized_after_merge": true,
+  "network_read_only_reverification_authorized_after_implementation_merge": true,
+  "automatic_continuation": false
+}
