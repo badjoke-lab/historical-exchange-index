@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage6-current-production-reverification-2026-08-23-v3",
+  "phase": 9,
+  "stage": 6,
+  "substage": "current_production_reverification_after_vertical_drift",
+  "status": "reviewed_baselines_frozen_before_verifier_implementation",
+  "coordination_issue": 780,
+  "authority_base_main": "47fcb5ef86d725225c9bfc78244f499e666f7e69",
+  "semantic_owner": "badjoke-lab-ledger-series",
+  "purpose": "Authorize a new finite, read-only Stage 6 current-production equality verification after reviewed vertical drift made the earlier e42e44c snapshot insufficient for Phase 9 closeout. This authority does not retroactively claim the earlier one-shot result and does not authorize repair, resync, deployment, canonical mutation, vertical-repository mutation, Cloudflare/DNS changes, Stage 7 or Stage 8.",
+  "previous_execution": {
+    "authority_id": "hei-ledger-series-phase9-stage6-production-equality-2026-08-21-v2",
+    "corrected_verifier_pr": 809,
+    "corrected_verifier_head": "4720f7e0e81bcfc7affa7e0f91d3fb2e2d0f7054",
+    "one_shot_merge": "e42e44c0709f8a11661b66c168a46a4eaf995c14",
+    "one_shot_merge_title": "Phase 9 Stage 6 corrected verifier one-shot",
+    "result_evidence_status": "not_yet_retrieved_from_the_push_side_run_with_the_currently_available_actions",
+    "stage6_production_acceptance_claimed": false,
+    "reuse_authorized": false,
+    "rule": "The historical v2 execution remains a separate snapshot. Even if its result is later recovered as PASS, it cannot prove the current vertical mains frozen by this v3 authority."
+  },
+  "why_fresh_reverification_is_required": [
+    "HEI advanced after the v2 execution baseline through canonical BitradeX evidence changes in PR #813 and the canonical GBX historical record in PR #815.",
+    "CYA advanced through canonical BitMEX EARN promotion in PR #303; later PR #306 is candidate/staging work and does not erase the need to verify the new canonical corpus.",
+    "BIR advanced through bounded canonical XRPL-TX evidence changes in PR #359; later PRs #360 and #361 are review/audit documentation only.",
+    "WLR advanced through canonical post-100 depth batch 07 in PR #251 with deterministic regenerated public and Series outputs.",
+    "MAG, SOG, AI Tools and API Deprecation remained on the v2 reviewed execution mains, but all eight registries must still be checked in one bounded current-production observation window."
+  ],
+  "reviewed_repository_baselines": [
+    {
+      "registry_id": "historical-exchange-index",
+      "repository": "badjoke-lab/historical-exchange-index",
+      "reviewed_main": "47fcb5ef86d725225c9bfc78244f499e666f7e69",
+      "reviewed_runtime_source": "47fcb5ef86d725225c9bfc78244f499e666f7e69",
+      "origin": "https://hei.badjoke-lab.com",
+      "verification_mode": "exact_build_commit_and_adapter_build_equality",
+      "production_revision_rule": "Require the live HEI native build commit to converge to the reviewed runtime source 47fcb5ef86d725225c9bfc78244f499e666f7e69. Later coordination-only authority/verifier commits must not be substituted as the expected runtime revision merely because they become repository main."
+    },
+    {
+      "registry_id": "minted-and-gone",
+      "repository": "badjoke-lab/mintedandgone",
+      "reviewed_main": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+      "reviewed_runtime_build": "73dafdf78a2ca60e9329a4c6844315cafb8e55c0",
+      "origin": "https://mag.badjoke-lab.com",
+      "verification_mode": "exact_expected_build_commit_and_series_content_equality"
+    },
+    {
+      "registry_id": "stable-or-gone",
+      "repository": "badjoke-lab/stable-or-gone",
+      "reviewed_main": "9a4f853cca85efff1c7ae4303b07c7af224e65bd",
+      "reviewed_runtime_build": "a3cf1e51a00b70d867a6579ea9602343016ad58a",
+      "origin": "https://www.stableorgone.com",
+      "verification_mode": "exact_build_commit_and_canonical_data_hash"
+    },
+    {
+      "registry_id": "crypto-yield-archive",
+      "repository": "badjoke-lab/crypto-yield-archive",
+      "reviewed_main": "579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2",
+      "reviewed_canonical_source_merge": "758caa7c5e9490cb669b4ab0822b20ac4b3090be",
+      "origin": "https://cya.badjoke-lab.com",
+      "verification_mode": "exact_canonical_corpus_plus_legitimate_source_revision_and_native_series_build_equality",
+      "production_revision_rule": "Do not invent a current build commit. Require the current reviewed checkout corpus, require the deployed source commit to correspond to the reviewed canonical source state where the native source-commit endpoint is exposed, and require the live native and Series build/revision facts to agree exactly. Candidate/staging-only main drift must not be treated as canonical publication."
+    },
+    {
+      "registry_id": "bridge-incident-registry",
+      "repository": "badjoke-lab/bridge-incident-registry",
+      "reviewed_main": "5342b997bb8d31dd9c6d573de7369eb43540cd69",
+      "reviewed_canonical_content_through": "2aaa68baad735f0bbbad54733bc1de9a5ee0e533",
+      "origin": "https://bir.badjoke-lab.com",
+      "verification_mode": "exact_regenerated_content_without_invented_revision",
+      "production_revision_rule": "Regenerate native/public expectations from the reviewed checkout and compare live content exactly. PRs #360 and #361 after canonical merge #359 are documentation-only and do not authorize a fabricated build revision."
+    },
+    {
+      "registry_id": "cryptocurrency-wallet-lifecycle-registry",
+      "repository": "badjoke-lab/cryptocurrency-wallet-lifecycle-registry",
+      "reviewed_main": "c24916eb96f09ee322b185cafaef360b762bea61",
+      "origin": "https://wlr.badjoke-lab.com",
+      "verification_mode": "exact_content_identity_plus_legitimate_native_verification_facts",
+      "production_revision_rule": "Require reviewed canonical aggregates, generated native public records and Series projections to agree with live production exactly. Preserve last_verified_at or other native facts as facts; do not invent build_commit or treat a timestamp as a cryptographic revision."
+    },
+    {
+      "registry_id": "ai-tools-history-archive",
+      "repository": "badjoke-lab/ai-tools-history-archive",
+      "reviewed_main": "76ef103329813f0174db121117c932bff53fbf8e",
+      "reviewed_runtime_build": "76ef103329813f0174db121117c932bff53fbf8e",
+      "origin": "https://ai-tools-history-archive.pages.dev",
+      "verification_mode": "exact_build_commit"
+    },
+    {
+      "registry_id": "api-deprecation-archive",
+      "repository": "badjoke-lab/api-deprecation-archive",
+      "reviewed_main": "641a6d4243d30f95f48436455d2cbc12a8aded53",
+      "origin": "https://api-deprecation-archive.pages.dev",
+      "verification_mode": "exact_deterministic_data_revision_without_invented_commit"
+    }
+  ],
+  "review_evidence": {
+    "hei": {
+      "pr_813_head": "99105c83c91e9141917b0e0a64ef4ad5281f0eba",
+      "pr_813_observed_checks": 19,
+      "pr_815_head": "6979b4e80df8ca908d9a5eefd7aa0aa00fdc8a89",
+      "pr_815_observed_checks": 20,
+      "series_adapter_and_machine_public_consistency_green": true
+    },
+    "cya": {
+      "canonical_pr": 303,
+      "canonical_pr_head": "033b510ce3bdba4a8a5aa49c6fb985bc72c39919",
+      "canonical_merge": "758caa7c5e9490cb669b4ab0822b20ac4b3090be",
+      "observed_checks": 10,
+      "series_adapter_green": true,
+      "later_main_change": "579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2",
+      "later_main_change_classification": "candidate_staging_only"
+    },
+    "bir": {
+      "canonical_pr": 359,
+      "canonical_pr_head": "da868f5095c04877d028d145027dbc64d4c371ef",
+      "canonical_merge": "2aaa68baad735f0bbbad54733bc1de9a5ee0e533",
+      "later_main": "5342b997bb8d31dd9c6d573de7369eb43540cd69",
+      "later_changes_after_canonical_merge": "docs_only_reviews_360_361"
+    },
+    "wlr": {
+      "canonical_pr": 251,
+      "canonical_pr_head": "00e63f2803d56e4a97b1d1de3535f5c0a7210421",
+      "canonical_merge": "c24916eb96f09ee322b185cafaef360b762bea61",
+      "observed_checks": 3,
+      "series_adapter_contract_green": true
+    }
+  },
+  "frozen_stage5_relationship_counts": {
+    "historical-exchange-index": 21,
+    "minted-and-gone": 17,
+    "stable-or-gone": 1,
+    "crypto-yield-archive": 0,
+    "bridge-incident-registry": 44,
+    "cryptocurrency-wallet-lifecycle-registry": 161,
+    "ai-tools-history-archive": 0,
+    "api-deprecation-archive": 0,
+    "total": 244,
+    "cross_registry": 0
+  },
+  "authorized_coordination_repository_changes_after_this_authority_is_merged": [
+    "add or update one bounded read-only Stage 6 current-production reverification script under scripts/",
+    "add or update one bounded workflow solely to execute that script once from an exact reviewed trigger",
+    "add a Stage 6 current-production reverification audit report under docs/audits/",
+    "run ordinary HEI CI on the implementation",
+    "execute one read-only verification against exactly the eight reviewed production origins after the implementation is merged"
+  ],
+  "execution_requirements": [
+    "Before execution, re-read all eight repository mains and fail closed if any differs from the reviewed_main frozen here; do not silently rebase the authority onto newer vertical work.",
+    "Keep the execution read-only across all eight registries and production origins.",
+    "Observe native production and Series production in one bounded execution window so stale or mixed revisions cannot pass as unrelated observations.",
+    "HEI: require current native deployment equality for reviewed runtime source 47fcb5ef86d725225c9bfc78244f499e666f7e69 and exact Series identity/count/build/content agreement.",
+    "MAG: retain exact reviewed runtime build 73dafdf78a2ca60e9329a4c6844315cafb8e55c0 and exact native/Series content equality.",
+    "SOG: retain exact reviewed runtime build a3cf1e51a00b70d867a6579ea9602343016ad58a plus canonical data hash and exact Series agreement.",
+    "CYA: derive counts and canonical payload expectations from reviewed main 579586b2b05bd067cfa2f9b976d7dcb71ec9d4f2 while excluding staging/candidate material by the existing canonical loader; require legitimate deployed source-revision evidence for canonical merge 758caa7c5e9490cb669b4ab0822b20ac4b3090be where exposed and require live native/Series build facts to agree without fabricating a build commit.",
+    "BIR: regenerate expected production content from reviewed main 5342b997bb8d31dd9c6d573de7369eb43540cd69 and compare live native and Series content exactly without inventing a revision field.",
+    "WLR: compare reviewed canonical aggregates and deterministic generated native/Series outputs from c24916eb96f09ee322b185cafaef360b762bea61 to live production exactly; preserve only native verification facts.",
+    "AI Tools: retain exact reviewed build commit 76ef103329813f0174db121117c932bff53fbf8e across native and Series.",
+    "API Deprecation: retain exact deterministic data_revision semantics across native machine and Series; do not fabricate a git commit field.",
+    "After all eight registry checks pass, compare the HEI central Series index against the accepted live descriptor set observed in the same execution window.",
+    "Verify Stage 5 relationship sets and counts remain exactly 21/17/1/0/44/161/0/0, total 244, with zero accepted cross-registry relationships; canonical growth must not silently create Series relationships.",
+    "Missing endpoint, timeout, malformed JSON, non-2xx required endpoint, identity/count/content/revision/provenance mismatch, stale central descriptor, mixed revision, unexpected relationship drift or weakened canonical-only fact is FAILURE.",
+    "Any FAILURE stops. It may be classified, but it may not trigger automatic repair, descriptor refresh, deployment, canonical mutation, vertical-repository mutation or a second execution under this authority."
+  ],
+  "forbidden": [
+    "reusing the v2 one-shot trigger or authority as authorization for the current-production run",
+    "mutating any vertical registry repository",
+    "mutating production data, deployment state, scheduler, DNS or Cloudflare configuration",
+    "refreshing or rewriting the HEI central descriptor as part of verification",
+    "auto-repairing stale registry or central state",
+    "changing canonical records or Stage 5 relationship semantics/counts",
+    "inventing a universal revision field or fabricating missing commit/hash facts",
+    "starting Stage 7, Stage 8 or Phase 10 from this authority alone",
+    "automatically continuing from a failed reverification into remediation"
+  ],
+  "acceptance": [
+    "this authority PR contains only this new authority file",
+    "ordinary HEI pull-request checks are green on the exact authority head",
+    "this authority is merged before any v3 verifier/workflow implementation begins",
+    "the later implementation is bounded to the eight reviewed origins and the verification modes frozen here",
+    "the later one-shot execution produces an explicit PASS/FAIL result per registry, Stage 5 relationship result and central descriptor result",
+    "Stage 6 current-production acceptance is not claimed until the run evidence and result artifact are read and recorded in Issue #780",
+    "any failure remains a blocker requiring separate authority rather than automatic mutation"
+  ],
+  "production_mutation_authorized": false,
+  "vertical_repository_mutation_authorized": false,
+  "central_descriptor_resync_authorized": false,
+  "coordination_repository_verifier_implementation_authorized_after_merge": true,
+  "network_read_only_reverification_authorized_after_implementation_merge": true,
+  "automatic_continuation": false
+}
