@@ -10,7 +10,7 @@
     "launch_date": null,
     "death_date": null,
     "country_or_origin": "United Kingdom",
-    "summary": "Centralized cryptocurrency exchange and AI-oriented digital asset platform whose public site and current market listings remain live while August 2026 public reports describe material restrictions on access to existing user assets.",
+    "summary": "Centralized cryptocurrency exchange and AI-oriented digital asset platform whose public site remains live while first-party August 2026 material acknowledges regional account-function disruption, withdrawal delays, and withdrawal restrictions affecting some accounts; separate public reports describe staged restrictions on access to existing user assets.",
     "official_url_original": "https://www.bitradex.ai/",
     "official_domain_original": "bitradex.ai",
     "official_url_status": "live_verified",
@@ -18,10 +18,38 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
-    "last_verified_at": "2026-08-11",
-    "notes": "The current first-party site remains publicly available and CoinMarketCap continues to expose BitradeX spot and derivatives market pages. BitradeX identifies BITRADEX FINTECH LIMITED as its legal operator, and the UK Companies House register confirms company 16322746 as an active private limited company incorporated in England and Wales on 2025-03-18; HEI therefore uses United Kingdom as the verified current corporate origin without backdating that company identity to the platform's earlier claimed history. Public Japanese reports on 2026-08-11 described staged release or return of existing user assets during ongoing platform changes, but HEI has not yet captured the underlying first-party August notice or the detailed release rules. HEI therefore uses `limited` conservatively and does not infer a terminal shutdown, insolvency, hack, scam/rug classification, or referral-conditioned asset release from the available reviewed evidence."
+    "last_verified_at": "2026-08-23",
+    "notes": "The current first-party site remains publicly available and CoinMarketCap continues to expose BitradeX spot and derivatives market pages. BitradeX identifies BITRADEX FINTECH LIMITED as its legal operator, and the UK Companies House register confirms company 16322746 as an active private limited company incorporated in England and Wales on 2025-03-18; HEI therefore uses United Kingdom as the verified current corporate origin without backdating that company identity to the platform's earlier claimed history. First-party notices now establish that regional account functions required restoration around 2026-07-31 and that BitradeX's CEO acknowledged withdrawal delays and withdrawal restrictions on some accounts at the 2026-08-07 Tokyo Summit. Separate Japanese reports on 2026-08-11 described staged release or return of existing user assets, but HEI has still not captured the underlying first-party August asset-release notice or detailed release rules. HEI therefore retains `limited` and does not infer a terminal shutdown, insolvency, hack, scam/rug classification, or referral-conditioned asset release from the available reviewed evidence."
   },
   "events": [
+    {
+      "id": "hei_ev_010126",
+      "exchange_id": "hei_ex_001150",
+      "event_type": "service_outage",
+      "event_date": "2026-07-31",
+      "title": "BitradeX reported staged restoration of regional account functions",
+      "description": "BitradeX said account functions in more than 10 countries and regions had returned to normal while accounts in some other countries and regions were still undergoing system adaptation and functional repair.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "The first-party restoration notice establishes a material account-function disruption and incomplete regional recovery by 2026-07-31, but it does not establish the original start date, every affected function, or a global platform shutdown."
+    },
+    {
+      "id": "hei_ev_010127",
+      "exchange_id": "hei_ex_001150",
+      "event_type": "withdrawal_suspended",
+      "event_date": "2026-08-07",
+      "title": "BitradeX acknowledged withdrawal delays and account-specific restrictions",
+      "description": "At the BitradeX Tokyo Summit, the CEO acknowledged that some users had experienced withdrawal delays and said certain accounts were subject to withdrawal restrictions while the platform reviewed them for abnormal trading behavior; BitradeX said trading and withdrawal services for the majority of users were operating normally.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 2,
+      "notes": "The restriction was described by BitradeX as account-specific rather than a platform-wide withdrawal suspension. HEI records the explicit first-party restriction without accepting BitradeX's explanation as an independently verified cause."
+    },
     {
       "id": "hei_ev_010108",
       "exchange_id": "hei_ex_001150",
@@ -33,8 +61,8 @@
       "impact_level": "high",
       "event_status_effect": "limited",
       "source_count": 1,
-      "sort_order": 1,
-      "notes": "This event records the public report and resulting status signal only. The underlying first-party August announcement has not yet been captured by HEI, so this record does not assert a hack, insolvency, scam/rug, or a requirement to recruit new users in order to accelerate release. Re-review when the primary release rules are available."
+      "sort_order": 3,
+      "notes": "This event records the public report and resulting status signal only. The underlying first-party August asset-release announcement has not yet been captured by HEI, so this record does not assert a hack, insolvency, scam/rug, or a requirement to recruit new users in order to accelerate release. The separate first-party July 31 and August 7 events now independently establish that account-function and withdrawal restrictions existed, but they do not prove the staged-release mechanics described here."
     }
   ],
   "evidence": [
@@ -112,6 +140,36 @@
       "reliability": "high",
       "claim_scope": "entity",
       "notes": "Official UK company register confirms BITRADEX FINTECH LIMITED, company number 16322746, as an active private limited company incorporated on 2025-03-18 with a registered office in England. This establishes the current corporate record but does not independently establish BitradeX platform activity before incorporation."
+    },
+    {
+      "id": "hei_src_012591",
+      "exchange_id": "hei_ex_001150",
+      "event_id": "hei_ev_010126",
+      "source_type": "official_statement",
+      "title": "Latest Announcement on the Progress of Account Function Restoration",
+      "url": "https://help.bitradex.ai/hc/en-001/articles/17043937871759-Latest-Announcement-on-the-Progress-of-Account-Function-Restoration",
+      "publisher": "BitradeX",
+      "published_at": "2026-07-31",
+      "archived_url": "https://web.archive.org/web/*/https://help.bitradex.ai/hc/en-001/articles/17043937871759-Latest-Announcement-on-the-Progress-of-Account-Function-Restoration",
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party notice says account functions in more than 10 countries and regions had returned to normal while some other regions remained in final system adaptation and functional repair. It establishes incomplete regional service restoration without establishing the original disruption start date."
+    },
+    {
+      "id": "hei_src_012592",
+      "exchange_id": "hei_ex_001150",
+      "event_id": "hei_ev_010127",
+      "source_type": "official_statement",
+      "title": "BitradeX Tokyo Summit Successfully Held, Exploring the Future of AI and Digital Assets",
+      "url": "https://help.bitradex.ai/hc/en-001/articles/17144542312335-BitradeX-Tokyo-Summit-Successfully-Held-Exploring-the-Future-of-AI-and-Digital-Assets",
+      "publisher": "BitradeX",
+      "published_at": "2026-08-08",
+      "archived_url": "https://web.archive.org/web/*/https://help.bitradex.ai/hc/en-001/articles/17144542312335-BitradeX-Tokyo-Summit-Successfully-Held-Exploring-the-Future-of-AI-and-Digital-Assets",
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party summit recap says BitradeX's CEO acknowledged withdrawal delays affecting some users and withdrawal restrictions on certain accounts while saying the majority of users retained normal trading and withdrawal service. HEI uses the source to establish the existence and scope of restrictions, not to independently validate the platform's explanation for them."
     }
   ]
 }
