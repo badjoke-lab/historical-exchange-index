@@ -1,0 +1,105 @@
+{
+  "entity": {
+    "id": "hei_ex_001165",
+    "slug": "hcoin",
+    "canonical_name": "HCoin",
+    "aliases": [
+      "HCoin Exchange",
+      "HCOIN"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Seychelles",
+    "summary": "Historical centralized cryptocurrency exchange associated with the hcoin.com and hcoin86.com domains. Independent tracking later recorded the exchange website as unreachable and current market directories show no active tracked markets.",
+    "official_url_original": "https://www.hcoin86.com/",
+    "official_domain_original": "hcoin86.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.hcoin86.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-08-23",
+    "notes": "Historical exchange directories place HCoin in Seychelles and date the platform to 2018, while contemporaneous project announcements document deposits, trading and withdrawals through hcoin86.com in 2019. HEI does not assert an exact launch date because secondary sources disagree on the day. Cryptowisser recorded the site as unreachable on 2021-11-11 and marked the venue inactive/dead; HEI conservatively uses `inactive` and leaves death_date and death_reason null. A 2024 joint notice from the Seychelles Financial Services Authority and Registrar of Companies listed HCOIN among businesses claiming Seychelles affiliation and stated the listed businesses were not registered or incorporated in Seychelles. Therefore `country_or_origin: Seychelles` reflects historical directory placement only and must not be read as a legal-incorporation, registration, or licensing claim."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010140",
+      "exchange_id": "hei_ex_001165",
+      "event_type": "other",
+      "event_date": "2021-11-11",
+      "title": "HCoin website was recorded as unreachable",
+      "description": "Independent exchange tracking reported that the HCoin website could not be reached and moved the venue to its inactive/dead exchange tracking set.",
+      "confidence": "medium",
+      "impact_level": "high",
+      "event_status_effect": "inactive",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "This is an observed availability-loss marker, not an asserted operator-announced shutdown date. HEI does not derive an exact death_date or death_reason from this observation alone."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012617",
+      "exchange_id": "hei_ex_001165",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "HCoin exchange profile",
+      "url": "https://www.coincarp.com/exchange/hcoin/",
+      "publisher": "CoinCarp",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.coincarp.com/exchange/hcoin/",
+      "accessed_at": "2026-08-23",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "CoinCarp preserves HCoin as a centralized exchange associated with Seychelles and the hcoin86.io / hcoin.com domains, with a 2018 launch-era history. HEI does not adopt its exact launch day as canonical."
+    },
+    {
+      "id": "hei_src_012618",
+      "exchange_id": "hei_ex_001165",
+      "event_id": null,
+      "source_type": "community_reference",
+      "title": "Winchain Weekly Report — December 9 to December 13, 2019",
+      "url": "https://medium.com/@winchainofficial/winchain-weekly-report-2dfa09458b2f",
+      "publisher": "Winchain Official",
+      "published_at": "2019-12-19",
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/@winchainofficial/winchain-weekly-report-2dfa09458b2f",
+      "accessed_at": "2026-08-23",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "A contemporaneous project announcement documents WIN deposits, trading and withdrawals on HCoin and links the hcoin86.com exchange endpoint, supporting active exchange operation in December 2019."
+    },
+    {
+      "id": "hei_src_012619",
+      "exchange_id": "hei_ex_001165",
+      "event_id": "hei_ev_010140",
+      "source_type": "news_article",
+      "title": "HCoin Exchange review and inactive status",
+      "url": "https://www.cryptowisser.com/exchange/hcoin-exchange/",
+      "publisher": "Cryptowisser",
+      "published_at": "2021-11-11",
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/hcoin-exchange/",
+      "accessed_at": "2026-08-23",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Cryptowisser records that it could not access the HCoin website on 2021-11-11, found no preceding maintenance or migration notice, and marked the venue inactive/dead. HEI uses this only as an availability-loss and inactivity signal."
+    },
+    {
+      "id": "hei_src_012620",
+      "exchange_id": "hei_ex_001165",
+      "event_id": null,
+      "source_type": "regulatory_notice",
+      "title": "Caution regarding virtual asset service providers claiming to be affiliated with Seychelles",
+      "url": "https://fsaseychelles.sc/media/regupdates/Press_Release_-_Caution_re_VASPs_claiming_to_be_affiliated_with_Seychelles.pdf",
+      "publisher": "Seychelles Financial Services Authority and Registrar of Companies",
+      "published_at": "2024-10-25",
+      "archived_url": "https://web.archive.org/web/*/https://fsaseychelles.sc/media/regupdates/Press_Release_-_Caution_re_VASPs_claiming_to_be_affiliated_with_Seychelles.pdf",
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "The joint notice states that businesses in Annex 1 were not registered or incorporated in Seychelles and lists HCOIN with legal name unknown and claimed activity as an exchange platform and/or payment provider. This prevents HEI from treating historical Seychelles directory placement as proof of legal registration or licensing."
+    }
+  ]
+}
