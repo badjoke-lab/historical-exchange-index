@@ -1,0 +1,136 @@
+name: Ledger Series Phase 9 Stage 6 v3.1 corrective reverification
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    paths:
+      - "config/ledger-series-phase9-stage6-v31-execution-baseline.json"
+      - "scripts/verify-ledger-series-phase9-stage6-current-production-v31.mjs"
+      - ".github/workflows/ledger-series-phase9-stage6-v31-corrective.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  review-contract:
+    if: github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout corrective implementation head
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify v3.1 wrapper syntax
+        run: node --check scripts/verify-ledger-series-phase9-stage6-current-production-v31.mjs
+      - name: Generate and syntax-check corrective runtime verifier
+        run: node scripts/verify-ledger-series-phase9-stage6-current-production-v31.mjs --prepare-only
+      - name: Verify corrective authority is finite and read-only
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const authority = JSON.parse(fs.readFileSync('config/ledger-series-phase9-stage6-v31-corrective-reverification-authority-2026-08-23.json', 'utf8'));
+          const baseline = JSON.parse(fs.readFileSync('config/ledger-series-phase9-stage6-v31-execution-baseline.json', 'utf8'));
+          const a = authority.authorization || {};
+          if (authority.authority_id !== 'hei-ledger-series-phase9-stage6-v31-corrective-reverification-2026-08-23') throw new Error('unexpected corrective authority');
+          if (authority.failed_execution?.workflow_run_id !== 32614056946) throw new Error('corrective authority is not bound to consumed v3 failure');
+          if (authority.corrective_scope?.mag_previous_incorrect_expected_build !== '73dafdf78a2ca60e9329a4c6844315cafb8e55c0') throw new Error('unexpected prior MAG identity');
+          if (authority.corrective_scope?.mag_correct_expected_build !== 'f917d5e25eedc7b2c48091c7343b7fa9cd203428') throw new Error('unexpected corrected MAG identity');
+          if (a.corrective_network_execution_count_authorized !== 1 || a.rerun_failed_v3_workflow_authorized !== false || a.automatic_retry_authorized !== false) throw new Error('corrective execution boundary weakened');
+          if (a.production_mutation_authorized !== false || a.vertical_repository_mutation_authorized !== false || a.canonical_record_mutation_authorized !== false || a.relationship_mutation_authorized !== false || a.central_descriptor_resync_authorized !== false || a.cloudflare_dns_deployment_mutation_authorized !== false) throw new Error('mutation boundary weakened');
+          if (baseline.authority_id !== authority.authority_id || baseline.registries?.length !== 8) throw new Error('corrective baseline mismatch');
+          const mag = baseline.registries.find((x) => x.registry_id === 'minted-and-gone');
+          if (!mag || mag.reviewed_main !== 'f917d5e25eedc7b2c48091c7343b7fa9cd203428' || mag.production_runtime_source !== mag.reviewed_main) throw new Error('MAG correction not exact');
+          if (baseline.stage5_relationship_counts?.total !== 244 || baseline.stage5_relationship_counts?.cross_registry !== 0) throw new Error('Stage 5 relationship boundary changed');
+          console.log('Stage 6 v3.1 corrective authority/baseline contract PASS');
+          NODE
+
+  verify-current-production-corrective:
+    if: >-
+      github.event.action == 'closed' &&
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.title == 'Implement Phase 9 Stage 6 v3.1 corrective verifier' &&
+      github.event.pull_request.head.ref == 'agent/phase9-stage6-v31-corrective-verifier'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout exact corrective implementation merge
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          persist-credentials: false
+
+      - name: Checkout reviewed MAG baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/mintedandgone
+          ref: f917d5e25eedc7b2c48091c7343b7fa9cd203428
+          path: .stage6/repos/mag
+          persist-credentials: false
+      - name: Checkout reviewed SOG baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/stable-or-gone
+          ref: e8663a8289033a3a6af7cb19fb31683b2545e61c
+          path: .stage6/repos/sog
+          persist-credentials: false
+      - name: Checkout reviewed CYA baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/crypto-yield-archive
+          ref: 2f68c520bc1b502f351f22a71fa339b29d473ef7
+          path: .stage6/repos/cya
+          persist-credentials: false
+      - name: Checkout reviewed BIR baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/bridge-incident-registry
+          ref: 666d1f4f78b7ed12fa36e2741134523a140221c4
+          path: .stage6/repos/bir
+          persist-credentials: false
+      - name: Checkout reviewed WLR baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/cryptocurrency-wallet-lifecycle-registry
+          ref: 8192dedeb3777894f031dcbd13d95367f5f688de
+          path: .stage6/repos/wlr
+          persist-credentials: false
+      - name: Checkout reviewed AI baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/ai-tools-history-archive
+          ref: 76ef103329813f0174db121117c932bff53fbf8e
+          path: .stage6/repos/ai
+          persist-credentials: false
+      - name: Checkout reviewed API baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/api-deprecation-archive
+          ref: 641a6d4243d30f95f48436455d2cbc12a8aded53
+          path: .stage6/repos/api
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify corrective runtime generation before network execution
+        run: node scripts/verify-ledger-series-phase9-stage6-current-production-v31.mjs --prepare-only
+      - name: Run one authorized read-only corrective eight-registry reverification
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          STAGE6_HEI_EXECUTION_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+          STAGE6_REPO_ROOT: .stage6/repos
+          STAGE6_RESULT_PATH: .stage6/phase9-stage6-v31-corrective-result.json
+          STAGE6_TIMEOUT_MS: "20000"
+          STAGE6_CONCURRENCY: "10"
+        run: node scripts/verify-ledger-series-phase9-stage6-current-production-v31.mjs
+      - name: Upload Stage 6 v3.1 corrective result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ledger-series-phase9-stage6-v31-corrective-${{ github.event.pull_request.merge_commit_sha }}
+          path: .stage6/phase9-stage6-v31-corrective-result.json
+          if-no-files-found: error
+          retention-days: 14
