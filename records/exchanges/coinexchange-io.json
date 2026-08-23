@@ -1,0 +1,119 @@
+{
+  "entity": {
+    "id": "hei_ex_001166",
+    "slug": "coinexchange-io",
+    "canonical_name": "CoinExchange.io",
+    "aliases": [
+      "CoinExchange",
+      "Coin Exchange"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": null,
+    "death_date": "2019-10-15",
+    "country_or_origin": "Unknown",
+    "summary": "Historical altcoin-focused centralized cryptocurrency exchange that announced an orderly business closure in October 2019, ended trading and deposits on 2019-10-15, and kept withdrawals available temporarily during wind-down.",
+    "official_url_original": "https://www.coinexchange.io/",
+    "official_domain_original": "coinexchange.io",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.coinexchange.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-08-23",
+    "notes": "CoinExchange.io announced on 2019-10-01 that its board had decided to close the exchange because operating the service was no longer economically viable; contemporaneous reproductions of the operator notice explicitly state there had been no security breach or other incident. Trading and deposits were scheduled to stop on 2019-10-15. The website and withdrawals remained available during a withdrawal-only run-off period into December 2019, which HEI does not treat as continued exchange trading. The original operator news URL is no longer directly retrievable in this review, so the shutdown is supported transparently by contemporaneous reproductions and coverage rather than mislabeled as a currently accessible first-party page. No precise launch date or jurisdiction is asserted because reviewed evidence is insufficient for those fields."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010141",
+      "exchange_id": "hei_ex_001166",
+      "event_type": "shutdown_announced",
+      "event_date": "2019-10-01",
+      "title": "CoinExchange.io announced an orderly business closure",
+      "description": "CoinExchange.io announced that its board had decided to close the exchange because continued operation was no longer economically viable, while explicitly denying a security breach or other incident as the cause.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "none",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "The original operator announcement URL is no longer directly retrievable here. Two contemporaneous sources reproduce or report the announcement and its closure rationale."
+    },
+    {
+      "id": "hei_ev_010142",
+      "exchange_id": "hei_ex_001166",
+      "event_type": "shutdown_effective",
+      "event_date": "2019-10-15",
+      "title": "CoinExchange.io ended trading and deposits",
+      "description": "Trading and deposits were scheduled to stop on 2019-10-15 as the exchange entered its terminal withdrawal-only run-off period.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "dead",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "Withdrawals and the website remained available temporarily after trading ended. HEI uses the end of exchange trading as the terminal exchange date while preserving the subsequent asset-return run-off in notes."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012621",
+      "exchange_id": "hei_ex_001166",
+      "event_id": "hei_ev_010141",
+      "source_type": "community_reference",
+      "title": "Coinexchange.io is Closing Down. Official announcement.",
+      "url": "https://bitcointalk.org/index.php?topic=5189124.0",
+      "publisher": "BitcoinTalk",
+      "published_at": "2019-10-01",
+      "archived_url": "https://web.archive.org/web/*/https://bitcointalk.org/index.php?topic=5189124.0",
+      "accessed_at": "2026-08-23",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Contemporaneous forum post reproduces the CoinExchange.io operator notice, including the board decision to close, the economic rationale, the explicit statement that there was no security breach or other incident, and the scheduled shutdown dates. This is not labeled first-party evidence because the original operator page is not directly retrievable in this review."
+    },
+    {
+      "id": "hei_src_012622",
+      "exchange_id": "hei_ex_001166",
+      "event_id": "hei_ev_010141",
+      "source_type": "news_article",
+      "title": "CoinExchange decided to close, with trading and deposits stopping October 15",
+      "url": "https://crypto.watch.impress.co.jp/docs/news/1210468.html",
+      "publisher": "Crypto Watch / Impress",
+      "published_at": "2019-10-02",
+      "archived_url": "https://web.archive.org/web/*/https://crypto.watch.impress.co.jp/docs/news/1210468.html",
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Contemporaneous Japanese coverage reports the October 1 closure announcement, the business/economic rationale, the October 15 trading/deposit stop, and the December withdrawal/site deadline."
+    },
+    {
+      "id": "hei_src_012623",
+      "exchange_id": "hei_ex_001166",
+      "event_id": "hei_ev_010142",
+      "source_type": "news_article",
+      "title": "Crypto exchange CoinExchange.io is closing down",
+      "url": "https://www.cryptoninjas.net/2019/10/01/crypto-exchange-coinexchange-io-is-closing-down/",
+      "publisher": "CryptoNinjas",
+      "published_at": "2019-10-01",
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptoninjas.net/2019/10/01/crypto-exchange-coinexchange-io-is-closing-down/",
+      "accessed_at": "2026-08-23",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Contemporaneous report states that trading and deposits would be suspended starting October 15, 2019 and that withdrawals/site access would remain temporarily available afterward."
+    },
+    {
+      "id": "hei_src_012624",
+      "exchange_id": "hei_ex_001166",
+      "event_id": "hei_ev_010142",
+      "source_type": "database_reference",
+      "title": "CoinExchange.io inactive exchange review",
+      "url": "https://www.cryptowisser.com/exchange/coinexchange-io/",
+      "publisher": "Cryptowisser",
+      "published_at": "2019-10-15",
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/coinexchange-io/",
+      "accessed_at": "2026-08-23",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Historical exchange review marks CoinExchange.io inactive and records October 15, 2019 as the closure/trading-stop date pursuant to the October 1 board decision."
+    }
+  ]
+}
