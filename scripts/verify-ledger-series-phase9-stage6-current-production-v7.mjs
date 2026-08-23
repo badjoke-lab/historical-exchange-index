@@ -57,7 +57,7 @@ assert(baseline.stage5_relationship_counts?.total === 244 && baseline.stage5_rel
 
 const byId = new Map(baseline.registries.map((item) => [item.registry_id, item]))
 const expectedMains = {
-  'historical-exchange-index': 'fcc854f952a23e020327e2138a219eb621fb44c2',
+  'historical-exchange-index': 'ceaad483b8ffc148ed2642a24d6f54b50aaff8de',
   'minted-and-gone': 'f917d5e25eedc7b2c48091c7343b7fa9cd203428',
   'stable-or-gone': 'e8663a8289033a3a6af7cb19fb31683b2545e61c',
   'crypto-yield-archive': 'e0079af51859cb1d006e686fceb29a25b7343ece',
@@ -76,6 +76,7 @@ const expectedHeiAllowedBuilds = [
   'fa56be7993d4caa7b1ce8f058d124b331322d319',
   '10198d4dc12ea16a598ae50d33489bbe187bd6ff',
   'fcc854f952a23e020327e2138a219eb621fb44c2',
+  'ceaad483b8ffc148ed2642a24d6f54b50aaff8de',
 ]
 assert(JSON.stringify(byId.get('historical-exchange-index').allowed_preimplementation_build_commits) === JSON.stringify(expectedHeiAllowedBuilds), 'v7 HEI build allowlist changed')
 assert(byId.get('stable-or-gone').expected_current_canonical_hash === 'sha256:bba93c1e3f0ea1b050cd395455327b70fb7c1920d37b18c300949bb49df53965' && byId.get('stable-or-gone').expected_relationships === 1, 'v7 SOG correction boundary changed')
