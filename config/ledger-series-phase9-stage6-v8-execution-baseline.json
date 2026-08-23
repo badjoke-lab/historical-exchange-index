@@ -60,15 +60,17 @@
     {
       "registry_id": "crypto-yield-archive",
       "repository": "badjoke-lab/crypto-yield-archive",
-      "reviewed_main": "c1291cc891350a8105ffeb53f61522e3c822b7c5",
-      "canonical_content_through": "34c543ae2dec344e334d308344d1413beb6fe20b",
+      "reviewed_main": "37b40d3c2c511fdc6b80b4bedd6216b40225d304",
+      "canonical_content_through": "37b40d3c2c511fdc6b80b4bedd6216b40225d304",
       "allowed_production_source_commits": [
         "34c543ae2dec344e334d308344d1413beb6fe20b",
-        "c1291cc891350a8105ffeb53f61522e3c822b7c5"
+        "c1291cc891350a8105ffeb53f61522e3c822b7c5",
+        "37b40d3c2c511fdc6b80b4bedd6216b40225d304"
       ],
-      "expected_primary_records": 124,
+      "expected_primary_records": 125,
       "origin": "https://cya.badjoke-lab.com",
-      "classification": "reviewed_mudrex_canonical_platform_124_then_zebpay_staging_only"
+      "classification": "reviewed_kinza_finance_limited_operation_canonical_platform_125_no_stage5_relationship_file_change",
+      "change_review": "Current main is nine commits ahead of the prior v8 snapshot. The resulting diff adds Kinza Finance platform 125, one deposits_suspended event, evidence, product, terms-risk and outcome data plus research notes. No Stage 5 relationship file is changed; frozen CYA Stage 5 relationship count remains zero."
     },
     {
       "registry_id": "bridge-incident-registry",
@@ -82,9 +84,10 @@
     {
       "registry_id": "cryptocurrency-wallet-lifecycle-registry",
       "repository": "badjoke-lab/cryptocurrency-wallet-lifecycle-registry",
-      "reviewed_main": "f6b542a0f724d4243a77c08b5b1febdb8585a148",
+      "reviewed_main": "a5f52e29e59cf9d0156ef8d34420d68b3d25ea8b",
       "origin": "https://wlr.badjoke-lab.com",
-      "classification": "reviewed_depth_batch08_three_events_three_evidence_and_series_regeneration_no_stage5_relationship_change"
+      "classification": "reviewed_depth_batch09_six_events_six_evidence_and_series_regeneration_no_stage5_relationship_file_change",
+      "change_review": "PR #263 adds six lifecycle events and six evidence records across reviewed wallet/products and regenerates the affected public native/Series records. The commit comparison contains no Stage 5 relationship source/output change; frozen WLR Stage 5 relationship count remains 161."
     },
     {
       "registry_id": "ai-tools-history-archive",
