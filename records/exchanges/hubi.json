@@ -99,7 +99,7 @@
       "archived_url": "https://web.archive.org/web/*/https://coin360.com/exchange/hubi",
       "accessed_at": "2026-08-23",
       "reliability": "medium",
-      "claim_scope": "country_or_origin",
+      "claim_scope": "entity",
       "notes": "Coin360 identifies Hubi as a centralized exchange located in Hong Kong and links the historical hubi.com domain. HEI does not rely on its stated 2018 establishment year because other secondary sources describe an earlier organizational foundation."
     }
   ]
