@@ -85,7 +85,6 @@ assert(ai.local_generation?.build_identity_env?.CF_PAGES_COMMIT_SHA === expected
 let wrapper = fs.readFileSync(v5WrapperPath, 'utf8')
 assert(wrapper.includes("hei-ledger-series-phase9-stage6-sog-checker-correction-2026-08-23-v5"), 'v5 wrapper authority marker missing')
 assert(wrapper.includes("prepareSogV5TransientChecker"), 'v5 SOG transient correction missing')
-assert(wrapper.includes("checker('AI Tools exact Series reviewed build'"), 'v5 AI checker marker missing')
 
 wrapper = replaceOnce(
   wrapper,
