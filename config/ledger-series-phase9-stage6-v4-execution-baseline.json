@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "baseline_id": "hei-ledger-series-phase9-stage6-v4-execution-baseline-2026-08-23",
+  "authority_id": "hei-ledger-series-phase9-stage6-mag-checker-correction-2026-08-23-v4",
+  "coordination_issue": 780,
+  "authority_merge": "1d0a27dd5ac6a8bbb8276dda70ca53188c8e80a3",
+  "parallel_v31_execution": {
+    "workflow_run": 32619802741,
+    "result": "FAIL_CLOSED_ON_CYA_REPOSITORY_DRIFT",
+    "consumed": true,
+    "rerun_authorized": false
+  },
+  "rule": "The v4 one-shot must observe each external repository main at exactly the explicitly reviewed SHA below. HEI itself must equal the merged v4 implementation SHA supplied by STAGE6_HEI_EXECUTION_SHA. Any later unreviewed drift fails closed.",
+  "registries": [
+    {
+      "registry_id": "historical-exchange-index",
+      "repository": "badjoke-lab/historical-exchange-index",
+      "reviewed_main_before_implementation": "ad4213829057a4a3561340e95ab29fc570aec057",
+      "production_runtime_source": "1a15bb26793541bf994c5cc9123b78d2236f0d76",
+      "allowed_preimplementation_build_commits": [
+        "1d0a27dd5ac6a8bbb8276dda70ca53188c8e80a3",
+        "1a15bb26793541bf994c5cc9123b78d2236f0d76",
+        "ad4213829057a4a3561340e95ab29fc570aec057"
+      ],
+      "origin": "https://hei.badjoke-lab.com",
+      "classification": "reviewed_canonical_growth_then_parallel_coordination_merge",
+      "change_review": "After v4 authority merge, PR #821 added the reviewed IDCM to Klickl canonical lineage (+2 entities, +3 events, +5 evidence) and passed its exact-head records, machine/public, Ledger Series adapter and related gates. PR #825 then merged the separately consumed v3.1 verifier path without canonical or relationship mutation. Stage 5 HEI relationships remain frozen at 21."
+    },
+    {
+      "registry_id": "minted-and-gone",
+      "repository": "badjoke-lab/mintedandgone",
+      "reviewed_main": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+      "production_runtime_source": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+      "origin": "https://mag.badjoke-lab.com",
+      "classification": "v4_corrected_reviewed_current_deployment_build"
+    },
+    {
+      "registry_id": "stable-or-gone",
+      "repository": "badjoke-lab/stable-or-gone",
+      "reviewed_main": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+      "production_runtime_source": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+      "origin": "https://www.stableorgone.com",
+      "classification": "reviewed_non_growth_canonical_maintenance"
+    },
+    {
+      "registry_id": "crypto-yield-archive",
+      "repository": "badjoke-lab/crypto-yield-archive",
+      "reviewed_main": "fa35d291a67b2e367f8f7e759a635a0804116680",
+      "allowed_production_source_commits": [
+        "2f68c520bc1b502f351f22a71fa339b29d473ef7"
+      ],
+      "expected_primary_records": 122,
+      "origin": "https://cya.badjoke-lab.com",
+      "classification": "reviewed_staging_only_drift_after_canonical_platform_122",
+      "change_review": "PR #310 changed only data-staging/candidates/cya-candidates.json (+17/-0) to add CoinSwitch EARN candidate cya_candidate_000145, allocated no canonical IDs, and passed all observed exact-head CYA checks. The canonical platform corpus therefore remains 122 and the reviewed canonical production source remains 2f68c520bc1b502f351f22a71fa339b29d473ef7."
+    },
+    {
+      "registry_id": "bridge-incident-registry",
+      "repository": "badjoke-lab/bridge-incident-registry",
+      "reviewed_main": "666d1f4f78b7ed12fa36e2741134523a140221c4",
+      "canonical_content_through": "2aaa68baad735f0bbbad54733bc1de9a5ee0e533",
+      "origin": "https://bir.badjoke-lab.com",
+      "classification": "review_only_drift_after_canonical_state"
+    },
+    {
+      "registry_id": "cryptocurrency-wallet-lifecycle-registry",
+      "repository": "badjoke-lab/cryptocurrency-wallet-lifecycle-registry",
+      "reviewed_main": "8192dedeb3777894f031dcbd13d95367f5f688de",
+      "canonical_content_through": "c24916eb96f09ee322b185cafaef360b762bea61",
+      "origin": "https://wlr.badjoke-lab.com",
+      "classification": "presentation_only_drift_after_reviewed_canonical_growth"
+    },
+    {
+      "registry_id": "ai-tools-history-archive",
+      "repository": "badjoke-lab/ai-tools-history-archive",
+      "reviewed_main": "76ef103329813f0174db121117c932bff53fbf8e",
+      "production_runtime_source": "76ef103329813f0174db121117c932bff53fbf8e",
+      "origin": "https://ai-tools-history-archive.pages.dev",
+      "classification": "unchanged"
+    },
+    {
+      "registry_id": "api-deprecation-archive",
+      "repository": "badjoke-lab/api-deprecation-archive",
+      "reviewed_main": "641a6d4243d30f95f48436455d2cbc12a8aded53",
+      "origin": "https://api-deprecation-archive.pages.dev",
+      "classification": "unchanged_deterministic_data_revision_baseline"
+    }
+  ],
+  "stage5_relationship_counts": {
+    "historical-exchange-index": 21,
+    "minted-and-gone": 17,
+    "stable-or-gone": 1,
+    "crypto-yield-archive": 0,
+    "bridge-incident-registry": 44,
+    "cryptocurrency-wallet-lifecycle-registry": 161,
+    "ai-tools-history-archive": 0,
+    "api-deprecation-archive": 0,
+    "total": 244,
+    "cross_registry": 0
+  },
+  "production_mutation_authorized": false,
+  "vertical_repository_mutation_authorized": false,
+  "canonical_record_or_relationship_mutation_authorized": false,
+  "central_descriptor_resync_authorized": false,
+  "cloudflare_dns_mutation_authorized": false,
+  "automatic_baseline_refresh_authorized": false,
+  "execution_count_authorized": 1
+}

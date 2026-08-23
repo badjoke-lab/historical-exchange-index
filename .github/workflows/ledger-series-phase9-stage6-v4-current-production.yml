@@ -1,0 +1,155 @@
+name: Ledger Series Phase 9 Stage 6 v4 current-production correction
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    paths:
+      - "config/ledger-series-phase9-stage6-v4-execution-baseline.json"
+      - "docs/audits/HEI_LEDGER_SERIES_PHASE9_STAGE6_V4_PRE_EXECUTION_BASELINE_2026-08-23.md"
+      - "scripts/verify-ledger-series-phase9-stage6-current-production-v4.mjs"
+      - ".github/workflows/ledger-series-phase9-stage6-v4-current-production.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  review-contract:
+    if: github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout v4 implementation head
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify v4 wrapper syntax
+        run: node --check scripts/verify-ledger-series-phase9-stage6-current-production-v4.mjs
+      - name: Generate and syntax-check v4 runtime verifier
+        run: node scripts/verify-ledger-series-phase9-stage6-current-production-v4.mjs --prepare-only
+      - name: Verify v4 authority and reviewed drift baseline
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const authority = JSON.parse(fs.readFileSync('config/ledger-series-phase9-stage6-mag-checker-correction-authority-2026-08-23.json', 'utf8'));
+          const baseline = JSON.parse(fs.readFileSync('config/ledger-series-phase9-stage6-v4-execution-baseline.json', 'utf8'));
+          if (authority.authority_id !== 'hei-ledger-series-phase9-stage6-mag-checker-correction-2026-08-23-v4') throw new Error('unexpected v4 authority');
+          if (authority.failed_v3_execution?.workflow_run !== 32614056946) throw new Error('v4 authority not bound to failed v3 execution');
+          if (!Array.isArray(authority.authorized_next_changes) || !authority.authorized_next_changes.some((x) => x.includes('execute exactly one new read-only eight-registry'))) throw new Error('v4 one-shot not authorized');
+          const forbidden = new Set(authority.not_authorized || []);
+          for (const item of ['production mutation','any vertical repository mutation','canonical record or relationship mutation','central descriptor resynchronization','automatic retry or more than one new network execution','Stage 7 continuation','Stage 8 continuation','Phase 10 continuation']) {
+            if (!forbidden.has(item)) throw new Error('missing forbidden boundary: ' + item);
+          }
+          if (baseline.authority_id !== authority.authority_id || baseline.execution_count_authorized !== 1 || baseline.registries?.length !== 8) throw new Error('v4 finite baseline mismatch');
+          const byId = new Map(baseline.registries.map((x) => [x.registry_id, x]));
+          const expected = {
+            'historical-exchange-index':'ad4213829057a4a3561340e95ab29fc570aec057',
+            'minted-and-gone':'f917d5e25eedc7b2c48091c7343b7fa9cd203428',
+            'stable-or-gone':'e8663a8289033a3a6af7cb19fb31683b2545e61c',
+            'crypto-yield-archive':'fa35d291a67b2e367f8f7e759a635a0804116680',
+            'bridge-incident-registry':'666d1f4f78b7ed12fa36e2741134523a140221c4',
+            'cryptocurrency-wallet-lifecycle-registry':'8192dedeb3777894f031dcbd13d95367f5f688de',
+            'ai-tools-history-archive':'76ef103329813f0174db121117c932bff53fbf8e',
+            'api-deprecation-archive':'641a6d4243d30f95f48436455d2cbc12a8aded53'
+          };
+          for (const [id, sha] of Object.entries(expected)) {
+            const item = byId.get(id);
+            if (!item || (item.reviewed_main || item.reviewed_main_before_implementation) !== sha) throw new Error(id + ': exact reviewed main changed');
+          }
+          const mag = byId.get('minted-and-gone');
+          if (mag.production_runtime_source !== 'f917d5e25eedc7b2c48091c7343b7fa9cd203428') throw new Error('MAG correction is not exact');
+          const cya = byId.get('crypto-yield-archive');
+          if (cya.expected_primary_records !== 122 || JSON.stringify(cya.allowed_production_source_commits) !== JSON.stringify(['2f68c520bc1b502f351f22a71fa339b29d473ef7'])) throw new Error('CYA canonical boundary changed');
+          if (baseline.stage5_relationship_counts?.total !== 244 || baseline.stage5_relationship_counts?.cross_registry !== 0) throw new Error('Stage 5 relationship boundary changed');
+          if (baseline.production_mutation_authorized !== false || baseline.vertical_repository_mutation_authorized !== false || baseline.central_descriptor_resync_authorized !== false || baseline.automatic_baseline_refresh_authorized !== false) throw new Error('v4 baseline mutation boundary weakened');
+          console.log('Stage 6 v4 authority/baseline contract PASS');
+          NODE
+
+  verify-current-production-v4:
+    if: >-
+      github.event.action == 'closed' &&
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.title == 'Implement Phase 9 Stage 6 v4 current-production correction' &&
+      github.event.pull_request.head.ref == 'agent/phase9-stage6-v4-current-production-correction'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout exact v4 implementation merge
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          persist-credentials: false
+
+      - name: Checkout reviewed MAG baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/mintedandgone
+          ref: f917d5e25eedc7b2c48091c7343b7fa9cd203428
+          path: .stage6/repos/mag
+          persist-credentials: false
+      - name: Checkout reviewed SOG baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/stable-or-gone
+          ref: e8663a8289033a3a6af7cb19fb31683b2545e61c
+          path: .stage6/repos/sog
+          persist-credentials: false
+      - name: Checkout reviewed CYA repository main
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/crypto-yield-archive
+          ref: fa35d291a67b2e367f8f7e759a635a0804116680
+          path: .stage6/repos/cya
+          persist-credentials: false
+      - name: Checkout reviewed BIR baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/bridge-incident-registry
+          ref: 666d1f4f78b7ed12fa36e2741134523a140221c4
+          path: .stage6/repos/bir
+          persist-credentials: false
+      - name: Checkout reviewed WLR baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/cryptocurrency-wallet-lifecycle-registry
+          ref: 8192dedeb3777894f031dcbd13d95367f5f688de
+          path: .stage6/repos/wlr
+          persist-credentials: false
+      - name: Checkout reviewed AI baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/ai-tools-history-archive
+          ref: 76ef103329813f0174db121117c932bff53fbf8e
+          path: .stage6/repos/ai
+          persist-credentials: false
+      - name: Checkout reviewed API baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/api-deprecation-archive
+          ref: 641a6d4243d30f95f48436455d2cbc12a8aded53
+          path: .stage6/repos/api
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify v4 runtime generation before network execution
+        run: node scripts/verify-ledger-series-phase9-stage6-current-production-v4.mjs --prepare-only
+      - name: Run one authorized read-only v4 eight-registry equality check
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          STAGE6_HEI_EXECUTION_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+          STAGE6_REPO_ROOT: .stage6/repos
+          STAGE6_RESULT_PATH: .stage6/phase9-stage6-v4-current-production-result.json
+          STAGE6_TIMEOUT_MS: "20000"
+          STAGE6_CONCURRENCY: "10"
+        run: node scripts/verify-ledger-series-phase9-stage6-current-production-v4.mjs
+      - name: Upload Stage 6 v4 result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ledger-series-phase9-stage6-v4-current-production-${{ github.event.pull_request.merge_commit_sha }}
+          path: .stage6/phase9-stage6-v4-current-production-result.json
+          if-no-files-found: error
+          retention-days: 14
