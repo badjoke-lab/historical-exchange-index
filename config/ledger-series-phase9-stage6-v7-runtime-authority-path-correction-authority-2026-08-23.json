@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage6-runtime-authority-path-correction-2026-08-23-v7",
+  "coordination_issue": 780,
+  "created_from_main": "10198d4dc12ea16a598ae50d33489bbe187bd6ff",
+  "failed_v6_execution": {
+    "workflow_run": 32629752295,
+    "job": 97170593916,
+    "implementation_merge": "10198d4dc12ea16a598ae50d33489bbe187bd6ff",
+    "result": "FAIL_BEFORE_PRODUCTION_EQUALITY",
+    "error": "unexpected Stage 6 v6 authority",
+    "classification": "generated_runtime_authority_path_remained_v5_while_runtime_assertion_expected_v6",
+    "artifact_available": false,
+    "artifact_unavailable_reason": "Generated runtime aborted before STAGE6_RESULT_PATH was initialized; the always-upload step found no result file.",
+    "consumed": true,
+    "rerun_authorized": false
+  },
+  "failure_review": {
+    "production_drift_observed": false,
+    "production_equality_assertions_started": false,
+    "exact_implementation_merge_checkout_passed": true,
+    "exact_external_baseline_checkouts_passed": true,
+    "v6_wrapper_runtime_generation_precheck_passed": true,
+    "root_cause": "The v6 generated runtime assertion was changed to require the v6 authority ID while its authorityPath still pointed to the inherited v5 authority JSON. The runtime therefore parsed the v5 authority and failed immediately before repository preflight or network equality checks.",
+    "defect_class": "verifier_implementation_defect"
+  },
+  "reviewed_repository_mains_at_authority_creation": [
+    {"registry_id":"historical-exchange-index","repository":"badjoke-lab/historical-exchange-index","main":"10198d4dc12ea16a598ae50d33489bbe187bd6ff"},
+    {"registry_id":"minted-and-gone","repository":"badjoke-lab/mintedandgone","main":"f917d5e25eedc7b2c48091c7343b7fa9cd203428"},
+    {"registry_id":"stable-or-gone","repository":"badjoke-lab/stable-or-gone","main":"e8663a8289033a3a6af7cb19fb31683b2545e61c"},
+    {"registry_id":"crypto-yield-archive","repository":"badjoke-lab/crypto-yield-archive","main":"e0079af51859cb1d006e686fceb29a25b7343ece"},
+    {"registry_id":"bridge-incident-registry","repository":"badjoke-lab/bridge-incident-registry","main":"99405bc7d4e1b3d2aea62314a607dc00656e823b"},
+    {"registry_id":"cryptocurrency-wallet-lifecycle-registry","repository":"badjoke-lab/cryptocurrency-wallet-lifecycle-registry","main":"8192dedeb3777894f031dcbd13d95367f5f688de"},
+    {"registry_id":"ai-tools-history-archive","repository":"badjoke-lab/ai-tools-history-archive","main":"76ef103329813f0174db121117c932bff53fbf8e"},
+    {"registry_id":"api-deprecation-archive","repository":"badjoke-lab/api-deprecation-archive","main":"641a6d4243d30f95f48436455d2cbc12a8aded53"}
+  ],
+  "required_preserved_contracts": {
+    "v6_ai_local_generation_precondition": {
+      "reviewed_ai_commit": "76ef103329813f0174db121117c932bff53fbf8e",
+      "native_generator": "scripts/generate-machine-records.mjs",
+      "series_generator": "scripts/generate-series-adapter.mjs",
+      "checker": "scripts/check-series-origin.mjs",
+      "build_identity_env": {"CF_PAGES_COMMIT_SHA":"76ef103329813f0174db121117c932bff53fbf8e"},
+      "workspace_only": true,
+      "network_io_during_generation": false,
+      "checker_source_mutation_authorized": false
+    },
+    "v5_sog_transient_checker": {
+      "reviewed_sog_commit": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+      "current_canonical_hash": "sha256:bba93c1e3f0ea1b050cd395455327b70fb7c1920d37b18c300949bb49df53965",
+      "historical_stage5_authority_hash": "sha256:4e7570b6fab88a8178a01ae280a36d98787573b376440b891491f25469458798",
+      "patch_count": 2,
+      "relationship_tuple": ["predecessor_of","stable-or-gone:stablecoin:sog_st_sai","stable-or-gone:stablecoin:sog_st_dai"]
+    },
+    "cya_current_reviewed_boundary": {"main":"e0079af51859cb1d006e686fceb29a25b7343ece","primary_records":123},
+    "bir_current_reviewed_boundary": {"main":"99405bc7d4e1b3d2aea62314a607dc00656e823b","bridges":42,"incidents":45,"events":210,"evidence":347},
+    "stage5_relationship_counts": {
+      "historical-exchange-index": 21,
+      "minted-and-gone": 17,
+      "stable-or-gone": 1,
+      "crypto-yield-archive": 0,
+      "bridge-incident-registry": 44,
+      "cryptocurrency-wallet-lifecycle-registry": 161,
+      "ai-tools-history-archive": 0,
+      "api-deprecation-archive": 0,
+      "total": 244,
+      "cross_registry": 0
+    }
+  },
+  "authorized_next_changes": [
+    "Add an HEI-side verifier-only correction that makes the generated Stage 6 runtime authorityPath point to this v7 authority JSON before the runtime authority-id assertion.",
+    "Add fail-closed prepare-only validation proving the generated runtime source contains the exact v7 authority path, does not retain the v5 or v6 runtime authority path at the authorityPath assignment, and parses an authority whose authority_id equals this v7 authority_id before any network execution.",
+    "Preserve the full v6 AI local-generation precondition, v5 SOG transient checker, eight-registry current-production equality checks, Stage 5 244/0 relationship contract, and central descriptor equality checks.",
+    "After exact v7 implementation merge and explicit baseline revalidation, execute exactly one new read-only eight-registry equality run."
+  ],
+  "not_authorized": [
+    "rerun of workflow run 32629752295",
+    "production mutation",
+    "any vertical repository mutation",
+    "AI repository mutation",
+    "SOG repository mutation",
+    "canonical record mutation",
+    "relationship mutation",
+    "central descriptor resynchronization",
+    "Cloudflare or DNS change",
+    "deployment mutation",
+    "silent latest-main acceptance",
+    "automatic baseline refresh",
+    "automatic repair",
+    "automatic retry or more than one new network execution",
+    "Stage 7 continuation",
+    "Stage 8 continuation",
+    "Phase 10 continuation"
+  ],
+  "stage6_current_production_acceptance": "NOT_ACCEPTED",
+  "automatic_continuation": false
+}
