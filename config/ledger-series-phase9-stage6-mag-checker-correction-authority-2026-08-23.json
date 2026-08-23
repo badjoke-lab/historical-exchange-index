@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage6-mag-checker-correction-2026-08-23-v4",
+  "phase": 9,
+  "stage": 6,
+  "status": "reviewed_finite_correction_authority_after_v3_fail_closed",
+  "coordination_issue": 780,
+  "authority_base_main": "49781f56e0653d9653731f20df9b1347f5cc208e",
+  "semantic_owner": "badjoke-lab-ledger-series",
+  "purpose": "Authorize one minimal correction to the Stage 6 verifier after the v3 one-shot failed because the MAG existing production checker was invoked with its historical expected deployment revision instead of the explicitly reviewed current MAG deployment revision. This authority does not accept Stage 6, does not mutate production or any vertical repository, and does not authorize an automatic retry.",
+  "failed_v3_execution": {
+    "implementation_pr": 822,
+    "implementation_merge": "49781f56e0653d9653731f20df9b1347f5cc208e",
+    "workflow_run": 32614056946,
+    "result": "FAIL",
+    "artifact_id": 9486381834,
+    "artifact_name": "ledger-series-phase9-stage6-v3-current-production-49781f56e0653d9653731f20df9b1347f5cc208e",
+    "artifact_digest": "sha256:e41b39b3ffb93179a09bbf0fe0daaf0147fd29a2056159cf90e0b01dffbb84f0",
+    "repository_preflight": "PASS_8_OF_8",
+    "failure_registry": "minted-and-gone",
+    "failure_check": "MAG native exact reviewed deployment",
+    "failure_classification": "verifier_expected_revision_plumbing_mismatch",
+    "observed_live_mag_build_commit": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+    "reviewed_mag_main": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+    "incorrect_historical_expected_commit_used_by_checker": "73dafdf78a2ca60e9329a4c6844315cafb8e55c0",
+    "stage6_acceptance_claimed": false,
+    "automatic_retry_authorized": false
+  },
+  "reviewed_repository_baselines": [
+    {
+      "registry_id": "historical-exchange-index",
+      "repository": "badjoke-lab/historical-exchange-index",
+      "reviewed_main": "49781f56e0653d9653731f20df9b1347f5cc208e",
+      "reviewed_runtime_source": "6c476dd16d7221ad2ea31bdbcb0aa086eb1167c6",
+      "origin": "https://hei.badjoke-lab.com",
+      "basis": "v3 one-shot preflight PASS plus current-main recheck"
+    },
+    {
+      "registry_id": "minted-and-gone",
+      "repository": "badjoke-lab/mintedandgone",
+      "reviewed_main": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+      "reviewed_runtime_build": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+      "origin": "https://mag.badjoke-lab.com",
+      "basis": "v3 one-shot preflight PASS, live version build_commit observation, and current-main recheck",
+      "correction": "For the next finite execution the MAG existing production checker must receive f917d5e25eedc7b2c48091c7343b7fa9cd203428 as the explicit expected current deployment commit. The historical 73dafdf78a2ca60e9329a4c6844315cafb8e55c0 value is not an acceptable expected current deployment revision for this baseline."
+    },
+    {
+      "registry_id": "stable-or-gone",
+      "repository": "badjoke-lab/stable-or-gone",
+      "reviewed_main": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+      "reviewed_runtime_build": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+      "origin": "https://www.stableorgone.com",
+      "basis": "v3 one-shot preflight PASS; separate exact-main production/equality evidence already accepted"
+    },
+    {
+      "registry_id": "crypto-yield-archive",
+      "repository": "badjoke-lab/crypto-yield-archive",
+      "reviewed_main": "2f68c520bc1b502f351f22a71fa339b29d473ef7",
+      "origin": "https://cya.badjoke-lab.com",
+      "basis": "v3 one-shot preflight PASS"
+    },
+    {
+      "registry_id": "bridge-incident-registry",
+      "repository": "badjoke-lab/bridge-incident-registry",
+      "reviewed_main": "666d1f4f78b7ed12fa36e2741134523a140221c4",
+      "origin": "https://bir.badjoke-lab.com",
+      "basis": "v3 one-shot preflight PASS"
+    },
+    {
+      "registry_id": "cryptocurrency-wallet-lifecycle-registry",
+      "repository": "badjoke-lab/cryptocurrency-wallet-lifecycle-registry",
+      "reviewed_main": "8192dedeb3777894f031dcbd13d95367f5f688de",
+      "origin": "https://wlr.badjoke-lab.com",
+      "basis": "v3 one-shot preflight PASS"
+    },
+    {
+      "registry_id": "ai-tools-history-archive",
+      "repository": "badjoke-lab/ai-tools-history-archive",
+      "reviewed_main": "76ef103329813f0174db121117c932bff53fbf8e",
+      "reviewed_runtime_build": "76ef103329813f0174db121117c932bff53fbf8e",
+      "origin": "https://ai-tools-history-archive.pages.dev",
+      "basis": "v3 one-shot preflight PASS"
+    },
+    {
+      "registry_id": "api-deprecation-archive",
+      "repository": "badjoke-lab/api-deprecation-archive",
+      "reviewed_main": "641a6d4243d30f95f48436455d2cbc12a8aded53",
+      "origin": "https://api-deprecation-archive.pages.dev",
+      "basis": "v3 one-shot preflight PASS"
+    }
+  ],
+  "frozen_stage5_relationship_counts": {
+    "historical-exchange-index": 21,
+    "minted-and-gone": 17,
+    "stable-or-gone": 1,
+    "crypto-yield-archive": 0,
+    "bridge-incident-registry": 44,
+    "cryptocurrency-wallet-lifecycle-registry": 161,
+    "ai-tools-history-archive": 0,
+    "api-deprecation-archive": 0,
+    "total": 244,
+    "cross_registry": 0
+  },
+  "authorized_next_changes": [
+    "Add one separately reviewed minimal Stage 6 verifier/workflow implementation that supplies the explicit reviewed MAG expected current deployment commit to the existing MAG production checker.",
+    "Before that implementation is merged, explicitly re-read all eight repository mains. If any moved, review and classify the exact drift; do not silently accept latest main.",
+    "After the implementation is merged, execute exactly one new read-only eight-registry current-production equality run from an exact finite trigger.",
+    "Read that run's logs and result artifact and record the actual PASS or FAIL in Issue #780 before making any Stage 6 acceptance claim."
+  ],
+  "not_authorized": [
+    "production mutation",
+    "MAG repository mutation",
+    "any vertical repository mutation",
+    "canonical record or relationship mutation",
+    "central descriptor resynchronization",
+    "Cloudflare or DNS change",
+    "silent latest-main acceptance",
+    "automatic repair",
+    "automatic retry or more than one new network execution",
+    "Stage 7 continuation",
+    "Stage 8 continuation",
+    "Phase 10 continuation"
+  ],
+  "fail_closed_rules": [
+    "Any unreviewed repository drift observed before execution stops the new execution until separately reviewed in the implementation PR.",
+    "Any required endpoint timeout, non-2xx response, malformed JSON, identity/count/content/revision/provenance mismatch, stale central descriptor, mixed revision, relationship drift, or weakened canonical-only fact is FAILURE.",
+    "A failure in the newly authorized one-shot does not authorize a second run or repair under this authority."
+  ],
+  "stage6_current_production_acceptance": "NOT_ACCEPTED",
+  "automatic_continuation": false
+}
