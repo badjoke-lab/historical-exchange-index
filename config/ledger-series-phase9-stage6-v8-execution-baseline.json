@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0.0",
+  "baseline_id": "hei-ledger-series-phase9-stage6-v8-execution-baseline-2026-08-23",
+  "authority_id": "hei-ledger-series-phase9-stage6-authority-semantic-sog-native-correction-2026-08-23-v8",
+  "coordination_issue": 780,
+  "authority_merge": "ade94505a7af45223a98340cf7b0c3a2bf1b5fed",
+  "corrected_from_v7_execution": {
+    "workflow_run": 32631652830,
+    "job_id": 97175265879,
+    "implementation_merge": "ca13950e1b43cc6842e70d1a2038a7ff1c7af5f0",
+    "artifact_available": false,
+    "result": "FAIL_BEFORE_PRODUCTION_EQUALITY_MUTATION_BOUNDARY_ASSERTION_COMPATIBILITY",
+    "consumed": true,
+    "rerun_authorized": false
+  },
+  "rule": "The v8 one-shot must observe every external repository main at the exact reviewed SHA below. HEI must equal the merged v8 implementation SHA supplied by STAGE6_HEI_EXECUTION_SHA. The generated runtime must pass an offline authority-only execution before merge, must require both canonical record mutation and relationship mutation to remain prohibited, must use the reviewed corrected SOG native Stage 5 checker without HEI transient patching, must preserve the AI workspace-local generation precondition, and must fail closed on unreviewed repository drift.",
+  "registries": [
+    {
+      "registry_id": "historical-exchange-index",
+      "repository": "badjoke-lab/historical-exchange-index",
+      "reviewed_main_before_implementation": "ade94505a7af45223a98340cf7b0c3a2bf1b5fed",
+      "current_canonical_growth_main": "23636622b1a1f6e5514c3bba36583149868b6af2",
+      "production_runtime_source": null,
+      "allowed_preimplementation_build_commits": [
+        "23636622b1a1f6e5514c3bba36583149868b6af2",
+        "ade94505a7af45223a98340cf7b0c3a2bf1b5fed"
+      ],
+      "origin": "https://hei.badjoke-lab.com",
+      "classification": "reviewed_bx69_hcoin_canonical_growth_then_v8_authority_only"
+    },
+    {
+      "registry_id": "minted-and-gone",
+      "repository": "badjoke-lab/mintedandgone",
+      "reviewed_main": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+      "production_runtime_source": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+      "origin": "https://mag.badjoke-lab.com",
+      "classification": "unchanged_reviewed_state"
+    },
+    {
+      "registry_id": "stable-or-gone",
+      "repository": "badjoke-lab/stable-or-gone",
+      "reviewed_main": "d26d50eba858b3528fdd5713814068ab55956913",
+      "production_runtime_source": "d26d50eba858b3528fdd5713814068ab55956913",
+      "expected_current_canonical_hash": "sha256:bba93c1e3f0ea1b050cd395455327b70fb7c1920d37b18c300949bb49df53965",
+      "historical_stage5_authority_hash": "sha256:4e7570b6fab88a8178a01ae280a36d98787573b376440b891491f25469458798",
+      "expected_primary_records": 119,
+      "expected_series_records": 119,
+      "expected_relationships": 1,
+      "native_checker": "scripts/verify-stage5-production.mjs",
+      "origin": "https://www.stableorgone.com",
+      "classification": "reviewed_native_stage6_checker_hash_correction_no_canonical_or_relationship_mutation"
+    },
+    {
+      "registry_id": "crypto-yield-archive",
+      "repository": "badjoke-lab/crypto-yield-archive",
+      "reviewed_main": "c1291cc891350a8105ffeb53f61522e3c822b7c5",
+      "canonical_growth_merge": "34c543ae2dec344e334d308344d1413beb6fe20b",
+      "allowed_production_source_commits": [
+        "34c543ae2dec344e334d308344d1413beb6fe20b",
+        "c1291cc891350a8105ffeb53f61522e3c822b7c5"
+      ],
+      "expected_primary_records": 124,
+      "origin": "https://cya.badjoke-lab.com",
+      "classification": "reviewed_mudrex_canonical_124_then_zebpay_staging_only"
+    },
+    {
+      "registry_id": "bridge-incident-registry",
+      "repository": "badjoke-lab/bridge-incident-registry",
+      "reviewed_main": "0e1769e75a9647be4ead61fafefde2bd6dc49e60",
+      "origin": "https://bir.badjoke-lab.com",
+      "classification": "review_only_poly_multichain_batch_after_oraichain_canonical_state",
+      "expected_native_counts": {"bridges":42,"incidents":45,"events":210,"evidence":347}
+    },
+    {
+      "registry_id": "cryptocurrency-wallet-lifecycle-registry",
+      "repository": "badjoke-lab/cryptocurrency-wallet-lifecycle-registry",
+      "reviewed_main": "f6b542a0f724d4243a77c08b5b1febdb8585a148",
+      "origin": "https://wlr.badjoke-lab.com",
+      "classification": "reviewed_depth_batch08_series_regeneration_without_stage5_relationship_change",
+      "expected_stage5_relationships": 161
+    },
+    {
+      "registry_id": "ai-tools-history-archive",
+      "repository": "badjoke-lab/ai-tools-history-archive",
+      "reviewed_main": "76ef103329813f0174db121117c932bff53fbf8e",
+      "production_runtime_source": "76ef103329813f0174db121117c932bff53fbf8e",
+      "origin": "https://ai-tools-history-archive.pages.dev",
+      "classification": "unchanged_exact_reviewed_build_with_local_generation_precondition",
+      "local_generation": {
+        "native_generator": "scripts/generate-machine-records.mjs",
+        "series_generator": "scripts/generate-series-adapter.mjs",
+        "checker": "scripts/check-series-origin.mjs",
+        "build_identity_env": {"CF_PAGES_COMMIT_SHA":"76ef103329813f0174db121117c932bff53fbf8e"},
+        "workspace_only": true,
+        "network_io": false,
+        "checker_source_mutation_authorized": false
+      }
+    },
+    {
+      "registry_id": "api-deprecation-archive",
+      "repository": "badjoke-lab/api-deprecation-archive",
+      "reviewed_main": "641a6d4243d30f95f48436455d2cbc12a8aded53",
+      "origin": "https://api-deprecation-archive.pages.dev",
+      "classification": "unchanged_deterministic_data_revision_baseline"
+    }
+  ],
+  "stage5_relationship_counts": {
+    "historical-exchange-index":21,
+    "minted-and-gone":17,
+    "stable-or-gone":1,
+    "crypto-yield-archive":0,
+    "bridge-incident-registry":44,
+    "cryptocurrency-wallet-lifecycle-registry":161,
+    "ai-tools-history-archive":0,
+    "api-deprecation-archive":0,
+    "total":244,
+    "cross_registry":0
+  },
+  "production_mutation_authorized": false,
+  "vertical_repository_mutation_authorized": false,
+  "ai_repository_mutation_authorized": false,
+  "sog_repository_mutation_authorized": false,
+  "canonical_record_mutation_authorized": false,
+  "relationship_mutation_authorized": false,
+  "central_descriptor_resync_authorized": false,
+  "cloudflare_dns_deployment_mutation_authorized": false,
+  "automatic_baseline_refresh_authorized": false,
+  "execution_count_authorized": 1
+}
