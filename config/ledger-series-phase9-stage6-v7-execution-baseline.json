@@ -13,22 +13,24 @@
     "consumed": true,
     "rerun_authorized": false
   },
-  "rule": "The v7 one-shot must observe every external repository main at the exact reviewed SHA below. HEI must equal the merged v7 implementation SHA supplied by STAGE6_HEI_EXECUTION_SHA. The v7 verifier must first generate the v6-reviewed runtime offline, then fail closed unless its authorityPath is corrected to the exact v7 authority JSON and the parsed authority_id equals the v7 authority before any network execution. The v6 AI local-generation precondition and v5 SOG transient checker remain mandatory. Any later unreviewed repository drift fails closed.",
+  "rule": "The v7 one-shot must observe every external repository main at the exact reviewed SHA below. HEI must equal the merged v7 implementation SHA supplied by STAGE6_HEI_EXECUTION_SHA. The v7 verifier must first generate the v6-reviewed runtime offline, then fail closed unless its authority load is corrected to the exact v7 authority JSON and the parsed authority_id equals the v7 authority before any network execution. The v6 AI local-generation precondition and v5 SOG transient checker remain mandatory. Any later unreviewed repository drift fails closed.",
   "registries": [
     {
       "registry_id": "historical-exchange-index",
       "repository": "badjoke-lab/historical-exchange-index",
-      "reviewed_main_before_implementation": "fcc854f952a23e020327e2138a219eb621fb44c2",
+      "reviewed_main_before_implementation": "ceaad483b8ffc148ed2642a24d6f54b50aaff8de",
       "production_runtime_source": "932dea2acfee90a34d7c17390402b8b835bec621",
       "allowed_preimplementation_build_commits": [
         "932dea2acfee90a34d7c17390402b8b835bec621",
         "93352c7a3d63bdbdfaa74ba6bd4e631356e0f395",
         "fa56be7993d4caa7b1ce8f058d124b331322d319",
         "10198d4dc12ea16a598ae50d33489bbe187bd6ff",
-        "fcc854f952a23e020327e2138a219eb621fb44c2"
+        "fcc854f952a23e020327e2138a219eb621fb44c2",
+        "ceaad483b8ffc148ed2642a24d6f54b50aaff8de"
       ],
       "origin": "https://hei.badjoke-lab.com",
-      "classification": "reviewed_bx67_canonical_state_then_v5_v6_and_v7_coordination_verifier_merges"
+      "classification": "reviewed_bx68_hubi_canonical_growth_after_v7_authority_merge",
+      "change_review": "PR #832 merged as ceaad483b8ffc148ed2642a24d6f54b50aaff8de after the v7 authority. Its exact head 36bc93d5461a4aa1b786653d702e1a3eeee722d5 changed only the BX68 audit, consumed backlog item and records/exchanges/hubi.json; added +1 entity / +1 event / +4 evidence; explicitly added no lineage relationship and no Ledger Series Phase 9 mutation; and passed Records validation, CI, Count semantics, Lineage inventory, Ledger Series Phase 9 Adapter, machine/public consistency and the complete applicable workflow matrix. The frozen Stage 5 HEI relationship count remains 21."
     },
     {
       "registry_id": "minted-and-gone",
