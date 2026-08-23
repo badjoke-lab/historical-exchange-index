@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0.0",
+  "baseline_id": "hei-ledger-series-phase9-stage6-v6-execution-baseline-2026-08-23",
+  "authority_id": "hei-ledger-series-phase9-stage6-ai-generation-precondition-correction-2026-08-23-v6",
+  "coordination_issue": 780,
+  "authority_merge": "fa56be7993d4caa7b1ce8f058d124b331322d319",
+  "corrected_from_v5_execution": {
+    "workflow_run": 32623941701,
+    "job_id": 97156272779,
+    "artifact_id": 9489174795,
+    "artifact_digest": "sha256:95dd35f53932d3c4facb76b8bf9a2caf3be80b1ed16a9cd3fc8ee035fe1345b1",
+    "result": "FAIL_CLOSED_ON_AI_LOCAL_GENERATION_PRECONDITION",
+    "consumed": true,
+    "rerun_authorized": false
+  },
+  "rule": "The v6 one-shot must observe every external repository main at the exact reviewed SHA below. HEI must equal the merged v6 implementation SHA supplied by STAGE6_HEI_EXECUTION_SHA. The existing AI production checker remains unmodified; its required local machine-readable files are generated only inside the exact reviewed AI checkout with CF_PAGES_COMMIT_SHA pinned to the reviewed AI SHA. Any later unreviewed repository drift fails closed.",
+  "registries": [
+    {
+      "registry_id": "historical-exchange-index",
+      "repository": "badjoke-lab/historical-exchange-index",
+      "reviewed_main_before_implementation": "fa56be7993d4caa7b1ce8f058d124b331322d319",
+      "production_runtime_source": "932dea2acfee90a34d7c17390402b8b835bec621",
+      "allowed_preimplementation_build_commits": [
+        "932dea2acfee90a34d7c17390402b8b835bec621",
+        "93352c7a3d63bdbdfaa74ba6bd4e631356e0f395",
+        "fa56be7993d4caa7b1ce8f058d124b331322d319"
+      ],
+      "origin": "https://hei.badjoke-lab.com",
+      "classification": "reviewed_bx67_canonical_state_then_v5_implementation_and_v6_authority_coordination_merges"
+    },
+    {
+      "registry_id": "minted-and-gone",
+      "repository": "badjoke-lab/mintedandgone",
+      "reviewed_main": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+      "production_runtime_source": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+      "origin": "https://mag.badjoke-lab.com",
+      "classification": "unchanged_reviewed_current_deployment_build"
+    },
+    {
+      "registry_id": "stable-or-gone",
+      "repository": "badjoke-lab/stable-or-gone",
+      "reviewed_main": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+      "production_runtime_source": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+      "expected_current_canonical_hash": "sha256:bba93c1e3f0ea1b050cd395455327b70fb7c1920d37b18c300949bb49df53965",
+      "historical_stage5_authority_hash": "sha256:4e7570b6fab88a8178a01ae280a36d98787573b376440b891491f25469458798",
+      "expected_primary_records": 119,
+      "expected_series_records": 119,
+      "expected_relationships": 1,
+      "origin": "https://www.stableorgone.com",
+      "classification": "unchanged_reviewed_non_growth_canonical_maintenance_with_v5_checker_correction",
+      "relationship_tuple": [
+        "predecessor_of",
+        "stable-or-gone:stablecoin:sog_st_sai",
+        "stable-or-gone:stablecoin:sog_st_dai"
+      ]
+    },
+    {
+      "registry_id": "crypto-yield-archive",
+      "repository": "badjoke-lab/crypto-yield-archive",
+      "reviewed_main": "e0079af51859cb1d006e686fceb29a25b7343ece",
+      "allowed_production_source_commits": [
+        "e0079af51859cb1d006e686fceb29a25b7343ece"
+      ],
+      "expected_primary_records": 123,
+      "origin": "https://cya.badjoke-lab.com",
+      "classification": "reviewed_canonical_growth_coinswitch_earn_platform_123",
+      "change_review": "PR #311 promoted reviewed candidate cya_candidate_000145 to canonical cya_plat_000123, changed nine canonical/staging/documentation files, and its exact head a2f17397baf303c5cc6ae837323b42a2ee143c25 passed Validate data, Validate and build, CYA CI, Ledger Series Phase 9 Adapter, Project network, SEO and related checks."
+    },
+    {
+      "registry_id": "bridge-incident-registry",
+      "repository": "badjoke-lab/bridge-incident-registry",
+      "reviewed_main": "99405bc7d4e1b3d2aea62314a607dc00656e823b",
+      "origin": "https://bir.badjoke-lab.com",
+      "classification": "reviewed_canonical_growth_oraichain_august_2026_incident",
+      "expected_native_counts": {
+        "bridges": 42,
+        "incidents": 45,
+        "events": 210,
+        "evidence": 347
+      },
+      "change_review": "PR #362 added the conservatively scoped Oraichain EVM cross-chain transfer path and August 2026 incident package. The merged PR states its bounded one-shot source-count, source-quality, schema, build, dist, performance and production-content gates and final 42/45/210/347 counts; compare from the prior reviewed main is a single canonical merge commit."
+    },
+    {
+      "registry_id": "cryptocurrency-wallet-lifecycle-registry",
+      "repository": "badjoke-lab/cryptocurrency-wallet-lifecycle-registry",
+      "reviewed_main": "8192dedeb3777894f031dcbd13d95367f5f688de",
+      "canonical_content_through": "c24916eb96f09ee322b185cafaef360b762bea61",
+      "origin": "https://wlr.badjoke-lab.com",
+      "classification": "unchanged_presentation_only_drift_after_reviewed_canonical_growth"
+    },
+    {
+      "registry_id": "ai-tools-history-archive",
+      "repository": "badjoke-lab/ai-tools-history-archive",
+      "reviewed_main": "76ef103329813f0174db121117c932bff53fbf8e",
+      "production_runtime_source": "76ef103329813f0174db121117c932bff53fbf8e",
+      "origin": "https://ai-tools-history-archive.pages.dev",
+      "classification": "unchanged_exact_reviewed_build_with_local_generation_precondition",
+      "local_generation": {
+        "native_generator": "scripts/generate-machine-records.mjs",
+        "series_generator": "scripts/generate-series-adapter.mjs",
+        "checker": "scripts/check-series-origin.mjs",
+        "build_identity_env": {
+          "CF_PAGES_COMMIT_SHA": "76ef103329813f0174db121117c932bff53fbf8e"
+        },
+        "workspace_only": true,
+        "network_io": false,
+        "checker_source_mutation_authorized": false
+      }
+    },
+    {
+      "registry_id": "api-deprecation-archive",
+      "repository": "badjoke-lab/api-deprecation-archive",
+      "reviewed_main": "641a6d4243d30f95f48436455d2cbc12a8aded53",
+      "origin": "https://api-deprecation-archive.pages.dev",
+      "classification": "unchanged_deterministic_data_revision_baseline"
+    }
+  ],
+  "stage5_relationship_counts": {
+    "historical-exchange-index": 21,
+    "minted-and-gone": 17,
+    "stable-or-gone": 1,
+    "crypto-yield-archive": 0,
+    "bridge-incident-registry": 44,
+    "cryptocurrency-wallet-lifecycle-registry": 161,
+    "ai-tools-history-archive": 0,
+    "api-deprecation-archive": 0,
+    "total": 244,
+    "cross_registry": 0
+  },
+  "production_mutation_authorized": false,
+  "vertical_repository_mutation_authorized": false,
+  "ai_repository_mutation_authorized": false,
+  "canonical_record_or_relationship_mutation_authorized": false,
+  "central_descriptor_resync_authorized": false,
+  "cloudflare_dns_deployment_mutation_authorized": false,
+  "automatic_baseline_refresh_authorized": false,
+  "execution_count_authorized": 1
+}
