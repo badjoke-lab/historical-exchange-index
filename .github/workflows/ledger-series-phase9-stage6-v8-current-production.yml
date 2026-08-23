@@ -1,0 +1,152 @@
+name: Ledger Series Phase 9 Stage 6 v8 semantic SOG native correction
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    paths:
+      - 'scripts/verify-ledger-series-phase9-stage6-current-production-v8.mjs'
+      - 'config/ledger-series-phase9-stage6-v8-execution-baseline.json'
+      - '.github/workflows/ledger-series-phase9-stage6-v8-current-production.yml'
+
+permissions:
+  contents: read
+
+env:
+  V8_TITLE: Implement Phase 9 Stage 6 v8 semantic and SOG native correction
+  V8_BRANCH: agent/phase9-stage6-v8-semantic-sog-native-implementation
+
+jobs:
+  review-contract:
+    if: ${{ github.event.action != 'closed' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact v8 implementation head
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify v8 wrapper syntax
+        run: node --check scripts/verify-ledger-series-phase9-stage6-current-production-v8.mjs
+      - name: Generate exact v8 runtime offline
+        run: node scripts/verify-ledger-series-phase9-stage6-current-production-v8.mjs --prepare-only
+      - name: Inspect v8 runtime contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          runtime=.stage6/phase9-stage6-v8-runtime-verifier.mjs
+          test -f "$runtime"
+          node --check "$runtime"
+          grep -Fq "ledger-series-phase9-stage6-v8-authority-semantic-sog-native-2026-08-23.json" "$runtime"
+          grep -Fq "canonical record mutation','relationship mutation" "$runtime"
+          grep -Fq "checker('SOG Stage 5 relationships', 'stable-or-gone', 'scripts/verify-stage5-production.mjs'" "$runtime"
+          grep -Fq "AI Tools workspace-local native generation" "$runtime"
+          grep -Fq "AI Tools workspace-local Series generation" "$runtime"
+          ! grep -Fq "prepareSogV5TransientChecker" "$runtime"
+          ! grep -Fq "sog_v5_transient_checker" "$runtime"
+          ! grep -Fq "ledger-series-phase9-stage6-v5-sog-checker-correction-authority" "$runtime"
+          ! grep -Fq "ledger-series-phase9-stage6-ai-generation-precondition-authority" "$runtime"
+          ! grep -Fq "ledger-series-phase9-stage6-v7-runtime-authority-path-correction-authority" "$runtime"
+      - name: Verify production execution remains unavailable while PR is open
+        shell: bash
+        run: |
+          test "${{ github.event.pull_request.merged }}" != "true"
+
+  verify-current-production-v8:
+    if: >-
+      ${{
+        github.event.action == 'closed' &&
+        github.event.pull_request.merged == true &&
+        github.event.pull_request.title == 'Implement Phase 9 Stage 6 v8 semantic and SOG native correction' &&
+        github.event.pull_request.head.ref == 'agent/phase9-stage6-v8-semantic-sog-native-implementation'
+      }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout exact v8 implementation merge
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          fetch-depth: 1
+
+      - name: Checkout exact MAG reviewed main
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/mintedandgone
+          ref: f917d5e25eedc7b2c48091c7343b7fa9cd203428
+          path: .stage6/repos/mag
+          fetch-depth: 1
+
+      - name: Checkout exact SOG reviewed main
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/stable-or-gone
+          ref: ceb30f76c4af2182c866e6966872176b2150c7da
+          path: .stage6/repos/sog
+          fetch-depth: 1
+
+      - name: Checkout exact CYA reviewed main
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/crypto-yield-archive
+          ref: c1291cc891350a8105ffeb53f61522e3c822b7c5
+          path: .stage6/repos/cya
+          fetch-depth: 1
+
+      - name: Checkout exact BIR reviewed main
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/bridge-incident-registry
+          ref: 0e1769e75a9647be4ead61fafefde2bd6dc49e60
+          path: .stage6/repos/bir
+          fetch-depth: 1
+
+      - name: Checkout exact WLR reviewed main
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/cryptocurrency-wallet-lifecycle-registry
+          ref: f6b542a0f724d4243a77c08b5b1febdb8585a148
+          path: .stage6/repos/wlr
+          fetch-depth: 1
+
+      - name: Checkout exact AI reviewed main
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/ai-tools-history-archive
+          ref: 76ef103329813f0174db121117c932bff53fbf8e
+          path: .stage6/repos/ai
+          fetch-depth: 1
+
+      - name: Checkout exact API reviewed main
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/api-deprecation-archive
+          ref: 641a6d4243d30f95f48436455d2cbc12a8aded53
+          path: .stage6/repos/api
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Rebuild and inspect v8 runtime before the one-shot
+        env:
+          STAGE6_HEI_EXECUTION_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+          STAGE6_RESULT_PATH: .stage6/phase9-stage6-v8-current-production-result.json
+        run: node scripts/verify-ledger-series-phase9-stage6-current-production-v8.mjs --prepare-only
+
+      - name: Run one authorized read-only v8 eight-registry equality check
+        env:
+          STAGE6_HEI_EXECUTION_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+          STAGE6_RESULT_PATH: .stage6/phase9-stage6-v8-current-production-result.json
+        run: node scripts/verify-ledger-series-phase9-stage6-current-production-v8.mjs
+
+      - name: Upload v8 current-production result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ledger-series-phase9-stage6-v8-current-production-${{ github.event.pull_request.merge_commit_sha }}
+          path: .stage6/phase9-stage6-v8-current-production-result.json
+          if-no-files-found: error
+          retention-days: 30
