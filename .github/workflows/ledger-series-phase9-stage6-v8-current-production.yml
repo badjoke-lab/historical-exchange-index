@@ -40,6 +40,7 @@ jobs:
           grep -Fq "ledger-series-phase9-stage6-v8-authority-semantic-sog-native-2026-08-23.json" "$runtime"
           grep -Fq "canonical record mutation','relationship mutation" "$runtime"
           grep -Fq "checker('SOG Stage 5 relationships', 'stable-or-gone', 'scripts/verify-stage5-production.mjs'" "$runtime"
+          grep -Fq "SOG_EXPECTED_COMMIT: '', GITHUB_SHA: ''" "$runtime"
           grep -Fq "AI Tools workspace-local native generation" "$runtime"
           grep -Fq "AI Tools workspace-local Series generation" "$runtime"
           ! grep -Fq "prepareSogV5TransientChecker" "$runtime"
@@ -89,7 +90,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: badjoke-lab/crypto-yield-archive
-          ref: c1291cc891350a8105ffeb53f61522e3c822b7c5
+          ref: 37b40d3c2c511fdc6b80b4bedd6216b40225d304
           path: .stage6/repos/cya
           fetch-depth: 1
 
@@ -105,7 +106,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: badjoke-lab/cryptocurrency-wallet-lifecycle-registry
-          ref: f6b542a0f724d4243a77c08b5b1febdb8585a148
+          ref: a5f52e29e59cf9d0156ef8d34420d68b3d25ea8b
           path: .stage6/repos/wlr
           fetch-depth: 1
 
