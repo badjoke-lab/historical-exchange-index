@@ -1,10 +1,12 @@
-type RecordLike = Record<string, unknown>
+import type { EntityRecord } from '../lib/types/entity'
+import type { EventRecord } from '../lib/types/event'
+import type { EvidenceRecord } from '../lib/types/evidence'
 
 function text(value: unknown) {
   return typeof value === 'string' ? value : ''
 }
 
-export default function ExchangeMaterialConcerns({entity,events,evidence}:{entity:RecordLike;events:RecordLike[];evidence:RecordLike[]}) {
+export default function ExchangeMaterialConcerns({entity,events,evidence}:{entity:EntityRecord;events:EventRecord[];evidence:EvidenceRecord[]}) {
   const eventText = events.map((event)=>`${text(event.event_type)} ${text(event.title)} ${text(event.description)}`).join(' ').toLowerCase()
   const notes = text(entity.notes).toLowerCase()
   const urlStatus = text(entity.official_url_status)
