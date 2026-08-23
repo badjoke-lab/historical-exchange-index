@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage6-sog-checker-correction-2026-08-23-v5",
+  "phase": 9,
+  "stage": 6,
+  "status": "reviewed_finite_correction_authority_after_v4_fail_closed",
+  "coordination_issue": 780,
+  "authority_base_main": "932dea2acfee90a34d7c17390402b8b835bec621",
+  "semantic_owner": "badjoke-lab-ledger-series",
+  "purpose": "Authorize one minimal HEI-side Stage 6 verifier correction after the consumed v4 one-shot failed because the SOG Stage 5 production checker still hard-locks the historical Stage 5 canonical hash even though later separately reviewed SOG canonical maintenance changed existing canonical fields without changing the reviewed SAI predecessor_of DAI Series relationship. This authority does not authorize mutation of SOG or any other vertical repository, does not alter Stage 5 relationships, and does not accept Stage 6 by itself.",
+  "failed_v4_execution": {
+    "implementation_pr": 828,
+    "implementation_merge": "bf23ac1a8f69a9cab763a9033bf45a1fee0b9794",
+    "workflow_run": 32620749266,
+    "job_id": 97148448800,
+    "result": "FAIL",
+    "artifact_id": 9488302977,
+    "artifact_name": "ledger-series-phase9-stage6-v4-current-production-bf23ac1a8f69a9cab763a9033bf45a1fee0b9794",
+    "artifact_digest": "sha256:98fa5d88fd3e98b42802ca003d5abc1cf7f42a12ac566db8532ca26f813b0335",
+    "repository_preflight": "PASS_8_OF_8",
+    "checks_before_failure": [
+      "HEI native exact reviewed deployment PASS at production commit 1a15bb26793541bf994c5cc9123b78d2236f0d76 with 1042 records",
+      "HEI Stage 5 relationships PASS with 21 reviewed relationships",
+      "MAG native exact reviewed deployment PASS at f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+      "SOG exact commit plus canonical hash provenance PASS at e8663a8289033a3a6af7cb19fb31683b2545e61c"
+    ],
+    "failure_registry": "stable-or-gone",
+    "failure_check": "SOG Stage 5 relationships",
+    "failure_message": "SOG Stage 5 production verification failed: canonical hash mismatch: sha256:bba93c1e3f0ea1b050cd395455327b70fb7c1920d37b18c300949bb49df53965",
+    "stage6_acceptance_claimed": false,
+    "rerun_authorized": false
+  },
+  "sog_failure_review": {
+    "reviewed_main": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+    "reviewed_main_parent": "9a4f853cca85efff1c7ae4303b07c7af224e65bd",
+    "reviewed_maintenance_pr": 593,
+    "reviewed_maintenance_title": "Implement MNEE June 2026 attestation boundary",
+    "historical_stage5_authority_hash": "sha256:4e7570b6fab88a8178a01ae280a36d98787573b376440b891491f25469458798",
+    "current_reviewed_production_hash": "sha256:bba93c1e3f0ea1b050cd395455327b70fb7c1920d37b18c300949bb49df53965",
+    "current_reviewed_canonical_file_count": 466,
+    "current_reviewed_primary_records": 119,
+    "classification": "stale_stage5_production_checker_hash_lock_after_reviewed_non_growth_canonical_maintenance",
+    "evidence": [
+      "The current SOG check-production-provenance.mjs passed in v4 and reported exact source commit e8663a8289033a3a6af7cb19fb31683b2545e61c plus canonical hash sha256:bba93c1e3f0ea1b050cd395455327b70fb7c1920d37b18c300949bb49df53965.",
+      "scripts/verify-stage5-production.mjs on e8663a8289033a3a6af7cb19fb31683b2545e61c still hard-codes expectedCanonicalHash sha256:4e7570b6fab88a8178a01ae280a36d98787573b376440b891491f25469458798 and also requires the Stage 5 authority JSON to retain that historical hash.",
+      "PR #593 updated existing MNEE canonical maintenance fields from the May 2026 review boundary to June 2026 with zero stable-asset, organization, event, evidence, reserve-report-count, and known-unknown-count growth.",
+      "PR #593 deliberately changed scripts/validate-ledger-series-phase9-adapter.mjs from exact equality with the original Stage 5 authority hash to validating that the current canonical hash is a syntactically valid sha256, allowing later separately reviewed canonical maintenance.",
+      "PR #593 did not modify src/lib/ledgerSeriesAdapter.ts. Direct reads at parent 9a4f853cca85efff1c7ae4303b07c7af224e65bd and current e8663a8289033a3a6af7cb19fb31683b2545e61c show the same reviewed relationship constant: predecessor_of / stable-or-gone:stablecoin:sog_st_sai / stable-or-gone:stablecoin:sog_st_dai.",
+      "The current SOG adapter still deterministically emits exactly one standalone relationship_record from that tuple and leaves record-envelope relationships arrays empty."
+    ]
+  },
+  "reviewed_repository_mains_at_authority_creation": [
+    {
+      "registry_id": "historical-exchange-index",
+      "repository": "badjoke-lab/historical-exchange-index",
+      "main": "932dea2acfee90a34d7c17390402b8b835bec621"
+    },
+    {
+      "registry_id": "minted-and-gone",
+      "repository": "badjoke-lab/mintedandgone",
+      "main": "f917d5e25eedc7b2c48091c7343b7fa9cd203428"
+    },
+    {
+      "registry_id": "stable-or-gone",
+      "repository": "badjoke-lab/stable-or-gone",
+      "main": "e8663a8289033a3a6af7cb19fb31683b2545e61c"
+    },
+    {
+      "registry_id": "crypto-yield-archive",
+      "repository": "badjoke-lab/crypto-yield-archive",
+      "main": "fa35d291a67b2e367f8f7e759a635a0804116680"
+    },
+    {
+      "registry_id": "bridge-incident-registry",
+      "repository": "badjoke-lab/bridge-incident-registry",
+      "main": "666d1f4f78b7ed12fa36e2741134523a140221c4"
+    },
+    {
+      "registry_id": "cryptocurrency-wallet-lifecycle-registry",
+      "repository": "badjoke-lab/cryptocurrency-wallet-lifecycle-registry",
+      "main": "8192dedeb3777894f031dcbd13d95367f5f688de"
+    },
+    {
+      "registry_id": "ai-tools-history-archive",
+      "repository": "badjoke-lab/ai-tools-history-archive",
+      "main": "76ef103329813f0174db121117c932bff53fbf8e"
+    },
+    {
+      "registry_id": "api-deprecation-archive",
+      "repository": "badjoke-lab/api-deprecation-archive",
+      "main": "641a6d4243d30f95f48436455d2cbc12a8aded53"
+    }
+  ],
+  "frozen_stage5_relationship_counts": {
+    "historical-exchange-index": 21,
+    "minted-and-gone": 17,
+    "stable-or-gone": 1,
+    "crypto-yield-archive": 0,
+    "bridge-incident-registry": 44,
+    "cryptocurrency-wallet-lifecycle-registry": 161,
+    "ai-tools-history-archive": 0,
+    "api-deprecation-archive": 0,
+    "total": 244,
+    "cross_registry": 0
+  },
+  "authorized_next_changes": [
+    "Add one separately reviewed HEI-side Stage 6 v5 verifier/workflow implementation bound to this authority and the consumed v4 failure.",
+    "Preserve the current SOG exact-commit and canonical-provenance check before any SOG Stage 5 relationship verification.",
+    "Derive a transient SOG Stage 5 relationship verifier from the reviewed SOG main that decouples the obsolete historical canonical-hash lock from the relationship contract while preserving all relationship tuple, relationship count, Series index count, endpoint existence, deterministic ID, descriptor route/capability/count, provenance basis, and empty record-envelope relationship-array assertions.",
+    "Do not edit the SOG repository, the SOG Stage 5 authority JSON, SOG canonical data, or SOG production as part of this correction.",
+    "Before the v5 implementation is merged, explicitly re-read all eight repository mains. Any moved main must be reviewed and classified before it can be included in the execution baseline.",
+    "After the exact v5 implementation is merged, execute exactly one new read-only eight-registry current-production equality run from an exact finite trigger.",
+    "Download and directly inspect that run's result artifact and record the actual PASS or FAIL in Issue #780 before any Stage 6 acceptance claim."
+  ],
+  "authorization": {
+    "v5_implementation_authorized": true,
+    "hei_verifier_only_correction_authorized": true,
+    "transient_sog_stage5_checker_derivation_authorized": true,
+    "network_read_only_reverification_authorized_after_v5_implementation_merge": true,
+    "network_execution_count_authorized": 1,
+    "rerun_failed_v4_workflow_authorized": false,
+    "automatic_retry_authorized": false,
+    "automatic_repair_authorized": false,
+    "automatic_baseline_refresh_authorized": false,
+    "production_mutation_authorized": false,
+    "vertical_repository_mutation_authorized": false,
+    "sog_repository_mutation_authorized": false,
+    "canonical_record_mutation_authorized": false,
+    "relationship_mutation_authorized": false,
+    "central_descriptor_resync_authorized": false,
+    "cloudflare_dns_deployment_mutation_authorized": false,
+    "stage7_continuation_authorized": false,
+    "stage8_continuation_authorized": false,
+    "phase10_continuation_authorized": false
+  },
+  "required_v5_sog_contract": {
+    "repository_main": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+    "production_source_commit": "e8663a8289033a3a6af7cb19fb31683b2545e61c",
+    "production_canonical_hash": "sha256:bba93c1e3f0ea1b050cd395455327b70fb7c1920d37b18c300949bb49df53965",
+    "primary_records": 119,
+    "series_records": 119,
+    "relationships": 1,
+    "relationship_tuple": [
+      "predecessor_of",
+      "stable-or-gone:stablecoin:sog_st_sai",
+      "stable-or-gone:stablecoin:sog_st_dai"
+    ],
+    "relationship_direction": "directed",
+    "relationship_provenance_basis": "native_reviewed_relationship",
+    "record_envelope_relationship_arrays_remain_empty": true,
+    "descriptor_relationship_route": "/data/series/relationships.json",
+    "descriptor_relationship_capability": "adapter"
+  },
+  "fail_closed_rules": [
+    "Any unreviewed repository drift observed before execution stops the new execution until separately reviewed in the implementation PR.",
+    "SOG v5 must first prove the exact reviewed SOG main/source commit and current canonical provenance hash before applying the relationship-only checker correction.",
+    "The v5 correction must not treat a valid current canonical hash as sufficient by itself; all preserved SOG Stage 5 relationship assertions remain mandatory.",
+    "Any required endpoint timeout, non-2xx response, malformed JSON, identity/count/content/revision/provenance mismatch, stale central descriptor, mixed revision, relationship drift, or weakened canonical-only fact is FAILURE.",
+    "A failure in the newly authorized v5 one-shot does not authorize a second run or repair under this authority."
+  ],
+  "stage6_current_production_acceptance": "NOT_ACCEPTED",
+  "automatic_continuation": false
+}
