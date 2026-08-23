@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "reviewed_at": "2026-08-23",
+  "scope": "post_a3_predecessor_successor_edges",
+  "dispositions": [
+    {
+      "entity_id": "hei_ex_001161",
+      "entity_name": "IDCM",
+      "field": "successor_id",
+      "target_id": "hei_ex_001162",
+      "target_name": "Klickl",
+      "disposition": "keep_bidirectional",
+      "continuity_status": "official_brand_rebrand",
+      "rationale": "Reviewed company and regulator evidence establishes a one-to-one IDCM to Klickl brand rebrand. The reciprocal successor/predecessor pair is the intended canonical lineage.",
+      "event_ids": ["hei_ev_010135"],
+      "evidence_ids": ["hei_src_012605", "hei_src_012606", "hei_src_012608"]
+    },
+    {
+      "entity_id": "hei_ex_001162",
+      "entity_name": "Klickl",
+      "field": "predecessor_id",
+      "target_id": "hei_ex_001161",
+      "target_name": "IDCM",
+      "disposition": "keep_bidirectional",
+      "continuity_status": "official_brand_rebrand",
+      "rationale": "Klickl is the reviewed successor brand to IDCM. The reciprocal predecessor/successor pair records the same one-to-one rebrand continuity from the successor side.",
+      "event_ids": ["hei_ev_010135"],
+      "evidence_ids": ["hei_src_012605", "hei_src_012606", "hei_src_012608"]
+    }
+  ]
+}
