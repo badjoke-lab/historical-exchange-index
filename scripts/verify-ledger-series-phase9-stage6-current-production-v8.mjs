@@ -184,7 +184,11 @@ source = replaceOnce(
   'v8 report provenance',
 )
 
-const authorityRows = Object.entries(expectedMains).map(([registry_id, main]) => ({ registry_id, main }))
+const authorityExpectedMains = {
+  ...expectedMains,
+  'historical-exchange-index': '23636622b1a1f6e5514c3bba36583149868b6af2',
+}
+const authorityRows = Object.entries(authorityExpectedMains).map(([registry_id, main]) => ({ registry_id, main }))
 const authorityGuard = `const v8AuthorityRows = ${JSON.stringify(authorityRows)}
 const v8AuthorityMains = new Map((authority.reviewed_repository_mains_at_authority_creation || []).map((item) => [item.registry_id, item.main]))
 assert(v8AuthorityMains.size === 8, 'Stage 6 v8 authority must cover eight registry mains')
