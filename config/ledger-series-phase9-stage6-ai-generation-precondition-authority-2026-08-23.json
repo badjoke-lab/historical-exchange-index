@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage6-ai-generation-precondition-correction-2026-08-23-v6",
+  "phase": 9,
+  "stage": 6,
+  "coordination_issue": 780,
+  "created_at": "2026-08-23T07:05:00Z",
+  "status": "AUTHORIZED_FOR_ONE_CORRECTIVE_IMPLEMENTATION_AND_ONE_READ_ONLY_EXECUTION",
+  "failed_v5_execution": {
+    "workflow_run": 32623941701,
+    "job": 97156272779,
+    "artifact_id": 9489174795,
+    "artifact_digest": "sha256:95dd35f53932d3c4facb76b8bf9a2caf3be80b1ed16a9cd3fc8ee035fe1345b1",
+    "implementation_merge": "93352c7a3d63bdbdfaa74ba6bd4e631356e0f395",
+    "result": "FAIL_CLOSED_ON_AI_LOCAL_GENERATION_PRECONDITION",
+    "consumed": true,
+    "rerun_authorized": false,
+    "failure": "AI Tools exact Series reviewed build checker attempted to read public/data/series/index.json from the exact reviewed checkout before local machine-readable generation had been performed."
+  },
+  "reviewed_ai_contract": {
+    "repository": "badjoke-lab/ai-tools-history-archive",
+    "reviewed_commit": "76ef103329813f0174db121117c932bff53fbf8e",
+    "checker": "scripts/check-series-origin.mjs",
+    "checker_requires_local_files": [
+      "public/data/series/index.json",
+      "public/data/series/records/{slug}.json"
+    ],
+    "native_generator": "scripts/generate-machine-records.mjs",
+    "series_generator": "scripts/generate-series-adapter.mjs",
+    "package_contract": "generate:machine = generate:native-machine then generate:series",
+    "generation_network_io": false,
+    "required_build_identity_env": {
+      "CF_PAGES_COMMIT_SHA": "76ef103329813f0174db121117c932bff53fbf8e"
+    },
+    "classification": "checker_execution_precondition_defect_not_production_mismatch"
+  },
+  "v5_artifact_confirmed_passes_before_failure": {
+    "repository_preflight": "8/8 PASS",
+    "hei_native": "PASS",
+    "hei_stage5_relationships": 21,
+    "mag_native": "PASS",
+    "sog_provenance": "PASS",
+    "sog_stage5_relationships": 1,
+    "cya_native": "PASS",
+    "bir_native": "PASS",
+    "bir_stage5_relationships": 44,
+    "wlr_stage5_relationships": 161
+  },
+  "authorized_next_changes": [
+    "create one HEI-side v6 verifier/workflow correction bound to this authority",
+    "preserve the exact AI reviewed checkout at 76ef103329813f0174db121117c932bff53fbf8e",
+    "before invoking the existing AI scripts/check-series-origin.mjs, generate AI local machine-readable artifacts inside the GitHub Actions checkout workspace only by running scripts/generate-machine-records.mjs and scripts/generate-series-adapter.mjs with CF_PAGES_COMMIT_SHA fixed to the exact reviewed AI commit",
+    "leave the existing AI production checker source unmodified",
+    "preserve all v5 SOG correction semantics and all full eight-registry equality semantics",
+    "perform an explicit eight-main drift review before implementation merge",
+    "after the exact implementation merge, execute exactly one new read-only eight-registry equality run"
+  ],
+  "not_authorized": [
+    "rerun of workflow run 32623941701",
+    "production mutation",
+    "any vertical repository mutation",
+    "AI repository mutation",
+    "canonical record or relationship mutation",
+    "central descriptor resynchronization",
+    "Cloudflare or DNS change",
+    "deployment mutation",
+    "silent latest-main acceptance",
+    "automatic repair",
+    "automatic retry or more than one new network execution",
+    "Stage 7 continuation",
+    "Stage 8 continuation",
+    "Phase 10 continuation"
+  ],
+  "stage5_relationship_counts": {
+    "historical-exchange-index": 21,
+    "minted-and-gone": 17,
+    "stable-or-gone": 1,
+    "crypto-yield-archive": 0,
+    "bridge-incident-registry": 44,
+    "cryptocurrency-wallet-lifecycle-registry": 161,
+    "ai-tools-history-archive": 0,
+    "api-deprecation-archive": 0,
+    "total": 244,
+    "cross_registry": 0
+  },
+  "stage6_current_production_acceptance": "NOT_ACCEPTED",
+  "automatic_continuation": false
+}
