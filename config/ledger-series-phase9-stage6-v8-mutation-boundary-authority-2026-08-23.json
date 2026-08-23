@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "authority_id": "hei-ledger-series-phase9-stage6-mutation-boundary-correction-2026-08-23-v8",
+  "coordination_issue": 780,
+  "created_from_main": "ca13950e1b43cc6842e70d1a2038a7ff1c7af5f0",
+  "failed_v7_execution": {
+    "workflow_run": 32631652830,
+    "job": 97175265879,
+    "implementation_merge": "ca13950e1b43cc6842e70d1a2038a7ff1c7af5f0",
+    "result": "FAIL_BEFORE_PRODUCTION_EQUALITY",
+    "error": "Stage 6 v6 mutation boundary weakened",
+    "classification": "generated_runtime_retained_v6_authority_field_assertion_after_v7_authority_schema_switch",
+    "artifact_available": false,
+    "consumed": true,
+    "rerun_authorized": false
+  },
+  "failure_review": {
+    "production_equality_assertions_started": false,
+    "production_drift_observed": false,
+    "exact_v7_merge_checkout_passed": true,
+    "exact_external_baseline_checkouts_passed": true,
+    "v7_runtime_authority_path_precheck_passed": true,
+    "root_cause": "The v7 runtime correctly loaded the v7 authority, but an inherited v6 assertion still expected top-level mutation-authorized boolean fields that do not exist in the v7 authority schema. The runtime therefore failed before repository preflight or network equality assertions.",
+    "defect_class": "verifier_implementation_defect"
+  },
+  "authorized_next_changes": [
+    "Add one HEI-side verifier-only correction that replaces the inherited v6 mutation-boundary assertion with an equivalent v8/v7-safe assertion over the actual v7 not_authorized and automatic-continuation contract.",
+    "Preserve the v7 authority-path correction, v6 AI local-generation precondition, v5 SOG transient checker, exact eight-registry baseline checks, Stage 5 relationship total 244 with cross-registry 0, and central descriptor equality.",
+    "Perform prepare-only validation before any network execution.",
+    "After exact implementation merge and explicit baseline revalidation, execute exactly one new read-only eight-registry equality run."
+  ],
+  "not_authorized": [
+    "rerun of workflow run 32631652830",
+    "production mutation",
+    "any vertical repository mutation",
+    "canonical record mutation",
+    "relationship mutation",
+    "central descriptor resynchronization",
+    "Cloudflare or DNS change",
+    "deployment mutation",
+    "silent latest-main acceptance",
+    "automatic baseline refresh",
+    "automatic repair",
+    "automatic retry or more than one new network execution",
+    "Stage 7 continuation",
+    "Stage 8 continuation",
+    "Phase 10 continuation"
+  ],
+  "stage6_current_production_acceptance": "NOT_ACCEPTED",
+  "automatic_continuation": false
+}
