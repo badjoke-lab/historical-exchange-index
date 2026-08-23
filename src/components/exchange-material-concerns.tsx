@@ -16,7 +16,7 @@ export default function ExchangeMaterialConcerns({entity,events,evidence}:{entit
   if (/withdraw|suspend|freeze|halt|restriction/.test(eventText)) concerns.push(['Withdrawal / service restriction','Material restriction event recorded'])
   if (/bankrupt|insolven|liquidat|restructur|collapse|failure/.test(eventText)) concerns.push(['Insolvency / failure chain','Material failure event recorded'])
   if (/fraud|scam|misconduct/.test(eventText + ' ' + notes)) concerns.push(['Fraud / misconduct record','Review timeline and evidence for allegation-versus-finding strength'])
-  if (['unsafe','repurposed','dead_domain'].includes(urlStatus)) concerns.push(['Domain / URL state',urlStatus.replaceAll('_',' ')])
+  if (['unsafe','repurposed','dead_domain'].includes(urlStatus)) concerns.push(['Domain / URL state',urlStatus.split('_').join(' ')])
   if (!text(entity.country_or_origin) || text(entity.country_or_origin).toLowerCase()==='unknown') concerns.push(['Operator / jurisdiction','Unresolved or conflicting in the canonical record'])
   if (evidence.length===0) concerns.push(['Evidence coverage','No linked evidence currently available'])
 
