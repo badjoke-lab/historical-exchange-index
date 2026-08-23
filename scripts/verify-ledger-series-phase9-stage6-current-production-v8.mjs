@@ -82,9 +82,9 @@ const expectedMains = {
   'historical-exchange-index': '9f21ab16e17bb3840827714c72483bf8e5764d3c',
   'minted-and-gone': 'f917d5e25eedc7b2c48091c7343b7fa9cd203428',
   'stable-or-gone': 'ceb30f76c4af2182c866e6966872176b2150c7da',
-  'crypto-yield-archive': 'c1291cc891350a8105ffeb53f61522e3c822b7c5',
+  'crypto-yield-archive': '37b40d3c2c511fdc6b80b4bedd6216b40225d304',
   'bridge-incident-registry': '0e1769e75a9647be4ead61fafefde2bd6dc49e60',
-  'cryptocurrency-wallet-lifecycle-registry': 'f6b542a0f724d4243a77c08b5b1febdb8585a148',
+  'cryptocurrency-wallet-lifecycle-registry': 'a5f52e29e59cf9d0156ef8d34420d68b3d25ea8b',
   'ai-tools-history-archive': '76ef103329813f0174db121117c932bff53fbf8e',
   'api-deprecation-archive': '641a6d4243d30f95f48436455d2cbc12a8aded53',
 }
@@ -102,7 +102,7 @@ assert(JSON.stringify(heiBaseline.allowed_production_build_commits) === JSON.str
 assert(sogBaseline.native_checker_fix_through === 'd26d50eba858b3528fdd5713814068ab55956913', 'v8 SOG native checker fix boundary changed')
 assert(sogBaseline.expected_current_canonical_hash === 'sha256:bba93c1e3f0ea1b050cd395455327b70fb7c1920d37b18c300949bb49df53965' && sogBaseline.expected_primary_records === 119 && sogBaseline.expected_relationships === 1, 'v8 SOG current canonical boundary changed')
 assert(JSON.stringify(sogBaseline.allowed_production_build_commits) === JSON.stringify(['e8663a8289033a3a6af7cb19fb31683b2545e61c','d26d50eba858b3528fdd5713814068ab55956913','ceb30f76c4af2182c866e6966872176b2150c7da']), 'v8 SOG allowed production builds changed')
-assert(cyaBaseline.expected_primary_records === 124 && JSON.stringify(cyaBaseline.allowed_production_source_commits) === JSON.stringify(['34c543ae2dec344e334d308344d1413beb6fe20b','c1291cc891350a8105ffeb53f61522e3c822b7c5']), 'v8 CYA canonical 124 boundary changed')
+assert(cyaBaseline.expected_primary_records === 125 && JSON.stringify(cyaBaseline.allowed_production_source_commits) === JSON.stringify(['34c543ae2dec344e334d308344d1413beb6fe20b','c1291cc891350a8105ffeb53f61522e3c822b7c5','37b40d3c2c511fdc6b80b4bedd6216b40225d304']), 'v8 CYA canonical 125 boundary changed')
 assert(JSON.stringify(birBaseline.expected_native_counts) === JSON.stringify({ bridges: 42, incidents: 45, events: 210, evidence: 347 }), 'v8 BIR reviewed boundary changed')
 assert(aiBaseline.local_generation?.native_generator === 'scripts/generate-machine-records.mjs' && aiBaseline.local_generation?.series_generator === 'scripts/generate-series-adapter.mjs' && aiBaseline.local_generation?.checker === 'scripts/check-series-origin.mjs', 'v8 AI generation contract changed')
 assert(aiBaseline.local_generation?.build_identity_env?.CF_PAGES_COMMIT_SHA === expectedMains['ai-tools-history-archive'] && aiBaseline.local_generation?.workspace_only === true && aiBaseline.local_generation?.network_io === false && aiBaseline.local_generation?.checker_source_mutation_authorized === false, 'v8 AI generation safety boundary changed')
@@ -114,6 +114,8 @@ for (const [id, item] of byId) {
   assert(frozen && frozen.repository === item.repository, `${id}: repository identity changed from v8 authority`)
   if (id === 'historical-exchange-index') assert(frozen.main === '23636622b1a1f6e5514c3bba36583149868b6af2', 'HEI v8 authority-creation main changed')
   else if (id === 'stable-or-gone') assert(frozen.main === 'd26d50eba858b3528fdd5713814068ab55956913', 'SOG v8 authority-creation main changed')
+  else if (id === 'crypto-yield-archive') assert(frozen.main === 'c1291cc891350a8105ffeb53f61522e3c822b7c5', 'CYA v8 authority-creation main changed')
+  else if (id === 'cryptocurrency-wallet-lifecycle-registry') assert(frozen.main === 'f6b542a0f724d4243a77c08b5b1febdb8585a148', 'WLR v8 authority-creation main changed')
   else assert(frozen.main === (item.reviewed_main ?? item.reviewed_main_before_implementation), `${id}: v8 authority-creation main mismatch`)
 }
 
@@ -200,6 +202,8 @@ for (const [id, review] of Object.entries(REVIEW)) {
   assert(frozen.repository === review.repository, \`${'${id}'}: repository changed from v8 authority\`)
   if (id === 'historical-exchange-index') assert(frozen.main === '23636622b1a1f6e5514c3bba36583149868b6af2', 'HEI v8 authority-creation main changed')
   else if (id === 'stable-or-gone') assert(frozen.main === 'd26d50eba858b3528fdd5713814068ab55956913', 'SOG v8 authority-creation main changed')
+  else if (id === 'crypto-yield-archive') assert(frozen.main === 'c1291cc891350a8105ffeb53f61522e3c822b7c5', 'CYA v8 authority-creation main changed')
+  else if (id === 'cryptocurrency-wallet-lifecycle-registry') assert(frozen.main === 'f6b542a0f724d4243a77c08b5b1febdb8585a148', 'WLR v8 authority-creation main changed')
   else assert(frozen.main === review.repo_main, \`${'${id}'}: reviewed main changed from v8 authority creation\`)
 }`
 source = replaceOnce(source, oldAuthorityLoop, newAuthorityLoop, 'v8 runtime authority identity loop')
@@ -305,8 +309,8 @@ assert(source.includes('AI Tools workspace-local native generation') && source.i
 assert(source.includes("'canonical record mutation','relationship mutation'"), 'v8 runtime does not enforce separated mutation prohibitions')
 assert(source.includes("repo_main: \"9f21ab16e17bb3840827714c72483bf8e5764d3c\""), 'v8 runtime HEI reviewed main mismatch')
 assert(source.includes("repo_main: \"ceb30f76c4af2182c866e6966872176b2150c7da\""), 'v8 runtime SOG reviewed main mismatch')
-assert(source.includes("repo_main: \"c1291cc891350a8105ffeb53f61522e3c822b7c5\""), 'v8 runtime CYA reviewed main mismatch')
-assert(source.includes("repo_main: \"f6b542a0f724d4243a77c08b5b1febdb8585a148\""), 'v8 runtime WLR reviewed main mismatch')
+assert(source.includes("repo_main: \"37b40d3c2c511fdc6b80b4bedd6216b40225d304\""), 'v8 runtime CYA reviewed main mismatch')
+assert(source.includes("repo_main: \"a5f52e29e59cf9d0156ef8d34420d68b3d25ea8b\""), 'v8 runtime WLR reviewed main mismatch')
 
 fs.mkdirSync(path.dirname(runtimePath), { recursive: true })
 fs.writeFileSync(runtimePath, source)
