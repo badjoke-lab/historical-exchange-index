@@ -1,0 +1,135 @@
+name: Ledger Series Phase 9 Stage 6 v7 runtime authority path correction
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    paths:
+      - 'scripts/verify-ledger-series-phase9-stage6-current-production-v7.mjs'
+      - 'config/ledger-series-phase9-stage6-v7-execution-baseline.json'
+      - '.github/workflows/ledger-series-phase9-stage6-v7-current-production.yml'
+
+permissions:
+  contents: read
+
+env:
+  V7_TITLE: Implement Phase 9 Stage 6 v7 runtime authority path correction
+  V7_BRANCH: agent/phase9-stage6-v7-runtime-authority-path-correction
+
+jobs:
+  review-contract:
+    if: ${{ github.event.action != 'closed' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout v7 implementation head
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify v7 wrapper syntax
+        run: node --check scripts/verify-ledger-series-phase9-stage6-current-production-v7.mjs
+      - name: Generate and inspect exact v7 runtime offline
+        run: node scripts/verify-ledger-series-phase9-stage6-current-production-v7.mjs --prepare-only
+      - name: Verify production execution remains unavailable while PR is open
+        shell: bash
+        run: |
+          test "${{ github.event.pull_request.merged }}" != "true"
+
+  verify-current-production-v7:
+    if: >-
+      ${{
+        github.event.action == 'closed' &&
+        github.event.pull_request.merged == true &&
+        github.event.pull_request.title == 'Implement Phase 9 Stage 6 v7 runtime authority path correction' &&
+        github.event.pull_request.head.ref == 'agent/phase9-stage6-v7-runtime-authority-path-correction'
+      }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout exact v7 implementation merge
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          fetch-depth: 1
+
+      - name: Checkout exact MAG baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/mintedandgone
+          ref: f917d5e25eedc7b2c48091c7343b7fa9cd203428
+          path: .stage6/repos/mag
+          fetch-depth: 1
+
+      - name: Checkout exact SOG baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/stable-or-gone
+          ref: e8663a8289033a3a6af7cb19fb31683b2545e61c
+          path: .stage6/repos/sog
+          fetch-depth: 1
+
+      - name: Checkout exact CYA baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/crypto-yield-archive
+          ref: e0079af51859cb1d006e686fceb29a25b7343ece
+          path: .stage6/repos/cya
+          fetch-depth: 1
+
+      - name: Checkout exact BIR baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/bridge-incident-registry
+          ref: 99405bc7d4e1b3d2aea62314a607dc00656e823b
+          path: .stage6/repos/bir
+          fetch-depth: 1
+
+      - name: Checkout exact WLR baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/cryptocurrency-wallet-lifecycle-registry
+          ref: 8192dedeb3777894f031dcbd13d95367f5f688de
+          path: .stage6/repos/wlr
+          fetch-depth: 1
+
+      - name: Checkout exact AI baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/ai-tools-history-archive
+          ref: 76ef103329813f0174db121117c932bff53fbf8e
+          path: .stage6/repos/ai
+          fetch-depth: 1
+
+      - name: Checkout exact API baseline
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/api-deprecation-archive
+          ref: 641a6d4243d30f95f48436455d2cbc12a8aded53
+          path: .stage6/repos/api
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Verify v7 runtime authority path before network execution
+        env:
+          STAGE6_HEI_EXECUTION_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+          STAGE6_RESULT_PATH: .stage6/phase9-stage6-v7-current-production-result.json
+        run: node scripts/verify-ledger-series-phase9-stage6-current-production-v7.mjs --prepare-only
+
+      - name: Run one authorized read-only v7 eight-registry equality check
+        env:
+          STAGE6_HEI_EXECUTION_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+          STAGE6_RESULT_PATH: .stage6/phase9-stage6-v7-current-production-result.json
+        run: node scripts/verify-ledger-series-phase9-stage6-current-production-v7.mjs
+
+      - name: Upload v7 current-production result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ledger-series-phase9-stage6-v7-current-production-${{ github.event.pull_request.merge_commit_sha }}
+          path: .stage6/phase9-stage6-v7-current-production-result.json
+          if-no-files-found: error
+          retention-days: 30
