@@ -1,0 +1,120 @@
+{
+  "entity": {
+    "id": "hei_ex_001163",
+    "slug": "hanbitco",
+    "canonical_name": "Hanbitco",
+    "aliases": [
+      "HANBITCO",
+      "한빗코"
+    ],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": "2018-01-01",
+    "death_date": "2024-05-16",
+    "country_or_origin": "South Korea",
+    "summary": "South Korean centralized cryptocurrency exchange operated by the Hanbitco/PlutusDS organization. The exchange launched in 2018 and ended trading support in May 2024 during an orderly service shutdown, with withdrawal support continuing afterward for a limited run-off period.",
+    "official_url_original": "https://www.hanbitco.com/",
+    "official_domain_original": "hanbitco.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.hanbitco.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "parent_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-23",
+    "notes": "Hanbitco's official company social profile says the company was founded in 2017 and that the Hanbitco exchange launched in 2018; HEI normalizes the year-level exchange launch to 2018-01-01 because no reviewed source establishes an exact launch day. South Korea's Financial Services Commission identified Hanbitco among exchanges that formally announced business closure and places the closure in May 2024. Contemporaneous Bithumb and Flybit notices citing Hanbitco's own service-end announcement give the operational schedule: new registrations and crypto deposits ended on 2024-05-09, trading support ended on 2024-05-16, and online/offline withdrawal support continued until 2024-07-16. HEI therefore uses the end of trading support as the exchange death date while preserving the later withdrawal-only run-off in notes. A separate current platform at hanbitco.io describes itself as a Europe-founded 2022 exchange; no reviewed evidence establishes it as a successor to the South Korean exchange, so HEI does not merge or link those identities."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010137",
+      "exchange_id": "hei_ex_001163",
+      "event_type": "launched",
+      "event_date": "2018-01-01",
+      "title": "Hanbitco exchange launched in South Korea",
+      "description": "Hanbitco's official company history states that the cryptocurrency exchange launched in 2018.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "Year-level launch marker normalized to 2018-01-01 because the reviewed company source does not provide an exact launch day."
+    },
+    {
+      "id": "hei_ev_010138",
+      "exchange_id": "hei_ex_001163",
+      "event_type": "shutdown_effective",
+      "event_date": "2024-05-16",
+      "title": "Hanbitco ended exchange trading support",
+      "description": "Hanbitco's shutdown schedule ended trading support on 2024-05-16 after new registrations and crypto deposits had stopped on 2024-05-09; withdrawal support remained available through 2024-07-16 as a run-off service.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "dead",
+      "source_count": 3,
+      "sort_order": 2,
+      "notes": "South Korea's Financial Services Commission independently identifies Hanbitco as a formally closed exchange and places its business closure in May 2024. The 2024-05-16 terminal date is the specific trading-support end date reproduced by contemporaneous Korean VASP notices citing Hanbitco's service-termination announcement; later withdrawal support is treated as asset-return run-off rather than continued exchange operation."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012609",
+      "exchange_id": "hei_ex_001163",
+      "event_id": "hei_ev_010137",
+      "source_type": "official_social",
+      "title": "Hanbitco company profile",
+      "url": "https://www.linkedin.com/company/plutusds",
+      "publisher": "Hanbitco / PlutusDS",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.linkedin.com/company/plutusds",
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Official company profile describes Hanbitco as founded in 2017 and states that the Hanbitco exchange launched in 2018, while identifying hanbitco.com as the company website."
+    },
+    {
+      "id": "hei_src_012610",
+      "exchange_id": "hei_ex_001163",
+      "event_id": "hei_ev_010138",
+      "source_type": "regulatory_notice",
+      "title": "Response to virtual-asset business closures and suspensions",
+      "url": "https://fsc.go.kr/no010101/82407",
+      "publisher": "Financial Services Commission, Republic of Korea",
+      "published_at": "2024-06-07",
+      "archived_url": "https://web.archive.org/web/*/https://fsc.go.kr/no010101/82407",
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "death_date",
+      "notes": "The Financial Services Commission lists Hanbitco among exchanges that formally announced closure and states that Hanbitco's business ended in May 2024."
+    },
+    {
+      "id": "hei_src_012611",
+      "exchange_id": "hei_ex_001163",
+      "event_id": "hei_ev_010138",
+      "source_type": "official_statement",
+      "title": "Notice on suspension of large virtual-asset withdrawals to Hanbitco following service termination",
+      "url": "https://feed.bithumb.com/notice/1644767",
+      "publisher": "Bithumb",
+      "published_at": "2024-05-09",
+      "archived_url": "https://web.archive.org/web/*/https://feed.bithumb.com/notice/1644767",
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Contemporaneous Korean VASP notice states that Hanbitco was terminating exchange service and attributes the restriction to Hanbitco's own closure announcement."
+    },
+    {
+      "id": "hei_src_012612",
+      "exchange_id": "hei_ex_001163",
+      "event_id": "hei_ev_010138",
+      "source_type": "official_statement",
+      "title": "Hanbitco exchange service termination schedule",
+      "url": "https://flybit.zendesk.com/hc/ko/articles/32239235923993--%EC%A4%91%EC%9A%94-%ED%95%9C%EB%B9%97%EC%BD%94-%EA%B1%B0%EB%9E%98%EC%86%8C-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%97%90-%EB%94%B0%EB%A5%B8-100%EB%A7%8C-%EC%9B%90-%EC%9D%B4%EC%83%81-%EA%B0%80%EC%83%81%EC%9E%90%EC%82%B0-%EC%B6%9C%EA%B8%88-%EC%A4%91%EB%8B%A8-%EC%95%88%EB%82%B4",
+      "publisher": "Flybit",
+      "published_at": "2024-05-09",
+      "archived_url": null,
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Contemporaneous VASP notice reproduces Hanbitco's service-end schedule: registration and crypto deposits ended 2024-05-09, trading support ended 2024-05-16, and online/offline withdrawal support continued through 2024-07-16."
+    }
+  ]
+}
