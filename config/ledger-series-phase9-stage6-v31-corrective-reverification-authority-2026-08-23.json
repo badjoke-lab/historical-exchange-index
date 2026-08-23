@@ -1,0 +1,73 @@
+{
+  "authority_id": "hei-ledger-series-phase9-stage6-v31-corrective-reverification-2026-08-23",
+  "phase": 9,
+  "stage": 6,
+  "authority_kind": "corrective_read_only_reverification_after_consumed_v3_failure",
+  "created_at": "2026-08-23",
+  "parent_authority_id": "hei-ledger-series-phase9-stage6-current-production-reverification-2026-08-23-v3",
+  "failed_execution": {
+    "implementation_merge_sha": "49781f56e0653d9653731f20df9b1347f5cc208e",
+    "workflow_run_id": 32614056946,
+    "job_id": 97131683699,
+    "result_artifact_id": 9486381834,
+    "result_artifact_digest": "sha256:e41b39b3ffb93179a09bbf0fe0daaf0147fd29a2056159cf90e0b01dffbb84f0",
+    "overall": "FAIL",
+    "failure_classification": "reviewed_baseline_defect",
+    "failure_summary": "MAG production and reviewed main both reported f917d5e25eedc7b2c48091c7343b7fa9cd203428, while the v3 execution baseline incorrectly expected legacy build identity 73dafdf78a2ca60e9329a4c6844315cafb8e55c0. The failed v3 execution is consumed and is not authorized for rerun."
+  },
+  "corrective_scope": {
+    "only_semantic_correction": "Replace the MAG expected production build identity with the exact reviewed/live value f917d5e25eedc7b2c48091c7343b7fa9cd203428.",
+    "mag_previous_incorrect_expected_build": "73dafdf78a2ca60e9329a4c6844315cafb8e55c0",
+    "mag_correct_expected_build": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+    "mag_reviewed_main": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+    "mag_failed_run_observed_live_build": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+    "preserve_all_other_v3_verification_semantics": true,
+    "automatic_latest_main_refresh_authorized": false
+  },
+  "reviewed_repository_baselines": [
+    {"registry_id":"historical-exchange-index","repository":"badjoke-lab/historical-exchange-index","reviewed_main":"49781f56e0653d9653731f20df9b1347f5cc208e","canonical_runtime_source":"6c476dd16d7221ad2ea31bdbcb0aa086eb1167c6"},
+    {"registry_id":"minted-and-gone","repository":"badjoke-lab/mintedandgone","reviewed_main":"f917d5e25eedc7b2c48091c7343b7fa9cd203428","expected_production_build":"f917d5e25eedc7b2c48091c7343b7fa9cd203428"},
+    {"registry_id":"stable-or-gone","repository":"badjoke-lab/stable-or-gone","reviewed_main":"e8663a8289033a3a6af7cb19fb31683b2545e61c"},
+    {"registry_id":"crypto-yield-archive","repository":"badjoke-lab/crypto-yield-archive","reviewed_main":"2f68c520bc1b502f351f22a71fa339b29d473ef7","expected_primary_records":122},
+    {"registry_id":"bridge-incident-registry","repository":"badjoke-lab/bridge-incident-registry","reviewed_main":"666d1f4f78b7ed12fa36e2741134523a140221c4"},
+    {"registry_id":"cryptocurrency-wallet-lifecycle-registry","repository":"badjoke-lab/cryptocurrency-wallet-lifecycle-registry","reviewed_main":"8192dedeb3777894f031dcbd13d95367f5f688de"},
+    {"registry_id":"ai-tools-history-archive","repository":"badjoke-lab/ai-tools-history-archive","reviewed_main":"76ef103329813f0174db121117c932bff53fbf8e"},
+    {"registry_id":"api-deprecation-archive","repository":"badjoke-lab/api-deprecation-archive","reviewed_main":"641a6d4243d30f95f48436455d2cbc12a8aded53"}
+  ],
+  "stage5_relationship_counts": {
+    "historical-exchange-index": 21,
+    "minted-and-gone": 17,
+    "stable-or-gone": 1,
+    "crypto-yield-archive": 0,
+    "bridge-incident-registry": 44,
+    "cryptocurrency-wallet-lifecycle-registry": 161,
+    "ai-tools-history-archive": 0,
+    "api-deprecation-archive": 0,
+    "total": 244,
+    "cross_registry": 0
+  },
+  "authorization": {
+    "corrective_implementation_authorized": true,
+    "network_read_only_corrective_reverification_authorized_after_corrective_implementation_merge": true,
+    "corrective_network_execution_count_authorized": 1,
+    "rerun_failed_v3_workflow_authorized": false,
+    "production_mutation_authorized": false,
+    "vertical_repository_mutation_authorized": false,
+    "canonical_record_mutation_authorized": false,
+    "relationship_mutation_authorized": false,
+    "central_descriptor_resync_authorized": false,
+    "cloudflare_dns_deployment_mutation_authorized": false,
+    "automatic_repair_authorized": false,
+    "automatic_retry_authorized": false,
+    "stage7_authorized": false,
+    "stage8_authorized": false,
+    "phase10_authorized_from_this_authority": false
+  },
+  "execution_requirements": [
+    "Before the corrective network execution, re-read all eight repository mains and fail closed on any unreviewed drift.",
+    "The corrective implementation must change only the MAG expected production build identity and the minimum workflow/report plumbing needed for one separately identifiable corrective run.",
+    "Do not reinterpret the failed v3 run as PASS and do not erase or replace its artifact evidence.",
+    "The corrective run must preserve full native-to-Series descriptor, index, envelope, relationship, and central-registry equality checks from v3.",
+    "Stage 6 acceptance may be claimed only after the corrective run logs and result artifact are directly read and show PASS."
+  ]
+}
