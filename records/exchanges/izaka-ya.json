@@ -10,7 +10,7 @@
     "launch_date": null,
     "death_date": null,
     "country_or_origin": "Hong Kong",
-    "summary": "Crypto-asset wallet and trading service combining lending, custodial account and wallet functions, crypto-to-crypto swapping, card purchase access, and a project model that describes smart-contract-based permissionless finance. The service remains active and has documented integration with CryptoPanda as a separate partner service.",
+    "summary": "Crypto-asset wallet and trading service combining lending, custodial account and wallet functions, crypto-to-crypto swapping, card purchase access, and a project model that describes smart-contract-based permissionless finance. The service remains active; current first-party terms state that ordinary lending and swap use does not require KYC while campaign participation does. Active status and operator claims are not treated as a safety, compliance, or endorsement signal.",
     "official_url_original": "https://izakaya.tech/",
     "official_domain_original": "izakaya.tech",
     "official_url_status": "live_verified",
@@ -18,8 +18,8 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
-    "last_verified_at": "2026-08-13",
-    "notes": "The current first-party service exposes account-based wallet, lending, swap and crypto-purchase functions. First-party project documentation describes permissionless smart-contract-based lending, swap and token-management architecture, while the live support surface documents email/password accounts, managed balances, internal transfers and service-side transaction history. HEI therefore uses hybrid rather than classifying the service as purely centralized or purely decentralized. The first-party company page identifies Izakaya Limited and a Hong Kong operating address, supporting Hong Kong as country_or_origin. It states a service start month of December 2023, but because no exact day is established HEI leaves launch_date null. IZAKA-YA and CryptoPanda are treated as separate entities; their documented integration is recorded as a collaboration event rather than an alias or lineage relationship."
+    "last_verified_at": "2026-08-23",
+    "notes": "The current first-party service exposes account-based wallet, lending, swap and crypto-purchase functions. First-party project documentation describes permissionless smart-contract-based lending, swap and token-management architecture, while the live support surface documents email/password accounts, managed balances, internal transfers and service-side transaction history. HEI therefore uses hybrid rather than classifying the service as purely centralized or purely decentralized. The first-party company page identifies Izakaya Limited and a Hong Kong operating address, supporting Hong Kong as country_or_origin. It states a service start month of December 2023, but because no exact day is established HEI leaves launch_date null. A 2026-07-23 operator notice states that ordinary lending and swap usage does not require KYC and campaign participation does; HEI records that policy as a material operating fact without inferring legal compliance or non-compliance. IZAKA-YA and CryptoPanda are treated as separate entities; their documented integration is recorded as a collaboration event rather than an alias or lineage relationship."
   },
   "events": [
     {
@@ -36,6 +36,20 @@
       "sort_order": 1,
       "counterparty_name": "CryptoPanda",
       "notes": "The event establishes a documented service integration/collaboration. HEI uses the existing `other` event type because the projected event enum does not define a dedicated partnership value. It does not imply common ownership, merger, acquisition, predecessor/successor status, or that the two services are the same entity."
+    },
+    {
+      "id": "hei_ev_010144",
+      "exchange_id": "hei_ex_001154",
+      "event_type": "other",
+      "event_date": "2026-07-23",
+      "title": "IZAKA-YA documented its KYC boundary for lending and swaps",
+      "description": "IZAKA-YA stated that ordinary lending and in-platform swap services remain usable without identity verification while KYC is required for campaign participation.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "none",
+      "source_count": 1,
+      "sort_order": 2,
+      "notes": "Recorded as a material operating-policy event. HEI does not infer regulatory compliance, non-compliance, licence status, or safety from the operator's KYC statement alone."
     }
   ],
   "evidence": [
@@ -64,7 +78,7 @@
       "publisher": "Izakaya Limited",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://izakaya.tech/about/",
-      "accessed_at": "2026-08-13",
+      "accessed_at": "2026-08-23",
       "reliability": "high",
       "claim_scope": "entity",
       "notes": "First-party company page identifies Izakaya Limited, a Hong Kong operating address and a December 2023 service start month. HEI uses the operator/location evidence for country_or_origin but does not invent an exact launch day."
@@ -113,6 +127,21 @@
       "reliability": "high",
       "claim_scope": "event",
       "notes": "First-party campaign page documents linked registration and a CryptoPanda transaction connected to an IZAKA-YA wallet. Used to establish the collaboration/integration event only."
+    },
+    {
+      "id": "hei_src_012629",
+      "exchange_id": "hei_ex_001154",
+      "event_id": "hei_ev_010144",
+      "source_type": "official_statement",
+      "title": "〖重要〗IZAKA-YAのKYC（本人確認）について〖結論：キャンペーン時のみ必須〗",
+      "url": "https://izakaya.tech/news/izakaya-kyc-guide/",
+      "publisher": "Izakaya Limited",
+      "published_at": "2026-07-23",
+      "archived_url": "https://web.archive.org/web/*/https://izakaya.tech/news/izakaya-kyc-guide/",
+      "accessed_at": "2026-08-23",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party statement that standard lending and swap use does not require KYC and that campaign participation does. HEI records the policy statement without converting it into a legal conclusion."
     }
   ]
 }

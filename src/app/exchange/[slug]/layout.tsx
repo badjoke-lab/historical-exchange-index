@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { buildDetailView } from '../../../lib/data/build-detail-view'
+import ExchangeMaterialConcerns from '../../../components/exchange-material-concerns'
 import styles from './dossier-heading.module.css'
 
 type DossierLayoutProps = {
@@ -18,6 +19,7 @@ export default async function DossierLayout({ children, params }: DossierLayoutP
         <p className="muted">Exchange record</p>
         <h1>{title}</h1>
       </section>
+      {detail ? <ExchangeMaterialConcerns entity={detail.entity} events={detail.events} evidence={detail.evidence} /> : null}
       {children}
     </div>
   )
