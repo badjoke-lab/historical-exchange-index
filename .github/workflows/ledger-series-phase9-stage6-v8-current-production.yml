@@ -132,12 +132,14 @@ jobs:
 
       - name: Rebuild and inspect v8 runtime before the one-shot
         env:
+          GITHUB_SHA: ''
           STAGE6_HEI_EXECUTION_SHA: ${{ github.event.pull_request.merge_commit_sha }}
           STAGE6_RESULT_PATH: .stage6/phase9-stage6-v8-current-production-result.json
         run: node scripts/verify-ledger-series-phase9-stage6-current-production-v8.mjs --prepare-only
 
       - name: Run one authorized read-only v8 eight-registry equality check
         env:
+          GITHUB_SHA: ''
           STAGE6_HEI_EXECUTION_SHA: ${{ github.event.pull_request.merge_commit_sha }}
           STAGE6_RESULT_PATH: .stage6/phase9-stage6-v8-current-production-result.json
         run: node scripts/verify-ledger-series-phase9-stage6-current-production-v8.mjs
