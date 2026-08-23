@@ -18,14 +18,16 @@
     {
       "registry_id": "historical-exchange-index",
       "repository": "badjoke-lab/historical-exchange-index",
-      "reviewed_main_before_implementation": "ade94505a7af45223a98340cf7b0c3a2bf1b5fed",
-      "canonical_content_through": "23636622b1a1f6e5514c3bba36583149868b6af2",
+      "reviewed_main_before_implementation": "9f21ab16e17bb3840827714c72483bf8e5764d3c",
+      "canonical_content_through": "9f21ab16e17bb3840827714c72483bf8e5764d3c",
       "allowed_production_build_commits": [
         "23636622b1a1f6e5514c3bba36583149868b6af2",
-        "ade94505a7af45223a98340cf7b0c3a2bf1b5fed"
+        "ade94505a7af45223a98340cf7b0c3a2bf1b5fed",
+        "9f21ab16e17bb3840827714c72483bf8e5764d3c"
       ],
       "origin": "https://hei.badjoke-lab.com",
-      "classification": "v8_authority_merge_after_reviewed_bx69_hcoin_canonical_growth_no_phase9_relationship_change"
+      "classification": "reviewed_bx71_go_exchange_canonical_growth_after_v8_authority_no_phase9_relationship_mutation",
+      "change_review": "PR #848 merged after v8 authority. It adds GO.Exchange as one dead exchange entity with three lifecycle events and eight evidence records. The audit explicitly excludes Ledger Series Phase 9 horizontal changes and infers no predecessor or successor. Frozen Stage 5 HEI relationships remain 21."
     },
     {
       "registry_id": "minted-and-gone",
