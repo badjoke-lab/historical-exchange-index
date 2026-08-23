@@ -19,6 +19,7 @@ const canonicalEntities = load('data/entities.json')
 const canonicalEvents = load('data/events.json')
 const canonicalEvidence = load('data/evidence.json')
 const review = load('config/lineage-l1-dispositions.json')
+const laterReview = load('config/lineage-later-dispositions.json')
 const a4Manifest = load('config/lineage-a4-application.json')
 const { all, newEntityBundles, entityIdMap } = loadReviewedBundles(root, canonicalEntities)
 const projectedEntities = [
@@ -40,6 +41,9 @@ const edgeKey = (entityId, field) => `${entityId}:${field}`
 if (review.version !== 1) fail('review version must be 1')
 if (review.scope !== 'existing_predecessor_successor_edges') fail('unexpected review scope')
 if (!Array.isArray(review.dispositions)) fail('dispositions must be an array')
+if (laterReview.version !== 1) fail('later review version must be 1')
+if (laterReview.scope !== 'post_a3_predecessor_successor_edges') fail('unexpected later review scope')
+if (!Array.isArray(laterReview.dispositions)) fail('later dispositions must be an array')
 
 const currentEdges = []
 for (const entity of entities) {
@@ -50,8 +54,18 @@ for (const entity of entities) {
   }
 }
 
+const frozenKeys = new Set((review.dispositions ?? []).map((item) => edgeKey(item.entity_id, item.field)))
+for (const item of laterReview.dispositions ?? []) {
+  const key = edgeKey(item.entity_id, item.field)
+  if (frozenKeys.has(key)) fail(`later disposition duplicates frozen L1 edge: ${key}`)
+}
+
+const allDispositions = [
+  ...(review.dispositions ?? []).map((item) => ({ ...item, review_layer: 'frozen_l1' })),
+  ...(laterReview.dispositions ?? []).map((item) => ({ ...item, review_layer: 'later_growth' })),
+]
 const dispositionByEdge = new Map()
-for (const item of review.dispositions ?? []) {
+for (const item of allDispositions) {
   const key = edgeKey(item.entity_id, item.field)
   if (dispositionByEdge.has(key)) fail(`duplicate disposition: ${key}`)
   dispositionByEdge.set(key, item)
@@ -104,15 +118,23 @@ for (const key of dispositionByEdge.keys()) {
   }
 }
 
-const counts = {}
-for (const item of review.dispositions ?? []) counts[item.disposition] = (counts[item.disposition] ?? 0) + 1
+const frozenCounts = {}
+for (const item of review.dispositions ?? []) frozenCounts[item.disposition] = (frozenCounts[item.disposition] ?? 0) + 1
+const laterCounts = {}
+for (const item of laterReview.dispositions ?? []) laterCounts[item.disposition] = (laterCounts[item.disposition] ?? 0) + 1
+const totalCounts = {}
+for (const item of allDispositions) totalCounts[item.disposition] = (totalCounts[item.disposition] ?? 0) + 1
 const report = {
   generated_at: new Date().toISOString(),
   baseline: 'pre_a4_review_state',
   projected_public_entities: entities.length,
   current_relationship_edges: currentEdges.length,
-  reviewed_dispositions: review.dispositions?.length ?? 0,
-  disposition_counts: counts,
+  frozen_l1_dispositions: review.dispositions?.length ?? 0,
+  later_dispositions: laterReview.dispositions?.length ?? 0,
+  total_reviewed_dispositions: allDispositions.length,
+  frozen_disposition_counts: frozenCounts,
+  later_disposition_counts: laterCounts,
+  disposition_counts: totalCounts,
   failures,
   status: failures.length === 0 ? 'pass' : 'fail',
 }
@@ -125,10 +147,12 @@ if (outputArg) {
 }
 
 console.log(`Current relationship edges: ${report.current_relationship_edges}`)
-console.log(`Reviewed dispositions: ${report.reviewed_dispositions}`)
+console.log(`Frozen L1 dispositions: ${report.frozen_l1_dispositions}`)
+console.log(`Later dispositions: ${report.later_dispositions}`)
+console.log(`Total reviewed dispositions: ${report.total_reviewed_dispositions}`)
 console.log(`Disposition counts: ${JSON.stringify(report.disposition_counts)}`)
 if (failures.length > 0) {
   for (const failure of failures) console.error(`- ${failure}`)
   process.exit(1)
 }
-console.log('L1 lineage dispositions: pass')
+console.log('L1/later lineage dispositions: pass')
