@@ -79,7 +79,7 @@ assert(baseline.stage5_relationship_counts?.total === 244 && baseline.stage5_rel
 
 const byId = new Map(baseline.registries.map((item) => [item.registry_id, item]))
 const expectedMains = {
-  'historical-exchange-index': 'ade94505a7af45223a98340cf7b0c3a2bf1b5fed',
+  'historical-exchange-index': '9f21ab16e17bb3840827714c72483bf8e5764d3c',
   'minted-and-gone': 'f917d5e25eedc7b2c48091c7343b7fa9cd203428',
   'stable-or-gone': 'ceb30f76c4af2182c866e6966872176b2150c7da',
   'crypto-yield-archive': 'c1291cc891350a8105ffeb53f61522e3c822b7c5',
@@ -97,8 +97,8 @@ const sogBaseline = byId.get('stable-or-gone')
 const cyaBaseline = byId.get('crypto-yield-archive')
 const birBaseline = byId.get('bridge-incident-registry')
 const aiBaseline = byId.get('ai-tools-history-archive')
-assert(heiBaseline.canonical_content_through === '23636622b1a1f6e5514c3bba36583149868b6af2', 'v8 HEI canonical boundary changed')
-assert(JSON.stringify(heiBaseline.allowed_production_build_commits) === JSON.stringify(['23636622b1a1f6e5514c3bba36583149868b6af2','ade94505a7af45223a98340cf7b0c3a2bf1b5fed']), 'v8 HEI allowed production builds changed')
+assert(heiBaseline.canonical_content_through === '9f21ab16e17bb3840827714c72483bf8e5764d3c', 'v8 HEI canonical boundary changed')
+assert(JSON.stringify(heiBaseline.allowed_production_build_commits) === JSON.stringify(['23636622b1a1f6e5514c3bba36583149868b6af2','ade94505a7af45223a98340cf7b0c3a2bf1b5fed','9f21ab16e17bb3840827714c72483bf8e5764d3c']), 'v8 HEI allowed production builds changed')
 assert(sogBaseline.native_checker_fix_through === 'd26d50eba858b3528fdd5713814068ab55956913', 'v8 SOG native checker fix boundary changed')
 assert(sogBaseline.expected_current_canonical_hash === 'sha256:bba93c1e3f0ea1b050cd395455327b70fb7c1920d37b18c300949bb49df53965' && sogBaseline.expected_primary_records === 119 && sogBaseline.expected_relationships === 1, 'v8 SOG current canonical boundary changed')
 assert(JSON.stringify(sogBaseline.allowed_production_build_commits) === JSON.stringify(['e8663a8289033a3a6af7cb19fb31683b2545e61c','d26d50eba858b3528fdd5713814068ab55956913','ceb30f76c4af2182c866e6966872176b2150c7da']), 'v8 SOG allowed production builds changed')
@@ -226,7 +226,7 @@ source = replaceOnce(
 source = replaceOnce(
   source,
   "SOG_BASE_URL: sog.origin, SOG_EXPECTED_COMMIT: sog.production_revision, SOG_SMOKE_ATTEMPTS: '3', SOG_SMOKE_DELAY_MS: '5000',",
-  "SOG_BASE_URL: sog.origin, SOG_EXPECTED_COMMIT: '', SOG_SMOKE_ATTEMPTS: '3', SOG_SMOKE_DELAY_MS: '5000',",
+  "SOG_BASE_URL: sog.origin, SOG_EXPECTED_COMMIT: '', GITHUB_SHA: '', SOG_SMOKE_ATTEMPTS: '3', SOG_SMOKE_DELAY_MS: '5000',",
   'v8 SOG checker build semantics',
 )
 source = replaceOnce(
@@ -300,8 +300,10 @@ source = replaceOnce(source, registryBoundaryNeedle, registryBoundaryReplacement
 assert(!source.includes('ledger-series-phase9-stage6-v5-sog-checker-correction-authority') && !source.includes('ledger-series-phase9-stage6-ai-generation-precondition-authority') && !source.includes('ledger-series-phase9-stage6-v7-runtime-authority-path-correction-authority'), 'v8 runtime retained obsolete authority reference')
 assert(!source.includes('prepareSogV5TransientChecker') && !source.includes('sog_v5_transient_checker'), 'v8 runtime retained transient SOG checker logic')
 assert(source.includes("checker('SOG Stage 5 relationships', 'stable-or-gone', 'scripts/verify-stage5-production.mjs'"), 'v8 runtime does not invoke native SOG Stage 5 checker')
+assert(source.includes("SOG_EXPECTED_COMMIT: '', GITHUB_SHA: ''"), 'v8 runtime does not isolate SOG checker from HEI workflow SHA')
 assert(source.includes('AI Tools workspace-local native generation') && source.includes('AI Tools workspace-local Series generation'), 'v8 runtime lost AI local generation')
 assert(source.includes("'canonical record mutation','relationship mutation'"), 'v8 runtime does not enforce separated mutation prohibitions')
+assert(source.includes("repo_main: \"9f21ab16e17bb3840827714c72483bf8e5764d3c\""), 'v8 runtime HEI reviewed main mismatch')
 assert(source.includes("repo_main: \"ceb30f76c4af2182c866e6966872176b2150c7da\""), 'v8 runtime SOG reviewed main mismatch')
 assert(source.includes("repo_main: \"c1291cc891350a8105ffeb53f61522e3c822b7c5\""), 'v8 runtime CYA reviewed main mismatch')
 assert(source.includes("repo_main: \"f6b542a0f724d4243a77c08b5b1febdb8585a148\""), 'v8 runtime WLR reviewed main mismatch')
@@ -321,10 +323,12 @@ console.log(JSON.stringify({
   execution_baseline_id: baseline.baseline_id,
   original_verifier_sha256: originalSha,
   corrected_from_v7_run_id: 32631652830,
+  reviewed_hei_main: expectedMains['historical-exchange-index'],
   reviewed_sog_main: expectedMains['stable-or-gone'],
   reviewed_cya_main: expectedMains['crypto-yield-archive'],
   reviewed_wlr_main: expectedMains['cryptocurrency-wallet-lifecycle-registry'],
   native_sog_checker: true,
+  sog_github_sha_isolated: true,
   ai_workspace_local_generation: true,
   prepare_only: prepareOnly,
 }, null, 2))
