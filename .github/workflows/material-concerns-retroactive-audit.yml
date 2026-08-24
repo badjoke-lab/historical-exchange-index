@@ -1,0 +1,34 @@
+name: Material concerns retroactive audit
+
+on:
+  pull_request:
+    paths:
+      - 'records/exchanges/**'
+      - 'scripts/audit-material-concerns-retroactive.mjs'
+      - '.github/workflows/material-concerns-retroactive-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate retroactive audit index
+        run: node scripts/audit-material-concerns-retroactive.mjs
+      - name: Print audit summary
+        run: cat docs/audits/material-concerns-retroactive-audit-summary.md
+      - name: Upload audit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: material-concerns-retroactive-audit
+          path: |
+            docs/audits/material-concerns-retroactive-audit-index.json
+            docs/audits/material-concerns-retroactive-audit-summary.md
