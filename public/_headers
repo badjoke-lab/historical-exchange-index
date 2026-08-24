@@ -20,3 +20,5 @@
 
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
+
+# 2026-08-24 production republish trigger for IZAKA-YA publication.
