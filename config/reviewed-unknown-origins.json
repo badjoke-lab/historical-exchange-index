@@ -58,6 +58,11 @@
       "id": "hei_ex_000642",
       "slug": "coincasso",
       "canonical_name": "CoinCasso"
+    },
+    {
+      "id": "hei_ex_001167",
+      "slug": "graviex",
+      "canonical_name": "Graviex"
     }
   ]
 }
