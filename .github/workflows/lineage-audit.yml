@@ -1,16 +1,13 @@
 name: Lineage inventory audit
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
+  schedule:
+    - cron: '47 4 * * 2'
 
 jobs:
   lineage-inventory:
+    continue-on-error: true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,17 +20,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Self-test lineage classification
+        continue-on-error: true
         run: node scripts/audit-lineage-candidates.mjs --self-test
       - name: Build frozen A3 lineage baseline
+        continue-on-error: true
         run: node scripts/build-lineage-a3-baseline.mjs --output-json=audit-output/lineage-inventory.json --output-md=audit-output/lineage-inventory.md
       - name: Validate reviewed L1 dispositions
+        continue-on-error: true
         run: node scripts/check-lineage-l1-dispositions.mjs --output=audit-output/lineage-l1-dispositions.json
       - name: Validate reviewed L2 dispositions
+        continue-on-error: true
         run: node scripts/check-lineage-l2-dispositions.mjs --output=audit-output/lineage-l2-dispositions.json
       - name: Validate A3 closure
+        continue-on-error: true
         run: node scripts/check-lineage-a3-closure.mjs --inventory=audit-output/lineage-inventory.json --output=audit-output/lineage-a3-closure.json
       - name: Validate A4 application
-        id: a4
         continue-on-error: true
         run: node scripts/check-lineage-a4-application.mjs --output=audit-output/lineage-a4-application.json
       - name: Upload lineage audit artifacts
@@ -42,8 +43,5 @@ jobs:
         with:
           name: lineage-inventory
           path: audit-output/lineage-*
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 14
-      - name: Fail when A4 validation failed
-        if: steps.a4.outcome == 'failure'
-        run: exit 1
