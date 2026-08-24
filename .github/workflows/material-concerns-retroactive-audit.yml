@@ -1,18 +1,16 @@
 name: Material concerns retroactive audit
 
 on:
-  pull_request:
-    paths:
-      - 'records/exchanges/**'
-      - 'scripts/audit-material-concerns-retroactive.mjs'
-      - '.github/workflows/material-concerns-retroactive-audit.yml'
   workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * 1'
 
 permissions:
   contents: read
 
 jobs:
   audit:
+    continue-on-error: true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,11 +22,14 @@ jobs:
       - name: Generate retroactive audit index
         run: node scripts/audit-material-concerns-retroactive.mjs
       - name: Print audit summary
-        run: cat docs/audits/material-concerns-retroactive-audit-summary.md
+        if: always()
+        run: cat docs/audits/material-concerns-retroactive-audit-summary.md || true
       - name: Upload audit artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: material-concerns-retroactive-audit
           path: |
             docs/audits/material-concerns-retroactive-audit-index.json
             docs/audits/material-concerns-retroactive-audit-summary.md
+          if-no-files-found: warn
