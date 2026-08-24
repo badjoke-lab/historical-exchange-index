@@ -1,6 +1,11 @@
 name: Material concerns retroactive audit
 
 on:
+  pull_request:
+    paths:
+      - 'records/exchanges/**'
+      - 'scripts/audit-material-concerns-retroactive.mjs'
+      - '.github/workflows/material-concerns-retroactive-audit.yml'
   workflow_dispatch:
   schedule:
     - cron: '17 3 * * 1'
@@ -10,7 +15,6 @@ permissions:
 
 jobs:
   audit:
-    continue-on-error: true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,8 +23,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Generate retroactive audit index
-        run: node scripts/audit-material-concerns-retroactive.mjs
+      - name: Generate retroactive audit index (advisory only)
+        shell: bash
+        run: |
+          set +e
+          node scripts/audit-material-concerns-retroactive.mjs
+          status=$?
+          if [ "$status" -ne 0 ]; then
+            echo "::warning::Retroactive full-corpus audit reported issues. This is advisory maintenance and does not block publication."
+          fi
+          exit 0
       - name: Print audit summary
         if: always()
         run: cat docs/audits/material-concerns-retroactive-audit-summary.md || true
