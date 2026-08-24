@@ -14,7 +14,7 @@
     "launch_date": "2020-02-01",
     "death_date": "2023-03-31",
     "country_or_origin": "United States",
-    "summary": "LINE-backed global centralized cryptocurrency exchange operated by LVC USA Inc. It announced a phased voluntary shutdown in late 2022 and scheduled withdrawals to end on 2023-03-31.",
+    "summary": "LINE-backed global centralized cryptocurrency exchange operated by LVC USA Inc. It announced a phased voluntary shutdown on 2022-11-28 and scheduled withdrawals to end on 2023-03-31.",
     "official_url_original": "https://www.bitfront.me/",
     "official_domain_original": "bitfront.me",
     "official_url_status": "unknown",
@@ -22,11 +22,71 @@
     "predecessor_id": "hei_ex_000302",
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-05-22",
-    "notes": "Entity death date uses the end of withdrawals and service termination rather than the announcement date."
+    "last_verified_at": "2026-08-24",
+    "notes": "Entity death date uses the end of the announced withdrawal/service wind-down rather than the announcement date. LINE Blockchain's 2022-11-28 notice states that BITFRONT was being shut down to focus resources on the LINE Blockchain ecosystem; contemporary Reuters reporting independently corroborated the phased closure schedule."
   },
-  "events": [],
-  "evidence": [],
+  "events": [
+    {
+      "id": "hei_ev_010200",
+      "exchange_id": "hei_ex_000128",
+      "event_type": "shutdown_announced",
+      "event_date": "2022-11-28",
+      "title": "BITFRONT announced a phased shutdown",
+      "description": "LINE Blockchain announced that BITFRONT would shut down, with new sign-ups and credit-card payments suspended and the service proceeding through a phased wind-down ending with withdrawals on 2023-03-31.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "inactive",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "The operator framed the closure as a strategic voluntary shutdown rather than an insolvency or misconduct event."
+    },
+    {
+      "id": "hei_ev_010201",
+      "exchange_id": "hei_ex_000128",
+      "event_type": "shutdown_effective",
+      "event_date": "2023-03-31",
+      "title": "BITFRONT withdrawal wind-down reached its announced end date",
+      "description": "The shutdown schedule announced by BITFRONT set 2023-03-31 as the end date for withdrawals and the terminal point used by HEI for the service lifecycle.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "dead",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "HEI uses the operator-published shutdown schedule as the lifecycle boundary."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012700",
+      "exchange_id": "hei_ex_000128",
+      "event_id": "hei_ev_010200",
+      "source_type": "official_blog",
+      "title": "[NOTICE] BITFRONT Exchange to Close",
+      "url": "https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+      "publisher": "LINE Blockchain Team",
+      "published_at": "2022-11-28",
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+      "accessed_at": "2026-08-24",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party LINE Blockchain notice announcing the BITFRONT shutdown and explaining the operator's stated strategic rationale."
+    },
+    {
+      "id": "hei_src_012701",
+      "exchange_id": "hei_ex_000128",
+      "event_id": "hei_ev_010201",
+      "source_type": "news_article",
+      "title": "Crypto exchange Bitfront shuts down",
+      "url": "https://www.investing.com/news/stock-market-news/crypto-exchange-bitfront-shuts-down-2953252",
+      "publisher": "Reuters",
+      "published_at": "2022-11-29",
+      "archived_url": null,
+      "accessed_at": "2026-08-24",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Independent contemporaneous report corroborating the phased closure and the announced 2023-03-31 withdrawal end date."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000128",
     "expected": {
