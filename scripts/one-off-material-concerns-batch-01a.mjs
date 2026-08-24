@@ -45,3 +45,5 @@ coinbase.entity_correction = {
   }
 }
 write(coinbasePath, coinbase)
+
+// trigger the one-shot branch build after the workflow file exists
