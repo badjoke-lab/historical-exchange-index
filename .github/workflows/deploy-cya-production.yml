@@ -60,3 +60,5 @@ jobs:
               issue_number: 853,
               body: `CYA cross-repo production deploy finished.\n\n- Result: **${{ job.status }}**\n- CYA source: \`e2cb11be7af4bf03212e265247da302938ba2245\`\n- Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
             })
+
+# Execute cross-repo CYA publication now.
