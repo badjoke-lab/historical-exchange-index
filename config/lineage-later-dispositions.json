@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "reviewed_at": "2026-08-23",
+  "reviewed_at": "2026-08-25",
   "scope": "post_a3_predecessor_successor_edges",
   "dispositions": [
     {
@@ -26,6 +26,30 @@
       "rationale": "Klickl is the reviewed successor brand to IDCM. The reciprocal predecessor/successor pair records the same one-to-one rebrand continuity from the successor side.",
       "event_ids": ["hei_ev_010135"],
       "evidence_ids": ["hei_src_012605", "hei_src_012606", "hei_src_012608"]
+    },
+    {
+      "entity_id": "hei_ex_000585",
+      "entity_name": "Bitpanda Pro",
+      "field": "successor_id",
+      "target_id": "hei_ex_001171",
+      "target_name": "One Trading",
+      "disposition": "keep_bidirectional",
+      "continuity_status": "official_brand_rebrand",
+      "rationale": "Reviewed Bitpanda and One Trading material establishes that Bitpanda Pro was spun out and rebranded as One Trading on 2023-06-28 with customer and account continuity. The reciprocal successor/predecessor pair is the intended canonical lineage.",
+      "event_ids": ["hei_ev_010044", "hei_ev_010154"],
+      "evidence_ids": ["hei_src_011113", "hei_src_011115", "hei_src_012647", "hei_src_012648"]
+    },
+    {
+      "entity_id": "hei_ex_001171",
+      "entity_name": "One Trading",
+      "field": "predecessor_id",
+      "target_id": "hei_ex_000585",
+      "target_name": "Bitpanda Pro",
+      "disposition": "keep_bidirectional",
+      "continuity_status": "official_brand_rebrand",
+      "rationale": "One Trading is the reviewed active successor identity to Bitpanda Pro. Current 2026 first-party exchange terms establish a continuing Dutch-operated venue, while predecessor and successor materials establish the exact rebrand continuity.",
+      "event_ids": ["hei_ev_010044", "hei_ev_010154"],
+      "evidence_ids": ["hei_src_011113", "hei_src_011115", "hei_src_012647", "hei_src_012648", "hei_src_012649"]
     }
   ]
 }

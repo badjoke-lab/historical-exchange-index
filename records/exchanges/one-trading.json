@@ -1,0 +1,104 @@
+{
+  "entity": {
+    "id": "hei_ex_001171",
+    "slug": "one-trading",
+    "canonical_name": "One Trading",
+    "aliases": [
+      "One Trading Exchange"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2023-06-28",
+    "death_date": null,
+    "country_or_origin": "Netherlands",
+    "summary": "Dutch-operated centralized crypto trading venue created when Bitpanda Pro was spun out and rebranded as One Trading on 2023-06-28. Current first-party terms identify One Trading Exchange B.V. as an AFM-supervised investment firm and MiCA crypto-asset service provider operating a crypto-asset trading platform.",
+    "official_url_original": "https://www.onetrading.com/",
+    "official_domain_original": "onetrading.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.onetrading.com/",
+    "predecessor_id": "hei_ex_000585",
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "notes": "One Trading is the reviewed successor identity to Bitpanda Pro. The 2023-06-28 date is the exact public identity transition marker established by the existing Bitpanda Pro rebrand record and corroborating reporting; it does not imply a break in underlying customer-account continuity. Current 2026 first-party terms and site entry points demonstrate an active exchange identity operated by One Trading Exchange B.V. in the Netherlands. HEI models One Trading separately from the terminal Bitpanda Pro brand and links the pair bidirectionally rather than treating the current venue as a duplicate alias."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010154",
+      "exchange_id": "hei_ex_001171",
+      "event_type": "launched",
+      "event_date": "2023-06-28",
+      "title": "One Trading identity launched through the Bitpanda Pro spin-out and rebrand",
+      "description": "Bitpanda Pro separated from Bitpanda and adopted the One Trading identity while preserving customer and account continuity on the successor platform.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "HEI uses the exact rebrand/spin-out date as the launch marker for the One Trading successor identity. This is an identity transition, not a claim that the underlying exchange service started from zero on that date."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012647",
+      "exchange_id": "hei_ex_001171",
+      "event_id": "hei_ev_010154",
+      "source_type": "official_statement",
+      "title": "Why is Bitpanda Pro evolving to become One Trading?",
+      "url": "https://support.bitpanda.com/hc/en-us/articles/9374684386332-Why-is-Bitpanda-Pro-evolving-to-become-One-Trading",
+      "publisher": "Bitpanda",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://support.bitpanda.com/hc/en-us/articles/9374684386332-Why-is-Bitpanda-Pro-evolving-to-become-One-Trading",
+      "accessed_at": "2026-08-25",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party predecessor material documents the spin-out and rebrand from Bitpanda Pro to One Trading and explains customer/account continuity across the transition."
+    },
+    {
+      "id": "hei_src_012648",
+      "exchange_id": "hei_ex_001171",
+      "event_id": "hei_ev_010154",
+      "source_type": "news_article",
+      "title": "Bitpanda’s crypto exchange separates from Bitpanda and secures $33 million",
+      "url": "https://techcrunch.com/2023/06/28/bitpandas-crypto-exchange-separates-from-bitpanda-and-secures-33-million/",
+      "publisher": "TechCrunch",
+      "published_at": "2023-06-28",
+      "archived_url": "https://web.archive.org/web/*/https://techcrunch.com/2023/06/28/bitpandas-crypto-exchange-separates-from-bitpanda-and-secures-33-million/",
+      "accessed_at": "2026-08-25",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Independent contemporaneous reporting dates the Bitpanda Pro separation and One Trading identity to 2023-06-28."
+    },
+    {
+      "id": "hei_src_012649",
+      "exchange_id": "hei_ex_001171",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "One Trading Terms of Service",
+      "url": "https://www.onetrading.com/terms",
+      "publisher": "One Trading",
+      "published_at": "2026-06-15",
+      "archived_url": "https://web.archive.org/web/*/https://www.onetrading.com/terms",
+      "accessed_at": "2026-08-25",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party terms identify One Trading Exchange B.V., show terms effective from 2026-06-15, give its Amsterdam registered address, and state AFM supervision plus authorization to operate a crypto-asset trading platform under MiCA."
+    },
+    {
+      "id": "hei_src_012650",
+      "exchange_id": "hei_ex_001171",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "One Trading About",
+      "url": "https://www.onetrading.com/about",
+      "publisher": "One Trading",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.onetrading.com/about",
+      "accessed_at": "2026-08-25",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party corporate page supports the continuing One Trading identity; the wider current site exposes Trade, Exchange, account opening and login entry points under the same operator brand."
+    }
+  ]
+}
