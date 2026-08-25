@@ -16,10 +16,10 @@
     "official_url_status": "repurposed",
     "archived_url": "https://web.archive.org/web/*/https://exchange.bitpanda.com/",
     "predecessor_id": null,
-    "successor_id": null,
+    "successor_id": "hei_ex_001171",
     "confidence": "high",
-    "last_verified_at": "2026-07-03",
-    "notes": "HEI treats Bitpanda Global Exchange and Bitpanda Pro as one continuous exchange identity. The terminal marker is the 2023-06-28 spin-out and rebrand to One Trading. One Trading is not yet a canonical HEI entity, so successor_id remains null. The original Bitpanda exchange URL is classified as repurposed because the professional exchange now operates under the One Trading identity."
+    "last_verified_at": "2026-08-25",
+    "notes": "HEI treats Bitpanda Global Exchange and Bitpanda Pro as one continuous exchange identity. The terminal marker is the 2023-06-28 spin-out and rebrand to One Trading. One Trading is now separately reviewed as canonical successor hei_ex_001171, so this record links to that continuing identity through successor_id. The original Bitpanda exchange URL is classified as repurposed because the professional exchange now operates under the One Trading identity."
   },
   "events": [
     {
