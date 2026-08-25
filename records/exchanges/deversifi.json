@@ -1,0 +1,101 @@
+{
+  "entity": {
+    "id": "hei_ex_001170",
+    "slug": "deversifi",
+    "canonical_name": "DeversiFi",
+    "aliases": ["DeversiFi Exchange"],
+    "type": "dex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": "2020-06-03",
+    "death_date": "2022-07-13",
+    "country_or_origin": "Global",
+    "summary": "Ethereum layer-2 order-book decentralized exchange launched in June 2020. On 2022-07-13 DeversiFi became rhino.fi as the project expanded from a pure-play exchange into a broader multi-chain DeFi platform.",
+    "official_url_original": "https://deversifi.com/",
+    "official_domain_original": "deversifi.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://deversifi.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-25",
+    "notes": "First-party rhino.fi retrospectives establish that DeversiFi was unveiled on 2020-06-03 as an Ethereum layer-2 exchange and later describe it explicitly as an orderbook DEX. On 2022-07-13 the project announced that DeversiFi became rhino.fi and shifted toward a broader multi-chain DeFi gateway. HEI classifies the historical DeversiFi exchange identity as rebranded rather than dead. No successor_id is assigned in this batch because current rhino.fi has evolved beyond a pure exchange into broader bridging, stablecoin and infrastructure products; forcing a canonical exchange lineage edge would overstate scope continuity."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010152",
+      "exchange_id": "hei_ex_001170",
+      "event_type": "launched",
+      "event_date": "2020-06-03",
+      "title": "DeversiFi launched as an Ethereum layer-2 exchange",
+      "description": "DeversiFi was unveiled on 2020-06-03 as an Ethereum layer-2 protocol focused on gas-free, scalable trading.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "The date comes from a first-party one-year retrospective published on 2021-06-03."
+    },
+    {
+      "id": "hei_ev_010153",
+      "exchange_id": "hei_ex_001170",
+      "event_type": "rebranded",
+      "event_date": "2022-07-13",
+      "title": "DeversiFi became rhino.fi",
+      "description": "DeversiFi announced that it had become rhino.fi, changing the project identity while expanding from a pure-play layer-2 exchange into a broader multi-chain DeFi platform.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "rebranded",
+      "source_count": 1,
+      "sort_order": 2,
+      "notes": "This is a rebrand and product-scope transition, not an insolvency, exploit or service-failure event."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012644",
+      "exchange_id": "hei_ex_001170",
+      "event_id": "hei_ev_010152",
+      "source_type": "official_blog",
+      "title": "1 year helping DeFi scale",
+      "url": "https://rhino.fi/blog/one-year-helping-defi-scale/",
+      "publisher": "DeversiFi / rhino.fi",
+      "published_at": "2021-06-03",
+      "archived_url": "https://web.archive.org/web/*/https://rhino.fi/blog/one-year-helping-defi-scale/",
+      "accessed_at": "2026-08-25",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "First-party retrospective states that DeversiFi was unveiled on 2020-06-03 and records $300 million traded in its first year."
+    },
+    {
+      "id": "hei_src_012645",
+      "exchange_id": "hei_ex_001170",
+      "event_id": "hei_ev_010153",
+      "source_type": "official_blog",
+      "title": "Introducing rhino.fi: A Frictionless Gateway to Multi-chain DeFi",
+      "url": "https://rhino.fi/blog/introducing-rhino-fi-the-first-frictionless-gateway-to-multi-chain-defi/",
+      "publisher": "rhino.fi",
+      "published_at": "2022-07-13",
+      "archived_url": "https://web.archive.org/web/*/https://rhino.fi/blog/introducing-rhino-fi-the-first-frictionless-gateway-to-multi-chain-defi/",
+      "accessed_at": "2026-08-25",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party announcement states: today DeversiFi becomes rhino.fi, and explains the move from layer-2 trading toward a broader multi-chain DeFi platform."
+    },
+    {
+      "id": "hei_src_012646",
+      "exchange_id": "hei_ex_001170",
+      "event_id": null,
+      "source_type": "official_blog",
+      "title": "Plan for DVF purchase",
+      "url": "https://rhino.fi/blog/plan-for-dvf-purchase",
+      "publisher": "rhino.fi",
+      "published_at": "2024-08-07",
+      "archived_url": "https://web.archive.org/web/*/https://rhino.fi/blog/plan-for-dvf-purchase",
+      "accessed_at": "2026-08-25",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "First-party retrospective describes DeversiFi as an orderbook DEX that began in June 2020 and says the project later pivoted to rhino.fi while deprioritizing the DEX, supporting the historical exchange-to-broader-platform scope transition."
+    }
+  ]
+}
