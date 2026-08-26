@@ -1,0 +1,69 @@
+{
+  "package_type": "manual_research_candidates",
+  "created_at": "2026-08-27",
+  "issue": 888,
+  "purpose": "Representation candidates discovered while resolving Lisk Chain shutdown dependencies. Not canonical. No entity status change is implied by the Lisk Chain shutdown itself.",
+  "candidates": [
+    {
+      "candidate_key": "candidate:bitmama",
+      "canonical_name": "Bitmama",
+      "aliases": ["Bitmama Exchange"],
+      "candidate_class": "A",
+      "likely_type": "cex",
+      "likely_status": "active",
+      "record_shape": "new_entity",
+      "hei_relevance": "Bitmama independently meets HEI exchange scope: its current first-party site describes crypto buy/sell/trade services, its About page says it started in 2017 as a P2P digital currency exchange, and Lisk documentation lists Bitmama as an LSK venue using the Lisk network.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "method": "repository code search on 2026-08-27",
+        "notes": "No distinct canonical Bitmama record was returned by the repository search used for this review."
+      },
+      "source_urls": [
+        "https://bitmama.io/",
+        "https://bitmama.io/about/",
+        "https://bitmama.io/p2p-exchange/",
+        "https://docs.lisk.com/lisk-chain/lisk-tools/exchanges/"
+      ],
+      "source_quality": "high",
+      "next_action": "research_for_public_quality_active_entity_record",
+      "lisk_dependency": {
+        "baseline": "Lisk documentation lists Bitmama with supported network Lisk and pair LSK/NGN.",
+        "current_first_party_lsk_handling": "Bitmama current public site still lists Lisk among supported cryptocurrencies, but no first-party post-shutdown network migration/deprecation notice was found in this pass.",
+        "canonical_event_now": false
+      }
+    },
+    {
+      "candidate_key": "candidate:okcoin-japan",
+      "canonical_name": "OKCoin Japan",
+      "aliases": ["OKJ", "OKX Japan"],
+      "candidate_class": "A",
+      "likely_type": "cex",
+      "likely_status": "active",
+      "record_shape": "new_entity_or_regional_entity",
+      "hei_relevance": "OKCoin Japan is a separately registered Japanese crypto-asset exchange operator, not merely a display alias of global OKX. Japan FSA records list OKCoin Japan K.K. as a registered operator and include LSK among handled assets. Current OKJ support pages also continue to identify LSK on the Lisk network.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "method": "repository code search on 2026-08-27",
+        "notes": "Current repository search returned the Lisk audit but no distinct canonical OKCoin Japan/OKJ record. Existing global OKX record must not absorb the Japanese regulated entity without an explicit lineage/identity decision."
+      },
+      "source_urls": [
+        "https://www.fsa.go.jp/en/regulated/licensed/en_kasoutuka.pdf",
+        "https://support.okcoin.jp/hc/ja/categories/360002138653-%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B",
+        "https://support.okcoin.jp/hc/ja/articles/19076270598041-%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB%E3%83%AB%E3%83%BC%E3%83%AB%E5%AF%BE%E5%BF%9C%E3%81%AB%E4%BC%B4%E3%81%84%E5%87%BA%E5%BA%AB%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E6%9A%97%E5%8F%B7%E8%B3%87%E7%94%A3%E3%81%AF%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8B",
+        "https://docs.lisk.com/lisk-chain/lisk-tools/exchanges/"
+      ],
+      "source_quality": "high",
+      "next_action": "resolve_regional_entity_boundary_then_research_for_public_quality_record",
+      "lisk_dependency": {
+        "baseline": "Lisk documentation lists OkCoin/OKX Japan/OKJ with supported network Lisk and pair LSK/JPY.",
+        "current_first_party_lsk_handling": "OKJ support documentation still names LSK (Lisk) in withdrawal/network guidance. A 2026-07-07 notice temporarily suspended Optimism-network and LSK-network deposits/withdrawals, showing that OKJ still operates an explicit LSK network support surface in 2026.",
+        "canonical_event_now": false
+      }
+    }
+  ],
+  "canonical_safety": {
+    "entities_changed": false,
+    "events_changed": false,
+    "evidence_changed": false
+  }
+}
