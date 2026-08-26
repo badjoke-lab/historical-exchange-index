@@ -66,6 +66,37 @@ Uniswap and Aerodrome are relevant to the broader LSK liquidity/network-transiti
 
 Current search finds OKX canonical and references to OkCoin/OKJ in audit/entity material, but this checkpoint does not yet assert whether HEI should represent OKJ as a separate entity, regional entity, alias/lineage, or product-level continuation. Resolve identity boundary before any Lisk-related record action.
 
+## Current first-party venue verification
+
+### Crypto.com — direct Lisk-network support still active in latest first-party limits table
+
+Crypto.com's EEA Fees & Limits documentation, published 2026-05-19 and still available in the current help center, lists:
+
+```text
+LSK | Lisk L2 | Deposit Status: Y
+```
+
+The same current Crypto.com Exchange markets surface still lists an active LSK/USD market.
+
+Sources:
+- https://help.crypto.com/en/articles/10981986-fees-limits-eea
+- https://crypto.com/exchange-pro/en-US/markets/crypto
+
+Interpretation as of this checkpoint:
+
+- Crypto.com remains an active exchange entity.
+- LSK trading remains available.
+- The latest first-party deposit table found still exposes LSK over `Lisk L2`.
+- No first-party Crypto.com shutdown/migration notice tied to the 2026-10-31 Lisk Chain closure was found in this sweep.
+- Therefore there is **no HEI entity-status change** and no canonical shutdown event justified for Crypto.com now.
+- Keep Crypto.com in the Lisk dependency watch until a network migration/deprecation notice appears or the 2026-10-31 effective-state check is completed.
+
+This is useful because it establishes a pre-shutdown baseline: at least one major canonical HEI exchange still exposes direct Lisk-network LSK support in current first-party documentation.
+
+### Other direct-Lisk venues
+
+Current broad first-party searches did not yet yield a reliable 2026 shutdown/migration announcement for Indodax, OKX, Quidax, Upbit, XT.com, Bitmama, Velodrome, OKJ, or Oku Trade. Absence of a search result is not evidence of no change. These remain open research items.
+
 ## HEI lifecycle interpretation
 
 The shutdown signal must not be converted into whole-entity death for a venue merely because one supported network disappears.
@@ -88,14 +119,14 @@ For Uniswap/Oku infrastructure on Lisk, keep protocol/entity identity separate f
 
 ### Priority A — direct Lisk-network venues already canonical
 
-- Crypto.com
+- Crypto.com — current Lisk L2 support baseline captured; keep open for migration/deprecation notice.
 - Indodax
 - OKX
 - Quidax
 - Upbit
 - XT.com
 
-For each, obtain first-party current LSK deposit/withdrawal network guidance and any migration/deprecation announcement.
+For each unresolved venue, obtain first-party current LSK deposit/withdrawal network guidance and any migration/deprecation announcement.
 
 ### Priority B — representation gaps / identity work
 
@@ -117,6 +148,7 @@ Canonical `event + evidence` work is justified only when a reviewed source estab
 
 ## Next checkpoints
 
+- continue first-party venue-by-venue support/migration verification
 - pre-shutdown migration/support review before 2026-10-31
 - effective-state verification on/after 2026-10-31
 - DAO proposal execution remains tracked separately from Chain shutdown
