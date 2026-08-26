@@ -163,15 +163,63 @@ Interpretation:
 - continue searching for an official OKX deposit/withdrawal migration or deprecation notice;
 - no HEI entity-status change justified.
 
-### Still unresolved in this sweep
+### XT.com — exchange is active, but current public guide does not expose LSK-specific network state
 
-- XT.com
+XT.com's current first-party deposit and withdrawal guides, published 2026-01-05 and 2026-01-07, confirm that XT.com remains an active exchange and requires users to select a supported network for each asset. These guides do not expose an LSK-specific network row, so they are insufficient to prove whether XT still has direct Lisk-network LSK deposits/withdrawals after the Lisk shutdown announcement.
+
+Sources:
+- https://www.xt.com/en/blog/post/step-by-step-guide-how-to-deposit-on-xt-com
+- https://www.xt.com/en/blog/post/step-by-step-guide-how-to-withdraw-on-xt-com
+
+Interpretation:
+- XT.com entity remains active;
+- no LSK-specific migration/deprecation notice located in this pass;
+- current public guides do not establish current LSK network support one way or the other;
+- keep XT.com unresolved at the network-support level, with no canonical HEI status change.
+
+## DEX / frontend dependency verification
+
+### Oku Trade — direct Lisk Uniswap-v3 infrastructure is documented
+
+Oku Trade's current deployed-contract documentation contains a dedicated **Lisk** section with Uniswap-v3-style core/periphery contracts, including a v3 Core Factory, Universal Router, Proxy Admin, Tick Lens, position manager/migrator, quoter/router, Permit2 and related contracts.
+
+Source:
+- https://docs.oku.trade/home/extra-information/deployed-contracts
+
+Oku's official-links documentation identifies `oku.trade/app/` as the trading surface and `oku.trade/info/` as analytics.
+
+Source:
+- https://docs.oku.trade/home/extra-information/official-links
+
+Interpretation:
+- Oku has a real Lisk deployment/infrastructure dependency, not merely a generic mention;
+- this still does not automatically make Oku a separate HEI canonical exchange entity if HEI treats the underlying exchange identity at the Uniswap/protocol level;
+- because HEI currently defers deployment-level modeling, the Lisk closure should remain a deployment/frontend research signal unless Oku itself announces an entity-level product shutdown or migration that warrants a separate HEI event;
+- current source establishes a strong pre-shutdown Lisk deployment baseline.
+
+### Velodrome — direct Lisk exposure plus independently established Celo presence
+
+Lisk's own exchange-support documentation lists **Velodrome** as the decentralized exchange supporting LSK on the Lisk network.
+
+Separately, Celo ecosystem reporting states that **Velodrome launched on Celo in 2025**, before the 2026 Lisk shutdown announcement.
+
+Sources:
+- https://docs.lisk.com/lisk-chain/lisk-tools/exchanges/
+- https://forum.celo.org/t/celebrating-celo-s-five-years-vision-2030-a-trillion-dollar-onchain-economy-built-on-celo-a-battle-for-crypto-s-soul/11041
+
+Interpretation:
+- Velodrome already has a Celo presence independent of the 2026 Lisk migration process;
+- therefore a future Lisk->Celo disposition must not be described as proof that Velodrome as an entity is moving wholesale from Lisk to Celo;
+- the unresolved question is specifically the fate of the **Lisk deployment/support surface**;
+- no evidence in this pass establishes that the Lisk deployment has already migrated, terminated, or been scheduled for termination;
+- no whole-entity dead/inactive change is justified.
+
+### Still unresolved after this pass
+
 - Bitmama
-- Velodrome
-- OKJ
-- Oku Trade
+- OKJ / OkCoin Japan identity and current LSK network handling
 
-Absence of a search result is not evidence of no change. These remain open research items.
+These remain open because current public search did not yield sufficient first-party material to resolve them safely. Absence of a result is not treated as evidence of no change.
 
 ## HEI lifecycle interpretation
 
@@ -200,14 +248,14 @@ For Uniswap/Oku infrastructure on Lisk, keep protocol/entity identity separate f
 - Quidax — current deposits/withdrawals-enabled Lisk network baseline captured.
 - Upbit — current LSK=Lisk withdrawal-network baseline captured.
 - OKX — informational awareness found; operational migration notice still unresolved.
-- XT.com — unresolved.
+- XT.com — active exchange baseline confirmed; LSK-specific network state still unresolved.
 
 ### Priority B — representation gaps / identity work
 
-- Bitmama — determine HEI scope and whether it warrants a canonical exchange record independent of the Lisk event.
-- Velodrome — determine current HEI representation/backlog status and Lisk-deployment disposition.
-- OKJ — resolve entity/lineage boundary relative to OKX/OkCoin.
-- Oku Trade — determine whether it is an exchange entity for HEI or infrastructure/frontend associated with Uniswap routing/deployments.
+- Bitmama — unresolved; determine HEI scope and current LSK handling.
+- Velodrome — direct Lisk exposure confirmed; Celo presence predates this shutdown; Lisk deployment disposition still unresolved.
+- OKJ — unresolved; resolve entity/lineage boundary relative to OKX/OkCoin and current LSK handling.
+- Oku Trade — Lisk deployed-contract baseline confirmed; likely deployment/frontend-level rather than a whole new HEI entity unless separate scope is justified.
 
 ### Priority C — broader token/liquidity context, not direct Lisk-chain dependency from the exchange table
 
@@ -222,8 +270,9 @@ Canonical `event + evidence` work is justified only when a reviewed source estab
 
 ## Next checkpoints
 
-- finish XT.com / Bitmama / Velodrome / OKJ / Oku Trade first-party review;
+- finish Bitmama and OKJ/OkCoin Japan first-party review;
 - continue migration/deprecation notice checks for all captured live dependencies;
+- specifically re-check Velodrome and Oku Lisk deployment disposition as the closure date approaches;
 - pre-shutdown migration/support review before 2026-10-31;
 - effective-state verification on/after 2026-10-31;
 - DAO proposal execution remains tracked separately from Chain shutdown;
