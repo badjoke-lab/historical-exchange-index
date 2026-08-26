@@ -10,7 +10,7 @@
     "launch_date": null,
     "death_date": null,
     "country_or_origin": "Hong Kong",
-    "summary": "Crypto-asset wallet and trading service combining lending, custodial account and wallet functions, crypto-to-crypto swapping, card purchase access, and a project model that describes smart-contract-based permissionless finance. The service remains active; current first-party terms state that ordinary lending and swap use does not require KYC while campaign participation does. Active status and operator claims are not treated as a safety, compliance, or endorsement signal.",
+    "summary": "Crypto-asset wallet and trading service combining lending, custodial account and wallet functions, crypto-to-crypto swapping, card purchase access, and a project model that describes smart-contract-based permissionless finance. The service remains active, but on 2026-08-24 the operator disclosed temporary transfer and withdrawal restrictions for some accounts under investigation and warned that ordinary transfers and withdrawals could take longer during enhanced monitoring. Active status and operator claims are not treated as a safety, compliance, or endorsement signal.",
     "official_url_original": "https://izakaya.tech/",
     "official_domain_original": "izakaya.tech",
     "official_url_status": "live_verified",
@@ -18,8 +18,8 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
-    "last_verified_at": "2026-08-23",
-    "notes": "The current first-party service exposes account-based wallet, lending, swap and crypto-purchase functions. First-party project documentation describes permissionless smart-contract-based lending, swap and token-management architecture, while the live support surface documents email/password accounts, managed balances, internal transfers and service-side transaction history. HEI therefore uses hybrid rather than classifying the service as purely centralized or purely decentralized. The first-party company page identifies Izakaya Limited and a Hong Kong operating address, supporting Hong Kong as country_or_origin. It states a service start month of December 2023, but because no exact day is established HEI leaves launch_date null. A 2026-07-23 operator notice states that ordinary lending and swap usage does not require KYC and campaign participation does; HEI records that policy as a material operating fact without inferring legal compliance or non-compliance. IZAKA-YA and CryptoPanda are treated as separate entities; their documented integration is recorded as a collaboration event rather than an alias or lineage relationship."
+    "last_verified_at": "2026-08-25",
+    "notes": "The current first-party service exposes account-based wallet, lending, swap and crypto-purchase functions. First-party project documentation describes permissionless smart-contract-based lending, swap and token-management architecture, while the live support surface documents email/password accounts, managed balances, internal transfers and service-side transaction history. HEI therefore uses hybrid rather than classifying the service as purely centralized or purely decentralized. The first-party company page identifies Izakaya Limited and a Hong Kong operating address, supporting Hong Kong as country_or_origin. It states a service start month of December 2023, but because no exact day is established HEI leaves launch_date null. A 2026-07-23 operator notice stated that ordinary lending and swap usage did not require KYC and campaign participation did. On 2026-08-24 the operator announced KYC would become mandatory for all users and disclosed temporary transfer/withdrawal restrictions for some investigated accounts. HEI records these as operating-policy and restriction events without inferring legal compliance, insolvency, universal withdrawal failure, or the truth of any allegation beyond the operator statement. IZAKA-YA and CryptoPanda are treated as separate entities; their documented integration is recorded as a collaboration event rather than an alias or lineage relationship."
   },
   "events": [
     {
@@ -50,6 +50,20 @@
       "source_count": 1,
       "sort_order": 2,
       "notes": "Recorded as a material operating-policy event. HEI does not infer regulatory compliance, non-compliance, licence status, or safety from the operator's KYC statement alone."
+    },
+    {
+      "id": "hei_ev_010149",
+      "exchange_id": "hei_ex_001154",
+      "event_type": "withdrawal_suspended",
+      "event_date": "2026-08-24",
+      "title": "IZAKA-YA disclosed temporary transfer and withdrawal restrictions for some accounts",
+      "description": "IZAKA-YA stated that suspected illicit-fund inflows or money-laundering signals had been identified in some transactions and that affected accounts were temporarily restricted from transfers and withdrawals while being investigated. The operator stated that this was not a uniform platform-wide halt and that ordinary transfers and withdrawals could also take longer during enhanced monitoring.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 3,
+      "notes": "Records the operator's first-party notice and its stated scope. HEI does not infer insolvency, a universal withdrawal freeze, customer loss, or criminal conduct by any specific user from this notice alone. The same notice also changed the previously stated KYC boundary by announcing mandatory KYC for all IZAKA-YA users."
     }
   ],
   "evidence": [
@@ -142,6 +156,36 @@
       "reliability": "high",
       "claim_scope": "event",
       "notes": "First-party statement that standard lending and swap use does not require KYC and that campaign participation does. HEI records the policy statement without converting it into a legal conclusion."
+    },
+    {
+      "id": "hei_src_012640",
+      "exchange_id": "hei_ex_001154",
+      "event_id": "hei_ev_010149",
+      "source_type": "official_statement",
+      "title": "送金・出金およびKYC認証に関するお知らせ",
+      "url": "https://izakaya.tech/news/news/",
+      "publisher": "Izakaya Limited",
+      "published_at": "2026-08-24",
+      "archived_url": "https://web.archive.org/web/*/https://izakaya.tech/news/news/",
+      "accessed_at": "2026-08-25",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party notice states that some accounts were temporarily restricted from transfers and withdrawals during investigation of transactions suspected of illicit-fund or money-laundering involvement, while explicitly stating that the measure was not a uniform platform-wide halt. It also announces mandatory KYC for all users and warns that ordinary transfer/withdrawal processing may take longer."
+    },
+    {
+      "id": "hei_src_012641",
+      "exchange_id": "hei_ex_001154",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "レンディングの利回りはどこから捻出されているのでしょうか？",
+      "url": "https://support-izakaya.zendesk.com/hc/ja/articles/5065658933662-%E3%83%AC%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AE%E5%88%A9%E5%9B%9E%E3%82%8A%E3%81%AF%E3%81%A9%E3%81%93%E3%81%8B%E3%82%89%E6%8D%BB%E5%87%BA%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AE%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B",
+      "publisher": "IZAKA-YA",
+      "published_at": "2026-03-24",
+      "archived_url": "https://web.archive.org/web/*/https://support-izakaya.zendesk.com/hc/ja/articles/5065658933662-*",
+      "accessed_at": "2026-08-25",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party support says customer assets are operated through OTC and DEX activity and that part of resulting operating profit is returned as lending yield. HEI preserves this as an operator explanation only; the public article does not provide independently verifiable trading volume, realized profit, counterparties, deployment balances, or a reconciliation demonstrating the source or sustainability of ordinary or promotional yields."
     }
   ]
 }
