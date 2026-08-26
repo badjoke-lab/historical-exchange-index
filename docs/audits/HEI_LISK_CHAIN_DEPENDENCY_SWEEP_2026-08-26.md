@@ -82,20 +82,96 @@ Sources:
 - https://help.crypto.com/en/articles/10981986-fees-limits-eea
 - https://crypto.com/exchange-pro/en-US/markets/crypto
 
-Interpretation as of this checkpoint:
+Interpretation:
+- active exchange entity;
+- current first-party documentation still exposes LSK over Lisk L2;
+- no HEI entity-status change justified;
+- keep under migration/deprecation watch.
 
-- Crypto.com remains an active exchange entity.
-- LSK trading remains available.
-- The latest first-party deposit table found still exposes LSK over `Lisk L2`.
-- No first-party Crypto.com shutdown/migration notice tied to the 2026-10-31 Lisk Chain closure was found in this sweep.
-- Therefore there is **no HEI entity-status change** and no canonical shutdown event justified for Crypto.com now.
-- Keep Crypto.com in the Lisk dependency watch until a network migration/deprecation notice appears or the 2026-10-31 effective-state check is completed.
+### Indodax — LSK was explicitly listed on Mainnet and remains an open migration-watch item
 
-This is useful because it establishes a pre-shutdown baseline: at least one major canonical HEI exchange still exposes direct Lisk-network LSK support in current first-party documentation.
+Indodax's first-party LSK listing announcement dated 2025-09-02 states:
 
-### Other direct-Lisk venues
+```text
+Lisk (LSK)
+Network: Mainnet
+Open Deposit: September 3, 2025
+Open Trading: September 4, 2025
+```
 
-Current broad first-party searches did not yet yield a reliable 2026 shutdown/migration announcement for Indodax, OKX, Quidax, Upbit, XT.com, Bitmama, Velodrome, OKJ, or Oku Trade. Absence of a search result is not evidence of no change. These remain open research items.
+It also warns that LSK uses an address different from typical Ethereum addresses, which is consistent with direct non-Ethereum network handling.
+
+Source:
+- https://blog.indodax.com/en_US/listing-3sept25
+
+Interpretation:
+- establishes a first-party historical baseline for direct Lisk-mainnet handling;
+- no 2026 shutdown/migration notice was located in the current sweep;
+- no HEI entity-status change justified;
+- retain as an open network-migration watch item.
+
+### Quidax — current API documentation exposes Lisk network with deposits and withdrawals enabled
+
+Quidax's current wallet API documentation includes a network entry:
+
+```text
+id: lisk
+name: LISK
+deposits_enabled: true
+withdraws_enabled: true
+```
+
+A Quidax support article updated 2026-06-15 also continues to list LSK with a minimum withdrawal amount of 1.
+
+Sources:
+- https://docs.quidax.io/docs/wallets-updated
+- https://support.quidax.io/hc/en-us/articles/27688981284508-Minimum-Withdrawal-Amount
+
+Interpretation:
+- strong current first-party baseline that Lisk-network handling is still exposed;
+- no HEI entity-status change justified;
+- keep open for migration/deprecation notice before 2026-10-31.
+
+### Upbit — current withdrawal-limit documentation still maps LSK to the Lisk network
+
+Upbit's support article published/updated in August 2026 lists:
+
+```text
+LSK | Lisk | 100,000
+```
+
+Upbit Data Lab also continues to surface LSK as a traded asset.
+
+Sources:
+- https://support.upbit.com/hc/ko/articles/60305341985049
+- https://datalab.upbit.com/assets/LSK/summary
+
+Interpretation:
+- current first-party evidence still maps LSK withdrawals to the Lisk network;
+- therefore Upbit is a live dependency to monitor before shutdown;
+- no HEI entity-status change justified.
+
+### OKX — Lisk shutdown is visible in the OKX information surface, but no operational migration notice is yet confirmed
+
+OKX Orbit surfaced a 2026-08-25 item discussing the Lisk chain shutdown/DAO proposal. This confirms that the shutdown is present in OKX's information environment, but Orbit is informational content and is not treated as an operational deposit/withdrawal announcement.
+
+Source:
+- https://www.okx.com/en-us/orbit/insight/lisk-3-1-85602735531968
+
+Interpretation:
+- do not promote this to an OKX network-support event;
+- continue searching for an official OKX deposit/withdrawal migration or deprecation notice;
+- no HEI entity-status change justified.
+
+### Still unresolved in this sweep
+
+- XT.com
+- Bitmama
+- Velodrome
+- OKJ
+- Oku Trade
+
+Absence of a search result is not evidence of no change. These remain open research items.
 
 ## HEI lifecycle interpretation
 
@@ -119,14 +195,12 @@ For Uniswap/Oku infrastructure on Lisk, keep protocol/entity identity separate f
 
 ### Priority A — direct Lisk-network venues already canonical
 
-- Crypto.com — current Lisk L2 support baseline captured; keep open for migration/deprecation notice.
-- Indodax
-- OKX
-- Quidax
-- Upbit
-- XT.com
-
-For each unresolved venue, obtain first-party current LSK deposit/withdrawal network guidance and any migration/deprecation announcement.
+- Crypto.com — current Lisk L2 support baseline captured.
+- Indodax — first-party Mainnet listing baseline captured.
+- Quidax — current deposits/withdrawals-enabled Lisk network baseline captured.
+- Upbit — current LSK=Lisk withdrawal-network baseline captured.
+- OKX — informational awareness found; operational migration notice still unresolved.
+- XT.com — unresolved.
 
 ### Priority B — representation gaps / identity work
 
@@ -148,8 +222,9 @@ Canonical `event + evidence` work is justified only when a reviewed source estab
 
 ## Next checkpoints
 
-- continue first-party venue-by-venue support/migration verification
-- pre-shutdown migration/support review before 2026-10-31
-- effective-state verification on/after 2026-10-31
-- DAO proposal execution remains tracked separately from Chain shutdown
-- LSK token network migration remains separate from exchange lifecycle
+- finish XT.com / Bitmama / Velodrome / OKJ / Oku Trade first-party review;
+- continue migration/deprecation notice checks for all captured live dependencies;
+- pre-shutdown migration/support review before 2026-10-31;
+- effective-state verification on/after 2026-10-31;
+- DAO proposal execution remains tracked separately from Chain shutdown;
+- LSK token network migration remains separate from exchange lifecycle.
