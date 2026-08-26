@@ -10,7 +10,7 @@
     "launch_date": null,
     "death_date": null,
     "country_or_origin": "Hong Kong",
-    "summary": "Crypto-asset wallet and trading service combining lending, custodial account and wallet functions, crypto-to-crypto swapping, card purchase access, and a project model that describes smart-contract-based permissionless finance. The service remains active, but on 2026-08-24 the operator disclosed temporary transfer and withdrawal restrictions for some accounts under investigation and warned that ordinary transfers and withdrawals could take longer during enhanced monitoring. Active status and operator claims are not treated as a safety, compliance, or endorsement signal.",
+    "summary": "Crypto-asset wallet and trading service combining lending, custodial account and wallet functions, crypto-to-crypto swapping, card purchase access, and a project model that describes smart-contract-based permissionless finance. The service remains active, but on 2026-08-24 the operator disclosed temporary transfer and withdrawal restrictions for some accounts under investigation, and on 2026-08-25 CryptoPanda announced that it had terminated its partnership with IZAKA-YA and disabled transactions through IZAKA-YA wallet connections after citing information raising AML concerns. Active status and operator or counterparty claims are not treated as a safety, compliance, or endorsement signal.",
     "official_url_original": "https://izakaya.tech/",
     "official_domain_original": "izakaya.tech",
     "official_url_status": "live_verified",
@@ -19,7 +19,7 @@
     "successor_id": null,
     "confidence": "medium",
     "last_verified_at": "2026-08-25",
-    "notes": "The current first-party service exposes account-based wallet, lending, swap and crypto-purchase functions. First-party project documentation describes permissionless smart-contract-based lending, swap and token-management architecture, while the live support surface documents email/password accounts, managed balances, internal transfers and service-side transaction history. HEI therefore uses hybrid rather than classifying the service as purely centralized or purely decentralized. The first-party company page identifies Izakaya Limited and a Hong Kong operating address, supporting Hong Kong as country_or_origin. It states a service start month of December 2023, but because no exact day is established HEI leaves launch_date null. A 2026-07-23 operator notice stated that ordinary lending and swap usage did not require KYC and campaign participation did. On 2026-08-24 the operator announced KYC would become mandatory for all users and disclosed temporary transfer/withdrawal restrictions for some investigated accounts. HEI records these as operating-policy and restriction events without inferring legal compliance, insolvency, universal withdrawal failure, or the truth of any allegation beyond the operator statement. IZAKA-YA and CryptoPanda are treated as separate entities; their documented integration is recorded as a collaboration event rather than an alias or lineage relationship."
+    "notes": "The current first-party service exposes account-based wallet, lending, swap and crypto-purchase functions. First-party project documentation describes permissionless smart-contract-based lending, swap and token-management architecture, while the live support surface documents email/password accounts, managed balances, internal transfers and service-side transaction history. HEI therefore uses hybrid rather than classifying the service as purely centralized or purely decentralized. The first-party company page identifies Izakaya Limited and a Hong Kong operating address, supporting Hong Kong as country_or_origin. It states a service start month of December 2023, but because no exact day is established HEI leaves launch_date null. A 2026-07-23 operator notice stated that ordinary lending and swap usage did not require KYC and campaign participation did. On 2026-08-24 the operator announced KYC would become mandatory for all users and disclosed temporary transfer/withdrawal restrictions for some investigated accounts. On 2026-08-25 CryptoPanda announced that it was terminating its partnership with IZAKA-YA and disabling IZAKA-YA-wallet-mediated transactions, stating that it had confirmed information pointing to AML concerns involving IZAKA-YA. HEI records CryptoPanda's statement as a counterparty action and stated concern only; it does not establish that money laundering occurred, that IZAKA-YA is insolvent, or that all withdrawals are unavailable. IZAKA-YA and CryptoPanda remain separate entities; their documented collaboration and its termination are lifecycle events rather than alias or lineage relationships."
   },
   "events": [
     {
@@ -64,6 +64,21 @@
       "source_count": 1,
       "sort_order": 3,
       "notes": "Records the operator's first-party notice and its stated scope. HEI does not infer insolvency, a universal withdrawal freeze, customer loss, or criminal conduct by any specific user from this notice alone. The same notice also changed the previously stated KYC boundary by announcing mandatory KYC for all IZAKA-YA users."
+    },
+    {
+      "id": "hei_ev_010157",
+      "exchange_id": "hei_ex_001154",
+      "event_type": "other",
+      "event_date": "2026-08-25",
+      "title": "CryptoPanda terminated its IZAKA-YA partnership and disabled IZAKA-YA wallet-mediated transactions",
+      "description": "CryptoPanda announced that it had terminated its partnership with IZAKA-YA after confirming information that it said raised AML concerns. CryptoPanda also stated that transactions routed through IZAKA-YA wallet connections would no longer be available, while transactions through other wallets would continue.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "none",
+      "source_count": 1,
+      "sort_order": 4,
+      "counterparty_name": "CryptoPanda",
+      "notes": "Records CryptoPanda's first-party termination notice and service-routing change. The AML wording is preserved as CryptoPanda's stated reason; HEI does not independently conclude that money laundering occurred or that IZAKA-YA is insolvent, fraudulent, or universally unable to process withdrawals."
     }
   ],
   "evidence": [
@@ -186,6 +201,21 @@
       "reliability": "high",
       "claim_scope": "entity",
       "notes": "First-party support says customer assets are operated through OTC and DEX activity and that part of resulting operating profit is returned as lending yield. HEI preserves this as an operator explanation only; the public article does not provide independently verifiable trading volume, realized profit, counterparties, deployment balances, or a reconciliation demonstrating the source or sustainability of ordinary or promotional yields."
+    },
+    {
+      "id": "hei_src_012661",
+      "exchange_id": "hei_ex_001154",
+      "event_id": "hei_ev_010157",
+      "source_type": "official_statement",
+      "title": "提携解消のお知らせ",
+      "url": "https://cryptopanda.app/osirase/",
+      "publisher": "CryptoPanda",
+      "published_at": "2026-08-25",
+      "archived_url": "https://web.archive.org/web/*/https://cryptopanda.app/osirase/",
+      "accessed_at": "2026-08-26",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "CryptoPanda states that it identified information pointing to AML concerns involving IZAKA-YA, terminated the partnership, and disabled transactions through IZAKA-YA wallet connections while keeping transactions through other wallets available. HEI treats the AML language as CryptoPanda's stated rationale, not as an independently established finding of money laundering."
     }
   ]
 }
