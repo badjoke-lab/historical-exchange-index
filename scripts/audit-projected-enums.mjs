@@ -69,5 +69,7 @@ console.log(`Projected events: ${report.projected_counts.events}`)
 console.log(`Projected evidence: ${report.projected_counts.evidence}`)
 console.log(`Invalid projected event fields: ${report.invalid_event_fields}`)
 console.log(`Invalid projected evidence fields: ${report.invalid_evidence_fields}`)
+if (invalidEvents.length) console.error(`Invalid projected events: ${JSON.stringify(invalidEvents)}`)
+if (invalidEvidence.length) console.error(`Invalid projected evidence: ${JSON.stringify(invalidEvidence)}`)
 
 if (strict && report.status !== 'pass') process.exit(1)
