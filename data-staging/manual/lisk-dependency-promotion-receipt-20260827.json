@@ -1,0 +1,34 @@
+{
+  "receipt_type": "reviewed_canonical_promotion_receipt",
+  "created_at": "2026-08-27",
+  "issue": 888,
+  "promotions": [
+    {
+      "candidate_key": "candidate:bitmama",
+      "entity_id": "hei_ex_001173",
+      "record_path": "records/exchanges/bitmama.json",
+      "status": "active",
+      "promotion_commit": "03a08a0a422a9b0b94fd9b5640dabf069878eedf",
+      "lisk_shutdown_status_change": false
+    },
+    {
+      "candidate_key": "candidate:okcoin-japan",
+      "entity_id": "hei_ex_001174",
+      "record_path": "records/exchanges/okj.json",
+      "status": "active",
+      "promotion_commit": "ee2d06d338764f98b4b6961f600071357d7038d8",
+      "lisk_shutdown_status_change": false
+    }
+  ],
+  "audit": "docs/audits/HEI_LISK_DEPENDENCY_PROMOTION_2026-08-27.md",
+  "validation": {
+    "ci_verified": false,
+    "note": "No commit status contexts or PR workflow runs were returned at promotion time; follow normal main validation before claiming CI green."
+  },
+  "remaining_work": [
+    "venue-specific LSK migration/deprecation notices",
+    "Velodrome/Oku Lisk deployment disposition",
+    "pre-2026-10-31 review",
+    "post-2026-10-31 effective-state verification"
+  ]
+}
