@@ -1,0 +1,120 @@
+{
+  "entity": {
+    "id": "hei_ex_001175",
+    "slug": "icoinbay",
+    "canonical_name": "iCoinbay",
+    "aliases": [
+      "iCoinBay",
+      "ICoinBay"
+    ],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Unknown",
+    "summary": "Historical centralized digital-asset exchange active by 2018 and documented through 2019. The original domain still resolves but its present page is contaminated with unrelated casino/SEO links, so HEI does not treat it as evidence of a functioning current exchange.",
+    "official_url_original": "https://www.icoinbay.com/",
+    "official_domain_original": "icoinbay.com",
+    "official_url_status": "unsafe",
+    "archived_url": "https://web.archive.org/web/*/https://www.icoinbay.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-08-25",
+    "notes": "CryptoCompare evaluated iCoinBay trading data in 2018 and selected it for CCCAGG inclusion, while iCoinbay's own historical publication and a company-supplied 2018 release describe a functioning tokenized community exchange. HEI does not assert an exact launch date because the reviewed sources establish operation in 2018 but not a reliable launch day or month. No reliable operator shutdown notice or terminal date was recovered, so status is conservatively `inactive` with death_date and death_reason null. The current original domain contains stale exchange copy alongside extensive unrelated casino/SEO links; HEI therefore classifies the URL as `unsafe` and does not infer continuing exchange operation. A Shanghai dateline in a syndicated company release is not sufficient evidence of incorporation, licensing, or exchange origin, so country_or_origin remains Unknown."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010159",
+      "exchange_id": "hei_ex_001175",
+      "event_type": "other",
+      "event_date": "2026-08-25",
+      "title": "iCoinbay domain was observed as an untrustworthy current exchange surface",
+      "description": "HEI's review found that the original iCoinbay domain still resolved and retained stale exchange text, but the page also contained extensive unrelated casino and SEO links and could not be relied on as evidence of an operating exchange.",
+      "confidence": "medium",
+      "impact_level": "high",
+      "event_status_effect": "inactive",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "This is a dated observation of the current domain state, not an asserted date when exchange operations ended. It does not establish a hack, scam, insolvency, or voluntary shutdown."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012665",
+      "exchange_id": "hei_ex_001175",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "CryptoCompare October 2018 Exchange Review",
+      "url": "https://www.cryptocompare.com/media/34836036/cryptocompare_exchange_review_october_2018.pdf",
+      "publisher": "CryptoCompare",
+      "published_at": "2018-11-02",
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptocompare.com/media/34836036/cryptocompare_exchange_review_october_2018.pdf",
+      "accessed_at": "2026-08-25",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "The review evaluates iCoinBay trading data, reports tracked pairs and volume, and selects the exchange for CCCAGG inclusion effective 2018-11-02, establishing genuine exchange operation in 2018."
+    },
+    {
+      "id": "hei_src_012666",
+      "exchange_id": "hei_ex_001175",
+      "event_id": null,
+      "source_type": "official_blog",
+      "title": "iCoinbay publication archive",
+      "url": "https://medium.com/@iCoinbay",
+      "publisher": "iCoinbay",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/@iCoinbay",
+      "accessed_at": "2026-08-25",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "The operator publication identifies iCoinbay as a tokenized, community-based digital asset exchange and preserves exchange announcements through 2019."
+    },
+    {
+      "id": "hei_src_012667",
+      "exchange_id": "hei_ex_001175",
+      "event_id": null,
+      "source_type": "news_article",
+      "title": "The Next Frontier of Cryptoexchanges: iCoinbay's Innovative Insurance System",
+      "url": "https://www.prnewswire.com/news-releases/the-next-frontier-of-cryptoexchanges-icoinbays-innovative-insurance-system-300755008.html",
+      "publisher": "PR Newswire / iCoinbay",
+      "published_at": "2018-11-26",
+      "archived_url": "https://web.archive.org/web/*/https://www.prnewswire.com/news-releases/the-next-frontier-of-cryptoexchanges-icoinbays-innovative-insurance-system-300755008.html",
+      "accessed_at": "2026-08-25",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "A company-supplied release describes iCoinbay as a cryptocurrency exchange and explains its Trading Premium Gain model. The Shanghai dateline is not used as proof of legal jurisdiction or incorporation."
+    },
+    {
+      "id": "hei_src_012668",
+      "exchange_id": "hei_ex_001175",
+      "event_id": "hei_ev_010159",
+      "source_type": "other",
+      "title": "Current iCoinbay original domain",
+      "url": "https://www.icoinbay.com/",
+      "publisher": "iCoinbay domain",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.icoinbay.com/",
+      "accessed_at": "2026-08-25",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "The original domain still exposes stale iCoinbay exchange copy but also contains numerous unrelated casino and SEO links. HEI uses this as direct evidence that the present domain is not a trustworthy live-exchange surface, not as proof of the cause or date of operational cessation."
+    },
+    {
+      "id": "hei_src_012669",
+      "exchange_id": "hei_ex_001175",
+      "event_id": "hei_ev_010159",
+      "source_type": "database_reference",
+      "title": "iCoinbay.com website and server details",
+      "url": "https://www.ipaddress.com/website/icoinbay.com/",
+      "publisher": "IPAddress.com",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.ipaddress.com/website/icoinbay.com/",
+      "accessed_at": "2026-08-25",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Current domain metadata confirms that icoinbay.com still resolves and continues to present the historical iCoinbay exchange page title. It does not establish current legitimate trading activity."
+    }
+  ]
+}
