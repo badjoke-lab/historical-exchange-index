@@ -10,7 +10,7 @@
     "launch_date": null,
     "death_date": null,
     "country_or_origin": "Hong Kong",
-    "summary": "Crypto-asset wallet and trading service combining lending, custodial account and wallet functions, crypto-to-crypto swapping, card purchase access, and a project model that describes smart-contract-based permissionless finance. The service remains active, but on 2026-08-24 the operator disclosed temporary transfer and withdrawal restrictions for some accounts under investigation and warned that ordinary transfers and withdrawals could take longer during enhanced monitoring. Active status and operator claims are not treated as a safety, compliance, or endorsement signal.",
+    "summary": "Crypto-asset wallet and trading service combining lending, custodial account and wallet functions, crypto-to-crypto swapping, card purchase access, and a project model that describes smart-contract-based permissionless finance. On 2026-08-24 the operator disclosed temporary transfer and withdrawal restrictions for some accounts; on 2026-08-25 CryptoPanda terminated its IZAKA-YA wallet integration; and on 2026-08-27 IZAKA-YA stated that there was no platform-wide withdrawal halt and that reviewed transfers were being processed sequentially. Active status and operator claims are not treated as a safety, compliance, or endorsement signal.",
     "official_url_original": "https://izakaya.tech/",
     "official_domain_original": "izakaya.tech",
     "official_url_status": "live_verified",
@@ -18,8 +18,8 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
-    "last_verified_at": "2026-08-25",
-    "notes": "The current first-party service exposes account-based wallet, lending, swap and crypto-purchase functions. First-party project documentation describes permissionless smart-contract-based lending, swap and token-management architecture, while the live support surface documents email/password accounts, managed balances, internal transfers and service-side transaction history. HEI therefore uses hybrid rather than classifying the service as purely centralized or purely decentralized. The first-party company page identifies Izakaya Limited and a Hong Kong operating address, supporting Hong Kong as country_or_origin. It states a service start month of December 2023, but because no exact day is established HEI leaves launch_date null. A 2026-07-23 operator notice stated that ordinary lending and swap usage did not require KYC and campaign participation did. On 2026-08-24 the operator announced KYC would become mandatory for all users and disclosed temporary transfer/withdrawal restrictions for some investigated accounts. HEI records these as operating-policy and restriction events without inferring legal compliance, insolvency, universal withdrawal failure, or the truth of any allegation beyond the operator statement. IZAKA-YA and CryptoPanda are treated as separate entities; their documented integration is recorded as a collaboration event rather than an alias or lineage relationship."
+    "last_verified_at": "2026-08-27",
+    "notes": "The current first-party service exposes account-based wallet, lending, swap and crypto-purchase functions. First-party project documentation describes permissionless smart-contract-based lending, swap and token-management architecture, while the live support surface documents email/password accounts, managed balances, internal transfers and service-side transaction history. HEI therefore uses hybrid rather than classifying the service as purely centralized or purely decentralized. The first-party company page identifies Izakaya Limited and a Hong Kong operating address, supporting Hong Kong as country_or_origin. It states a service start month of December 2023, but because no exact day is established HEI leaves launch_date null. A 2026-07-23 operator notice stated that ordinary lending and swap usage did not require KYC and campaign participation did. On 2026-08-24 the operator announced mandatory KYC and temporary transfer/withdrawal restrictions for some investigated accounts. On 2026-08-25 CryptoPanda separately announced termination of its IZAKA-YA partnership and wallet-connected transaction route. On 2026-08-27 IZAKA-YA stated that it had not imposed a universal withdrawal/transfer halt, that some reviewed transfers had been sent on 2026-08-25, and that remaining cases were being processed after individual checks. HEI records these statements and service-access changes without inferring insolvency, universal withdrawal failure, criminal conduct, or the truth of allegations beyond what the cited sources establish."
   },
   "events": [
     {
@@ -64,6 +64,35 @@
       "source_count": 1,
       "sort_order": 3,
       "notes": "Records the operator's first-party notice and its stated scope. HEI does not infer insolvency, a universal withdrawal freeze, customer loss, or criminal conduct by any specific user from this notice alone. The same notice also changed the previously stated KYC boundary by announcing mandatory KYC for all IZAKA-YA users."
+    },
+    {
+      "id": "hei_ev_010201",
+      "exchange_id": "hei_ex_001154",
+      "event_type": "other",
+      "event_date": "2026-08-25",
+      "title": "CryptoPanda terminated its IZAKA-YA partnership and wallet integration",
+      "description": "CryptoPanda announced that it had ended its partnership with IZAKA-YA and that transactions through IZAKA-YA wallet connections would no longer be available, removing a previously documented linked-service transaction route.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 4,
+      "counterparty_name": "CryptoPanda",
+      "notes": "This records a counterparty's first-party announcement and the loss of a documented integration route. CryptoPanda cited information raising AML-related concerns about IZAKA-YA; HEI does not convert that stated rationale into an independently established AML finding or infer a platform-wide IZAKA-YA withdrawal failure from it."
+    },
+    {
+      "id": "hei_ev_010202",
+      "exchange_id": "hei_ex_001154",
+      "event_type": "other",
+      "event_date": "2026-08-27",
+      "title": "IZAKA-YA reported sequential withdrawal and transfer processing after individual checks",
+      "description": "IZAKA-YA stated that no platform-wide transfer or withdrawal halt was in place, that transfers had been made to some customers whose reviews were completed on 2026-08-25, and that additional cases continued to be processed after individual checks.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 5,
+      "notes": "The event records the operator's current status statement. It does not independently verify completion times for all customers, establish that every restricted account has been restored, or resolve third-party reports of withdrawal problems."
     }
   ],
   "evidence": [
@@ -178,7 +207,7 @@
       "event_id": null,
       "source_type": "official_statement",
       "title": "レンディングの利回りはどこから捻出されているのでしょうか？",
-      "url": "https://support-izakaya.zendesk.com/hc/ja/articles/5065658933662-%E3%83%AC%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AE%E5%88%A9%E5%9B%9E%E3%82%8A%E3%81%AF%E3%81%A9%E3%81%93%E3%81%8B%E3%82%89%E6%8D%BB%E5%87%BA%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AE%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8b",
+      "url": "https://support-izakaya.zendesk.com/hc/ja/articles/5065658933662-%E3%83%AC%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AE%E5%88%A9%E5%9B%9E%E3%82%8A%E3%81%AF%E3%81%A9%E3%81%93%E3%81%8B%E3%82%89%E6%8D%BB%E5%87%BA%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AE%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B",
       "publisher": "IZAKA-YA",
       "published_at": "2026-03-24",
       "archived_url": "https://web.archive.org/web/*/https://support-izakaya.zendesk.com/hc/ja/articles/5065658933662-*",
@@ -186,6 +215,36 @@
       "reliability": "high",
       "claim_scope": "entity",
       "notes": "First-party support says customer assets are operated through OTC and DEX activity and that part of resulting operating profit is returned as lending yield. HEI preserves this as an operator explanation only; the public article does not provide independently verifiable trading volume, realized profit, counterparties, deployment balances, or a reconciliation demonstrating the source or sustainability of ordinary or promotional yields."
+    },
+    {
+      "id": "hei_src_012701",
+      "exchange_id": "hei_ex_001154",
+      "event_id": "hei_ev_010201",
+      "source_type": "official_statement",
+      "title": "提携解消のお知らせ",
+      "url": "https://cryptopanda.app/osirase/",
+      "publisher": "CryptoPanda",
+      "published_at": "2026-08-25",
+      "archived_url": "https://web.archive.org/web/*/https://cryptopanda.app/osirase/",
+      "accessed_at": "2026-08-27",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Counterparty first-party notice ending the IZAKA-YA partnership and disabling IZAKA-YA wallet-connected transactions. The notice's AML-related rationale is treated as CryptoPanda's stated reason, not an independently established finding."
+    },
+    {
+      "id": "hei_src_012702",
+      "exchange_id": "hei_ex_001154",
+      "event_id": "hei_ev_010202",
+      "source_type": "official_statement",
+      "title": "出金・送金に関する現在の対応状況およびSNS上の情報について",
+      "url": "https://izakaya.tech/news/news2/",
+      "publisher": "Izakaya Limited",
+      "published_at": "2026-08-27",
+      "archived_url": "https://web.archive.org/web/*/https://izakaya.tech/news/news2/",
+      "accessed_at": "2026-08-27",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party follow-up states that there is no universal withdrawal/transfer halt, that some reviewed transfers were completed on 2026-08-25, and that remaining cases are being processed after individual checks. HEI preserves this as the operator's current-status statement rather than treating it as independent proof that all withdrawal issues are resolved."
     }
   ]
 }
