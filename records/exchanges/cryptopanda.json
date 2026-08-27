@@ -10,7 +10,7 @@
     "launch_date": null,
     "death_date": null,
     "country_or_origin": "Global",
-    "summary": "Hybrid cryptocurrency exchange service combining fiat-to-crypto conversion with a self-described Ethereum-based decentralized protocol and peer-to-peer transaction venue. The public service remains active, while a documented April 2026 BUY-function maintenance interruption was later resolved.",
+    "summary": "Hybrid cryptocurrency exchange service combining fiat-to-crypto conversion with a self-described Ethereum-based decentralized protocol and peer-to-peer transaction venue. The public service remains active; on 2026-08-25 CryptoPanda terminated its IZAKA-YA partnership and disabled transactions through IZAKA-YA wallet connections while stating that transactions through other wallets remained available.",
     "official_url_original": "https://cryptopanda.app/",
     "official_domain_original": "cryptopanda.app",
     "official_url_status": "live_verified",
@@ -18,8 +18,8 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
-    "last_verified_at": "2026-08-13",
-    "notes": "CryptoPanda's current site presents JPY/crypto conversion and self-custody exchange functionality. Its terms identify CryptoPanda Foundation and describe the CryptoPanda Protocol as an Ethereum-based decentralized application used by swappers and liquidity providers, while also describing the platform as a P2P transaction venue. The operator's legal jurisdiction is not independently established, so HEI uses Global rather than inferring a country from the Japanese-facing service. The terms also mention cryptopanda.money in connection with CryptoPanda; HEI does not treat that domain mention as a separate entity. This record does not assert licensing, regulatory authorization, safety, or complete operational availability beyond the reviewed evidence."
+    "last_verified_at": "2026-08-27",
+    "notes": "CryptoPanda's current site presents JPY/crypto conversion and self-custody exchange functionality. Its terms identify CryptoPanda Foundation and describe the CryptoPanda Protocol as an Ethereum-based decentralized application used by swappers and liquidity providers, while also describing the platform as a P2P transaction venue. The operator's legal jurisdiction is not independently established, so HEI uses Global rather than inferring a country from the Japanese-facing service. The terms also mention cryptopanda.money in connection with CryptoPanda; HEI does not treat that domain mention as a separate entity. On 2026-08-25 CryptoPanda stated that it ended its partnership with IZAKA-YA after information raising AML-related concerns about IZAKA-YA had been identified, and that IZAKA-YA wallet-connected transactions would no longer be available. HEI records the partnership termination and route-specific service change without treating CryptoPanda as generally unavailable or adopting the underlying AML concern as an independently established finding."
   },
   "events": [
     {
@@ -49,6 +49,21 @@
       "source_count": 1,
       "sort_order": 2,
       "notes": "This event records restoration of the BUY function rather than a relaunch of the entire platform."
+    },
+    {
+      "id": "hei_ev_010200",
+      "exchange_id": "hei_ex_001151",
+      "event_type": "other",
+      "event_date": "2026-08-25",
+      "title": "CryptoPanda terminated its IZAKA-YA partnership and wallet integration",
+      "description": "CryptoPanda announced that it had ended its partnership with IZAKA-YA and that transactions through IZAKA-YA wallet connections would no longer be available. It stated that transactions through other wallets would continue to be available.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "none",
+      "source_count": 1,
+      "sort_order": 3,
+      "counterparty_name": "IZAKA-YA",
+      "notes": "CryptoPanda cited information raising AML-related concerns about IZAKA-YA as the reason for ending the partnership. HEI records that statement as CryptoPanda's stated rationale, not as an independently established AML finding. The event is route-specific and is not evidence of a CryptoPanda-wide withdrawal or service halt."
     }
   ],
   "evidence": [
@@ -126,6 +141,21 @@
       "reliability": "medium",
       "claim_scope": "status",
       "notes": "Separate-domain secondary explainer states that CryptoPanda supports direct JPY-to-USDT purchase and direct conversion back to JPY. Used only as secondary corroboration of the service surface, not as evidence of licensing, safety, independence, or regulatory status."
+    },
+    {
+      "id": "hei_src_012700",
+      "exchange_id": "hei_ex_001151",
+      "event_id": "hei_ev_010200",
+      "source_type": "official_statement",
+      "title": "提携解消のお知らせ",
+      "url": "https://cryptopanda.app/osirase/",
+      "publisher": "CryptoPanda",
+      "published_at": "2026-08-25",
+      "archived_url": "https://web.archive.org/web/*/https://cryptopanda.app/osirase/",
+      "accessed_at": "2026-08-27",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party notice ending the IZAKA-YA partnership and disabling IZAKA-YA wallet-connected transactions while stating that other-wallet transactions remain available. Its AML-related rationale is recorded as CryptoPanda's statement rather than an independently established finding."
     }
   ]
 }
