@@ -25,7 +25,7 @@
     {
       "id": "hei_ev_010157",
       "exchange_id": "hei_ex_001174",
-      "event_type": "regulation",
+      "event_type": "regulatory_action",
       "event_date": "2020-03-30",
       "title": "OKCoin Japan registered as a Japanese crypto-asset exchange operator",
       "description": "Japan's Financial Services Agency lists OKCoin Japan K.K. under Kanto Finance Bureau registration No.00020 dated March 30, 2020 as a registered crypto-asset exchange operator.",
@@ -42,7 +42,7 @@
       "id": "hei_src_012659",
       "exchange_id": "hei_ex_001174",
       "event_id": "hei_ev_010157",
-      "source_type": "regulator",
+      "source_type": "regulatory_notice",
       "title": "List of Registered Crypto-asset Exchange Service Providers",
       "url": "https://www.fsa.go.jp/en/regulated/licensed/en_kasoutuka.pdf",
       "publisher": "Financial Services Agency, Japan",
