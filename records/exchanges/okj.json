@@ -1,0 +1,102 @@
+{
+  "entity": {
+    "id": "hei_ex_001174",
+    "slug": "okj",
+    "canonical_name": "OKJ",
+    "aliases": ["OKCoin Japan", "OKCoinJapan", "OKX Japan"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Japan",
+    "summary": "Active Japan-registered centralized cryptocurrency exchange operated by OKCoin Japan K.K., currently branded OKJ, with spot trading, buy/sell, staking, lending and other digital-asset services and a separately regulated Japanese operator identity.",
+    "official_url_original": "https://www.okcoin.jp/",
+    "official_domain_original": "okcoin.jp",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.okcoin.jp/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-27",
+    "notes": "Japan FSA records list OKCoin Japan K.K. as crypto-asset exchange operator Kanto Finance Bureau No.00020 with registration date 2020-03-30 and LSK among handled assets. Current first-party OKJ/OKCoin Japan surfaces expose active trading and related services. HEI keeps this as a distinct Japanese regulated exchange entity rather than absorbing it into global OKX. Launch date remains null because the reviewed sources establish registration and current operation, not a single verified public launch date."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010157",
+      "exchange_id": "hei_ex_001174",
+      "event_type": "regulation",
+      "event_date": "2020-03-30",
+      "title": "OKCoin Japan registered as a Japanese crypto-asset exchange operator",
+      "description": "Japan's Financial Services Agency lists OKCoin Japan K.K. under Kanto Finance Bureau registration No.00020 dated March 30, 2020 as a registered crypto-asset exchange operator.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "This is a regulatory registration marker, not an asserted exchange launch date."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012659",
+      "exchange_id": "hei_ex_001174",
+      "event_id": "hei_ev_010157",
+      "source_type": "regulator",
+      "title": "List of Registered Crypto-asset Exchange Service Providers",
+      "url": "https://www.fsa.go.jp/en/regulated/licensed/en_kasoutuka.pdf",
+      "publisher": "Financial Services Agency, Japan",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.fsa.go.jp/en/regulated/licensed/en_kasoutuka.pdf",
+      "accessed_at": "2026-08-27",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Official regulator list identifies OKCoin Japan K.K., Kanto Finance Bureau No.00020, registration date 2020-03-30, and includes LSK among handled crypto-assets."
+    },
+    {
+      "id": "hei_src_012660",
+      "exchange_id": "hei_ex_001174",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "OKJ official exchange platform",
+      "url": "https://www.okcoin.jp/",
+      "publisher": "OKCoin Japan / OKJ",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.okcoin.jp/",
+      "accessed_at": "2026-08-27",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party platform exposes markets, buy/sell, exchange trading, staking, lending and account functions and identifies OKCoin Japan K.K. and registration No.00020."
+    },
+    {
+      "id": "hei_src_012661",
+      "exchange_id": "hei_ex_001174",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Optimism network and LSK network deposits/withdrawals temporarily suspended",
+      "url": "https://support.okcoin.jp/hc/ja/categories/360002138653-%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B",
+      "publisher": "OKJ Support",
+      "published_at": "2026-07-07",
+      "archived_url": "https://web.archive.org/web/*/https://support.okcoin.jp/hc/ja/categories/360002138653-%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B",
+      "accessed_at": "2026-08-27",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current support index includes a July 7, 2026 maintenance notice explicitly naming the LSK network, establishing an active LSK network support surface in 2026. The temporary maintenance itself is not treated as an HEI lifecycle event."
+    },
+    {
+      "id": "hei_src_012662",
+      "exchange_id": "hei_ex_001174",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Lisk exchange support directory",
+      "url": "https://docs.lisk.com/lisk-chain/lisk-tools/exchanges/",
+      "publisher": "Lisk",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.lisk.com/lisk-chain/lisk-tools/exchanges/",
+      "accessed_at": "2026-08-27",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Lisk documentation lists OkCoin / OKX Japan / OKJ as an LSK venue using the Lisk network and the LSK/JPY pair, supporting the reviewed identity and dependency baseline."
+    }
+  ]
+}
