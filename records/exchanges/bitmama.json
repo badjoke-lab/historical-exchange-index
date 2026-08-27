@@ -1,0 +1,87 @@
+{
+  "entity": {
+    "id": "hei_ex_001173",
+    "slug": "bitmama",
+    "canonical_name": "Bitmama",
+    "aliases": ["Bitmama Exchange"],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2017-01-01",
+    "death_date": null,
+    "country_or_origin": "Nigeria",
+    "summary": "Active cryptocurrency exchange and payments platform that says it began in 2017 as a P2P digital-currency exchange and currently offers cryptocurrency buy, sell and trading services across multiple assets including Lisk.",
+    "official_url_original": "https://bitmama.io/",
+    "official_domain_original": "bitmama.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://bitmama.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-27",
+    "notes": "First-party About material states that Bitmama started in 2017 as a P2P digital currency exchange. The current first-party site offers buy, sell and trade services and lists Lisk among supported cryptocurrencies. January 1 is a year-level marker only because the reviewed first-party source establishes 2017 rather than an exact launch day. The separate Lisk Chain shutdown dependency does not change Bitmama's entity status at this checkpoint."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010156",
+      "exchange_id": "hei_ex_001173",
+      "event_type": "launched",
+      "event_date": "2017-01-01",
+      "title": "Bitmama began as a P2P digital-currency exchange in 2017",
+      "description": "Bitmama's current first-party About page states that the platform started in 2017 as a P2P digital currency exchange before expanding into broader cryptocurrency trading and payments services.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "Year-level launch marker; no exact launch day is asserted."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012656",
+      "exchange_id": "hei_ex_001173",
+      "event_id": "hei_ev_010156",
+      "source_type": "official_statement",
+      "title": "About Bitmama",
+      "url": "https://bitmama.io/about/",
+      "publisher": "Bitmama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bitmama.io/about/",
+      "accessed_at": "2026-08-27",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "First-party About page states that Bitmama started in 2017 as a P2P digital currency exchange and later expanded into cryptocurrency trading and management."
+    },
+    {
+      "id": "hei_src_012657",
+      "exchange_id": "hei_ex_001173",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Bitmama official platform",
+      "url": "https://bitmama.io/",
+      "publisher": "Bitmama",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bitmama.io/",
+      "accessed_at": "2026-08-27",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party site offers cryptocurrency buy, sell and trade services and lists Lisk among supported cryptocurrencies."
+    },
+    {
+      "id": "hei_src_012658",
+      "exchange_id": "hei_ex_001173",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Lisk exchange support directory",
+      "url": "https://docs.lisk.com/lisk-chain/lisk-tools/exchanges/",
+      "publisher": "Lisk",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.lisk.com/lisk-chain/lisk-tools/exchanges/",
+      "accessed_at": "2026-08-27",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Lisk documentation lists Bitmama as an exchange supporting LSK on the Lisk network, providing independent ecosystem confirmation of the venue's exchange role and Lisk dependency baseline."
+    }
+  ]
+}
