@@ -52,7 +52,7 @@
       "notes": "Recorded as a material operating-policy event. HEI does not infer regulatory compliance, non-compliance, licence status, or safety from the operator's KYC statement alone."
     },
     {
-      "id": "hei_ev_010149",
+      "id": "hei_ev_010158",
       "exchange_id": "hei_ex_001154",
       "event_type": "withdrawal_suspended",
       "event_date": "2026-08-24",
@@ -158,9 +158,9 @@
       "notes": "First-party statement that standard lending and swap use does not require KYC and that campaign participation does. HEI records the policy statement without converting it into a legal conclusion."
     },
     {
-      "id": "hei_src_012640",
+      "id": "hei_src_012663",
       "exchange_id": "hei_ex_001154",
-      "event_id": "hei_ev_010149",
+      "event_id": "hei_ev_010158",
       "source_type": "official_statement",
       "title": "送金・出金およびKYC認証に関するお知らせ",
       "url": "https://izakaya.tech/news/news/",
@@ -173,12 +173,12 @@
       "notes": "First-party notice states that some accounts were temporarily restricted from transfers and withdrawals during investigation of transactions suspected of illicit-fund or money-laundering involvement, while explicitly stating that the measure was not a uniform platform-wide halt. It also announces mandatory KYC for all users and warns that ordinary transfer/withdrawal processing may take longer."
     },
     {
-      "id": "hei_src_012641",
+      "id": "hei_src_012664",
       "exchange_id": "hei_ex_001154",
       "event_id": null,
       "source_type": "official_statement",
       "title": "レンディングの利回りはどこから捻出されているのでしょうか？",
-      "url": "https://support-izakaya.zendesk.com/hc/ja/articles/5065658933662-%E3%83%AC%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AE%E5%88%A9%E5%9B%9E%E3%82%8A%E3%81%AF%E3%81%A9%E3%81%93%E3%81%8B%E3%82%89%E6%8D%BB%E5%87%BA%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AE%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B",
+      "url": "https://support-izakaya.zendesk.com/hc/ja/articles/5065658933662-%E3%83%AC%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AE%E5%88%A9%E5%9B%9E%E3%82%8A%E3%81%AF%E3%81%A9%E3%81%93%E3%81%8B%E3%82%89%E6%8D%BB%E5%87%BA%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AE%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8b",
       "publisher": "IZAKA-YA",
       "published_at": "2026-03-24",
       "archived_url": "https://web.archive.org/web/*/https://support-izakaya.zendesk.com/hc/ja/articles/5065658933662-*",
