@@ -1,0 +1,103 @@
+{
+  "entity": {
+    "id": "hei_ex_001176",
+    "slug": "bitcoin-com-exchange",
+    "canonical_name": "Bitcoin.com Exchange",
+    "aliases": ["Exchange.Bitcoin.com"],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": "2019-09-02",
+    "death_date": "2021-09-29",
+    "country_or_origin": "Global",
+    "summary": "Centralized cryptocurrency exchange launched by Bitcoin.com on 2019-09-02 and rebranded to FMFW.io on 2021-09-29 with customer credentials, 2FA configuration, wallet addresses, and open orders carried through the identity transition.",
+    "official_url_original": "https://exchange.bitcoin.com/",
+    "official_domain_original": "exchange.bitcoin.com",
+    "official_url_status": "redirected",
+    "archived_url": "https://web.archive.org/web/*/https://exchange.bitcoin.com/",
+    "predecessor_id": null,
+    "successor_id": "hei_ex_001177",
+    "confidence": "high",
+    "last_verified_at": "2026-08-28",
+    "notes": "Bitcoin.com first-party material establishes the exchange launch on 2019-09-02. FMFW.io first-party rebranding material establishes that the Bitcoin.com Exchange identity changed to FMFW.io on 2021-09-29 while existing login credentials, 2FA, wallet addresses, open orders, and custody continuity were preserved. HEI therefore models the Bitcoin.com Exchange brand as a terminal rebranded predecessor rather than as an acquired, merged, or independently shut-down venue. Global is used because the reviewed materials do not establish a sufficiently clear durable exchange operating jurisdiction for the full 2019-2021 identity period."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010203",
+      "exchange_id": "hei_ex_001176",
+      "event_type": "launched",
+      "event_date": "2019-09-02",
+      "title": "Bitcoin.com Exchange launched",
+      "description": "Bitcoin.com announced that its centralized cryptocurrency trading platform at exchange.bitcoin.com was live on 2019-09-02.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "The date is taken from a contemporaneous first-party Bitcoin.com launch announcement."
+    },
+    {
+      "id": "hei_ev_010204",
+      "exchange_id": "hei_ex_001176",
+      "event_type": "rebranded",
+      "event_date": "2021-09-29",
+      "title": "Bitcoin.com Exchange rebranded to FMFW.io",
+      "description": "The exchange changed its public identity and domain to FMFW.io while preserving existing customer credentials, 2FA, wallet addresses, and open orders across the transition.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "rebranded",
+      "source_count": 2,
+      "sort_order": 2,
+      "counterparty_name": "FMFW.io",
+      "counterparty_exchange_id": "hei_ex_001177",
+      "notes": "This is a brand/entity identity transition with operational continuity, not evidence of insolvency, acquisition, merger, or loss of customer access."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012703",
+      "exchange_id": "hei_ex_001176",
+      "event_id": "hei_ev_010203",
+      "source_type": "official_blog",
+      "title": "Bitcoin.com's Premier Cryptocurrency Exchange Is Now Live",
+      "url": "https://news.bitcoin.com/bitcoin-coms-premier-cryptocurrency-exchange-is-now-live/",
+      "publisher": "Bitcoin.com",
+      "published_at": "2019-09-02",
+      "archived_url": "https://web.archive.org/web/*/https://news.bitcoin.com/bitcoin-coms-premier-cryptocurrency-exchange-is-now-live/",
+      "accessed_at": "2026-08-28",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Contemporaneous first-party Bitcoin.com publication states that exchange.bitcoin.com had launched and was live."
+    },
+    {
+      "id": "hei_src_012704",
+      "exchange_id": "hei_ex_001176",
+      "event_id": "hei_ev_010204",
+      "source_type": "official_statement",
+      "title": "Rebranding FAQ",
+      "url": "https://support.fmfw.io/en/articles/5585176-rebranding-faq",
+      "publisher": "FMFW.io",
+      "published_at": "2021-09-29",
+      "archived_url": "https://web.archive.org/web/*/https://support.fmfw.io/en/articles/5585176-rebranding-faq",
+      "accessed_at": "2026-08-28",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party successor support material states that Bitcoin.com Exchange would become FMFW.io on 2021-09-29 and documents continuity of credentials, 2FA, wallet addresses, open orders, and custody while the exchange and API domains changed."
+    },
+    {
+      "id": "hei_src_012705",
+      "exchange_id": "hei_ex_001176",
+      "event_id": "hei_ev_010204",
+      "source_type": "official_blog",
+      "title": "Bitcoin.com Exchange is becoming FMFW.io",
+      "url": "https://medium.com/fmfw-io/bitcoin-com-exchange-is-becoming-fmfw-io-c6bed8a4e33a",
+      "publisher": "FMFW.io",
+      "published_at": "2021-09-20",
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/fmfw-io/bitcoin-com-exchange-is-becoming-fmfw-io-c6bed8a4e33a",
+      "accessed_at": "2026-08-28",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Successor-operated publication announces the 2021-09-29 rebrand, identifies Bitcoin.com Exchange as the predecessor, and states that users would continue to access the service with the same credentials."
+    }
+  ]
+}
