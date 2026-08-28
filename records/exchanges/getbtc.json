@@ -1,0 +1,101 @@
+{
+  "entity": {
+    "id": "hei_ex_001178",
+    "slug": "getbtc",
+    "canonical_name": "GetBTC",
+    "aliases": ["GetBTC.org"],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": "unknown",
+    "launch_date": "2017-07-05",
+    "death_date": null,
+    "country_or_origin": "Global",
+    "summary": "Centralized cryptocurrency exchange announced by its operator in July 2017. By July 2019 the project was publicly described as attempting to be reborn, and current exchange databases classify GetBTC as inactive. HEI does not infer a precise shutdown date or cause from the available evidence.",
+    "official_url_original": "https://getbtc.org/",
+    "official_domain_original": "getbtc.org",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://getbtc.org/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-08-28",
+    "notes": "The operator account ExchangeGetBTC opened a Bitcointalk announcement thread for GetBTC.org on 2017-07-05 and described the exchange and support endpoint. Cryptowisser later recorded that GetBTC's own website displayed a rebirth message on 2019-07-16 and that the site was still unavailable in November 2020. CoinMarketCap currently marks GetBTC inactive. HEI therefore uses inactive / unknown with death_date null rather than asserting a specific shutdown date, insolvency, scam, regulatory cause, or voluntary closure. Historical third-party directory rows associate GetBTC with multiple jurisdictions, but no durable reviewed operating-jurisdiction artifact was found in this pass, so country_or_origin remains Global rather than guessed."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010206",
+      "exchange_id": "hei_ex_001178",
+      "event_type": "launched",
+      "event_date": "2017-07-05",
+      "title": "GetBTC operator announced the exchange",
+      "description": "The ExchangeGetBTC operator account opened a public announcement thread for GetBTC.org, described the exchange, and published its support endpoint.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "HEI uses the dated operator announcement as the launch marker because it is the earliest reviewed first-party-like public evidence in this pass; it does not prove the exact first completed trade timestamp."
+    },
+    {
+      "id": "hei_ev_010207",
+      "exchange_id": "hei_ex_001178",
+      "event_type": "other",
+      "event_date": "2019-07-16",
+      "title": "GetBTC website displayed a project rebirth notice",
+      "description": "A contemporaneous exchange-review record documented that GetBTC's own website displayed a message saying the project was attempting to be reborn.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "none",
+      "source_count": 1,
+      "sort_order": 2,
+      "notes": "This is preserved as a lifecycle disruption/relaunch-attempt marker. HEI does not convert it into a shutdown date because the underlying notice did not establish a precise terminal date or cause."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012711",
+      "exchange_id": "hei_ex_001178",
+      "event_id": "hei_ev_010206",
+      "source_type": "community_reference",
+      "title": "GetBTC.org - cryptocurrency exchange announcement thread",
+      "url": "https://bitcointalk.org/index.php?topic=2005010.0",
+      "publisher": "ExchangeGetBTC / Bitcointalk",
+      "published_at": "2017-07-05",
+      "archived_url": "https://web.archive.org/web/*/https://bitcointalk.org/index.php?topic=2005010.0",
+      "accessed_at": "2026-08-28",
+      "reliability": "medium",
+      "claim_scope": "launch_date",
+      "notes": "The thread was opened by the ExchangeGetBTC operator account and describes GetBTC.org as an exchange, including the support URL. Because it is hosted on a community forum rather than an independently verified corporate publication, HEI uses medium reliability."
+    },
+    {
+      "id": "hei_src_012712",
+      "exchange_id": "hei_ex_001178",
+      "event_id": "hei_ev_010207",
+      "source_type": "database_reference",
+      "title": "GetBTC exchange review and inactivity updates",
+      "url": "https://www.cryptowisser.com/exchange/getbtc/",
+      "publisher": "Cryptowisser",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/getbtc/",
+      "accessed_at": "2026-08-28",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Cryptowisser records a 2019-07-16 update that GetBTC's website displayed a rebirth notice and a 2020-11-01 update that the website remained unavailable. HEI uses the dated 2019 observation for the lifecycle event and does not infer a terminal date from the later observation."
+    },
+    {
+      "id": "hei_src_012713",
+      "exchange_id": "hei_ex_001178",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "GetBTC trade volume and market listings",
+      "url": "https://coinmarketcap.com/exchanges/getbtc/",
+      "publisher": "CoinMarketCap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/getbtc/",
+      "accessed_at": "2026-08-28",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current CoinMarketCap exchange page marks GetBTC inactive and retains getbtc.org as the historical website. This supports the current inactive classification, not a specific shutdown cause or date."
+    }
+  ]
+}
