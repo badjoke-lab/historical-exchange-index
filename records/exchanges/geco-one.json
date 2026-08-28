@@ -1,0 +1,87 @@
+{
+  "entity": {
+    "id": "hei_ex_001180",
+    "slug": "geco-one",
+    "canonical_name": "Geco.one",
+    "aliases": ["Geco One", "Geco.one Exchange"],
+    "type": "cex",
+    "status": "dead",
+    "death_reason": "regulation",
+    "launch_date": null,
+    "death_date": "2025-07-14",
+    "country_or_origin": "Slovakia",
+    "summary": "Crypto margin exchange whose operator announced closure of the trading platform in 2025 due to implementation of MiCA regulations. Deposits were scheduled to stop on June 23 and the platform to be disconnected on July 14, 2025. The geco.one domain now promotes a white-label trading-platform business rather than the former retail exchange.",
+    "official_url_original": "https://www.geco.one/",
+    "official_domain_original": "geco.one",
+    "official_url_status": "repurposed",
+    "archived_url": "https://web.archive.org/web/*/https://www.geco.one/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-28",
+    "notes": "Geco.one's first-party exchange page identifies the platform as launched in August 2020 and operated by Analemma Technologies, s.r.o., registered in Slovakia. HEI leaves launch_date null because the source supports only a month, not an exact calendar day. The same first-party page states that the trading platform would close because of new MiCA regulations, with deposits blocked from 2025-06-23, withdrawals available until 2025-07-14, and server disconnection/login termination on 2025-07-14. The current root domain markets a white-label crypto and futures platform; HEI treats that as domain/business repurposing, not continued operation of the historical retail exchange."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010208",
+      "exchange_id": "hei_ex_001180",
+      "event_type": "shutdown_effective",
+      "event_date": "2025-07-14",
+      "title": "Geco.one trading platform reached its announced shutdown date",
+      "description": "Geco.one told users that deposits would be blocked from June 23, withdrawals would remain possible until July 14, and on July 14, 2025 the trading platform would be disconnected from its servers and login would no longer be possible. The operator attributed the closure to implementation of new MiCA regulations.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "dead",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "HEI uses 2025-07-14 as death_date because the first-party closure notice explicitly identifies that date for server disconnection and loss of login access."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012717",
+      "exchange_id": "hei_ex_001180",
+      "event_id": "hei_ev_010208",
+      "source_type": "official_statement",
+      "title": "Geco.one trading-platform closure notice and exchange FAQ",
+      "url": "https://www.geco.one/cryptocurrencies",
+      "publisher": "Geco.one",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.geco.one/cryptocurrencies",
+      "accessed_at": "2026-08-28",
+      "reliability": "high",
+      "claim_scope": "death_reason",
+      "notes": "First-party page states that the trading platform is closing because of implementation of new MiCA regulations, gives the June 23 deposit-block date and July 14 withdrawal/server-disconnection deadline, and separately identifies the historical exchange as launched in August 2020 and operated by Analemma Technologies, s.r.o. registered in Slovakia."
+    },
+    {
+      "id": "hei_src_012718",
+      "exchange_id": "hei_ex_001180",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Geco.one current white-label trading-platform site",
+      "url": "https://www.geco.one/",
+      "publisher": "Geco.one",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.geco.one/",
+      "accessed_at": "2026-08-28",
+      "reliability": "high",
+      "claim_scope": "url_history",
+      "notes": "Current first-party root site markets a white-label crypto and futures trading-platform solution to brokers, fintech startups, and trading firms. HEI uses this to classify the historical exchange domain as repurposed rather than as evidence that the former retail exchange remains active."
+    },
+    {
+      "id": "hei_src_012719",
+      "exchange_id": "hei_ex_001180",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Geco.one exchange status page",
+      "url": "https://www.bitdegree.org/top-crypto-exchanges/geco-one",
+      "publisher": "BitDegree",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.bitdegree.org/top-crypto-exchanges/geco-one",
+      "accessed_at": "2026-08-28",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current exchange directory page marks Geco.one inactive/untracked. This is secondary confirmation only; HEI's terminal date and regulatory cause come from Geco.one's first-party closure notice."
+    }
+  ]
+}
