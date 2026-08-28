@@ -2,56 +2,40 @@
 
 ## Scope
 
-Lane A canonical growth only. Adds Gibraltar Blockchain Exchange (GBX) as a reviewed historical CEX lifecycle record.
+Lane A canonical repair. Reconciles the stale backlog candidate `hei_unadded_0992 GBX Digital Asset Exchange` against the already-reviewed canonical `records/exchanges/gbx.json` from BX63, then improves the existing GBX record instead of creating a duplicate entity.
 
 Base main: `6b08f992af0a2d0c6b2dc9203df9e0a4341add75`.
 
-## Canonical reconciliation
+## Duplicate prevention
 
-Existing `records/exchanges/mine-digital.json` already records Mine Digital's acquisition of Global Blockchain Exchange on 2021-01-29. Its notes explicitly state that no predecessor/successor lineage edge is created because Mine Digital did not continue the GBX brand or platform technology.
+The 0951–1000 pending-review memo was stale: GBX had already been promoted in BX63 as `hei_ex_001159`. The initial BX80 draft attempted a new GBX entity and correctly failed `records:validate` through the overlap/duplicate guard. The duplicate draft was removed; no new GBX entity/event IDs are retained.
 
-BX80 therefore adds GBX as its own terminal exchange entity and links Mine Digital only as the event counterparty.
+## Repair applied
 
-## Evidence review
-
-1. 2018-07-23 public launch — contemporaneous CryptoNinjas report says GBX officially launched/opened its Digital Asset Exchange to public trading on that date.
-2. 2018-11-22 DLT licence — Government of Gibraltar press release confirms the full GFSC DLT licence and identifies GBX as the GSX subsidiary / Digital Asset Exchange.
-3. 2021-01-13 sale and closure schedule — first-party GBX/GSX notice announces sale to Mine Digital, deposit/new-registration shutdown, 2021-01-20 trading cessation, and 2021-01-29 GBX-DAX/account closure.
-4. 2021-01-29 completion — first-party GBX/GSX notice confirms sale completion, GBX-DAX closure, withdrawal halt, account closure, and transfer of remaining eligible balances into the Mine Digital transition process.
-
-## Modeling decision
-
-- entity status: `acquired`
-- death reason: `acquisition`
-- death date: `2021-01-29`
-- no successor/predecessor lineage edge
-- acquisition is the terminal cause; same-day exchange closure is recorded in the acquisition event rather than reclassified as an unrelated voluntary shutdown
-- no insolvency, scam, hack, or fraud inference
-
-## ID allocation
-
-From current main maxima after BX79:
-
-- entity: `hei_ex_001178`
-- events: `hei_ev_010206`–`hei_ev_010209`
-- evidence: `hei_src_012710`–`hei_src_012713`
+1. Correct public launch date from normalized month marker `2018-07-01` to exact `2018-07-23` using contemporaneous launch reporting while retaining the first-party July-2018 source.
+2. Update `hei_ev_010128` to the exact 2018-07-23 public opening date and increase `source_count` from 1 to 2.
+3. Add evidence `hei_src_012710` for the contemporaneous launch report.
+4. Link the already-canonical Mine Digital entity (`hei_ex_001169`) as `counterparty_exchange_id` on GBX acquisition/closure events.
+5. Update stale notes that previously said no reviewed Mine Digital canonical entity was resolved; retain the no-successor-edge decision because Mine Digital did not continue the GBX banner/platform.
+6. Refresh reviewed/access dates to 2026-08-28 where touched.
 
 ## Source-count check
 
-- `hei_ev_010206`: 1 directly linked evidence
-- `hei_ev_010207`: 1 directly linked evidence
-- `hei_ev_010208`: 1 directly linked evidence
-- `hei_ev_010209`: 1 directly linked evidence
+- `hei_ev_010128`: 2 directly linked evidence
+- `hei_ev_010129`: 2 directly linked evidence
+- `hei_ev_010130`: 1 directly linked evidence
 
 ## Delta
 
-- +1 entity
-- +4 events
-- +4 evidence
-- +0 lineage edges
+- entities: +0
+- events: +0
+- evidence: +1 (`hei_src_012710`)
+- existing entity repaired: `hei_ex_001159`
+- existing event dates/counterparty references repaired
+- lineage edges: +0
 
 ## Boundaries
 
-No schema, validator, monitoring, localization, Phase 9 production, or machine-readable contract changes are included.
+No schema, validator, monitoring, localization, Phase 9 production, or machine-readable contract weakening is included. The validator failure was resolved by removing the duplicate entity and repairing canonical data, not by changing validation rules.
 
-If main advances before merge, BX80 must be replayed/re-IDed from the then-current main instead of merging stale IDs.
+If main advances before merge, recheck the evidence ID and replay against current main rather than merging a stale collision.
