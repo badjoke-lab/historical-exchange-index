@@ -45,7 +45,7 @@
       "description": "The exchange changed its public identity and domain to FMFW.io while preserving existing customer credentials, 2FA, wallet addresses, and open orders across the transition.",
       "confidence": "high",
       "impact_level": "high",
-      "event_status_effect": "dead",
+      "event_status_effect": "rebranded",
       "source_count": 2,
       "sort_order": 2,
       "counterparty_name": "FMFW.io",
