@@ -1,0 +1,72 @@
+{
+  "entity": {
+    "id": "hei_ex_001188",
+    "slug": "fatbtc",
+    "canonical_name": "FatBTC",
+    "aliases": ["Fatbtc", "Fat BTC"],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Global",
+    "summary": "Centralized cryptocurrency exchange formerly operating at fatbtc.com. Current exchange directories classify FatBTC as inactive or untracked, while later access checks found the original site unavailable. HEI does not infer a precise shutdown date or terminal cause from those observations.",
+    "official_url_original": "https://www.fatbtc.com/",
+    "official_domain_original": "fatbtc.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.fatbtc.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-08-30",
+    "notes": "FatBTC is consistently described as a centralized cryptocurrency exchange founded in 2014, but available sources conflict on geographic origin or registration, including Seychelles, Hong Kong and China; country_or_origin therefore remains Global. CoinMarketCap currently marks FatBTC inactive, BitDegree marks it inactive/untracked, and Cryptowisser records an unsuccessful access check on 2024-09-18 before placing it in its exchange graveyard. HEI treats 2024-09-18 as an observation date only, not as the exact shutdown date. Secondary documentation suggesting a shutdown around 2022 is approximate and is not promoted to death_date."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012747",
+      "exchange_id": "hei_ex_001188",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Fatbtc exchange listing and inactive status",
+      "url": "https://coinmarketcap.com/exchanges/fatbtc/",
+      "publisher": "CoinMarketCap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/fatbtc/",
+      "accessed_at": "2026-08-30",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "CoinMarketCap currently identifies Fatbtc as an inactive exchange and links the historical fatbtc.com domain. HEI uses this for inactive status corroboration only, not for an exact shutdown date or cause."
+    },
+    {
+      "id": "hei_src_012748",
+      "exchange_id": "hei_ex_001188",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "FatBTC exchange graveyard update",
+      "url": "https://www.cryptowisser.com/exchange/fatbtc/",
+      "publisher": "Cryptowisser",
+      "published_at": "2024-09-18",
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/fatbtc/",
+      "accessed_at": "2026-08-30",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Cryptowisser records that it was unable to access the FatBTC website on 2024-09-18 and moved the exchange to its graveyard, while noting no preceding maintenance or migration message. HEI treats this as first-observed unavailability, not a precise shutdown date."
+    },
+    {
+      "id": "hei_src_012749",
+      "exchange_id": "hei_ex_001188",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "FatBTC historical exchange activity and 2021 announcements",
+      "url": "https://www.coinlore.com/exchange/fatbtc",
+      "publisher": "CoinLore",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.coinlore.com/exchange/fatbtc",
+      "accessed_at": "2026-08-30",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "CoinLore preserves historical FatBTC exchange activity and announcements from 2021, including scheduled maintenance and subsequent service resumption. This supports the historical exchange identity and continued operation into 2021, but not a terminal date or cause."
+    }
+  ]
+}
