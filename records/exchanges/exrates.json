@@ -1,0 +1,87 @@
+{
+  "entity": {
+    "id": "hei_ex_001185",
+    "slug": "exrates",
+    "canonical_name": "Exrates",
+    "aliases": ["Exrates Exchange", "Exrates.me"],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Global",
+    "summary": "Centralized cryptocurrency exchange formerly operated at exrates.me. Swiss regulator FINMA placed Exrates / Exrates Exchange on its warning list in April 2021, while later exchange-directory evidence records the website as unavailable and the exchange as inactive. HEI does not infer a precise shutdown date or terminal cause from those observations.",
+    "official_url_original": "https://exrates.me/",
+    "official_domain_original": "exrates.me",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://exrates.me/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-08-29",
+    "notes": "FINMA's warning-list entry dated 2021-04-28 names Exrates / Exrates Exchange, links exrates.me, gives a Swiss address, and states that the entity was not entered in the commercial register. This is modeled as a regulatory-action event, not as proof that regulation caused the exchange's eventual inactivity. Cryptowisser currently flags Exrates inactive and records that the website returned a 404 by 2022-12-02 and that the project's last tweet was at the start of 2022. User complaints and community allegations about withdrawals exist, but HEI does not convert those claims into scam_rug or a precise shutdown date. Available sources give inconsistent geographic descriptions, so country_or_origin remains Global rather than guessed."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010213",
+      "exchange_id": "hei_ex_001185",
+      "event_type": "regulatory_action",
+      "event_date": "2021-04-28",
+      "title": "FINMA added Exrates to its warning list",
+      "description": "The Swiss Financial Market Supervisory Authority published a warning-list entry for Exrates / Exrates Exchange, naming exrates.me and stating that the listed entity was not entered in the commercial register.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "none",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "This event records the regulator's published action only. HEI does not infer that the FINMA warning caused Exrates' later inactivity."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012737",
+      "exchange_id": "hei_ex_001185",
+      "event_id": "hei_ev_010213",
+      "source_type": "regulatory_notice",
+      "title": "Exrates / Exrates Exchange — FINMA warning list",
+      "url": "https://www.finma.ch/en/finma-public/warnungen/warning-list/exrates---exrates-exchange/",
+      "publisher": "Swiss Financial Market Supervisory Authority (FINMA)",
+      "published_at": "2021-04-28",
+      "archived_url": "https://web.archive.org/web/*/https://www.finma.ch/en/finma-public/warnungen/warning-list/exrates---exrates-exchange/",
+      "accessed_at": "2026-08-29",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "FINMA's official warning-list entry names Exrates / Exrates Exchange, links exrates.me, lists Gotthardstrasse 191, 6487 Göschenen, and states that the entity was not entered in the commercial register."
+    },
+    {
+      "id": "hei_src_012738",
+      "exchange_id": "hei_ex_001185",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Exrates exchange review and inactive status",
+      "url": "https://www.cryptowisser.com/exchange/exrates",
+      "publisher": "Cryptowisser",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/exrates",
+      "accessed_at": "2026-08-29",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Cryptowisser currently flags Exrates as inactive. Its 2022-12-02 update records that the website produced a 404 and that the project's last tweet was at the start of 2022. HEI uses this to support inactive status and dead-domain classification, not a precise shutdown date or cause."
+    },
+    {
+      "id": "hei_src_012739",
+      "exchange_id": "hei_ex_001185",
+      "event_id": null,
+      "source_type": "community_reference",
+      "title": "Exrates.me customer reviews",
+      "url": "https://www.trustpilot.com/review/exrates.me",
+      "publisher": "Trustpilot",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.trustpilot.com/review/exrates.me",
+      "accessed_at": "2026-08-29",
+      "reliability": "low",
+      "claim_scope": "status",
+      "notes": "Community reviews include reports from March-June 2022 that the site was down or unavailable. These reports are retained only as low-reliability corroboration of service unavailability and are not used to infer scam_rug, insolvency, or an exact terminal date."
+    }
+  ]
+}
