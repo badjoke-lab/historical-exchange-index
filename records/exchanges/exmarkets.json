@@ -1,0 +1,88 @@
+{
+  "entity": {
+    "id": "hei_ex_001184",
+    "slug": "exmarkets",
+    "canonical_name": "ExMarkets",
+    "aliases": ["ExMarkets.com"],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Lithuania",
+    "summary": "Centralized cryptocurrency exchange associated with Vilnius, Lithuania, and operated through Chain Framework Ltd. in the British Virgin Islands. The main exchange domain is no longer operational while a legacy support center remains reachable; HEI therefore records ExMarkets as inactive without inferring a precise shutdown date or cause.",
+    "official_url_original": "https://exmarkets.com/",
+    "official_domain_original": "exmarkets.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://exmarkets.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-08-29",
+    "notes": "The European Commission's EU Digital Finance Platform lists ExMarkets with launch year 2017 and location Vilnius, Lithuania; HEI uses Lithuania as country_or_origin but does not invent an exact launch day from year-only evidence. A preserved copy of ExMarkets Terms of Service identifies ExMarkets as Chain Framework Ltd., B.V.I., documenting the operating legal entity without overriding the separately supported Lithuanian origin/location. The current ExMarkets Kayako support center remains reachable, while current exchange-directory monitoring reports the main exmarkets.com exchange site offline. HEI therefore uses inactive / unknown with death_date null rather than treating a domain-offline observation as an exact shutdown event or terminal date.
+"
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012733",
+      "exchange_id": "hei_ex_001184",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "ExMarkets — EU Digital Finance Platform",
+      "url": "https://digital-finance-platform.ec.europa.eu/observatory/eu-fintech-map/exmarkets",
+      "publisher": "European Commission — DG FISMA",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://digital-finance-platform.ec.europa.eu/observatory/eu-fintech-map/exmarkets",
+      "accessed_at": "2026-08-29",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "The EU Digital Finance Platform lists ExMarkets with launch date 2017, location Vilnius, Lithuania, and an exmarkets.com trading URL. The year-only launch field supports historical existence and origin/location but not an exact launch date."
+    },
+    {
+      "id": "hei_src_012734",
+      "exchange_id": "hei_ex_001184",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "ExMarkets Support Center",
+      "url": "https://exm.kayako.com/",
+      "publisher": "ExMarkets",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://exm.kayako.com/",
+      "accessed_at": "2026-08-29",
+      "reliability": "medium",
+      "claim_scope": "url_history",
+      "notes": "The branded ExMarkets support center remains reachable and offers conversation/sign-in entry points. This shows residual support infrastructure but does not establish that the trading exchange itself remains operational."
+    },
+    {
+      "id": "hei_src_012735",
+      "exchange_id": "hei_ex_001184",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "ExMarkets exchange status",
+      "url": "https://blockspot.io/exchange/exmarkets/",
+      "publisher": "Blockspot.io",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://blockspot.io/exchange/exmarkets/",
+      "accessed_at": "2026-08-29",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current exchange-directory monitoring classifies ExMarkets as inactive/discontinued and records exmarkets.com as offline. HEI uses this to support current inactive status and dead-domain classification, but does not treat the directory's first-observed offline date as a proven shutdown date."
+    },
+    {
+      "id": "hei_src_012736",
+      "exchange_id": "hei_ex_001184",
+      "event_id": null,
+      "source_type": "archive_capture",
+      "title": "ExMarkets Terms of Service preserved copy",
+      "url": "https://wikibitimg.tech002.com/attach/2020/10/742917341/WBE742917341_94436.pdf",
+      "publisher": "ExMarkets / preserved copy",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-08-29",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "Preserved Terms of Service text defines ExMarkets as Chain Framework Ltd., B.V.I. and describes ExMarkets as a digital-currency trading platform. This supports historical operator identity and CEX classification; it is not used to infer terminal state or date."
+    }
+  ]
+}
