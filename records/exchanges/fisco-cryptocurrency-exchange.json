@@ -1,0 +1,120 @@
+{
+  "entity": {
+    "id": "hei_ex_001182",
+    "slug": "fisco-cryptocurrency-exchange",
+    "canonical_name": "Fisco Cryptocurrency Exchange",
+    "aliases": [
+      "FISCO Cryptocurrency Exchange",
+      "FCCE",
+      "フィスコ仮想通貨取引所"
+    ],
+    "type": "cex",
+    "status": "merged",
+    "death_reason": "merger",
+    "launch_date": "2016-08-29",
+    "death_date": "2020-02-12",
+    "country_or_origin": "Japan",
+    "summary": "Japanese centralized cryptocurrency exchange launched in August 2016 and later operated alongside Zaif under Fisco Cryptocurrency Exchange Inc. before the two exchanges were integrated into Zaif on February 12, 2020.",
+    "official_url_original": "http://fcce.jp/",
+    "official_domain_original": "fcce.jp",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/http://fcce.jp/",
+    "predecessor_id": null,
+    "successor_id": "hei_ex_000063",
+    "confidence": "high",
+    "last_verified_at": "2026-08-29",
+    "notes": "FISCO first-party releases establish an exact 2016-08-29 exchange-operation start and an exact 2020-02-12 integration into Zaif. The September 2020 operating-company rename to Zaif Inc. is later corporate history and is not used as the exchange terminal date. Zaif itself pre-existed and continued, so HEI records this as a one-way terminal successor relationship rather than forcing Fisco Cryptocurrency Exchange as Zaif's sole predecessor."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010211",
+      "exchange_id": "hei_ex_001182",
+      "event_type": "launched",
+      "event_date": "2016-08-29",
+      "title": "Fisco Cryptocurrency Exchange began bitcoin exchange operations",
+      "description": "FISCO announced that group company Fisco Cryptocurrency Exchange Inc. had commenced operation of its bitcoin exchange, with bitcoin and monacoin trading available through fcce.jp.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "The exact launch date is supported by FISCO's dated operating-start announcement and its 2016 news archive."
+    },
+    {
+      "id": "hei_ev_010212",
+      "exchange_id": "hei_ex_001182",
+      "event_type": "merged",
+      "event_date": "2020-02-12",
+      "title": "Fisco Cryptocurrency Exchange merged into Zaif Exchange",
+      "description": "Fisco Cryptocurrency Exchange Inc. completed the integration of its two exchanges, Fisco Cryptocurrency Exchange and Zaif Exchange, into a single exchange at noon on February 12, 2020, after which former Fisco Cryptocurrency Exchange users were directed to Zaif.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "merged",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "This is the terminal lifecycle event for the standalone Fisco Cryptocurrency Exchange service. Zaif continued operating."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012726",
+      "exchange_id": "hei_ex_001182",
+      "event_id": "hei_ev_010211",
+      "source_type": "official_statement",
+      "title": "Fisco Cryptocurrency Exchange Begins Bitcoin Exchange Operations",
+      "url": "https://www.fisco.co.jp/en/news/fisco-cryptocurrency-exchange-begins-bitcoin-exchange-operations/",
+      "publisher": "FISCO Ltd.",
+      "published_at": "2016-09-02",
+      "archived_url": "https://web.archive.org/web/*/https://www.fisco.co.jp/en/news/fisco-cryptocurrency-exchange-begins-bitcoin-exchange-operations/",
+      "accessed_at": "2026-08-29",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "First-party English release states that Fisco Cryptocurrency Exchange commenced bitcoin exchange operations on August 29, 2016 and identifies the historical fcce.jp exchange URL."
+    },
+    {
+      "id": "hei_src_012727",
+      "exchange_id": "hei_ex_001182",
+      "event_id": "hei_ev_010211",
+      "source_type": "official_statement",
+      "title": "FISCO 2016 news release archive",
+      "url": "https://www.fisco.co.jp/category/news/2016",
+      "publisher": "FISCO Ltd.",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.fisco.co.jp/category/news/2016",
+      "accessed_at": "2026-08-29",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "FISCO's 2016 news archive independently lists the August 29, 2016 start of bitcoin exchange operations."
+    },
+    {
+      "id": "hei_src_012728",
+      "exchange_id": "hei_ex_001182",
+      "event_id": "hei_ev_010212",
+      "source_type": "official_statement",
+      "title": "Completion of integration of Fisco Cryptocurrency Exchange and Zaif Exchange",
+      "url": "https://www.fisco.co.jp/news/%E3%83%95%E3%82%A3%E3%82%B9%E3%82%B3%E4%BB%AE%E6%83%B3%E9%80%9A%E8%B2%A8%E5%8F%96%E5%BC%95%E6%89%80%E3%81%A8zaif-exchange%E7%B5%B1%E5%90%88%E5%AE%8C%E4%BA%86%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89/",
+      "publisher": "FISCO Ltd.",
+      "published_at": "2020-02-12",
+      "archived_url": "https://web.archive.org/web/*/https://www.fisco.co.jp/news/%E3%83%95%E3%82%A3%E3%82%B9%E3%82%B3%E4%BB%AE%E6%83%B3%E9%80%9A%E8%B2%A8%E5%8F%96%E5%BC%95%E6%89%80%E3%81%A8zaif-exchange%E7%B5%B1%E5%90%88%E5%AE%8C%E4%BA%86%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89/",
+      "accessed_at": "2026-08-29",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party integration notice states that Fisco Cryptocurrency Exchange and Zaif Exchange were integrated into one exchange at 12:00 on February 12, 2020 and directs former Fisco users to Zaif."
+    },
+    {
+      "id": "hei_src_012729",
+      "exchange_id": "hei_ex_001182",
+      "event_id": "hei_ev_010212",
+      "source_type": "official_statement",
+      "title": "FISCO corporate history",
+      "url": "https://www.fisco.co.jp/about/corporateinfo/",
+      "publisher": "FISCO Ltd.",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.fisco.co.jp/about/corporateinfo/",
+      "accessed_at": "2026-08-29",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "FISCO corporate history records the February 2020 integration of Fisco Cryptocurrency Exchange and Zaif Exchange and separately records the September 2020 corporate-name change to Zaif Inc."
+    }
+  ]
+}
