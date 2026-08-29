@@ -1,0 +1,72 @@
+{
+  "entity": {
+    "id": "hei_ex_001187",
+    "slug": "exx",
+    "canonical_name": "EXX",
+    "aliases": ["Exchange X", "Exx.com"],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Global",
+    "summary": "Centralized cryptocurrency exchange operated by EXX Group Limited and formerly available at exx.com. Current exchange-directory evidence records EXX as inactive and the main website unavailable, but does not establish an exact shutdown date or terminal cause.",
+    "official_url_original": "https://www.exx.com/",
+    "official_domain_original": "exx.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://www.exx.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-08-29",
+    "notes": "CoinMarketCap states that EXX was launched in October 2017 and operated by EXX Group Limited, while describing it as based in Hong Kong and Shenzhen. Other directories variously classify the exchange as China-based. Because the geographic descriptions are inconsistent, country_or_origin remains Global. Blockspot and Cryptowisser both classify EXX as inactive and record exx.com as unavailable on 2021-11-11; HEI treats that date as first-observed unavailability rather than a precise shutdown date. No shutdown cause is inferred."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012744",
+      "exchange_id": "hei_ex_001187",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "EXX exchange profile",
+      "url": "https://coinmarketcap.com/exchanges/exx/",
+      "publisher": "CoinMarketCap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/exx/",
+      "accessed_at": "2026-08-29",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "CoinMarketCap identifies EXX as EXX Group Limited, launched in October 2017, and describes it as based in Hong Kong and Shenzhen. The month-level launch statement does not support an exact launch_date."
+    },
+    {
+      "id": "hei_src_012745",
+      "exchange_id": "hei_ex_001187",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "EXX discontinued exchange profile",
+      "url": "https://blockspot.io/exchange/exx/",
+      "publisher": "Blockspot",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://blockspot.io/exchange/exx/",
+      "accessed_at": "2026-08-29",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Blockspot classifies EXX as inactive and records exx.com offline since 2021-11-11. HEI uses this to support inactive status and dead-domain classification only, not an exact shutdown date or cause."
+    },
+    {
+      "id": "hei_src_012746",
+      "exchange_id": "hei_ex_001187",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "EXX inactive exchange review",
+      "url": "https://www.cryptowisser.com/exchange/exx/",
+      "publisher": "Cryptowisser",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/exx/",
+      "accessed_at": "2026-08-29",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Cryptowisser flags EXX inactive and records an unsuccessful access attempt on 2021-11-11 without a preceding maintenance or migration notice. HEI treats this as corroboration of inactivity, not proof of a precise shutdown date or terminal cause."
+    }
+  ]
+}
