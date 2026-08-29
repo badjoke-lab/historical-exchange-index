@@ -19,8 +19,7 @@
     "successor_id": null,
     "confidence": "medium",
     "last_verified_at": "2026-08-29",
-    "notes": "The European Commission's EU Digital Finance Platform lists ExMarkets with launch year 2017 and location Vilnius, Lithuania; HEI uses Lithuania as country_or_origin but does not invent an exact launch day from year-only evidence. A preserved copy of ExMarkets Terms of Service identifies ExMarkets as Chain Framework Ltd., B.V.I., documenting the operating legal entity without overriding the separately supported Lithuanian origin/location. The current ExMarkets Kayako support center remains reachable, while current exchange-directory monitoring reports the main exmarkets.com exchange site offline. HEI therefore uses inactive / unknown with death_date null rather than treating a domain-offline observation as an exact shutdown event or terminal date.
-"
+    "notes": "The European Commission's EU Digital Finance Platform lists ExMarkets with launch year 2017 and location Vilnius, Lithuania; HEI uses Lithuania as country_or_origin but does not invent an exact launch day from year-only evidence. A preserved copy of ExMarkets Terms of Service identifies ExMarkets as Chain Framework Ltd., B.V.I., documenting the operating legal entity without overriding the separately supported Lithuanian origin/location. The current ExMarkets Kayako support center remains reachable, while current exchange-directory monitoring reports the main exmarkets.com exchange site offline. HEI therefore uses inactive / unknown with death_date null rather than treating a domain-offline observation as an exact shutdown event or terminal date."
   },
   "events": [],
   "evidence": [
