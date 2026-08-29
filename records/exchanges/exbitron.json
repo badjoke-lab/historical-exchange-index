@@ -1,0 +1,72 @@
+{
+  "entity": {
+    "id": "hei_ex_001183",
+    "slug": "exbitron",
+    "canonical_name": "Exbitron",
+    "aliases": [],
+    "type": "cex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Germany",
+    "summary": "Centralized cryptocurrency exchange launched in 2020 that is now in a permanent-shutdown transition while retaining account access for users to withdraw remaining funds.",
+    "official_url_original": "https://app.exbitron.com/",
+    "official_domain_original": "exbitron.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://app.exbitron.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-08-29",
+    "notes": "Exbitron's current first-party site states that the exchange is shutting down permanently and instructs users to withdraw all funds, while login and withdrawal access remain available. HEI therefore records a limited transitional state rather than dead. The site states that Exbitron started in 2020, but no exact launch day is established. A historical first-party press-kit FAQ describes the exchange as based in Germany; this is used as country_or_origin without inferring a specific legal entity or regulatory status. The shutdown page retrospectively mentions an exploit and later financial/operational pressures, but HEI does not infer an exploit date or assign a terminal cause from that narrative."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012730",
+      "exchange_id": "hei_ex_001183",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Exbitron permanent shutdown notice",
+      "url": "https://app.exbitron.com/",
+      "publisher": "Exbitron",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://app.exbitron.com/",
+      "accessed_at": "2026-08-29",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party page states that Exbitron is shutting down permanently, instructs users to withdraw all funds, and warns that assets will no longer be accessible after closure. Login and withdrawal access remain exposed, supporting a limited transition rather than a completed shutdown. The page also says the exchange started in 2020 without giving an exact launch date."
+    },
+    {
+      "id": "hei_src_012731",
+      "exchange_id": "hei_ex_001183",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Exbitron press kit",
+      "url": "https://app.exbitron.com/press-kit/",
+      "publisher": "Exbitron",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://app.exbitron.com/press-kit/",
+      "accessed_at": "2026-08-29",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Historical first-party press material identifies Exbitron as a centralized cryptocurrency exchange and its FAQ describes the exchange as based in Germany. It does not establish a durable legal-entity identity or an exact launch day."
+    },
+    {
+      "id": "hei_src_012732",
+      "exchange_id": "hei_ex_001183",
+      "event_id": null,
+      "source_type": "community_reference",
+      "title": "Important Notice: Exbitron is Shutting Down Permanently",
+      "url": "https://forum.nexa.org/c/general/4",
+      "publisher": "Nexa Forum",
+      "published_at": "2026-06-10",
+      "archived_url": "https://web.archive.org/web/*/https://forum.nexa.org/c/general/4",
+      "accessed_at": "2026-08-29",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Community corroboration showing a June 10, 2026 topic titled 'Important Notice: Exbitron is Shutting Down Permanently'. This date is not treated as the first-party announcement date and no lifecycle event date is inferred from it."
+    }
+  ]
+}
