@@ -7,10 +7,10 @@
     "type": "cex",
     "status": "rebranded",
     "death_reason": "rebrand",
-    "launch_date": null,
-    "death_date": "2023-12-31",
+    "launch_date": "2018-05-23",
+    "death_date": "2023-12-01",
     "country_or_origin": "United States",
-    "summary": "Advanced trading surface under Coinbase that was replaced by Coinbase Advanced, with customer history access ending after December 2023.",
+    "summary": "Coinbase's advanced retail trading product, launched in 2018 as the evolution of GDAX and later replaced by Coinbase Advanced. Coinbase states that all Pro customers had been migrated and Coinbase Pro disabled by 2023-12-01.",
     "official_url_original": "https://pro.coinbase.com/",
     "official_domain_original": "pro.coinbase.com",
     "official_url_status": "redirected",
@@ -18,18 +18,132 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-06-19",
-    "notes": "Lineage-sensitive product transition. After balance migration, customers could no longer deposit, withdraw, or trade on Coinbase Pro, and transaction history remained accessible only until the end of 2023."
+    "last_verified_at": "2026-08-24",
+    "notes": "Lineage-sensitive Coinbase product transition. Coinbase announced Coinbase Pro as an evolution of GDAX on 2018-05-23, announced the move from Pro to Advanced Trade in 2022, and later documented that all Pro customers had been migrated and Pro disabled as of 2023-12-01. HEI records this as a product rebrand/migration rather than a failure event."
   },
-  "events": [],
-  "evidence": [],
+  "events": [
+    {
+      "id": "hei_ev_010202",
+      "exchange_id": "hei_ex_000159",
+      "event_type": "rebranded",
+      "event_date": "2018-05-23",
+      "title": "Coinbase announced Coinbase Pro as the evolution of GDAX",
+      "description": "Coinbase launched Coinbase Pro as the successor retail trading experience to GDAX, with existing GDAX balances and transactions carried into the new product.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "Recorded as the launch/rebrand boundary for the Coinbase Pro product."
+    },
+    {
+      "id": "hei_ev_010203",
+      "exchange_id": "hei_ex_000159",
+      "event_type": "shutdown_announced",
+      "event_date": "2022-06-22",
+      "title": "Coinbase announced the sunset of Coinbase Pro",
+      "description": "Coinbase announced that Coinbase Pro would be sunset and advanced retail trading consolidated into Coinbase Advanced Trade.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 2,
+      "notes": "The event is a migration/rebrand path, not an insolvency or service-failure event."
+    },
+    {
+      "id": "hei_ev_010204",
+      "exchange_id": "hei_ex_000159",
+      "event_type": "shutdown_effective",
+      "event_date": "2023-12-01",
+      "title": "Coinbase Pro disabled after customer migration",
+      "description": "Coinbase developer documentation states that Coinbase Pro had been disabled and all customers migrated to Coinbase Advanced as of 2023-12-01.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "dead",
+      "source_count": 2,
+      "sort_order": 3,
+      "notes": "HEI uses the documented completed migration date as the terminal lifecycle date for Coinbase Pro."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012702",
+      "exchange_id": "hei_ex_000159",
+      "event_id": "hei_ev_010202",
+      "source_type": "official_blog",
+      "title": "Announcing Coinbase Pro",
+      "url": "https://www.coinbase.com/blog/announcing-coinbase-pro",
+      "publisher": "Coinbase",
+      "published_at": "2018-05-23",
+      "archived_url": "https://web.archive.org/web/*/https://www.coinbase.com/blog/announcing-coinbase-pro",
+      "accessed_at": "2026-08-24",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party launch announcement describing Coinbase Pro as an evolution of GDAX."
+    },
+    {
+      "id": "hei_src_012703",
+      "exchange_id": "hei_ex_000159",
+      "event_id": "hei_ev_010203",
+      "source_type": "official_blog",
+      "title": "Hello Advanced Trade, goodbye Coinbase Pro",
+      "url": "https://medium.com/the-coinbase-blog/hello-advanced-trade-goodbye-coinbase-pro-5b0715b03ef0",
+      "publisher": "Coinbase",
+      "published_at": "2022-06-22",
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/the-coinbase-blog/hello-advanced-trade-goodbye-coinbase-pro-5b0715b03ef0",
+      "accessed_at": "2026-08-24",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party announcement of the planned Coinbase Pro sunset and migration to Advanced Trade."
+    },
+    {
+      "id": "hei_src_012704",
+      "exchange_id": "hei_ex_000159",
+      "event_id": "hei_ev_010204",
+      "source_type": "official_statement",
+      "title": "Advanced Trade API FAQ",
+      "url": "https://coinbase-cloud.mintlify.app/coinbase-business/advanced-trade-apis/faq",
+      "publisher": "Coinbase Developer Platform",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinbase-cloud.mintlify.app/coinbase-business/advanced-trade-apis/faq",
+      "accessed_at": "2026-08-24",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Coinbase developer documentation states that Coinbase Pro was disabled and all customers had been migrated as of 2023-12-01."
+    },
+    {
+      "id": "hei_src_012705",
+      "exchange_id": "hei_ex_000159",
+      "event_id": "hei_ev_010204",
+      "source_type": "official_statement",
+      "title": "Transitioning from Coinbase Pro to Coinbase Advanced",
+      "url": "https://help.coinbase.com/en/pro/managing-my-account/account-information/transitioning-to-advanced-trade",
+      "publisher": "Coinbase Help",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://help.coinbase.com/en/pro/managing-my-account/account-information/transitioning-to-advanced-trade",
+      "accessed_at": "2026-08-24",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party migration guidance explaining that Coinbase Pro was being replaced by Coinbase Advanced and balances were transferred into the unified Coinbase account."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000159",
     "expected": {
-      "successor_id": "hei_ex_000012"
+      "successor_id": "hei_ex_000012",
+      "launch_date": null,
+      "death_date": "2023-12-31",
+      "summary": "Advanced trading surface under Coinbase that was replaced by Coinbase Advanced, with customer history access ending after December 2023.",
+      "last_verified_at": "2026-06-19",
+      "notes": "Lineage-sensitive product transition. After balance migration, customers could no longer deposit, withdraw, or trade on Coinbase Pro, and transaction history remained accessible only until the end of 2023."
     },
     "changes": {
-      "successor_id": null
+      "successor_id": null,
+      "launch_date": "2018-05-23",
+      "death_date": "2023-12-01",
+      "summary": "Coinbase's advanced retail trading product, launched in 2018 as the evolution of GDAX and later replaced by Coinbase Advanced. Coinbase states that all Pro customers had been migrated and Coinbase Pro disabled by 2023-12-01.",
+      "last_verified_at": "2026-08-24",
+      "notes": "Lineage-sensitive Coinbase product transition. Coinbase announced Coinbase Pro as an evolution of GDAX on 2018-05-23, announced the move from Pro to Advanced Trade in 2022, and later documented that all Pro customers had been migrated and Pro disabled as of 2023-12-01. HEI records this as a product rebrand/migration rather than a failure event."
     }
   }
 }
