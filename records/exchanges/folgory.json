@@ -1,0 +1,72 @@
+{
+  "entity": {
+    "id": "hei_ex_001189",
+    "slug": "folgory",
+    "canonical_name": "Folgory",
+    "aliases": ["Folgory Exchange"],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": "unknown",
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Seychelles",
+    "summary": "Centralized cryptocurrency exchange launched in 2019 and formerly operating at folgory.com. Current exchange directories no longer track active markets or explicitly classify the venue as no longer operational. HEI does not infer an exact shutdown date or terminal cause from secondary graveyard labels.",
+    "official_url_original": "https://folgory.com/",
+    "official_domain_original": "folgory.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://folgory.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-08-31",
+    "notes": "CoinMarketCap identifies Folgory as a centralized exchange launched in May 2019 and based in Seychelles, but currently marks the listing untracked with no market data. CoinCodex states the exchange is no longer operational. Cryptowisser places Folgory in its exchange graveyard and labels a 2021-07-13 death date and scam cause; HEI does not promote that date or cause because stronger primary or regulatory evidence establishing the exact terminal event was not recovered in this review pass."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012750",
+      "exchange_id": "hei_ex_001189",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Folgory exchange listing and untracked status",
+      "url": "https://coinmarketcap.com/exchanges/folgory/",
+      "publisher": "CoinMarketCap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/folgory/",
+      "accessed_at": "2026-08-31",
+      "reliability": "medium",
+      "claim_scope": "entity",
+      "notes": "CoinMarketCap identifies Folgory as a centralized exchange launched in May 2019, based in Seychelles, and historically operating at folgory.com. The current listing is untracked and shows no market data."
+    },
+    {
+      "id": "hei_src_012751",
+      "exchange_id": "hei_ex_001189",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Folgory exchange no longer operational",
+      "url": "https://coincodex.com/exchange/folgory/",
+      "publisher": "CoinCodex",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coincodex.com/exchange/folgory/",
+      "accessed_at": "2026-08-31",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "CoinCodex explicitly warns that Folgory is no longer operational. HEI uses this to support inactive status only, not an exact shutdown date or cause."
+    },
+    {
+      "id": "hei_src_012752",
+      "exchange_id": "hei_ex_001189",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Folgory exchange graveyard entry",
+      "url": "https://www.cryptowisser.com/exchange-graveyard/",
+      "publisher": "Cryptowisser",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange-graveyard/",
+      "accessed_at": "2026-08-31",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Cryptowisser lists Folgory in its exchange graveyard. Its specific 2021-07-13 death date and scam label are treated as secondary assertions and are not promoted to canonical death_date or death_reason without stronger evidence."
+    }
+  ]
+}
