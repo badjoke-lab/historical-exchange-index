@@ -1,0 +1,67 @@
+{
+  "package_type": "manual_monitoring_impact_assessment",
+  "created_at": "2026-08-31",
+  "monitor": "news-and-event-watch",
+  "incident": {
+    "canonical_name": "Tectonic exploit / Cronos chain halt",
+    "incident_date": "2026-08-30",
+    "severity": "high",
+    "hei_scope": "indirect",
+    "primary_protocol": "Tectonic",
+    "primary_protocol_type": "lending_only",
+    "network": "Cronos",
+    "summary": "Cronos validators halted the network after an exploit affected Tectonic, a lending protocol on Cronos. Public reporting places the preliminary affected amount around USD 74-75 million, with roughly USD 6 million bridged to Ethereum before the halt. Tectonic and Cronos had not confirmed a final loss amount or formal root cause at review time.",
+    "root_cause_status": "preliminary",
+    "preliminary_mechanism": "Reported on-chain analysis indicates manipulation of the low-liquidity TONIC token price followed by borrowing against inflated collateral. Treat this as a preliminary mechanism until formally confirmed.",
+    "funds_status": "Most exploit-linked assets were reported as stranded on Cronos after the halt. Do not describe stranded/frozen funds as recovered unless recovery is later confirmed."
+  },
+  "hei_decision": {
+    "tectonic_entity_action": "out_of_scope_no_entity",
+    "reason": "Tectonic is a lending-only protocol and is not an exchange, DEX, or hybrid exchange entity under the current HEI scope.",
+    "canonical_change_now": false,
+    "canonical_status_change_now": false,
+    "exchange_side_follow_up": true,
+    "follow_up_action": "Identify any HEI-covered Cronos-based DEX/exchange with documented trading, swap, deposit, withdrawal, or service interruption caused by the Cronos halt. Only then stage an exchange-specific event with direct evidence.",
+    "crypto_com_note": "Reporting states the Crypto.com app and exchange were not compromised. Do not infer a Crypto.com exchange incident solely from the Cronos chain halt."
+  },
+  "evidence": [
+    {
+      "source_type": "news_article",
+      "publisher": "The Block",
+      "title": "Crypto.com-linked Cronos network halts after Tectonic exploit estimated at $75 million",
+      "url": "https://www.theblock.co/news/defi/2026-08-30-crypto-com-linked-cronos-network-halts-after-tectonic-exploit-estimated-at-75-million-413069",
+      "published_at": "2026-08-30",
+      "reliability": "high",
+      "claim_scope": "incident_and_exchange_nonimpact",
+      "notes": "Supports Cronos halt, preliminary approximately USD 75M estimate, approximately USD 6M bridged, preliminary manipulation mechanism, and statement that Crypto.com app/exchange were not compromised."
+    },
+    {
+      "source_type": "news_article",
+      "publisher": "CoinDesk",
+      "title": "Cronos halts blockchain after $75 million lending exploit hits lending app Tectonic",
+      "url": "https://www.coindesk.com/tech/2026/08/31/cronos-halts-blockchain-after-usd75-million-lending-exploit-hits-lending-app-tectonic",
+      "published_at": "2026-08-31",
+      "reliability": "high",
+      "claim_scope": "incident",
+      "notes": "Supports the chain halt, preliminary approximately USD 75M estimate, TONIC price-manipulation framing, and lack of confirmed final loss/restart timetable at publication time."
+    },
+    {
+      "source_type": "news_article",
+      "publisher": "FinanceFeeds",
+      "title": "Tectonic Exploited on Cronos for Estimated $75 Million as Validators Halt Entire Network",
+      "url": "https://financefeeds.com/tectonic-exploited-on-cronos-for-estimated-75-million-as-validators-halt-entire-network/",
+      "published_at": "2026-08-31",
+      "reliability": "medium",
+      "claim_scope": "incident",
+      "notes": "Supports that Tectonic acknowledged the incident, the approximately USD 75M figure remained preliminary, and the final loss/root cause had not been formally confirmed."
+    }
+  ],
+  "review_checklist": [
+    "Do not create Tectonic as an HEI entity.",
+    "Do not mark any HEI entity dead, limited, hacked, or withdrawal-suspended from this incident without exchange-specific evidence.",
+    "Search HEI-covered Cronos DEX/exchange entities for documented user-facing interruption during the halt.",
+    "If a specific exchange-side interruption is confirmed, stage only that event and its direct evidence.",
+    "Keep loss amount explicitly preliminary until Tectonic/Cronos publishes a final figure.",
+    "Do not equate frozen or stranded attacker-controlled assets with recovered funds."
+  ]
+}
