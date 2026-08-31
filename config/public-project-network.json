@@ -9,6 +9,7 @@
     { "id": "cya", "name": "Crypto Yield Archive", "url": "https://cya.badjoke-lab.com/" },
     { "id": "bir", "name": "Bridge Incident Registry", "url": "https://bir.badjoke-lab.com/" },
     { "id": "mag", "name": "Minted & Gone", "url": "https://mag.badjoke-lab.com/" },
-    { "id": "wlr", "name": "Wallet Lifecycle Registry", "url": "https://wlr.badjoke-lab.com/" }
+    { "id": "wlr", "name": "Wallet Lifecycle Registry", "url": "https://wlr.badjoke-lab.com/" },
+    { "id": "cclr", "name": "Crypto Card Lifecycle Registry", "url": "https://badjoke-lab.github.io/crypto-card-lifecycle-registry/" }
   ]
 }
