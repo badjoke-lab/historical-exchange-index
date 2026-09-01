@@ -1,0 +1,239 @@
+{
+  "monitor": "news-and-event-watch",
+  "status": "ok",
+  "started_at": "2026-08-31T09:33:57.827Z",
+  "finished_at": "2026-08-31T09:34:13.935Z",
+  "findings": [
+    {
+      "finding_id": "finding_1788168853934_3y4rqn",
+      "monitor": "news-and-event-watch",
+      "severity": "medium",
+      "category": "news_event_actionable_candidate_new",
+      "title": "New news/event candidate: Latest Crypto",
+      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "affected_entity": null,
+      "recommended_action": "review_and_stage_public_quality_record",
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMipgFBVV95cUxOdjYxQmtRaFNWOXpoZEpHWUE2LXQyekV6ZWFyNjVnZWVnWms1c0tmakJ4TVNoVnlZODBNa1M3elo0NjdqYTBmZWp6QUtwSy1oR01rUEw0WW1XaG1YbjRtbW1xZ25odXpXWnRtam9JSS0xU2F2MUNLSkYzV3lpUXU1UjhZdjdEaWJJV3JuTG1vWF9CdzFYc3pzWlhCN195OV91Sk0xSTN3?oc=5",
+        "https://news.google.com/rss/articles/CBMigwFBVV95cUxPY091OHc5VXZ4S2lGN01DVnJCdVF0ZTl5elpSM1hRMHpfaGtPbGs4YU9XMC1IYUFvdnpRRmp4TS12TFRZVkV1aEFYdjMySV9ITzRKTFY4ckxJX3k3b2xIWnlYNE1CVE8tWHk3ZllLanA1QllqQzlFWF9iVG9JZUxBbGxHUdIBiwFBVV95cUxOMXdJeWtxQlp3M2NHY1hCLU1UMzdfQVJRSEZxdDEzNXlZLTVsNm00Qk9aZDF0RG85OVQyU1hQRkJPYnB1dVU4UnVkbGFaNG9TXzZLN2o5bVVPWE5vR3ZJQ1FGUHhzb0ZTU0cwb1FMeFd6ZnFkajMybWlyYklsNlN1TGk2cmxIQXB1bElz?oc=5"
+      ],
+      "confidence": "low",
+      "dedupe_key": "news-and-event-watch:actionable_candidate:candidate:latest-crypto",
+      "first_seen_at": "2026-08-31T09:35:22.329Z",
+      "last_seen_at": "2026-08-31T09:35:22.329Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    },
+    {
+      "finding_id": "finding_1788168853934_tpq2ql",
+      "monitor": "news-and-event-watch",
+      "severity": "medium",
+      "category": "news_event_actionable_candidate_new",
+      "title": "New news/event candidate: Aggregator Odos",
+      "summary": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "affected_entity": null,
+      "recommended_action": "review_and_stage_public_quality_record",
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMioAFBVV95cUxQVXNCODJRZkpHVjM3OTNTRlA1ekg5V3RnZzAtakthUmQ5VWUtekNPcFFmT0xGNU4xY1h3c1dtZzV1QjQtNUhhMUd5RU83SmRpaEtIQk0xRXgzLVFjNUs4amNxMzZtSnYwMlRQSmI5M2s5TFowY1ZkSlpERFNHZFdKeWFSSDJJU3RWemVvbzdBRVA4NVlkX1I4X3V0STdjVjQz?oc=5",
+        "https://news.google.com/rss/articles/CBMisAFBVV95cUxOQVhEd3BSbV9lSV9mVEd3bE5MNXgtemYtVllFTTRZY2M3MGdIclQ4UlVHbmdZVnQxakJ4MTI0Sk9CLXZQM1FHeG9kc0Fnazk5SjJERUx5RWswd0ROLUcwSTFJbjRrZzE5anZfSlB0TzlDTlpieGRrUm10ZkhQdWlrVHhGczNZaW9qQjJLb29GNXQ4VkFBQ0lCSGdPVzMyREhfVzRKNzFoS3hsLVVOTENmOQ?oc=5"
+      ],
+      "confidence": "low",
+      "dedupe_key": "news-and-event-watch:actionable_candidate:candidate:aggregator-odos",
+      "first_seen_at": "2026-08-31T09:35:22.329Z",
+      "last_seen_at": "2026-08-31T09:35:22.329Z",
+      "repeat_count": 1,
+      "is_new": true,
+      "is_repeated": false,
+      "suppressed": false,
+      "noise_control": "visible"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "candidate:latest-crypto",
+      "candidate_key": "candidate:latest-crypto",
+      "canonical_name": "Latest Crypto",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "BitMart Becomes Latest Crypto Exchange to Shut Down - Yahoo Finance",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMipgFBVV95cUxOdjYxQmtRaFNWOXpoZEpHWUE2LXQyekV6ZWFyNjVnZWVnWms1c0tmakJ4TVNoVnlZODBNa1M3elo0NjdqYTBmZWp6QUtwSy1oR01rUEw0WW1XaG1YbjRtbW1xZ25odXpXWnRtam9JSS0xU2F2MUNLSkYzV3lpUXU1UjhZdjdEaWJJV3JuTG1vWF9CdzFYc3pzWlhCN195OV91Sk0xSTN3?oc=5",
+        "https://news.google.com/rss/articles/CBMigwFBVV95cUxPY091OHc5VXZ4S2lGN01DVnJCdVF0ZTl5elpSM1hRMHpfaGtPbGs4YU9XMC1IYUFvdnpRRmp4TS12TFRZVkV1aEFYdjMySV9ITzRKTFY4ckxJX3k3b2xIWnlYNE1CVE8tWHk3ZllLanA1QllqQzlFWF9iVG9JZUxBbGxHUdIBiwFBVV95cUxOMXdJeWtxQlp3M2NHY1hCLU1UMzdfQVJRSEZxdDEzNXlZLTVsNm00Qk9aZDF0RG85OVQyU1hQRkJPYnB1dVU4UnVkbGFaNG9TXzZLN2o5bVVPWE5vR3ZJQ1FGUHhzb0ZTU0cwb1FMeFd6ZnFkajMybWlyYklsNlN1TGk2cmxIQXB1bElz?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "Yahoo Finance, Decrypt",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "shutdown"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 4,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "multiple_source_urls"
+      ],
+      "first_seen_at": "2026-08-31T09:34:13.932Z",
+      "last_seen_at": "2026-08-31T09:34:13.932Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:aggregator-odos",
+      "candidate_key": "candidate:aggregator-odos",
+      "canonical_name": "Aggregator Odos",
+      "aliases": [],
+      "candidate_class": "A",
+      "likely_type": "unknown",
+      "likely_status": "dead",
+      "likely_death_reason": "voluntary_shutdown",
+      "record_shape": "new_entity",
+      "headline": "DEX Aggregator Odos is Shutting Down: What Users Need to Do Before July 30 - CryptoPotato",
+      "hei_relevance": "Likely HEI-relevant shutdown / wind-down candidate.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMioAFBVV95cUxQVXNCODJRZkpHVjM3OTNTRlA1ekg5V3RnZzAtakthUmQ5VWUtekNPcFFmT0xGNU4xY1h3c1dtZzV1QjQtNUhhMUd5RU83SmRpaEtIQk0xRXgzLVFjNUs4amNxMzZtSnYwMlRQSmI5M2s5TFowY1ZkSlpERFNHZFdKeWFSSDJJU3RWemVvbzdBRVA4NVlkX1I4X3V0STdjVjQz?oc=5",
+        "https://news.google.com/rss/articles/CBMisAFBVV95cUxOQVhEd3BSbV9lSV9mVEd3bE5MNXgtemYtVllFTTRZY2M3MGdIclQ4UlVHbmdZVnQxakJ4MTI0Sk9CLXZQM1FHeG9kc0Fnazk5SjJERUx5RWswd0ROLUcwSTFJbjRrZzE5anZfSlB0TzlDTlpieGRrUm10ZkhQdWlrVHhGczNZaW9qQjJLb29GNXQ4VkFBQ0lCSGdPVzMyREhfVzRKNzFoS3hsLVVOTENmOQ?oc=5"
+      ],
+      "source_quality": "medium",
+      "next_action": "review_and_stage_public_quality_record",
+      "source_name": "CryptoPotato, CryptoRank",
+      "source_category": "news_event",
+      "likely_event_types": [
+        "shutdown_announced",
+        "shutdown_effective"
+      ],
+      "news_event_categories": [
+        "shutdown"
+      ],
+      "regulatory_authorities": [],
+      "regulatory_regions": [],
+      "regulatory_signals": [],
+      "historical_dead_score": 4,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "shutdown_language",
+        "multiple_source_urls"
+      ],
+      "first_seen_at": "2026-08-31T09:34:13.932Z",
+      "last_seen_at": "2026-08-31T09:34:13.932Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    },
+    {
+      "candidate_id": "candidate:coinunited-io",
+      "candidate_key": "candidate:coinunited-io",
+      "canonical_name": "CoinUnited.io",
+      "aliases": [],
+      "candidate_class": "B",
+      "likely_type": "unknown",
+      "likely_status": "limited",
+      "likely_death_reason": null,
+      "record_shape": "new_entity",
+      "headline": "SFC warns public against unlicensed virtual asset trading platform CoinUnited.io - Securities & Futures Commission of Hong Kong",
+      "hei_relevance": "Potential HEI regulatory candidate; do not mark dead unless service closure is proven.",
+      "duplicate_check": {
+        "matched_existing_entity": false,
+        "matched_id": null,
+        "matched_slug": null,
+        "method": "no_match"
+      },
+      "source_urls": [
+        "https://news.google.com/rss/articles/CBMihwFBVV95cUxPY1EzMi1BNzhtRUpYZVh4WjcyQ1lRcmNhWTU1UW5rbEhDRlM1WGFXdnQ3Z0RyX1F3czVOR2xUM2pGNVRCemFDQnlwMWIzeHJyVUVqNG9TYkFad3ZkZS1STFRLVHR4TExnNHNXZy1MM3BKWjdiSjlXT1VrTlRuZnhUWW5nY2EzUEE?oc=5"
+      ],
+      "source_quality": "high",
+      "next_action": "hold_for_regulatory_scope_review",
+      "source_name": "Securities & Futures Commission of Hong Kong",
+      "source_category": "regulatory_source",
+      "likely_event_types": [
+        "regulatory_action",
+        "lawsuit"
+      ],
+      "news_event_categories": [
+        "regulatory"
+      ],
+      "regulatory_authorities": [
+        "Securities and Futures Commission"
+      ],
+      "regulatory_regions": [
+        "Hong Kong"
+      ],
+      "regulatory_signals": [
+        "enforcement_action"
+      ],
+      "historical_dead_score": 3,
+      "historical_dead_strength": "medium",
+      "historical_dead_tags": [
+        "regulatory_language",
+        "high_quality_source"
+      ],
+      "first_seen_at": "2026-08-31T09:34:13.933Z",
+      "last_seen_at": "2026-08-31T09:34:13.933Z",
+      "seen_count": 1,
+      "is_new_candidate": true,
+      "resolution_state": null
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "findings_count": 2,
+    "visible_findings_count": 2,
+    "candidate_count": 3,
+    "errors_count": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 2,
+    "low": 0
+  },
+  "news_summary": {
+    "enabled": true,
+    "queries": 20,
+    "items": 1447,
+    "candidates": 2
+  },
+  "regulatory_summary": {
+    "enabled": true,
+    "authorities_configured": 7,
+    "query_templates": 5,
+    "queries": 25,
+    "items": 1738,
+    "candidates": 1
+  },
+  "combined_summary": {
+    "items": 3185,
+    "raw_candidates": 128,
+    "candidates": 3,
+    "dropped_candidates": 125,
+    "resolved_candidate_names": 249,
+    "missing_in_hei": 3,
+    "matched_existing": 0
+  }
+}
