@@ -11,15 +11,15 @@
     "death_date": null,
     "country_or_origin": "Stellar ecosystem",
     "summary": "Soroban weighted-AMM implementation in the Stellar ecosystem. Comet code has been used as the Blend lending protocol's backstop pool; the BLND-USDC Comet pool was exploited on 2026-08-25 through a same-asset swap accounting bug, after which the affected backstop was paused. HEI therefore treats the entity as limited rather than active or dead while independent current exchange operation is not established.",
-    "official_url_original": "https://github.com/CometDEX",
-    "official_domain_original": "github.com",
-    "official_url_status": "live_verified",
-    "archived_url": "https://web.archive.org/web/*/https://github.com/CometDEX",
+    "official_url_original": null,
+    "official_domain_original": null,
+    "official_url_status": "unknown",
+    "archived_url": null,
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
     "last_verified_at": "2026-09-01",
-    "notes": "The CometDEX GitHub organization and contract repository establish the protocol identity and Soroban AMM implementation. Current Stellar ecosystem technical indexing states that the only mainnet Comet deployment is the Blend Backstop V2 pool and that Comet is not actively maintained as a standalone DEX. SlowMist records the 2026-08-25 exploit of the BLND-USDC pool at approximately 717,518.92 USDC. The affected backstop is currently paused/empty, but HEI does not infer terminal protocol death from one affected deployment or from the absence of a separately maintained frontend. No exact launch date is promoted without stronger evidence."
+    "notes": "The CometDEX GitHub organization and contract repository establish the protocol identity and Soroban AMM implementation, but a distinct current official web domain is not established, so GitHub is retained as evidence rather than modeled as the entity's official domain. Current Stellar ecosystem technical indexing states that the only mainnet Comet deployment is the Blend Backstop V2 pool and that Comet is not actively maintained as a standalone DEX. SlowMist records the 2026-08-25 exploit of the BLND-USDC pool at approximately 717,518.92 USDC. The affected backstop is currently paused/empty, but HEI does not infer terminal protocol death from one affected deployment or from the absence of a separately maintained frontend. No exact launch date is promoted without stronger evidence."
   },
   "events": [
     {
