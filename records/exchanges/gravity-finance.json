@@ -1,1 +1,72 @@
-{"entity":{"id":"hei_ex_000834","slug":"gravity-finance","canonical_name":"Gravity Finance","aliases":["Gravity","GFI"],"type":"dex","status":"active","death_reason":null,"launch_date":null,"death_date":null,"country_or_origin":"Polygon ecosystem","summary":"Polygon automated-market-maker decentralized exchange and DeFi platform with current liquidity, swap volume, fees, and active spot trading.","official_url_original":"https://gravityfinance.io/","official_domain_original":"gravityfinance.io","official_url_status":"live_verified","archived_url":"https://web.archive.org/web/*/https://gravityfinance.io/","predecessor_id":null,"successor_id":null,"confidence":"high","last_verified_at":"2026-07-10","notes":"Current first-party Gravity Finance domain remains reachable. DefiLlama independently identifies Gravity Finance as a Polygon AMM DEX and reports current TVL, fees, and non-zero 30-day, 7-day, and 24-hour DEX volume, supporting active classification."},"events":[],"evidence":[{"id":"hei_src_011812","exchange_id":"hei_ex_000834","event_id":null,"source_type":"official_statement","title":"Gravity Finance official website","url":"https://gravityfinance.io/","publisher":"Gravity Finance","published_at":null,"archived_url":"https://web.archive.org/web/*/https://gravityfinance.io/","accessed_at":"2026-07-10","reliability":"high","claim_scope":"status","notes":"Current dedicated first-party Gravity Finance domain remains reachable at review time."},{"id":"hei_src_011813","exchange_id":"hei_ex_000834","event_id":null,"source_type":"database_reference","title":"Gravity Finance metrics and protocol information","url":"https://defillama.com/protocol/gravity-finance","publisher":"DefiLlama","published_at":null,"archived_url":null,"accessed_at":"2026-07-10","reliability":"medium","claim_scope":"status","notes":"Protocol registry identifies Gravity Finance as a Polygon AMM DEX and reports current TVL, fees, and non-zero 30-day, 7-day, and 24-hour DEX volume."},{"id":"hei_src_011814","exchange_id":"hei_ex_000834","event_id":null,"source_type":"database_reference","title":"Gravity Finance DEX discovery entry","url":"https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume","publisher":"DefiLlama","published_at":null,"archived_url":null,"accessed_at":"2026-07-10","reliability":"medium","claim_scope":"entity","notes":"DEX candidate corpus independently identifies Gravity Finance as a Polygon decentralized exchange."}]}
+{
+  "entity": {
+    "id": "hei_ex_000834",
+    "slug": "gravity-finance",
+    "canonical_name": "Gravity Finance",
+    "aliases": ["Gravity", "GFI"],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Polygon ecosystem",
+    "summary": "Polygon automated-market-maker decentralized exchange and DeFi platform with current liquidity, swap volume, fees, and active spot trading.",
+    "official_url_original": "https://gravityfinance.io/",
+    "official_domain_original": "gravityfinance.io",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://gravityfinance.io/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-09-01",
+    "notes": "Current first-party Gravity Finance documentation identifies the platform as deployed on Polygon and offering a Swap Exchange alongside farms, vaults and launchpad functionality. Current DefiLlama data independently identifies Gravity Finance as a Polygon AMM DEX and reports non-zero TVL, fees and DEX volume, supporting active classification. No exact first-party launch day was established, so launch_date remains null."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_011812",
+      "exchange_id": "hei_ex_000834",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Gravity Finance official documentation",
+      "url": "https://inthenextversion.gitbook.io/gravity-finance",
+      "publisher": "Gravity Finance",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://inthenextversion.gitbook.io/gravity-finance",
+      "accessed_at": "2026-09-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party documentation describes Gravity Finance as a DeFi platform deployed on Polygon and lists Swap Exchange among its current features."
+    },
+    {
+      "id": "hei_src_011813",
+      "exchange_id": "hei_ex_000834",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Gravity Finance metrics and protocol information",
+      "url": "https://defillama.com/protocol/gravity-finance",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-09-01",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "DefiLlama identifies Gravity Finance as a Polygon AMM DEX and reports current non-zero TVL, fees, and 30-day, 7-day and 24-hour DEX volume, supporting active status."
+    },
+    {
+      "id": "hei_src_011814",
+      "exchange_id": "hei_ex_000834",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Gravity Finance whitepaper",
+      "url": "https://api.gravityfinance.io/documents/GravityFinanceWhitePaper.pdf",
+      "publisher": "Gravity Finance",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://api.gravityfinance.io/documents/GravityFinanceWhitePaper.pdf",
+      "accessed_at": "2026-09-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party whitepaper describes Gravity Finance's Polygon deployment and includes Swap Exchange among the platform features. It is used for identity and exchange-boundary support, not for an exact launch date."
+    }
+  ]
+}
