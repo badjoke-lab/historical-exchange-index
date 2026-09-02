@@ -1,4 +1,4 @@
-name: Verify machine-readable production endpoints
+name: Production verification
 
 on:
   workflow_run:
@@ -9,35 +9,45 @@ on:
   schedule:
     - cron: '23 3 * * *'
   workflow_dispatch:
+    inputs:
+      expected_commit:
+        description: Optional exact deployed commit to verify
+        required: false
+        type: string
+
+permissions:
+  contents: read
 
 jobs:
   verify-production:
     if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    timeout-minutes: 20
     env:
       HEI_PUBLIC_ORIGIN: https://hei.badjoke-lab.com
-      EXPECTED_COMMIT: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || '' }}
-      SMOKE_MAX_ATTEMPTS: 12
+      HEI_PRODUCTION_ORIGIN: https://hei.badjoke-lab.com
+      EXPECTED_COMMIT: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || inputs.expected_commit || '' }}
+      HEI_EXPECTED_PRODUCTION_COMMIT: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || inputs.expected_commit || '' }}
+      SMOKE_MAX_ATTEMPTS: 20
       SMOKE_RETRY_DELAY_MS: 30000
+      HEI_STAGE5_PRODUCTION_ATTEMPTS: 20
+      HEI_STAGE5_PRODUCTION_DELAY_MS: 30000
 
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
         with:
           ref: main
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-
-      - name: Verify production machine-readable endpoints
+      - name: Verify machine-readable production endpoints
         run: node scripts/check-machine-readable-production.mjs
-
-      - name: Verify production record-level endpoints
+      - name: Verify record-level production endpoints
         run: node scripts/check-record-level-machine-readable-production.mjs
-
-      - name: Verify production stats endpoints
+      - name: Verify stats production endpoints
         run: node scripts/check-stats-machine-readable-production.mjs
+      - name: Verify Compare production integration
+        run: node scripts/verify-compare-production.mjs
+      - name: Verify reviewed Ledger Series Stage 5 relationships
+        run: node scripts/verify-ledger-series-stage5-production.mjs
