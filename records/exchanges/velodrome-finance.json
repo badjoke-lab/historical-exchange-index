@@ -1,0 +1,75 @@
+{
+  "entity": {
+    "id": "hei_ex_001191",
+    "slug": "velodrome-finance",
+    "canonical_name": "Velodrome Finance",
+    "aliases": [
+      "Velodrome",
+      "VELO"
+    ],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2022-06-02",
+    "death_date": null,
+    "country_or_origin": "Optimism ecosystem",
+    "summary": "Decentralized automated-market-maker exchange and liquidity marketplace for the Superchain. Velodrome launched on 2022-06-02 and remains an active token-swap and liquidity protocol.",
+    "official_url_original": "https://velodrome.finance/",
+    "official_domain_original": "velodrome.finance",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://velodrome.finance/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-09-02",
+    "notes": "First-party documentation states that Velodrome launched on 2022-06-02 and describes it as an AMM designed to enable token swaps and liquidity provision. The current first-party application remains live and identifies Velodrome as a decentralized exchange. Lisk documentation separately identifies a Lisk-network Velodrome deployment, but HEI does not treat the announced 2026-10-31 Lisk Chain shutdown as a whole-entity Velodrome shutdown; deployment-level disposition remains tracked under issue #888."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010216",
+      "exchange_id": "hei_ex_001191",
+      "event_type": "launched",
+      "event_date": "2022-06-02",
+      "title": "Velodrome Finance launched",
+      "description": "Velodrome Finance launched as an automated-market-maker exchange and liquidity protocol on 2022-06-02.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "Exact launch date is stated in current first-party Velodrome documentation."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012758",
+      "exchange_id": "hei_ex_001191",
+      "event_id": "hei_ev_010216",
+      "source_type": "official_statement",
+      "title": "About Velodrome",
+      "url": "https://velodrome.finance/docs",
+      "publisher": "Velodrome Finance",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://velodrome.finance/docs",
+      "accessed_at": "2026-09-02",
+      "reliability": "high",
+      "claim_scope": "entity_event",
+      "notes": "First-party documentation describes Velodrome as an AMM for token swaps and states that it first launched on 2022-06-02."
+    },
+    {
+      "id": "hei_src_012759",
+      "exchange_id": "hei_ex_001191",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Velodrome Finance exchange application",
+      "url": "https://velodrome.finance/",
+      "publisher": "Velodrome Finance",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://velodrome.finance/",
+      "accessed_at": "2026-09-02",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party application identifies Velodrome as a decentralized exchange offering token swaps and liquidity deposits, supporting active status."
+    }
+  ]
+}
