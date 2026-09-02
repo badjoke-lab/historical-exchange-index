@@ -1,0 +1,102 @@
+{
+  "entity": {
+    "id": "hei_ex_001190",
+    "slug": "cometdex",
+    "canonical_name": "CometDEX",
+    "aliases": ["Comet", "Comet AMM"],
+    "type": "dex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Stellar ecosystem",
+    "summary": "Soroban weighted-AMM implementation in the Stellar ecosystem. Comet code has been used as the Blend lending protocol's backstop pool; the BLND-USDC Comet pool was exploited on 2026-08-25 through a same-asset swap accounting bug, after which the affected backstop was paused. HEI therefore treats the entity as limited rather than active or dead while independent current exchange operation is not established.",
+    "official_url_original": null,
+    "official_domain_original": null,
+    "official_url_status": "unknown",
+    "archived_url": null,
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-09-01",
+    "notes": "The CometDEX GitHub organization and contract repository establish the protocol identity and Soroban AMM implementation, but a distinct current official web domain is not established, so GitHub is retained as evidence rather than modeled as the entity's official domain. Current Stellar ecosystem technical indexing states that the only mainnet Comet deployment is the Blend Backstop V2 pool and that Comet is not actively maintained as a standalone DEX. SlowMist records the 2026-08-25 exploit of the BLND-USDC pool at approximately 717,518.92 USDC. The affected backstop is currently paused/empty, but HEI does not infer terminal protocol death from one affected deployment or from the absence of a separately maintained frontend. No exact launch date is promoted without stronger evidence."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010214",
+      "exchange_id": "hei_ex_001190",
+      "event_type": "exploit",
+      "event_date": "2026-08-25",
+      "title": "CometDEX BLND-USDC pool was exploited on Stellar",
+      "description": "The BLND-USDC Comet AMM pool used by Blend's backstop was exploited through an accounting flaw that allowed same-asset USDC-to-USDC swaps to corrupt reserve calculations. SlowMist records approximately 717,518.92 USDC in losses. The affected backstop was subsequently paused while recovery and remediation work proceeded.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "This event is scoped to the affected Comet pool/backstop deployment. It does not establish that all Comet code or every possible deployment permanently ceased operation."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012753",
+      "exchange_id": "hei_ex_001190",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "CometDEX organization and Comet contracts",
+      "url": "https://github.com/CometDEX/comet-contracts-v1",
+      "publisher": "CometDEX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://github.com/CometDEX/comet-contracts-v1",
+      "accessed_at": "2026-09-01",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party repository identifies Comet Contracts as Soroban smart contracts and links a frontend repository integrating the v1 contract flow."
+    },
+    {
+      "id": "hei_src_012754",
+      "exchange_id": "hei_ex_001190",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "Blend WASM audit covering current Comet deployment",
+      "url": "https://github.com/Stellar-Index/StellarIndex/blob/main/docs/operations/wasm-audits/blend.md",
+      "publisher": "Stellar Index",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://github.com/Stellar-Index/StellarIndex/blob/main/docs/operations/wasm-audits/blend.md",
+      "accessed_at": "2026-09-01",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current technical indexing states that the only mainnet Comet deployment is Blend's Backstop V2 pool and that Comet is not actively maintained as a standalone DEX. HEI uses this conservatively for limited status rather than terminal death."
+    },
+    {
+      "id": "hei_src_012755",
+      "exchange_id": "hei_ex_001190",
+      "event_id": "hei_ev_010214",
+      "source_type": "other",
+      "title": "SlowMist Hacked entry for CometDEX",
+      "url": "https://hacked.slowmist.io/",
+      "publisher": "SlowMist",
+      "published_at": "2026-08-25",
+      "archived_url": "https://web.archive.org/web/*/https://hacked.slowmist.io/",
+      "accessed_at": "2026-09-01",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "SlowMist records the BLND-USDC CometDEX pool exploit on Stellar, attributes it to an accounting bug permitting same-asset swaps, and reports approximately 717,518.92 USDC in losses."
+    },
+    {
+      "id": "hei_src_012756",
+      "exchange_id": "hei_ex_001190",
+      "event_id": "hei_ev_010214",
+      "source_type": "news_article",
+      "title": "Comet BLND-USDC LP Incident - Post Mortem summary",
+      "url": "https://lumenloop.com/news",
+      "publisher": "Lumen Loop",
+      "published_at": "2026-08-28",
+      "archived_url": "https://web.archive.org/web/*/https://lumenloop.com/news",
+      "accessed_at": "2026-09-01",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Contemporary Stellar ecosystem summary reports the 717,518 USDC extraction, white-hat recovery activity, and ongoing remediation after the Comet smart-contract bug."
+    }
+  ]
+}
