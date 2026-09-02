@@ -24,6 +24,12 @@ jobs:
       - run: npm run cloudflare:config:print
       - run: npm run lint
       - run: npm run records:validate
+      - run: npm run counts:test
+      - run: npm run counts:check
+      - run: node scripts/check-country-or-origin-strict.mjs --self-test
+      - run: node scripts/check-country-or-origin-strict.mjs
+      - run: npm run backlog:test-scan-integrity
+      - run: npm run backlog:check-scan-integrity
       - run: npm run data:check-event-types
       - run: npm run data:check-official-url-statuses
       - run: npm run data:check-source-types

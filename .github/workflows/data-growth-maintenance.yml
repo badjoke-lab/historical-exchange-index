@@ -1,0 +1,50 @@
+name: Data growth maintenance
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * 2'
+
+permissions:
+  contents: read
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Candidate scan
+        run: |
+          npm run candidates:scan-test
+          npm run candidates:scan-check -- --output=audit-output/c1-candidate-scan.json
+      - name: Backlog integrity and dedupe
+        run: |
+          npm run backlog:test-scan-integrity
+          npm run backlog:check-scan-integrity
+          npm run backlog:dedupe
+      - name: Build verified unadded candidates
+        run: npm run backlog:build-unadded
+      - name: Canonical-only repair queues
+        run: |
+          node scripts/check-canonical-only-active-cex-queue.mjs --strict --output=audit-output/canonical-only-active-cex-queue.json --markdown=audit-output/canonical-only-active-cex-queue.md
+          node scripts/check-canonical-only-dex-repair-queue.mjs --strict --output=audit-output/canonical-only-dex-repair-queue.json --markdown=audit-output/canonical-only-dex-repair-queue.md
+      - name: Advisory corpus audits
+        continue-on-error: true
+        run: |
+          node scripts/audit-thin-active-cex.mjs --strict --output=audit-output/thin-active-cex.json --markdown=audit-output/thin-active-cex.md
+          node scripts/audit-dex-seed-readiness.mjs --strict --output=audit-output/dex-seed-readiness.json --markdown=audit-output/dex-seed-readiness.md
+      - name: Upload maintenance outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hei-data-growth-maintenance
+          path: |
+            audit-output/**
+            tmp/verified-unadded-candidates/**
+          if-no-files-found: warn
+          retention-days: 14
