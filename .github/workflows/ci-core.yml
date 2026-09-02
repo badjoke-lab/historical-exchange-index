@@ -42,6 +42,8 @@ jobs:
       - run: npm run machine:validate
       - run: node scripts/validate-record-level-machine-readable.mjs
       - run: node scripts/validate-stats-machine-readable.mjs
+      - run: node scripts/validate-ledger-series-phase9-adapter.mjs
+      - run: node scripts/validate-ledger-series-registry-index.mjs
       - run: npm run public:validate
 
   maintenance:
