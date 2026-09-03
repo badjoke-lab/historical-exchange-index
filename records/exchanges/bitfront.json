@@ -14,7 +14,7 @@
     "launch_date": "2020-02-01",
     "death_date": "2023-03-31",
     "country_or_origin": "United States",
-    "summary": "LINE-backed global centralized cryptocurrency exchange operated by LVC USA Inc. It announced a phased voluntary shutdown in late 2022 and scheduled withdrawals to end on 2023-03-31.",
+    "summary": "LINE-backed global centralized cryptocurrency exchange operated by LVC USA Inc. It announced a phased voluntary shutdown on 2022-11-28 and ended its remaining service in March 2023.",
     "official_url_original": "https://www.bitfront.me/",
     "official_domain_original": "bitfront.me",
     "official_url_status": "unknown",
@@ -22,11 +22,73 @@
     "predecessor_id": "hei_ex_000302",
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-05-22",
-    "notes": "Entity death date uses the end of withdrawals and service termination rather than the announcement date."
+    "last_verified_at": "2026-09-03",
+    "notes": "The 2022-11-28 LINE Blockchain/Finschia notice states that BITFRONT had begun terminating service and that all services would be fully ended by March 2023. The existing 2023-03-31 terminal marker is retained; HEI does not move it earlier to the announcement date."
   },
-  "events": [],
-  "evidence": [],
+  "events": [
+    {
+      "id": "hei_ev_010217",
+      "exchange_id": "hei_ex_000128",
+      "event_type": "shutdown_announced",
+      "event_date": "2022-11-28",
+      "title": "BITFRONT announced a phased shutdown",
+      "description": "LINE Blockchain announced that the LVC USA-operated BITFRONT exchange had begun its termination process, with new account registration and credit-card payments ending immediately and all services scheduled to end by March 2023.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 1,
+      "is_major_event": true,
+      "notes": "First-party ecosystem notice. The announcement date is not treated as the effective shutdown date."
+    },
+    {
+      "id": "hei_ev_010218",
+      "exchange_id": "hei_ex_000128",
+      "event_type": "shutdown_effective",
+      "event_date": "2023-03-31",
+      "title": "BITFRONT service terminated",
+      "description": "BITFRONT's phased closure reached its terminal service date after the operator had announced that all services would end by March 2023.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "dead",
+      "source_count": 1,
+      "sort_order": 2,
+      "is_major_event": true,
+      "notes": "The canonical terminal date is preserved from the reviewed record. The first-party closure notice establishes the March 2023 terminal window and staged shutdown."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012760",
+      "exchange_id": "hei_ex_000128",
+      "event_id": "hei_ev_010217",
+      "source_type": "official_statement",
+      "title": "[NOTICE] BITFRONT Exchange to Close",
+      "url": "https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+      "publisher": "LINE Blockchain / Finschia",
+      "published_at": "2022-11-28",
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+      "accessed_at": "2026-09-03",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party ecosystem notice identifies BITFRONT as operated by LVC USA Inc., states that the termination process had begun, and says all services would be fully ended by March 2023."
+    },
+    {
+      "id": "hei_src_012761",
+      "exchange_id": "hei_ex_000128",
+      "event_id": "hei_ev_010218",
+      "source_type": "official_statement",
+      "title": "[NOTICE] BITFRONT Exchange to Close",
+      "url": "https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+      "publisher": "LINE Blockchain / Finschia",
+      "published_at": "2022-11-28",
+      "archived_url": "https://web.archive.org/web/*/https://medium.com/lineblockchain/notice-bitfront-exchange-to-close-5a887f5402c2",
+      "accessed_at": "2026-09-03",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Same first-party closure notice supports the staged terminal shutdown context; HEI retains the already-reviewed 2023-03-31 terminal date rather than inventing a new date from the month-only wording."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000128",
     "expected": {
