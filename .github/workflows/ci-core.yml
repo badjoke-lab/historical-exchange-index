@@ -30,6 +30,24 @@ jobs:
       - run: node scripts/check-country-or-origin-strict.mjs
       - run: npm run backlog:test-scan-integrity
       - run: npm run backlog:check-scan-integrity
+      - run: npm run watchlists:test
+      - run: node scripts/test-watchlist-candidate-lifecycle.mjs
+      - run: node scripts/audit-open-candidate-canonical-overlap.mjs --strict
+      - run: npm run watchlists:check
+      - run: npm run data:test-entity-quality
+      - run: npm run data:check-entity-quality
+      - run: npm run recovery:test
+      - run: npm run recovery:validate
+      - name: Verify public project network against authority
+        shell: bash
+        run: |
+          set -euo pipefail
+          authority=config/public-project-network.json
+          source=src/lib/project-network.ts
+          jq -e '.schema_version == "1.0.0" and (.members | length) >= 1' "$authority" >/dev/null
+          while IFS= read -r url; do
+            grep -Fq "$url" "$source" || { echo "Missing project network URL: $url"; exit 1; }
+          done < <(jq -r '.members[].url' "$authority")
       - run: npm run data:check-event-types
       - run: npm run data:check-official-url-statuses
       - run: npm run data:check-source-types

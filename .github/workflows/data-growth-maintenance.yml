@@ -38,6 +38,13 @@ jobs:
         run: |
           node scripts/audit-thin-active-cex.mjs --strict --output=audit-output/thin-active-cex.json --markdown=audit-output/thin-active-cex.md
           node scripts/audit-dex-seed-readiness.mjs --strict --output=audit-output/dex-seed-readiness.json --markdown=audit-output/dex-seed-readiness.md
+          node scripts/audit-material-concerns-retroactive.mjs
+          node scripts/audit-lineage-candidates.mjs --self-test
+          node scripts/build-lineage-a3-baseline.mjs --output-json=audit-output/lineage-inventory.json --output-md=audit-output/lineage-inventory.md
+          node scripts/check-lineage-l1-dispositions.mjs --output=audit-output/lineage-l1-dispositions.json
+          node scripts/check-lineage-l2-dispositions.mjs --output=audit-output/lineage-l2-dispositions.json
+          node scripts/check-lineage-a3-closure.mjs --inventory=audit-output/lineage-inventory.json --output=audit-output/lineage-a3-closure.json
+          node scripts/check-lineage-a4-application.mjs --output=audit-output/lineage-a4-application.json
       - name: Upload maintenance outputs
         if: always()
         uses: actions/upload-artifact@v4
@@ -46,5 +53,7 @@ jobs:
           path: |
             audit-output/**
             tmp/verified-unadded-candidates/**
+            docs/audits/material-concerns-retroactive-audit-index.json
+            docs/audits/material-concerns-retroactive-audit-summary.md
           if-no-files-found: warn
           retention-days: 14
