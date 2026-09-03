@@ -10,7 +10,7 @@
     "launch_date": "2019-01-01",
     "death_date": "2023-09-14",
     "country_or_origin": "Unknown",
-    "summary": "Cryptocurrency exchange operating under the txbit.io domain. Txbit announced in August 2023 that it would shut down, with services scheduled to end on 2023-09-14. Exchange-tracker references later show the market as inactive or unavailable. HEI treats Txbit as a dead exchange with voluntary_shutdown as the death_reason because the terminal marker is the operator-announced shutdown rather than a hack, acquisition, rebrand, insolvency filing, or regulatory enforcement action.",
+    "summary": "Cryptocurrency exchange operating under the txbit.io domain. Txbit announced on 2023-08-14 that it was closing, halted trading as part of the wind-down, and set 2023-09-14 at 12:00 UTC as the final withdrawal and website-access deadline.",
     "official_url_original": "https://txbit.io/",
     "official_domain_original": "txbit.io",
     "official_url_status": "dead_domain",
@@ -18,8 +18,8 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-06-20",
-    "notes": "Launch date is approximate/year-level and should be refined if stronger launch evidence is later added. Death date follows Txbit's announced 2023-09-14 shutdown schedule. The 2026-06-20 origin review retained Unknown because public profiles variously describe Dutch identity, Curaçao registration, Seychelles jurisdiction, or an unspecified Txbit Holdings Limited, while the available official shutdown and market sources do not establish an attributable operating entity and jurisdiction."
+    "last_verified_at": "2026-09-03",
+    "notes": "Txbit's first-party 2023-08-14 closure notice directly supports the voluntary shutdown classification and 2023-09-14 terminal date. The launch date remains approximate/year-level because this repair does not have equally strong first-party launch evidence. The earlier origin review remains unchanged: public descriptions conflict on jurisdiction, so country_or_origin stays Unknown."
   },
   "entity_correction": {
     "entity_id": "hei_ex_000312",
@@ -32,6 +32,68 @@
       "notes": "Launch date is approximate/year-level and should be refined if stronger launch evidence is later added. Death date follows Txbit's announced 2023-09-14 shutdown schedule. The 2026-06-20 origin review retained Unknown because public profiles variously describe Dutch identity, Curaçao registration, Seychelles jurisdiction, or an unspecified Txbit Holdings Limited, while the available official shutdown and market sources do not establish an attributable operating entity and jurisdiction."
     }
   },
-  "events": [],
-  "evidence": []
+  "events": [
+    {
+      "id": "hei_ev_010221",
+      "exchange_id": "hei_ex_000312",
+      "event_type": "shutdown_announced",
+      "event_date": "2023-08-14",
+      "title": "Txbit announced its permanent shutdown",
+      "description": "Txbit announced that it would cease all activities and close its services on 2023-09-14, citing adverse market shifts, regulatory uncertainty, rising compliance costs, and margin pressure.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 1,
+      "is_major_event": true,
+      "notes": "The first-party announcement also states that trading was being disabled on 2023-08-14 while withdrawals would remain available during the wind-down."
+    },
+    {
+      "id": "hei_ev_010222",
+      "exchange_id": "hei_ex_000312",
+      "event_type": "shutdown_effective",
+      "event_date": "2023-09-14",
+      "title": "Txbit reached its announced terminal service date",
+      "description": "Txbit's closure notice set 12:00 PM UTC on 2023-09-14 as the final deadline for withdrawals and stated that the website would remain accessible only until that time.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "dead",
+      "source_count": 1,
+      "sort_order": 2,
+      "is_major_event": true,
+      "notes": "This event preserves the already-reviewed canonical death date and supplies direct first-party support for it."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012764",
+      "exchange_id": "hei_ex_000312",
+      "event_id": "hei_ev_010221",
+      "source_type": "official_statement",
+      "title": "The Txbit journey ends here. Txbit will be closing down on September 14th, 2023.",
+      "url": "https://txbit.medium.com/the-txbit-journey-ends-here-txbit-will-be-closing-down-on-september-14th-2023-4c546ddb8f8f",
+      "publisher": "Txbit Exchange",
+      "published_at": "2023-08-14",
+      "archived_url": "https://web.archive.org/web/*/https://txbit.medium.com/the-txbit-journey-ends-here-txbit-will-be-closing-down-on-september-14th-2023-4c546ddb8f8f",
+      "accessed_at": "2026-09-03",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party operator statement announcing closure, explaining the wind-down rationale, and stating that trading would be disabled on 2023-08-14."
+    },
+    {
+      "id": "hei_src_012765",
+      "exchange_id": "hei_ex_000312",
+      "event_id": "hei_ev_010222",
+      "source_type": "official_statement",
+      "title": "The Txbit journey ends here. Txbit will be closing down on September 14th, 2023.",
+      "url": "https://txbit.medium.com/the-txbit-journey-ends-here-txbit-will-be-closing-down-on-september-14th-2023-4c546ddb8f8f",
+      "publisher": "Txbit Exchange",
+      "published_at": "2023-08-14",
+      "archived_url": "https://web.archive.org/web/*/https://txbit.medium.com/the-txbit-journey-ends-here-txbit-will-be-closing-down-on-september-14th-2023-4c546ddb8f8f",
+      "accessed_at": "2026-09-03",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Same first-party notice sets the final website-access and withdrawal deadline at 12:00 PM UTC on 2023-09-14 and warns that remaining funds would not be retrievable afterward."
+    }
+  ]
 }
