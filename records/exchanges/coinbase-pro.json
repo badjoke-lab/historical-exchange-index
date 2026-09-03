@@ -8,9 +8,9 @@
     "status": "rebranded",
     "death_reason": "rebrand",
     "launch_date": null,
-    "death_date": "2023-12-31",
+    "death_date": "2023-11-20",
     "country_or_origin": "United States",
-    "summary": "Advanced trading surface under Coinbase that was replaced by Coinbase Advanced, with customer history access ending after December 2023.",
+    "summary": "Advanced trading surface under Coinbase that was replaced by Coinbase Advanced. Coinbase announced the sunset in June 2022 and completed the phased customer migration by 2023-11-20, after which Coinbase Pro was no longer supported on web or mobile.",
     "official_url_original": "https://pro.coinbase.com/",
     "official_domain_original": "pro.coinbase.com",
     "official_url_status": "redirected",
@@ -18,11 +18,73 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-06-19",
-    "notes": "Lineage-sensitive product transition. After balance migration, customers could no longer deposit, withdraw, or trade on Coinbase Pro, and transaction history remained accessible only until the end of 2023."
+    "last_verified_at": "2026-09-03",
+    "notes": "Coinbase's first-party 2022 announcement states that Coinbase Pro would be sunset in favor of Coinbase Advanced. The same post was updated on 2023-11-20 to state that the phased migration was complete and Coinbase Pro would no longer be supported on web or mobile and users could no longer log in. The terminal marker is therefore corrected from the prior 2023-12-31 history-access proxy to 2023-11-20."
   },
-  "events": [],
-  "evidence": [],
+  "events": [
+    {
+      "id": "hei_ev_010219",
+      "exchange_id": "hei_ex_000159",
+      "event_type": "shutdown_announced",
+      "event_date": "2022-06-22",
+      "title": "Coinbase announced the Coinbase Pro sunset",
+      "description": "Coinbase announced that Coinbase Pro would be sunset and advanced trading would move into Coinbase Advanced as part of a unified Coinbase account experience.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 1,
+      "is_major_event": true,
+      "notes": "This is the transition announcement, not the effective terminal date."
+    },
+    {
+      "id": "hei_ev_010220",
+      "exchange_id": "hei_ex_000159",
+      "event_type": "rebranded",
+      "event_date": "2023-11-20",
+      "title": "Coinbase completed migration from Coinbase Pro to Coinbase Advanced",
+      "description": "Coinbase updated its transition notice to state that the phased migration of Coinbase Pro customers to Coinbase Advanced was complete and that Coinbase Pro was no longer supported on web or mobile, with login disabled.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "rebranded",
+      "source_count": 1,
+      "sort_order": 2,
+      "is_major_event": true,
+      "notes": "This first-party update supplies the effective product-transition date used for the entity's terminal rebrand marker."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012762",
+      "exchange_id": "hei_ex_000159",
+      "event_id": "hei_ev_010219",
+      "source_type": "official_statement",
+      "title": "Hello Advanced Trade, goodbye Coinbase Pro",
+      "url": "https://www.coinbase.com/blog/hello-advanced-trade-goodbye-coinbase-pro",
+      "publisher": "Coinbase",
+      "published_at": "2022-06-22",
+      "archived_url": "https://web.archive.org/web/*/https://www.coinbase.com/blog/hello-advanced-trade-goodbye-coinbase-pro",
+      "accessed_at": "2026-09-03",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party Coinbase announcement that Coinbase Pro would be sunset and replaced by Coinbase Advanced."
+    },
+    {
+      "id": "hei_src_012763",
+      "exchange_id": "hei_ex_000159",
+      "event_id": "hei_ev_010220",
+      "source_type": "official_statement",
+      "title": "Hello Advanced Trade, goodbye Coinbase Pro — 2023-11-20 update",
+      "url": "https://www.coinbase.com/blog/hello-advanced-trade-goodbye-coinbase-pro",
+      "publisher": "Coinbase",
+      "published_at": "2023-11-20",
+      "archived_url": "https://web.archive.org/web/*/https://www.coinbase.com/blog/hello-advanced-trade-goodbye-coinbase-pro",
+      "accessed_at": "2026-09-03",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "The updated first-party post states that phased migration was complete on 2023-11-20 and Coinbase Pro would no longer be supported on web or mobile and customers could not log in."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000159",
     "expected": {
