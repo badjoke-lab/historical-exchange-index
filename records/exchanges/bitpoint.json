@@ -9,12 +9,12 @@
       "株式会社ビットポイントジャパン"
     ],
     "type": "cex",
-    "status": "active",
+    "status": "limited",
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
     "country_or_origin": "Japan",
-    "summary": "Japanese centralized crypto trading service that continues as a distinct BITPOINT brand under SBI VC Trade after the former operating company, BITPoint Japan, was absorbed into SBI VC Trade in April 2026.",
+    "summary": "Japanese centralized crypto trading service in a staged transition into SBI VC Trade's VCTRADE service. After the April 2026 operator merger, SBI VC Trade announced on June 30, 2026 that BITPOINT accounts and assets would be migrated to VCTRADE around the end of 2026; new BITPOINT account opening ended on July 31 while existing customers continue to use the service during the migration period.",
     "official_url_original": "https://www.bitpoint.co.jp/",
     "official_domain_original": "bitpoint.co.jp",
     "official_url_status": "live_verified",
@@ -22,8 +22,8 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-08-09",
-    "notes": "The current first-party BITPOINT site exposes account opening, spot trading, exchange tools, asset transfers, staking, and current July 2026 notices. The former operator, BITPoint Japan Co., Ltd., was absorbed into SBI VC Trade Co., Ltd. on 2026-04-01, but both BITPOINT and VCTRADE remained distinct customer-facing services after the legal-company merger. HEI therefore records an active service identity plus a merger event rather than treating the brand as dead or merged out. No exact launch date is inferred from the former operating company's 2016 establishment date."
+    "last_verified_at": "2026-09-04",
+    "notes": "BITPoint Japan Co., Ltd. was absorbed into SBI VC Trade Co., Ltd. on 2026-04-01 while BITPOINT and VCTRADE initially remained separate customer-facing services. On 2026-06-30 the companies announced full service integration: BITPOINT accounts/assets are planned to migrate to VCTRADE around the end of 2026, and the current migration site states that BITPOINT trading and other service functions end after migration. New BITPOINT account opening ended on 2026-07-31, while existing trading and migration-related functions remain available during the transition. HEI therefore records BITPOINT as limited rather than dead or merged-out at this time. The 2026-09-04 delisting of six BITPOINT assets is retained as corroborating transition evidence, not modeled as a separate exchange lifecycle event. No exact terminal date or death reason is asserted before service integration completes."
   },
   "events": [
     {
@@ -38,7 +38,21 @@
       "event_status_effect": "active",
       "source_count": 2,
       "sort_order": 1,
-      "notes": "This is a legal-operator merger, not a service shutdown. First-party notices from both BITPOINT and SBI VC Trade state that BITPOINT and VCTRADE remained separate services after the merger, with future service integration planned separately."
+      "notes": "This was a legal-operator merger, not a service shutdown. First-party notices from both BITPOINT and SBI VC Trade stated at the time that BITPOINT and VCTRADE would continue as separate services, with later service integration to be announced separately."
+    },
+    {
+      "id": "hei_ev_010231",
+      "exchange_id": "hei_ex_001133",
+      "event_type": "shutdown_announced",
+      "event_date": "2026-06-30",
+      "title": "BITPOINT announced service integration into VCTRADE",
+      "description": "SBI VC Trade and BITPOINT announced that BITPOINT accounts and assets would be migrated to VCTRADE around the end of 2026 and that BITPOINT service use would end after migration.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 3,
+      "sort_order": 2,
+      "notes": "The announcement establishes a planned terminal transition for the BITPOINT service identity but not an exact effective shutdown date. New BITPOINT account opening subsequently ended on 2026-07-31, while existing service functions remain available during migration. HEI therefore leaves death_date and death_reason unresolved until the transition completes."
     }
   ],
   "evidence": [
@@ -52,10 +66,10 @@
       "publisher": "BITPOINT",
       "published_at": null,
       "archived_url": "https://web.archive.org/web/*/https://www.bitpoint.co.jp/",
-      "accessed_at": "2026-08-09",
+      "accessed_at": "2026-09-04",
       "reliability": "high",
       "claim_scope": "status",
-      "notes": "Current first-party site exposes active account opening, spot trading, exchange tools, asset transfers, staking, and recent July 2026 operating notices."
+      "notes": "Current first-party site remains online with trading and operating notices during the announced migration period. Current integration guidance separately confirms that new account opening has ended and the service is in transition to VCTRADE."
     },
     {
       "id": "hei_src_012504",
@@ -86,6 +100,51 @@
       "reliability": "high",
       "claim_scope": "event",
       "notes": "Corroborating first-party notice from the surviving legal operator confirms the merger and continued exchange/trading service business."
+    },
+    {
+      "id": "hei_src_012777",
+      "exchange_id": "hei_ex_001133",
+      "event_id": "hei_ev_010231",
+      "source_type": "official_statement",
+      "title": "BITPOINT and VCTRADE service integration notice",
+      "url": "https://www.bitpoint.co.jp/news/info/info-2026062901/",
+      "publisher": "BITPOINT",
+      "published_at": "2026-06-30",
+      "archived_url": "https://web.archive.org/web/*/https://www.bitpoint.co.jp/news/info/info-2026062901/",
+      "accessed_at": "2026-09-04",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party announcement states that BITPOINT accounts and assets are planned to migrate to VCTRADE around the end of December 2026 and that new BITPOINT account opening would end on 2026-07-31."
+    },
+    {
+      "id": "hei_src_012778",
+      "exchange_id": "hei_ex_001133",
+      "event_id": "hei_ev_010231",
+      "source_type": "official_statement",
+      "title": "BITPOINT account and asset migration to VCTRADE",
+      "url": "https://www.sbivc.co.jp/bpj_vct",
+      "publisher": "SBI VC Trade",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.sbivc.co.jp/bpj_vct",
+      "accessed_at": "2026-09-04",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party migration guidance states that all BITPOINT trading and service functions will end after migration and customers will trade through VCTRADE. It describes an end-of-December 2026 migration target with optional earlier migration windows in September and October."
+    },
+    {
+      "id": "hei_src_012779",
+      "exchange_id": "hei_ex_001133",
+      "event_id": "hei_ev_010231",
+      "source_type": "official_statement",
+      "title": "Notice of delisting six crypto assets from BITPOINT",
+      "url": "https://www.bitpoint.co.jp/news/info/info-2026090401/",
+      "publisher": "BITPOINT",
+      "published_at": "2026-09-04",
+      "archived_url": "https://web.archive.org/web/*/https://www.bitpoint.co.jp/news/info/info-2026090401/",
+      "accessed_at": "2026-09-04",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "First-party notice ends handling of BNB, DEP, JMY/JASMY, OSHI, PEPE and TRUMP on 2026-10-28 during the wider service-integration period. HEI uses this only as corroborating evidence of staged service contraction; the asset delisting itself is not modeled as a separate exchange lifecycle event and no unsupported causal claim is made."
     }
   ]
 }
