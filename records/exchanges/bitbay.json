@@ -72,12 +72,16 @@
   "entity_correction": {
     "entity_id": "hei_ex_000127",
     "expected": {
-      "notes": "Future successor handling should avoid double-counting Zonda and zondacrypto as separate entities without lineage review.",
-      "successor_id": null
+      "summary": "European exchange brand that rebranded from BitBay to Zonda on 2021-11-08.",
+      "successor_id": null,
+      "last_verified_at": "2026-04-10",
+      "notes": "Future successor handling should avoid double-counting Zonda and zondacrypto as separate entities without lineage review."
     },
     "changes": {
-      "notes": "HEI models BitBay as the historical predecessor brand of zondacrypto. The reviewed reciprocal lineage link preserves the separate historical brand record while preventing the transition from being treated as two unrelated exchange identities.",
-      "successor_id": "hei_ex_000216"
+      "summary": "European cryptocurrency exchange brand that rebranded from BitBay to Zonda on 2021-11-08. Zonda later migrated legacy BitBay API endpoints to Zonda infrastructure, confirming service continuity across the brand transition.",
+      "successor_id": "hei_ex_000216",
+      "last_verified_at": "2026-09-04",
+      "notes": "HEI models BitBay as the historical predecessor brand of Zonda / zondacrypto. Contemporary reporting dated 2021-11-08 records the BitBay-to-Zonda rebrand, while Zonda's later first-party API migration notice confirms continuity from legacy BitBay endpoints. Launch date remains null because this repair does not introduce a separately verified exact launch date."
     }
   }
 }
