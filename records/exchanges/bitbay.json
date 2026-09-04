@@ -10,7 +10,7 @@
     "launch_date": null,
     "death_date": "2021-11-08",
     "country_or_origin": "Poland",
-    "summary": "European exchange brand that rebranded from BitBay to Zonda on 2021-11-08.",
+    "summary": "European cryptocurrency exchange brand that rebranded from BitBay to Zonda on 2021-11-08. Zonda later migrated legacy BitBay API endpoints to Zonda infrastructure, confirming service continuity across the brand transition.",
     "official_url_original": "https://bitbay.net/",
     "official_domain_original": "bitbay.net",
     "official_url_status": "redirected",
@@ -18,11 +18,57 @@
     "predecessor_id": null,
     "successor_id": "hei_ex_000216",
     "confidence": "high",
-    "last_verified_at": "2026-04-10",
-    "notes": "HEI models BitBay as the historical predecessor brand of zondacrypto. The reviewed reciprocal lineage link preserves the separate historical brand record while preventing the transition from being treated as two unrelated exchange identities."
+    "last_verified_at": "2026-09-04",
+    "notes": "HEI models BitBay as the historical predecessor brand of Zonda / zondacrypto. Contemporary reporting dated 2021-11-08 records the BitBay-to-Zonda rebrand, while Zonda's later first-party API migration notice confirms continuity from legacy BitBay endpoints. Launch date remains null because this repair does not introduce a separately verified exact launch date."
   },
-  "events": [],
-  "evidence": [],
+  "events": [
+    {
+      "id": "hei_ev_010228",
+      "exchange_id": "hei_ex_000127",
+      "event_type": "rebranded",
+      "event_date": "2021-11-08",
+      "title": "BitBay rebranded to Zonda",
+      "description": "BitBay adopted the Zonda name, website and brand identity while continuing the exchange service under the new brand.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "rebranded",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "The exact 2021-11-08 date is supported by contemporaneous coverage of the exchange announcement. A later Zonda first-party API notice independently confirms the legacy BitBay-to-Zonda migration and service continuity."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012772",
+      "exchange_id": "hei_ex_000127",
+      "event_id": "hei_ev_010228",
+      "source_type": "news_article",
+      "title": "BitBay announces plans to become ‘Zonda’, and appoints new board of directors including Przemysław Kral as CEO",
+      "url": "https://ffnews.com/news/bitbay-announces-plans-to-become-zonda-and-appoints-new-board-of-directors-including-przemyslaw-kral-as-ceo/",
+      "publisher": "FF News",
+      "published_at": "2021-11-08",
+      "archived_url": "https://web.archive.org/web/*/https://ffnews.com/news/bitbay-announces-plans-to-become-zonda-and-appoints-new-board-of-directors-including-przemyslaw-kral-as-ceo/",
+      "accessed_at": "2026-09-04",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Contemporaneous report of BitBay's announcement of the Zonda name, new strategy and new leadership on 2021-11-08."
+    },
+    {
+      "id": "hei_src_012773",
+      "exchange_id": "hei_ex_000127",
+      "event_id": "hei_ev_010228",
+      "source_type": "official_blog",
+      "title": "IMPORTANT - API update",
+      "url": "https://zondacrypto.com/hu/news/important-api-update-1",
+      "publisher": "Zonda Team",
+      "published_at": "2022-01-27",
+      "archived_url": "https://web.archive.org/web/*/https://zondacrypto.com/hu/news/important-api-update-1",
+      "accessed_at": "2026-09-04",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party post states that, because of the rebranding and URL updates, legacy BitBay API addresses were being disabled while existing login and API credentials continued on Zonda infrastructure."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000127",
     "expected": {
