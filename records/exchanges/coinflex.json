@@ -123,12 +123,14 @@
     "entity_id": "hei_ex_000313",
     "expected": {
       "death_date": "2023-02-15",
+      "successor_id": "hei_ex_000129",
       "last_verified_at": "2026-06-19",
-      "notes": "HEI preserves the CoinFLEX–OPNX continuity in events and narrative history rather than forcing a canonical successor link. Public reporting supports operational and leadership continuity, but the transition was not a simple clean exchange-name rebrand.",
-      "summary": "Cryptocurrency exchange that halted withdrawals in June 2022 during a liquidity dispute involving a large counterparty. CoinFLEX later became linked to the Open Exchange / OPNX transition through shared leadership and creditor-recovery plans, but the relationship is not a clean one-to-one exchange rebrand suitable for a canonical successor field."
+      "notes": "CoinFLEX is added as a predecessor / superseded identity linked to existing OPNX record. Confidence is medium because public reporting supports the continuity, but the transition is not a simple clean exchange-name rebrand.",
+      "summary": "Cryptocurrency exchange that halted withdrawals in June 2022 during a liquidity dispute involving a large counterparty. CoinFLEX later became linked to the Open Exchange / OPNX transition, with OPNX positioned as a new venue connected to CoinFLEX leadership and creditor recovery plans. HEI treats CoinFLEX as a rebranded / superseded exchange identity with OPNX as the successor record, while retaining the 2022 withdrawal halt as the critical failure event."
     },
     "changes": {
       "death_date": "2023-03-08",
+      "successor_id": null,
       "last_verified_at": "2026-09-04",
       "notes": "The prior 2023-02-15 death_date was not supported by the recovered first-party/legal record. HEI now uses 2023-03-08, the date CoinFLEX executive Leslie Lamb publicly announced that CoinFLEX would officially rebrand to Open Exchange (OPNX). This records the public identity transition, not an uncontested legal succession. The Seychelles court record separately establishes the 2022 liquidity shortfall and restructuring process.",
       "summary": "Cryptocurrency exchange that suspended withdrawals in June 2022 after a counterparty shortfall, entered a Seychelles court-supervised restructuring process, and was publicly announced by its incoming CEO as rebranding to Open Exchange (OPNX) on 2023-03-08. HEI preserves the CoinFLEX-OPNX continuity as a rebrand event but does not force a canonical successor link because later creditor litigation disputed that the OPNX transition was an authorized one-to-one succession."
