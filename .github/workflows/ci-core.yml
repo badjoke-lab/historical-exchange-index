@@ -35,7 +35,29 @@ jobs:
       - run: npm run watchlists:check
       - run: npm run data:test-entity-quality
       - run: npm run data:check-entity-quality
-      - run: npm run recovery:test
+      - name: Capture recovery self-test diagnostics
+        id: recovery_test
+        continue-on-error: true
+        shell: bash
+        run: |
+          mkdir -p audit-output
+          set +e
+          npm run recovery:test > audit-output/recovery-test.txt 2>&1
+          status=$?
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          cat audit-output/recovery-test.txt
+          exit "$status"
+      - name: Upload recovery self-test diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recovery-test-diagnostics
+          path: audit-output/recovery-test.txt
+          if-no-files-found: error
+          retention-days: 1
+      - name: Fail on recovery self-test
+        if: steps.recovery_test.outputs.exit_code != '0'
+        run: exit 1
       - run: npm run recovery:validate
       - name: Verify public project network against authority
         shell: bash
