@@ -56,8 +56,8 @@ Reviewed canonical growth continues after D-1000. BX62 established 1034 reviewed
 
 ```text
 Entities: 1071
-Events:   1114
-Evidence: 4050
+Events:   1115
+Evidence: 4053
 ```
 
 Post-D-1000 entity-growth authority remains:
