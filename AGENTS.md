@@ -83,7 +83,6 @@ Treat changes to these paths as deployment-sensitive:
 
 - `config/cloudflare-pages-project.json`
 - `scripts/configure-cloudflare-pages-project.mjs`
-- `.github/workflows/configure-cloudflare-pages.yml`
 - `next.config.ts`
 - `package.json`
 - `package-lock.json`
@@ -100,13 +99,15 @@ For such changes, record whether preview is required and why.
 
 ## Cloudflare configuration changes
 
-Use the repository commands or the manual `Configure Cloudflare Pages` workflow:
+Use the repository commands from an authorized operator environment:
 
 ```bash
 npm run cloudflare:config:print
 npm run cloudflare:config:plan
 npm run cloudflare:config:apply
 ```
+
+The former dedicated Cloudflare configuration workflow wrapper was intentionally removed during workflow consolidation. Do not reintroduce a one-off wrapper unless a reviewed operational need and policy change justify it.
 
 Never print, commit, or copy Cloudflare credentials into issues, PRs, logs, or files.
 
