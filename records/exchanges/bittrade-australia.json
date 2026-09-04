@@ -109,10 +109,16 @@
   "entity_correction": {
     "entity_id": "hei_ex_000285",
     "expected": {
-      "successor_id": null
+      "summary": "Australia-based cryptocurrency exchange / service provider founded in 2013. Kraken acquired Bit Trade on 2020-01-14, bringing the Bit Trade team into Kraken Australia and using the acquisition to expand AUD liquidity, spot exchange, and OTC services in the Australian market.",
+      "successor_id": null,
+      "last_verified_at": "2026-05-23",
+      "notes": "HEI models BitTrade Australia as acquired because Kraken acquired the Australian crypto service provider on 2020-01-14. Later regulatory materials refer to Bit Trade Pty Ltd as the operator/provider of Kraken services in Australia, so this is not a dead exchange record; the terminal date marks the end of the independent Bit Trade exchange/service identity."
     },
     "changes": {
-      "successor_id": "hei_ex_000009"
+      "summary": "Australia-based cryptocurrency exchange / service provider founded on 2013-04-10. Kraken announced its acquisition of Bit Trade on 2020-01-14. Bit Trade subsequently continued as a Payward subsidiary and later operated Kraken services for Australian customers.",
+      "successor_id": "hei_ex_000009",
+      "last_verified_at": "2026-09-04",
+      "notes": "HEI models the independent BitTrade Australia exchange/service identity as acquired on 2020-01-14. Federal Court findings state that Bit Trade was incorporated on 2013-04-10 and conducted a digital currency exchange from that time, and that after the January 2020 acquisition it became a Payward subsidiary and continued providing Kraken Exchange access to Australian customers. The terminal date therefore marks loss of independent exchange identity, not dissolution of Bit Trade Pty Ltd."
     }
   }
 }
