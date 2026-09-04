@@ -23,7 +23,14 @@ jobs:
       - run: node --check scripts/configure-cloudflare-pages-project.mjs
       - run: npm run cloudflare:config:print
       - run: npm run lint
-      - run: npm run records:validate
+      - name: Diagnose record entity overlaps
+        run: node scripts/audit-record-entity-overlaps.mjs
+      - name: Diagnose record bundle schema
+        run: node scripts/validate-record-bundles.mjs
+      - name: Diagnose record duplicates
+        run: node scripts/check-record-duplicates.mjs
+      - name: Diagnose reviewed bundle ID collisions
+        run: node scripts/audit-reviewed-bundle-id-collisions.mjs --strict
       - run: npm run counts:test
       - run: npm run counts:check
       - run: node scripts/check-country-or-origin-strict.mjs --self-test
