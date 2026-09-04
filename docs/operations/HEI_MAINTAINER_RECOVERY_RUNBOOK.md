@@ -222,15 +222,15 @@ scripts/lib/reviewed-bundle-aggregation.mjs
 scripts/lib/entity-corrections.mjs
 ```
 
-Expected reviewed counts at this checkpoint:
+Reviewed counts re-derived on 2026-09-04 from the current reviewed bundle state are:
 
 ```text
-Entities: 1034
-Events:   1039
-Evidence: 3871
+Entities: 1071
+Events:   1114
+Evidence: 4050
 ```
 
-These numbers are a checkpoint only. Re-derive them after later reviewed growth.
+These numbers remain a checkpoint only. Re-derive them after later reviewed growth instead of copying them forward blindly.
 
 ## 12. Read exact-commit production verification state before production diagnosis
 

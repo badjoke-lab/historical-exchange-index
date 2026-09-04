@@ -109,14 +109,16 @@
     "entity_id": "hei_ex_000283",
     "expected": {
       "death_date": "2023-08-14",
-      "last_verified_at": "2026-05-22",
       "summary": "Rotterdam-based European crypto broker / exchange platform founded in 2013. LiteBit announced in May 2023 that it would cease operations because of market developments, increased competition, and regulatory pressure; Bitvavo subsequently received ACM approval to acquire LiteBit's customer base and migrate user assets and accounts.",
+      "successor_id": null,
+      "last_verified_at": "2026-05-22",
       "notes": "HEI models LiteBit as acquired because Bitvavo acquired the LiteBit customer base after LiteBit decided to cease operations. This should not be read as a full corporate acquisition of every LiteBit asset; the record is specifically about the exchange/broker service ending and the customer-base migration to Bitvavo."
     },
     "changes": {
       "death_date": null,
-      "last_verified_at": "2026-09-04",
       "summary": "Rotterdam-based European crypto broker / exchange platform founded in 2013. LiteBit announced on 2023-05-23 that it intended to cease operations because of market developments, increased competition, and regulatory pressure. The Dutch ACM approved Bitvavo's acquisition of LiteBit's business on 2023-06-06, including the customer-base transition; LiteBit's current official site confirms operations have ceased and eligible customer funds were moved to Bitvavo.",
+      "successor_id": "hei_ex_000046",
+      "last_verified_at": "2026-09-04",
       "notes": "HEI models LiteBit as acquired because the Dutch ACM approved Bitvavo B.V.'s acquisition of the LiteBit business and LiteBit's customer transition was implemented toward Bitvavo. The prior exact death_date 2023-08-14 is removed because the recovered first-party/regulatory sources confirm cessation and acquisition but do not establish that exact terminal day."
     }
   }

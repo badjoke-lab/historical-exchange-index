@@ -92,10 +92,16 @@
   "entity_correction": {
     "entity_id": "hei_ex_000128",
     "expected": {
-      "predecessor_id": null
+      "summary": "LINE-backed global centralized cryptocurrency exchange operated by LVC USA Inc. It announced a phased voluntary shutdown in late 2022 and scheduled withdrawals to end on 2023-03-31.",
+      "predecessor_id": null,
+      "last_verified_at": "2026-05-22",
+      "notes": "Entity death date uses the end of withdrawals and service termination rather than the announcement date."
     },
     "changes": {
-      "predecessor_id": "hei_ex_000302"
+      "summary": "LINE-backed global centralized cryptocurrency exchange operated by LVC USA Inc. It announced a phased voluntary shutdown on 2022-11-28 and ended its remaining service in March 2023.",
+      "predecessor_id": "hei_ex_000302",
+      "last_verified_at": "2026-09-03",
+      "notes": "The 2022-11-28 LINE Blockchain/Finschia notice states that BITFRONT had begun terminating service and that all services would be fully ended by March 2023. The existing 2023-03-31 terminal marker is retained; HEI does not move it earlier to the announcement date."
     }
   }
 }

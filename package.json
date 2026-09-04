@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build && node scripts/localize-static-html.mjs",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "policy:check": "node scripts/check-repository-operations-policy.mjs",
     "cloudflare:config:print": "node scripts/configure-cloudflare-pages-project.mjs --print",
     "cloudflare:config:plan": "node scripts/configure-cloudflare-pages-project.mjs --plan",

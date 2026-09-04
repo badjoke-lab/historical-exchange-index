@@ -25,7 +25,6 @@ jobs:
       - run: npm run lint
       - run: npm run records:validate
       - run: npm run counts:test
-      - run: npm run counts:check
       - run: node scripts/check-country-or-origin-strict.mjs --self-test
       - run: node scripts/check-country-or-origin-strict.mjs
       - run: npm run backlog:test-scan-integrity
@@ -57,6 +56,7 @@ jobs:
       - run: node --check scripts/check-record-level-machine-readable-production.mjs
       - run: node --check scripts/check-stats-machine-readable-production.mjs
       - run: npm run build
+      - run: npm run counts:check
       - run: npm run machine:validate
       - run: node scripts/validate-record-level-machine-readable.mjs
       - run: node scripts/validate-stats-machine-readable.mjs

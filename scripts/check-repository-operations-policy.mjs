@@ -7,7 +7,6 @@ const requiredFiles = [
   POLICY_PATH,
   CLOUDFLARE_CONFIG_PATH,
   'scripts/configure-cloudflare-pages-project.mjs',
-  '.github/workflows/configure-cloudflare-pages.yml',
   'AGENTS.md',
   '.github/pull_request_template.md',
   'README.md',

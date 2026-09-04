@@ -53,7 +53,7 @@
       "archived_url": "https://web.archive.org/web/*/https://velodrome.finance/docs",
       "accessed_at": "2026-09-02",
       "reliability": "high",
-      "claim_scope": "entity_event",
+      "claim_scope": "launch_date",
       "notes": "First-party documentation describes Velodrome as an AMM for token swaps and states that it first launched on 2022-06-02."
     },
     {

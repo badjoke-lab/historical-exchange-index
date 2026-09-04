@@ -34,7 +34,6 @@ The JSON file, not a copied dashboard screenshot or old conversation, is the mac
 
 - `config/cloudflare-pages-project.json`
 - `scripts/configure-cloudflare-pages-project.mjs`
-- `.github/workflows/configure-cloudflare-pages.yml`
 - `next.config.ts`
 - `package.json`
 - `package-lock.json`
@@ -72,13 +71,9 @@ npm run cloudflare:config:apply
 - `plan` reads the current Pages project and reports whether it differs.
 - `apply` reads the current project, preserves GitHub source identity fields, patches only the governed settings, then reads the project again and verifies the result.
 
-The manual GitHub Actions workflow is:
+The former dedicated `Configure Cloudflare Pages` workflow wrapper was intentionally removed during workflow consolidation. Do not reintroduce a one-off configuration workflow merely to invoke these commands. Run `plan` or `apply` only from an authorized operator environment when Cloudflare configuration actually needs review or change.
 
-```text
-Configure Cloudflare Pages
-```
-
-Required GitHub repository secrets:
+Required environment variables for `plan` / `apply`:
 
 ```text
 CLOUDFLARE_ACCOUNT_ID
@@ -144,6 +139,7 @@ For the wider ledger series, a shared deployment queue should eventually seriali
 - storing Cloudflare API credentials in repository files or workflow logs
 - using a Global API key when a scoped Pages token is sufficient
 - increasing Cloudflare plan cost before reducing unnecessary builds
+- restoring deleted one-off workflow wrappers without a reviewed operational need
 
 ## PR checklist
 

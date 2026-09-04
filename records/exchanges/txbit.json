@@ -24,12 +24,14 @@
   "entity_correction": {
     "entity_id": "hei_ex_000312",
     "expected": {
+      "summary": "Cryptocurrency exchange operating under the txbit.io domain. Txbit announced in August 2023 that it would shut down, with services scheduled to end on 2023-09-14. Exchange-tracker references later show the market as inactive or unavailable. HEI treats Txbit as a dead exchange with voluntary_shutdown as the death_reason because the terminal marker is the operator-announced shutdown rather than a hack, acquisition, rebrand, insolvency filing, or regulatory enforcement action.",
       "last_verified_at": "2026-05-16",
       "notes": "Launch date is approximate/year-level and should be refined if stronger launch evidence is later added. Death date follows Txbit's announced 2023-09-14 shutdown schedule."
     },
     "changes": {
-      "last_verified_at": "2026-06-20",
-      "notes": "Launch date is approximate/year-level and should be refined if stronger launch evidence is later added. Death date follows Txbit's announced 2023-09-14 shutdown schedule. The 2026-06-20 origin review retained Unknown because public profiles variously describe Dutch identity, Curaçao registration, Seychelles jurisdiction, or an unspecified Txbit Holdings Limited, while the available official shutdown and market sources do not establish an attributable operating entity and jurisdiction."
+      "summary": "Cryptocurrency exchange operating under the txbit.io domain. Txbit announced on 2023-08-14 that it was closing, halted trading as part of the wind-down, and set 2023-09-14 at 12:00 UTC as the final withdrawal and website-access deadline.",
+      "last_verified_at": "2026-09-03",
+      "notes": "Txbit's first-party 2023-08-14 closure notice directly supports the voluntary shutdown classification and 2023-09-14 terminal date. The launch date remains approximate/year-level because this repair does not have equally strong first-party launch evidence. The earlier origin review remains unchanged: public descriptions conflict on jurisdiction, so country_or_origin stays Unknown."
     }
   },
   "events": [
