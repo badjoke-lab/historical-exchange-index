@@ -18,7 +18,7 @@
     "launch_date": "2013-04-10",
     "death_date": "2020-01-14",
     "country_or_origin": "Australia",
-    "summary": "Australia-based cryptocurrency exchange / service provider founded in 2013. Kraken acquired Bit Trade on 2020-01-14, bringing the Bit Trade team into Kraken Australia and using the acquisition to expand AUD liquidity, spot exchange, and OTC services in the Australian market.",
+    "summary": "Australia-based cryptocurrency exchange / service provider founded on 2013-04-10. Kraken announced its acquisition of Bit Trade on 2020-01-14. Bit Trade subsequently continued as a Payward subsidiary and later operated Kraken services for Australian customers.",
     "official_url_original": "https://www.bittrade.com.au/",
     "official_domain_original": "bittrade.com.au",
     "official_url_status": "redirected",
@@ -26,11 +26,86 @@
     "predecessor_id": null,
     "successor_id": "hei_ex_000009",
     "confidence": "high",
-    "last_verified_at": "2026-05-23",
-    "notes": "HEI models BitTrade Australia as acquired because Kraken acquired the Australian crypto service provider on 2020-01-14. Later regulatory materials refer to Bit Trade Pty Ltd as the operator/provider of Kraken services in Australia, so this is not a dead exchange record; the terminal date marks the end of the independent Bit Trade exchange/service identity."
+    "last_verified_at": "2026-09-04",
+    "notes": "HEI models the independent BitTrade Australia exchange/service identity as acquired on 2020-01-14. Federal Court findings state that Bit Trade was incorporated on 2013-04-10 and conducted a digital currency exchange from that time, and that after the January 2020 acquisition it became a Payward subsidiary and continued providing Kraken Exchange access to Australian customers. The terminal date therefore marks loss of independent exchange identity, not dissolution of Bit Trade Pty Ltd."
   },
-  "events": [],
-  "evidence": [],
+  "events": [
+    {
+      "id": "hei_ev_010229",
+      "exchange_id": "hei_ex_000285",
+      "event_type": "launched",
+      "event_date": "2013-04-10",
+      "title": "Bit Trade began operating a digital currency exchange",
+      "description": "Federal Court findings state that Bit Trade was incorporated on 10 April 2013 and conducted a digital currency exchange from that time.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "The launch date is tied to the court-recorded incorporation date because the judgment expressly states that Bit Trade conducted a digital currency exchange from that time."
+    },
+    {
+      "id": "hei_ev_010230",
+      "exchange_id": "hei_ex_000285",
+      "event_type": "acquired",
+      "event_date": "2020-01-14",
+      "title": "Kraken acquired Bit Trade",
+      "description": "Kraken announced that it had acquired Bit Trade to expand AUD liquidity, spot trading and OTC services in Australia.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "acquired",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "The acquisition ended Bit Trade's independent exchange/service identity but not the legal entity; later court and ASIC materials show Bit Trade continuing as the Australian Kraken service provider."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012774",
+      "exchange_id": "hei_ex_000285",
+      "event_id": "hei_ev_010229",
+      "source_type": "court_document",
+      "title": "Australian Securities and Investments Commission v Bit Trade Pty Ltd [2024] FCA 953",
+      "url": "https://download.asic.gov.au/media/ikmfvobk/24-186mr-asic-v-bit-trade-pty-ltd-judgment-23-august-2024.pdf",
+      "publisher": "Federal Court of Australia / ASIC",
+      "published_at": "2024-08-23",
+      "archived_url": null,
+      "accessed_at": "2026-09-04",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "Paragraph 6 states that Bit Trade was incorporated on 2013-04-10 and conducted a digital currency exchange from that time; paragraphs 6-7 also state that it was acquired by the Payward Group in January 2020 and continued providing Kraken Exchange access afterwards."
+    },
+    {
+      "id": "hei_src_012775",
+      "exchange_id": "hei_ex_000285",
+      "event_id": "hei_ev_010230",
+      "source_type": "official_blog",
+      "title": "Kraken Acquires Australia’s Longest-Running Crypto Service Provider Bit Trade",
+      "url": "https://blog.kraken.com/news/kraken-acquires-australias-longest-running-crypto-service-provider-bit-trade",
+      "publisher": "Kraken",
+      "published_at": "2020-01-14",
+      "archived_url": "https://web.archive.org/web/*/https://blog.kraken.com/news/kraken-acquires-australias-longest-running-crypto-service-provider-bit-trade",
+      "accessed_at": "2026-09-04",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party acquisition announcement confirming Kraken acquired Bit Trade on 2020-01-14 and intended to expand its Australian AUD, spot and OTC offering."
+    },
+    {
+      "id": "hei_src_012776",
+      "exchange_id": "hei_ex_000285",
+      "event_id": "hei_ev_010230",
+      "source_type": "regulatory_notice",
+      "title": "ASIC wins case against Kraken crypto exchange operator for design and distribution failure",
+      "url": "https://asic.gov.au/about-asic/news-centre/find-a-media-release/2024-releases/24-186mr-asic-wins-case-against-kraken-crypto-exchange-operator-for-design-and-distribution-failure/",
+      "publisher": "Australian Securities and Investments Commission",
+      "published_at": "2024-08-23",
+      "archived_url": "https://web.archive.org/web/*/https://asic.gov.au/about-asic/news-centre/find-a-media-release/2024-releases/24-186mr-asic-wins-case-against-kraken-crypto-exchange-operator-for-design-and-distribution-failure/",
+      "accessed_at": "2026-09-04",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Regulatory notice identifies Bit Trade Pty Ltd as the operator of the Kraken crypto exchange in Australia, supporting post-acquisition legal and operational continuity."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000285",
     "expected": {
