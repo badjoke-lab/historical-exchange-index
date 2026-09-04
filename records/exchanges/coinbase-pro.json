@@ -88,10 +88,18 @@
   "entity_correction": {
     "entity_id": "hei_ex_000159",
     "expected": {
-      "successor_id": "hei_ex_000012"
+      "death_date": "2023-12-31",
+      "summary": "Advanced trading surface under Coinbase that was replaced by Coinbase Advanced, with customer history access ending after December 2023.",
+      "successor_id": "hei_ex_000012",
+      "last_verified_at": "2026-06-19",
+      "notes": "Lineage-sensitive product transition. After balance migration, customers could no longer deposit, withdraw, or trade on Coinbase Pro, and transaction history remained accessible only until the end of 2023."
     },
     "changes": {
-      "successor_id": null
+      "death_date": "2023-11-20",
+      "summary": "Advanced trading surface under Coinbase that was replaced by Coinbase Advanced. Coinbase announced the sunset in June 2022 and completed the phased customer migration by 2023-11-20, after which Coinbase Pro was no longer supported on web or mobile.",
+      "successor_id": null,
+      "last_verified_at": "2026-09-03",
+      "notes": "Coinbase's first-party 2022 announcement states that Coinbase Pro would be sunset in favor of Coinbase Advanced. The same post was updated on 2023-11-20 to state that the phased migration was complete and Coinbase Pro would no longer be supported on web or mobile and users could no longer log in. The terminal marker is therefore corrected from the prior 2023-12-31 history-access proxy to 2023-11-20."
     }
   }
 }
