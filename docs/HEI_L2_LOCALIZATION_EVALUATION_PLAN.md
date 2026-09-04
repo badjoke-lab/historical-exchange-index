@@ -52,12 +52,12 @@ Completion authority:
 docs/audits/HEI_D1000_MILESTONE_COMPLETION_2026-08-09.md
 ```
 
-Reviewed canonical growth continues after D-1000. BX62 established 1034 reviewed entities; subsequent reviewed lifecycle/regulatory additions did not add entities but advanced event/evidence coverage. The current reviewed state under build aggregation semantics is:
+Reviewed canonical growth continues after D-1000. BX62 established 1034 reviewed entities and later reviewed growth, lifecycle, regulatory, correction, and evidence work has continued through normal record bundles. The current reviewed state derived on 2026-09-04 under the same public build aggregation semantics is:
 
 ```text
-Entities: 1034
-Events:   1039
-Evidence: 3871
+Entities: 1071
+Events:   1114
+Evidence: 4050
 ```
 
 Post-D-1000 entity-growth authority remains:
@@ -66,7 +66,7 @@ Post-D-1000 entity-growth authority remains:
 docs/audits/HEI_POST_D1000_GROWTH_BX62_2026-08-13.md
 ```
 
-Later reviewed lifecycle additions are represented by their merged exchange record bundles and normal reviewed aggregation; they do not alter the D-1000 or BX62 entity milestone authority.
+Later reviewed additions and repairs are represented by their merged exchange record bundles and normal reviewed aggregation; they do not alter the frozen D-1000 or BX62 milestone baselines.
 
 The localization decision remains HOLD until real evaluation evidence is complete. D-1000 completion and later canonical growth do not expand translation breadth and do not authorize a third language.
 
