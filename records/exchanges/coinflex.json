@@ -12,9 +12,9 @@
     "status": "rebranded",
     "death_reason": "rebrand",
     "launch_date": "2019-01-01",
-    "death_date": "2023-02-15",
+    "death_date": "2023-03-08",
     "country_or_origin": "Seychelles",
-    "summary": "Cryptocurrency exchange that halted withdrawals in June 2022 during a liquidity dispute involving a large counterparty. CoinFLEX later became linked to the Open Exchange / OPNX transition through shared leadership and creditor-recovery plans, but the relationship is not a clean one-to-one exchange rebrand suitable for a canonical successor field.",
+    "summary": "Cryptocurrency exchange that suspended withdrawals in June 2022 after a counterparty shortfall, entered a Seychelles court-supervised restructuring process, and was publicly announced by its incoming CEO as rebranding to Open Exchange (OPNX) on 2023-03-08. HEI preserves the CoinFLEX-OPNX continuity as a rebrand event but does not force a canonical successor link because later creditor litigation disputed that the OPNX transition was an authorized one-to-one succession.",
     "official_url_original": "https://coinflex.com/",
     "official_domain_original": "coinflex.com",
     "official_url_status": "repurposed",
@@ -22,22 +22,116 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
-    "last_verified_at": "2026-06-19",
-    "notes": "HEI preserves the CoinFLEX–OPNX continuity in events and narrative history rather than forcing a canonical successor link. Public reporting supports operational and leadership continuity, but the transition was not a simple clean exchange-name rebrand."
+    "last_verified_at": "2026-09-04",
+    "notes": "The prior 2023-02-15 death_date was not supported by the recovered first-party/legal record. HEI now uses 2023-03-08, the date CoinFLEX executive Leslie Lamb publicly announced that CoinFLEX would officially rebrand to Open Exchange (OPNX). This records the public identity transition, not an uncontested legal succession. The Seychelles court record separately establishes the 2022 liquidity shortfall and restructuring process."
   },
-  "events": [],
-  "evidence": [],
+  "events": [
+    {
+      "id": "hei_ev_010223",
+      "exchange_id": "hei_ex_000313",
+      "event_type": "withdrawal_suspended",
+      "event_date": "2022-06-23",
+      "title": "CoinFLEX suspended withdrawals",
+      "description": "CoinFLEX suspended customer withdrawals amid extreme market conditions and uncertainty involving a large counterparty. A later Seychelles Supreme Court ruling records that a large customer failed to meet financial obligations, leaving a balance-sheet hole that prevented CoinFLEX from meeting client withdrawal requests and other liabilities.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 1,
+      "is_major_event": true,
+      "notes": "The court record supplies high-reliability confirmation of the liquidity shortfall and inability to meet withdrawals; it does not convert the event into a bankruptcy finding."
+    },
+    {
+      "id": "hei_ev_010224",
+      "exchange_id": "hei_ex_000313",
+      "event_type": "other",
+      "event_date": "2022-08-17",
+      "title": "Seychelles court approved an interim CoinFLEX restructuring arrangement",
+      "description": "The Supreme Court of Seychelles approved an interim arrangement in CoinFLEX's restructuring process after reviewing the company's proposed plan and the balance-sheet shortfall arising from the counterparty default.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 2,
+      "is_major_event": true,
+      "notes": "Modeled as `other` because HEI has no dedicated restructuring event enum. This is a court-supervised restructuring event, not an insolvency declaration or bankruptcy filing."
+    },
+    {
+      "id": "hei_ev_010225",
+      "exchange_id": "hei_ex_000313",
+      "event_type": "rebranded",
+      "event_date": "2023-03-08",
+      "title": "CoinFLEX announced rebrand to Open Exchange (OPNX)",
+      "description": "CoinFLEX executive Leslie Lamb announced that, following approval of the restructuring, CoinFLEX would officially rebrand to Open Exchange (OPNX) and that she would serve as OPNX CEO.",
+      "confidence": "medium",
+      "impact_level": "critical",
+      "event_status_effect": "rebranded",
+      "source_count": 1,
+      "sort_order": 3,
+      "is_major_event": true,
+      "notes": "This supports the public rebrand marker. It does not establish an uncontested one-to-one legal successor relationship, so successor_id remains null."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012766",
+      "exchange_id": "hei_ex_000313",
+      "event_id": "hei_ev_010223",
+      "source_type": "court_document",
+      "title": "Supreme Court of Seychelles ruling on CoinFLEX arrangement",
+      "url": "https://seylii.org/akn/sc/judgment/scsc/2022/718/eng%402022-08-17/source.pdf",
+      "publisher": "Supreme Court of Seychelles / SeyLII",
+      "published_at": "2022-08-17",
+      "archived_url": null,
+      "accessed_at": "2026-09-04",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "The ruling records that a large customer failed to meet financial obligations, creating a balance-sheet hole and leaving CoinFLEX unable to meet withdrawal requests and liabilities."
+    },
+    {
+      "id": "hei_src_012767",
+      "exchange_id": "hei_ex_000313",
+      "event_id": "hei_ev_010224",
+      "source_type": "court_document",
+      "title": "Supreme Court of Seychelles interim approval of CoinFLEX arrangement",
+      "url": "https://seylii.org/akn/sc/judgment/scsc/2022/718/eng%402022-08-17/source.pdf",
+      "publisher": "Supreme Court of Seychelles / SeyLII",
+      "published_at": "2022-08-17",
+      "archived_url": null,
+      "accessed_at": "2026-09-04",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "The court approved an interim order for the proposed arrangement, subject to the final order and statutory approval process."
+    },
+    {
+      "id": "hei_src_012768",
+      "exchange_id": "hei_ex_000313",
+      "event_id": "hei_ev_010225",
+      "source_type": "official_social",
+      "title": "CoinFLEX restructuring and Open Exchange rebrand announcement",
+      "url": "https://www.linkedin.com/posts/leslietlamb_openexchange-opnx-womeninweb3-activity-7039298570130178048-RKkm",
+      "publisher": "Leslie Lamb",
+      "published_at": "2023-03-08",
+      "archived_url": null,
+      "accessed_at": "2026-09-04",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "First-party executive announcement that CoinFLEX would officially rebrand to Open Exchange (OPNX). HEI uses it only for the public rebrand marker, not as proof of uncontested legal succession."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000313",
     "expected": {
-      "notes": "CoinFLEX is added as a predecessor / superseded identity linked to existing OPNX record. Confidence is medium because public reporting supports the continuity, but the transition is not a simple clean exchange-name rebrand.",
-      "successor_id": "hei_ex_000129",
-      "summary": "Cryptocurrency exchange that halted withdrawals in June 2022 during a liquidity dispute involving a large counterparty. CoinFLEX later became linked to the Open Exchange / OPNX transition, with OPNX positioned as a new venue connected to CoinFLEX leadership and creditor recovery plans. HEI treats CoinFLEX as a rebranded / superseded exchange identity with OPNX as the successor record, while retaining the 2022 withdrawal halt as the critical failure event."
+      "death_date": "2023-02-15",
+      "last_verified_at": "2026-06-19",
+      "notes": "HEI preserves the CoinFLEX–OPNX continuity in events and narrative history rather than forcing a canonical successor link. Public reporting supports operational and leadership continuity, but the transition was not a simple clean exchange-name rebrand.",
+      "summary": "Cryptocurrency exchange that halted withdrawals in June 2022 during a liquidity dispute involving a large counterparty. CoinFLEX later became linked to the Open Exchange / OPNX transition through shared leadership and creditor-recovery plans, but the relationship is not a clean one-to-one exchange rebrand suitable for a canonical successor field."
     },
     "changes": {
-      "notes": "HEI preserves the CoinFLEX–OPNX continuity in events and narrative history rather than forcing a canonical successor link. Public reporting supports operational and leadership continuity, but the transition was not a simple clean exchange-name rebrand.",
-      "successor_id": null,
-      "summary": "Cryptocurrency exchange that halted withdrawals in June 2022 during a liquidity dispute involving a large counterparty. CoinFLEX later became linked to the Open Exchange / OPNX transition through shared leadership and creditor-recovery plans, but the relationship is not a clean one-to-one exchange rebrand suitable for a canonical successor field."
+      "death_date": "2023-03-08",
+      "last_verified_at": "2026-09-04",
+      "notes": "The prior 2023-02-15 death_date was not supported by the recovered first-party/legal record. HEI now uses 2023-03-08, the date CoinFLEX executive Leslie Lamb publicly announced that CoinFLEX would officially rebrand to Open Exchange (OPNX). This records the public identity transition, not an uncontested legal succession. The Seychelles court record separately establishes the 2022 liquidity shortfall and restructuring process.",
+      "summary": "Cryptocurrency exchange that suspended withdrawals in June 2022 after a counterparty shortfall, entered a Seychelles court-supervised restructuring process, and was publicly announced by its incoming CEO as rebranding to Open Exchange (OPNX) on 2023-03-08. HEI preserves the CoinFLEX-OPNX continuity as a rebrand event but does not force a canonical successor link because later creditor litigation disputed that the OPNX transition was an authorized one-to-one succession."
     }
   }
 }
