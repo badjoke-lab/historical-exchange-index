@@ -13,9 +13,9 @@
     "status": "acquired",
     "death_reason": "acquisition",
     "launch_date": "2013-01-01",
-    "death_date": "2023-08-14",
+    "death_date": null,
     "country_or_origin": "Netherlands",
-    "summary": "Rotterdam-based European crypto broker / exchange platform founded in 2013. LiteBit announced in May 2023 that it would cease operations because of market developments, increased competition, and regulatory pressure; Bitvavo subsequently received ACM approval to acquire LiteBit's customer base and migrate user assets and accounts.",
+    "summary": "Rotterdam-based European crypto broker / exchange platform founded in 2013. LiteBit announced on 2023-05-23 that it intended to cease operations because of market developments, increased competition, and regulatory pressure. The Dutch ACM approved Bitvavo's acquisition of LiteBit's business on 2023-06-06, including the customer-base transition; LiteBit's current official site confirms operations have ceased and eligible customer funds were moved to Bitvavo.",
     "official_url_original": "https://www.litebit.eu/",
     "official_domain_original": "litebit.eu",
     "official_url_status": "redirected",
@@ -23,18 +23,101 @@
     "predecessor_id": null,
     "successor_id": "hei_ex_000046",
     "confidence": "high",
-    "last_verified_at": "2026-05-22",
-    "notes": "HEI models LiteBit as acquired because Bitvavo acquired the LiteBit customer base after LiteBit decided to cease operations. This should not be read as a full corporate acquisition of every LiteBit asset; the record is specifically about the exchange/broker service ending and the customer-base migration to Bitvavo."
+    "last_verified_at": "2026-09-04",
+    "notes": "HEI models LiteBit as acquired because the Dutch ACM approved Bitvavo B.V.'s acquisition of the LiteBit business and LiteBit's customer transition was implemented toward Bitvavo. The prior exact death_date 2023-08-14 is removed because the recovered first-party/regulatory sources confirm cessation and acquisition but do not establish that exact terminal day."
   },
-  "events": [],
-  "evidence": [],
+  "events": [
+    {
+      "id": "hei_ev_010226",
+      "exchange_id": "hei_ex_000283",
+      "event_type": "shutdown_announced",
+      "event_date": "2023-05-23",
+      "title": "LiteBit announced plans to cease operations",
+      "description": "LiteBit announced that it intended to terminate its activities because of market developments, increased competition, and mounting regulatory pressure, while offering customers a path to move assets to Bitvavo subject to regulatory approval.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 1,
+      "is_major_event": true,
+      "notes": "The announcement is distinct from the later ACM acquisition approval and does not by itself establish the exact final shutdown date."
+    },
+    {
+      "id": "hei_ev_010227",
+      "exchange_id": "hei_ex_000283",
+      "event_type": "acquired",
+      "event_date": "2023-06-06",
+      "title": "ACM approved Bitvavo acquisition of LiteBit",
+      "description": "The Dutch Authority for Consumers & Markets approved Bitvavo B.V.'s acquisition of the LiteBit business. Bitvavo subsequently communicated the customer-base migration process and LiteBit's current site confirms eligible customer funds were transferred to Bitvavo.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "acquired",
+      "source_count": 2,
+      "sort_order": 2,
+      "is_major_event": true,
+      "notes": "This supports the acquired classification and Bitvavo successor relationship. It does not supply a separate exact service-termination day, so death_date is left null."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012769",
+      "exchange_id": "hei_ex_000283",
+      "event_id": "hei_ev_010226",
+      "source_type": "official_statement",
+      "title": "Bitvavo welcomes new clients from crypto broker LiteBit",
+      "url": "https://bitvavo.com/de/news/bitvavo-verwelkomt-overstappers-van-crypto-broker-litebit",
+      "publisher": "Bitvavo",
+      "published_at": "2023-05-23",
+      "archived_url": null,
+      "accessed_at": "2026-09-04",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party counterparty announcement reproduces LiteBit's same-day decision to end activities and includes a statement from LiteBit COO Arthur van Lier."
+    },
+    {
+      "id": "hei_src_012770",
+      "exchange_id": "hei_ex_000283",
+      "event_id": "hei_ev_010227",
+      "source_type": "regulatory_notice",
+      "title": "Bitvavo mag de onderneming van LiteBit overnemen",
+      "url": "https://www.acm.nl/nl/publicaties/bitvavo-mag-de-onderneming-van-litebit-overnemen-concentratiebesluit",
+      "publisher": "Autoriteit Consument & Markt",
+      "published_at": "2023-06-12",
+      "archived_url": null,
+      "accessed_at": "2026-09-04",
+      "reliability": "high",
+      "claim_scope": "ownership",
+      "notes": "ACM states that Bitvavo B.V. may acquire the LiteBit business and that the authority decided this on 2023-06-06."
+    },
+    {
+      "id": "hei_src_012771",
+      "exchange_id": "hei_ex_000283",
+      "event_id": "hei_ev_010227",
+      "source_type": "official_statement",
+      "title": "LiteBit no longer available",
+      "url": "https://www.litebit.eu/en/contact",
+      "publisher": "LiteBit",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-09-04",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "LiteBit's current official site states that operations have ceased and explains that eligible customer funds were moved to Bitvavo."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000283",
     "expected": {
-      "successor_id": null
+      "death_date": "2023-08-14",
+      "last_verified_at": "2026-05-22",
+      "summary": "Rotterdam-based European crypto broker / exchange platform founded in 2013. LiteBit announced in May 2023 that it would cease operations because of market developments, increased competition, and regulatory pressure; Bitvavo subsequently received ACM approval to acquire LiteBit's customer base and migrate user assets and accounts.",
+      "notes": "HEI models LiteBit as acquired because Bitvavo acquired the LiteBit customer base after LiteBit decided to cease operations. This should not be read as a full corporate acquisition of every LiteBit asset; the record is specifically about the exchange/broker service ending and the customer-base migration to Bitvavo."
     },
     "changes": {
-      "successor_id": "hei_ex_000046"
+      "death_date": null,
+      "last_verified_at": "2026-09-04",
+      "summary": "Rotterdam-based European crypto broker / exchange platform founded in 2013. LiteBit announced on 2023-05-23 that it intended to cease operations because of market developments, increased competition, and regulatory pressure. The Dutch ACM approved Bitvavo's acquisition of LiteBit's business on 2023-06-06, including the customer-base transition; LiteBit's current official site confirms operations have ceased and eligible customer funds were moved to Bitvavo.",
+      "notes": "HEI models LiteBit as acquired because the Dutch ACM approved Bitvavo B.V.'s acquisition of the LiteBit business and LiteBit's customer transition was implemented toward Bitvavo. The prior exact death_date 2023-08-14 is removed because the recovered first-party/regulatory sources confirm cessation and acquisition but do not establish that exact terminal day."
     }
   }
 }
