@@ -96,6 +96,12 @@ function isResolvedCandidate(candidate, resolutions) {
   return resolutions?.resolvedNames?.has(normalizeName(candidate?.canonical_name || '')) || false;
 }
 
+export function isChainInfrastructureCandidate(candidate) {
+  const categories = new Set(candidate?.news_event_categories || []);
+  const eventTypes = new Set(candidate?.likely_event_types || []);
+  return categories.has('chain_infrastructure_outage') || eventTypes.has('chain_shutdown_impact');
+}
+
 function isActionableNewsCandidate(candidate, resolutions) {
   if (!candidate || isGenericCandidateName(candidate.canonical_name)) return false;
   if (isResolvedCandidate(candidate, resolutions)) return false;
@@ -104,6 +110,13 @@ function isActionableNewsCandidate(candidate, resolutions) {
 
   const sourceUrls = candidate.source_urls || [];
   if (sourceUrls.length === 0) return false;
+
+  // Chain infrastructure is not an exchange entity. Retain a credible chain-level
+  // outage only as monitoring context so operators can review dependent exchange
+  // records for a possible chain_shutdown_impact event.
+  if (isChainInfrastructureCandidate(candidate)) {
+    return candidate.source_quality !== 'low';
+  }
 
   // Existing canonical entities should not be auto-promoted into watchlist noise.
   // They are useful raw monitoring context, but event updates need manual review.
@@ -286,10 +299,11 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
       };
     });
   const candidates = allCandidates.filter((candidate) => isActionableNewsCandidate(candidate, resolutions) || isActionableRegulatoryCandidate(candidate, resolutions));
-  const aCandidates = candidates.filter((candidate) => candidate.candidate_class === 'A');
+  const chainInfrastructureCandidates = candidates.filter(isChainInfrastructureCandidate);
+  const aCandidates = candidates.filter((candidate) => candidate.candidate_class === 'A' && !isChainInfrastructureCandidate(candidate));
   const regulatoryCandidates = candidates.filter((candidate) => candidate.source_category === 'regulatory_source');
-  const matchedExisting = candidates.filter((candidate) => candidate.duplicate_check.matched_existing_entity);
-  const missingInHei = candidates.filter((candidate) => !candidate.duplicate_check.matched_existing_entity);
+  const matchedExisting = candidates.filter((candidate) => candidate.duplicate_check.matched_existing_entity && !isChainInfrastructureCandidate(candidate));
+  const missingInHei = candidates.filter((candidate) => !candidate.duplicate_check.matched_existing_entity && !isChainInfrastructureCandidate(candidate));
 
   if (newsQueries.length > 0 && newsItems.length === 0) {
     findings.push(createFinding({
@@ -314,6 +328,20 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
       recommended_action: 'inspect_regulatory_source_queries_or_network',
       confidence: 'medium',
       dedupe_key: `${monitor}:rss_zero_regulatory`,
+    }));
+  }
+
+  for (const candidate of chainInfrastructureCandidates) {
+    findings.push(createFinding({
+      monitor,
+      severity: candidate.is_new_candidate ? 'medium' : 'low',
+      category: candidate.is_new_candidate ? 'chain_infrastructure_signal_new' : 'chain_infrastructure_signal_recurring',
+      title: `${candidate.is_new_candidate ? 'New' : 'Recurring'} chain infrastructure signal: ${candidate.canonical_name}`,
+      summary: 'Infrastructure outage signal only. Review whether any canonical exchange record depends on the affected chain and whether exchange execution was materially interrupted; do not create the chain itself as an exchange entity.',
+      recommended_action: 'review_chain_shutdown_impact_dependencies',
+      source_urls: candidate.source_urls,
+      confidence: candidate.source_quality === 'high' ? 'medium' : 'low',
+      dedupe_key: `${monitor}:chain_infrastructure:${candidate.candidate_key}`,
     }));
   }
 
@@ -351,6 +379,7 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
       filtering_summary: {
         raw_candidates: allCandidates.length,
         retained_candidates: candidates.length,
+        chain_infrastructure_candidates: chainInfrastructureCandidates.length,
         new_candidates: candidates.filter((candidate) => candidate.is_new_candidate).length,
         recurring_candidates: candidates.filter((candidate) => !candidate.is_new_candidate).length,
         dropped_candidates: allCandidates.length - candidates.length,
@@ -361,6 +390,7 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
         total: candidates.length,
         missing_in_hei: missingInHei.length,
         matched_existing: matchedExisting.length,
+        chain_infrastructure_candidates: chainInfrastructureCandidates.length,
         regulatory_candidates: regulatoryCandidates.length,
         A: candidates.filter((candidate) => candidate.candidate_class === 'A').length,
         B: candidates.filter((candidate) => candidate.candidate_class === 'B').length,
@@ -382,6 +412,7 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
         queries: newsQueries.length,
         items: newsItems.length,
         candidates: candidates.length - regulatoryCandidates.length,
+        chain_infrastructure_candidates: chainInfrastructureCandidates.length,
       },
       regulatory_summary: {
         ...regulatorySourceSummary,
@@ -393,6 +424,7 @@ export async function runNewsAndEventWatch(context, { startedAt } = {}) {
         items: allItems.length,
         raw_candidates: allCandidates.length,
         candidates: candidates.length,
+        chain_infrastructure_candidates: chainInfrastructureCandidates.length,
         dropped_candidates: allCandidates.length - candidates.length,
         resolved_candidate_names: resolutions.resolvedNames.size,
         missing_in_hei: missingInHei.length,
