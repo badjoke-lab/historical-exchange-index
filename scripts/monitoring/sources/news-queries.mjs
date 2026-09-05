@@ -53,6 +53,17 @@ export const NEWS_QUERY_GROUPS = [
     ],
   },
   {
+    category: 'chain_infrastructure_outage',
+    likely_event_types: ['chain_shutdown_impact'],
+    queries: [
+      'blockchain block production halted DEX exchange',
+      'L2 sequencer outage DEX trading',
+      'chain outage decentralized exchange transactions stalled',
+      'rollup outage exchange trading halted',
+      'blockchain network halt crypto exchange users',
+    ],
+  },
+  {
     category: 'regulatory',
     likely_event_types: ['regulatory_action'],
     queries: [
@@ -77,18 +88,32 @@ export const NEWS_QUERY_GROUPS = [
 ];
 
 export function getNewsQueries() {
-  const maxQueries = Number.parseInt(process.env.HEI_MONITORING_NEWS_QUERY_LIMIT || '20', 10);
+  const parsedLimit = Number.parseInt(process.env.HEI_MONITORING_NEWS_QUERY_LIMIT || '20', 10);
+  const maxQueries = Number.isFinite(parsedLimit) ? Math.max(0, parsedLimit) : 20;
+  if (maxQueries === 0) return [];
+
+  const groupedQueries = NEWS_QUERY_GROUPS.map((group) => group.queries.map((query) => ({
+    query,
+    category: group.category,
+    likely_event_types: group.likely_event_types,
+  })));
   const queries = [];
 
-  for (const group of NEWS_QUERY_GROUPS) {
-    for (const query of group.queries) {
-      queries.push({
-        query,
-        category: group.category,
-        likely_event_types: group.likely_event_types,
-      });
+  // Select queries round-robin by category so a global query cap cannot silently
+  // starve later categories. With the normal limit of 20, every current group
+  // receives coverage, including chain-infrastructure and acquisition signals.
+  for (let queryIndex = 0; queries.length < maxQueries; queryIndex += 1) {
+    let addedThisRound = false;
+
+    for (const groupQueries of groupedQueries) {
+      if (queries.length >= maxQueries) break;
+      if (queryIndex >= groupQueries.length) continue;
+      queries.push(groupQueries[queryIndex]);
+      addedThisRound = true;
     }
+
+    if (!addedThisRound) break;
   }
 
-  return queries.slice(0, Number.isFinite(maxQueries) ? maxQueries : 20);
+  return queries;
 }
