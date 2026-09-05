@@ -96,6 +96,10 @@ function sourceQuality(item) {
 
 export function inferEventCategory(textValue, fallbackCategory = 'unknown') {
   const text = normalizeText(textValue);
+  if (
+    /\b(block production|producing blocks|sequencer|chain outage|network outage|blob submission|blob submissions|batch submission|batch submissions)\b/.test(text)
+    && /\b(halt|halted|stopped|stop|pause|paused|outage|gap|down|offline|stall|stalled)\b/.test(text)
+  ) return 'chain_infrastructure_outage';
   if (/\b(shutdown|shut down|closed|closure|cease operations|ceased operations|wind down|service ended|service discontinued)\b/.test(text)) return 'shutdown';
   if (/\b(hack|hacked|exploit|breach|unauthorized withdrawal|hot wallet|stolen|drained|suspicious outflows)\b/.test(text)) return 'hack_incident';
   if (/\b(withdrawals suspended|deposits suspended|trading halted|paused withdrawals|halted trading|withdrawal only|close only)\b/.test(text)) return 'withdrawal_deposit_trading_suspension';
@@ -107,6 +111,7 @@ export function inferEventCategory(textValue, fallbackCategory = 'unknown') {
 export function extractCandidateNameFromNews(item) {
   const text = `${item.title || ''} ${item.snippet || ''}`;
   const patterns = [
+    /\b([A-Z][A-Za-z0-9.&-]{2,}(?:\s+[A-Z][A-Za-z0-9.&-]{1,}){0,2}\s+Chain)\s+(?:[Ss]tops?|[Ss]topped|[Hh]alts?|[Hh]alted|[Pp]auses?|[Pp]aused|[Ss]uffers?|[Ww]ent)\b/,
     /\b([A-Z][A-Za-z0-9.&-]{2,}(?:\s+[A-Z][A-Za-z0-9.&-]{1,}){0,2})\s+(?:(?:[Ss]huts|[Ww]ill [Ss]hut|[Tt]o [Ss]hut) [Dd]own|[Cc]eases [Oo]perations|[Hh]alts [Tt]rading|[Ss]uspends [Ww]ithdrawals|[Ii]s [Hh]acked|[Ww]as [Hh]acked|[Rr]ebrands|[Ii]s [Aa]cquired|[Ww]arning|[Ee]nforcement [Aa]ction|[Ss]anctioned)\b/,
     /\b(?:exchange|platform|protocol|DEX)\s+([A-Z][A-Za-z0-9.&-]{2,}(?:\s+[A-Z][A-Za-z0-9.&-]{1,}){0,3})\b/,
     /\b([A-Z][A-Za-z0-9.&-]{2,}(?:\s+[A-Z][A-Za-z0-9.&-]{1,}){0,3})\s+(?:exchange|DEX|protocol|platform)\b/,
