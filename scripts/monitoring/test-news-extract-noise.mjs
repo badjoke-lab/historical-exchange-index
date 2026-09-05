@@ -1,4 +1,5 @@
-import { extractCandidateNameFromNews } from './core/news-extract.mjs';
+import { extractCandidateNameFromNews, inferEventCategory } from './core/news-extract.mjs';
+import { isChainInfrastructureCandidate } from './monitors/news-and-event-watch.mjs';
 import { NEWS_QUERY_GROUPS, getNewsQueries } from './sources/news-queries.mjs';
 
 function assertNullCandidate(item, label) {
@@ -31,6 +32,30 @@ function assertNewsQueryCoverage() {
   } finally {
     if (previousLimit === undefined) delete process.env.HEI_MONITORING_NEWS_QUERY_LIMIT;
     else process.env.HEI_MONITORING_NEWS_QUERY_LIMIT = previousLimit;
+  }
+}
+
+function assertChainInfrastructureExtraction() {
+  const item = {
+    title: 'Robinhood Chain Stops Producing Blocks. What Happened?',
+    snippet: 'A network outage stalled transactions for at least 14 minutes.',
+    source_name: 'BeInCrypto',
+  };
+  const candidate = extractCandidateNameFromNews(item);
+  if (candidate !== 'Robinhood Chain') {
+    throw new Error(`chain outage extraction must identify Robinhood Chain: ${candidate}`);
+  }
+
+  const category = inferEventCategory(`${item.title} ${item.snippet}`, 'unknown');
+  if (category !== 'chain_infrastructure_outage') {
+    throw new Error(`chain outage category regression: ${category}`);
+  }
+
+  if (!isChainInfrastructureCandidate({
+    news_event_categories: [category],
+    likely_event_types: ['chain_shutdown_impact'],
+  })) {
+    throw new Error('chain outage monitor signal must be retained as chain infrastructure context');
   }
 }
 
@@ -80,5 +105,6 @@ assertNullCandidate(
 );
 
 assertNewsQueryCoverage();
+assertChainInfrastructureExtraction();
 
 console.log('HEI news candidate noise regressions passed.');
