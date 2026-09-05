@@ -10,10 +10,10 @@
     "type": "cex",
     "status": "rebranded",
     "death_reason": "rebrand",
-    "launch_date": "2011-06-01",
+    "launch_date": null,
     "death_date": "2015-09-15",
     "country_or_origin": "China",
-    "summary": "China-based Bitcoin exchange founded in 2011 and widely described as China's first Bitcoin exchange. In September 2015, BTCChina rebranded to BTCC as the company shifted toward a more global identity.",
+    "summary": "China-based Bitcoin exchange founded in 2011 and described by BTCC as China's first Bitcoin exchange. BTCChina rebranded to BTCC on 2015-09-15 as the company adopted a more global identity.",
     "official_url_original": "https://btcchina.com/",
     "official_domain_original": "btcchina.com",
     "official_url_status": "unknown",
@@ -21,20 +21,72 @@
     "predecessor_id": null,
     "successor_id": "hei_ex_000410",
     "confidence": "high",
-    "last_verified_at": "2026-04-29",
-    "notes": "HEI models this as the historical BTCChina brand record and links it reciprocally to the existing BTCC record. The 2015-09-15 rebrand is used as the terminal BTCChina brand marker; later BTCC trading restrictions and ownership changes remain part of the BTCC record."
+    "last_verified_at": "2026-09-05",
+    "notes": "HEI models this as the historical BTCChina brand record and links it reciprocally to the existing BTCC record. The 2015-09-15 rebrand is directly supported by a BTCC-issued announcement. The prior exact launch date of 2011-06-01 has been removed because reviewed first-party material supports founding in 2011 but not that exact day. Later BTCC trading restrictions and ownership changes remain part of the BTCC record."
   },
-  "events": [],
-  "evidence": [],
+  "events": [
+    {
+      "id": "hei_ev_010231",
+      "exchange_id": "hei_ex_000260",
+      "event_type": "rebranded",
+      "event_date": "2015-09-15",
+      "title": "BTCChina rebranded to BTCC",
+      "description": "BTCChina changed its brand to BTCC and introduced the BTCC name, logo and website as part of a shift toward a global audience.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "rebranded",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "The exact date and brand transition are stated in BTCC's contemporaneous announcement and independently reported the same day by TechCrunch."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012777",
+      "exchange_id": "hei_ex_000260",
+      "event_id": "hei_ev_010231",
+      "source_type": "official_statement",
+      "title": "BTCChina Rebrands as BTCC with Focus on Global Audience",
+      "url": "https://www.globenewswire.com/news-release/2015/09/15/768450/37162/en/BTCChina-Rebrands-as-BTCC-with-Focus-on-Global-Audience.html",
+      "publisher": "BTCC",
+      "published_at": "2015-09-15",
+      "archived_url": "https://web.archive.org/web/*/https://www.globenewswire.com/news-release/2015/09/15/768450/37162/en/BTCChina-Rebrands-as-BTCC-with-Focus-on-Global-Audience.html",
+      "accessed_at": "2026-09-05",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "BTCC-issued contemporaneous announcement states that BTCChina was rebranding to BTCC on 2015-09-15, identifies BTCChina as founded in 2011, and explains the global-brand rationale."
+    },
+    {
+      "id": "hei_src_012778",
+      "exchange_id": "hei_ex_000260",
+      "event_id": "hei_ev_010231",
+      "source_type": "news_article",
+      "title": "BTCChina Rebrands To BTCC",
+      "url": "https://techcrunch.com/2015/09/15/btcchina-rebrands-to-btcc/",
+      "publisher": "TechCrunch",
+      "published_at": "2015-09-15",
+      "archived_url": "https://web.archive.org/web/*/https://techcrunch.com/2015/09/15/btcchina-rebrands-to-btcc/",
+      "accessed_at": "2026-09-05",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Independent same-day reporting confirms that BTCChina rebranded to BTCC and quotes BTCC leadership on the new identity."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000260",
     "expected": {
-      "notes": "HEI models this as the historical BTCChina brand record. The 2015-09-15 rebrand to BTCC is used as the terminal brand marker. Later BTCC trading restrictions and ownership changes should be handled separately if a BTCC successor record is modeled.",
-      "successor_id": null
+      "launch_date": "2011-06-01",
+      "summary": "China-based Bitcoin exchange founded in 2011 and widely described as China's first Bitcoin exchange. In September 2015, BTCChina rebranded to BTCC as the company shifted toward a more global identity.",
+      "successor_id": "hei_ex_000410",
+      "last_verified_at": "2026-04-29",
+      "notes": "HEI models this as the historical BTCChina brand record and links it reciprocally to the existing BTCC record. The 2015-09-15 rebrand is used as the terminal BTCChina brand marker; later BTCC trading restrictions and ownership changes remain part of the BTCC record."
     },
     "changes": {
-      "notes": "HEI models this as the historical BTCChina brand record and links it reciprocally to the existing BTCC record. The 2015-09-15 rebrand is used as the terminal BTCChina brand marker; later BTCC trading restrictions and ownership changes remain part of the BTCC record.",
-      "successor_id": "hei_ex_000410"
+      "launch_date": null,
+      "summary": "China-based Bitcoin exchange founded in 2011 and described by BTCC as China's first Bitcoin exchange. BTCChina rebranded to BTCC on 2015-09-15 as the company adopted a more global identity.",
+      "successor_id": "hei_ex_000410",
+      "last_verified_at": "2026-09-05",
+      "notes": "HEI models this as the historical BTCChina brand record and links it reciprocally to the existing BTCC record. The 2015-09-15 rebrand is directly supported by a BTCC-issued announcement. The prior exact launch date of 2011-06-01 has been removed because reviewed first-party material supports founding in 2011 but not that exact day. Later BTCC trading restrictions and ownership changes remain part of the BTCC record."
     }
   }
 }
