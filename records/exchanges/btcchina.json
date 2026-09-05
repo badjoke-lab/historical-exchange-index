@@ -77,9 +77,9 @@
     "expected": {
       "launch_date": "2011-06-01",
       "summary": "China-based Bitcoin exchange founded in 2011 and widely described as China's first Bitcoin exchange. In September 2015, BTCChina rebranded to BTCC as the company shifted toward a more global identity.",
-      "successor_id": "hei_ex_000410",
+      "successor_id": null,
       "last_verified_at": "2026-04-29",
-      "notes": "HEI models this as the historical BTCChina brand record and links it reciprocally to the existing BTCC record. The 2015-09-15 rebrand is used as the terminal BTCChina brand marker; later BTCC trading restrictions and ownership changes remain part of the BTCC record."
+      "notes": "HEI models this as the historical BTCChina brand record. The 2015-09-15 rebrand to BTCC is used as the terminal brand marker. Later BTCC trading restrictions and ownership changes should be handled separately if a BTCC successor record is modeled."
     },
     "changes": {
       "launch_date": null,
