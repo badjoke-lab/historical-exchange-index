@@ -10,10 +10,10 @@
     "type": "cex",
     "status": "rebranded",
     "death_reason": "rebrand",
-    "launch_date": "2013-06-01",
-    "death_date": "2017-12-31",
+    "launch_date": null,
+    "death_date": "2017-11-01",
     "country_or_origin": "China",
-    "summary": "China-based centralized cryptocurrency exchange founded in 2013. CHBTC ceased China-market trading activity around September 2017 amid Chinese regulatory pressure and later transitioned into the overseas ZB.com brand at the end of 2017.",
+    "summary": "China-based centralized cryptocurrency exchange brand that operated from 2013 and transitioned to the overseas ZB.com service in 2017. Contemporary reporting identified ZB.com as an overseas platform operated by CHBTC and said international trading would become available on 2017-11-01.",
     "official_url_original": "https://chbtc.com/",
     "official_domain_original": "chbtc.com",
     "official_url_status": "unknown",
@@ -21,18 +21,74 @@
     "predecessor_id": null,
     "successor_id": "hei_ex_000290",
     "confidence": "medium",
-    "last_verified_at": "2026-04-29",
-    "notes": "HEI models CHBTC as rebranded rather than dead because multiple profile sources describe the China-market trading stop followed by a name change / overseas transition to ZB.com. The death_date is stored as 2017-12-31 as an end-of-year brand-transition marker, while the 2017-09-30 China-market trading stop is recorded as a separate regulatory event."
+    "last_verified_at": "2026-09-08",
+    "notes": "HEI models CHBTC as the historical predecessor brand of ZB.com. The prior 2017-12-31 death_date was only an end-of-year marker and is removed. The replacement 2017-11-01 date is tied to the documented ZB.com international-service launch and brand/domain transition, not to legal-entity dissolution. The previous exact launch_date 2013-06-01 is also removed because reviewed sources support 2013 / early-2013 operation but not that exact day."
   },
-  "events": [],
-  "evidence": [],
+  "events": [
+    {
+      "id": "hei_ev_010233",
+      "exchange_id": "hei_ex_000271",
+      "event_type": "rebranded",
+      "event_date": "2017-11-01",
+      "title": "CHBTC transitioned to the ZB.com overseas platform",
+      "description": "ZB.com began international trading as an overseas platform operated by CHBTC, marking the transition from the CHBTC brand/domain to the ZB.com successor service.",
+      "confidence": "medium",
+      "impact_level": "high",
+      "event_status_effect": "rebranded",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "The exact date is tied to contemporaneous reports that ZB.com would open international trading on 2017-11-01 and that the ZB.com domain formally went live that day. This does not imply legal-entity dissolution."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012781",
+      "exchange_id": "hei_ex_000271",
+      "event_id": "hei_ev_010233",
+      "source_type": "news_article",
+      "title": "As China closes its doors to cryptocurrencies, exchanges shift their attention overseas",
+      "url": "https://www.scmp.com/business/companies/article/2117806/china-closes-its-doors-cryptocurrencies-exchanges-shift-their",
+      "publisher": "South China Morning Post",
+      "published_at": "2017-10-31",
+      "archived_url": "https://web.archive.org/web/*/https://www.scmp.com/business/companies/article/2117806/china-closes-its-doors-cryptocurrencies-exchanges-shift-their",
+      "accessed_at": "2026-09-08",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Contemporaneous report identifies ZB.com as an overseas platform operated by CHBTC and says international trading would become available from 2017-11-01."
+    },
+    {
+      "id": "hei_src_012782",
+      "exchange_id": "hei_ex_000271",
+      "event_id": "hei_ev_010233",
+      "source_type": "news_article",
+      "title": "域名ZB.com正式上线 搭建区块链资产交易平台",
+      "url": "https://www.admin5.com/article/20171102/796312.shtml",
+      "publisher": "A5站长网",
+      "published_at": "2017-11-02",
+      "archived_url": "https://web.archive.org/web/*/https://www.admin5.com/article/20171102/796312.shtml",
+      "accessed_at": "2026-09-08",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Contemporaneous report states that ZB.com formally went live on 2017-11-01 and that the new domain/platform replaced the original chbtc.com domain for the blockchain-asset trading service."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000271",
     "expected": {
-      "successor_id": null
+      "launch_date": "2013-06-01",
+      "death_date": "2017-12-31",
+      "summary": "China-based centralized cryptocurrency exchange founded in 2013. CHBTC ceased China-market trading activity around September 2017 amid Chinese regulatory pressure and later transitioned into the overseas ZB.com brand at the end of 2017.",
+      "successor_id": "hei_ex_000290",
+      "last_verified_at": "2026-04-29",
+      "notes": "HEI models CHBTC as rebranded rather than dead because multiple profile sources describe the China-market trading stop followed by a name change / overseas transition to ZB.com. The death_date is stored as 2017-12-31 as an end-of-year brand-transition marker, while the 2017-09-30 China-market trading stop is recorded as a separate regulatory event."
     },
     "changes": {
-      "successor_id": "hei_ex_000290"
+      "launch_date": null,
+      "death_date": "2017-11-01",
+      "summary": "China-based centralized cryptocurrency exchange brand that operated from 2013 and transitioned to the overseas ZB.com service in 2017. Contemporary reporting identified ZB.com as an overseas platform operated by CHBTC and said international trading would become available on 2017-11-01.",
+      "successor_id": "hei_ex_000290",
+      "last_verified_at": "2026-09-08",
+      "notes": "HEI models CHBTC as the historical predecessor brand of ZB.com. The prior 2017-12-31 death_date was only an end-of-year marker and is removed. The replacement 2017-11-01 date is tied to the documented ZB.com international-service launch and brand/domain transition, not to legal-entity dissolution. The previous exact launch_date 2013-06-01 is also removed because reviewed sources support 2013 / early-2013 operation but not that exact day."
     }
   }
 }
