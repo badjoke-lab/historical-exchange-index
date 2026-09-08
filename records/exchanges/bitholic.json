@@ -1,1 +1,76 @@
-{"entity":{"id":"hei_ex_000199","slug":"bitholic","canonical_name":"Bitholic","aliases":[],"type":"cex","status":"rebranded","death_reason":"rebrand","launch_date":"2018-05-01","death_date":"2019-08-08","country_or_origin":"Singapore","summary":"Singapore-based cryptocurrency exchange launched in May 2018 and rebranded as Bithumb Singapore on August 8, 2019.","official_url_original":"https://www.bitholic.com/","official_domain_original":"bitholic.com","official_url_status":"unknown","archived_url":"https://web.archive.org/web/*/https://www.bitholic.com/","predecessor_id":null,"successor_id":null,"confidence":"high","last_verified_at":"2026-07-03","notes":"The 2019-08-08 marker ends the Bitholic brand rather than the underlying Singapore exchange operation. Bithumb Singapore is now canonical, but the predecessor/successor field remains unresolved under the frozen lineage review and is documented through events and notes instead."},"entity_correction":{"entity_id":"hei_ex_000199","expected":{"status":"dead","summary":"Singapore-based cryptocurrency exchange launched in May 2018 that was acquired and rebranded as Bithumb Singapore on 2019-08-08.","last_verified_at":"2026-04-22","notes":"Terminal handling uses the 2019-08-08 public inactive/rebrand marker. Death reason is mapped to rebrand because Cryptowisser states that Bitholic was acquired by Bithumb Singapore and was thereafter known as Bithumb Singapore. HEI uses 2018-05-01 as a conservative launch marker from public launch announcements."},"changes":{"status":"rebranded","summary":"Singapore-based cryptocurrency exchange launched in May 2018 and rebranded as Bithumb Singapore on August 8, 2019.","last_verified_at":"2026-07-03","notes":"The 2019-08-08 marker ends the Bitholic brand rather than the underlying Singapore exchange operation. Bithumb Singapore is now canonical, but the predecessor/successor field remains unresolved under the frozen lineage review and is documented through events and notes instead."}},"events":[],"evidence":[]}
+{
+  "entity": {
+    "id": "hei_ex_000199",
+    "slug": "bitholic",
+    "canonical_name": "Bitholic",
+    "aliases": [],
+    "type": "cex",
+    "status": "rebranded",
+    "death_reason": "rebrand",
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Singapore",
+    "summary": "Singapore-based centralized cryptocurrency exchange announced for a May 2018 launch and demonstrably operating by March 2019. Contemporaneous reporting on 2019-08-08 stated that Bitholic had changed its name to Bithumb Singapore during that month, but the exact day of the brand transition is not established by the reviewed evidence.",
+    "official_url_original": "https://www.bitholic.com/",
+    "official_domain_original": "bitholic.com",
+    "official_url_status": "unknown",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitholic.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-09-08",
+    "notes": "HEI retains the rebranded classification because contemporaneous reports state that Bitholic changed its name to Bithumb Singapore. The previous exact launch_date 2018-05-01 was derived from a first-party announcement that only said the exchange would start in May 2018, so the day is removed. The previous death_date 2019-08-08 was the publication date of reports saying the name change occurred 'this month', not a proven transition date, so it is also removed. The predecessor/successor field remains unresolved rather than inferring legal or ownership continuity beyond the documented name transition."
+  },
+  "events": [],
+  "evidence": [
+    {
+      "id": "hei_src_012783",
+      "exchange_id": "hei_ex_000199",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BXA Token Listing on Global Cryptocurrency Exchange 'BITHOLIC'",
+      "url": "https://www.prnewswire.com/in/news-releases/bxa-token-listing-on-global-cryptocurrency-exchange-bitholic--865025333.html",
+      "publisher": "BITHOLIC",
+      "published_at": "2019-03-04",
+      "archived_url": "https://web.archive.org/web/*/https://www.prnewswire.com/in/news-releases/bxa-token-listing-on-global-cryptocurrency-exchange-bitholic--865025333.html",
+      "accessed_at": "2026-09-08",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "First-party BITHOLIC release describes the Singapore-based exchange as operating and preparing a March 2019 BXA listing, establishing active service by that date without requiring a fabricated exact launch day."
+    },
+    {
+      "id": "hei_src_012784",
+      "exchange_id": "hei_ex_000199",
+      "event_id": null,
+      "source_type": "news_article",
+      "title": "Crypto exchange Bithumb to debut in Singapore via local platform BitHolic",
+      "url": "https://www.theblock.co/linked/35199/crypto-exchange-bithumb-to-debut-in-singapore-via-local-platform-bitholic",
+      "publisher": "The Block",
+      "published_at": "2019-08-08",
+      "archived_url": "https://web.archive.org/web/*/https://www.theblock.co/linked/35199/crypto-exchange-bithumb-to-debut-in-singapore-via-local-platform-bitholic",
+      "accessed_at": "2026-09-08",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Contemporaneous report states that BitHolic changed its name to Bithumb Singapore during August 2019. It does not establish 2019-08-08 as the exact transition day and does not establish legal-entity dissolution."
+    }
+  ],
+  "entity_correction": {
+    "entity_id": "hei_ex_000199",
+    "expected": {
+      "launch_date": "2018-05-01",
+      "death_date": "2019-08-08",
+      "summary": "Singapore-based cryptocurrency exchange launched in May 2018 and rebranded as Bithumb Singapore on August 8, 2019.",
+      "successor_id": null,
+      "last_verified_at": "2026-07-03",
+      "notes": "The 2019-08-08 marker ends the Bitholic brand rather than the underlying Singapore exchange operation. Bithumb Singapore is now canonical, but the predecessor/successor field remains unresolved under the frozen lineage review and is documented through events and notes instead."
+    },
+    "changes": {
+      "launch_date": null,
+      "death_date": null,
+      "summary": "Singapore-based centralized cryptocurrency exchange announced for a May 2018 launch and demonstrably operating by March 2019. Contemporaneous reporting on 2019-08-08 stated that Bitholic had changed its name to Bithumb Singapore during that month, but the exact day of the brand transition is not established by the reviewed evidence.",
+      "successor_id": null,
+      "last_verified_at": "2026-09-08",
+      "notes": "HEI retains the rebranded classification because contemporaneous reports state that Bitholic changed its name to Bithumb Singapore. The previous exact launch_date 2018-05-01 was derived from a first-party announcement that only said the exchange would start in May 2018, so the day is removed. The previous death_date 2019-08-08 was the publication date of reports saying the name change occurred 'this month', not a proven transition date, so it is also removed. The predecessor/successor field remains unresolved rather than inferring legal or ownership continuity beyond the documented name transition."
+    }
+  }
+}
