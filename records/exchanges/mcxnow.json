@@ -7,10 +7,10 @@
     "type": "cex",
     "status": "dead",
     "death_reason": "unknown",
-    "launch_date": "2013-01-01",
-    "death_date": "2014-11-15",
+    "launch_date": null,
+    "death_date": null,
     "country_or_origin": "Unknown",
-    "summary": "Early cryptocurrency exchange offering bitcoin and altcoin trading that suspended trading in 2013 and later entered a 2014 maintenance period after which unwithdrawn coins were to be destroyed.",
+    "summary": "Early cryptocurrency exchange offering bitcoin and altcoin trading. McxNOW suspended trading in 2013, later returned, and on 2014-11-15 entered another maintenance period that required users to withdraw before its wallets were removed. The exchange did not establish a durable successor service afterward.",
     "official_url_original": "https://mcxnow.com/",
     "official_domain_original": "mcxnow.com",
     "official_url_status": "dead_domain",
@@ -18,20 +18,85 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
-    "last_verified_at": "2026-06-20",
-    "notes": "Terminal handling uses the 2014-11-15 maintenance / withdrawal-deadline marker from public exchange references. Death reason is kept as unknown because the current evidence shows operator-announced suspension / maintenance but does not establish a clean permanent-closure cause such as insolvency, hack, enforcement, or acquisition. The 2026-06-20 explicit-origin review retained Unknown. Historical community posts and registration references point toward Australia or New South Wales, but they are not sufficiently primary, stable, or attributable to the operating entity to support a country assignment."
+    "last_verified_at": "2026-09-09",
+    "notes": "HEI retains dead / unknown because reviewed historical sources show that McxNOW ceased operating and did not establish a durable replacement exchange. The prior 2014-11-15 death_date is removed because that date is specifically documented as the start of a maintenance period and wallet-removal cutoff, not as a proven permanent-closure date. The prior 2013-01-01 launch_date is also removed because reviewed evidence supports operation in 2013 but not that exact day. A planned rebrand to mtMOX was reported after the 2014 shutdown, but later historical reporting states that the rebrand never became a functioning successor exchange. Country/origin remains Unknown."
   },
+  "events": [
+    {
+      "id": "hei_ev_010234",
+      "exchange_id": "hei_ex_000218",
+      "event_type": "trading_halted",
+      "event_date": "2014-11-15",
+      "title": "McxNOW entered maintenance and removed exchange wallets",
+      "description": "McxNOW announced a maintenance period beginning 2014-11-15 and required users to withdraw cryptocurrency before existing online wallets and backups were removed as part of a wallet-system replacement.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "This date is an exact service cutoff / maintenance start. It is not treated as the exchange's proven permanent-closure date."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012785",
+      "exchange_id": "hei_ex_000218",
+      "event_id": null,
+      "source_type": "news_article",
+      "title": "McxNOW Cryptoexchange Suspends Trading Following Support Request Overload",
+      "url": "https://www.coindesk.com/markets/2013/11/27/mcxnow-cryptoexchange-suspends-trading-following-support-request-overload",
+      "publisher": "CoinDesk",
+      "published_at": "2013-11-27",
+      "archived_url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2013/11/27/mcxnow-cryptoexchange-suspends-trading-following-support-request-overload",
+      "accessed_at": "2026-09-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Contemporaneous report documents McxNOW's 2013 trading suspension and operator explanation tied to rapid growth and support load. It supports operation during 2013 but not an exact launch date."
+    },
+    {
+      "id": "hei_src_012786",
+      "exchange_id": "hei_ex_000218",
+      "event_id": "hei_ev_010234",
+      "source_type": "news_article",
+      "title": "McxNOW Bitcoin Exchange Undergoing Possibly the Worst Rebrand in Bitcoin History: Introducing MtMOX",
+      "url": "https://www.ccn.com/mcxnow-bitcoin-exchange-undergoing-possibly-worst-rebrand-bitcoin-history-introducing-mtmox/",
+      "publisher": "CCN",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.ccn.com/mcxnow-bitcoin-exchange-undergoing-possibly-worst-rebrand-bitcoin-history-introducing-mtmox/",
+      "accessed_at": "2026-09-09",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Preserves the operator announcement that maintenance would begin 2014-11-15, that users had to withdraw before the cutoff, and that existing wallets/backups would be removed. It also documents the announced mtMOX replacement plan."
+    },
+    {
+      "id": "hei_src_012787",
+      "exchange_id": "hei_ex_000218",
+      "event_id": "hei_ev_010234",
+      "source_type": "database_reference",
+      "title": "McxNOW",
+      "url": "https://en.bitcoin.it/wiki/McxNOW",
+      "publisher": "Bitcoin Wiki",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://en.bitcoin.it/wiki/McxNOW",
+      "accessed_at": "2026-09-09",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Historical reference records the maintenance period beginning 2014-11-15 and the planned destruction/removal of unwithdrawn wallet data. Used as corroboration, not as proof of an exact permanent-closure date or cause."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000218",
     "expected": {
-      "last_verified_at": "2026-04-25",
-      "notes": "Terminal handling uses the 2014-11-15 maintenance / withdrawal-deadline marker from public exchange references. Death reason is kept as unknown because the current evidence shows operator-announced suspension / maintenance but does not establish a clean permanent-closure cause such as insolvency, hack, enforcement, or acquisition. Country/origin remains Unknown because the current evidence set does not establish an operating jurisdiction."
+      "launch_date": "2013-01-01",
+      "death_date": "2014-11-15",
+      "summary": "Early cryptocurrency exchange offering bitcoin and altcoin trading that suspended trading in 2013 and later entered a 2014 maintenance period after which unwithdrawn coins were to be destroyed.",
+      "last_verified_at": "2026-06-20"
     },
     "changes": {
-      "last_verified_at": "2026-06-20",
-      "notes": "Terminal handling uses the 2014-11-15 maintenance / withdrawal-deadline marker from public exchange references. Death reason is kept as unknown because the current evidence shows operator-announced suspension / maintenance but does not establish a clean permanent-closure cause such as insolvency, hack, enforcement, or acquisition. The 2026-06-20 explicit-origin review retained Unknown. Historical community posts and registration references point toward Australia or New South Wales, but they are not sufficiently primary, stable, or attributable to the operating entity to support a country assignment."
+      "launch_date": null,
+      "death_date": null,
+      "summary": "Early cryptocurrency exchange offering bitcoin and altcoin trading. McxNOW suspended trading in 2013, later returned, and on 2014-11-15 entered another maintenance period that required users to withdraw before its wallets were removed. The exchange did not establish a durable successor service afterward.",
+      "last_verified_at": "2026-09-09"
     }
-  },
-  "events": [],
-  "evidence": []
+  }
 }
