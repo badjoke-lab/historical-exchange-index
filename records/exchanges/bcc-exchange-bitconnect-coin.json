@@ -131,7 +131,7 @@
     "entity_id": "hei_ex_000300",
     "expected": {
       "launch_date": "2016-11-01",
-      "last_verified_at": "2026-06-20"
+      "last_verified_at": "2026-05-11"
     },
     "changes": {
       "launch_date": null,
