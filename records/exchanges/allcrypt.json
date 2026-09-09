@@ -8,9 +8,9 @@
     "status": "dead",
     "death_reason": "hack",
     "launch_date": "2014-03-01",
-    "death_date": "2015-03-18",
+    "death_date": null,
     "country_or_origin": "Unknown",
-    "summary": "Small altcoin-focused cryptocurrency exchange launched publicly in March 2014 that went offline in March 2015 after a WordPress-related compromise and hot-wallet theft.",
+    "summary": "Small altcoin-focused cryptocurrency exchange operating from March 2014. AllCrypt announced a planned 2015-03-31 shutdown, then went offline earlier in March after an attacker obtained WordPress administrative access and drained its BTC hot wallet. The exchange did not return as a durable service.",
     "official_url_original": "https://www.allcrypt.com/",
     "official_domain_original": "allcrypt.com",
     "official_url_status": "dead_domain",
@@ -18,20 +18,116 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
-    "last_verified_at": "2026-06-20",
-    "notes": "Terminal handling uses 2015-03-18 as the public hacked/site-offline marker because multiple reports describe AllCrypt going down after a WordPress-related compromise and stolen BTC. Death reason is mapped to hack. The 2026-06-20 explicit-origin review retained Unknown: the project announcement, hack coverage, archived site material, and exchange directories establish identity and lifecycle but do not identify a legal entity, headquarters, founding jurisdiction, or ecosystem origin."
+    "last_verified_at": "2026-09-09",
+    "notes": "HEI retains dead / hack because contemporaneous material shows that AllCrypt was already scheduled to close on 2015-03-31 and then suffered a wallet-draining compromise that took the site offline before that planned date; the service did not establish a durable return. The prior death_date 2015-03-18 is removed because reviewed sources use that date for reporting / postmortem publication, not as a proven permanent-closure day. The launch_date 2014-03-01 is retained because a contemporaneous AllCrypt operator account stated on 2014-03-31 that AllCrypt.com was 30 days old, and same-day exchange-listing posts show the service publicly available on 2014-03-01. Country/origin remains Unknown because reviewed sources do not establish an operating jurisdiction."
   },
+  "events": [
+    {
+      "id": "hei_ev_010239",
+      "exchange_id": "hei_ex_000215",
+      "event_type": "shutdown_announced",
+      "event_date": "2015-03-10",
+      "title": "AllCrypt announced a planned 2015-03-31 shutdown",
+      "description": "A contemporaneous exchange-list tracking thread recorded that AllCrypt's 2015-03-10 blog post said the exchange would go offline on 2015-03-31 and instructed users to remove coins.",
+      "confidence": "medium",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "This is the planned shutdown announcement, not the later hack and not a proven permanent-closure date."
+    },
+    {
+      "id": "hei_ev_010240",
+      "exchange_id": "hei_ex_000215",
+      "event_type": "hack",
+      "event_date": "2015-03-16",
+      "title": "AllCrypt went offline after a wallet-draining compromise",
+      "description": "AllCrypt's site notice, reproduced contemporaneously on Bitcointalk, said an attacker exploited access associated with the WordPress installation, uploaded files, and drained the BTC wallet; the operator took the site completely offline while assessing the damage.",
+      "confidence": "medium",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "The thread carrying the reproduced operator notice was opened on 2015-03-16 and describes the compromise as occurring that night. HEI does not convert later article dates into a permanent-death date."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012795",
+      "exchange_id": "hei_ex_000215",
+      "event_id": null,
+      "source_type": "community_reference",
+      "title": "CoinEX realtime exchange thread — AllCrypt operator statement",
+      "url": "https://bitcointalk.org/index.php?topic=265277.msg6007066",
+      "publisher": "Bitcointalk",
+      "published_at": "2014-03-31",
+      "archived_url": "https://web.archive.org/web/*/https://bitcointalk.org/index.php?topic=265277.msg6007066",
+      "accessed_at": "2026-09-09",
+      "reliability": "medium",
+      "claim_scope": "launch_date",
+      "notes": "A post from the contemporaneous AllCrypt operator account states that AllCrypt.com was 30 days old on 2014-03-31. Used with same-day public exchange-listing material to support 2014-03-01 as the public launch date."
+    },
+    {
+      "id": "hei_src_012796",
+      "exchange_id": "hei_ex_000215",
+      "event_id": "hei_ev_010239",
+      "source_type": "community_reference",
+      "title": "Altcoin Exchange List — AllCrypt closure tracking",
+      "url": "https://bitcointalk.org/index.php?topic=777154.0",
+      "publisher": "Bitcointalk",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bitcointalk.org/index.php?topic=777154.0",
+      "accessed_at": "2026-09-09",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Contemporaneous exchange-list tracking records that AllCrypt's 2015-03-10 blog post announced it would go offline on 2015-03-31 and users should remove coins. Used for the shutdown-announcement event, not as proof of an exact final closure day."
+    },
+    {
+      "id": "hei_src_012797",
+      "exchange_id": "hei_ex_000215",
+      "event_id": "hei_ev_010240",
+      "source_type": "community_reference",
+      "title": "AllCrypt Out?",
+      "url": "https://bitcointalk.org/index.php?topic=992968.0",
+      "publisher": "Bitcointalk",
+      "published_at": "2015-03-16",
+      "archived_url": "https://web.archive.org/web/*/https://bitcointalk.org/index.php?topic=992968.0",
+      "accessed_at": "2026-09-09",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Contemporaneous thread reproduces AllCrypt's site notice describing the WordPress-related server compromise, BTC-wallet drain, and complete site shutdown while damage was assessed. The operator text also states that a shutdown had already been planned."
+    },
+    {
+      "id": "hei_src_012798",
+      "exchange_id": "hei_ex_000215",
+      "event_id": "hei_ev_010240",
+      "source_type": "news_article",
+      "title": "Lessons to Learn from the AllCrypt Hack",
+      "url": "https://www.acunetix.com/blog/articles/lessons-to-learn-from-the-allcrypt-hack/",
+      "publisher": "Acunetix",
+      "published_at": "2015-03-25",
+      "archived_url": "https://web.archive.org/web/*/https://www.acunetix.com/blog/articles/lessons-to-learn-from-the-allcrypt-hack/",
+      "accessed_at": "2026-09-09",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Technical postmortem summarizes AllCrypt's own explanation that a compromised email account and WordPress password-reset path led to administrative access, uploaded PHP tooling, manipulated balances, and stolen cryptocurrency. Used as corroboration for incident mechanism, not for an exact permanent-closure date."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000215",
     "expected": {
-      "last_verified_at": "2026-04-25",
-      "notes": "Terminal handling uses 2015-03-18 as the public hacked/site-offline marker because multiple reports describe AllCrypt going down after a WordPress-related compromise and stolen BTC. Death reason is mapped to hack. Country/origin remains Unknown because the current evidence set does not establish an operating jurisdiction."
+      "status": "dead",
+      "death_reason": "hack",
+      "launch_date": "2014-03-01",
+      "death_date": "2015-03-18",
+      "last_verified_at": "2026-06-20"
     },
     "changes": {
-      "last_verified_at": "2026-06-20",
-      "notes": "Terminal handling uses 2015-03-18 as the public hacked/site-offline marker because multiple reports describe AllCrypt going down after a WordPress-related compromise and stolen BTC. Death reason is mapped to hack. The 2026-06-20 explicit-origin review retained Unknown: the project announcement, hack coverage, archived site material, and exchange directories establish identity and lifecycle but do not identify a legal entity, headquarters, founding jurisdiction, or ecosystem origin."
+      "status": "dead",
+      "death_reason": "hack",
+      "launch_date": "2014-03-01",
+      "death_date": null,
+      "last_verified_at": "2026-09-09"
     }
-  },
-  "events": [],
-  "evidence": []
+  }
 }
