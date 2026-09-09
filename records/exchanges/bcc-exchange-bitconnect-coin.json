@@ -131,9 +131,6 @@
     "entity_id": "hei_ex_000300",
     "expected": {
       "launch_date": "2016-11-01",
-      "death_date": "2018-01-16",
-      "status": "dead",
-      "death_reason": "regulation",
       "last_verified_at": "2026-06-20"
     },
     "changes": {
