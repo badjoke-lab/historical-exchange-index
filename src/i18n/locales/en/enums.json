@@ -36,6 +36,7 @@
   "eventType.merged": "Merged",
   "eventType.hack": "Hack",
   "eventType.exploit": "Exploit",
+  "eventType.data_breach": "Data breach",
   "eventType.withdrawal_suspended": "Withdrawals suspended",
   "eventType.deposit_suspended": "Deposits suspended",
   "eventType.trading_halted": "Trading halted",
