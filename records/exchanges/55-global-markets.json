@@ -7,10 +7,10 @@
     "type": "cex",
     "status": "dead",
     "death_reason": "unknown",
-    "launch_date": "2019-01-09",
-    "death_date": "2020-05-01",
+    "launch_date": null,
+    "death_date": null,
     "country_or_origin": "Unknown",
-    "summary": "Centralized cryptocurrency and tokenized-asset trading platform associated with the 55.com domain. Contemporary coverage in January 2019 described 55.com as launching trading for premium brand product tokens. In May 2020, Cryptowisser reported that it could no longer access the exchange website and moved 55 Global Markets to its Exchange Graveyard. Later exchange trackers show no active market data, untracked listings, or website-unavailable status.",
+    "summary": "Centralized cryptocurrency and tokenized-asset trading platform associated with the 55.com domain. Operator-originated material shows the platform was already active by October 2018 and later launched a dedicated Stock Token Market in January 2019. By May 2020, an exchange tracker reported that the website had become inaccessible and subsequently treated the exchange as inactive; later market trackers show no active markets. No reliable source establishes an exact platform launch date, exact terminal date, or specific shutdown cause.",
     "official_url_original": "https://www.55.com/",
     "official_domain_original": "55.com",
     "official_url_status": "dead_domain",
@@ -18,20 +18,102 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
-    "last_verified_at": "2026-06-20",
-    "notes": "HEI uses death_reason unknown because available public sources support inactive/dead status and website inaccessibility, but do not establish a primary cause such as insolvency, hack, regulation, acquisition, or formal voluntary shutdown. The 2026-06-20 origin review retained Unknown. Secondary material mentions an Estonian exchange license, but no attributable registry record or operating entity was verified strongly enough to assign Estonia."
+    "last_verified_at": "2026-09-10",
+    "notes": "The prior launch_date 2019-01-09 is removed because that date corresponds to the operator's launch of a Stock Token Market sub-category, not the launch of the exchange itself. Operator-originated promotional material from 2018-10-26 already describes 55 Global Markets as operating six token-exchange sub-markets, and a 2018-12-27 release likewise describes the platform before the January 2019 stock-token announcement. The prior death_date 2020-05-01 is also removed because that date is the publication date of Cryptowisser's update saying it had recently been unable to access the website; it does not establish the exact date the exchange permanently ceased operating. status remains dead based on sustained website unavailability and the absence of active market data, while death_reason remains unknown because no reliable source establishes insolvency, hack, regulation, acquisition, or a formal voluntary shutdown. Country/origin remains Unknown because secondary claims about a U.S. or Estonian base are not supported strongly enough by an attributable operating-entity or registry record."
   },
+  "events": [
+    {
+      "id": "hei_ev_010241",
+      "exchange_id": "hei_ex_000297",
+      "event_type": "other",
+      "event_date": "2019-01-09",
+      "title": "55 Global Markets launched its Stock Token Market category",
+      "description": "55 Global Markets announced the launch of a dedicated Stock Token Market for tokenized shares on 55.com. This event is a product-category launch and is not treated as the launch date of the overall exchange platform.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "The previous canonical launch_date incorrectly reused this product-launch date as the platform launch date."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012799",
+      "exchange_id": "hei_ex_000297",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Debut of USDD – A Stable Coin That Pays You Interest",
+      "url": "https://www.bitcoininsider.org/article/44407/pr-debut-usdd-stable-coin-pays-you-interest",
+      "publisher": "Bitcoin.com PR / syndicated by Bitcoin Insider",
+      "published_at": "2018-10-26",
+      "archived_url": "https://web.archive.org/web/*/https://www.bitcoininsider.org/article/44407/pr-debut-usdd-stable-coin-pays-you-interest",
+      "accessed_at": "2026-09-10",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Paid/operator-originated release states that 55 Global Markets already had six token-exchange sub-markets and gives media@55.com as the press contact. It supports operation by October 2018 but not an exact platform launch date."
+    },
+    {
+      "id": "hei_src_012800",
+      "exchange_id": "hei_ex_000297",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "55 Global Markets Aims to Reshape Global Markets Using Blockchain Technology",
+      "url": "https://news.marketersmedia.com/55-global-markets-aims-to-reshape-global-markets-using-blockchain-technology/464186",
+      "publisher": "55 Global Markets / MarketersMedia",
+      "published_at": "2018-12-27",
+      "archived_url": "https://web.archive.org/web/*/https://news.marketersmedia.com/55-global-markets-aims-to-reshape-global-markets-using-blockchain-technology/464186",
+      "accessed_at": "2026-09-10",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Operator-originated release describes 55 Global Markets and 55.com before the January 2019 stock-token launch, confirming that 2019-01-09 is not the exchange platform's launch date."
+    },
+    {
+      "id": "hei_src_012801",
+      "exchange_id": "hei_ex_000297",
+      "event_id": "hei_ev_010241",
+      "source_type": "official_statement",
+      "title": "55 Global Markets Launches 24/7/365 Trading of Tokenized Stocks",
+      "url": "https://news.marketersmedia.com/55-global-markets-launches-247365-trading-of-tokenized-stocks/467361",
+      "publisher": "55 Global Markets / MarketersMedia",
+      "published_at": "2019-01-09",
+      "archived_url": "https://web.archive.org/web/*/https://news.marketersmedia.com/55-global-markets-launches-247365-trading-of-tokenized-stocks/467361",
+      "accessed_at": "2026-09-10",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Operator-originated release explicitly launches a new Stock Token Market asset category on an already-described 55 Global Markets platform."
+    },
+    {
+      "id": "hei_src_012802",
+      "exchange_id": "hei_ex_000297",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "55 Global Markets – Reviews, Fees & Cryptos",
+      "url": "https://www.cryptowisser.com/exchange/55-global-markets",
+      "publisher": "Cryptowisser",
+      "published_at": "2020-05-01",
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/55-global-markets",
+      "accessed_at": "2026-09-10",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "The 2020-05-01 update says Cryptowisser had recently been unable to access the exchange website and inferred likely closure. It supports an inactivity window, not an exact terminal date or cause."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000297",
     "expected": {
-      "last_verified_at": "2026-05-10",
-      "notes": "HEI uses death_reason unknown because available public sources support inactive/dead status and website inaccessibility, but do not establish a primary cause such as insolvency, hack, regulation, acquisition, or formal voluntary shutdown. country_or_origin is Unknown because secondary sources disagree or provide unclear jurisdictional signals."
+      "launch_date": "2019-01-09",
+      "death_date": "2020-05-01",
+      "status": "dead",
+      "death_reason": "unknown",
+      "last_verified_at": "2026-06-20"
     },
     "changes": {
-      "last_verified_at": "2026-06-20",
-      "notes": "HEI uses death_reason unknown because available public sources support inactive/dead status and website inaccessibility, but do not establish a primary cause such as insolvency, hack, regulation, acquisition, or formal voluntary shutdown. The 2026-06-20 origin review retained Unknown. Secondary material mentions an Estonian exchange license, but no attributable registry record or operating entity was verified strongly enough to assign Estonia."
+      "launch_date": null,
+      "death_date": null,
+      "status": "dead",
+      "death_reason": "unknown",
+      "last_verified_at": "2026-09-10"
     }
-  },
-  "events": [],
-  "evidence": []
+  }
 }
