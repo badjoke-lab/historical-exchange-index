@@ -7,10 +7,10 @@
     "type": "cex",
     "status": "dead",
     "death_reason": "regulation",
-    "launch_date": "2016-11-01",
+    "launch_date": null,
     "death_date": "2018-01-16",
     "country_or_origin": "Unknown",
-    "summary": "Proprietary exchange operated by BitConnect for buying, trading, or selling BitConnect Coin (BCC). The FBI later stated that for most of BCC's existence, the only place to purchase, trade, or sell the cryptocurrency was through BitConnect's proprietary exchange. BitConnect shut down its lending and exchange platform in January 2018 after cease-and-desist actions from Texas and North Carolina securities regulators, causing the BCC market to collapse.",
+    "summary": "Proprietary exchange operated by BitConnect for buying, trading, or selling BitConnect Coin (BCC). U.S. law-enforcement and regulatory records confirm the exchange's role in the BitConnect scheme and the regulatory actions that preceded its January 2018 shutdown. BitConnect announced the closure of its lending and exchange platform on 2018-01-16 after cease-and-desist actions in Texas and North Carolina.",
     "official_url_original": "https://bitconnect.co/",
     "official_domain_original": "bitconnect.co",
     "official_url_status": "dead_domain",
@@ -18,20 +18,130 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-06-20",
-    "notes": "HEI treats this as an exchange entity because FBI materials state that BitConnect hosted a proprietary exchange for BCC and that shutting down the exchange eliminated the BCC market. death_reason is regulation because the January 2018 shutdown followed Texas and North Carolina cease-and-desist actions. The 2026-06-20 origin review retained Unknown: several similarly named UK companies existed and the founder was associated with India, but available authoritative material does not safely establish which jurisdiction operated the proprietary BCC exchange."
+    "last_verified_at": "2026-09-09",
+    "notes": "HEI treats this as an exchange entity because FBI and DOJ materials identify a proprietary BitConnect/BCC exchange used to purchase, trade, or sell BCC. The prior exact launch_date 2016-11-01 is removed because authoritative material ties November 2016 to BCC's release/ICO, not to a proven exchange launch day. The 2018-01-16 death_date is retained because contemporaneous reporting records BitConnect's own announcement that it was closing the lending and exchange platform that day. death_reason remains regulation because the shutdown followed Texas and North Carolina securities cease-and-desist actions; BitConnect's contemporaneous statement also cited bad press and denial-of-service attacks, so regulation is modeled as the principal precipitating lifecycle factor rather than the sole circumstance. Country/origin remains Unknown because authoritative materials identify BitConnect-related entities and persons in multiple jurisdictions without safely establishing a single operating jurisdiction for the proprietary exchange itself."
   },
+  "events": [
+    {
+      "id": "hei_ev_010235",
+      "exchange_id": "hei_ex_000300",
+      "event_type": "regulatory_action",
+      "event_date": "2018-01-04",
+      "title": "Texas issued an emergency cease-and-desist order against BitConnect",
+      "description": "The Texas Securities Commissioner entered an Emergency Cease and Desist Order against BitConnect concerning its cryptocurrency-based investment programs and securities activity.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "This event records the Texas regulatory action itself and does not by itself establish exchange closure."
+    },
+    {
+      "id": "hei_ev_010236",
+      "exchange_id": "hei_ex_000300",
+      "event_type": "regulatory_action",
+      "event_date": "2018-01-09",
+      "title": "North Carolina issued a temporary cease-and-desist order against BitConnect",
+      "description": "The North Carolina Secretary of State Securities Division issued a Temporary Cease and Desist Order against BitConnect and related BitConnect entities concerning unregistered securities offerings.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 2,
+      "notes": "North Carolina later recorded that BitConnect closed its exchange and lending operation after receiving the order."
+    },
+    {
+      "id": "hei_ev_010237",
+      "exchange_id": "hei_ex_000300",
+      "event_type": "shutdown_effective",
+      "event_date": "2018-01-16",
+      "title": "BitConnect closed its lending and exchange platform",
+      "description": "BitConnect announced that it was closing its lending and cryptocurrency exchange platform after regulatory cease-and-desist actions, ending the proprietary BCC exchange service.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "dead",
+      "source_count": 2,
+      "sort_order": 3,
+      "notes": "The exact date is tied to contemporaneous reporting of BitConnect's own shutdown announcement. FBI material independently confirms that BitConnect completely shut down its BCC exchange after state securities regulators acted."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012788",
+      "exchange_id": "hei_ex_000300",
+      "event_id": "hei_ev_010235",
+      "source_type": "regulatory_notice",
+      "title": "$4 Billion Crypto-Promoter Ordered to Halt Fraudulent Sales",
+      "url": "https://ssb.texas.gov/news-publications/4-billion-crypto-promoter-ordered-halt-fraudulent-sales",
+      "publisher": "Texas State Securities Board",
+      "published_at": "2018-01-04",
+      "archived_url": "https://web.archive.org/web/*/https://ssb.texas.gov/news-publications/4-billion-crypto-promoter-ordered-halt-fraudulent-sales",
+      "accessed_at": "2026-09-09",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Primary regulator source for the 2018-01-04 Texas Emergency Cease and Desist Order against BitConnect."
+    },
+    {
+      "id": "hei_src_012789",
+      "exchange_id": "hei_ex_000300",
+      "event_id": "hei_ev_010236",
+      "source_type": "regulatory_notice",
+      "title": "Criminal Enforcement & Administrative Actions — BitConnect",
+      "url": "https://www.sosnc.gov/divisions/securities/admin_action",
+      "publisher": "North Carolina Secretary of State Securities Division",
+      "published_at": "2018-01-09",
+      "archived_url": "https://web.archive.org/web/*/https://www.sosnc.gov/divisions/securities/admin_action",
+      "accessed_at": "2026-09-09",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Primary regulator source records the 2018-01-09 temporary cease-and-desist order and later notes that BitConnect closed its exchange and lending operation after receiving the order."
+    },
+    {
+      "id": "hei_src_012790",
+      "exchange_id": "hei_ex_000300",
+      "event_id": "hei_ev_010237",
+      "source_type": "news_article",
+      "title": "BitConnect Closes Exchange as States Warn of Unregulated Sales",
+      "url": "https://www.bloomberg.com/news/articles/2018-01-16/bitconnect-closes-exchange-as-states-warn-of-unregulated-sales",
+      "publisher": "Bloomberg",
+      "published_at": "2018-01-16",
+      "archived_url": "https://web.archive.org/web/*/https://www.bloomberg.com/news/articles/2018-01-16/bitconnect-closes-exchange-as-states-warn-of-unregulated-sales",
+      "accessed_at": "2026-09-09",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Contemporaneous report records BitConnect's own statement that it was closing its cryptocurrency exchange and lending operation after the two state cease-and-desist actions."
+    },
+    {
+      "id": "hei_src_012791",
+      "exchange_id": "hei_ex_000300",
+      "event_id": "hei_ev_010237",
+      "source_type": "official_statement",
+      "title": "Seeking Potential Victims in Bitconnect Investigation",
+      "url": "https://www.fbi.gov/contact-us/field-offices/cleveland/news/press-releases/seeking-potential-victims-in-bitconnect-investigation",
+      "publisher": "Federal Bureau of Investigation",
+      "published_at": "2019-02-20",
+      "archived_url": "https://web.archive.org/web/*/https://www.fbi.gov/contact-us/field-offices/cleveland/news/press-releases/seeking-potential-victims-in-bitconnect-investigation",
+      "accessed_at": "2026-09-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Federal law-enforcement source states that for most of BCC's existence the proprietary BitConnect exchange was the place to purchase, trade, or sell BCC, and that BitConnect completely shut down that exchange after state securities regulators acted. It supports exchange identity and terminal status, but not an exact launch date."
+    }
+  ],
   "entity_correction": {
     "entity_id": "hei_ex_000300",
     "expected": {
-      "last_verified_at": "2026-05-11",
-      "notes": "HEI treats this as an exchange entity because FBI materials state that BitConnect hosted a proprietary exchange for BCC and that shutting down the exchange eliminated the BCC market. death_reason is regulation because the January 2018 shutdown followed Texas and North Carolina cease-and-desist actions."
+      "launch_date": "2016-11-01",
+      "death_date": "2018-01-16",
+      "status": "dead",
+      "death_reason": "regulation",
+      "last_verified_at": "2026-06-20"
     },
     "changes": {
-      "last_verified_at": "2026-06-20",
-      "notes": "HEI treats this as an exchange entity because FBI materials state that BitConnect hosted a proprietary exchange for BCC and that shutting down the exchange eliminated the BCC market. death_reason is regulation because the January 2018 shutdown followed Texas and North Carolina cease-and-desist actions. The 2026-06-20 origin review retained Unknown: several similarly named UK companies existed and the founder was associated with India, but available authoritative material does not safely establish which jurisdiction operated the proprietary BCC exchange."
+      "launch_date": null,
+      "death_date": "2018-01-16",
+      "status": "dead",
+      "death_reason": "regulation",
+      "last_verified_at": "2026-09-09"
     }
-  },
-  "events": [],
-  "evidence": []
+  }
 }
