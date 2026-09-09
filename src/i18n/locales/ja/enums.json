@@ -36,6 +36,7 @@
   "eventType.merged": "合併",
   "eventType.hack": "ハッキング",
   "eventType.exploit": "脆弱性悪用",
+  "eventType.data_breach": "データ侵害",
   "eventType.withdrawal_suspended": "出金停止",
   "eventType.deposit_suspended": "入金停止",
   "eventType.trading_halted": "取引停止",

@@ -8,6 +8,7 @@ import { loadEvidence } from './load-evidence'
 const INCIDENT_EVENT_TYPES = new Set<EventType>([
   'hack',
   'exploit',
+  'data_breach',
   'withdrawal_suspended',
   'deposit_suspended',
   'trading_halted',
@@ -24,6 +25,7 @@ const INCIDENT_EVENT_TYPES = new Set<EventType>([
 export const INCIDENT_EVENT_TYPE_LABELS: Partial<Record<EventType, string>> = {
   hack: 'Hack',
   exploit: 'Exploit',
+  data_breach: 'Data breach',
   withdrawal_suspended: 'Withdrawals suspended',
   deposit_suspended: 'Deposits suspended',
   trading_halted: 'Trading halted',
