@@ -222,12 +222,12 @@ scripts/lib/reviewed-bundle-aggregation.mjs
 scripts/lib/entity-corrections.mjs
 ```
 
-Reviewed counts re-derived on 2026-09-06 from the current reviewed bundle state are:
+Reviewed counts re-derived on 2026-09-10 from the current reviewed bundle state are:
 
 ```text
 Entities: 1071
-Events:   1116
-Evidence: 4054
+Events:   1125
+Evidence: 4076
 ```
 
 These numbers remain a checkpoint only. Re-derive them after later reviewed growth instead of copying them forward blindly.
