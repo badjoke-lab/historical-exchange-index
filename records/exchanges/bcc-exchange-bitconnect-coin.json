@@ -131,17 +131,15 @@
     "entity_id": "hei_ex_000300",
     "expected": {
       "launch_date": "2016-11-01",
-      "death_date": "2018-01-16",
-      "status": "dead",
-      "death_reason": "regulation",
-      "last_verified_at": "2026-06-20"
+      "summary": "Proprietary exchange operated by BitConnect for buying, trading, or selling BitConnect Coin (BCC). The FBI later stated that for most of BCC's existence, the only place to purchase, trade, or sell the cryptocurrency was through BitConnect's proprietary exchange. BitConnect shut down its lending and exchange platform in January 2018 after cease-and-desist actions from Texas and North Carolina securities regulators, causing the BCC market to collapse.",
+      "last_verified_at": "2026-05-11",
+      "notes": "HEI treats this as an exchange entity because FBI materials state that BitConnect hosted a proprietary exchange for BCC and that shutting down the exchange eliminated the BCC market. death_reason is regulation because the January 2018 shutdown followed Texas and North Carolina cease-and-desist actions."
     },
     "changes": {
       "launch_date": null,
-      "death_date": "2018-01-16",
-      "status": "dead",
-      "death_reason": "regulation",
-      "last_verified_at": "2026-09-09"
+      "summary": "Proprietary exchange operated by BitConnect for buying, trading, or selling BitConnect Coin (BCC). U.S. law-enforcement and regulatory records confirm the exchange's role in the BitConnect scheme and the regulatory actions that preceded its January 2018 shutdown. BitConnect announced the closure of its lending and exchange platform on 2018-01-16 after cease-and-desist actions in Texas and North Carolina.",
+      "last_verified_at": "2026-09-09",
+      "notes": "HEI treats this as an exchange entity because FBI and DOJ materials identify a proprietary BitConnect/BCC exchange used to purchase, trade, or sell BCC. The prior exact launch_date 2016-11-01 is removed because authoritative material ties November 2016 to BCC's release/ICO, not to a proven exchange launch day. The 2018-01-16 death_date is retained because contemporaneous reporting records BitConnect's own announcement that it was closing the lending and exchange platform that day. death_reason remains regulation because the shutdown followed Texas and North Carolina securities cease-and-desist actions; BitConnect's contemporaneous statement also cited bad press and denial-of-service attacks, so regulation is modeled as the principal precipitating lifecycle factor rather than the sole circumstance. Country/origin remains Unknown because authoritative materials identify BitConnect-related entities and persons in multiple jurisdictions without safely establishing a single operating jurisdiction for the proprietary exchange itself."
     }
   }
 }
