@@ -90,13 +90,15 @@
       "launch_date": "2013-01-01",
       "death_date": "2014-11-15",
       "summary": "Early cryptocurrency exchange offering bitcoin and altcoin trading that suspended trading in 2013 and later entered a 2014 maintenance period after which unwithdrawn coins were to be destroyed.",
-      "last_verified_at": "2026-06-20"
+      "last_verified_at": "2026-04-25",
+      "notes": "Terminal handling uses the 2014-11-15 maintenance / withdrawal-deadline marker from public exchange references. Death reason is kept as unknown because the current evidence shows operator-announced suspension / maintenance but does not establish a clean permanent-closure cause such as insolvency, hack, enforcement, or acquisition. Country/origin remains Unknown because the current evidence set does not establish an operating jurisdiction."
     },
     "changes": {
       "launch_date": null,
       "death_date": null,
       "summary": "Early cryptocurrency exchange offering bitcoin and altcoin trading. McxNOW suspended trading in 2013, later returned, and on 2014-11-15 entered another maintenance period that required users to withdraw before its wallets were removed. The exchange did not establish a durable successor service afterward.",
-      "last_verified_at": "2026-09-09"
+      "last_verified_at": "2026-09-09",
+      "notes": "HEI retains dead / unknown because reviewed historical sources show that McxNOW ceased operating and did not establish a durable replacement exchange. The prior 2014-11-15 death_date is removed because that date is specifically documented as the start of a maintenance period and wallet-removal cutoff, not as a proven permanent-closure date. The prior 2013-01-01 launch_date is also removed because reviewed evidence supports operation in 2013 but not that exact day. A planned rebrand to mtMOX was reported after the 2014 shutdown, but later historical reporting states that the rebrand never became a functioning successor exchange. Country/origin remains Unknown."
     }
   }
 }
