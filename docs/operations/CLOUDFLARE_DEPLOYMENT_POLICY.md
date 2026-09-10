@@ -14,11 +14,12 @@ Preserve development speed while reducing unnecessary Cloudflare Pages builds on
 3. Preview deployment is allowed only when Cloudflare-specific behavior must be verified, such as routing, redirects, metadata, build configuration, or major UI changes.
 4. Production deployment targets the latest reviewed `main` state, not every intermediate commit.
 5. Documentation, monitoring output, staging data, backlog work, and internal audit changes must not trigger a Pages deployment unless they also change public output.
-6. While Git integration remains enabled, intermediate commits that must not deploy use the `[CF-Pages-Skip]` commit prefix.
+6. While Git integration remains enabled, intermediate commits that must not deploy use `[CF-Pages-Skip]` commit prefix.
 7. A stale production result is not automatically a code failure. Compare `/version.json` with the expected Git commit before diagnosing the build.
 8. Production verification begins only after the deployed commit matches the expected `main` commit.
 9. Do not create temporary audit PRs that trigger Cloudflare builds unless preview deployment is explicitly required.
 10. Any change to deployment-sensitive files must review this policy in the same PR.
+11. The Pages production build command must be `npm run build`; this is required because the package build includes the deterministic Japanese static-HTML localization and reciprocal-locale postprocess after `next build`.
 
 ## Machine-readable project policy
 
@@ -28,7 +29,7 @@ The desired Cloudflare Pages project state is stored in:
 config/cloudflare-pages-project.json
 ```
 
-The JSON file, not a copied dashboard screenshot or old conversation, is the machine-readable authority for branch controls and build watch paths. Changes to it require review under this policy.
+The JSON file, not a copied dashboard screenshot or old conversation, is the machine-readable authority for branch controls, the governed build command, and build watch paths. Changes to it require review under this policy.
 
 ## Deployment-sensitive files
 
@@ -50,10 +51,11 @@ The JSON file, not a copied dashboard screenshot or old conversation, is the mac
 - Production branch: `main`
 - Production deployments: enabled
 - Preview deployments: disabled
+- Build command: `npm run build`
 - Build watch paths: include public-output paths and exclude docs, staging, monitoring reports, and internal audits
 - Pull request deployment comments: disabled while automatic previews are disabled
 
-The exact include and exclude arrays are defined in `config/cloudflare-pages-project.json`.
+The exact governed values are defined in `config/cloudflare-pages-project.json`. The configurator preserves unrelated existing build-config fields such as destination/root directory while enforcing the repository-owned build command.
 
 Cloudflare wildcard `*` matches nested path separators, so repository configuration uses patterns such as `src/*` and `docs/*`.
 
@@ -69,7 +71,7 @@ npm run cloudflare:config:apply
 
 - `print` shows the desired state without credentials.
 - `plan` reads the current Pages project and reports whether it differs.
-- `apply` reads the current project, preserves GitHub source identity fields, patches only the governed settings, then reads the project again and verifies the result.
+- `apply` reads the current project, preserves GitHub source identity and unrelated build-config fields, patches only the governed settings, then reads the project again and verifies the result.
 
 The former dedicated `Configure Cloudflare Pages` workflow wrapper was intentionally removed during workflow consolidation. Do not reintroduce a one-off configuration workflow merely to invoke these commands. Run `plan` or `apply` only from an authorized operator environment when Cloudflare configuration actually needs review or change.
 
@@ -117,6 +119,7 @@ After deployment, verify:
 6. `/sitemap.xml` and `/robots.txt` return HTTP 200.
 7. Legacy routes redirect as defined.
 8. No obsolete count is presented as current.
+9. Representative `/ja/` output emits `html lang="ja"` and reciprocal `en`/`ja` hreflang links after the governed `npm run build` postprocess.
 
 ## Future controlled deployment
 
@@ -140,6 +143,7 @@ For the wider ledger series, a shared deployment queue should eventually seriali
 - using a Global API key when a scoped Pages token is sufficient
 - increasing Cloudflare plan cost before reducing unnecessary builds
 - restoring deleted one-off workflow wrappers without a reviewed operational need
+- setting a Pages build command that bypasses the repository `npm run build` contract and therefore skips required static-output postprocessing
 
 ## PR checklist
 
