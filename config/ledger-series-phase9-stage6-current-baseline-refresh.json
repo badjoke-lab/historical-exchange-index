@@ -1,0 +1,26 @@
+{
+  "schema_version": "ledger-series-phase9-stage6-current-baseline-refresh-v1",
+  "captured_at": "2026-08-25T10:32:00Z",
+  "status": "PRE_EXECUTION_BASELINE_ONLY",
+  "stage6_status": "NOT_ACCEPTED",
+  "safety": {
+    "production_mutation_authorized": false,
+    "canonical_record_mutation_authorized": false,
+    "relationship_mutation_authorized": false,
+    "deployment_mutation_authorized": false,
+    "cloudflare_mutation_authorized": false,
+    "dns_mutation_authorized": false
+  },
+  "reviewed_current_mains": {
+    "historical-exchange-index": "41f4c505a963b1e33d9916bd17c586a673fba81d",
+    "minted-and-gone": "f917d5e25eedc7b2c48091c7343b7fa9cd203428",
+    "stable-or-gone": "0e0a12ef4c072367db263fa4b863c88e78470cbd",
+    "crypto-yield-archive": "d874476178cf12d4900985ae34eae10d27d44ffd",
+    "bridge-incident-registry": "8e653e4523bd8e5d1e1dd9ff0f0a0fefa82c4222",
+    "cryptocurrency-wallet-lifecycle-registry": "24803bcd0b9d672cc2f24c8acf5d4fcab41f61ca",
+    "ai-tools-history-archive": "76ef103329813f0174db121117c932bff53fbf8e",
+    "api-deprecation-archive": "641a6d4243d30f95f48436455d2cbc12a8aded53"
+  },
+  "supersedes_unmerged_stage6_prs": [840, 847, 851, 883],
+  "next_gate": "Derive current native counts/revisions/provenance for all eight reviewed mains, then prepare one fresh read-only equality execution."
+}
