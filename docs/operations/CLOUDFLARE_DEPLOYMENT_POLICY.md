@@ -20,6 +20,7 @@ Preserve development speed while reducing unnecessary Cloudflare Pages builds on
 9. Do not create temporary audit PRs that trigger Cloudflare builds unless preview deployment is explicitly required.
 10. Any change to deployment-sensitive files must review this policy in the same PR.
 11. The Pages production build command must be `npm run build`; this is required because the package build includes the deterministic Japanese static-HTML localization and reciprocal-locale postprocess after `next build`.
+12. Keep the account-level permanent redirect from `historical-exchange-index.pages.dev/*` to the path-equivalent `https://hei.badjoke-lab.com/*` active throughout the search migration; do not restore the legacy Pages hostname as an independently served canonical surface.
 
 ## Machine-readable project policy
 
