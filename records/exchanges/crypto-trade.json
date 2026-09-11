@@ -89,20 +89,22 @@
     "expected": {
       "aliases": ["CryptoTrade", "Crypto-Trade.net"],
       "launch_date": "2013-01-01",
-      "death_date": "2015-01-29",
+      "summary": "Early cryptocurrency exchange that announced permanent shutdown in January 2015 because low volume and weak user growth left it unable to cover operating costs.",
       "official_url_original": "https://crypto-trade.net/",
       "official_domain_original": "crypto-trade.net",
       "archived_url": "https://web.archive.org/web/*/https://crypto-trade.net/",
-      "last_verified_at": "2026-06-20"
+      "last_verified_at": "2026-04-25",
+      "notes": "Terminal handling uses 2015-01-29 because the quoted shutdown notice said the site would go offline on 2015-01-29 at 06:00 UTC. Death reason is mapped to voluntary_shutdown because the exchange announced a planned permanent shutdown citing low volume, weak userbase, and inability to cover operating costs. Country/origin remains Unknown because the current evidence set does not establish an operating jurisdiction."
     },
     "changes": {
       "aliases": ["CryptoTrade", "Crypto-Trade.com"],
       "launch_date": null,
-      "death_date": "2015-01-29",
+      "summary": "Early cryptocurrency and securities exchange operated at crypto-trade.com. Its operators announced a permanent shutdown in January 2015, citing low trading volume, weak user growth, and inability to cover operating costs, with the site scheduled to go offline on 2015-01-29 at 06:00 UTC.",
       "official_url_original": "https://crypto-trade.com/",
       "official_domain_original": "crypto-trade.com",
       "archived_url": "https://web.archive.org/web/*/https://crypto-trade.com/",
-      "last_verified_at": "2026-09-09"
+      "last_verified_at": "2026-09-09",
+      "notes": "The canonical identity is the 2013-2015 exchange at crypto-trade.com, not the later crypto-trade.net service that announced its own launch in 2016. The prior crypto-trade.net URL/domain/alias were therefore removed as an identity conflation. status dead, death_reason voluntary_shutdown, and death_date 2015-01-29 are retained because contemporaneous community records preserve the exchange's shutdown notice stating that the site would go offline on that date at 06:00 UTC after a 48-hour withdrawal window. The prior launch_date 2013-01-01 is removed because operator posts establish the project in March 2013 and show planned launch dates in April 2013, but the reviewed evidence does not prove an exact first-live day. Country/origin remains Unknown: historical material associates the project with Esecurity S.A. and a Hong Kong address, but that is not sufficient here to establish a single operating jurisdiction for the exchange itself."
     }
   }
 }

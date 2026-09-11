@@ -1,4 +1,5 @@
 const ALLOWED_FIELDS = new Set([
+  'aliases',
   'type',
   'status',
   'death_reason',
@@ -6,6 +7,8 @@ const ALLOWED_FIELDS = new Set([
   'death_date',
   'country_or_origin',
   'summary',
+  'official_url_original',
+  'official_domain_original',
   'official_url_status',
   'archived_url',
   'predecessor_id',

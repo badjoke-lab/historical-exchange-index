@@ -1,6 +1,7 @@
 import type { EntityRecord } from '../types/entity'
 
 export type CorrectableEntityField =
+  | 'aliases'
   | 'type'
   | 'status'
   | 'death_reason'
@@ -8,6 +9,8 @@ export type CorrectableEntityField =
   | 'death_date'
   | 'country_or_origin'
   | 'summary'
+  | 'official_url_original'
+  | 'official_domain_original'
   | 'official_url_status'
   | 'archived_url'
   | 'predecessor_id'
@@ -33,6 +36,7 @@ interface CorrectionBundle {
 }
 
 const allowedFields = new Set<CorrectableEntityField>([
+  'aliases',
   'type',
   'status',
   'death_reason',
@@ -40,6 +44,8 @@ const allowedFields = new Set<CorrectableEntityField>([
   'death_date',
   'country_or_origin',
   'summary',
+  'official_url_original',
+  'official_domain_original',
   'official_url_status',
   'archived_url',
   'predecessor_id',

@@ -116,18 +116,16 @@
   "entity_correction": {
     "entity_id": "hei_ex_000215",
     "expected": {
-      "status": "dead",
-      "death_reason": "hack",
-      "launch_date": "2014-03-01",
       "death_date": "2015-03-18",
-      "last_verified_at": "2026-06-20"
+      "summary": "Small altcoin-focused cryptocurrency exchange launched publicly in March 2014 that went offline in March 2015 after a WordPress-related compromise and hot-wallet theft.",
+      "last_verified_at": "2026-04-25",
+      "notes": "Terminal handling uses 2015-03-18 as the public hacked/site-offline marker because multiple reports describe AllCrypt going down after a WordPress-related compromise and stolen BTC. Death reason is mapped to hack. Country/origin remains Unknown because the current evidence set does not establish an operating jurisdiction."
     },
     "changes": {
-      "status": "dead",
-      "death_reason": "hack",
-      "launch_date": "2014-03-01",
       "death_date": null,
-      "last_verified_at": "2026-09-09"
+      "summary": "Small altcoin-focused cryptocurrency exchange operating from March 2014. AllCrypt announced a planned 2015-03-31 shutdown, then went offline earlier in March after an attacker obtained WordPress administrative access and drained its BTC hot wallet. The exchange did not return as a durable service.",
+      "last_verified_at": "2026-09-09",
+      "notes": "HEI retains dead / hack because contemporaneous material shows that AllCrypt was already scheduled to close on 2015-03-31 and then suffered a wallet-draining compromise that took the site offline before that planned date; the service did not establish a durable return. The prior death_date 2015-03-18 is removed because reviewed sources use that date for reporting / postmortem publication, not as a proven permanent-closure day. The launch_date 2014-03-01 is retained because a contemporaneous AllCrypt operator account stated on 2014-03-31 that AllCrypt.com was 30 days old, and same-day exchange-listing posts show the service publicly available on 2014-03-01. Country/origin remains Unknown because reviewed sources do not establish an operating jurisdiction."
     }
   }
 }

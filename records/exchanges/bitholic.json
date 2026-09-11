@@ -57,18 +57,18 @@
   "entity_correction": {
     "entity_id": "hei_ex_000199",
     "expected": {
+      "status": "dead",
       "launch_date": "2018-05-01",
       "death_date": "2019-08-08",
-      "summary": "Singapore-based cryptocurrency exchange launched in May 2018 and rebranded as Bithumb Singapore on August 8, 2019.",
-      "successor_id": null,
-      "last_verified_at": "2026-07-03",
-      "notes": "The 2019-08-08 marker ends the Bitholic brand rather than the underlying Singapore exchange operation. Bithumb Singapore is now canonical, but the predecessor/successor field remains unresolved under the frozen lineage review and is documented through events and notes instead."
+      "summary": "Singapore-based cryptocurrency exchange launched in May 2018 that was acquired and rebranded as Bithumb Singapore on 2019-08-08.",
+      "last_verified_at": "2026-04-22",
+      "notes": "Terminal handling uses the 2019-08-08 public inactive/rebrand marker. Death reason is mapped to rebrand because Cryptowisser states that Bitholic was acquired by Bithumb Singapore and was thereafter known as Bithumb Singapore. HEI uses 2018-05-01 as a conservative launch marker from public launch announcements."
     },
     "changes": {
+      "status": "rebranded",
       "launch_date": null,
       "death_date": null,
       "summary": "Singapore-based centralized cryptocurrency exchange announced for a May 2018 launch and demonstrably operating by March 2019. Contemporaneous reporting on 2019-08-08 stated that Bitholic had changed its name to Bithumb Singapore during that month, but the exact day of the brand transition is not established by the reviewed evidence.",
-      "successor_id": null,
       "last_verified_at": "2026-09-08",
       "notes": "HEI retains the rebranded classification because contemporaneous reports state that Bitholic changed its name to Bithumb Singapore. The previous exact launch_date 2018-05-01 was derived from a first-party announcement that only said the exchange would start in May 2018, so the day is removed. The previous death_date 2019-08-08 was the publication date of reports saying the name change occurred 'this month', not a proven transition date, so it is also removed. The predecessor/successor field remains unresolved rather than inferring legal or ownership continuity beyond the documented name transition."
     }
