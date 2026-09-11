@@ -8,7 +8,34 @@ type DossierLayoutProps = {
   params: Promise<{ slug: string }>
 }
 
-const izakayaRelatedRecords = [
+type RelatedRecord = {
+  href: string
+  name: string
+  note: string
+}
+
+const cyaRelatedRecordsBySlug: Record<string, RelatedRecord[]> = {
+  binance: [
+    { href: 'https://cya.badjoke-lab.com/platform/binance-simple-earn/', name: 'Crypto Yield Archive — Binance Simple Earn', note: 'Historical lending / yield product record for Binance Simple Earn.' },
+  ],
+  bybit: [
+    { href: 'https://cya.badjoke-lab.com/platform/bybit-easy-earn/', name: 'Crypto Yield Archive — Bybit Easy Earn', note: 'Historical lending / yield product record for Bybit Easy Earn.' },
+  ],
+  'coinbase-exchange': [
+    { href: 'https://cya.badjoke-lab.com/platform/coinbase-staking/', name: 'Crypto Yield Archive — Coinbase Staking', note: 'Historical staking product record for the Coinbase service ecosystem.' },
+  ],
+  kraken: [
+    { href: 'https://cya.badjoke-lab.com/platform/kraken-staking-program/', name: 'Crypto Yield Archive — Kraken Staking Program', note: 'Historical staking product record for the Kraken service ecosystem.' },
+  ],
+  kucoin: [
+    { href: 'https://cya.badjoke-lab.com/platform/kucoin-earn/', name: 'Crypto Yield Archive — KuCoin Earn', note: 'Historical lending / yield product record for KuCoin Earn.' },
+  ],
+  okx: [
+    { href: 'https://cya.badjoke-lab.com/platform/okx-simple-earn/', name: 'Crypto Yield Archive — OKX Simple Earn', note: 'Historical lending / yield product record for OKX Simple Earn.' },
+  ],
+}
+
+const izakayaRelatedRecords: RelatedRecord[] = [
   { href: 'https://cya.badjoke-lab.com/platform/izaka-ya/', name: 'Crypto Yield Archive — IZAKA-YA', note: 'Lending / yield platform record for the IZAKA-YA service.' },
   { href: 'https://www.stableorgone.com/stablecoin/jpyr/', name: 'Stable or Gone — JPYR', note: 'Stable-asset record for JPYR and its reviewed backing / redemption uncertainty.' },
   { href: 'https://wlr.badjoke-lab.com/wallet/izaka-ya-wallet/', name: 'Wallet Lifecycle Registry — IZAKA-YA Wallet', note: 'Wallet and custody lifecycle record for the IZAKA-YA wallet service.' },
@@ -18,6 +45,13 @@ export default async function DossierLayout({ children, params }: DossierLayoutP
   const { slug } = await params
   const detail = buildDetailView(slug)
   const title = detail?.entity.canonical_name ?? 'Entry not found'
+  const relatedRecords = [
+    ...(cyaRelatedRecordsBySlug[slug] ?? []),
+    ...(slug === 'izaka-ya' ? izakayaRelatedRecords : []),
+  ]
+  const relatedRecordsNote = slug === 'izaka-ya'
+    ? 'These are separate public records concerning the same IZAKA-YA / JPYR product ecosystem. The links do not assert common legal ownership, issuer status, custody, or safety.'
+    : 'These are separate public records for lending, yield, or staking products in the same service ecosystem. The links do not assert identical legal entities, product terms, custody arrangements, or risk.'
 
   return (
     <div className={styles.scope}>
@@ -26,13 +60,13 @@ export default async function DossierLayout({ children, params }: DossierLayoutP
         <h1>{title}</h1>
       </section>
       {detail ? <ExchangeMaterialConcerns entity={detail.entity} events={detail.events} evidence={detail.evidence} /> : null}
-      {slug === 'izaka-ya' ? (
+      {relatedRecords.length ? (
         <section className="panel longform-panel">
           <div className="section">
             <h4>Related registry records</h4>
-            <p className="muted">These are separate public records concerning the same IZAKA-YA / JPYR product ecosystem. The links do not assert common legal ownership, issuer status, custody, or safety.</p>
+            <p className="muted">{relatedRecordsNote}</p>
             <div className="fact-grid">
-              {izakayaRelatedRecords.map((record) => (
+              {relatedRecords.map((record) => (
                 <div className="fact" key={record.href}>
                   <div className="k">Ledger Series</div>
                   <div className="v"><a className="subtle-link" href={record.href} target="_blank" rel="noreferrer">{record.name}</a><br/><span className="muted">{record.note}</span></div>
