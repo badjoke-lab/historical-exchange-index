@@ -1,0 +1,102 @@
+{
+  "entity": {
+    "id": "hei_ex_001191",
+    "slug": "fyb-sg",
+    "canonical_name": "FYB-SG",
+    "aliases": ["FYBSG", "FYB SG"],
+    "type": "cex",
+    "status": "inactive",
+    "death_reason": "voluntary_shutdown",
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Singapore",
+    "summary": "Singapore-based centralized Bitcoin exchange that operated a BTC/SGD market at fybsg.com. By 26 February 2019 its website displayed a notice that FYB-SG was ceasing operations because its bank account had been closed. HEI records the exchange as inactive while leaving the exact effective shutdown date unknown.",
+    "official_url_original": "https://fybsg.com/",
+    "official_domain_original": "fybsg.com",
+    "official_url_status": "dead_domain",
+    "archived_url": "https://web.archive.org/web/*/https://fybsg.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-09-02",
+    "notes": "Contemporary Business Times reporting identifies FYB-SG as a Singapore exchange and quotes founder Luv Khemani. Cryptowisser's 2019-02-26 update reproduces the exchange's website closure notice stating that FYB-SG was ceasing operations due to bank account closure. A Bitcointalk archival discussion independently reproduces the same notice. The reviewed evidence does not establish the precise moment trading finally ceased, so death_date remains null. Historical directories report a 2011 founding year, but HEI does not promote that to an exact launch_date without stronger date-level evidence. FYB-SE is treated as a separate sister exchange and is not merged into this entity."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010215",
+      "exchange_id": "hei_ex_001191",
+      "event_type": "shutdown_announced",
+      "event_date": "2019-02-26",
+      "title": "FYB-SG announced it was ceasing operations",
+      "description": "By 26 February 2019 FYB-SG's website displayed a notice stating that the exchange was ceasing operations because its bank account had been closed.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "inactive",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "The event date is the dated observation of the first-party closure notice reproduced by Cryptowisser, not a claimed exact final shutdown timestamp. HEI therefore leaves entity death_date null."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012757",
+      "exchange_id": "hei_ex_001191",
+      "event_id": null,
+      "source_type": "news_article",
+      "title": "MAS to regulate virtual currency intermediaries",
+      "url": "https://www.businesstimes.com.sg/incoming/mas-regulate-virtual-currency-intermediaries",
+      "publisher": "The Business Times",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.businesstimes.com.sg/incoming/mas-regulate-virtual-currency-intermediaries",
+      "accessed_at": "2026-09-02",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Contemporary reporting identifies FYB-SG as an exchange operating in Singapore and quotes founder Luv Khemani regarding customer identity verification. Used for identity and Singapore origin, not terminal-state timing."
+    },
+    {
+      "id": "hei_src_012758",
+      "exchange_id": "hei_ex_001191",
+      "event_id": "hei_ev_010215",
+      "source_type": "database_reference",
+      "title": "FYB-SG exchange review and closure notice",
+      "url": "https://www.cryptowisser.com/exchange/fyb-sg/",
+      "publisher": "Cryptowisser",
+      "published_at": "2019-02-26",
+      "archived_url": "https://web.archive.org/web/*/https://www.cryptowisser.com/exchange/fyb-sg/",
+      "accessed_at": "2026-09-02",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "The dated update states that FYB-SG had closed down operations and reproduces the message shown on the exchange website that it was ceasing operations due to bank account closure."
+    },
+    {
+      "id": "hei_src_012759",
+      "exchange_id": "hei_ex_001191",
+      "event_id": "hei_ev_010215",
+      "source_type": "community_reference",
+      "title": "FYB-SG Bitcointalk announcement thread",
+      "url": "https://bitcointalk.org/index.php?topic=134340.0;all",
+      "publisher": "Bitcointalk",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://bitcointalk.org/index.php?topic=134340.0;all",
+      "accessed_at": "2026-09-02",
+      "reliability": "low",
+      "claim_scope": "event",
+      "notes": "Historical community thread independently reproduces the FYB-SG closure notice stating that operations were ceasing due to bank account closure. Used only as corroboration of the reproduced first-party notice."
+    },
+    {
+      "id": "hei_src_012760",
+      "exchange_id": "hei_ex_001191",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "FYB-SG historical exchange profile",
+      "url": "https://blockspot.io/exchange/fyb-sg/",
+      "publisher": "Blockspot.io",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://blockspot.io/exchange/fyb-sg/",
+      "accessed_at": "2026-09-02",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current historical profile classifies FYB-SG as an inactive Singapore centralized spot exchange and records fybsg.com as offline. It also identifies FYB-SE as a related sister platform rather than the same exchange entity."
+    }
+  ]
+}
