@@ -2,6 +2,9 @@
   "schema_version": "1.0.0",
   "project_name": "historical-exchange-index",
   "production_branch": "main",
+  "build_config": {
+    "build_command": "npm run build"
+  },
   "source_config": {
     "production_deployments_enabled": true,
     "preview_deployment_setting": "none",
@@ -13,6 +16,7 @@
       "records/*",
       "scripts/build-machine-readable-layer.mjs",
       "scripts/build-record-level-machine-readable.mjs",
+      "scripts/localize-static-html.mjs",
       "scripts/register-stats-machine-readable.mjs",
       "scripts/lib/*",
       "package.json",
