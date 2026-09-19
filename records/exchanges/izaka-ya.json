@@ -3,14 +3,17 @@
     "id": "hei_ex_001154",
     "slug": "izaka-ya",
     "canonical_name": "IZAKA-YA",
-    "aliases": ["IZAKAYA", "Izakaya"],
+    "aliases": [
+      "IZAKAYA",
+      "Izakaya"
+    ],
     "type": "hybrid",
-    "status": "active",
+    "status": "limited",
     "death_reason": null,
     "launch_date": null,
     "death_date": null,
     "country_or_origin": "Hong Kong",
-    "summary": "Crypto-asset wallet and trading service combining lending, custodial account and wallet functions, crypto-to-crypto swapping, card purchase access, and a project model that describes smart-contract-based permissionless finance. On 2026-08-24 the operator disclosed temporary transfer and withdrawal restrictions for some accounts; on 2026-08-25 CryptoPanda terminated its IZAKA-YA wallet integration; and on 2026-08-27 IZAKA-YA stated that there was no platform-wide withdrawal halt and that reviewed transfers were being processed sequentially. Active status and operator claims are not treated as a safety, compliance, or endorsement signal.",
+    "summary": "Crypto-asset wallet and trading service combining lending, custodial account and wallet functions, crypto-to-crypto swapping, card purchase access, and a project model that describes smart-contract-based permissionless finance. After account-level transfer and withdrawal restrictions began in August 2026, Japan's Financial Services Agency published a warning concerning Izakaya Limited on 2026-09-01. On 2026-09-17 IZAKA-YA announced that service for all Japan residents and Japanese nationals living abroad would end, with new registrations and new lending stopped for affected users and a withdrawal-only process remaining available. HEI therefore classifies the exchange service as limited rather than globally dead.",
     "official_url_original": "https://izakaya.tech/",
     "official_domain_original": "izakaya.tech",
     "official_url_status": "live_verified",
@@ -18,8 +21,8 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "medium",
-    "last_verified_at": "2026-08-27",
-    "notes": "The current first-party service exposes account-based wallet, lending, swap and crypto-purchase functions. First-party project documentation describes permissionless smart-contract-based lending, swap and token-management architecture, while the live support surface documents email/password accounts, managed balances, internal transfers and service-side transaction history. HEI therefore uses hybrid rather than classifying the service as purely centralized or purely decentralized. The first-party company page identifies Izakaya Limited and a Hong Kong operating address, supporting Hong Kong as country_or_origin. It states a service start month of December 2023, but because no exact day is established HEI leaves launch_date null. A 2026-07-23 operator notice stated that ordinary lending and swap usage did not require KYC and campaign participation did. On 2026-08-24 the operator announced mandatory KYC and temporary transfer/withdrawal restrictions for some investigated accounts. On 2026-08-25 CryptoPanda separately announced termination of its IZAKA-YA partnership and wallet-connected transaction route. On 2026-08-27 IZAKA-YA stated that it had not imposed a universal withdrawal/transfer halt, that some reviewed transfers had been sent on 2026-08-25, and that remaining cases were being processed after individual checks. HEI records these statements and service-access changes without inferring insolvency, universal withdrawal failure, criminal conduct, or the truth of allegations beyond what the cited sources establish."
+    "last_verified_at": "2026-09-20",
+    "notes": "The current first-party service exposes account-based wallet, lending, swap and crypto-purchase functions. First-party project documentation describes permissionless smart-contract-based lending, swap and token-management architecture, while the live support surface documents email/password accounts, managed balances, internal transfers and service-side transaction history. HEI therefore uses hybrid rather than classifying the service as purely centralized or purely decentralized. The first-party company page identifies Izakaya Limited and a Hong Kong operating address, supporting Hong Kong as country_or_origin. It states a service start month of December 2023, but because no exact day is established HEI leaves launch_date null. On 2026-08-24 the operator announced mandatory KYC and temporary transfer/withdrawal restrictions for some investigated accounts; on 2026-08-27 and 2026-09-07 it continued to state that restrictions were not universal and that reviewed transactions were being processed individually. Japan's Financial Services Agency published on 2026-09-01 that it had issued a warning concerning Izakaya Limited for unregistered crypto-asset exchange business. On 2026-09-17 IZAKA-YA announced that it would end service for all Japan residents and Japanese nationals abroad, stop new registration and new lending for the affected population, close the Japanese-language site at the end of September, and keep the withdrawal procedure available until asset-return handling is completed. HEI records these developments as a regional/regulatory service restriction. It does not infer a global shutdown, insolvency, universal withdrawal failure, criminal conduct, or completed customer repayment beyond what the cited sources establish."
   },
   "events": [
     {
@@ -93,6 +96,48 @@
       "source_count": 1,
       "sort_order": 5,
       "notes": "The event records the operator's current status statement. It does not independently verify completion times for all customers, establish that every restricted account has been restored, or resolve third-party reports of withdrawal problems."
+    },
+    {
+      "id": "hei_ev_010246",
+      "exchange_id": "hei_ex_001154",
+      "event_type": "regulatory_action",
+      "event_date": "2026-09-01",
+      "title": "Japan FSA published warning concerning Izakaya Limited",
+      "description": "Japan's Financial Services Agency published that it had issued a warning to Izakaya Limited concerning unregistered crypto-asset exchange business in Japan.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 6,
+      "notes": "This records the regulator's published warning. HEI does not treat the warning alone as proof of insolvency, fraud, or a global service shutdown."
+    },
+    {
+      "id": "hei_ev_010247",
+      "exchange_id": "hei_ex_001154",
+      "event_type": "other",
+      "event_date": "2026-09-07",
+      "title": "IZAKA-YA said some withdrawals remained under enhanced review",
+      "description": "IZAKA-YA stated that some customer withdrawals and transfers remained subject to additional KYC, transaction-history, destination-address, source-of-funds and related compliance checks, while again saying that withdrawals were not uniformly stopped for all customers.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 7,
+      "notes": "First-party status update only. It does not independently verify completion times for affected customers or establish that every reported withdrawal problem was resolved."
+    },
+    {
+      "id": "hei_ev_010248",
+      "exchange_id": "hei_ex_001154",
+      "event_type": "shutdown_announced",
+      "event_date": "2026-09-17",
+      "title": "IZAKA-YA announced service termination for Japan-targeted customers",
+      "description": "IZAKA-YA announced that service would end for all customers residing in Japan regardless of nationality and for Japanese nationals living abroad. It said new registration and new lending would stop for the affected population, the Japanese-language site would close at the end of September, and the withdrawal procedure would remain available until asset-return handling was completed.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 1,
+      "sort_order": 8,
+      "notes": "This is a regional and nationality-scoped shutdown announcement, not evidence that IZAKA-YA has ended service globally. HEI keeps the entity limited and leaves death_reason and death_date unset pending evidence of a terminal global shutdown."
     }
   ],
   "evidence": [
@@ -245,6 +290,51 @@
       "reliability": "high",
       "claim_scope": "event",
       "notes": "First-party follow-up states that there is no universal withdrawal/transfer halt, that some reviewed transfers were completed on 2026-08-25, and that remaining cases are being processed after individual checks. HEI preserves this as the operator's current-status statement rather than treating it as independent proof that all withdrawal issues are resolved."
+    },
+    {
+      "id": "hei_src_012816",
+      "exchange_id": "hei_ex_001154",
+      "event_id": "hei_ev_010246",
+      "source_type": "regulatory_notice",
+      "title": "Izakaya Limitedに対する警告書の発出について",
+      "url": "https://www.fsa.go.jp/recent/recent2026.html",
+      "publisher": "Financial Services Agency, Japan",
+      "published_at": "2026-09-01",
+      "archived_url": "https://web.archive.org/web/*/https://www.fsa.go.jp/recent/recent2026.html",
+      "accessed_at": "2026-09-20",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Official FSA publication index records the 2026-09-01 publication of a warning concerning Izakaya Limited for unregistered crypto-asset exchange business."
+    },
+    {
+      "id": "hei_src_012817",
+      "exchange_id": "hei_ex_001154",
+      "event_id": "hei_ev_010247",
+      "source_type": "official_statement",
+      "title": "出金・送金に関する確認状況およびコンプライアンス対応について",
+      "url": "https://izakaya.tech/news/news3/",
+      "publisher": "Izakaya Limited",
+      "published_at": "2026-09-07",
+      "archived_url": "https://web.archive.org/web/*/https://izakaya.tech/news/news3/",
+      "accessed_at": "2026-09-20",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party update states that some withdrawals/transfers remained under enhanced individual review and that withdrawals were not uniformly stopped for all users."
+    },
+    {
+      "id": "hei_src_012818",
+      "exchange_id": "hei_ex_001154",
+      "event_id": "hei_ev_010248",
+      "source_type": "official_statement",
+      "title": "〖重要〗日本居住者の皆様へのサービス提供終了および預かり資産の出金手続きについて",
+      "url": "https://izakaya.tech/news/end-of-service-japan-residents/",
+      "publisher": "Izakaya Limited",
+      "published_at": "2026-09-17",
+      "archived_url": "https://web.archive.org/web/*/https://izakaya.tech/news/end-of-service-japan-residents/",
+      "accessed_at": "2026-09-20",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party notice establishes the Japan-resident/Japanese-national service termination scope, stop on new registration and lending for affected users, planned Japanese-site closure, and continued withdrawal procedure. It does not establish a global IZAKA-YA shutdown."
     }
   ]
 }
