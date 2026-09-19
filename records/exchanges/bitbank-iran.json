@@ -1,0 +1,106 @@
+{
+  "entity": {
+    "id": "hei_ex_001194",
+    "slug": "bitbank-iran",
+    "canonical_name": "BitBank (Iran)",
+    "aliases": [
+      "BitBank",
+      "BITBANK3",
+      "بیتبانک"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "Iran",
+    "summary": "Iran-based centralized digital-asset exchange designated by the U.S. Treasury's Office of Foreign Assets Control on September 17, 2026 under Executive Order 13902. HEI uses a disambiguated canonical label to distinguish this entity from the unrelated Japanese Bitbank exchange.",
+    "official_url_original": "https://www.bitbank3.com/",
+    "official_domain_original": "bitbank3.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.bitbank3.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-09-20",
+    "notes": "This entity is separate from Japanese Bitbank (hei_ex_000029, bitbank.cc). OFAC's SDN entry lists BITBANK with alias BITBANK3, Tehran address, websites bitbank3.com and bitbank.com, and an organization established date of 2024. HEI leaves launch_date null because the reviewed sources do not establish an exact exchange launch date. The BitBank website was reachable on 2026-09-20 and presented the exchange interface."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010245",
+      "exchange_id": "hei_ex_001194",
+      "event_type": "regulatory_action",
+      "event_date": "2026-09-17",
+      "title": "OFAC designated Iranian BitBank under E.O. 13902",
+      "description": "The U.S. Treasury's Office of Foreign Assets Control added BITBANK, also identified as BITBANK3, to the Specially Designated Nationals List under Executive Order 13902. Treasury identified BitBank as an Iranian digital-assets exchange controlled by sanctioned financier Babak Zanjani and alleged that it formed part of a sanctions-evasion network and facilitated Bitcoin transfers to the Islamic Revolutionary Guard Corps.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "none",
+      "source_count": 3,
+      "sort_order": 1,
+      "notes": "The designation is a confirmed regulatory event. HEI does not infer shutdown, insolvency, or service termination from the sanctions action alone, so the entity remains active unless later lifecycle evidence establishes otherwise."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012812",
+      "exchange_id": "hei_ex_001194",
+      "event_id": "hei_ev_010245",
+      "source_type": "regulatory_notice",
+      "title": "Iran-related Designations; Cuba Designations; Belarus-related Designations Removals",
+      "url": "https://ofac.treasury.gov/recent-actions/20260917",
+      "publisher": "U.S. Department of the Treasury — Office of Foreign Assets Control",
+      "published_at": "2026-09-17",
+      "archived_url": "https://web.archive.org/web/*/https://ofac.treasury.gov/recent-actions/20260917",
+      "accessed_at": "2026-09-20",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Primary SDN-list update names BITBANK (Arabic/Persian: بیتبانک), alias BITBANK3, gives a Tehran address, lists bitbank3.com and bitbank.com, records organization established date 2024, and designates the entity under IRAN / IRAN-EO13902."
+    },
+    {
+      "id": "hei_src_012813",
+      "exchange_id": "hei_ex_001194",
+      "event_id": "hei_ev_010245",
+      "source_type": "regulatory_notice",
+      "title": "Operation Economic Outcast Disrupts Digital Asset Exchange Enabling the Iranian Regime",
+      "url": "https://home.treasury.gov/news/press-releases/sb0632",
+      "publisher": "U.S. Department of the Treasury",
+      "published_at": "2026-09-17",
+      "archived_url": "https://web.archive.org/web/*/https://home.treasury.gov/news/press-releases/sb0632",
+      "accessed_at": "2026-09-20",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Primary Treasury release identifies BitBank as an Iranian digital-assets exchange controlled by Babak Zanjani and states Treasury's allegations concerning sanctions evasion and Bitcoin transfers to the IRGC."
+    },
+    {
+      "id": "hei_src_012814",
+      "exchange_id": "hei_ex_001194",
+      "event_id": "hei_ev_010245",
+      "source_type": "news_article",
+      "title": "US sanctions Iranian financier's crypto exchange, says it processes Hormuz payments",
+      "url": "https://www.reuters.com/world/middle-east/us-sanctions-iranian-financiers-crypto-exchange-says-it-processes-hormuz-2026-09-17/",
+      "publisher": "Reuters",
+      "published_at": "2026-09-17",
+      "archived_url": "https://web.archive.org/web/*/https://www.reuters.com/world/middle-east/us-sanctions-iranian-financiers-crypto-exchange-says-it-processes-hormuz-2026-09-17/",
+      "accessed_at": "2026-09-20",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Independent reporting corroborates the September 17 OFAC action and identifies the sanctioned BitBank as the Iranian exchange associated with Babak Zanjani."
+    },
+    {
+      "id": "hei_src_012815",
+      "exchange_id": "hei_ex_001194",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "BitBank crypto exchange",
+      "url": "https://www.bitbank3.com/",
+      "publisher": "BitBank",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.bitbank3.com/",
+      "accessed_at": "2026-09-20",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party homepage resolved on 2026-09-20 and presented the BitBank crypto-exchange interface. This supports current service presence but does not establish unrestricted availability in every jurisdiction."
+    }
+  ]
+}
