@@ -32,10 +32,11 @@ export const NEWS_QUERY_GROUPS = [
   },
   {
     category: 'hack_incident',
-    likely_event_types: ['hack', 'exploit', 'withdrawal_suspended'],
+    likely_event_types: ['hack', 'exploit', 'data_breach', 'withdrawal_suspended'],
     queries: [
       'crypto exchange hacked unauthorized withdrawals',
       'crypto exchange hot wallet breach',
+      'crypto exchange customer data breach KYC leak',
       'cryptocurrency exchange exploit withdrawals suspended',
       'DEX exploit trading halted',
       'perp DEX exploit',
