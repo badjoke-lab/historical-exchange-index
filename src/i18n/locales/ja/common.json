@@ -83,7 +83,7 @@
   "page.updates.heading": "レジストリ更新履歴",
   "page.updates.intro": "canonical公開状態に入った追加と変更だけを追跡します。raw monitoring signalと未レビュー候補は内部に保持します。",
   "page.incidents.title": "インシデント",
-  "page.incidents.description": "ハック、exploit、停止、支払不能、閉鎖、規制など、レビュー済み取引所インシデントを閲覧できます。",
+  "page.incidents.description": "ハック、脆弱性悪用、データ侵害、停止、支払不能、閉鎖、規制など、レビュー済み取引所インシデントを閲覧できます。",
   "page.incidents.eyebrow": "レビュー済みイベントレイヤー",
   "page.incidents.heading": "取引所インシデント",
   "page.incidents.intro": "レビュー済みの取引所インシデントとライフサイクル上の重大な変化を、entity dossierと根拠資料へつなげて閲覧します。",
