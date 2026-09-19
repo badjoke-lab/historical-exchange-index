@@ -63,6 +63,7 @@ export const EVENT_TYPE_VALUES = [
   'merged',
   'hack',
   'exploit',
+  'data_breach',
   'withdrawal_suspended',
   'deposit_suspended',
   'trading_halted',
