@@ -83,7 +83,7 @@
   "page.updates.heading": "Registry updates",
   "page.updates.intro": "Track reviewed additions and record changes after they enter canonical public state. Raw monitoring signals and unreviewed candidates remain internal.",
   "page.incidents.title": "Incidents",
-  "page.incidents.description": "Reviewed exchange incident records across hacks, exploits, suspensions, insolvency, shutdowns, regulation, and related lifecycle events.",
+  "page.incidents.description": "Reviewed exchange incident records across hacks, exploits, data breaches, suspensions, insolvency, shutdowns, regulation, and related lifecycle events.",
   "page.incidents.eyebrow": "Reviewed event layer",
   "page.incidents.heading": "Exchange incidents",
   "page.incidents.intro": "Browse reviewed exchange incidents and lifecycle disruptions linked back to entity dossiers and supporting evidence.",
