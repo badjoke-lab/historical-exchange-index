@@ -4,7 +4,6 @@
     "slug": "bitbank-iran",
     "canonical_name": "BitBank (Iran)",
     "aliases": [
-      "BitBank",
       "BITBANK3",
       "بیتبانک"
     ],
@@ -23,7 +22,7 @@
     "successor_id": null,
     "confidence": "high",
     "last_verified_at": "2026-09-20",
-    "notes": "This entity is separate from Japanese Bitbank (hei_ex_000029, bitbank.cc). OFAC's SDN entry lists BITBANK with alias BITBANK3, Tehran address, websites bitbank3.com and bitbank.com, and an organization established date of 2024. HEI leaves launch_date null because the reviewed sources do not establish an exact exchange launch date. The BitBank website was reachable on 2026-09-20 and presented the exchange interface."
+    "notes": "This entity is separate from Japanese Bitbank (hei_ex_000029, bitbank.cc). OFAC's SDN entry lists BITBANK with alias BITBANK3, a Tehran address, websites bitbank3.com and bitbank.com, and an organization established date of 2024. HEI leaves launch_date null because the reviewed sources do not establish an exact exchange launch date. The BitBank website was reachable on 2026-09-20 and presented the exchange interface."
   },
   "events": [
     {
@@ -55,7 +54,7 @@
       "accessed_at": "2026-09-20",
       "reliability": "high",
       "claim_scope": "event",
-      "notes": "Primary SDN-list update names BITBANK (Arabic/Persian: بیتبانک), alias BITBANK3, gives a Tehran address, lists bitbank3.com and bitbank.com, records organization established date 2024, and designates the entity under IRAN / IRAN-EO13902."
+      "notes": "Primary SDN-list update names BITBANK, gives the native-script name بیتبانک, alias BITBANK3, a Tehran address, websites bitbank3.com and bitbank.com, records organization established date 2024, and designates the entity under IRAN / IRAN-EO13902."
     },
     {
       "id": "hei_src_012813",
