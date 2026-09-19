@@ -9,6 +9,7 @@ const INCIDENT_PAGE_SIZE = 25
 const INCIDENT_EVENT_TYPES = new Set([
   'hack',
   'exploit',
+  'data_breach',
   'withdrawal_suspended',
   'deposit_suspended',
   'trading_halted',
