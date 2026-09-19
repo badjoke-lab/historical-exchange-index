@@ -1,0 +1,105 @@
+{
+  "entity": {
+    "id": "hei_ex_001193",
+    "slug": "oneswap",
+    "canonical_name": "OneSwap",
+    "aliases": [
+      "OneSwap DEX",
+      "ONES"
+    ],
+    "type": "dex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": "2020-09-18",
+    "death_date": null,
+    "country_or_origin": "CoinEx ecosystem / global",
+    "summary": "Decentralized on-chain trading protocol combining permissionless token listing, automated market making, and order-book functionality, now in a shutdown wind-down with all OneSwap services scheduled to cease on September 29, 2026.",
+    "official_url_original": "https://www.oneswap.net/",
+    "official_domain_original": "oneswap.net",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://www.oneswap.net/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-09-20",
+    "notes": "OneSwap's first-party help center says all services will discontinue at 02:00 UTC on September 29, 2026 because CoinEx Smart Chain (CSC) and CoinEx Exchange are being discontinued. HEI records the present wind-down as limited and leaves death_date null until the scheduled cessation is confirmed. CoinEx documentation describes OneSwap as an on-chain trading platform with permissionless listing, AMM, and order-book functionality."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010244",
+      "exchange_id": "hei_ex_001193",
+      "event_type": "shutdown_announced",
+      "event_date": "2026-09-15",
+      "title": "OneSwap announced discontinuation of all services",
+      "description": "OneSwap announced that all services would discontinue at 02:00 UTC on September 29, 2026 in connection with the shutdown of CoinEx Smart Chain and the CoinEx exchange platform.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "This is an announced future terminal shutdown. HEI does not emit shutdown_effective or set death_date until the scheduled cessation is confirmed."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012808",
+      "exchange_id": "hei_ex_001193",
+      "event_id": "hei_ev_010244",
+      "source_type": "official_statement",
+      "title": "Announcement on the Discontinuation of OneSwap Services",
+      "url": "https://support.oneswap.net/hc/en-us/articles/62219051847193-Announcement-on-the-Discontinuation-of-OneSwap-Services",
+      "publisher": "OneSwap",
+      "published_at": "2026-09-15",
+      "archived_url": "https://web.archive.org/web/*/https://support.oneswap.net/hc/en-us/articles/62219051847193-Announcement-on-the-Discontinuation-of-OneSwap-Services",
+      "accessed_at": "2026-09-20",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party OneSwap notice stating that all services will discontinue at 02:00 UTC on September 29, 2026 and instructing liquidity providers to withdraw assets before shutdown."
+    },
+    {
+      "id": "hei_src_012809",
+      "exchange_id": "hei_ex_001193",
+      "event_id": "hei_ev_010244",
+      "source_type": "official_statement",
+      "title": "Important Notice on CoinEx’s Orderly Cessation of Operations",
+      "url": "https://www.coinex.com/en/announcements/detail/53539656293908",
+      "publisher": "CoinEx",
+      "published_at": "2026-09-15",
+      "archived_url": "https://web.archive.org/web/*/https://www.coinex.com/en/announcements/detail/53539656293908",
+      "accessed_at": "2026-09-20",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "CoinEx's first-party final announcement independently states that OneSwap and CoinEx Smart Chain will cease operations on September 29, 2026."
+    },
+    {
+      "id": "hei_src_012810",
+      "exchange_id": "hei_ex_001193",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "CoinEx Will List ONES and Start Mining: Lock CET to Share 20,000,000 ONES",
+      "url": "https://www.coinex.com/en/announcements/detail/33209458518548",
+      "publisher": "CoinEx",
+      "published_at": "2024-12-20",
+      "archived_url": "https://web.archive.org/web/*/https://www.coinex.com/en/announcements/detail/33209458518548",
+      "accessed_at": "2026-09-20",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "CoinEx describes OneSwap as an on-chain one-stop trading platform built on CoinEx Smart Chain with permissionless token listing, automated market making, and order-book functionality."
+    },
+    {
+      "id": "hei_src_012811",
+      "exchange_id": "hei_ex_001193",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "OneSwap exchange profile",
+      "url": "https://coinmarketcap.com/exchanges/oneswap/",
+      "publisher": "CoinMarketCap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://coinmarketcap.com/exchanges/oneswap/",
+      "accessed_at": "2026-09-20",
+      "reliability": "medium",
+      "claim_scope": "launch_date",
+      "notes": "CoinMarketCap's exchange profile states that OneSwap launched on September 18, 2020 and describes its AMM and order-book model."
+    }
+  ]
+}
