@@ -46,6 +46,7 @@ const EVENT_TYPE_ORDER: EventType[] = [
   'merged',
   'hack',
   'exploit',
+  'data_breach',
   'withdrawal_suspended',
   'deposit_suspended',
   'trading_halted',

@@ -11,6 +11,7 @@ const PUBLIC_MONTHLY_EVENT_TYPES = new Set<EventType>([
   'merged',
   'hack',
   'exploit',
+  'data_breach',
   'withdrawal_suspended',
   'deposit_suspended',
   'trading_halted',

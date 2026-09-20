@@ -14,7 +14,7 @@ const allowed = {
     'repurposed', 'unsafe', 'unknown',
   ]),
   event_type: new Set([
-    'launched', 'rebranded', 'acquired', 'merged', 'hack', 'exploit',
+    'launched', 'rebranded', 'acquired', 'merged', 'hack', 'exploit', 'data_breach',
     'withdrawal_suspended', 'deposit_suspended', 'trading_halted',
     'service_outage', 'regulatory_action', 'lawsuit', 'bankruptcy_filed',
     'insolvency_declared', 'shutdown_announced', 'shutdown_effective',

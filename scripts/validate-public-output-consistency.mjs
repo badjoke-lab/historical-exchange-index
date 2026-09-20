@@ -55,8 +55,8 @@ const events = mergeRecords(canonicalEvents, reviewedBundles, 'events', 'event',
 const evidence = mergeRecords(canonicalEvidence, reviewedBundles, 'evidence', 'evidence', entityIdMap)
 const deadSideStatuses = new Set(['dead', 'merged', 'acquired', 'rebranded'])
 const activeSideStatuses = new Set(['active', 'limited', 'inactive'])
-const incidentEventTypes = new Set(['hack','exploit','withdrawal_suspended','deposit_suspended','trading_halted','service_outage','regulatory_action','lawsuit','bankruptcy_filed','insolvency_declared','shutdown_announced','shutdown_effective','chain_shutdown_impact'])
-const monthlyEventTypes = new Set(['rebranded','acquired','merged','hack','exploit','withdrawal_suspended','deposit_suspended','trading_halted','service_outage','regulatory_action','lawsuit','bankruptcy_filed','insolvency_declared','shutdown_announced','shutdown_effective','reopened','token_migration','chain_shutdown_impact'])
+const incidentEventTypes = new Set(['hack','exploit','data_breach','withdrawal_suspended','deposit_suspended','trading_halted','service_outage','regulatory_action','lawsuit','bankruptcy_filed','insolvency_declared','shutdown_announced','shutdown_effective','chain_shutdown_impact'])
+const monthlyEventTypes = new Set(['rebranded','acquired','merged','hack','exploit','data_breach','withdrawal_suspended','deposit_suspended','trading_halted','service_outage','regulatory_action','lawsuit','bankruptcy_filed','insolvency_declared','shutdown_announced','shutdown_effective','reopened','token_migration','chain_shutdown_impact'])
 const evidenceCountsByExchange = new Map()
 const evidenceCountsByEvent = new Map()
 for (const item of evidence) {

@@ -86,7 +86,7 @@
       "default_sort": "date_newest",
       "parameters": [
         {"key": "q", "kind": "text", "cardinality": "single"},
-        {"key": "event_type", "kind": "enum", "cardinality": "multi", "values": ["launched", "rebranded", "acquired", "merged", "hack", "exploit", "withdrawal_suspended", "deposit_suspended", "trading_halted", "service_outage", "regulatory_action", "lawsuit", "bankruptcy_filed", "insolvency_declared", "shutdown_announced", "shutdown_effective", "reopened", "token_migration", "chain_shutdown_impact", "other"]},
+        {"key": "event_type", "kind": "enum", "cardinality": "multi", "values": ["launched", "rebranded", "acquired", "merged", "hack", "exploit", "data_breach", "withdrawal_suspended", "deposit_suspended", "trading_halted", "service_outage", "regulatory_action", "lawsuit", "bankruptcy_filed", "insolvency_declared", "shutdown_announced", "shutdown_effective", "reopened", "token_migration", "chain_shutdown_impact", "other"]},
         {"key": "date_from", "kind": "date", "cardinality": "single"},
         {"key": "date_to", "kind": "date", "cardinality": "single"},
         {"key": "impact_level", "kind": "enum", "cardinality": "multi", "values": ["critical", "high", "medium", "low"]},
