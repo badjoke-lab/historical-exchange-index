@@ -226,8 +226,8 @@ Reviewed counts re-derived on 2026-09-20 from the current reviewed bundle state 
 
 ```text
 Entities: 1072
-Events:   1129
-Evidence: 4083
+Events:   1126
+Evidence: 4079
 ```
 
 These numbers remain a checkpoint only. Re-derive them after later reviewed growth instead of copying them forward blindly.
