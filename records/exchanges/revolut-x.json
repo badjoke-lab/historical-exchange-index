@@ -1,0 +1,89 @@
+{
+  "entity": {
+    "id": "hei_ex_001192",
+    "slug": "revolut-x",
+    "canonical_name": "Revolut X",
+    "aliases": [
+      "Revolut Crypto Exchange"
+    ],
+    "type": "cex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": "2024-05-07",
+    "death_date": null,
+    "country_or_origin": "United Kingdom",
+    "summary": "Standalone centralized cryptocurrency exchange launched by Revolut in May 2024 for advanced crypto trading. Revolut X remains an active dedicated trading platform with web, mobile, API, order-book, deposit, and withdrawal functionality.",
+    "official_url_original": "https://exchange.revolut.com/",
+    "official_domain_original": "exchange.revolut.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://exchange.revolut.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-09-20",
+    "notes": "Revolut launched Revolut X as a standalone crypto exchange on 2024-05-07. Current first-party help and 2026 corporate materials show the exchange remains active. The September 2026 Revolut customer-data disclosure is tracked separately in issue #985 and is not attached to this entity as a canonical event unless direct Revolut X impact is established."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010242",
+      "exchange_id": "hei_ex_001192",
+      "event_type": "launched",
+      "event_date": "2024-05-07",
+      "title": "Revolut launched Revolut X",
+      "description": "Revolut launched Revolut X as a standalone centralized cryptocurrency exchange for experienced traders, initially offering desktop order-book trading to UK Revolut customers.",
+      "confidence": "high",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "Exact launch date and standalone-exchange identity are established by Revolut's first-party launch announcement."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012803",
+      "exchange_id": "hei_ex_001192",
+      "event_id": "hei_ev_010242",
+      "source_type": "official_statement",
+      "title": "Revolut launches Revolut X, a stand-alone crypto trading platform for experienced traders",
+      "url": "https://www.revolut.com/news/revolut_launches_revolut_x_a_stand_alone_crypto_trading_platform_for_experienced_traders/",
+      "publisher": "Revolut",
+      "published_at": "2024-05-07",
+      "archived_url": "https://web.archive.org/web/*/https://www.revolut.com/news/revolut_launches_revolut_x_a_stand_alone_crypto_trading_platform_for_experienced_traders/",
+      "accessed_at": "2026-09-20",
+      "reliability": "high",
+      "claim_scope": "launch_date",
+      "notes": "First-party launch announcement identifies Revolut X as a standalone crypto exchange and gives the exact 2024-05-07 launch date."
+    },
+    {
+      "id": "hei_src_012804",
+      "exchange_id": "hei_ex_001192",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Get started with Revolut X",
+      "url": "https://help.revolut.com/help/wealth/cryptocurrencies/crypto-exchange/getting-started/question-how-do-i-open-a-crypto-exchange-account/",
+      "publisher": "Revolut",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://help.revolut.com/help/wealth/cryptocurrencies/crypto-exchange/getting-started/question-how-do-i-open-a-crypto-exchange-account/",
+      "accessed_at": "2026-09-20",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party help page describes Revolut X as Revolut's cryptocurrency trading platform and documents current onboarding and account access."
+    },
+    {
+      "id": "hei_src_012805",
+      "exchange_id": "hei_ex_001192",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Revolut Receives In-Principle Approval to Provide Crypto Services in UAE",
+      "url": "https://www.revolut.com/news/revolut_receives_in_principle_approval_to_provide_crypto_services_in_uae/",
+      "publisher": "Revolut",
+      "published_at": "2026-07-15",
+      "archived_url": "https://web.archive.org/web/*/https://www.revolut.com/news/revolut_receives_in_principle_approval_to_provide_crypto_services_in_uae/",
+      "accessed_at": "2026-09-20",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "First-party 2026 announcement says Revolut serves crypto customers through its retail app and standalone exchange Revolut X, describing current UK and EEA crypto-trading availability and planned UAE expansion."
+    }
+  ]
+}

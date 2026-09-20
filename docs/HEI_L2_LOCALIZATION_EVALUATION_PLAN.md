@@ -55,9 +55,9 @@ docs/audits/HEI_D1000_MILESTONE_COMPLETION_2026-08-09.md
 Reviewed canonical growth continues after D-1000. BX62 established 1034 reviewed entities and later reviewed growth, lifecycle, regulatory, correction, and evidence work has continued through normal record bundles. The current reviewed state derived on 2026-09-20 under the same public build aggregation semantics is:
 
 ```text
-Entities: 1072
-Events:   1129
-Evidence: 4083
+Entities: 1073
+Events:   1130
+Evidence: 4086
 ```
 
 Post-D-1000 entity-growth authority remains:

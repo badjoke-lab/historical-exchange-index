@@ -225,9 +225,9 @@ scripts/lib/entity-corrections.mjs
 Reviewed counts re-derived on 2026-09-20 from the current reviewed bundle state are:
 
 ```text
-Entities: 1072
-Events:   1129
-Evidence: 4083
+Entities: 1073
+Events:   1130
+Evidence: 4086
 ```
 
 These numbers remain a checkpoint only. Re-derive them after later reviewed growth instead of copying them forward blindly.

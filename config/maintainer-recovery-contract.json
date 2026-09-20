@@ -6,9 +6,9 @@
   "current_item": "L2-1 — Evaluation contract, telemetry, and evidence capture",
   "next_item": "Language Selection Gate",
   "reviewed_counts": {
-    "entities": 1072,
-    "events": 1129,
-    "evidence": 4083
+    "entities": 1073,
+    "events": 1130,
+    "evidence": 4086
   },
   "authoritative_paths": {
     "agent_instructions": "AGENTS.md",
