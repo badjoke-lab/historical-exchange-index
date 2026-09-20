@@ -16,7 +16,7 @@ export default function JapaneseHomePage() {
       <section className="hero compact-hero">
         <div className="panel hero-main">
           <div className="eyebrow">{presentation.eyebrow}</div>
-          <h2>{presentation.heading}</h2>
+          <h1>{presentation.heading}</h1>
           <p>{presentation.intro}</p>
           <div className="hero-actions">
             <Link className="btn btn-primary" href="/ja/dead/">終了側を見る</Link>

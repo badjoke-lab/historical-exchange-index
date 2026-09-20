@@ -26,6 +26,12 @@ function readConfig() {
   if (parsed.schema_version !== '1.0.0') fail('Unsupported Cloudflare policy schema_version.')
   if (!parsed.project_name) fail('Cloudflare policy requires project_name.')
   if (!parsed.production_branch) fail('Cloudflare policy requires production_branch.')
+  if (!parsed.build_config || typeof parsed.build_config !== 'object') {
+    fail('Cloudflare policy requires build_config.')
+  }
+  if (!parsed.build_config.build_command) {
+    fail('Cloudflare policy requires build_config.build_command.')
+  }
   if (!parsed.source_config || typeof parsed.source_config !== 'object') {
     fail('Cloudflare policy requires source_config.')
   }
@@ -71,6 +77,7 @@ function selectedState(project) {
     project_name: project?.name ?? null,
     production_branch: project?.production_branch ?? null,
     source_type: source?.type ?? null,
+    build_command: project?.build_config?.build_command ?? null,
     production_deployments_enabled: config.production_deployments_enabled ?? null,
     preview_deployment_setting: config.preview_deployment_setting ?? null,
     pr_comments_enabled: config.pr_comments_enabled ?? null,
@@ -84,6 +91,7 @@ function desiredState(policy) {
     project_name: policy.project_name,
     production_branch: policy.production_branch,
     source_type: 'github',
+    build_command: policy.build_config.build_command,
     ...policy.source_config,
   }
 }
@@ -100,6 +108,10 @@ function buildPatch(currentProject, policy) {
 
   return {
     production_branch: policy.production_branch,
+    build_config: {
+      ...(currentProject.build_config ?? {}),
+      build_command: policy.build_config.build_command,
+    },
     source: {
       type: source.type,
       config: {
