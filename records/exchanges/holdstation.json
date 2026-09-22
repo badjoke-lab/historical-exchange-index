@@ -1,1 +1,106 @@
-{"entity":{"id":"hei_ex_000725","slug":"holdstation","canonical_name":"Holdstation","aliases":["Holdstation Swap","Holdstation DEX Aggregator","Holdstation DeFutures"],"type":"dex","status":"active","death_reason":null,"launch_date":null,"death_date":null,"country_or_origin":"BNB Chain, World Chain, Berachain, Solana, and multichain ecosystems","summary":"Multichain decentralized trading platform combining a DEX aggregator for spot swaps with a perpetual decentralized exchange, wallet-integrated trading, liquidity routing, and cross-chain ecosystem deployments.","official_url_original":"https://holdstation.com/","official_domain_original":"holdstation.com","official_url_status":"live_verified","archived_url":"https://web.archive.org/web/*/https://holdstation.com/","predecessor_id":null,"successor_id":null,"confidence":"high","last_verified_at":"2026-07-09","notes":"Current first-party documentation identifies Holdstation as a live multichain DeFi trading ecosystem. HEI models Holdstation Swap, the Holdstation DEX Aggregator, and Holdstation DeFutures as one exchange entity rather than separate product entities."},"events":[],"evidence":[{"id":"hei_src_011485","exchange_id":"hei_ex_000725","event_id":null,"source_type":"official_statement","title":"Welcome to Holdstation","url":"https://docs.holdstation.com/holdstation","publisher":"Holdstation","published_at":null,"archived_url":"https://web.archive.org/web/*/https://docs.holdstation.com/holdstation","accessed_at":"2026-07-09","reliability":"high","claim_scope":"entity","notes":"Current first-party documentation describes Holdstation as a live trading platform spanning perpetual decentralized exchange functionality, multichain swaps, web trading, and wallet-based trading across multiple ecosystems."},{"id":"hei_src_011486","exchange_id":"hei_ex_000725","event_id":null,"source_type":"official_statement","title":"What is Holdstation Dex","url":"https://docs.holdstation.com/holdstation/holdstation-dex-aggregator/what-is-holdstation-dex","publisher":"Holdstation","published_at":null,"archived_url":"https://web.archive.org/web/*/https://docs.holdstation.com/holdstation/holdstation-dex-aggregator/what-is-holdstation-dex","accessed_at":"2026-07-09","reliability":"high","claim_scope":"status","notes":"Current first-party documentation identifies the Holdstation DEX Aggregator as a multichain decentralized exchange aggregator that routes across multiple liquidity sources and supports direct website and wallet swaps."},{"id":"hei_src_011487","exchange_id":"hei_ex_000725","event_id":null,"source_type":"official_statement","title":"Holdstation DeFutures","url":"https://docs.holdstation.com/holdstation/holdstation-defutures/holdstation-defutures","publisher":"Holdstation","published_at":null,"archived_url":"https://web.archive.org/web/*/https://docs.holdstation.com/holdstation/holdstation-defutures/holdstation-defutures","accessed_at":"2026-07-09","reliability":"high","claim_scope":"status","notes":"Current first-party documentation describes DeFutures as Holdstation's perpetual decentralized exchange product with leveraged trading, AI Matching Pool infrastructure, USD1 collateral support, and multichain ecosystem coverage."}]}
+{
+  "entity": {
+    "id": "hei_ex_000725",
+    "slug": "holdstation",
+    "canonical_name": "Holdstation",
+    "aliases": [
+      "Holdstation Swap",
+      "Holdstation DEX Aggregator",
+      "Holdstation DeFutures"
+    ],
+    "type": "dex",
+    "status": "active",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "BNB Chain, World Chain, Berachain, Solana, and multichain ecosystems",
+    "summary": "Multichain decentralized trading platform combining a DEX aggregator for spot swaps with a perpetual decentralized exchange, wallet-integrated trading, liquidity routing, and cross-chain ecosystem deployments.",
+    "official_url_original": "https://holdstation.com/",
+    "official_domain_original": "holdstation.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://holdstation.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-09-22",
+    "notes": "Current first-party documentation identifies Holdstation as a live multichain DeFi trading ecosystem. HEI models Holdstation Swap, the Holdstation DEX Aggregator, and Holdstation DeFutures as one exchange entity rather than separate product entities."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010250",
+      "exchange_id": "hei_ex_000725",
+      "event_type": "regulatory_action",
+      "event_date": "2026-09-01",
+      "title": "Thai SEC filed criminal complaint over Holdstation operations",
+      "description": "Thailand's Securities and Exchange Commission filed a criminal complaint against three Holdstation developers and principal operators, alleging that the Holdstation application operated a fee-charging digital asset brokerage business without a license and solicited users through Thai-language services.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "none",
+      "source_count": 1,
+      "sort_order": 1,
+      "notes": "The SEC also stated that it notified Thailand's Ministry of Digital Economy and Society to block access to information related to Holdstation from 2026-10-01. The SEC enforcement record says the criminal complaint remains under inquiry; HEI does not treat the complaint as a conviction or as evidence that Holdstation ceased operating globally."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_011485",
+      "exchange_id": "hei_ex_000725",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Welcome to Holdstation",
+      "url": "https://docs.holdstation.com/holdstation",
+      "publisher": "Holdstation",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.holdstation.com/holdstation",
+      "accessed_at": "2026-07-09",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "Current first-party documentation describes Holdstation as a live trading platform spanning perpetual decentralized exchange functionality, multichain swaps, web trading, and wallet-based trading across multiple ecosystems."
+    },
+    {
+      "id": "hei_src_011486",
+      "exchange_id": "hei_ex_000725",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "What is Holdstation Dex",
+      "url": "https://docs.holdstation.com/holdstation/holdstation-dex-aggregator/what-is-holdstation-dex",
+      "publisher": "Holdstation",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.holdstation.com/holdstation/holdstation-dex-aggregator/what-is-holdstation-dex",
+      "accessed_at": "2026-07-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party documentation identifies the Holdstation DEX Aggregator as a multichain decentralized exchange aggregator that routes across multiple liquidity sources and supports direct website and wallet swaps."
+    },
+    {
+      "id": "hei_src_011487",
+      "exchange_id": "hei_ex_000725",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Holdstation DeFutures",
+      "url": "https://docs.holdstation.com/holdstation/holdstation-defutures/holdstation-defutures",
+      "publisher": "Holdstation",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.holdstation.com/holdstation/holdstation-defutures/holdstation-defutures",
+      "accessed_at": "2026-07-09",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party documentation describes DeFutures as Holdstation's perpetual decentralized exchange product with leveraged trading, AI Matching Pool infrastructure, USD1 collateral support, and multichain ecosystem coverage."
+    },
+    {
+      "id": "hei_src_012823",
+      "exchange_id": "hei_ex_000725",
+      "event_id": "hei_ev_010250",
+      "source_type": "regulatory_notice",
+      "title": "SEC files criminal complaint against Holdstation and UNO application service providers and an alleged supporter for operating an unlicensed digital asset brokerage business, and notifies access blocking effective 1 October 2026",
+      "url": "https://www.sec.or.th/EN/pages/news_detail.aspx?Lang=13284&NewsNo=13284&NewsYear=13284&SECID=13284",
+      "publisher": "Securities and Exchange Commission, Thailand",
+      "published_at": "2026-09-01",
+      "archived_url": "https://web.archive.org/web/*/https://www.sec.or.th/EN/pages/news_detail.aspx?Lang=13284&NewsNo=13284&NewsYear=13284&SECID=13284",
+      "accessed_at": "2026-09-22",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Primary regulator notice. It names the three Holdstation developers/operators, describes the SEC's allegation of unlicensed digital asset brokerage activity and Thai-language solicitation, states that access blocking was notified for 2026-10-01, and makes clear that the complaint is in the inquiry process."
+    }
+  ]
+}
