@@ -16,7 +16,7 @@
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.bitget.com/",
     "confidence": "high",
-    "notes": "On 2026-09-24 Bitget said its security systems detected unauthorized transfers affecting a limited portion of its hot and warm wallet layers. Bitget estimated approximately USD 351.6 million in affected funds, said cold wallets remained secure and user account balances were accurate, and temporarily suspended withdrawals while deposits and trading remained operational. The company said the amount was within its User Protection Fund coverage and had not yet disclosed the attack vector. HEI uses limited while withdrawals are paused; do not mark dead or insolvent. Earlier third-party reports describing a cold-wallet compromise and roughly USD 170-183 million of outflows were superseded by Bitget's later first-party confirmation.",
+    "notes": "On 2026-09-24 at 18:31 UTC, Bitget said its security systems detected unauthorized transfers affecting a limited portion of its hot and warm wallet layers. Bitget estimated approximately USD 351.6 million in affected funds, said cold wallets remained secure and user account balances were accurate, and said the loss was within the coverage of its User Protection Fund, then stated at more than USD 464 million. Bitget temporarily suspended withdrawals while deposits and trading remained operational, notified law-enforcement and on-chain security firms, and said it would publish a full incident report with root-cause analysis and corrective actions within 24 hours. HEI uses limited while withdrawals are paused; do not mark dead or insolvent. Earlier third-party reports describing a cold-wallet compromise and roughly USD 170-183 million of outflows were superseded by Bitget's later first-party confirmation.",
     "last_verified_at": "2026-09-25"
   },
   "entity_correction": {
@@ -88,7 +88,7 @@
       "event_type": "hack",
       "event_date": "2026-09-24",
       "title": "Bitget confirmed unauthorized transfers from hot and warm wallet layers",
-      "description": "Bitget said its security systems detected unauthorized transfers at 18:31 UTC affecting a limited portion of its hot and warm wallet layers. The exchange estimated approximately USD 351.6 million in affected funds and said its cold wallets remained secure.",
+      "description": "Bitget said its security systems detected unauthorized transfers at 18:31 UTC affecting a limited portion of its hot and warm wallet layers. The exchange estimated approximately USD 351.6 million in affected funds, said its cold wallets remained secure, and said the amount was within the coverage of its User Protection Fund.",
       "confidence": "high",
       "impact_level": "critical",
       "event_status_effect": "limited",
@@ -97,7 +97,7 @@
       "amount_text": "Approximately USD 351.6 million affected",
       "currency_text": "USD equivalent",
       "is_major_event": true,
-      "notes": "Bitget had not disclosed the attack vector at the time of this update. The amount is an initial first-party estimate of affected funds, not a final forensic loss figure."
+      "notes": "Bitget had not disclosed the attack vector at the time of this update. The company said it had notified law-enforcement and on-chain security firms and would publish a full incident report with root-cause analysis and corrective actions within 24 hours. The affected amount is an initial first-party estimate, not a final forensic loss figure."
     },
     {
       "id": "hei_ev_010255",
@@ -234,7 +234,7 @@
       "accessed_at": "2026-09-25",
       "reliability": "high",
       "claim_scope": "event",
-      "notes": "First-party security notice states that unauthorized transfers were detected at 18:31 UTC, estimates approximately USD 351.6 million affected, says the breach was limited to portions of hot and warm wallet layers, and says cold wallets remained secure."
+      "notes": "First-party security notice states that unauthorized transfers were detected at 18:31 UTC, estimates approximately USD 351.6 million affected, says the breach was limited to portions of hot and warm wallet layers, says cold wallets remained secure, states the User Protection Fund held more than USD 464 million and covered the loss, confirms a temporary withdrawal suspension while deposits/trading stayed operational, and promises a full incident report with root-cause analysis and corrective actions within 24 hours."
     },
     {
       "id": "hei_src_012832",
