@@ -16,7 +16,7 @@
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.bitget.com/",
     "confidence": "high",
-    "notes": "On 2026-09-24 at 18:31 UTC, Bitget said its security systems detected unauthorized transfers affecting a limited portion of its hot and warm wallet layers. Bitget estimated approximately USD 351.6 million in affected funds, said cold wallets remained secure and user account balances were accurate, and said the loss was within the coverage of its User Protection Fund, then stated at more than USD 464 million. Bitget temporarily suspended withdrawals while deposits and trading remained operational, notified law-enforcement and on-chain security firms, and said it would publish a full incident report with root-cause analysis and corrective actions within 24 hours. HEI uses limited while withdrawals are paused; do not mark dead or insolvent. Earlier third-party reports describing a cold-wallet compromise and roughly USD 170-183 million of outflows were superseded by Bitget's later first-party confirmation.",
+    "notes": "On 2026-09-24 at 18:31 UTC, Bitget said its security systems detected unauthorized transfers affecting a limited portion of its hot and warm wallet layers. An initial estimate of approximately USD 351.6 million was later revised to approximately USD 387.5 million after additional affected assets on Zcash and TRON were classified; Bitget said the revision did not reflect additional unauthorized transfers. Bitget said cold wallets remained secure, the incident had been contained, and no further unauthorized transfers were possible. Confirmed affected assets span Ethereum and multiple EVM networks, XRP Ledger, Zcash, and TRON and include XRP, ETH, USDT, ZEC, USDC, USDT0, XAUt, BNB, AVAX, and TRX. Withdrawals remain temporarily suspended while additional security checks and remediation continue. Bitget said a withdrawal plan would be announced by 2026-09-26 04:00 UTC and that investigations with Mandiant and SlowMist were ongoing. HEI uses limited while withdrawals are paused; do not mark dead or insolvent. Earlier third-party reports describing a cold-wallet compromise and roughly USD 170-183 million of outflows were superseded by Bitget's later first-party confirmation.",
     "last_verified_at": "2026-09-25"
   },
   "entity_correction": {
@@ -32,7 +32,7 @@
       "status": "limited",
       "summary": "Seychelles-registered centralized cryptocurrency exchange founded in 2018 and continuing globally. Bitget announced a phased exit from Japan in August 2026; on September 24 it confirmed unauthorized transfers affecting portions of its hot and warm wallet layers and temporarily suspended withdrawals during a security review.",
       "official_url_status": "live_verified",
-      "notes": "On 2026-09-24 Bitget said its security systems detected unauthorized transfers affecting a limited portion of its hot and warm wallet layers. Bitget estimated approximately USD 351.6 million in affected funds, said cold wallets remained secure and user account balances were accurate, and temporarily suspended withdrawals while deposits and trading remained operational. The company said the amount was within its User Protection Fund coverage and had not yet disclosed the attack vector. HEI uses limited while withdrawals are paused; do not mark dead or insolvent. Earlier third-party reports describing a cold-wallet compromise and roughly USD 170-183 million of outflows were superseded by Bitget's later first-party confirmation.",
+      "notes": "On 2026-09-24 at 18:31 UTC, Bitget said its security systems detected unauthorized transfers affecting a limited portion of its hot and warm wallet layers. An initial estimate of approximately USD 351.6 million was later revised to approximately USD 387.5 million after additional affected assets on Zcash and TRON were classified; Bitget said the revision did not reflect additional unauthorized transfers. Bitget said cold wallets remained secure, the incident had been contained, and no further unauthorized transfers were possible. Confirmed affected assets span Ethereum and multiple EVM networks, XRP Ledger, Zcash, and TRON and include XRP, ETH, USDT, ZEC, USDC, USDT0, XAUt, BNB, AVAX, and TRX. Withdrawals remain temporarily suspended while additional security checks and remediation continue. Bitget said a withdrawal plan would be announced by 2026-09-26 04:00 UTC and that investigations with Mandiant and SlowMist were ongoing. HEI uses limited while withdrawals are paused; do not mark dead or insolvent. Earlier third-party reports describing a cold-wallet compromise and roughly USD 170-183 million of outflows were superseded by Bitget's later first-party confirmation.",
       "last_verified_at": "2026-09-25"
     }
   },
@@ -88,16 +88,16 @@
       "event_type": "hack",
       "event_date": "2026-09-24",
       "title": "Bitget confirmed unauthorized transfers from hot and warm wallet layers",
-      "description": "Bitget said its security systems detected unauthorized transfers at 18:31 UTC affecting a limited portion of its hot and warm wallet layers. The exchange estimated approximately USD 351.6 million in affected funds, said its cold wallets remained secure, and said the amount was within the coverage of its User Protection Fund.",
+      "description": "Bitget said its security systems detected unauthorized transfers at 18:31 UTC affecting a limited portion of its hot and warm wallet layers. The exchange later revised the affected amount from approximately USD 351.6 million to approximately USD 387.5 million after classifying additional affected assets on Zcash and TRON, while stating that no additional unauthorized transfers had occurred.",
       "confidence": "high",
       "impact_level": "critical",
       "event_status_effect": "limited",
-      "source_count": 2,
+      "source_count": 3,
       "sort_order": 4,
-      "amount_text": "Approximately USD 351.6 million affected",
+      "amount_text": "Approximately USD 387.5 million affected (revised estimate)",
       "currency_text": "USD equivalent",
       "is_major_event": true,
-      "notes": "Bitget had not disclosed the attack vector at the time of this update. The company said it had notified law-enforcement and on-chain security firms and would publish a full incident report with root-cause analysis and corrective actions within 24 hours. The affected amount is an initial first-party estimate, not a final forensic loss figure."
+      "notes": "Bitget said the incident was contained and no further unauthorized transfers were possible. Confirmed affected assets span Ethereum and multiple EVM networks, XRP Ledger, Zcash, and TRON and include XRP, ETH, USDT, ZEC, USDC, USDT0, XAUt, BNB, AVAX, and TRX. Investigation and tracing with Mandiant and SlowMist remain ongoing. The attack vector and final forensic loss figure have not yet been published."
     },
     {
       "id": "hei_ev_010255",
@@ -105,14 +105,14 @@
       "event_type": "withdrawal_suspended",
       "event_date": "2026-09-24",
       "title": "Bitget temporarily suspended withdrawals pending security review",
-      "description": "Bitget temporarily paused withdrawals as a precaution while reviewing the wallet security incident. The exchange said deposits and trading remained operational and that withdrawals would be restored after the security review.",
+      "description": "Bitget temporarily paused withdrawals as a precaution while reviewing the wallet security incident. The exchange later said withdrawals remained suspended while additional security checks and remediation continued and that a withdrawal plan would be announced by September 26 at 04:00 UTC.",
       "confidence": "high",
       "impact_level": "high",
       "event_status_effect": "limited",
       "source_count": 2,
       "sort_order": 5,
       "is_major_event": true,
-      "notes": "This is a platform-wide temporary withdrawal suspension tied to the September 24 wallet incident. HEI should return the entity to active only after restoration is confirmed."
+      "notes": "This remains a platform-wide temporary withdrawal suspension tied to the September 24 wallet incident. The September 25 update announced a timetable for the withdrawal plan, not a confirmed restoration time. HEI should return the entity to active only after withdrawal restoration is confirmed."
     }
   ],
   "evidence": [
@@ -280,6 +280,21 @@
       "reliability": "medium",
       "claim_scope": "event",
       "notes": "Independent report summarizing Bitget's first-party notice, including the temporary withdrawal suspension and continued deposit/trading availability."
+    },
+    {
+      "id": "hei_src_012835",
+      "exchange_id": "hei_ex_000028",
+      "event_id": "hei_ev_010254",
+      "source_type": "official_social",
+      "title": "Important updates on the September 24 Bitget security incident",
+      "url": "https://x.com/bitget/status/2103485484165120005",
+      "publisher": "Bitget",
+      "published_at": "2026-09-25",
+      "archived_url": null,
+      "accessed_at": "2026-09-25",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party update revises the affected amount to approximately USD 387.5 million after adding affected Zcash and TRON assets, says the revision does not represent additional unauthorized transfers, states that the incident is contained with no further unauthorized transfers possible, identifies affected networks/assets, names Mandiant and SlowMist as investigation partners, confirms withdrawals remain suspended, and says a withdrawal plan will be announced by 2026-09-26 04:00 UTC."
     }
   ]
 }
