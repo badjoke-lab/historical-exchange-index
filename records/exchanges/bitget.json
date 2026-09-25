@@ -22,18 +22,18 @@
   "entity_correction": {
     "entity_id": "hei_ex_000028",
     "expected": {
-      "status": "active",
-      "summary": "Seychelles-registered centralized cryptocurrency exchange founded in 2018 and continuing globally; in August 2026 Bitget announced a phased cessation of services for residents of Japan.",
-      "official_url_status": "live_verified",
-      "notes": "Official company material and an independent exchange profile support the 2018 founding year and continuing global operation. In March 2023, Bitget announced that BitKeep had joined the wider Bitget ecosystem; BitKeep later rebranded as Bitget Wallet. On 2026-08-03, Bitget announced a phased cessation of services for residents of Japan. This regional withdrawal does not change the exchange's global active status.",
-      "last_verified_at": "2026-08-03"
+      "summary": "Seychelles-based centralized exchange launched in 2018 and still operating under the Bitget brand.",
+      "official_url_status": "live_unverified",
+      "notes": "",
+      "last_verified_at": "2026-04-07",
+      "status": "active"
     },
     "changes": {
-      "status": "limited",
       "summary": "Seychelles-registered centralized cryptocurrency exchange founded in 2018 and continuing globally. Bitget announced a phased exit from Japan in August 2026; on September 24 it confirmed unauthorized transfers affecting portions of its hot and warm wallet layers and temporarily suspended withdrawals during a security review.",
       "official_url_status": "live_verified",
       "notes": "On 2026-09-24 at 18:31 UTC, Bitget said its security systems detected unauthorized transfers affecting a limited portion of its hot and warm wallet layers. An initial estimate of approximately USD 351.6 million was later revised to approximately USD 387.5 million after additional affected assets on Zcash and TRON were classified; Bitget said the revision did not reflect additional unauthorized transfers. Bitget said cold wallets remained secure, the incident had been contained, and no further unauthorized transfers were possible. Confirmed affected assets span Ethereum and multiple EVM networks, XRP Ledger, Zcash, and TRON and include XRP, ETH, USDT, ZEC, USDC, USDT0, XAUt, BNB, AVAX, and TRX. Withdrawals remain temporarily suspended while additional security checks and remediation continue. Bitget said a withdrawal plan would be announced by 2026-09-26 04:00 UTC and that investigations with Mandiant and SlowMist were ongoing. HEI uses limited while withdrawals are paused; do not mark dead or insolvent. Earlier third-party reports describing a cold-wallet compromise and roughly USD 170-183 million of outflows were superseded by Bitget's later first-party confirmation.",
-      "last_verified_at": "2026-09-25"
+      "last_verified_at": "2026-09-25",
+      "status": "limited"
     }
   },
   "events": [
