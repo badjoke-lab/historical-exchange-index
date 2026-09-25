@@ -3,7 +3,13 @@
     "id": "hei_ex_000520",
     "slug": "lfj",
     "canonical_name": "LFJ",
-    "aliases": ["Trader Joe", "Trader Joe DEX", "Joe DEX", "traderjoexyz.com", "lfj.gg"],
+    "aliases": [
+      "Trader Joe",
+      "Trader Joe DEX",
+      "Joe DEX",
+      "traderjoexyz.com",
+      "lfj.gg"
+    ],
     "type": "dex",
     "status": "active",
     "death_reason": null,
@@ -16,7 +22,7 @@
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://traderjoexyz.com/",
     "confidence": "medium",
-    "last_verified_at": "2026-06-14",
+    "last_verified_at": "2026-09-26",
     "notes": "Launch date is month-level for the original Trader Joe DEX. LFJ is modeled as the continuing identity of the same protocol rather than a separate successor entity."
   },
   "events": [
@@ -47,6 +53,20 @@
       "source_count": 3,
       "sort_order": 2,
       "notes": "Month-level rebrand marker. Modeled as an in-place brand change, not a terminal rebranded entity status."
+    },
+    {
+      "id": "hei_ev_010251",
+      "exchange_id": "hei_ex_000520",
+      "event_type": "other",
+      "event_date": "2026-09-21",
+      "title": "LFJ moved Monad Liquidity Book and JOE staking to withdrawal-only",
+      "description": "LFJ moved Liquidity Book and JOE staking on Monad to withdrawal-only mode. Existing positions remained withdrawable, while LFJ said it was consolidating its Monad footprint around POE PropAMM, which remained operational.",
+      "confidence": "medium",
+      "impact_level": "medium",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 3,
+      "notes": "This is a chain- and product-specific contraction, not an entity-wide shutdown. HEI therefore keeps LFJ active and records the Monad transition as a lifecycle event."
     }
   ],
   "evidence": [
@@ -124,6 +144,36 @@
       "reliability": "high",
       "claim_scope": "ownership",
       "notes": "Official brand documentation used to connect the Trader Joe and LFJ identities."
+    },
+    {
+      "id": "hei_src_012824",
+      "exchange_id": "hei_ex_000520",
+      "event_id": "hei_ev_010251",
+      "source_type": "news_article",
+      "title": "Protocol update: Liquidity Book and JOE staking on Monad switched to withdrawal-only",
+      "url": "https://rawchain.info/protocol-update-liquidity-book-and-joe-staking-on-monad-are",
+      "publisher": "RawChain",
+      "published_at": "2026-09-21",
+      "archived_url": "https://web.archive.org/web/*/https://rawchain.info/protocol-update-liquidity-book-and-joe-staking-on-monad-are",
+      "accessed_at": "2026-09-26",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Contemporaneous report reproducing LFJ's protocol update that Monad Liquidity Book and JOE staking shifted to withdrawal-only while existing positions remained withdrawable and POE PropAMM remained operational."
+    },
+    {
+      "id": "hei_src_012825",
+      "exchange_id": "hei_ex_000520",
+      "event_id": "hei_ev_010251",
+      "source_type": "official_statement",
+      "title": "Welcome to LFJ",
+      "url": "https://docs.lfj.gg/",
+      "publisher": "LFJ",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.lfj.gg/",
+      "accessed_at": "2026-09-26",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current first-party documentation describes LFJ as an active multichain DEX. Used to support entity-level active status after the Monad product contraction."
     }
   ]
 }
