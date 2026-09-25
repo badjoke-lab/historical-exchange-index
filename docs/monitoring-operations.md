@@ -63,15 +63,18 @@ expanding candidate discovery
 
 ### `enable_news_rss`
 
-Enables Google News RSS monitoring for shutdowns, hacks, withdrawal suspensions, regional exits, acquisition/migration/rebrand, and general exchange incidents.
+Enables Google News RSS monitoring for shutdowns, hacks, withdrawal suspensions, chain/sequencer/block-production outages that may interrupt exchange execution, regional exits, acquisition/migration/rebrand, and general exchange incidents.
 
 Use when:
 
 ```txt
 looking for recent negative CEX/DEX news
+looking for chain infrastructure outages that may affect DEX execution
 preparing a weekly exchange watch review
 checking if new incidents should become HEI records/events
 ```
+
+The default news query cap is shared across query categories using balanced round-robin selection. Adding a later category must not silently remove acquisition/rebrand or chain-infrastructure coverage from the normal capped scan.
 
 ### `enable_domain_checks`
 
@@ -167,7 +170,7 @@ news_query_limit = 20
 regulatory_query_limit = 25
 ```
 
-Use this when searching for recent closure, hack, withdrawal suspension, regional exit, or regulatory stories.
+Use this when searching for recent closure, hack, withdrawal suspension, chain/sequencer/block-production outage, regional exit, or regulatory stories.
 
 ### 4.3 Evidence maintenance scan
 
