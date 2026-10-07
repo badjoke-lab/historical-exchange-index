@@ -2,6 +2,35 @@
   "version": 1,
   "updates": [
     {
+      "id": "mexc-account-security-incident-2026-10-08",
+      "date": "2026-10-08",
+      "update_type": "quality_audit",
+      "title": "MEXC account-security incident added to reviewed history",
+      "summary": "HEI added a reviewed September 2026 MEXC account-security event after MEXC's CEO confirmed that a residual API key on a compromised user account enabled unauthorized transfers before containment. The affected user was fully compensated and MEXC remains active.",
+      "counts": {
+        "entities_before": 1075,
+        "entities_after": 1075,
+        "events_before": 1140,
+        "events_after": 1141,
+        "evidence_before": 4111,
+        "evidence_after": 4114
+      },
+      "added_entities": [],
+      "updated_entities": [
+        {
+          "name": "MEXC",
+          "slug": "mexc",
+          "change": "Added a major account-security incident covering unauthorized withdrawals through a residual API key and subsequent full compensation."
+        }
+      ],
+      "evidence_added": 3,
+      "notes": [
+        "HEI records this as an account-level security incident, not a confirmed platform-wide wallet compromise.",
+        "The affected user's deepfake/KYC-bypass allegation is not promoted to a confirmed mechanism because MEXC's public confirmation established the residual API-key path, not the alleged identity-verification method.",
+        "MEXC entity status remains active and death_reason remains null."
+      ]
+    },
+    {
       "id": "phase-c-audit-complete",
       "date": "2026-07-05",
       "update_type": "quality_audit",
@@ -49,46 +78,246 @@
         "evidence_after": 2621
       },
       "added_entities": [
-        { "name": "ChainEX", "slug": "chainex", "type": "cex", "status": "active" },
-        { "name": "Chainflip", "slug": "chainflip", "type": "dex", "status": "active" },
-        { "name": "Changelly PRO", "slug": "changelly-pro", "type": "cex", "status": "active" },
-        { "name": "Choice", "slug": "choice", "type": "dex", "status": "active" },
-        { "name": "Chronos", "slug": "chronos", "type": "dex", "status": "active" },
-        { "name": "ClaimSwap", "slug": "claimswap", "type": "dex", "status": "active" },
-        { "name": "Clipper", "slug": "clipper", "type": "dex", "status": "active" },
-        { "name": "CobaltX", "slug": "cobaltx", "type": "dex", "status": "active" },
-        { "name": "Chainge Finance", "slug": "chainge-finance", "type": "dex", "status": "limited" },
-        { "name": "ChampagneSwap", "slug": "champagneswap", "type": "dex", "status": "active" },
-        { "name": "CherrySwap", "slug": "cherryswap", "type": "dex", "status": "inactive" },
-        { "name": "ChimpX AI DEX", "slug": "chimpx-ai-dex", "type": "dex", "status": "active" },
-        { "name": "Clober", "slug": "clober", "type": "dex", "status": "active" },
-        { "name": "CITEX", "slug": "citex", "type": "cex", "status": "inactive" },
-        { "name": "Cleopatra", "slug": "cleopatra", "type": "dex", "status": "inactive" },
-        { "name": "CoinCasso", "slug": "coincasso", "type": "cex", "status": "inactive" },
-        { "name": "CoinCorner", "slug": "coincorner", "type": "cex", "status": "active" },
-        { "name": "Coinmate", "slug": "coinmate", "type": "cex", "status": "active" },
-        { "name": "CoinTR", "slug": "cointr", "type": "cex", "status": "active" },
-        { "name": "CoinUp.io", "slug": "coinup", "type": "cex", "status": "active" },
-        { "name": "CoinZoom", "slug": "coinzoom", "type": "cex", "status": "active" },
-        { "name": "Comet Swap", "slug": "comet-swap", "type": "dex", "status": "active" },
-        { "name": "Convergence Finance", "slug": "convergence-finance", "type": "dex", "status": "active" },
-        { "name": "Coinhain", "slug": "coinhain", "type": "dex", "status": "active" },
-        { "name": "CoinSwap Space", "slug": "coinswap-space", "type": "dex", "status": "active" },
-        { "name": "ColorPool", "slug": "colorpool", "type": "dex", "status": "inactive" },
-        { "name": "Cometh", "slug": "cometh", "type": "hybrid", "status": "active" },
-        { "name": "Complus Network", "slug": "complus-network", "type": "dex", "status": "active" },
-        { "name": "Concordex", "slug": "concordex", "type": "dex", "status": "active" },
-        { "name": "Cone", "slug": "cone", "type": "dex", "status": "active" },
-        { "name": "Swapscanner", "slug": "swapscanner", "type": "hybrid", "status": "active" },
-        { "name": "Coinhouse", "slug": "coinhouse", "type": "hybrid", "status": "active" },
-        { "name": "COINUT", "slug": "coinut", "type": "hybrid", "status": "active" },
-        { "name": "Counos", "slug": "counos", "type": "hybrid", "status": "active" },
-        { "name": "Coinsbit", "slug": "coinsbit", "type": "cex", "status": "inactive" },
-        { "name": "CoinField", "slug": "coinfield", "type": "cex", "status": "inactive" },
-        { "name": "CoinTiger", "slug": "cointiger", "type": "cex", "status": "inactive" },
-        { "name": "Coindelta", "slug": "coindelta", "type": "cex", "status": "inactive" },
-        { "name": "CPDAX", "slug": "cpdax", "type": "cex", "status": "inactive" },
-        { "name": "CoinZest", "slug": "coinzest", "type": "cex", "status": "inactive" }
+        {
+          "name": "ChainEX",
+          "slug": "chainex",
+          "type": "cex",
+          "status": "active"
+        },
+        {
+          "name": "Chainflip",
+          "slug": "chainflip",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "Changelly PRO",
+          "slug": "changelly-pro",
+          "type": "cex",
+          "status": "active"
+        },
+        {
+          "name": "Choice",
+          "slug": "choice",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "Chronos",
+          "slug": "chronos",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "ClaimSwap",
+          "slug": "claimswap",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "Clipper",
+          "slug": "clipper",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "CobaltX",
+          "slug": "cobaltx",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "Chainge Finance",
+          "slug": "chainge-finance",
+          "type": "dex",
+          "status": "limited"
+        },
+        {
+          "name": "ChampagneSwap",
+          "slug": "champagneswap",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "CherrySwap",
+          "slug": "cherryswap",
+          "type": "dex",
+          "status": "inactive"
+        },
+        {
+          "name": "ChimpX AI DEX",
+          "slug": "chimpx-ai-dex",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "Clober",
+          "slug": "clober",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "CITEX",
+          "slug": "citex",
+          "type": "cex",
+          "status": "inactive"
+        },
+        {
+          "name": "Cleopatra",
+          "slug": "cleopatra",
+          "type": "dex",
+          "status": "inactive"
+        },
+        {
+          "name": "CoinCasso",
+          "slug": "coincasso",
+          "type": "cex",
+          "status": "inactive"
+        },
+        {
+          "name": "CoinCorner",
+          "slug": "coincorner",
+          "type": "cex",
+          "status": "active"
+        },
+        {
+          "name": "Coinmate",
+          "slug": "coinmate",
+          "type": "cex",
+          "status": "active"
+        },
+        {
+          "name": "CoinTR",
+          "slug": "cointr",
+          "type": "cex",
+          "status": "active"
+        },
+        {
+          "name": "CoinUp.io",
+          "slug": "coinup",
+          "type": "cex",
+          "status": "active"
+        },
+        {
+          "name": "CoinZoom",
+          "slug": "coinzoom",
+          "type": "cex",
+          "status": "active"
+        },
+        {
+          "name": "Comet Swap",
+          "slug": "comet-swap",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "Convergence Finance",
+          "slug": "convergence-finance",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "Coinhain",
+          "slug": "coinhain",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "CoinSwap Space",
+          "slug": "coinswap-space",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "ColorPool",
+          "slug": "colorpool",
+          "type": "dex",
+          "status": "inactive"
+        },
+        {
+          "name": "Cometh",
+          "slug": "cometh",
+          "type": "hybrid",
+          "status": "active"
+        },
+        {
+          "name": "Complus Network",
+          "slug": "complus-network",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "Concordex",
+          "slug": "concordex",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "Cone",
+          "slug": "cone",
+          "type": "dex",
+          "status": "active"
+        },
+        {
+          "name": "Swapscanner",
+          "slug": "swapscanner",
+          "type": "hybrid",
+          "status": "active"
+        },
+        {
+          "name": "Coinhouse",
+          "slug": "coinhouse",
+          "type": "hybrid",
+          "status": "active"
+        },
+        {
+          "name": "COINUT",
+          "slug": "coinut",
+          "type": "hybrid",
+          "status": "active"
+        },
+        {
+          "name": "Counos",
+          "slug": "counos",
+          "type": "hybrid",
+          "status": "active"
+        },
+        {
+          "name": "Coinsbit",
+          "slug": "coinsbit",
+          "type": "cex",
+          "status": "inactive"
+        },
+        {
+          "name": "CoinField",
+          "slug": "coinfield",
+          "type": "cex",
+          "status": "inactive"
+        },
+        {
+          "name": "CoinTiger",
+          "slug": "cointiger",
+          "type": "cex",
+          "status": "inactive"
+        },
+        {
+          "name": "Coindelta",
+          "slug": "coindelta",
+          "type": "cex",
+          "status": "inactive"
+        },
+        {
+          "name": "CPDAX",
+          "slug": "cpdax",
+          "type": "cex",
+          "status": "inactive"
+        },
+        {
+          "name": "CoinZest",
+          "slug": "coinzest",
+          "type": "cex",
+          "status": "inactive"
+        }
       ],
       "updated_entities": [],
       "evidence_added": 80,
