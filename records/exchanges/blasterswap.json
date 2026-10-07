@@ -3,7 +3,12 @@
     "id": "hei_ex_000401",
     "slug": "blasterswap",
     "canonical_name": "BlasterSwap",
-    "aliases": ["Blasterswap", "Blasterswap V2", "Blasterswap V3", "blasterswap.com"],
+    "aliases": [
+      "Blasterswap",
+      "Blasterswap V2",
+      "Blasterswap V3",
+      "blasterswap.com"
+    ],
     "type": "dex",
     "status": "active",
     "death_reason": null,
@@ -33,6 +38,20 @@
       "source_count": 3,
       "sort_order": 1,
       "notes": "Upgrade with precise launch or operating-history evidence if stronger sources are added."
+    },
+    {
+      "id": "hei_ev_020101",
+      "exchange_id": "hei_ex_000401",
+      "event_type": "chain_shutdown_impact",
+      "event_date": "2026-10-02",
+      "title": "Blast announces L2 wind-down affecting BlasterSwap's host chain",
+      "description": "Blast announced an orderly wind-down of the L2 and asked users to withdraw assets to Ethereum. BlasterSwap is a Blast-native DEX, so the announcement creates a material host-chain shutdown dependency even though it does not by itself prove that BlasterSwap has already ceased operating.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "HEI does not assign BlasterSwap a death date from the Blast announcement alone. Final status should be rechecked when the Blast chain/interface shutdown becomes effective."
     }
   ],
   "evidence": [
@@ -80,6 +99,36 @@
       "reliability": "medium",
       "claim_scope": "entity",
       "notes": "Backlog rows hei_unadded_0355 and hei_unadded_0356 referenced Blasterswap V2 and V3."
+    },
+    {
+      "id": "hei_src_020102",
+      "exchange_id": "hei_ex_000401",
+      "event_id": "hei_ev_020101",
+      "source_type": "news_article",
+      "title": "Ethereum layer-2 Blast is shutting down",
+      "url": "https://www.theblock.co/news/business/2026-10-02-blast-ethereum-layer-2-shutting-down-417583",
+      "publisher": "The Block",
+      "published_at": "2026-10-02",
+      "archived_url": "https://web.archive.org/web/*/https://www.theblock.co/news/business/2026-10-02-blast-ethereum-layer-2-shutting-down-417583",
+      "accessed_at": "2026-10-08",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Reports Blast's official wind-down announcement, withdrawal timetable, Lido unwind, and post-October-26 L1 bridge-contract exit path."
+    },
+    {
+      "id": "hei_src_020103",
+      "exchange_id": "hei_ex_000401",
+      "event_id": "hei_ev_020101",
+      "source_type": "news_article",
+      "title": "Ethereum Layer-2 Blast Is Shutting Down",
+      "url": "https://decrypt.co/379972/ethereum-layer-2-blast-shutting-down",
+      "publisher": "Decrypt",
+      "published_at": "2026-10-02",
+      "archived_url": "https://web.archive.org/web/*/https://decrypt.co/379972/ethereum-layer-2-blast-shutting-down",
+      "accessed_at": "2026-10-08",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Independent coverage corroborating the Blast wind-down and user-withdrawal process."
     }
   ]
 }
