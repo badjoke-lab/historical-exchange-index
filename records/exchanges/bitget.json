@@ -5,19 +5,19 @@
     "canonical_name": "Bitget",
     "aliases": [],
     "type": "cex",
-    "status": "limited",
+    "status": "active",
     "death_reason": null,
     "launch_date": "2018-01-01",
     "death_date": null,
     "country_or_origin": "Seychelles",
-    "summary": "Seychelles-registered centralized cryptocurrency exchange founded in 2018 and continuing globally. Bitget announced a phased exit from Japan in August 2026; after a September 24 security incident affecting portions of its hot and warm wallet infrastructure, withdrawals were suspended and began phased restoration on September 28.",
+    "summary": "Seychelles-registered centralized cryptocurrency exchange founded in 2018 and continuing globally. Bitget announced a phased exit from Japan in August 2026; after a September 24 security incident temporarily disrupted withdrawals, the phased restoration of crypto withdrawals, fiat, and P2P/C2C services was completed on October 2.",
     "official_url_original": "https://www.bitget.com/",
     "official_domain_original": "bitget.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.bitget.com/",
     "confidence": "high",
-    "notes": "On 2026-09-24 at 18:31 UTC, Bitget detected unauthorized transfers affecting a limited portion of its hot and warm wallet layers. The estimated impacted amount was revised from approximately USD 351.6 million to approximately USD 387.5 million as additional affected Zcash and TRON assets were classified; the revision did not represent new unauthorized transfers. Bitget's later investigation states that attackers exploited a vulnerability in a third-party security product to obtain intranet access credentials and forge withdrawal commands that bypassed risk verification; private keys were not compromised and cold wallets were not affected. Independent XRPL analysis reports 102,976,680 XRP transferred from Bitget-labeled wallets during the incident. Bitget says the vulnerability was remediated and the incident contained. BTC withdrawals were confirmed open again on 2026-09-28; ETH and USDT were scheduled for phased restoration on 2026-09-29 and 2026-09-30, with other tokens, fiat and P2P scheduled for 2026-10-02. HEI keeps status limited until broad withdrawal restoration is confirmed.",
-    "last_verified_at": "2026-09-30"
+    "notes": "On 2026-09-24 at 18:31 UTC, Bitget detected unauthorized transfers affecting a limited portion of its hot and warm wallet layers. The estimated impacted amount was revised to approximately USD 387.5 million. Bitget's investigation states that attackers exploited a vulnerability in a third-party security product to obtain intranet access credentials and forge withdrawal commands; private keys were not compromised and cold wallets were not affected. Independent XRPL analysis reports 102,976,680 XRP transferred from Bitget-labeled wallets during the incident. Bitget says the vulnerability was remediated and the incident contained. BTC withdrawals resumed on 2026-09-28, ETH on 2026-09-29, USDT on 2026-09-30, and on 2026-10-02 Bitget confirmed that withdrawals for other supported tokens together with fiat and P2P/C2C services had resumed, completing the phased restoration plan. HEI therefore returns the global exchange status to active. Asset tracing, recovery, and post-incident security work may continue without implying an operational limitation.",
+    "last_verified_at": "2026-10-08"
   },
   "entity_correction": {
     "entity_id": "hei_ex_000028",
@@ -29,11 +29,11 @@
       "status": "active"
     },
     "changes": {
-      "summary": "Seychelles-registered centralized cryptocurrency exchange founded in 2018 and continuing globally. Bitget announced a phased exit from Japan in August 2026; after a September 24 security incident affecting portions of its hot and warm wallet infrastructure, withdrawals were suspended and began phased restoration on September 28.",
+      "summary": "Seychelles-registered centralized cryptocurrency exchange founded in 2018 and continuing globally. Bitget announced a phased exit from Japan in August 2026; after a September 24 security incident temporarily disrupted withdrawals, the phased restoration of crypto withdrawals, fiat, and P2P/C2C services was completed on October 2.",
       "official_url_status": "live_verified",
-      "notes": "On 2026-09-24 at 18:31 UTC, Bitget detected unauthorized transfers affecting a limited portion of its hot and warm wallet layers. The estimated impacted amount was revised from approximately USD 351.6 million to approximately USD 387.5 million as additional affected Zcash and TRON assets were classified; the revision did not represent new unauthorized transfers. Bitget's later investigation states that attackers exploited a vulnerability in a third-party security product to obtain intranet access credentials and forge withdrawal commands that bypassed risk verification; private keys were not compromised and cold wallets were not affected. Independent XRPL analysis reports 102,976,680 XRP transferred from Bitget-labeled wallets during the incident. Bitget says the vulnerability was remediated and the incident contained. BTC withdrawals were confirmed open again on 2026-09-28; ETH and USDT were scheduled for phased restoration on 2026-09-29 and 2026-09-30, with other tokens, fiat and P2P scheduled for 2026-10-02. HEI keeps status limited until broad withdrawal restoration is confirmed.",
-      "last_verified_at": "2026-09-30",
-      "status": "limited"
+      "notes": "On 2026-09-24 at 18:31 UTC, Bitget detected unauthorized transfers affecting a limited portion of its hot and warm wallet layers. The estimated impacted amount was revised to approximately USD 387.5 million. Bitget's investigation states that attackers exploited a vulnerability in a third-party security product to obtain intranet access credentials and forge withdrawal commands; private keys were not compromised and cold wallets were not affected. Independent XRPL analysis reports 102,976,680 XRP transferred from Bitget-labeled wallets during the incident. Bitget says the vulnerability was remediated and the incident contained. BTC withdrawals resumed on 2026-09-28, ETH on 2026-09-29, USDT on 2026-09-30, and on 2026-10-02 Bitget confirmed that withdrawals for other supported tokens together with fiat and P2P/C2C services had resumed, completing the phased restoration plan. HEI therefore returns the global exchange status to active. Asset tracing, recovery, and post-incident security work may continue without implying an operational limitation.",
+      "last_verified_at": "2026-10-08",
+      "status": "active"
     }
   },
   "events": [
@@ -128,6 +128,21 @@
       "sort_order": 6,
       "is_major_event": true,
       "notes": "This is partial restoration rather than full platform normalization. The entity remains limited pending confirmation that withdrawal service has broadly returned."
+    },
+    {
+      "id": "hei_ev_010258",
+      "exchange_id": "hei_ex_000028",
+      "event_type": "reopened",
+      "event_date": "2026-10-02",
+      "title": "Bitget completed phased withdrawal and related-service restoration",
+      "description": "Bitget announced that withdrawals for supported tokens other than BTC, ETH, and USDT had resumed together with fiat and P2P/C2C services, completing the phased restoration plan that followed the September 24 security incident.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "active",
+      "source_count": 2,
+      "sort_order": 7,
+      "is_major_event": true,
+      "notes": "BTC, ETH, and USDT withdrawals had already resumed on September 28, September 29, and September 30 respectively. The October 2 update closes the operational withdrawal-restoration sequence. Ongoing asset tracing or post-incident security work does not by itself keep the exchange in limited status."
     }
   ],
   "evidence": [
@@ -355,6 +370,36 @@
       "reliability": "high",
       "claim_scope": "event",
       "notes": "First-party update confirms BTC withdrawals on Bitcoin and BSC reopened at 08:00 UTC on September 28 and describes the remaining phased restoration schedule."
+    },
+    {
+      "id": "hei_src_012841",
+      "exchange_id": "hei_ex_000028",
+      "event_id": "hei_ev_010258",
+      "source_type": "official_statement",
+      "title": "Bitget announcement on completing the phased resumption of token withdrawals, fiat, and C2C services",
+      "url": "https://www.bitget.com/support/articles/12560603896369",
+      "publisher": "Bitget",
+      "published_at": "2026-10-02",
+      "archived_url": "https://web.archive.org/web/*/https://www.bitget.com/support/articles/12560603896369",
+      "accessed_at": "2026-10-08",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party support notice states that withdrawals for other tokens, fiat, and C2C services resumed and that the previously announced phased resumption plan was fully completed."
+    },
+    {
+      "id": "hei_src_012842",
+      "exchange_id": "hei_ex_000028",
+      "event_id": "hei_ev_010258",
+      "source_type": "official_blog",
+      "title": "Bitget Security Incident: Timeline, Impact and Response",
+      "url": "https://www.bitget.com/academy/bitget-security-incident-what-happened-timeline-impact-response",
+      "publisher": "Bitget",
+      "published_at": "2026-10-02",
+      "archived_url": "https://web.archive.org/web/*/https://www.bitget.com/academy/bitget-security-incident-what-happened-timeline-impact-response",
+      "accessed_at": "2026-10-08",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "First-party incident follow-up states that Bitget completed its phased withdrawal-resumption plan on October 2, following BTC, ETH, and USDT restoration on the preceding dates."
     }
   ]
 }
