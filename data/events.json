@@ -7186,7 +7186,7 @@
     "notes": "Used as death_date because the official schedule identified this as the final shutdown date."
   },
   {
-    "id": "hei_ev_020100",
+    "id": "hei_ev_090001",
     "exchange_id": "hei_ex_000400",
     "event_type": "chain_shutdown_impact",
     "event_date": "2026-10-02",
@@ -7200,7 +7200,7 @@
     "notes": "HEI does not assign BladeSwap a death date from the Blast announcement alone. Final status should be rechecked when the Blast chain and interface shutdown becomes effective."
   },
   {
-    "id": "hei_ev_020101",
+    "id": "hei_ev_090002",
     "exchange_id": "hei_ex_000401",
     "event_type": "chain_shutdown_impact",
     "event_date": "2026-10-02",
@@ -7214,7 +7214,7 @@
     "notes": "HEI does not assign BlasterSwap a death date from the Blast announcement alone. Final status should be rechecked when the Blast chain and interface shutdown becomes effective."
   },
   {
-    "id": "hei_ev_020102",
+    "id": "hei_ev_090003",
     "exchange_id": "hei_ex_000596",
     "event_type": "chain_shutdown_impact",
     "event_date": "2026-10-02",
