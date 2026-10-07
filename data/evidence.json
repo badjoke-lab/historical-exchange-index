@@ -17580,9 +17580,9 @@
     "notes": "Used for historical original-domain preservation."
   },
   {
-    "id": "hei_src_020100",
+    "id": "hei_src_090001",
     "exchange_id": "hei_ex_000400",
-    "event_id": "hei_ev_020100",
+    "event_id": "hei_ev_090001",
     "source_type": "news_article",
     "title": "Ethereum layer-2 Blast is shutting down",
     "url": "https://www.theblock.co/news/business/2026-10-02-blast-ethereum-layer-2-shutting-down-417583",
@@ -17595,9 +17595,9 @@
     "notes": "Reports Blast's official wind-down announcement, withdrawal timetable, Lido unwind, and post-October-26 L1 bridge-contract exit path."
   },
   {
-    "id": "hei_src_020101",
+    "id": "hei_src_090002",
     "exchange_id": "hei_ex_000400",
-    "event_id": "hei_ev_020100",
+    "event_id": "hei_ev_090001",
     "source_type": "news_article",
     "title": "Ethereum Layer-2 Blast Is Shutting Down",
     "url": "https://decrypt.co/379972/ethereum-layer-2-blast-shutting-down",
@@ -17610,9 +17610,9 @@
     "notes": "Independent coverage corroborating the Blast wind-down and user-withdrawal process."
   },
   {
-    "id": "hei_src_020102",
+    "id": "hei_src_090003",
     "exchange_id": "hei_ex_000401",
-    "event_id": "hei_ev_020101",
+    "event_id": "hei_ev_090002",
     "source_type": "news_article",
     "title": "Ethereum layer-2 Blast is shutting down",
     "url": "https://www.theblock.co/news/business/2026-10-02-blast-ethereum-layer-2-shutting-down-417583",
@@ -17625,9 +17625,9 @@
     "notes": "Reports Blast's official wind-down announcement, withdrawal timetable, Lido unwind, and post-October-26 L1 bridge-contract exit path."
   },
   {
-    "id": "hei_src_020103",
+    "id": "hei_src_090004",
     "exchange_id": "hei_ex_000401",
-    "event_id": "hei_ev_020101",
+    "event_id": "hei_ev_090002",
     "source_type": "news_article",
     "title": "Ethereum Layer-2 Blast Is Shutting Down",
     "url": "https://decrypt.co/379972/ethereum-layer-2-blast-shutting-down",
@@ -17640,9 +17640,9 @@
     "notes": "Independent coverage corroborating the Blast wind-down and user-withdrawal process."
   },
   {
-    "id": "hei_src_020104",
+    "id": "hei_src_090005",
     "exchange_id": "hei_ex_000596",
-    "event_id": "hei_ev_020102",
+    "event_id": "hei_ev_090003",
     "source_type": "news_article",
     "title": "Ethereum layer-2 Blast is shutting down",
     "url": "https://www.theblock.co/news/business/2026-10-02-blast-ethereum-layer-2-shutting-down-417583",
@@ -17655,9 +17655,9 @@
     "notes": "Reports Blast's official wind-down announcement and staged withdrawal process."
   },
   {
-    "id": "hei_src_020105",
+    "id": "hei_src_090006",
     "exchange_id": "hei_ex_000596",
-    "event_id": "hei_ev_020102",
+    "event_id": "hei_ev_090003",
     "source_type": "news_article",
     "title": "Ethereum Layer-2 Blast Is Shutting Down",
     "url": "https://decrypt.co/379972/ethereum-layer-2-blast-shutting-down",
