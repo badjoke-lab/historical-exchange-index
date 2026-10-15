@@ -1,1 +1,143 @@
-{"entity":{"id":"hei_ex_000228","slug":"balancer","canonical_name":"Balancer","aliases":["Balancer Protocol","Balancer Labs","BAL","Balancer V1","Balancer V2","Balancer V3","balancer.fi"],"type":"dex","status":"limited","death_reason":null,"launch_date":"2020-03-31","death_date":null,"country_or_origin":"Ethereum ecosystem","summary":"Ethereum-based decentralized exchange and automated-market-maker protocol launched in March 2020. After the November 2025 Balancer v2 exploit, Balancer Labs announced its March 2026 wind-down, while protocol governance and operations continued through DAO, Foundation, and consolidated operating-company structures.","official_url_original":"https://balancer.fi/","official_domain_original":"balancer.fi","official_url_status":"live_verified","archived_url":"https://web.archive.org/web/*/https://balancer.fi/","predecessor_id":null,"successor_id":null,"confidence":"high","last_verified_at":"2026-06-26","notes":"Retain limited rather than dead. Balancer Labs, the historical corporate contributor, is winding down, but official governance materials describe continuing protocol operations under a DAO-directed operating structure. Existing exploit and corporate-wind-down events are not duplicated. This entity represents the Balancer exchange/protocol identity, not only Balancer Labs."},"entity_correction":{"entity_id":"hei_ex_000228","expected":{"summary":"Decentralized exchange and automated-market-maker protocol. In March 2026, Balancer Labs, the corporate entity historically associated with the protocol, announced it would wind down after the November 2025 Balancer v2 exploit, while the protocol itself was expected to continue through DAO/Foundation/OpCo structures.","official_url_status":"live_unverified","confidence":"medium","notes":"Do not mark dead. The public record supports Balancer Labs winding down and a major exploit history, but the protocol continuation path is explicitly described in the official forum post and secondary coverage. Treat this as limited / restructuring unless later evidence shows protocol-level shutdown.","last_verified_at":"2026-05-31"},"changes":{"summary":"Ethereum-based decentralized exchange and automated-market-maker protocol launched in March 2020. After the November 2025 Balancer v2 exploit, Balancer Labs announced its March 2026 wind-down, while protocol governance and operations continued through DAO, Foundation, and consolidated operating-company structures.","official_url_status":"live_verified","confidence":"high","notes":"Retain limited rather than dead. Balancer Labs, the historical corporate contributor, is winding down, but official governance materials describe continuing protocol operations under a DAO-directed operating structure. Existing exploit and corporate-wind-down events are not duplicated. This entity represents the Balancer exchange/protocol identity, not only Balancer Labs.","last_verified_at":"2026-06-26"}},"events":[],"evidence":[{"id":"hei_src_010046","exchange_id":"hei_ex_000228","event_id":null,"source_type":"official_statement","title":"On the Future of Balancer: Shutting Down Balancer Labs, Supporting the Path Forward","url":"https://forum.balancer.fi/t/on-the-future-of-balancer-shutting-down-balancer-labs-supporting-the-path-forward/7002","publisher":"Balancer Forum","published_at":"2026-03-23","archived_url":"https://web.archive.org/web/*/https://forum.balancer.fi/t/on-the-future-of-balancer-shutting-down-balancer-labs-supporting-the-path-forward/7002","accessed_at":"2026-06-26","reliability":"high","claim_scope":"status","notes":"First-party announcement distinguishes the Balancer Labs wind-down from continued belief in and support for the protocol path forward."},{"id":"hei_src_010047","exchange_id":"hei_ex_000228","event_id":null,"source_type":"official_statement","title":"Operational Restructuring for Balancer","url":"https://forum.balancer.fi/t/bip-xxx-operational-restructuring-for-balancer/7000","publisher":"Balancer Forum","published_at":"2026-03-20","archived_url":"https://web.archive.org/web/*/https://forum.balancer.fi/t/bip-xxx-operational-restructuring-for-balancer/7000","accessed_at":"2026-06-26","reliability":"high","claim_scope":"status","notes":"Official governance proposal describes consolidation under Balancer OpCo Limited and continued protocol operations after Balancer Labs winds down."},{"id":"hei_src_010048","exchange_id":"hei_ex_000228","event_id":null,"source_type":"official_statement","title":"Balancer official protocol site","url":"https://balancer.fi/","publisher":"Balancer","published_at":null,"archived_url":"https://web.archive.org/web/*/https://balancer.fi/","accessed_at":"2026-06-26","reliability":"high","claim_scope":"status","notes":"Current official domain remains reachable under the Balancer protocol identity."}]}
+{
+  "entity": {
+    "id": "hei_ex_000228",
+    "slug": "balancer",
+    "canonical_name": "Balancer",
+    "aliases": [
+      "Balancer Protocol",
+      "Balancer Labs",
+      "BAL",
+      "Balancer V1",
+      "Balancer V2",
+      "Balancer V3",
+      "balancer.fi"
+    ],
+    "type": "dex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": "2020-03-31",
+    "death_date": null,
+    "country_or_origin": "Ethereum ecosystem",
+    "summary": "Ethereum-based decentralized exchange and AMM launched in March 2020. Following the November 2025 v2 exploit and the March 2026 Balancer Labs wind-down, Balancer governance approved BIP-928 on September 29, 2026 for an orderly protocol sunset. Most pausable pools are scheduled to move to withdrawals-only on October 30, while eligible v3 pools may operate through November 30. The transition is approved but has not yet reached its October 30 execution checkpoint.",
+    "official_url_original": "https://balancer.fi/",
+    "official_domain_original": "balancer.fi",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://balancer.fi/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "high",
+    "last_verified_at": "2026-10-15",
+    "notes": "Status remains limited rather than dead as of 2026-10-15: BIP-928 passed on 2026-09-29, and the phased protocol sunset is approved, but the withdrawals-only transition is scheduled for 2026-10-30, with extensions for qualifying v3 pools until 2026-11-30. Non-pausable pools may remain technically callable; withdrawals do not depend on Balancer-operated interfaces. Distinguish Balancer Labs' March corporate wind-down, the later approved protocol sunset and the future actual cessation checkpoints. Verify execution separately and never backdate shutdown_effective."
+  },
+  "entity_correction": {
+    "entity_id": "hei_ex_000228",
+    "expected": {
+      "summary": "Decentralized exchange and automated-market-maker protocol. In March 2026, Balancer Labs, the corporate entity historically associated with the protocol, announced it would wind down after the November 2025 Balancer v2 exploit, while the protocol itself was expected to continue through DAO/Foundation/OpCo structures.",
+      "official_url_status": "live_unverified",
+      "confidence": "medium",
+      "notes": "Do not mark dead. The public record supports Balancer Labs winding down and a major exploit history, but the protocol continuation path is explicitly described in the official forum post and secondary coverage. Treat this as limited / restructuring unless later evidence shows protocol-level shutdown.",
+      "last_verified_at": "2026-05-31"
+    },
+    "changes": {
+      "summary": "Ethereum-based decentralized exchange and AMM launched in March 2020. Following the November 2025 v2 exploit and the March 2026 Balancer Labs wind-down, Balancer governance approved BIP-928 on September 29, 2026 for an orderly protocol sunset. Most pausable pools are scheduled to move to withdrawals-only on October 30, while eligible v3 pools may operate through November 30. The transition is approved but has not yet reached its October 30 execution checkpoint.",
+      "official_url_status": "live_verified",
+      "confidence": "high",
+      "notes": "Status remains limited rather than dead as of 2026-10-15: BIP-928 passed on 2026-09-29, and the phased protocol sunset is approved, but the withdrawals-only transition is scheduled for 2026-10-30, with extensions for qualifying v3 pools until 2026-11-30. Non-pausable pools may remain technically callable; withdrawals do not depend on Balancer-operated interfaces. Distinguish Balancer Labs' March corporate wind-down, the later approved protocol sunset and the future actual cessation checkpoints. Verify execution separately and never backdate shutdown_effective.",
+      "last_verified_at": "2026-10-15"
+    }
+  },
+  "events": [
+    {
+      "id": "hei_ev_010261",
+      "exchange_id": "hei_ex_000228",
+      "event_type": "shutdown_announced",
+      "event_date": "2026-09-29",
+      "title": "Balancer DAO approved BIP-928 orderly protocol wind-down",
+      "description": "The Balancer governance vote on BIP-928 concluded on September 29, approving a phased protocol wind-down. Pausable pools are scheduled to transition to withdrawals-only on October 30, with an extension through November 30 for qualifying v3 partner pools; the first treasury distribution round is planned for late May 2027. These are scheduled milestones, not yet confirmed completed shutdown events.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "limited",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "The formal approval is confirmed in an update from the proposal author on September 29. The transition timing comes from the original proposal and its later v3 extension revision. No shutdown_effective event is asserted as of 2026-10-15.",
+      "is_major_event": true
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_010046",
+      "exchange_id": "hei_ex_000228",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "On the Future of Balancer: Shutting Down Balancer Labs, Supporting the Path Forward",
+      "url": "https://forum.balancer.fi/t/on-the-future-of-balancer-shutting-down-balancer-labs-supporting-the-path-forward/7002",
+      "publisher": "Balancer Forum",
+      "published_at": "2026-03-23",
+      "archived_url": "https://web.archive.org/web/*/https://forum.balancer.fi/t/on-the-future-of-balancer-shutting-down-balancer-labs-supporting-the-path-forward/7002",
+      "accessed_at": "2026-06-26",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "First-party announcement distinguishes the Balancer Labs wind-down from continued belief in and support for the protocol path forward."
+    },
+    {
+      "id": "hei_src_010047",
+      "exchange_id": "hei_ex_000228",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Operational Restructuring for Balancer",
+      "url": "https://forum.balancer.fi/t/bip-xxx-operational-restructuring-for-balancer/7000",
+      "publisher": "Balancer Forum",
+      "published_at": "2026-03-20",
+      "archived_url": "https://web.archive.org/web/*/https://forum.balancer.fi/t/bip-xxx-operational-restructuring-for-balancer/7000",
+      "accessed_at": "2026-06-26",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Official governance proposal describes consolidation under Balancer OpCo Limited and continued protocol operations after Balancer Labs winds down."
+    },
+    {
+      "id": "hei_src_010048",
+      "exchange_id": "hei_ex_000228",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "Balancer official protocol site",
+      "url": "https://balancer.fi/",
+      "publisher": "Balancer",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://balancer.fi/",
+      "accessed_at": "2026-06-26",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Current official domain remains reachable under the Balancer protocol identity."
+    },
+    {
+      "id": "hei_src_012848",
+      "exchange_id": "hei_ex_000228",
+      "event_id": "hei_ev_010261",
+      "source_type": "official_statement",
+      "title": "BIP-928: Orderly Winddown of Balancer and Distribution of the Treasury",
+      "url": "https://forum.balancer.fi/t/bip-928-orderly-winddown-of-balancer-and-distribution-of-the-treasury/7107/1",
+      "publisher": "Balancer Forum",
+      "published_at": "2026-09-14",
+      "archived_url": null,
+      "accessed_at": "2026-10-15",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party governance proposal sets the withdrawals-only timeline, v3 exception, closure sequence and treasury distribution framework."
+    },
+    {
+      "id": "hei_src_012849",
+      "exchange_id": "hei_ex_000228",
+      "event_id": "hei_ev_010261",
+      "source_type": "official_statement",
+      "title": "BIP-928 vote concluded: approved with 50% tetuBAL treatment",
+      "url": "https://forum.balancer.fi/t/bip-928-orderly-winddown-of-balancer-and-distribution-of-the-treasury/7107/23",
+      "publisher": "Balancer Forum",
+      "published_at": "2026-09-29",
+      "archived_url": null,
+      "accessed_at": "2026-10-15",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Official September 29 vote result confirms BIP-928 passed and outlines October 16, October 30, November 30, and May 2027 milestones."
+    }
+  ]
+}
