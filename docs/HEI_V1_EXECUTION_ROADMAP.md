@@ -99,6 +99,18 @@ Evidence: 4113
 
 It reflects one added Balancer approval event and two associated official sources, with no new exchange entity. The accompanying recovery contract is updated to validate this proposed branch. After review and merge, derive the current public counts again rather than treating these figures as an independent production statement.
 
+### Aero legacy-emissions transition review delta (PR #1014)
+
+The reviewed-build projection for this branch, subject to exact-head checks and deployment verification, is:
+
+```text
+Entities: 1075
+Events:   1143
+Evidence: 4117
+```
+
+This adds two announcement/transition events and four official evidence records for Aerodrome and Velodrome without reclassifying either protocol as dead, merged or rebranded. The 2026-10-22 legacy AERO/VELO emissions cutoff is scheduled, not confirmed complete. This is a reviewed data projection, not proof of Cloudflare production deployment.
+
 ## 4. Reviewed-count semantics
 
 Do not recover counts from base-array lengths alone.
