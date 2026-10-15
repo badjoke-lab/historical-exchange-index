@@ -48,7 +48,7 @@
   },
   "events": [
     {
-      "id": "hei_ev_020261015",
+      "id": "hei_ev_010261",
       "exchange_id": "hei_ex_000228",
       "event_type": "shutdown_announced",
       "event_date": "2026-09-29",
@@ -110,9 +110,9 @@
       "notes": "Current official domain remains reachable under the Balancer protocol identity."
     },
     {
-      "id": "hei_src_020261015",
+      "id": "hei_src_012848",
       "exchange_id": "hei_ex_000228",
-      "event_id": "hei_ev_020261015",
+      "event_id": "hei_ev_010261",
       "source_type": "official_statement",
       "title": "BIP-928: Orderly Winddown of Balancer and Distribution of the Treasury",
       "url": "https://forum.balancer.fi/t/bip-928-orderly-winddown-of-balancer-and-distribution-of-the-treasury/7107/1",
@@ -125,9 +125,9 @@
       "notes": "First-party governance proposal sets the withdrawals-only timeline, v3 exception, closure sequence and treasury distribution framework."
     },
     {
-      "id": "hei_src_020261016",
+      "id": "hei_src_012849",
       "exchange_id": "hei_ex_000228",
-      "event_id": "hei_ev_020261015",
+      "event_id": "hei_ev_010261",
       "source_type": "official_statement",
       "title": "BIP-928 vote concluded: approved with 50% tetuBAL treatment",
       "url": "https://forum.balancer.fi/t/bip-928-orderly-winddown-of-balancer-and-distribution-of-the-treasury/7107/23",
