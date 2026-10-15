@@ -21,8 +21,8 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-09-02",
-    "notes": "First-party documentation states that Velodrome launched on 2022-06-02 and describes it as an AMM designed to enable token swaps and liquidity provision. The current first-party application remains live and identifies Velodrome as a decentralized exchange. Lisk documentation separately identifies a Lisk-network Velodrome deployment, but HEI does not treat the announced 2026-10-31 Lisk Chain shutdown as a whole-entity Velodrome shutdown; deployment-level disposition remains tracked under issue #888."
+    "last_verified_at": "2026-10-15",
+    "notes": "First-party documentation states that Velodrome launched on 2022-06-02 and describes it as an AMM designed to enable token swaps and liquidity provision. The current first-party application remains live and identifies Velodrome as a decentralized exchange. Lisk documentation separately identifies a Lisk-network Velodrome deployment, but HEI does not treat the announced 2026-10-31 Lisk Chain shutdown as a whole-entity Velodrome shutdown; deployment-level disposition remains tracked under issue #888. As of 2026-10-15, the Aero consolidation is announced but not confirmed completed; legacy AERO/VELO emission end is scheduled for 2026-10-22 00:00 UTC. This is not an entity-level shutdown classification."
   },
   "events": [
     {
@@ -38,6 +38,20 @@
       "source_count": 1,
       "sort_order": 1,
       "notes": "Exact launch date is stated in current first-party Velodrome documentation."
+    },
+    {
+      "id": "hei_ev_010263",
+      "exchange_id": "hei_ex_001191",
+      "event_type": "other",
+      "event_date": "2026-10-13",
+      "title": "Aero unification and legacy AERO/VELO emissions cutoff announced",
+      "description": "The forthcoming Aero transition involves Aerodrome and Velodrome. Extra Finance announced that legacy AERO and VELO incentive emissions are scheduled to end on 2026-10-22 at 00:00 UTC and that borrowing for new Extra Finance leveraged farming positions would pause on 2026-10-14 at 08:00 UTC. The announcement does not establish that Velodrome Finance has ceased exchange operations or completed migration.",
+      "confidence": "high",
+      "impact_level": "high",
+      "event_status_effect": "none",
+      "source_count": 2,
+      "sort_order": 2,
+      "notes": "This is an announcement/transition milestone, not a completed merger, shutdown or token conversion. Recheck status after the announced October 22 cutoff."
     }
   ],
   "evidence": [
@@ -70,6 +84,36 @@
       "reliability": "high",
       "claim_scope": "status",
       "notes": "Current first-party application identifies Velodrome as a decentralized exchange offering token swaps and liquidity deposits, supporting active status."
+    },
+    {
+      "id": "hei_src_012852",
+      "exchange_id": "hei_ex_001191",
+      "event_id": "hei_ev_010263",
+      "source_type": "official_statement",
+      "title": "Aerodrome official documentation — planned consolidation with Velodrome into Aero",
+      "url": "https://aerodrome.finance/docs",
+      "publisher": "Aerodrome",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://aerodrome.finance/docs",
+      "accessed_at": "2026-10-15",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "First-party Aerodrome documentation explicitly describes the planned 2026 merger with Velodrome into Aero. It does not establish an effective merger date."
+    },
+    {
+      "id": "hei_src_012853",
+      "exchange_id": "hei_ex_001191",
+      "event_id": "hei_ev_010263",
+      "source_type": "official_statement",
+      "title": "Extra Finance — Aero Upgrade: Important Notice for Extra Finance Users",
+      "url": "https://medium.com/@ExtraFinance/aero-upgrade-important-notice-for-extra-finance-users-13527f93bf65",
+      "publisher": "Extra Finance",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-10-15",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Extra Finance's official announcement specifies planned 2026-10-22 00:00 UTC legacy AERO/VELO emission end and 2026-10-14 08:00 UTC borrowing pause; full Medium article was not independently accessible, so this exact timetable is cross-checked against the official account announcement."
     }
   ]
 }
