@@ -87,6 +87,18 @@ D-1000 is complete. L-2 remains HOLD because required external Search Console, G
 
 The finite AI-era resilience pass is a completed cross-cutting track. It does not reorder the separate localization roadmap and does not stop ongoing reviewed record growth, monitoring, corrections, evidence maintenance, or scheduled lifecycle follow-up.
 
+### Balancer BIP-928 review delta (PR #1013; pending merge)
+
+The reviewed-build projection for this **PR branch**, not yet a deployed `main` checkpoint, is:
+
+```text
+Entities: 1075
+Events:   1141
+Evidence: 4113
+```
+
+It reflects one added Balancer approval event and two associated official sources, with no new exchange entity. The accompanying recovery contract is updated to validate this proposed branch. After review and merge, derive the current public counts again rather than treating these figures as an independent production statement.
+
 ## 4. Reviewed-count semantics
 
 Do not recover counts from base-array lengths alone.
