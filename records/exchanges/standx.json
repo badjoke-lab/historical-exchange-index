@@ -1,1 +1,105 @@
-{"entity":{"id":"hei_ex_001018","slug":"standx","canonical_name":"StandX","aliases":["StandX Perps","StandX Exchange"],"type":"dex","status":"active","death_reason":null,"launch_date":null,"death_date":null,"country_or_origin":"BNB Chain and Solana ecosystems","summary":"Multichain perpetual decentralized exchange combining self-custodial derivatives trading with yield-bearing DUSD collateral and permissionless market creation across BNB Chain and Solana.","official_url_original":"https://standx.com/","official_domain_original":"standx.com","official_url_status":"live_verified","archived_url":"https://web.archive.org/web/*/https://standx.com/","predecessor_id":null,"successor_id":null,"confidence":"high","last_verified_at":"2026-07-24","notes":"Current first-party documentation identifies StandX as a live mainnet perpetual DEX across BNB Chain and Solana, with wallet-connected trading, REST and WebSocket APIs, DUSD yield-bearing margin, and permissionless market infrastructure. Current independently maintained metrics report substantial non-zero perpetual volume, TVL, and open interest. No exact full-entity launch date, legal jurisdiction, predecessor, successor, or terminal lifecycle fact is asserted."},"events":[],"evidence":[{"id":"hei_src_012252","exchange_id":"hei_ex_001018","event_id":null,"source_type":"official_statement","title":"About StandX","url":"https://docs.standx.com/","publisher":"StandX","published_at":null,"archived_url":"https://web.archive.org/web/*/https://docs.standx.com/","accessed_at":"2026-07-24","reliability":"high","claim_scope":"entity","notes":"First-party documentation identifies StandX as a live mainnet perpetual DEX across BNB Chain and Solana, powered by yield-bearing DUSD and permissionless market infrastructure."},{"id":"hei_src_012253","exchange_id":"hei_ex_001018","event_id":null,"source_type":"database_reference","title":"StandX protocol metrics","url":"https://defillama.com/protocol/standx","publisher":"DefiLlama","published_at":null,"archived_url":null,"accessed_at":"2026-07-24","reliability":"medium","claim_scope":"status","notes":"Current protocol metrics report substantial non-zero 24-hour, 7-day, and 30-day perpetual volume together with TVL and open interest, supporting active classification."}]}
+{
+  "entity": {
+    "id": "hei_ex_001018",
+    "slug": "standx",
+    "canonical_name": "StandX",
+    "aliases": [
+      "StandX Perps",
+      "StandX Exchange"
+    ],
+    "type": "dex",
+    "status": "limited",
+    "death_reason": null,
+    "launch_date": null,
+    "death_date": null,
+    "country_or_origin": "BNB Chain and Solana ecosystems",
+    "summary": "Multichain perpetual decentralized exchange on BNB Chain and Solana that announced a phased wind-down on 2026-10-15. Perpetual trading was scheduled to become reduce-only on 2026-10-20, with forced position closure on 2027-01-15 and DUSD redemptions and withdrawals closing on 2027-01-31.",
+    "official_url_original": "https://standx.com/",
+    "official_domain_original": "standx.com",
+    "official_url_status": "live_verified",
+    "archived_url": "https://web.archive.org/web/*/https://standx.com/",
+    "predecessor_id": null,
+    "successor_id": null,
+    "confidence": "medium",
+    "last_verified_at": "2026-10-22",
+    "notes": "Originally listed as active in July 2026. Multiple contemporaneous reports of StandX's 2026-10-15 wind-down announcement support limited classification as of 2026-10-22. Reduce-only began according to its announced schedule; direct live trading-mode checks have not been independently performed. Do not classify the exchange as dead or set death_date before final service termination is confirmed. DUSD redemption and issuer lifecycle are separate from the exchange status and belong in SOG. Earlier July evidence is historical, not current-status support."
+  },
+  "events": [
+    {
+      "id": "hei_ev_010299",
+      "exchange_id": "hei_ex_001018",
+      "event_type": "shutdown_announced",
+      "event_date": "2026-10-15",
+      "title": "StandX announces phased perpetual-exchange wind-down",
+      "description": "StandX announced a phased closure of its perpetual trading and DUSD services. Perpetuals, including Universal Markets, were scheduled to enter reduce-only mode on October 20, 2026. Remaining positions are scheduled to close on January 15, 2027; DUSD redemption requests and withdrawals are scheduled to close on January 31, 2027. These future closures are not yet recorded as completed.",
+      "confidence": "medium",
+      "impact_level": "high",
+      "event_status_effect": "limited",
+      "source_count": 2,
+      "sort_order": 1,
+      "notes": "Announcement date and milestones are supported by two contemporaneous reports referencing the operator announcement; an independently retrievable permanent official announcement URL was not established at review. The final shutdown remains future-dated as of 2026-10-22."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hei_src_012252",
+      "exchange_id": "hei_ex_001018",
+      "event_id": null,
+      "source_type": "official_statement",
+      "title": "About StandX",
+      "url": "https://docs.standx.com/",
+      "publisher": "StandX",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://docs.standx.com/",
+      "accessed_at": "2026-07-24",
+      "reliability": "high",
+      "claim_scope": "entity",
+      "notes": "First-party documentation identifies StandX as a live mainnet perpetual DEX across BNB Chain and Solana, powered by yield-bearing DUSD and permissionless market infrastructure."
+    },
+    {
+      "id": "hei_src_012253",
+      "exchange_id": "hei_ex_001018",
+      "event_id": null,
+      "source_type": "database_reference",
+      "title": "StandX protocol metrics",
+      "url": "https://defillama.com/protocol/standx",
+      "publisher": "DefiLlama",
+      "published_at": null,
+      "archived_url": null,
+      "accessed_at": "2026-07-24",
+      "reliability": "medium",
+      "claim_scope": "status",
+      "notes": "Current protocol metrics report substantial non-zero 24-hour, 7-day, and 30-day perpetual volume together with TVL and open interest, supporting active classification."
+    },
+    {
+      "id": "hei_src_014499",
+      "exchange_id": "hei_ex_001018",
+      "event_id": "hei_ev_010299",
+      "source_type": "news_article",
+      "title": "StandX sets January closure and DUSD exit dates",
+      "url": "https://defiprime.com/standx-sets-january-closure-and-dusd-exit-dates",
+      "publisher": "DeFi Prime",
+      "published_at": "2026-10-15",
+      "archived_url": null,
+      "accessed_at": "2026-10-22",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Contemporaneous report cites StandX's October 15 announcement at 06:06 UTC. Distinguishes October 20 reduce-only, January 15 forced settlement, and January 31 redemption and withdrawal dates; official original permalink needs follow-up."
+    },
+    {
+      "id": "hei_src_014500",
+      "exchange_id": "hei_ex_001018",
+      "event_id": "hei_ev_010299",
+      "source_type": "news_article",
+      "title": "StandX Begins Wind-Down, Ends Yield Payments and Rules Out a Token",
+      "url": "https://www.tokenpost.com/news/business/32326",
+      "publisher": "TokenPost",
+      "published_at": "2026-10-15",
+      "archived_url": null,
+      "accessed_at": "2026-10-22",
+      "reliability": "medium",
+      "claim_scope": "event",
+      "notes": "Secondary reporting on phased StandX wind-down; used to corroborate the scheduled trading and redemptions cutoff. Do not treat the future dates as completed."
+    }
+  ]
+}
