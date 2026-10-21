@@ -111,6 +111,18 @@ Evidence: 4117
 
 This adds two announcement/transition events and four official evidence records for Aerodrome and Velodrome without reclassifying either protocol as dead, merged or rebranded. The 2026-10-22 legacy AERO/VELO emissions cutoff is scheduled, not confirmed complete. This is a reviewed data projection, not proof of Cloudflare production deployment.
 
+### StandX wind-down reviewed PR #1016 projection (pending merge)
+
+The reviewed-build projection for this **branch** (not a production confirmation) is:
+
+```text
+Entities: 1075
+Events:   1144
+Evidence: 4119
+```
+
+This increments the event/evidence totals by +1/+2 for an existing exchange entity. StandX is `limited` while shutdown completion remains scheduled for January 2027. The source reports and actual service status require continued review. Recover current counts again when this PR is rebased/merged rather than hard-coding branch predictions as deployed facts.
+
 ## 4. Reviewed-count semantics
 
 Do not recover counts from base-array lengths alone.
