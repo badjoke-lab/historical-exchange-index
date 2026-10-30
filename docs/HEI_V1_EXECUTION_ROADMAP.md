@@ -485,3 +485,7 @@ The completed AI-era finite pass remains a mandatory cross-cutting product const
 ## 2026-10-30 Binance incident canonical delta (review pending)
 
 The reviewed-build aggregation for this proposed Binance incident update reports **1075 entities**, **1145 events**, and **4121 evidence** in the PR branch. Relative to the immediately preceding reviewed corpus, this is +0 entity, +2 events, and +4 evidence. The global Binance entity is provisionally `limited` as of the official October 30 announcement; it must be rechecked for resumed deposits/withdrawals before an active restoration. These numbers are branch observations, not production-parity claims. The active L-2 HOLD / evidence-capture gate and Lane A growth priorities remain unchanged.
+
+## 2026-10-31 Binance screenshot provenance follow-through (review pending)
+
+Existing Binance exchange `hei_ex_000003` reviewed bundle delta: **+0 entities / +5 events / +10 evidence**. These items are separately dated May 2019 theft, April 2022 Dutch registration enforcement, May 2024 Canadian registration/reporting enforcement, June 2024 Indian AML enforcement, and the October 30 2026 corporate loss-coverage allocation *claimed by Binance*; they are **not** all October 2026 hack losses. The branch reviewed count target is **1075 entities, 1150 events, 4131 evidence**. Any actual reimbursement, reserve proof, full withdrawal reopening, or actor identification requires a later evidence-backed event. The existing Lane A growth priority and L-2 HOLD gate remain unchanged.
