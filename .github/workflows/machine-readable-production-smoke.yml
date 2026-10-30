@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       expected_commit:
-        description: Optional exact deployed commit to verify
+        description: Optional exact deployed commit to verify (defaults to latest main SHA)
         required: false
         type: string
 
@@ -26,8 +26,8 @@ jobs:
     env:
       HEI_PUBLIC_ORIGIN: https://hei.badjoke-lab.com
       HEI_PRODUCTION_ORIGIN: https://hei.badjoke-lab.com
-      EXPECTED_COMMIT: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || inputs.expected_commit || '' }}
-      HEI_EXPECTED_PRODUCTION_COMMIT: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || inputs.expected_commit || '' }}
+      EXPECTED_COMMIT: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || inputs.expected_commit || github.sha }}
+      HEI_EXPECTED_PRODUCTION_COMMIT: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || inputs.expected_commit || github.sha }}
       SMOKE_MAX_ATTEMPTS: 20
       SMOKE_RETRY_DELAY_MS: 30000
       HEI_STAGE5_PRODUCTION_ATTEMPTS: 20
