@@ -481,3 +481,7 @@ Compare -> 750 -> Japanese Pilot/evaluation -> 1000 -> language selection
 ```
 
 The completed AI-era finite pass remains a mandatory cross-cutting product constraint rather than a replacement for that localization order.
+
+## 2026-10-30 Binance incident canonical delta (review pending)
+
+The reviewed-build aggregation for this proposed Binance incident update reports **1075 entities**, **1145 events**, and **4121 evidence** in the PR branch. Relative to the immediately preceding reviewed corpus, this is +0 entity, +2 events, and +4 evidence. The global Binance entity is provisionally `limited` as of the official October 30 announcement; it must be rechecked for resumed deposits/withdrawals before an active restoration. These numbers are branch observations, not production-parity claims. The active L-2 HOLD / evidence-capture gate and Lane A growth priorities remain unchanged.
