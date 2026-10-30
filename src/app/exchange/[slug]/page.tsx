@@ -253,6 +253,20 @@ export default async function ExchangeDetailPage({ params }: DetailPageProps) {
             </div>
           ) : null}
 
+          {entity.slug === 'binance' ? (
+            <section className="section" aria-label="Binance 2026 incident case file">
+              <h4>October 2026 security incident</h4>
+              <p className="muted" style={{ marginTop: 0, lineHeight: 1.65 }}>
+                Read the evidence-led case report on unauthorized wallet transfers, EIP-7702 observations,
+                the preliminary company investigation and unresolved recovery. The canonical event and
+                evidence history remains below.
+              </p>
+              <Link className="archive-link" href="/incidents/binance-2026-security-breach/">
+                Open the Binance security incident case file →
+              </Link>
+            </section>
+          ) : null}
+
           <div className="section">
             <h4>Registry sequence</h4>
             <div className="fact-grid">
