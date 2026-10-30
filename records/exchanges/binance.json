@@ -10,14 +10,14 @@
     "launch_date": "2017-07-14",
     "death_date": null,
     "country_or_origin": "Global",
-    "summary": "Global centralized cryptocurrency exchange launched July 14, 2017. In October 2026 it reported unauthorized wallet withdrawals with an initial estimated impact of USD 6.3 billion and temporarily suspended deposits and withdrawals during security checks. Its earlier November 2023 U.S. regulatory resolutions remain part of its separate historical record.",
+    "summary": "Global centralized cryptocurrency exchange launched July 14, 2017. In October 2026 it reported unauthorized wallet withdrawals with an initial estimated affected-asset amount of USD 6.3 billion. Withdrawals were suspended during security checks; Binance subsequently clarified that deposits remained available. Earlier November 2023 U.S. regulatory resolutions are a separate part of its historical record.",
     "official_url_original": "https://www.binance.com/",
     "official_domain_original": "binance.com",
     "official_url_status": "live_verified",
     "archived_url": "https://web.archive.org/web/*/https://www.binance.com/",
     "confidence": "high",
     "last_verified_at": "2026-10-30",
-    "notes": "The October 29–30 security incident is ongoing as of Binance's reviewed October 30 statement. Roughly USD 3B frozen on-chain is not equivalent to recovered funds; neither final losses nor technical attribution are established. Binance pledged SAFU/company coverage. The global exchange has not been declared closed. Binance.US and Binance Japan are distinct regional scopes, not silently classified by the global incident."
+    "notes": "The October 29–30 security incident remains under investigation as of Binance's October 30 statements. Roughly USD 3B frozen on-chain is not equivalent to recovered funds; final loss and attack attribution are unverified. Binance pledged to compensate customers using both the SAFU reserve and corporate funds. Binance's homepage listed 15,000 BTC in SAFU as of February 2026; this does not establish total available corporate liquidity or a fixed compensation coverage ratio. Trading and deposits remained operational per its later clarification while withdrawals were restricted. Binance.US and Binance Japan are distinct regional scopes, not silently classified by this global incident; Binance Japan separately reported unaffected customer assets but temporarily paused crypto withdrawals."
   },
   "entity_correction": {
     "entity_id": "hei_ex_000003",
@@ -28,8 +28,8 @@
       "status": "active"
     },
     "changes": {
-      "summary": "Global centralized cryptocurrency exchange launched July 14, 2017. In October 2026 it reported unauthorized wallet withdrawals with an initial estimated impact of USD 6.3 billion and temporarily suspended deposits and withdrawals during security checks. Its earlier November 2023 U.S. regulatory resolutions remain part of its separate historical record.",
-      "notes": "The October 29–30 security incident is ongoing as of Binance's reviewed October 30 statement. Roughly USD 3B frozen on-chain is not equivalent to recovered funds; neither final losses nor technical attribution are established. Binance pledged SAFU/company coverage. The global exchange has not been declared closed. Binance.US and Binance Japan are distinct regional scopes, not silently classified by the global incident.",
+      "summary": "Global centralized cryptocurrency exchange launched July 14, 2017. In October 2026 it reported unauthorized wallet withdrawals with an initial estimated affected-asset amount of USD 6.3 billion. Withdrawals were suspended during security checks; Binance subsequently clarified that deposits remained available. Earlier November 2023 U.S. regulatory resolutions are a separate part of its historical record.",
+      "notes": "The October 29–30 security incident remains under investigation as of Binance's October 30 statements. Roughly USD 3B frozen on-chain is not equivalent to recovered funds; final loss and attack attribution are unverified. Binance pledged to compensate customers using both the SAFU reserve and corporate funds. Binance's homepage listed 15,000 BTC in SAFU as of February 2026; this does not establish total available corporate liquidity or a fixed compensation coverage ratio. Trading and deposits remained operational per its later clarification while withdrawals were restricted. Binance.US and Binance Japan are distinct regional scopes, not silently classified by this global incident; Binance Japan separately reported unaffected customer assets but temporarily paused crypto withdrawals.",
       "last_verified_at": "2026-10-30",
       "status": "limited"
     }
@@ -86,14 +86,14 @@
       "exchange_id": "hei_ex_000003",
       "event_type": "withdrawal_suspended",
       "event_date": "2026-10-29",
-      "title": "Binance temporarily suspends deposits and withdrawals for security checks",
-      "description": "After the October 29 wallet incident, Binance temporarily suspended deposits and withdrawals, revoked the affected address authorization, and worked with law enforcement and blockchain intelligence partners on tracing and containment. The company said user funds remained safe and committed to covering losses from SAFU and company funds; resumption time and completed restitution were not established by the reviewed announcement.",
+      "title": "Binance temporarily pauses withdrawals; later confirms deposits remained available",
+      "description": "Following unauthorized hot-wallet transfers on October 29, Binance suspended withdrawals for security checks and revoked affected address authorization. Its initial announcement also described a temporary deposits suspension, but a later official clarification stated that deposits remained unaffected and operating normally. Trading remained possible. Binance pledged to cover customer losses with SAFU and corporate resources, but compensation completion and full withdrawals reopening had not been established in the reviewed October 30 statements.",
       "confidence": "high",
       "impact_level": "critical",
       "event_status_effect": "limited",
       "source_count": 2,
       "sort_order": 5,
-      "notes": "Temporary precautionary restrictions are distinct from an exchange shutdown. Re-check official service reopening and any revised amount before making an active-status restoration."
+      "notes": "The service restriction is not an exchange shutdown. The initial notice's deposits-and-withdrawals phrasing was subsequently corrected by Binance; use the latest clarified state rather than perpetuating a deposit freeze. Check withdrawal reopening independently and record its date before changing the exchange from limited to active."
     }
   ],
   "evidence": [
@@ -215,7 +215,7 @@
       "accessed_at": "2026-10-30",
       "reliability": "high",
       "claim_scope": "event",
-      "notes": "Primary statement for deposits/withdrawals security suspension, affected address authorization revocation and recovery commitment."
+      "notes": "Primary security statement originally described deposit and withdrawal suspensions; Binance subsequently clarified deposits remained operational. See the October 30 official follow-up and case report for the correction. SAFU and company funds were pledged; no payment-completion proof supplied."
     },
     {
       "id": "hei_src_261032",

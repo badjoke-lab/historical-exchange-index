@@ -56,3 +56,5 @@
 .lastChecked{font-size:12px!important;border-top:1px solid var(--line);padding-top:20px;margin-top:20px!important}
 @media(max-width:850px){.summary,.chronology,.provenance,.canonical,.followup,.sources{grid-template-columns:1fr;gap:14px;padding:32px 0}.metricStrip{grid-template-columns:repeat(2,1fr)}.metricStrip>div:nth-child(3){border-left:0;padding-left:0;border-top:1px solid var(--line)}.metricStrip>div:nth-child(4){border-top:1px solid var(--line)}}
 @media(max-width:550px){.page{padding:20px 14px 70px}.hero{padding-top:28px}.hero h1{font-size:36px;overflow-wrap:break-word}.heroLinks{gap:10px 20px}.metricStrip>div{padding:18px 12px 18px 0}.metricStrip>div+div{padding-left:12px}.metricStrip>div:nth-child(3){padding-left:0}.timeline li{grid-template-columns:1fr;gap:6px}.claims{grid-template-columns:1fr}.claims>div:nth-child(even){border-left:0;padding-left:0}.recordEvents li{grid-template-columns:1fr;gap:3px}}
+
+/* SAFU capacity and frozen-assets caveats share the editorial section typography. */

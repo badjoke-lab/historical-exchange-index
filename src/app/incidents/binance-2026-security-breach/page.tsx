@@ -51,7 +51,7 @@ const milestones = [
   {
     when: '29–30 Oct',
     label: 'Restrictions and containment',
-    body: 'Binance suspended deposits and withdrawals for security checks, revoked affected address authorization, and worked with issuers, blockchain intelligence firms and law enforcement to freeze or trace affected assets.',
+    body: 'Binance paused withdrawals for security checks; deposits remained available after a later official clarification, revoked affected address authorization, and worked with issuers, blockchain intelligence firms and law enforcement to freeze or trace affected assets.',
     source: 'Binance initial incident statement',
   },
   {
@@ -68,6 +68,15 @@ const references = [
   { group: 'Independent investigation', name: 'Reuters — Binance breach and asset-freeze investigation', href: 'https://www.reuters.com/legal/transactional/tether-circle-freeze-238-billion-after-binance-reports-security-incident-2026-10-29/', detail: 'Independent reporting about exchange operations, asset tracing, freeze totals and differing attribution claims.' },
   { group: 'Connected protocol / primary', name: 'LlamaRisk / Aave — Binance Hot Wallet Exploit: Aave’s Response', href: 'https://governance.aave.com/t/binance-hot-wallet-exploit-aaves-response/25954', detail: 'Cross-chain outflow chronology and the operational effect on a separate lending protocol.' },
   { group: 'Independent technical analysis', name: 'EIP-7702 authorization analysis — transaction chronology', href: 'https://808bits.com/articles/binance-hot-wallet-eip-7702-delegations/', detail: 'Analysis of the authorization-list transaction and delegation; interpretation is distinct from Binance’s uncompleted root-cause investigation.' },
+  { group: 'SAFU / Binance primary', name: 'Binance homepage — SAFU BTC wallet and February 2026 balance', href: 'https://www.binance.com/en', detail: '15,000 BTC disclosed as of February 2026, not a measure of all corporate liquidity.' },
+  { group: 'SAFU / Binance primary', name: 'Binance — Open Letter on BTC reserve conversion', href: 'https://www.binance.com/en/blog/community/7001232677846823071', detail: 'Plan to shift a roughly USD 1 billion stablecoin SAFU reserve to BTC and replenish if it falls below USD 800M.' },
+  { group: 'SAFU / independent', name: 'CoinDesk — SAFU conversion completed on February 12', href: 'https://www.coindesk.com/business/2026/02/12/binance-converts-its-usd1-billion-safu-fund-into-15-000-btc', detail: 'Reports 15,000 BTC at the conversion completion on February 12, 2026.' },
+  { group: 'Binance / later operational clarification', name: 'Binance — Deposits operating normally during withdrawal pause', href: 'https://www.binance.com/en/square/post/10-30-2026-binance-deposits-are-no-longer-affected-pledges-to-cover-losses-related-to-the-incident-382683663031259', detail: 'Corrects the initial notice: deposits remained available; withdrawals paused pending security upgrades.' },
+  { group: 'Binance Japan / primary', name: 'Binance Japan — October 30 client assets and service notice', href: 'https://prtimes.jp/main/html/rd/p/000000061.000126862.html', detail: 'Separated cold wallets and no observed direct client loss; precautionary crypto withdrawal pause.' },
+  { group: 'Security intelligence / analysis', name: 'Elliptic — Analysis of suspected North Korean attribution', href: 'https://www.elliptic.co/insights/binance-largest-hack-in-history/', detail: 'Investigative attribution; not established as a final legal finding.' },
+  { group: 'Binance / company funds update', name: 'Binance — October 30 allocation of over USD 6.34B', href: 'https://www.binance.com/en/square/post/382843670823915', detail: 'Binance says >$6.34B allocated, $5B in matching tokens, remaining assets to be purchased; excludes separately frozen funds. Amounts await independent reconciliation.' },
+  { group: 'Independent contemporaneous reporting', name: 'Reuters — Binance sets aside over USD 6.34B', href: 'https://www.reuters.com/legal/transactional/binance-sets-aside-over-634-billion-cover-losses-attack-2026-10-30/', detail: 'Independent report of the company allocation and planned proof-of-reserves follow-up.' },
+
 ]
 
 const reviewQuestions = [
@@ -169,8 +178,28 @@ export default function Binance2026IncidentReport() {
         </div>
       </section>
 
+      <section className={styles.provenance} aria-labelledby="case-safu">
+        <div className={styles.sectionLabel}>04 / SAFU &amp; CLAIMED COVERAGE</div>
+        <div>
+          <h2 id="case-safu">What the emergency fund can—and cannot—prove</h2>
+          <p>Binance lists <strong>15,000 BTC in its SAFU wallet as of February 2026</strong>. Its previously stablecoin-denominated, roughly USD 1 billion SAFU reserve was converted to BTC; the completed 15,000 BTC position was reported on <strong>February 12, 2026</strong>, not February 9. Binance also pledged to replenish the fund if its market value dropped below USD 800 million.</p>
+          <p>As an illustrative snapshot only, 15,000 BTC at USD 77,000 is worth about USD 1.155 billion—roughly 18% of Binance’s initial USD 6.3 billion affected-asset estimate. If all USD 3 billion reported frozen were returned, an illustrative remaining USD 3.3 billion would leave the BTC fund equivalent to about 35%. <strong>Neither figure is a confirmed reimbursement rate, loss rate or solvency ratio.</strong> Frozen assets are not automatically recovered; Bitcoin prices fluctuate; and Binance’s available corporate resources are not measured by this wallet.</p>
+          <p>In a subsequent October 30 update, Binance said it had <strong>allocated more than USD 6.34 billion in company resources</strong> for this incident, including <strong>USD 5 billion already held in the affected token assets</strong>. It said it was buying the remaining roughly USD 1.34 billion in the required tokens through markets and OTC channels; the reported USD 3 billion of frozen assets was expressly excluded from this allocation. These are <strong>company claims</strong>, corroborated as reported statements by Reuters and other outlets—not an independent audit of the wallet balances or proof that all matching-token purchases and reimbursements are complete.</p>
+          <p>Binance has pledged to cover losses using SAFU and company resources. The latest allocation announcement substantially changes any earlier claim that the SAFU wallet alone must cover the event. The completed restitution, final realized loss, and independent verification of the full allocation remain open. Past hacks, regulatory settlements and speculative future compliance costs are separate categories and should not be added as a lifetime hacking-loss total.</p>
+        </div>
+      </section>
+
+      <section className={styles.canonical} aria-labelledby="case-region">
+        <div className={styles.sectionLabel}>05 / REGIONAL EFFECTS</div>
+        <div>
+          <h2 id="case-region">Binance Japan: assets and availability are different claims</h2>
+          <p>Binance Japan said on October 30 that its client assets were held separately in cold wallets, with <strong>no direct client-asset loss identified</strong> from this incident. It nevertheless temporarily suspended cryptocurrency withdrawals. Cryptocurrency deposits, trading and fiat transfers remained operational. This precautionary restriction is not evidence of a Binance Japan wallet exploit.</p>
+          <p>Analysis from blockchain intelligence firms including Elliptic attributes the global attack to North Korean actors, but that judgment remains <strong>third-party attribution</strong>, not Binance’s completed forensic conclusion or a judicial finding. DeFi self-custody and DEX trading can reduce exchange-custody exposure, but do not eliminate smart-contract, approval, phishing or routing risks.</p>
+        </div>
+      </section>
+
       <section className={styles.canonical} aria-labelledby="case-registry">
-        <div className={styles.sectionLabel}>04 / REGISTRY CONNECTION</div>
+        <div className={styles.sectionLabel}>06 / REGISTRY CONNECTION</div>
         <div>
           <h2 id="case-registry">Canonical HEI record</h2>
           <p>This article is explanatory analysis, not an alternative source of truth. HEI’s reviewed Binance entity, dated events and event-specific evidence remain the canonical historical record.</p>
@@ -186,7 +215,7 @@ export default function Binance2026IncidentReport() {
       </section>
 
       <section className={styles.followup} aria-labelledby="case-open-questions">
-        <div className={styles.sectionLabel}>05 / HISTORICAL FOLLOW-THROUGH</div>
+        <div className={styles.sectionLabel}>07 / HISTORICAL FOLLOW-THROUGH</div>
         <div>
           <h2 id="case-open-questions">What remains to be verified</h2>
           <ul>{reviewQuestions.map((question) => <li key={question}>{question}</li>)}</ul>
@@ -195,7 +224,7 @@ export default function Binance2026IncidentReport() {
       </section>
 
       <section className={styles.sources} aria-labelledby="case-sources">
-        <div className={styles.sectionLabel}>06 / SOURCES</div>
+        <div className={styles.sectionLabel}>08 / SOURCES</div>
         <div>
           <h2 id="case-sources">Source trail</h2>
           <p>Primary statements and transaction records are listed separately from analyses. Links do not turn third-party hypotheses into official findings.</p>
