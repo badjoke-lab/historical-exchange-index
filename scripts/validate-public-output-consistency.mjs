@@ -97,6 +97,7 @@ const stats = readOut(path.join('stats', 'index.html'))
 const quality = readOut(path.join('quality', 'index.html'))
 const updates = readOut(path.join('updates', 'index.html'))
 const incidents = readOut(path.join('incidents', 'index.html'))
+const binanceCaseFile = readOut(path.join('incidents', 'binance-2026-security-breach', 'index.html'))
 const monthly = readOut(path.join('monthly', 'index.html'))
 const firstEntity = entities[0]
 const detail = readOut(path.join('exchange', firstEntity.slug, 'index.html'))
@@ -145,6 +146,7 @@ for (const [route, html, canonical] of [
   ['/quality/', quality, `${origin}/quality/`],
   ['/updates/', updates, `${origin}/updates/`],
   ['/incidents/', incidents, `${origin}/incidents/`],
+  ['/incidents/binance-2026-security-breach/', binanceCaseFile, `${origin}/incidents/binance-2026-security-breach/`],
   ['/monthly/', monthly, `${origin}/monthly/`],
   [`/exchange/${firstEntity.slug}/`, detail, `${origin}/exchange/${firstEntity.slug}/`],
   ['/ja/', jaHome, `${origin}/ja/`],
@@ -216,13 +218,16 @@ for (const [label, count] of [['Total records', expected.total],['Dead-side', ex
 const sitemap = readOut('sitemap.xml')
 const sitemapLocations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1])
 const incidentPageSize = 25
-const englishStaticRouteCount = 13
+const englishStaticRouteCount = 14
 const japaneseStaticRouteCount = 12
 const incidentPaginationRouteCount = Math.max(Math.ceil(expected.incidents / incidentPageSize) - 1, 0)
 const expectedSitemapCount = entities.length * 2 + englishStaticRouteCount + japaneseStaticRouteCount + incidentPaginationRouteCount
 assert(sitemapLocations.length === expectedSitemapCount, `bilingual sitemap URL count mismatch: ${sitemapLocations.length} != ${expectedSitemapCount}`)
 assert(sitemapLocations.includes(`${origin}/explore/`), 'sitemap is missing /explore/')
 assert(sitemapLocations.includes(`${origin}/compare/`), 'sitemap is missing /compare/')
+assert(sitemapLocations.includes(`${origin}/incidents/binance-2026-security-breach/`), 'sitemap is missing Binance historical case report')
+assert(stripHtml(binanceCaseFile).includes('Binance 2026 Security Breach'), 'Binance historical case file is missing reviewed title')
+assert(stripHtml(binanceCaseFile).includes('~$6.3B'), 'Binance historical case file is missing preliminary impact label')
 assert(!sitemapLocations.some((url) => url.includes('?')), 'sitemap contains query variants')
 for (const route of ['/ja/','/ja/dead/','/ja/active/','/ja/explore/','/ja/stats/','/ja/quality/','/ja/updates/','/ja/incidents/','/ja/monthly/','/ja/methodology/','/ja/about/','/ja/donate/']) {
   assert(sitemapLocations.includes(`${origin}${route}`), `sitemap is missing ${route}`)

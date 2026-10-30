@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/quality/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/updates/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/incidents/`, lastModified: registryLastModified, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${SITE_URL}/incidents/binance-2026-security-breach/`, lastModified: new Date('2026-10-30T00:00:00.000Z'), changeFrequency: 'weekly', priority: 0.85 },
     { url: `${SITE_URL}/monthly/`, lastModified: registryLastModified, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/methodology/`, lastModified: registryLastModified, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/about/`, lastModified: registryLastModified, changeFrequency: 'monthly', priority: 0.6 },

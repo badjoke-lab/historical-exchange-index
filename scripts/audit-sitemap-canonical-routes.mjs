@@ -33,6 +33,7 @@ const STATIC_ROUTES = [
   '/quality/',
   '/updates/',
   '/incidents/',
+  '/incidents/binance-2026-security-breach/',
   '/monthly/',
   '/methodology/',
   '/about/',
