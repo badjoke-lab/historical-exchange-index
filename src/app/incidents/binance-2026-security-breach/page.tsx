@@ -51,7 +51,7 @@ const milestones = [
   {
     when: '29–30 Oct',
     label: 'Restrictions and containment',
-    body: 'Binance suspended deposits and withdrawals for security checks, revoked affected address authorization, and worked with issuers, blockchain intelligence firms and law enforcement to freeze or trace affected assets.',
+    body: 'Binance paused withdrawals for security checks; deposits remained available after a later official clarification, revoked affected address authorization, and worked with issuers, blockchain intelligence firms and law enforcement to freeze or trace affected assets.',
     source: 'Binance initial incident statement',
   },
   {
