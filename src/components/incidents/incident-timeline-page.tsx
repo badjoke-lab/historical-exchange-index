@@ -137,7 +137,7 @@ export default function IncidentTimelinePage({ pageNumber }: { pageNumber: numbe
                   <div className={styles.exchangeRow}><Link href={`/exchange/${entity.slug}/`}>{entity.canonical_name}</Link><span>{entity.type.toUpperCase()}</span><span>{entity.status}</span></div>
                   <h3>{event.title}</h3><p className={styles.description}>{event.description}</p>
                   <div className={styles.eventFacts}><span>Status effect: <strong>{event.event_status_effect}</strong></span><span>Confidence: <strong>{event.confidence}</strong></span><span>Direct event-linked evidence: <strong>{evidence.length}</strong></span></div>
-                  <div className={styles.recordLinkRow}><Link href={`/exchange/${entity.slug}/`}>Open exchange dossier</Link><Link href={eventTypeHref(event.event_type)}>Explore this event type</Link><a href={`#${event.id}`}>Permalink</a></div>
+                  <div className={styles.recordLinkRow}><Link href={`/exchange/${entity.slug}/`}>Open exchange dossier</Link><Link href={eventTypeHref(event.event_type)}>Explore this event type</Link>{entity.slug === 'binance' && event.event_date?.startsWith('2026-10-29') ? <Link href="/incidents/binance-2026-security-breach/">Read full Binance case report</Link> : null}<a href={`#${event.id}`}>Permalink</a></div>
                 </article>
               ))}
             </div>
