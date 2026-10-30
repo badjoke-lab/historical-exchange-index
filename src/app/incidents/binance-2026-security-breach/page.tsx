@@ -169,6 +169,25 @@ export default function Binance2026IncidentReport() {
         </div>
       </section>
 
+      <section className={styles.provenance} aria-labelledby="case-safu">
+        <div className={styles.sectionLabel}>04 / SAFU &amp; CLAIMED COVERAGE</div>
+        <div>
+          <h2 id="case-safu">What the emergency fund can—and cannot—prove</h2>
+          <p>Binance lists <strong>15,000 BTC in its SAFU wallet as of February 2026</strong>. Its previously stablecoin-denominated, roughly USD 1 billion SAFU reserve was converted to BTC; the completed 15,000 BTC position was reported on <strong>February 12, 2026</strong>, not February 9. Binance also pledged to replenish the fund if its market value dropped below USD 800 million.</p>
+          <p>As an illustrative snapshot only, 15,000 BTC at USD 77,000 is worth about USD 1.155 billion—roughly 18% of Binance’s initial USD 6.3 billion affected-asset estimate. If all USD 3 billion reported frozen were returned, an illustrative remaining USD 3.3 billion would leave the BTC fund equivalent to about 35%. <strong>Neither figure is a confirmed reimbursement rate, loss rate or solvency ratio.</strong> Frozen assets are not automatically recovered; Bitcoin prices fluctuate; and Binance’s available corporate resources are not measured by this wallet.</p>
+          <p>Binance has pledged to cover losses using <strong>both SAFU and company funds</strong>. The completed restitution amount, deployable corporate liquidity, realized loss, and ultimate recovery remain unverified. Past security incidents, regulatory settlements and hypothetical future compliance costs are separate categories and cannot legitimately be summed as one lifetime hacking-loss total.</p>
+        </div>
+      </section>
+
+      <section className={styles.canonical} aria-labelledby="case-region">
+        <div className={styles.sectionLabel}>05 / REGIONAL EFFECTS</div>
+        <div>
+          <h2 id="case-region">Binance Japan: assets and availability are different claims</h2>
+          <p>Binance Japan said on October 30 that its client assets were held separately in cold wallets, with <strong>no direct client-asset loss identified</strong> from this incident. It nevertheless temporarily suspended cryptocurrency withdrawals. Cryptocurrency deposits, trading and fiat transfers remained operational. This precautionary restriction is not evidence of a Binance Japan wallet exploit.</p>
+          <p>Analysis from blockchain intelligence firms including Elliptic attributes the global attack to North Korean actors, but that judgment remains <strong>third-party attribution</strong>, not Binance’s completed forensic conclusion or a judicial finding. DeFi self-custody and DEX trading can reduce exchange-custody exposure, but do not eliminate smart-contract, approval, phishing or routing risks.</p>
+        </div>
+      </section>
+
       <section className={styles.canonical} aria-labelledby="case-registry">
         <div className={styles.sectionLabel}>04 / REGISTRY CONNECTION</div>
         <div>
