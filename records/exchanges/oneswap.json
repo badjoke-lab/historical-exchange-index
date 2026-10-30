@@ -8,12 +8,12 @@
       "ONES"
     ],
     "type": "dex",
-    "status": "limited",
-    "death_reason": null,
+    "status": "dead",
+    "death_reason": "chain_failure",
     "launch_date": "2020-09-18",
-    "death_date": null,
+    "death_date": "2026-09-29",
     "country_or_origin": "CoinEx ecosystem / global",
-    "summary": "Decentralized on-chain trading protocol combining permissionless token listing, automated market making, and order-book functionality, now in a shutdown wind-down with all OneSwap services scheduled to cease on September 29, 2026.",
+    "summary": "Decentralized trading platform combining automated market making and order-book functionality on CoinEx Smart Chain. Its operations ended on 29 September 2026 as the underlying CSC network stopped operating.",
     "official_url_original": "https://www.oneswap.net/",
     "official_domain_original": "oneswap.net",
     "official_url_status": "live_verified",
@@ -21,8 +21,8 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-09-20",
-    "notes": "OneSwap's first-party help center says all services will discontinue at 02:00 UTC on September 29, 2026 because CoinEx Smart Chain (CSC) and CoinEx Exchange are being discontinued. HEI records the present wind-down as limited and leaves death_date null until the scheduled cessation is confirmed. CoinEx documentation describes OneSwap as an on-chain trading platform with permissionless listing, AMM, and order-book functionality."
+    "last_verified_at": "2026-10-30",
+    "notes": "OneSwap's 15 September 2026 first-party notice specified a complete service stop at 02:00 UTC on 29 September. The current OneSwap homepage independently confirms that CoinEx Smart Chain officially ceased operations at 10:00 UTC+8 on 29 September and that related developer services were discontinued. Taken together, these first-party statements support a completed shutdown of the CSC-dependent OneSwap service. The historical homepage may still display static trading/interface copy; do not treat its reachability as live protocol trading. Death reason records the underlying chain cessation, not a security exploit. Verified 2026-10-30."
   },
   "events": [
     {
@@ -38,6 +38,20 @@
       "source_count": 2,
       "sort_order": 1,
       "notes": "This is an announced future terminal shutdown. HEI does not emit shutdown_effective or set death_date until the scheduled cessation is confirmed."
+    },
+    {
+      "id": "hei_ev_030027",
+      "exchange_id": "hei_ex_001193",
+      "event_type": "shutdown_effective",
+      "event_date": "2026-09-29",
+      "title": "OneSwap ceased services after CoinEx Smart Chain shutdown",
+      "description": "OneSwap's official cessation notice set 02:00 UTC on 29 September 2026 for discontinuation of all services. Its live homepage later confirmed that CoinEx Smart Chain had officially ceased operations and related developer services were discontinued on that date.",
+      "confidence": "high",
+      "impact_level": "critical",
+      "event_status_effect": "dead",
+      "source_count": 1,
+      "sort_order": 2,
+      "notes": "Post-deadline official homepage corroborates the underlying chain cessation; do not equate residual static frontend reachability with a functioning DEX."
     }
   ],
   "evidence": [
@@ -100,6 +114,21 @@
       "reliability": "medium",
       "claim_scope": "launch_date",
       "notes": "CoinMarketCap's exchange profile states that OneSwap launched on September 18, 2020 and describes its AMM and order-book model."
+    },
+    {
+      "id": "hei_src_030027",
+      "exchange_id": "hei_ex_001193",
+      "event_id": "hei_ev_030027",
+      "source_type": "official_statement",
+      "title": "OneSwap homepage notice: CoinEx Smart Chain officially ceased operations",
+      "url": "https://www.oneswap.net/",
+      "publisher": "OneSwap",
+      "published_at": null,
+      "archived_url": "https://web.archive.org/web/*/https://www.oneswap.net/",
+      "accessed_at": "2026-10-30",
+      "reliability": "high",
+      "claim_scope": "event",
+      "notes": "Current first-party homepage states that CSC officially ceased at 10:00 on 29 September 2026 (UTC+8) and all related developer services were discontinued; read together with the 15 September official all-service shutdown notice."
     }
   ]
 }
