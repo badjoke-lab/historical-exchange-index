@@ -489,3 +489,7 @@ The reviewed-build aggregation for this proposed Binance incident update reports
 ## 2026-10-31 Binance screenshot provenance follow-through (review pending)
 
 Existing Binance exchange `hei_ex_000003` reviewed bundle delta: **+0 entities / +5 events / +10 evidence**. These items are separately dated May 2019 theft, April 2022 Dutch registration enforcement, May 2024 Canadian registration/reporting enforcement, June 2024 Indian AML enforcement, and the October 30 2026 corporate loss-coverage allocation *claimed by Binance*; they are **not** all October 2026 hack losses. The branch reviewed count target is **1075 entities, 1150 events, 4131 evidence**. Any actual reimbursement, reserve proof, full withdrawal reopening, or actor identification requires a later evidence-backed event. The existing Lane A growth priority and L-2 HOLD gate remain unchanged.
+
+## 2026-10-31 Bybit comparison source reconciliation (review pending)
+
+Add the previously unrecorded February 21, 2025 Bybit cold-wallet exploit to existing exchange `hei_ex_000011`: +0 entities / +1 event / +2 evidence. Bybit's first-party post-mortem and US FBI attribution are cited; source-time USD valuation and asset quantities are distinct from contemporary market prices. Binance 2026 and Bybit 2025 are separate events. New branch-reviewed count targets: **1075 entities, 1151 events, 4133 evidence**. All Lane A and L-2 gate priorities remain unchanged.
