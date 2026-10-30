@@ -68,6 +68,13 @@ const references = [
   { group: 'Independent investigation', name: 'Reuters — Binance breach and asset-freeze investigation', href: 'https://www.reuters.com/legal/transactional/tether-circle-freeze-238-billion-after-binance-reports-security-incident-2026-10-29/', detail: 'Independent reporting about exchange operations, asset tracing, freeze totals and differing attribution claims.' },
   { group: 'Connected protocol / primary', name: 'LlamaRisk / Aave — Binance Hot Wallet Exploit: Aave’s Response', href: 'https://governance.aave.com/t/binance-hot-wallet-exploit-aaves-response/25954', detail: 'Cross-chain outflow chronology and the operational effect on a separate lending protocol.' },
   { group: 'Independent technical analysis', name: 'EIP-7702 authorization analysis — transaction chronology', href: 'https://808bits.com/articles/binance-hot-wallet-eip-7702-delegations/', detail: 'Analysis of the authorization-list transaction and delegation; interpretation is distinct from Binance’s uncompleted root-cause investigation.' },
+  { group: 'SAFU / Binance primary', name: 'Binance homepage — SAFU BTC wallet and February 2026 balance', href: 'https://www.binance.com/en', detail: '15,000 BTC disclosed as of February 2026, not a measure of all corporate liquidity.' },
+  { group: 'SAFU / Binance primary', name: 'Binance — Open Letter on BTC reserve conversion', href: 'https://www.binance.com/en/blog/community/7001232677846823071', detail: 'Plan to shift a roughly USD 1 billion stablecoin SAFU reserve to BTC and replenish if it falls below USD 800M.' },
+  { group: 'SAFU / independent', name: 'CoinDesk — SAFU conversion completed on February 12', href: 'https://www.coindesk.com/business/2026/02/12/binance-converts-its-usd1-billion-safu-fund-into-15-000-btc', detail: 'Reports 15,000 BTC at the conversion completion on February 12, 2026.' },
+  { group: 'Binance / later operational clarification', name: 'Binance — Deposits operating normally during withdrawal pause', href: 'https://www.binance.com/en/square/post/10-30-2026-binance-deposits-are-no-longer-affected-pledges-to-cover-losses-related-to-the-incident-382683663031259', detail: 'Corrects the initial notice: deposits remained available; withdrawals paused pending security upgrades.' },
+  { group: 'Binance Japan / primary', name: 'Binance Japan — October 30 client assets and service notice', href: 'https://prtimes.jp/main/html/rd/p/000000061.000126862.html', detail: 'Separated cold wallets and no observed direct client loss; precautionary crypto withdrawal pause.' },
+  { group: 'Security intelligence / analysis', name: 'Elliptic — Analysis of suspected North Korean attribution', href: 'https://www.elliptic.co/insights/binance-largest-hack-in-history/', detail: 'Investigative attribution; not established as a final legal finding.' },
+
 ]
 
 const reviewQuestions = [
@@ -189,7 +196,7 @@ export default function Binance2026IncidentReport() {
       </section>
 
       <section className={styles.canonical} aria-labelledby="case-registry">
-        <div className={styles.sectionLabel}>04 / REGISTRY CONNECTION</div>
+        <div className={styles.sectionLabel}>06 / REGISTRY CONNECTION</div>
         <div>
           <h2 id="case-registry">Canonical HEI record</h2>
           <p>This article is explanatory analysis, not an alternative source of truth. HEI’s reviewed Binance entity, dated events and event-specific evidence remain the canonical historical record.</p>
@@ -205,7 +212,7 @@ export default function Binance2026IncidentReport() {
       </section>
 
       <section className={styles.followup} aria-labelledby="case-open-questions">
-        <div className={styles.sectionLabel}>05 / HISTORICAL FOLLOW-THROUGH</div>
+        <div className={styles.sectionLabel}>07 / HISTORICAL FOLLOW-THROUGH</div>
         <div>
           <h2 id="case-open-questions">What remains to be verified</h2>
           <ul>{reviewQuestions.map((question) => <li key={question}>{question}</li>)}</ul>
@@ -214,7 +221,7 @@ export default function Binance2026IncidentReport() {
       </section>
 
       <section className={styles.sources} aria-labelledby="case-sources">
-        <div className={styles.sectionLabel}>06 / SOURCES</div>
+        <div className={styles.sectionLabel}>08 / SOURCES</div>
         <div>
           <h2 id="case-sources">Source trail</h2>
           <p>Primary statements and transaction records are listed separately from analyses. Links do not turn third-party hypotheses into official findings.</p>
