@@ -24,7 +24,8 @@
     "expected": {
       "summary": "Centralized exchange launched in 2017 and still operating under the Binance brand.",
       "notes": "Official Binance announcement set the exchange launch for 2017-07-14.",
-      "last_verified_at": "2026-04-05"
+      "last_verified_at": "2026-04-05",
+      "status": "active"
     },
     "changes": {
       "summary": "Global centralized cryptocurrency exchange launched July 14, 2017. In October 2026 it reported unauthorized wallet withdrawals with an initial estimated impact of USD 6.3 billion and temporarily suspended deposits and withdrawals during security checks. Its earlier November 2023 U.S. regulatory resolutions remain part of its separate historical record.",
