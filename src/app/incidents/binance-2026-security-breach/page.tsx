@@ -74,6 +74,8 @@ const references = [
   { group: 'Binance / later operational clarification', name: 'Binance — Deposits operating normally during withdrawal pause', href: 'https://www.binance.com/en/square/post/10-30-2026-binance-deposits-are-no-longer-affected-pledges-to-cover-losses-related-to-the-incident-382683663031259', detail: 'Corrects the initial notice: deposits remained available; withdrawals paused pending security upgrades.' },
   { group: 'Binance Japan / primary', name: 'Binance Japan — October 30 client assets and service notice', href: 'https://prtimes.jp/main/html/rd/p/000000061.000126862.html', detail: 'Separated cold wallets and no observed direct client loss; precautionary crypto withdrawal pause.' },
   { group: 'Security intelligence / analysis', name: 'Elliptic — Analysis of suspected North Korean attribution', href: 'https://www.elliptic.co/insights/binance-largest-hack-in-history/', detail: 'Investigative attribution; not established as a final legal finding.' },
+  { group: 'Binance / company funds update', name: 'Binance — October 30 allocation of over USD 6.34B', href: 'https://www.binance.com/en/square/post/382843670823915', detail: 'Binance says >$6.34B allocated, $5B in matching tokens, remaining assets to be purchased; excludes separately frozen funds. Amounts await independent reconciliation.' },
+  { group: 'Independent contemporaneous reporting', name: 'Reuters — Binance sets aside over USD 6.34B', href: 'https://www.reuters.com/legal/transactional/binance-sets-aside-over-634-billion-cover-losses-attack-2026-10-30/', detail: 'Independent report of the company allocation and planned proof-of-reserves follow-up.' },
 
 ]
 
