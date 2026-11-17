@@ -489,3 +489,7 @@ The reviewed-build aggregation for this proposed Binance incident update reports
 ## 2026-10-31 Binance screenshot provenance follow-through (review pending)
 
 Existing Binance exchange `hei_ex_000003` reviewed bundle delta: **+0 entities / +5 events / +10 evidence**. These items are separately dated May 2019 theft, April 2022 Dutch registration enforcement, May 2024 Canadian registration/reporting enforcement, June 2024 Indian AML enforcement, and the October 30 2026 corporate loss-coverage allocation *claimed by Binance*; they are **not** all October 2026 hack losses. The branch reviewed count target is **1075 entities, 1150 events, 4131 evidence**. Any actual reimbursement, reserve proof, full withdrawal reopening, or actor identification requires a later evidence-backed event. The existing Lane A growth priority and L-2 HOLD gate remain unchanged.
+
+## 2026-11-18 MEXC FinCEN order record (review pending)
+
+Lane A reviewed record maintenance: +0 entities / +1 event / +3 evidence. Reviewed-build aggregation on this branch measured 1075 entities, 1151 events, 4134 evidence. The November 6 order was published November 10 and takes effect December 10; global status remains active. These counts are branch observations, not production verification. The L-2 HOLD gate is unchanged.
