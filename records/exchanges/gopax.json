@@ -21,8 +21,8 @@
     "predecessor_id": null,
     "successor_id": null,
     "confidence": "high",
-    "last_verified_at": "2026-11-06",
-    "notes": "2026-11-06: GOPAX received an email threatening a hack. Deposits and standard withdrawals were suspended from 14:55 KST and trading from 15:53 KST; pending orders were canceled. Assets were being moved to cold wallets. Customer-support withdrawals require manual verification/approval; resumption timing was not announced. Multiple same-day reports quoting GOPAX said no actual hack or theft was confirmed in this incident. Status is limited because normal trading and transfer functions are halted but manual withdrawal support remains. Do not classify as dead, hacked, insolvent, or as confirmed asset loss based on the threat email alone. Existing official platform/API evidence is retained as historical identity documentation; it does not establish current transaction availability. Direct GOPAX notice URL was not independently resolved in this review."
+    "last_verified_at": "2026-11-18",
+    "notes": "On 2026-11-06 GOPAX suspended cryptocurrency deposits and ordinary withdrawals at 14:55 KST, followed by trading at 15:53 KST. Unfilled orders were canceled. The official help-center FAQ describes manual withdrawals to supported personal wallets, subject to review, and an undetermined trading restart date. Reporting on 2026-11-09 confirmed the continuing suspension. The 2026-11-18 review found no indexed confirmation of service resumption; current normal operation is not independently verified. No successful hack, asset loss or insolvency is established by the threat itself. The official FAQ was available through indexed excerpts; direct retrieval was unsuccessful. Earlier platform/API evidence is retained for identity, not proof of current transaction availability."
   },
   "events": [
     {
@@ -31,13 +31,13 @@
       "event_type": "withdrawal_suspended",
       "event_date": "2026-11-06",
       "title": "GOPAX temporarily halted deposits and standard withdrawals after hack threat",
-      "description": "After receiving a threatening email from an alleged hacker, GOPAX stopped cryptocurrency deposits and standard website/app withdrawals from 14:55 KST. Customer-service requests for manual withdrawals remained possible subject to internal verification. The exchange began moving assets to cold wallets; no confirmed theft from this incident was reported.",
+      "description": "After a hacking-threat email, GOPAX suspended cryptocurrency deposits and ordinary web/app withdrawals at 14:55 KST. Manual withdrawals to supported personal wallets could be requested through customer support. No confirmed theft was reported from this threat.",
       "confidence": "high",
       "impact_level": "high",
       "event_status_effect": "limited",
       "source_count": 2,
       "sort_order": 1,
-      "notes": "Preemptive security suspension, not evidence of a successful hack or a permanent shutdown. Coinone issued a contemporaneous warning about inbound GOPAX transfers."
+      "notes": "Preemptive security suspension, not evidence of a successful hack or permanent closure. The indexed GOPAX help-center FAQ restricts manual transfers to supported personal wallets; transfer to other exchanges was not supported at the time of the FAQ."
     },
     {
       "id": "hei_ev_2026110602",
@@ -51,7 +51,7 @@
       "event_status_effect": "limited",
       "source_count": 2,
       "sort_order": 2,
-      "notes": "The event is trading_halted, not hack; the threatening email had not been independently authenticated."
+      "notes": "The event records a trading halt, not an established hack. The indexed official help-center FAQ confirms cancellation of outstanding orders and no predetermined service restart date."
     }
   ],
   "evidence": [
@@ -105,60 +105,75 @@
       "exchange_id": "hei_ex_000753",
       "event_id": "hei_ev_2026110601",
       "source_type": "official_statement",
-      "title": "Notice: Caution regarding withdrawals to GOPAX",
-      "url": "https://coinone.co.kr/info/notice/5920",
-      "publisher": "Coinone",
-      "published_at": "2026-11-06",
+      "title": "가상자산 출금 신청 방법 안내",
+      "url": "https://streami.atlassian.net/wiki/spaces/GHC/pages/2396192794",
+      "publisher": "GOPAX Help Center",
+      "published_at": null,
       "archived_url": null,
-      "accessed_at": "2026-11-06",
+      "accessed_at": "2026-11-18",
       "reliability": "high",
       "claim_scope": "event",
-      "notes": "First-party warning from another Korean exchange, confirming GOPAX deposits and withdrawals were suspended from 14:55 KST and incoming GOPAX deposits might not be credited normally; it is not a GOPAX-issued notice."
+      "notes": "Indexed first-party FAQ identifies the November 6 web/app withdrawal and deposit suspension, manual withdrawal process, and supported personal-wallet limitation. Direct page retrieval was unsuccessful; indexed excerpt reviewed."
     },
     {
       "id": "hei_src_2026110602",
       "exchange_id": "hei_ex_000753",
       "event_id": "hei_ev_2026110601",
       "source_type": "news_article",
-      "title": "GOPAX suspends withdrawals following hacking threats",
-      "url": "https://en.yna.co.kr/view/AEN20261106011700320",
+      "title": "(LEAD) GOPAX suspends withdrawals, trading following hacking threats",
+      "url": "https://en.yna.co.kr/view/AEN20261106011751320",
       "publisher": "Yonhap News Agency",
       "published_at": "2026-11-06",
       "archived_url": null,
-      "accessed_at": "2026-11-06",
+      "accessed_at": "2026-11-18",
       "reliability": "high",
       "claim_scope": "event",
-      "notes": "Confirms 14:55 KST withdrawal suspension, cold-wallet transfers, and GOPAX's statement that no actual asset loss had been reported."
+      "notes": "Indexed report confirms emergency withdrawal and trading suspension and that credibility of the threat was not yet verified."
     },
     {
       "id": "hei_src_2026110603",
       "exchange_id": "hei_ex_000753",
       "event_id": "hei_ev_2026110602",
       "source_type": "news_article",
-      "title": "Gopax halts withdrawals, trading after receiving hacking threat email",
-      "url": "https://mbiz.heraldcorp.com/article/10928979",
-      "publisher": "The Herald Business",
+      "title": "고팍스, 해킹 협박 메일 받고 출금·매매 중단 [크립토360]",
+      "url": "https://mbiz.heraldcorp.com/article/10928978?sec=034",
+      "publisher": "Herald Business",
       "published_at": "2026-11-06",
       "archived_url": null,
-      "accessed_at": "2026-11-06",
+      "accessed_at": "2026-11-18",
       "reliability": "high",
       "claim_scope": "event",
-      "notes": "Reports 15:53 KST trading halt, canceled open orders, no confirmed hack or asset loss, and no defined resumption schedule."
+      "notes": "Indexed report gives withdrawal and trading suspension times, respectively 14:55 and 15:53 KST, and no restart date."
     },
     {
       "id": "hei_src_2026110604",
       "exchange_id": "hei_ex_000753",
       "event_id": "hei_ev_2026110602",
       "source_type": "news_article",
-      "title": "Gopax Crypto Exchange Suspends Withdrawals, Trading After Receiving Hacker Threat",
-      "url": "https://en.infomaxai.com/news/articleView.html?idxno=147423",
-      "publisher": "Yonhap Infomax",
+      "title": "고팍스, 해킹 협박 메일에 출금·매매 서비스 일시 중단",
+      "url": "https://www.khan.co.kr/article/202611061858001",
+      "publisher": "Kyunghyang Shinmun",
       "published_at": "2026-11-06",
       "archived_url": null,
-      "accessed_at": "2026-11-06",
+      "accessed_at": "2026-11-18",
       "reliability": "high",
       "claim_scope": "event",
-      "notes": "Corroborates trading halt and cancellation of pending orders at 15:53 KST. GOPAX representative said this was a precautionary measure and no actual hacking incident had occurred."
+      "notes": "Indexed report corroborates the 14:55 and 15:53 service suspensions and protective movement of assets to cold wallets."
+    },
+    {
+      "id": "hei_src_2026110605",
+      "exchange_id": "hei_ex_000753",
+      "event_id": null,
+      "source_type": "news_article",
+      "title": "해킹 협박에 나흘째 멈춘 고팍스…출금은 수동, 재개는 미정",
+      "url": "https://www.edaily.co.kr/News/Read?newsId=03037286645644080",
+      "publisher": "Edaily",
+      "published_at": "2026-11-09",
+      "archived_url": null,
+      "accessed_at": "2026-11-18",
+      "reliability": "high",
+      "claim_scope": "status",
+      "notes": "Indexed follow-up report confirms continued trading and ordinary crypto-transfer suspension on November 9; manual withdrawals remained the route available. No later resumption confirmed by the review."
     }
   ]
 }
