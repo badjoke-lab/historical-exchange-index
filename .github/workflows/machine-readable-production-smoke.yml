@@ -41,6 +41,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Resolve scheduled/manual expected commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${HEI_EXPECTED_PRODUCTION_COMMIT:-}" ]]; then
+            expected_commit="$(git rev-parse HEAD)"
+            echo "EXPECTED_COMMIT=${expected_commit}" >> "$GITHUB_ENV"
+            echo "HEI_EXPECTED_PRODUCTION_COMMIT=${expected_commit}" >> "$GITHUB_ENV"
+          fi
       - name: Verify machine-readable production endpoints
         run: node scripts/check-machine-readable-production.mjs
       - name: Verify record-level production endpoints

@@ -60,7 +60,7 @@ export const PROJECT_NETWORK: readonly ProjectNetworkItem[] = [
     id: 'cclr',
     name: 'Crypto Card Lifecycle Registry',
     shortName: 'CCLR',
-    url: 'https://badjoke-lab.github.io/crypto-card-lifecycle-registry/',
+    url: 'https://cclr.badjoke-lab.com/',
     description: 'Historical registry of crypto card programs and their underlying payment infrastructure.',
   },
 ] as const
